@@ -1,0 +1,2207 @@
+﻿set_variable = { maximum_number_of_offensives = 1 }
+set_variable = { number_of_undertaken_offensives = 0 }
+set_country_flag = sotn_gui_is_active
+
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency  = {
+		name = "Holovne Upravlinnia Rozvidki"
+		icon = GFX_intelligence_agency_logo_UKR
+	}
+}
+
+recruit_character = UKR_mykola_azarov
+recruit_character = UKR_vitaliy_zakharchenko
+recruit_character = UKR_oleksandr_vilkul
+recruit_character = UKR_oleksandr_turchynov
+recruit_character = UKR_oleh_tyahnybok
+recruit_character = UKR_dmytro_yarosh
+recruit_character = UKR_arseniy_yatsenyuk
+recruit_character = UKR_kyrylo_budanov
+recruit_character = UKR_ruslan_khomchak
+recruit_character = UKR_valerii_zaluzhnui
+recruit_character = UKR_oleksandr_syrskyi
+recruit_character = UKR_serhiy_shaptala
+recruit_character = UKR_yevhen_moisiuk
+recruit_character = UKR_hryhoriy_halahan
+recruit_character = UKR_volodymyr_zamana
+recruit_character = UKR_viktor_horenko
+recruit_character = UKR_viktor_muzhenko
+recruit_character = UKR_sergei_yeliseyev
+recruit_character = UKR_denis_berezovsky
+recruit_character = UKR_serhiy_hayduk
+recruit_character = UKR_oleksiy_neizhpapa
+recruit_character = UKR_serhiy_popko
+recruit_character = UKR_mykhailo_zabrodskyi		#Former General, joined European Solidarity, current member of Rada			- Lmao he rejoined the military in March 2023
+recruit_character = UKR_oleksandr_lakota
+recruit_character = UKR_serhiy_drozdov
+recruit_character = UKR_epiphanius_i
+recruit_character = UKR_vasyl_zubanych
+recruit_character = UKR_viktor_nikolyuk
+recruit_character = UKR_serhiy_nayev
+recruit_character = UKR_eduard_moskalyov
+recruit_character = UKR_denys_shmyhal
+recruit_character = UKR_dmytro_kuleba
+recruit_character = UKR_mykhailo_fedorov
+recruit_character = UKR_volodymyr_groysman
+recruit_character = UKR_vyacheslav_kyrylenko
+recruit_character = UKR_nadiya_savchenko
+recruit_character = UKR_oleksandr_sych
+recruit_character = ROU_ilya_kiva
+recruit_character = UKR_oleh_makhnitskyi
+recruit_character = UKR_andrey_biletsky
+recruit_character = UKR_denys_prokopenko
+recruit_character = UKR_denys_yaroslavskyi
+
+if = {
+	limit = { NOT = { has_dlc = "La Resistance" } }
+	remove_trait = {
+		character = UKR_kyrylo_budanov
+		slot = political_advisor
+		trait = head_of_the_hur
+	}
+	add_trait = {
+		character = UKR_kyrylo_budanov
+		slot = political_advisor
+		trait = head_of_the_hur_no_lar
+	}
+}
+
+
+country_lock_all_division_template = yes
+set_country_flag = UKR_gui_show_nationalists_flag
+
+capital = 92
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "UKR_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "UKR_2014"
+}
+
+add_ideas = UKR_mykola_azarov
+add_ideas = UKR_vitaliy_zakharchenko
+add_ideas = UKR_sergei_yeliseyev
+add_ideas = UKR_oleksandr_vilkul
+add_ideas = UKR_volodymyr_zamana
+
+add_ideas = {
+	UKR_maidan_protests_idea
+	UKR_sevastopol_lease
+	UKR_state_of_the_nation_idea
+	UKR_the_language_issue
+	
+	oligarchy
+	authoritarian_democracy
+	volunteer_only
+	neutral
+	womens_rights_traditional_values
+	lgbtq_rights_tolerated
+	nationalism_laws_pacifist
+	firearm_laws_restricted
+}
+
+create_country_leader = {
+	name = "Viktor Yanukovych"
+	desc = "victor_yanukovych_leader_desc"
+	ideology = party_of_regions_subideology
+	expire = 2014.2.23
+	picture = gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png
+	traits = { putins_puppet }
+}
+
+create_country_leader = {
+	name = "Oleksandr Turchynov"
+	desc = "oleksandr_turchynov_leader_desc"
+	ideology = all_ukrainian_union_fatherland_subideology
+	expire = 2014.6.7
+	picture = gfx/leaders/UKR/Portrait_Oleksandr_Turchynov.png
+	traits = { interrim_president }
+}
+
+create_country_leader = {
+	name = "Dmytro Yarosh"
+	desc = "dmytro_yarosh_leader_desc"
+	ideology = right_sector_subideology
+	picture = gfx/leaders/UKR/Portrait_Dmytro_Yarosh.png
+	traits = { }
+}
+
+create_country_leader = {
+	name = "Oleh Tyahnybok"
+	desc = ""
+	ideology = svoboda_subideology
+	picture = gfx/leaders/UKR/Portrait_Oleh_Tyahnybok.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Petro Symonenko"
+	desc = ""
+	ideology = generic_hardline_communist
+	picture = gfx/leaders/UKR/Portrait_Petro_Symonenko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Petro Symonenko"
+	desc = ""
+	ideology = generic_moderate_communist
+	picture = gfx/leaders/UKR/Portrait_Petro_Symonenko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Petro Ustenko"
+	desc = ""
+	ideology = generic_socialist
+	picture = gfx/leaders/UKR/Portrait_Petro_Ustenko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Vitali Klitschko"
+	desc = ""
+	ideology = generic_neoliberal
+	picture = gfx/leaders/UKR/Portrait_Vitali_Klitschko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Serhiy Tihipko"
+	desc = ""
+	ideology = generic_populist
+	picture = gfx/leaders/UKR/Portrait_Serhiy_Tihipko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Anatoliy Hrytsenko"
+	desc = ""
+	ideology = generic_neoconservative
+	picture = gfx/leaders/UKR/Portrait_Anatoliy_Hrytsenko.png
+	traits = {  }
+}
+
+create_country_leader = {
+	name = "Yurii Bova"
+	desc = ""
+	ideology = generic_social_democracy
+	picture = gfx/leaders/UKR/Portrait_Yurii_Bova.png
+	traits = {  }
+}
+
+
+create_country_leader = {
+	name = "Hennadiy Balashov"
+	desc = ""
+	ideology = generic_libertarian
+	picture = gfx/leaders/UKR/Portrait_Hennadiy_Balashov.png
+	traits = {  }
+}
+
+complete_national_focus = UKR_president_yanukovych
+complete_national_focus = UKR_toe_putins_line
+complete_national_focus = UKR_an_oligarchic_cabinet
+complete_national_focus = UKR_jail_tymoshenko
+complete_national_focus = UKR_pull_out_of_the_eu_agreement
+complete_national_focus = UKR_cooperation_with_the_csto
+complete_national_focus = UKR_create_the_consititutional_assembly
+complete_national_focus = UKR_raise_pensions_yanukovych
+complete_national_focus = UKR_continue_the_sevastopol_lease
+complete_national_focus = UKR_increase_russian_gas_imports
+
+if={
+	limit = { has_start_date < 2022.01.01  }
+	country_event = { id = ukraine.1 days = 5 }
+	country_event = { id = ukraine.100 days = 235 }
+}
+
+if={
+	limit = { has_start_date > 2022.01.01  }
+	country_event = { id = ukraine.100 days = 204 }
+}
+
+2014.8.10={
+	set_country_flag = UKR_mykhailo_zabrodskyi_available_as_advisor
+	set_country_flag = has_chosen_to_violate_minsk
+}
+#Initial AFU modifiers
+set_variable = { UKR_afu_mobilization_speed = 0.25 }
+set_variable = { UKR_afu_army_armor_defence_factor = 0.05 }
+set_variable = { UKR_afu_army_armor_attack_factor = 0.05 }
+set_variable = { UKR_afu_coordination_bonus = -0.06 } 
+set_variable = { UKR_afu_supply_consumption_factor = 0 } 
+set_variable = { UKR_afu_land_doctrine_cost_factor = 0.75 } 
+set_variable = { UKR_afu_army_org_factor = -0.14 } 
+set_variable = { UKR_afu_supply_combat_penalties_on_core_factor = -0.2 }
+set_variable = { UKR_afu_org_loss_when_moving = 0.15 } 
+set_variable = { UKR_afu_supply_node_range = -0.18 } 
+set_variable = { UKR_afu_industrial_capacity_factory = -0.32 } 
+set_variable = { UKR_afu_conscription_factor = 0.05 }
+set_variable = { UKR_afu_attrition = 0 }
+set_variable = { UKR_afu_army_core_defence_factor = 0 }
+set_variable = { UKR_afu_training_time_factor = -0.4 }
+set_variable = { UKR_afu_army_artillery_attack_factor = 0 }
+set_variable = { UKR_afu_army_artillery_defence_factor = 0 }
+set_variable = { UKR_afu_production_speed_bunker_factor = 0 }
+set_variable = { UKR_afu_max_dig_in = 0 }
+set_variable = { UKR_afu_enemy_army_bonus_air_superiority_factor = 0 }
+set_variable = { UKR_afu_army_attack_factor = 0 }
+set_variable = { UKR_afu_army_defence_factor = 0 }
+set_variable = { UKR_afu_experience_loss_factor = 0 }
+set_variable = { UKR_afu_army_speed_factor = 0 }
+
+add_dynamic_modifier = { modifier = UKR_armed_forces_of_ukraine_soviet_doctrine }
+
+set_variable = { UKR_afu_air_training_xp_gain_factor = -0.25 } 
+set_variable = { UKR_afu_air_range_factor = -0.3 } 
+set_variable = { UKR_afu_air_superiority_efficiency = -0.12 } 
+set_variable = { UKR_afu_air_intercept_efficiency = -0.12 } 
+set_variable = { UKR_afu_air_night_penalty = 0.3 } 
+set_variable = { UKR_afu_air_doctrine_cost_factor = 0.5 }
+set_variable = { UKR_afu_air_accidents_factor = 0.6 }
+
+add_dynamic_modifier = { modifier = UKR_air_force_of_ukraine }
+
+set_variable = { UKR_afu_naval_doctrine_cost_factor = 0.5 } 
+set_variable = { UKR_afu_naval_coordination = -0.12 } 
+set_variable = { UKR_afu_naval_detection = -0.18 } 
+set_variable = { UKR_afu_spotting_chance = -0.1 } 
+set_variable = { UKR_afu_navy_intel_factor = -0.25 } 
+set_variable = { UKR_afu_industrial_capacity_dockyard = -0.5 } 
+set_variable = { UKR_afu_mines_planting_by_fleets_factor = 0.15 } 
+set_variable = { UKR_afu_mines_sweeping_by_fleets_factor = 0.15 } 
+
+add_dynamic_modifier = { modifier = UKR_navy_of_ukraine }
+
+set_variable = { UKR_sotn_oligarchs_loyalty = 2 }					# 2 = In power, 1 = Supportive, 0 = Indifferent, -1 = Hostile, -2 = Enraged, -3 = In rebellion, -4 = Sidelined
+set_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.25 }
+set_variable = { UKR_sotn_oligarchs_political_power_factor = 0.15 }
+set_variable = { UKR_sotn_oligarchs_stability_factor = -0.1 } 
+
+add_dynamic_modifier = { modifier = UKR_sotn_oligarchs }
+
+set_variable = { UKR_sotn_nationalists_loyalty = -2 }
+set_variable = { UKR_sotn_nationalists_conscription_factor = 0 }
+set_variable = { UKR_sotn_nationalists_war_support_factor = 0 }
+set_variable = { UKR_sotn_nationalists_stability_weekly = -0.001 } 
+set_variable = { UKR_sotn_nationalists_ultranationalism_drift = 0.03 }
+
+add_dynamic_modifier = { modifier = UKR_sotn_nationalists }
+
+set_variable = { UKR_sotn_pro_russians_loyalty = 1 }
+set_variable = { UKR_sotn_pro_russians_political_power_factor = 0.03 }
+set_variable = { UKR_sotn_pro_russians_stability_factor = 0.05 }
+set_variable = { UKR_sotn_pro_russians_conscription = 0.002 }
+set_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor = 0.1 } 
+set_variable = { UKR_sotn_pro_russians_eastern_conservative_drift = 0 } 
+
+add_dynamic_modifier = { modifier = UKR_sotn_pro_russians }
+
+set_variable = { UKR_sotn_liberals_loyalty = -2 }
+set_variable = { UKR_sotn_liberals_political_power_gain = -0.35 }
+set_variable = { UKR_sotn_liberals_stability_factor = -0.15 }
+set_variable = { UKR_sotn_liberals_eastern_liberal_drift = 0.05 }
+
+add_dynamic_modifier = { modifier = UKR_sotn_liberals }
+
+clamp_variable = { var = UKR_sotn_oligarchs_loyalty min = -4 max = 2 }
+clamp_variable = { var = UKR_sotn_nationalists_loyalty min = -4 max = 2 }
+clamp_variable = { var = UKR_sotn_pro_russians_loyalty min = -4 max = 2 }
+clamp_variable = { var = UKR_sotn_liberals_loyalty min = -4 max = 2 }
+
+set_variable = { cost_of_lobby_decisions = 30 }
+
+set_variable = { independence_day_pol_power_small = 5 }
+set_variable = { independence_day_war_support_small = 0.001 }
+set_variable = { independence_day_pol_power_large = 25 }
+set_variable = { independence_day_war_support_large = 0.005 }
+set_variable = { independence_day_pol_power_negative = -10 }
+set_variable = { independence_day_war_support_negative = -0.002 }
+
+set_variable = { years_of_independence = 23 }
+
+
+2019.5.29 = {
+	load_focus_tree = ukraine_post_donbass_tree
+	complete_national_focus = UKR_the_war_in_donbass
+	complete_national_focus = UKR_president_poroshenko
+	complete_national_focus = UKR_president_zelenskyy
+	complete_national_focus = UKR_strengthen_government_control
+	complete_national_focus = UKR_aid_the_fleeing_civilians
+	complete_national_focus = UKR_local_militias
+	complete_national_focus = UKR_elections_to_the_rada
+	complete_national_focus = UKR_fortify_severodonetsk
+	complete_national_focus = UKR_fortify_slovyansk
+	complete_national_focus = UKR_decommunisation
+	complete_national_focus = UKR_honour_the_heroes_of_old
+	complete_national_focus = UKR_the_heroes_of_today
+	complete_national_focus = UKR_never_forget
+	complete_national_focus = UKR_the_need_for_reform
+	complete_national_focus = UKR_the_lessons_of_donetsk
+	complete_national_focus = UKR_the_lessons_of_crimea
+	complete_national_focus = UKR_the_need_to_survive
+	complete_national_focus = UKR_the_strategic_defence_bulletin
+	complete_national_focus = UKR_out_with_the_old
+	complete_national_focus = UKR_ukrainianisation
+	complete_national_focus = UKR_renaming_cities
+	complete_national_focus = UKR_on_the_world_stage
+	complete_national_focus = UKR_the_ukraine_eu_assossication_agreement
+	complete_national_focus = UKR_deoligarchisation
+	complete_national_focus = UKR_dismiss_kolomoyskyi
+	complete_national_focus = UKR_increase_public_spending
+	complete_national_focus = UKR_high_anti_corruption_court
+	complete_national_focus = UKR_trust_busting
+	complete_national_focus = UKR_honest_reprivatisation
+	complete_national_focus = UKR_the_decentralisation_of_agriculture
+	complete_national_focus = UKR_and_in_with_the_new
+	complete_national_focus = UKR_agreements_with_the_west
+	complete_national_focus = UKR_integrate_the_militias
+	complete_national_focus = UKR_decentralisation
+	complete_national_focus = UKR_modernise_odesa_port
+	complete_national_focus = UKR_increase_regional_budgets
+	complete_national_focus = UKR_revitalise_malyshev_works
+	complete_national_focus = UKR_minstry_of_stretegic_industries
+	complete_national_focus = UKR_media_quotas
+	complete_national_focus = UKR_allow_local_tax_laws
+	complete_national_focus = UKR_presidential_representitives
+	complete_national_focus = UKR_the_law_on_education
+	complete_national_focus = UKR_get_rid_of_soviet_doctrine
+	complete_national_focus = UKR_get_rid_of_soviet_uniforms
+	complete_national_focus = UKR_the_transfer_of_federal_powers
+	complete_national_focus = UKR_the_hromadas_system
+	complete_national_focus = UKR_encourage_smart_regional_planning
+	complete_national_focus = UKR_ukraine_a_home_to_all
+	complete_national_focus = UKR_open_new_recruitment_centres
+	complete_national_focus = UKR_increase_logistical_personnel
+	complete_national_focus = UKR_root_out_corruption
+	complete_national_focus = UKR_decentralised_command_structure
+	complete_national_focus = UKR_rigorous_training
+	complete_national_focus = UKR_the_orthodox_church_of_ukraine
+	complete_national_focus = UKR_teaching_ukrainian_history
+	complete_national_focus = UKR_focus_on_ariel_denial
+	complete_national_focus = UKR_early_warning_systems
+	complete_national_focus = UKR_local_production_of_manpaads
+	complete_national_focus = UKR_modernise_the_soviet_arsenal
+	complete_national_focus = UKR_invest_in_anti_ship_missiles
+	complete_national_focus = UKR_patrol_ships
+	complete_national_focus = UKR_the_state_language_bill
+	complete_national_focus = UKR_prepare_for_the_inevitable
+	complete_national_focus = UKR_promote_budanov
+	complete_national_focus = UKR_form_the_post_of_commander_in_chief
+	complete_national_focus = UKR_sell_abroad
+	complete_national_focus = UKR_eastern_partnership_summit_riga
+	complete_national_focus = UKR_call_snap_elections_to_the_rada
+	complete_national_focus = UKR_government_of_sluha_narodu
+	complete_national_focus = UKR_compromises_in_donbass
+	complete_national_focus = UKR_end_the_immunity
+	complete_national_focus = UKR_infrastructure_developments
+	complete_national_focus = UKR_the_nato_ukraine_commission
+	
+	modify_timed_idea = { idea = UKR_high_command_purged days = -2000 }
+	modify_timed_idea = { idea = UKR_helping_donbass_civilians days = -2000 }
+	modify_timed_idea = { idea = UKR_morale_boost days = -2000 }
+
+	set_country_flag = UKR_state_language_bill_has_been_completed
+	set_country_flag = UKR_state_language_bill_was_successful
+	set_country_flag = UKR_decentralisation_of_agriculture_has_been_completed
+	set_country_flag = UKR_decentralisation_of_agriculture_was_successful
+	
+	clr_country_flag = there_is_legislation_in_the_rada
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_oob = "UKR_2022_nsb"
+	}
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_oob = "UKR_2022"
+	}
+	remove_ideas = UKR_sergei_yeliseyev
+	remove_ideas = UKR_oleksandr_vilkul
+	remove_ideas = UKR_vitaliy_zakharchenko
+	set_can_be_fired_in_advisor_role = {	
+		character = UKR_oleksandr_vilkul 
+		value = yes
+	}
+	set_can_be_fired_in_advisor_role = {	
+		character = UKR_mykola_azarov 
+		value = yes
+	}
+	set_can_be_fired_in_advisor_role = {	
+		character = UKR_vitaliy_zakharchenko 
+		value = yes
+	}
+	UKR_sergei_yeliseyev = { set_nationality = SOV }
+	UKR_denis_berezovsky = { set_nationality = SOV }
+	derussify_city_names = yes
+	country_lock_all_division_template = no
+	create_country_leader = {
+		name = "Volodymyr Zelenskyy"
+		desc = "volodymyr_zelenskyy_leader_desc"
+		ideology = servant_of_the_people_subideology
+		picture = gfx/leaders/UKR/Portrait_Volodymyr_Zelenskyy.png
+		traits = { actor }
+	}
+	set_politics = {
+		ruling_party = eastern_liberal
+		last_election = "2019.5.29"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	
+	
+	set_popularities = {
+		eastern_conservative = 18
+		eastern_liberal = 62
+		ultranationalist = 1
+		hardline_communist = 1
+		social_democracy = 3
+		neoliberal = 11
+		neoconservative = 3
+		fascist = 1
+	}
+	
+	set_stability = 0.22
+	set_war_support = 0.68
+	set_party_name = { ideology = eastern_liberal long_name = UKR_servant_of_the_people_name_long name = UKR_servant_of_the_people_name }
+	
+	remove_ideas = UKR_volodymyr_zamana
+	add_ideas = UKR_valerii_zaluzhnui
+	add_ideas = UKR_oleksandr_syrskyi
+	add_ideas = UKR_denys_shmyhal
+	add_ideas = UKR_dmytro_kuleba
+	add_ideas = UKR_mykhailo_fedorov
+	add_ideas = UKR_epiphanius_i
+	add_ideas = UKR_kyrylo_budanov
+	add_political_power = -736
+	
+	for_loop_effect = {
+		end = 15
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 31
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 27
+		value = temp
+		random_owned_controlled_state = {
+			limit = { infrastructure < 4 }
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	remove_ideas = { 
+		UKR_maidan_protests_idea
+		UKR_sevastopol_lease
+		UKR_the_language_issue
+		
+		oligarchy
+		authoritarian_democracy
+	}
+	
+	add_ideas = { 
+		UKR_ukrainian_malaise
+		
+		western_economy
+		liberal_democracy
+		UKR_the_breadbasket_of_the_world
+	}
+	
+	set_country_flag = UKR_has_cooperated_with_the_azov_battalion
+	
+	set_variable = { years_of_independence = 31 }
+	
+	set_technology = {
+		is_post_soviet_technology = 1
+		is_ukraine_technology = 1
+
+		infantry_weapons = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		improved_infantry_weapons = 1
+		support_weapons = 1
+		motorised_infantry = 1
+		infantry_anti_tank = 1
+		infantry_anti_tank_2 = 1
+		infantry_anti_tank_upgrade = 1
+		infantry_anti_air = 1
+		marines = 1
+		elite_special_forces_tech = 1
+		elite_special_forces_tech_2 = 1
+		tech_special_forces = 1
+		
+		
+		tech_support = 1
+		tech_engineers = 1
+		tech_engineers2 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital2 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_signal_company = 1
+		basic_train = 1
+
+		ifv = 1
+		ifv_upgrade = 1
+		apc = 1
+		
+		gw_artillery = 1
+		interwar_artillery = 1
+		artillery1 = 1
+		interwar_antiair = 1
+		antiair1 = 1
+		antiair2 = 1
+		antiair3 = 1
+		rocket_artillery = 1
+		
+		early_destroyer = 1
+		early_coastal_patrol_ship = 1
+		basic_coastal_patrol_ship = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		mtg_transport = 1
+		basic_naval_mines = 1
+		
+		early_fighter = 1
+		
+		four_g_satellite = 1
+		radio = 1
+		radio_detection = 1
+		increase_in_ram_capabilities = 1
+		quad_processors = 1
+		
+		fuel_silos = 1
+		synth_oil_experiments = 1
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		construction1 = 1
+	}
+
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+			set_naval_oob = "UKR_2022_navy_mtg"
+		else = {
+			set_naval_oob = "UKR_2022_navy"
+		}
+	}
+	
+	# Ukraine 2022 gets more tank techs done, since they have unlocked other techs before its not needed to unlock them again
+
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_technology = {
+			modern_tank_doctrine = 1
+			upgrade_old_models = 1
+			increase_infantry_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_technology = {
+			armor_tech_2 = 1
+			engine_tech_2 = 1
+			gun_tech_2 = 1
+			at_tech_1 = 1
+			aa_tech_1 = 1
+			tank_module_tech_2 = 1
+		}
+	}
+	
+	
+	set_variable = { UKR_sotn_oligarchs_loyalty = -1 }
+	set_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.16 }
+	set_variable = { UKR_sotn_oligarchs_political_power_factor = 0.02 }
+	set_variable = { UKR_sotn_oligarchs_stability_factor = -0.1 } 
+
+	add_dynamic_modifier = { modifier = UKR_sotn_oligarchs }
+
+	set_variable = { UKR_sotn_nationalists_loyalty = 1 }
+	set_variable = { UKR_sotn_nationalists_conscription_factor = 0.04 }
+	set_variable = { UKR_sotn_nationalists_war_support_factor = 0.05 }
+	set_variable = { UKR_sotn_nationalists_stability_weekly = 0 } 
+	set_variable = { UKR_sotn_nationalists_ultranationalism_drift = 0 }
+
+	add_dynamic_modifier = { modifier = UKR_sotn_nationalists }
+
+	set_variable = { UKR_sotn_pro_russians_loyalty = 1 }
+	set_variable = { UKR_sotn_pro_russians_political_power_factor = 0.03 }
+	set_variable = { UKR_sotn_pro_russians_stability_factor = 0 }
+	set_variable = { UKR_sotn_pro_russians_conscription = 0 }
+	set_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor = 0.1 } 
+	set_variable = { UKR_sotn_pro_russians_eastern_conservative_drift = 0 } 
+
+	add_dynamic_modifier = { modifier = UKR_sotn_pro_russians }
+
+	set_variable = { UKR_sotn_liberals_loyalty = 2 }
+	set_variable = { UKR_sotn_liberals_political_power_gain = 0.35 }
+	set_variable = { UKR_sotn_liberals_stability_factor = 0.2 }
+	set_variable = { UKR_sotn_liberals_eastern_liberal_drift = 0.05 }
+
+	add_dynamic_modifier = { modifier = UKR_sotn_liberals }
+
+	clamp_variable = { var = UKR_sotn_oligarchs_loyalty min = -4 max = 2 }
+	clamp_variable = { var = UKR_sotn_nationalists_loyalty min = -4 max = 2 }
+	clamp_variable = { var = UKR_sotn_pro_russians_loyalty min = -4 max = 2 }
+	clamp_variable = { var = UKR_sotn_liberals_loyalty min = -4 max = 2 }
+	
+	every_state = {
+		limit = {
+			has_state_flag = crimea_oblast_flag
+		}
+		add_dynamic_modifier = { modifier = water_shortage }
+	
+	}
+	set_global_flag = north_crimean_canal_blocked
+	
+	UKR_valerii_zaluzhnui = { 
+		add_attack = 1
+		add_logistics = 1
+		add_planning = 1
+		promote_leader = yes
+		gain_xp = 4500
+		add_trait = { trait = media_personality }
+	}
+	
+	UKR_oleksandr_syrskyi = { 
+		add_attack = 1
+		add_logistics = 1
+		gain_xp = 2500
+		add_trait = { trait = armor_officer }
+	}
+	
+	UKR_hryhoriy_halahan = {
+		gain_xp = 500
+		add_attack = 1
+		add_planning = 1
+	}
+	
+	UKR_kyrylo_budanov = {
+		gain_xp = 300
+	}
+	
+	UKR_mykhailo_zabrodskyi = {
+		gain_xp = 1100
+		add_planning = 1
+	}
+	
+	UKR_ruslan_khomchak = {
+		gain_xp = 800
+	}
+	
+	UKR_andrey_biletsky = {
+		gain_xp = 130
+	}
+	
+	UKR_viktor_horenko = {
+		gain_xp = 560
+		add_planning = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "UKR_2014_navy_mtg"
+	else = {
+		set_naval_oob = "UKR_2014_navy"
+	}
+}
+
+set_research_slots = 3
+set_stability = 0.4
+set_war_support = 0.24
+
+# Starting tech
+set_technology = {
+	is_post_soviet_technology = 1
+    is_ukraine_technology = 1
+
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	elite_special_forces_tech = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+	interwar_antiair = 1
+	
+	early_destroyer = 1
+	early_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+	early_submarine = 1
+	early_light_cruiser = 1
+	early_heavy_cruiser = 1
+	
+	fuel_silos = 1
+	synth_oil_experiments = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+		t_90 = 1
+		t_84 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		t90_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_convoys = 57
+
+
+set_politics = {
+	ruling_party = eastern_conservative
+	last_election = "2010.2.25"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+set_popularities = {
+	eastern_conservative = 36
+	eastern_liberal = 38
+	ultranationalist = 5
+	hardline_communist = 5
+	social_democracy = 3
+	neoliberal = 4
+	neoconservative = 2
+	anarchism_ideology = 1
+	fascist = 6
+}
+
+set_variable = { UKR_state_control_button_status = 1 }
+set_variable = { UKR_state_ethnicities_button_status = 2 }
+
+set_variable = { akarpatskia_ukrainian_ethnicity = 80.5 }
+set_variable = { akarpatskia_hungarian_ethnicity = 12.1 }
+set_variable = { akarpatskia_romanian_ethnicity = 2.6 }
+set_variable = { akarpatskia_russian_ethnicity = 2.5 }
+set_variable = { akarpatskia_roma_ethnicity = 1.1 }
+set_variable = { akarpatskia_other_ethnicity = 1.2 }
+clamp_variable = { var = akarpatskia_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = akarpatskia_hungarian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = akarpatskia_romanian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = akarpatskia_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = akarpatskia_roma_ethnicity min = 0 max = 100 }
+clamp_variable = { var = akarpatskia_other_ethnicity min = 0 max = 100 }
+
+set_variable = { cherkasy_ukrainian_ethnicity = 93.1 }
+set_variable = { cherkasy_russian_ethnicity = 5.4 }
+set_variable = { cherkasy_other_ethnicity = 1.5 }
+clamp_variable = { var = cherkasy_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = cherkasy_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = cherkasy_other_ethnicity min = 0 max = 100 }
+
+set_variable = { chernihiv_ukrainian_ethnicity = 93.5 }
+set_variable = { chernihiv_russian_ethnicity = 5.0 }
+set_variable = { chernihiv_belarussian_ethnicity = 0.6 }
+set_variable = { chernihiv_other_ethnicity = 0.9 }
+clamp_variable = { var = chernihiv_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernihiv_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernihiv_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernihiv_other_ethnicity min = 0 max = 100 }
+
+set_variable = { chernivtsi_ukrainian_ethnicity = 75.0 }
+set_variable = { chernivtsi_romanian_ethnicity = 19.8 }
+set_variable = { chernivtsi_russian_ethnicity = 4.1 }
+set_variable = { chernivtsi_other_ethnicity = 1.1 }
+clamp_variable = { var = chernivtsi_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernivtsi_romanian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernivtsi_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = chernivtsi_other_ethnicity min = 0 max = 100 }
+
+set_variable = { crimea_ukrainian_ethnicity = 24.4 }
+set_variable = { crimea_russian_ethnicity = 58.5 }
+set_variable = { crimea_tatar_ethnicity = 12.1 }
+set_variable = { crimea_belarussian_ethnicity = 1.5 }
+set_variable = { crimea_other_ethnicity = 3.5 }
+clamp_variable = { var = crimea_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = crimea_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = crimea_tatar_ethnicity min = 0 max = 100 }
+clamp_variable = { var = crimea_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = crimea_other_ethnicity min = 0 max = 100 }
+
+set_variable = { dnipro_ukrainian_ethnicity = 79.3 }
+set_variable = { dnipro_russian_ethnicity = 17.6 }
+set_variable = { dnipro_belarussian_ethnicity = 0.8 }
+set_variable = { dnipro_other_ethnicity = 2.3 }
+clamp_variable = { var = dnipro_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = dnipro_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = dnipro_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = dnipro_other_ethnicity min = 0 max = 100 }
+
+set_variable = { donetsk_ukrainian_ethnicity = 56.9 }
+set_variable = { donetsk_russian_ethnicity = 38.2 }
+set_variable = { donetsk_greek_ethnicity = 1.6 }
+set_variable = { donetsk_belarussian_ethnicity = 0.9 }
+set_variable = { donetsk_other_ethnicity = 2.4 }
+clamp_variable = { var = donetsk_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = donetsk_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = donetsk_greek_ethnicity min = 0 max = 100 }
+clamp_variable = { var = donetsk_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = donetsk_other_ethnicity min = 0 max = 100 }
+
+set_variable = { ivano_frankivsk_ukrainian_ethnicity = 97.5 }
+set_variable = { ivano_frankivsk_russian_ethnicity = 1.8 }
+set_variable = { ivano_frankivsk_other_ethnicity = 0.7 }
+clamp_variable = { var = ivano_frankivsk_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = ivano_frankivsk_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = ivano_frankivsk_other_ethnicity min = 0 max = 100 }
+
+set_variable = { kharkiv_ukrainian_ethnicity = 70.7 }
+set_variable = { kharkiv_russian_ethnicity = 25.6 }
+set_variable = { kharkiv_other_ethnicity = 3.7 }
+clamp_variable = { var = kharkiv_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kharkiv_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kharkiv_other_ethnicity min = 0 max = 100 }
+
+set_variable = { kherson_ukrainian_ethnicity = 82.0 }
+set_variable = { kherson_russian_ethnicity = 14.1 }
+set_variable = { kherson_other_ethnicity = 3.9 }
+clamp_variable = { var = kherson_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kherson_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kherson_other_ethnicity min = 0 max = 100 }
+
+set_variable = { khmelnytskyi_ukrainian_ethnicity = 93.9 }
+set_variable = { khmelnytskyi_russian_ethnicity = 3.6 }
+set_variable = { khmelnytskyi_polish_ethnicity = 1.6 }
+set_variable = { khmelnytskyi_other_ethnicity = 0.9 }
+clamp_variable = { var = khmelnytskyi_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = khmelnytskyi_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = khmelnytskyi_polish_ethnicity min = 0 max = 100 }
+clamp_variable = { var = khmelnytskyi_other_ethnicity min = 0 max = 100 }
+
+set_variable = { kirovohrad_ukrainian_ethnicity = 90.1 }
+set_variable = { kirovohrad_russian_ethnicity = 7.5 }
+set_variable = { kirovohrad_romanian_ethnicity = 0.7 }
+set_variable = { kirovohrad_other_ethnicity = 1.7 }
+clamp_variable = { var = kirovohrad_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kirovohrad_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kirovohrad_romanian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kirovohrad_other_ethnicity min = 0 max = 100 }
+
+set_variable = { kyiv_ukrainian_ethnicity = 92.5 }
+set_variable = { kyiv_russian_ethnicity = 6.0 }
+set_variable = { kyiv_other_ethnicity = 1.5 }
+clamp_variable = { var = kyiv_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kyiv_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = kyiv_other_ethnicity min = 0 max = 100 }
+
+set_variable = { luhansk_ukrainian_ethnicity = 58.0 }
+set_variable = { luhansk_russian_ethnicity = 39.0 }
+set_variable = { luhansk_belarussian_ethnicity = 0.8 }
+set_variable = { luhansk_other_ethnicity = 2.2 }
+clamp_variable = { var = luhansk_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = luhansk_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = luhansk_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = luhansk_other_ethnicity min = 0 max = 100 }
+
+set_variable = { lviv_ukrainian_ethnicity = 94.8 }
+set_variable = { lviv_russian_ethnicity = 3.6 }
+set_variable = { lviv_polish_ethnicity = 0.7 }
+set_variable = { lviv_other_ethnicity = 0.9 }
+clamp_variable = { var = lviv_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = lviv_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = lviv_polish_ethnicity min = 0 max = 100 }
+clamp_variable = { var = lviv_other_ethnicity min = 0 max = 100 }
+
+set_variable = { mykolaiv_ukrainian_ethnicity = 81.9 }
+set_variable = { mykolaiv_russian_ethnicity = 14.1 }
+set_variable = { mykolaiv_romanian_ethnicity = 1.0 }
+set_variable = { mykolaiv_belarussian_ethnicity = 0.7 }
+set_variable = { mykolaiv_other_ethnicity = 2.3 }
+clamp_variable = { var = mykolaiv_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = mykolaiv_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = mykolaiv_bulgarian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = mykolaiv_romanian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = mykolaiv_other_ethnicity min = 0 max = 100 }
+
+set_variable = { odessa_ukrainian_ethnicity = 62.8 }
+set_variable = { odessa_russian_ethnicity = 20.7 }
+set_variable = { odessa_bulgarian_ethnicity = 6.1 }
+set_variable = { odessa_romanian_ethnicity = 5.0 }
+set_variable = { odessa_gagausian_ethnicity = 1.1 }
+set_variable = { odessa_other_ethnicity = 4.3 }
+clamp_variable = { var = odessa_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = odessa_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = odessa_bulgarian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = odessa_romanian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = odessa_gagausian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = odessa_other_ethnicity min = 0 max = 100 }
+
+set_variable = { poltava_ukrainian_ethnicity = 91.4 }
+set_variable = { poltava_russian_ethnicity = 7.2 }
+set_variable = { poltava_other_ethnicity = 1.4 }
+clamp_variable = { var = poltava_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = poltava_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = poltava_other_ethnicity min = 0 max = 100 }
+
+set_variable = { rivne_ukrainian_ethnicity = 95.9 }
+set_variable = { rivne_russian_ethnicity = 2.6 }
+set_variable = { rivne_belarussian_ethnicity = 1.0 }
+set_variable = { rivne_other_ethnicity = 0.5 }
+clamp_variable = { var = rivne_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = rivne_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = rivne_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = rivne_other_ethnicity min = 0 max = 100 }
+
+set_variable = { sumy_ukrainian_ethnicity = 88.8 }	#Ukraine is a Nazi state confirmed!!!!!
+set_variable = { sumy_russian_ethnicity = 9.4 }
+set_variable = { sumy_other_ethnicity = 1.8 }
+clamp_variable = { var = sumy_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = sumy_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = sumy_other_ethnicity min = 0 max = 100 }
+
+set_variable = { ternopil_ukrainian_ethnicity = 97.8 }
+set_variable = { ternopil_russian_ethnicity = 1.2 }
+set_variable = { ternopil_other_ethnicity = 1.0 }
+clamp_variable = { var = ternopil_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = ternopil_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = ternopil_other_ethnicity min = 0 max = 100 }
+
+set_variable = { vinnytsia_ukrainian_ethnicity = 94.9 }
+set_variable = { vinnytsia_russian_ethnicity = 3.8 }
+set_variable = { vinnytsia_other_ethnicity = 1.3 }
+clamp_variable = { var = vinnytsia_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = vinnytsia_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = vinnytsia_other_ethnicity min = 0 max = 100 }
+
+set_variable = { volyn_ukrainian_ethnicity = 96.9 }
+set_variable = { volyn_russian_ethnicity = 2.4 }
+set_variable = { volyn_other_ethnicity = 0.7 }
+clamp_variable = { var = volyn_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = volyn_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = volyn_other_ethnicity min = 0 max = 100 }
+
+set_variable = { zaporizhia_ukrainian_ethnicity = 70.8 }
+set_variable = { zaporizhia_russian_ethnicity = 24.7 }
+set_variable = { zaporizhia_bulgarian_ethnicity = 1.4 }
+set_variable = { zaporizhia_belarussian_ethnicity = 0.7 }
+set_variable = { zaporizhia_other_ethnicity = 2.4 }
+clamp_variable = { var = zaporizhia_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zaporizhia_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zaporizhia_bulgarian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zaporizhia_belarussian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zaporizhia_other_ethnicity min = 0 max = 100 }
+
+set_variable = { zhytomyr_ukrainian_ethnicity = 90.3 }
+set_variable = { zhytomyr_russian_ethnicity = 5.0 }
+set_variable = { zhytomyr_polish_ethnicity = 3.5 }
+set_variable = { zhytomyr_other_ethnicity = 1.2 }
+clamp_variable = { var = zhytomyr_ukrainian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zhytomyr_russian_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zhytomyr_polish_ethnicity min = 0 max = 100 }
+clamp_variable = { var = zhytomyr_other_ethnicity min = 0 max = 100 }
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-84"
+		type = t90_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+add_to_array = { rada_seat_x = 0 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 14 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 29 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 43 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 58 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 72 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 87 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 101 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 116 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 130 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 1 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 15 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 145 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 30 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 44 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 59 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 74 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 88 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 3 }
+add_to_array = { rada_seat_y = 208 }
+add_to_array = { rada_seat_x = 103 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 17 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 32 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 117 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 46 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 61 }
+add_to_array = { rada_seat_y = 210 }
+add_to_array = { rada_seat_x = 132 }
+add_to_array = { rada_seat_y = 224 }
+add_to_array = { rada_seat_x = 76 }
+add_to_array = { rada_seat_y = 210 }
+add_to_array = { rada_seat_x = 5 }
+add_to_array = { rada_seat_y = 195 }
+add_to_array = { rada_seat_x = 20 }
+add_to_array = { rada_seat_y = 196 }
+add_to_array = { rada_seat_x = 147 }
+add_to_array = { rada_seat_y = 224 }
+add_to_array = { rada_seat_x = 90 }
+add_to_array = { rada_seat_y = 211 }
+add_to_array = { rada_seat_x = 34 }
+add_to_array = { rada_seat_y = 196 }
+add_to_array = { rada_seat_x = 105 }
+add_to_array = { rada_seat_y = 211 }
+add_to_array = { rada_seat_x = 49 }
+add_to_array = { rada_seat_y = 197 }
+add_to_array = { rada_seat_x = 64 }
+add_to_array = { rada_seat_y = 197 }
+add_to_array = { rada_seat_x = 8 }
+add_to_array = { rada_seat_y = 182 }
+add_to_array = { rada_seat_x = 120 }
+add_to_array = { rada_seat_y = 212 }
+add_to_array = { rada_seat_x = 23 }
+add_to_array = { rada_seat_y = 183 }
+add_to_array = { rada_seat_x = 79 }
+add_to_array = { rada_seat_y = 198 }
+add_to_array = { rada_seat_x = 38 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 135 }
+add_to_array = { rada_seat_y = 212 }
+add_to_array = { rada_seat_x = 94 }
+add_to_array = { rada_seat_y = 198 }
+add_to_array = { rada_seat_x = 53 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 12 }
+add_to_array = { rada_seat_y = 169 }
+add_to_array = { rada_seat_x = 109 }
+add_to_array = { rada_seat_y = 199 }
+add_to_array = { rada_seat_x = 68 }
+add_to_array = { rada_seat_y = 185 }
+add_to_array = { rada_seat_x = 27 }
+add_to_array = { rada_seat_y = 170 }
+add_to_array = { rada_seat_x = 150 }
+add_to_array = { rada_seat_y = 213 }
+add_to_array = { rada_seat_x = 42 }
+add_to_array = { rada_seat_y = 171 }
+add_to_array = { rada_seat_x = 83 }
+add_to_array = { rada_seat_y = 186 }
+add_to_array = { rada_seat_x = 124 }
+add_to_array = { rada_seat_y = 200 }
+add_to_array = { rada_seat_x = 57 }
+add_to_array = { rada_seat_y = 172 }
+add_to_array = { rada_seat_x = 17 }
+add_to_array = { rada_seat_y = 156 }
+add_to_array = { rada_seat_x = 98 }
+add_to_array = { rada_seat_y = 187 }
+add_to_array = { rada_seat_x = 32 }
+add_to_array = { rada_seat_y = 158 }
+add_to_array = { rada_seat_x = 73 }
+add_to_array = { rada_seat_y = 173 }
+add_to_array = { rada_seat_x = 139 }
+add_to_array = { rada_seat_y = 201 }
+add_to_array = { rada_seat_x = 47 }
+add_to_array = { rada_seat_y = 159 }
+add_to_array = { rada_seat_x = 113 }
+add_to_array = { rada_seat_y = 188 }
+add_to_array = { rada_seat_x = 88 }
+add_to_array = { rada_seat_y = 174 }
+add_to_array = { rada_seat_x = 23 }
+add_to_array = { rada_seat_y = 143 }
+add_to_array = { rada_seat_x = 63 }
+add_to_array = { rada_seat_y = 160 }
+add_to_array = { rada_seat_x = 37 }
+add_to_array = { rada_seat_y = 146 }
+add_to_array = { rada_seat_x = 154 }
+add_to_array = { rada_seat_y = 203 }
+add_to_array = { rada_seat_x = 129 }
+add_to_array = { rada_seat_y = 189 }
+add_to_array = { rada_seat_x = 103 }
+add_to_array = { rada_seat_y = 175 }
+add_to_array = { rada_seat_x = 78 }
+add_to_array = { rada_seat_y = 161 }
+add_to_array = { rada_seat_x = 53 }
+add_to_array = { rada_seat_y = 147 }
+add_to_array = { rada_seat_x = 29 }
+add_to_array = { rada_seat_y = 131 }
+add_to_array = { rada_seat_x = 119 }
+add_to_array = { rada_seat_y = 177 }
+add_to_array = { rada_seat_x = 94 }
+add_to_array = { rada_seat_y = 163 }
+add_to_array = { rada_seat_x = 144 }
+add_to_array = { rada_seat_y = 191 }
+add_to_array = { rada_seat_x = 69 }
+add_to_array = { rada_seat_y = 148 }
+add_to_array = { rada_seat_x = 43 }
+add_to_array = { rada_seat_y = 134 }
+add_to_array = { rada_seat_x = 59 }
+add_to_array = { rada_seat_y = 136 }
+add_to_array = { rada_seat_x = 84 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 35 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 109 }
+add_to_array = { rada_seat_y = 164 }
+add_to_array = { rada_seat_x = 134 }
+add_to_array = { rada_seat_y = 179 }
+add_to_array = { rada_seat_x = 50 }
+add_to_array = { rada_seat_y = 123 }
+add_to_array = { rada_seat_x = 160 }
+add_to_array = { rada_seat_y = 193 }
+add_to_array = { rada_seat_x = 75 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 100 }
+add_to_array = { rada_seat_y = 152 }
+add_to_array = { rada_seat_x = 125 }
+add_to_array = { rada_seat_y = 166 }
+add_to_array = { rada_seat_x = 67 }
+add_to_array = { rada_seat_y = 124 }
+add_to_array = { rada_seat_x = 43 }
+add_to_array = { rada_seat_y = 108 }
+add_to_array = { rada_seat_x = 91 }
+add_to_array = { rada_seat_y = 139 }
+add_to_array = { rada_seat_x = 150 }
+add_to_array = { rada_seat_y = 181 }
+add_to_array = { rada_seat_x = 58 }
+add_to_array = { rada_seat_y = 112 }
+add_to_array = { rada_seat_x = 116 }
+add_to_array = { rada_seat_y = 154 }
+add_to_array = { rada_seat_x = 83 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 141 }
+add_to_array = { rada_seat_y = 169 }
+add_to_array = { rada_seat_x = 108 }
+add_to_array = { rada_seat_y = 141 }
+add_to_array = { rada_seat_x = 51 }
+add_to_array = { rada_seat_y = 97 }
+add_to_array = { rada_seat_x = 74 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 133 }
+add_to_array = { rada_seat_y = 157 }
+add_to_array = { rada_seat_x = 99 }
+add_to_array = { rada_seat_y = 129 }
+add_to_array = { rada_seat_x = 66 }
+add_to_array = { rada_seat_y = 101 }
+add_to_array = { rada_seat_x = 166 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 91 }
+add_to_array = { rada_seat_y = 116 }
+add_to_array = { rada_seat_x = 124 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 60 }
+add_to_array = { rada_seat_y = 86 }
+add_to_array = { rada_seat_x = 158 }
+add_to_array = { rada_seat_y = 172 }
+add_to_array = { rada_seat_x = 83 }
+add_to_array = { rada_seat_y = 104 }
+add_to_array = { rada_seat_x = 116 }
+add_to_array = { rada_seat_y = 132 }
+add_to_array = { rada_seat_x = 75 }
+add_to_array = { rada_seat_y = 91 }
+add_to_array = { rada_seat_x = 149 }
+add_to_array = { rada_seat_y = 160 }
+add_to_array = { rada_seat_x = 108 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 141 }
+add_to_array = { rada_seat_y = 147 }
+add_to_array = { rada_seat_x = 100 }
+add_to_array = { rada_seat_y = 107 }
+add_to_array = { rada_seat_x = 69 }
+add_to_array = { rada_seat_y = 76 }
+add_to_array = { rada_seat_x = 92 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 133 }
+add_to_array = { rada_seat_y = 135 }
+add_to_array = { rada_seat_x = 84 }
+add_to_array = { rada_seat_y = 82 }
+add_to_array = { rada_seat_x = 174 }
+add_to_array = { rada_seat_y = 176 }
+add_to_array = { rada_seat_x = 125 }
+add_to_array = { rada_seat_y = 123 }
+add_to_array = { rada_seat_x = 117 }
+add_to_array = { rada_seat_y = 110 }
+add_to_array = { rada_seat_x = 166 }
+add_to_array = { rada_seat_y = 163 }
+add_to_array = { rada_seat_x = 79 }
+add_to_array = { rada_seat_y = 67 }
+add_to_array = { rada_seat_x = 109 }
+add_to_array = { rada_seat_y = 98 }
+add_to_array = { rada_seat_x = 158 }
+add_to_array = { rada_seat_y = 151 }
+add_to_array = { rada_seat_x = 102 }
+add_to_array = { rada_seat_y = 85 }
+add_to_array = { rada_seat_x = 150 }
+add_to_array = { rada_seat_y = 139 }
+add_to_array = { rada_seat_x = 94 }
+add_to_array = { rada_seat_y = 73 }
+add_to_array = { rada_seat_x = 142 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 135 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 89 }
+add_to_array = { rada_seat_y = 58 }
+add_to_array = { rada_seat_x = 127 }
+add_to_array = { rada_seat_y = 102 }
+add_to_array = { rada_seat_x = 119 }
+add_to_array = { rada_seat_y = 89 }
+add_to_array = { rada_seat_x = 112 }
+add_to_array = { rada_seat_y = 77 }
+add_to_array = { rada_seat_x = 104 }
+add_to_array = { rada_seat_y = 65 }
+add_to_array = { rada_seat_x = 183 }
+add_to_array = { rada_seat_y = 168 }
+add_to_array = { rada_seat_x = 175 }
+add_to_array = { rada_seat_y = 156 }
+add_to_array = { rada_seat_x = 167 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 100 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 160 }
+add_to_array = { rada_seat_y = 131 }
+add_to_array = { rada_seat_x = 152 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 145 }
+add_to_array = { rada_seat_y = 107 }
+add_to_array = { rada_seat_x = 137 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 130 }
+add_to_array = { rada_seat_y = 82 }
+add_to_array = { rada_seat_x = 123 }
+add_to_array = { rada_seat_y = 69 }
+add_to_array = { rada_seat_x = 115 }
+add_to_array = { rada_seat_y = 57 }
+add_to_array = { rada_seat_x = 111 }
+add_to_array = { rada_seat_y = 42 }
+add_to_array = { rada_seat_x = 170 }
+add_to_array = { rada_seat_y = 125 }
+add_to_array = { rada_seat_x = 163 }
+add_to_array = { rada_seat_y = 112 }
+add_to_array = { rada_seat_x = 177 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 155 }
+add_to_array = { rada_seat_y = 100 }
+add_to_array = { rada_seat_x = 148 }
+add_to_array = { rada_seat_y = 87 }
+add_to_array = { rada_seat_x = 185 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 141 }
+add_to_array = { rada_seat_y = 75 }
+add_to_array = { rada_seat_x = 134 }
+add_to_array = { rada_seat_y = 62 }
+add_to_array = { rada_seat_x = 126 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 192 }
+add_to_array = { rada_seat_y = 162 }
+add_to_array = { rada_seat_x = 123 }
+add_to_array = { rada_seat_y = 35 }
+add_to_array = { rada_seat_x = 138 }
+add_to_array = { rada_seat_y = 43 }
+add_to_array = { rada_seat_x = 145 }
+add_to_array = { rada_seat_y = 56 }
+add_to_array = { rada_seat_x = 152 }
+add_to_array = { rada_seat_y = 69 }
+add_to_array = { rada_seat_x = 160 }
+add_to_array = { rada_seat_y = 81 }
+add_to_array = { rada_seat_x = 167 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 135 }
+add_to_array = { rada_seat_y = 29 }
+add_to_array = { rada_seat_x = 174 }
+add_to_array = { rada_seat_y = 106 }
+add_to_array = { rada_seat_x = 181 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 188 }
+add_to_array = { rada_seat_y = 132 }
+add_to_array = { rada_seat_x = 195 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 150 }
+add_to_array = { rada_seat_y = 38 }
+add_to_array = { rada_seat_x = 202 }
+add_to_array = { rada_seat_y = 157 }
+add_to_array = { rada_seat_x = 157 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 164 }
+add_to_array = { rada_seat_y = 63 }
+add_to_array = { rada_seat_x = 148 }
+add_to_array = { rada_seat_y = 23 }
+add_to_array = { rada_seat_x = 171 }
+add_to_array = { rada_seat_y = 76 }
+add_to_array = { rada_seat_x = 178 }
+add_to_array = { rada_seat_y = 89 }
+add_to_array = { rada_seat_x = 185 }
+add_to_array = { rada_seat_y = 101 }
+add_to_array = { rada_seat_x = 192 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 162 }
+add_to_array = { rada_seat_y = 33 }
+add_to_array = { rada_seat_x = 170 }
+add_to_array = { rada_seat_y = 46 }
+add_to_array = { rada_seat_x = 160 }
+add_to_array = { rada_seat_y = 18 }
+add_to_array = { rada_seat_x = 199 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 177 }
+add_to_array = { rada_seat_y = 59 }
+add_to_array = { rada_seat_x = 183 }
+add_to_array = { rada_seat_y = 71 }
+add_to_array = { rada_seat_x = 206 }
+add_to_array = { rada_seat_y = 140 }
+add_to_array = { rada_seat_x = 190 }
+add_to_array = { rada_seat_y = 84 }
+add_to_array = { rada_seat_x = 175 }
+add_to_array = { rada_seat_y = 29 }
+add_to_array = { rada_seat_x = 213 }
+add_to_array = { rada_seat_y = 153 }
+add_to_array = { rada_seat_x = 197 }
+add_to_array = { rada_seat_y = 97 }
+add_to_array = { rada_seat_x = 173 }
+add_to_array = { rada_seat_y = 14 }
+add_to_array = { rada_seat_x = 182 }
+add_to_array = { rada_seat_y = 42 }
+add_to_array = { rada_seat_x = 204 }
+add_to_array = { rada_seat_y = 110 }
+add_to_array = { rada_seat_x = 189 }
+add_to_array = { rada_seat_y = 55 }
+add_to_array = { rada_seat_x = 196 }
+add_to_array = { rada_seat_y = 68 }
+add_to_array = { rada_seat_x = 211 }
+add_to_array = { rada_seat_y = 124 }
+add_to_array = { rada_seat_x = 188 }
+add_to_array = { rada_seat_y = 25 }
+add_to_array = { rada_seat_x = 203 }
+add_to_array = { rada_seat_y = 81 }
+add_to_array = { rada_seat_x = 187 }
+add_to_array = { rada_seat_y = 11 }
+add_to_array = { rada_seat_x = 195 }
+add_to_array = { rada_seat_y = 38 }
+add_to_array = { rada_seat_x = 217 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 209 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 202 }
+add_to_array = { rada_seat_y = 52 }
+add_to_array = { rada_seat_x = 216 }
+add_to_array = { rada_seat_y = 108 }
+add_to_array = { rada_seat_x = 208 }
+add_to_array = { rada_seat_y = 65 }
+add_to_array = { rada_seat_x = 201 }
+add_to_array = { rada_seat_y = 22 }
+add_to_array = { rada_seat_x = 224 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 200 }
+add_to_array = { rada_seat_y = 8 }
+add_to_array = { rada_seat_x = 208 }
+add_to_array = { rada_seat_y = 36 }
+add_to_array = { rada_seat_x = 215 }
+add_to_array = { rada_seat_y = 79 }
+add_to_array = { rada_seat_x = 223 }
+add_to_array = { rada_seat_y = 121 }
+add_to_array = { rada_seat_x = 215 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 222 }
+add_to_array = { rada_seat_y = 92 }
+add_to_array = { rada_seat_x = 214 }
+add_to_array = { rada_seat_y = 21 }
+add_to_array = { rada_seat_x = 213 }
+add_to_array = { rada_seat_y = 6 }
+add_to_array = { rada_seat_x = 221 }
+add_to_array = { rada_seat_y = 63 }
+add_to_array = { rada_seat_x = 229 }
+add_to_array = { rada_seat_y = 135 }
+add_to_array = { rada_seat_x = 221 }
+add_to_array = { rada_seat_y = 34 }
+add_to_array = { rada_seat_x = 228 }
+add_to_array = { rada_seat_y = 106 }
+add_to_array = { rada_seat_x = 228 }
+add_to_array = { rada_seat_y = 77 }
+add_to_array = { rada_seat_x = 228 }
+add_to_array = { rada_seat_y = 48 }
+add_to_array = { rada_seat_x = 227 }
+add_to_array = { rada_seat_y = 19 }
+add_to_array = { rada_seat_x = 235 }
+add_to_array = { rada_seat_y = 149 }
+add_to_array = { rada_seat_x = 227 }
+add_to_array = { rada_seat_y = 5 }
+add_to_array = { rada_seat_x = 235 }
+add_to_array = { rada_seat_y = 120 }
+add_to_array = { rada_seat_x = 234 }
+add_to_array = { rada_seat_y = 91 }
+add_to_array = { rada_seat_x = 234 }
+add_to_array = { rada_seat_y = 62 }
+add_to_array = { rada_seat_x = 234 }
+add_to_array = { rada_seat_y = 34 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 134 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 106 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 77 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 48 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 19 }
+add_to_array = { rada_seat_x = 241 }
+add_to_array = { rada_seat_y = 5 }
+add_to_array = { rada_seat_x = 247 }
+add_to_array = { rada_seat_y = 34 }
+add_to_array = { rada_seat_x = 247 }
+add_to_array = { rada_seat_y = 62 }
+add_to_array = { rada_seat_x = 247 }
+add_to_array = { rada_seat_y = 91 }
+add_to_array = { rada_seat_x = 247 }
+add_to_array = { rada_seat_y = 120 }
+add_to_array = { rada_seat_x = 254 }
+add_to_array = { rada_seat_y = 5 }
+add_to_array = { rada_seat_x = 246 }
+add_to_array = { rada_seat_y = 149 }
+add_to_array = { rada_seat_x = 254 }
+add_to_array = { rada_seat_y = 19 }
+add_to_array = { rada_seat_x = 254 }
+add_to_array = { rada_seat_y = 48 }
+add_to_array = { rada_seat_x = 253 }
+add_to_array = { rada_seat_y = 77 }
+add_to_array = { rada_seat_x = 253 }
+add_to_array = { rada_seat_y = 106 }
+add_to_array = { rada_seat_x = 260 }
+add_to_array = { rada_seat_y = 34 }
+add_to_array = { rada_seat_x = 252 }
+add_to_array = { rada_seat_y = 135 }
+add_to_array = { rada_seat_x = 260 }
+add_to_array = { rada_seat_y = 63 }
+add_to_array = { rada_seat_x = 268 }
+add_to_array = { rada_seat_y = 6 }
+add_to_array = { rada_seat_x = 267 }
+add_to_array = { rada_seat_y = 21 }
+add_to_array = { rada_seat_x = 259 }
+add_to_array = { rada_seat_y = 92 }
+add_to_array = { rada_seat_x = 267 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 259 }
+add_to_array = { rada_seat_y = 121 }
+add_to_array = { rada_seat_x = 266 }
+add_to_array = { rada_seat_y = 79 }
+add_to_array = { rada_seat_x = 273 }
+add_to_array = { rada_seat_y = 36 }
+add_to_array = { rada_seat_x = 281 }
+add_to_array = { rada_seat_y = 8 }
+add_to_array = { rada_seat_x = 257 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 280 }
+add_to_array = { rada_seat_y = 22 }
+add_to_array = { rada_seat_x = 273 }
+add_to_array = { rada_seat_y = 65 }
+add_to_array = { rada_seat_x = 265 }
+add_to_array = { rada_seat_y = 108 }
+add_to_array = { rada_seat_x = 280 }
+add_to_array = { rada_seat_y = 52 }
+add_to_array = { rada_seat_x = 272 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 264 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 286 }
+add_to_array = { rada_seat_y = 38 }
+add_to_array = { rada_seat_x = 295 }
+add_to_array = { rada_seat_y = 11 }
+add_to_array = { rada_seat_x = 279 }
+add_to_array = { rada_seat_y = 81 }
+add_to_array = { rada_seat_x = 293 }
+add_to_array = { rada_seat_y = 25 }
+add_to_array = { rada_seat_x = 270 }
+add_to_array = { rada_seat_y = 124 }
+add_to_array = { rada_seat_x = 285 }
+add_to_array = { rada_seat_y = 68 }
+add_to_array = { rada_seat_x = 292 }
+add_to_array = { rada_seat_y = 55 }
+add_to_array = { rada_seat_x = 277 }
+add_to_array = { rada_seat_y = 110 }
+add_to_array = { rada_seat_x = 299 }
+add_to_array = { rada_seat_y = 42 }
+add_to_array = { rada_seat_x = 308 }
+add_to_array = { rada_seat_y = 14 }
+add_to_array = { rada_seat_x = 284 }
+add_to_array = { rada_seat_y = 97 }
+add_to_array = { rada_seat_x = 269 }
+add_to_array = { rada_seat_y = 153 }
+add_to_array = { rada_seat_x = 306 }
+add_to_array = { rada_seat_y = 29 }
+add_to_array = { rada_seat_x = 291 }
+add_to_array = { rada_seat_y = 84 }
+add_to_array = { rada_seat_x = 275 }
+add_to_array = { rada_seat_y = 140 }
+add_to_array = { rada_seat_x = 298 }
+add_to_array = { rada_seat_y = 71 }
+add_to_array = { rada_seat_x = 305 }
+add_to_array = { rada_seat_y = 59 }
+add_to_array = { rada_seat_x = 282 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 321 }
+add_to_array = { rada_seat_y = 18 }
+add_to_array = { rada_seat_x = 312 }
+add_to_array = { rada_seat_y = 46 }
+add_to_array = { rada_seat_x = 319 }
+add_to_array = { rada_seat_y = 33 }
+add_to_array = { rada_seat_x = 289 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 296 }
+add_to_array = { rada_seat_y = 101 }
+add_to_array = { rada_seat_x = 303 }
+add_to_array = { rada_seat_y = 89 }
+add_to_array = { rada_seat_x = 310 }
+add_to_array = { rada_seat_y = 76 }
+add_to_array = { rada_seat_x = 334 }
+add_to_array = { rada_seat_y = 23 }
+add_to_array = { rada_seat_x = 317 }
+add_to_array = { rada_seat_y = 63 }
+add_to_array = { rada_seat_x = 324 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 279 }
+add_to_array = { rada_seat_y = 157 }
+add_to_array = { rada_seat_x = 331 }
+add_to_array = { rada_seat_y = 38 }
+add_to_array = { rada_seat_x = 286 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 293 }
+add_to_array = { rada_seat_y = 132 }
+add_to_array = { rada_seat_x = 300 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 307 }
+add_to_array = { rada_seat_y = 106 }
+add_to_array = { rada_seat_x = 346 }
+add_to_array = { rada_seat_y = 29 }
+add_to_array = { rada_seat_x = 314 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 322 }
+add_to_array = { rada_seat_y = 81 }
+add_to_array = { rada_seat_x = 329 }
+add_to_array = { rada_seat_y = 69 }
+add_to_array = { rada_seat_x = 336 }
+add_to_array = { rada_seat_y = 56 }
+add_to_array = { rada_seat_x = 343 }
+add_to_array = { rada_seat_y = 43 }
+add_to_array = { rada_seat_x = 358 }
+add_to_array = { rada_seat_y = 35 }
+add_to_array = { rada_seat_x = 289 }
+add_to_array = { rada_seat_y = 162 }
+add_to_array = { rada_seat_x = 355 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 347 }
+add_to_array = { rada_seat_y = 62 }
+add_to_array = { rada_seat_x = 340 }
+add_to_array = { rada_seat_y = 75 }
+add_to_array = { rada_seat_x = 297 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 333 }
+add_to_array = { rada_seat_y = 87 }
+add_to_array = { rada_seat_x = 326 }
+add_to_array = { rada_seat_y = 100 }
+add_to_array = { rada_seat_x = 304 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 318 }
+add_to_array = { rada_seat_y = 112 }
+add_to_array = { rada_seat_x = 311 }
+add_to_array = { rada_seat_y = 125 }
+add_to_array = { rada_seat_x = 370 }
+add_to_array = { rada_seat_y = 42 }
+add_to_array = { rada_seat_x = 366 }
+add_to_array = { rada_seat_y = 57 }
+add_to_array = { rada_seat_x = 359 }
+add_to_array = { rada_seat_y = 69 }
+add_to_array = { rada_seat_x = 351 }
+add_to_array = { rada_seat_y = 82 }
+add_to_array = { rada_seat_x = 344 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 336 }
+add_to_array = { rada_seat_y = 107 }
+add_to_array = { rada_seat_x = 329 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 322 }
+add_to_array = { rada_seat_y = 131 }
+add_to_array = { rada_seat_x = 381 }
+add_to_array = { rada_seat_y = 50 }
+add_to_array = { rada_seat_x = 314 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 306 }
+add_to_array = { rada_seat_y = 156 }
+add_to_array = { rada_seat_x = 299 }
+add_to_array = { rada_seat_y = 168 }
+add_to_array = { rada_seat_x = 377 }
+add_to_array = { rada_seat_y = 65 }
+add_to_array = { rada_seat_x = 369 }
+add_to_array = { rada_seat_y = 77 }
+add_to_array = { rada_seat_x = 362 }
+add_to_array = { rada_seat_y = 89 }
+add_to_array = { rada_seat_x = 354 }
+add_to_array = { rada_seat_y = 102 }
+add_to_array = { rada_seat_x = 392 }
+add_to_array = { rada_seat_y = 58 }
+add_to_array = { rada_seat_x = 347 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 339 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 387 }
+add_to_array = { rada_seat_y = 73 }
+add_to_array = { rada_seat_x = 331 }
+add_to_array = { rada_seat_y = 139 }
+add_to_array = { rada_seat_x = 380 }
+add_to_array = { rada_seat_y = 85 }
+add_to_array = { rada_seat_x = 323 }
+add_to_array = { rada_seat_y = 151 }
+add_to_array = { rada_seat_x = 372 }
+add_to_array = { rada_seat_y = 98 }
+add_to_array = { rada_seat_x = 402 }
+add_to_array = { rada_seat_y = 67 }
+add_to_array = { rada_seat_x = 315 }
+add_to_array = { rada_seat_y = 163 }
+add_to_array = { rada_seat_x = 364 }
+add_to_array = { rada_seat_y = 110 }
+add_to_array = { rada_seat_x = 356 }
+add_to_array = { rada_seat_y = 123 }
+add_to_array = { rada_seat_x = 307 }
+add_to_array = { rada_seat_y = 176 }
+add_to_array = { rada_seat_x = 397 }
+add_to_array = { rada_seat_y = 82 }
+add_to_array = { rada_seat_x = 348 }
+add_to_array = { rada_seat_y = 135 }
+add_to_array = { rada_seat_x = 389 }
+add_to_array = { rada_seat_y = 94 }
+add_to_array = { rada_seat_x = 412 }
+add_to_array = { rada_seat_y = 76 }
+add_to_array = { rada_seat_x = 381 }
+add_to_array = { rada_seat_y = 107 }
+add_to_array = { rada_seat_x = 340 }
+add_to_array = { rada_seat_y = 147 }
+add_to_array = { rada_seat_x = 373 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 332 }
+add_to_array = { rada_seat_y = 160 }
+add_to_array = { rada_seat_x = 406 }
+add_to_array = { rada_seat_y = 91 }
+add_to_array = { rada_seat_x = 365 }
+add_to_array = { rada_seat_y = 132 }
+add_to_array = { rada_seat_x = 398 }
+add_to_array = { rada_seat_y = 104 }
+add_to_array = { rada_seat_x = 324 }
+add_to_array = { rada_seat_y = 172 }
+add_to_array = { rada_seat_x = 421 }
+add_to_array = { rada_seat_y = 86 }
+add_to_array = { rada_seat_x = 357 }
+add_to_array = { rada_seat_y = 144 }
+add_to_array = { rada_seat_x = 390 }
+add_to_array = { rada_seat_y = 116 }
+add_to_array = { rada_seat_x = 315 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 415 }
+add_to_array = { rada_seat_y = 101 }
+add_to_array = { rada_seat_x = 382 }
+add_to_array = { rada_seat_y = 129 }
+add_to_array = { rada_seat_x = 348 }
+add_to_array = { rada_seat_y = 157 }
+add_to_array = { rada_seat_x = 407 }
+add_to_array = { rada_seat_y = 114 }
+add_to_array = { rada_seat_x = 430 }
+add_to_array = { rada_seat_y = 97 }
+add_to_array = { rada_seat_x = 373 }
+add_to_array = { rada_seat_y = 141 }
+add_to_array = { rada_seat_x = 340 }
+add_to_array = { rada_seat_y = 169 }
+add_to_array = { rada_seat_x = 398 }
+add_to_array = { rada_seat_y = 127 }
+add_to_array = { rada_seat_x = 365 }
+add_to_array = { rada_seat_y = 154 }
+add_to_array = { rada_seat_x = 423 }
+add_to_array = { rada_seat_y = 112 }
+add_to_array = { rada_seat_x = 331 }
+add_to_array = { rada_seat_y = 181 }
+add_to_array = { rada_seat_x = 390 }
+add_to_array = { rada_seat_y = 139 }
+add_to_array = { rada_seat_x = 438 }
+add_to_array = { rada_seat_y = 108 }
+add_to_array = { rada_seat_x = 415 }
+add_to_array = { rada_seat_y = 124 }
+add_to_array = { rada_seat_x = 356 }
+add_to_array = { rada_seat_y = 166 }
+add_to_array = { rada_seat_x = 381 }
+add_to_array = { rada_seat_y = 152 }
+add_to_array = { rada_seat_x = 406 }
+add_to_array = { rada_seat_y = 137 }
+add_to_array = { rada_seat_x = 322 }
+add_to_array = { rada_seat_y = 193 }
+add_to_array = { rada_seat_x = 431 }
+add_to_array = { rada_seat_y = 123 }
+add_to_array = { rada_seat_x = 347 }
+add_to_array = { rada_seat_y = 179 }
+add_to_array = { rada_seat_x = 372 }
+add_to_array = { rada_seat_y = 164 }
+add_to_array = { rada_seat_x = 446 }
+add_to_array = { rada_seat_y = 119 }
+add_to_array = { rada_seat_x = 397 }
+add_to_array = { rada_seat_y = 150 }
+add_to_array = { rada_seat_x = 422 }
+add_to_array = { rada_seat_y = 136 }
+add_to_array = { rada_seat_x = 438 }
+add_to_array = { rada_seat_y = 134 }
+add_to_array = { rada_seat_x = 413 }
+add_to_array = { rada_seat_y = 148 }
+add_to_array = { rada_seat_x = 337 }
+add_to_array = { rada_seat_y = 191 }
+add_to_array = { rada_seat_x = 388 }
+add_to_array = { rada_seat_y = 163 }
+add_to_array = { rada_seat_x = 362 }
+add_to_array = { rada_seat_y = 177 }
+add_to_array = { rada_seat_x = 453 }
+add_to_array = { rada_seat_y = 131 }
+add_to_array = { rada_seat_x = 428 }
+add_to_array = { rada_seat_y = 147 }
+add_to_array = { rada_seat_x = 403 }
+add_to_array = { rada_seat_y = 161 }
+add_to_array = { rada_seat_x = 378 }
+add_to_array = { rada_seat_y = 175 }
+add_to_array = { rada_seat_x = 353 }
+add_to_array = { rada_seat_y = 189 }
+add_to_array = { rada_seat_x = 327 }
+add_to_array = { rada_seat_y = 203 }
+add_to_array = { rada_seat_x = 444 }
+add_to_array = { rada_seat_y = 146 }
+add_to_array = { rada_seat_x = 419 }
+add_to_array = { rada_seat_y = 160 }
+add_to_array = { rada_seat_x = 459 }
+add_to_array = { rada_seat_y = 143 }
+add_to_array = { rada_seat_x = 393 }
+add_to_array = { rada_seat_y = 174 }
+add_to_array = { rada_seat_x = 368 }
+add_to_array = { rada_seat_y = 188 }
+add_to_array = { rada_seat_x = 434 }
+add_to_array = { rada_seat_y = 159 }
+add_to_array = { rada_seat_x = 342 }
+add_to_array = { rada_seat_y = 201 }
+add_to_array = { rada_seat_x = 409 }
+add_to_array = { rada_seat_y = 173 }
+add_to_array = { rada_seat_x = 449 }
+add_to_array = { rada_seat_y = 158 }
+add_to_array = { rada_seat_x = 383 }
+add_to_array = { rada_seat_y = 187 }
+add_to_array = { rada_seat_x = 464 }
+add_to_array = { rada_seat_y = 156 }
+add_to_array = { rada_seat_x = 424 }
+add_to_array = { rada_seat_y = 172 }
+add_to_array = { rada_seat_x = 358 }
+add_to_array = { rada_seat_y = 200 }
+add_to_array = { rada_seat_x = 398 }
+add_to_array = { rada_seat_y = 186 }
+add_to_array = { rada_seat_x = 439 }
+add_to_array = { rada_seat_y = 171 }
+add_to_array = { rada_seat_x = 332 }
+add_to_array = { rada_seat_y = 213 }
+add_to_array = { rada_seat_x = 454 }
+add_to_array = { rada_seat_y = 170 }
+add_to_array = { rada_seat_x = 413 }
+add_to_array = { rada_seat_y = 185 }
+add_to_array = { rada_seat_x = 373 }
+add_to_array = { rada_seat_y = 199 }
+add_to_array = { rada_seat_x = 469 }
+add_to_array = { rada_seat_y = 169 }
+add_to_array = { rada_seat_x = 428 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 387 }
+add_to_array = { rada_seat_y = 198 }
+add_to_array = { rada_seat_x = 346 }
+add_to_array = { rada_seat_y = 212 }
+add_to_array = { rada_seat_x = 443 }
+add_to_array = { rada_seat_y = 184 }
+add_to_array = { rada_seat_x = 402 }
+add_to_array = { rada_seat_y = 198 }
+add_to_array = { rada_seat_x = 458 }
+add_to_array = { rada_seat_y = 183 }
+add_to_array = { rada_seat_x = 361 }
+add_to_array = { rada_seat_y = 212 }
+add_to_array = { rada_seat_x = 473 }
+add_to_array = { rada_seat_y = 182 }
+add_to_array = { rada_seat_x = 417 }
+add_to_array = { rada_seat_y = 197 }
+add_to_array = { rada_seat_x = 432 }
+add_to_array = { rada_seat_y = 197 }
+add_to_array = { rada_seat_x = 376 }
+add_to_array = { rada_seat_y = 211 }
+add_to_array = { rada_seat_x = 447 }
+add_to_array = { rada_seat_y = 196 }
+add_to_array = { rada_seat_x = 391 }
+add_to_array = { rada_seat_y = 211 }
+add_to_array = { rada_seat_x = 335 }
+add_to_array = { rada_seat_y = 224 }
+add_to_array = { rada_seat_x = 462 }
+add_to_array = { rada_seat_y = 196 }
+add_to_array = { rada_seat_x = 476 }
+add_to_array = { rada_seat_y = 195 }
+add_to_array = { rada_seat_x = 406 }
+add_to_array = { rada_seat_y = 210 }
+add_to_array = { rada_seat_x = 349 }
+add_to_array = { rada_seat_y = 224 }
+add_to_array = { rada_seat_x = 420 }
+add_to_array = { rada_seat_y = 210 }
+add_to_array = { rada_seat_x = 435 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 364 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 449 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 464 }
+add_to_array = { rada_seat_y = 209 }
+add_to_array = { rada_seat_x = 379 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 479 }
+add_to_array = { rada_seat_y = 208 }
+add_to_array = { rada_seat_x = 393 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 408 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 422 }
+add_to_array = { rada_seat_y = 223 }
+add_to_array = { rada_seat_x = 437 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 451 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 337 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 466 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 480 }
+add_to_array = { rada_seat_y = 222 }
+add_to_array = { rada_seat_x = 351 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 366 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 380 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 394 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 409 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 423 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 438 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 452 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 467 }
+add_to_array = { rada_seat_y = 235 }
+add_to_array = { rada_seat_x = 481 }
+add_to_array = { rada_seat_y = 235 }
+
+set_variable = { UKR_rada_fatherland_seats = 92 }
+set_variable = { UKR_rada_party_of_regions_seats = 204 }
+set_variable = { UKR_rada_svoboda_seats = 36 }
+set_variable = { UKR_rada_udar_seats = 42 }
+set_variable = { UKR_rada_kpu_seats = 32 }
+set_variable = { UKR_rada_right_sector_seats = 0 }
+set_variable = { UKR_rada_economic_development_seats = 0 }
+set_variable = { UKR_rada_peoples_will_seats = 0 }
+set_variable = { UKR_rada_peoples_front_seats = 0 }
+set_variable = { UKR_rada_european_solidarity_seats = 0 }
+set_variable = { UKR_rada_servant_of_the_people_seats = 0 }
+set_variable = { UKR_rada_opposition_bloc_seats = 0 }
+
+set_country_flag = fatherland_in_opposition
+set_country_flag = party_of_regions_in_power
+set_country_flag = svoboda_in_opposition
+set_country_flag = udar_in_opposition
+set_country_flag = kpu_in_power			#They were officially in opposition to everyone, but basically always voted with party of regions
+
+set_variable = { rada_button_frame = 2 }
+
+UKR_get_non_aligned_seats = yes
+UKR_get_rada_seats = yes
+UKR_get_government_majority_status = yes
+UKR_bill_is_minor = yes
+get_party_votes_for_anti_protest_laws = yes
+get_party_votes_for_the_bill = yes
+set_variable = { UKR_required_votes = 226 }	
+
+
+
+#PLANES
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = {
+		type = fighter_equipment_0
+		amount = 96
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Su-27SM"
+		amount = 96
+		producer = UKR
+	}
+}

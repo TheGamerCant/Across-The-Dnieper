@@ -1,0 +1,938 @@
+focus_tree = {
+	id = hungary
+	continuous_focus_position = { x = 7560 y = 1310 } 
+	country = {
+		factor = 0
+		#modifier = {
+		#	add = 10
+		#	tag = HUN
+		#}
+	}
+	#Reform the Politics
+	focus = {
+		id = HUN_reform_the_politics
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 15
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_elections_in_2014  }
+		completion_reward = {
+			add_political_power = 75
+			
+		}
+	}
+
+	#Stabilize the government
+	focus = {
+		id = HUN_stabilize_the_government
+		icon = GFX_HUN_stabilize_the_government-411580
+		x = 7
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_elections_in_2014  }
+		mutually_exclusive = { focus = HUN_reform_the_politics  } mutually_exclusive = { }
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+
+	#Elections in 2014
+	focus = {
+		id = HUN_elections_in_2014
+		icon = GFX_HUN_elections_in_2014-413806
+		x = 11
+		y = 8
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+
+	#Second time, Second win
+	focus = {
+		id = HUN_secondtimesecondwin
+		icon = GFX_HUN_secondtimesecondwin-413805
+		x = 7
+		y = 14
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_elections_in_2014  }
+	}
+
+	#Purchasing Index
+	focus = {
+		id = HUN_purchasing_index
+		icon = GFX_goal_unknown
+		x = 10
+		y = 18
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_influence_over_the_media  } prerequisite = { focus = HUN_swing_policy  }
+	}
+
+	#Fear mongering
+	focus = {
+		id = HUN_fear_mongering
+		icon = GFX_goal_unknown
+		x = 10
+		y = 16
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_secondtimesecondwin  } prerequisite = { focus = HUN_crossborder_citizenship  }
+	}
+
+	#Paks II
+	focus = {
+		id = HUN_paks_ii
+		icon = GFX_HUN_paks_ii-413815
+		x = 4
+		y = 14
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_secondtimesecondwin  }
+	}
+
+	#Influence over the Media
+	focus = {
+		id = HUN_influence_over_the_media
+		icon = GFX_goal_unknown
+		x = 10
+		y = 14
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_fear_mongering  }
+	}
+
+	#Utility Cost Reduction
+	focus = {
+		id = HUN_utility_cost_reduction
+		icon = GFX_goal_unknown
+		x = 4
+		y = 16
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_paks_ii  } prerequisite = { focus = HUN_crossborder_citizenship  }
+	}
+
+	#Launch the propaganda machine
+	focus = {
+		id = HUN_launch_the_propaganda_machine
+		icon = GFX_goal_unknown
+		x = 7
+		y = 12
+		cost = 28
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_stabilize_the_government  }
+	}
+
+	#Support the families
+	focus = {
+		id = HUN_support_the_families
+		icon = GFX_goal_unknown
+		x = 4
+		y = 18
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_utility_cost_reduction  } prerequisite = { focus = HUN_swing_policy  }
+	}
+
+	#Cross-Border Citizenship
+	focus = {
+		id = HUN_crossborder_citizenship
+		icon = GFX_goal_unknown
+		x = 7
+		y = 16
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_secondtimesecondwin  }
+	}
+
+	#Swing Policy
+	focus = {
+		id = HUN_swing_policy
+		icon = GFX_goal_unknown
+		x = 7
+		y = 18
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_crossborder_citizenship  }
+	}
+
+	#Constitutional Amendment
+	focus = {
+		id = HUN_constitutional_amendment
+		icon = GFX_goal_unknown
+		x = 7
+		y = 23
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_swing_policy  }
+	}
+
+	#Illiberalism
+	focus = {
+		id = HUN_illiberalism
+		icon = GFX_goal_unknown
+		x = 7
+		y = 20
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_constitutional_amendment  }
+	}
+
+	#Revisionist Policy
+	focus = {
+		id = HUN_revisionist_policy
+		icon = GFX_goal_unknown
+		x = 12
+		y = 22
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_illiberalism  }
+	}
+
+	#Legacy of Greater Hungary
+	focus = {
+		id = HUN_legacy_of_greater_hungary
+		icon = GFX_goal_unknown
+		x = 12
+		y = 24
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_revisionist_policy  }
+	}
+
+	#Radical decisions
+	focus = {
+		id = HUN_radical_decisions
+		icon = GFX_goal_unknown
+		x = 7
+		y = 26
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_illiberalism  }
+	}
+
+	#Strengthen the regime
+	focus = {
+		id = HUN_strengthen_the_regime
+		icon = GFX_goal_unknown
+		x = 7
+		y = 29
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_radical_decisions  }
+	}
+
+	#Seek allies
+	focus = {
+		id = HUN_seek_allies
+		icon = GFX_goal_unknown
+		x = 16
+		y = 22
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_illiberalism  }
+		mutually_exclusive = { focus = HUN_revisionist_policy  }
+	}
+
+	#Our role in the war
+	focus = {
+		id = HUN_our_role_in_the_war
+		icon = GFX_goal_unknown
+		x = 3
+		y = 23
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_illiberalism  }
+	}
+
+	#Stand with Ukraine
+	focus = {
+		id = HUN_stand_with_ukraine
+		icon = GFX_goal_unknown
+		x = 1
+		y = 25
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_our_role_in_the_war  }
+	}
+
+	#Stand with the Seperatists
+	focus = {
+		id = HUN_stand_with_the_seperatists
+		icon = GFX_goal_unknown
+		x = 5
+		y = 25
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_our_role_in_the_war  }
+		mutually_exclusive = { focus = HUN_stand_with_ukraine  }
+	}
+
+	#Recognition of the seperatist republics.
+	focus = {
+		id = HUN_recognition_of_the_seperatist_republics
+		icon = GFX_goal_unknown
+		x = 5
+		y = 27
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_stand_with_the_seperatists  }
+	}
+
+	#Send military equipment
+	focus = {
+		id = HUN_send_military_equipment
+		icon = GFX_goal_unknown
+		x = 5
+		y = 29
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_recognition_of_the_seperatist_republics  }
+	}
+
+	#Veto Ukrainian application
+	focus = {
+		id = HUN_veto_ukrainian_application
+		icon = GFX_goal_unknown
+		x = 5
+		y = 31
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_send_military_equipment  }
+	}
+
+	#Against seperatism
+	focus = {
+		id = HUN_against_seperatism
+		icon = GFX_goal_unknown
+		x = 1
+		y = 27
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_stand_with_ukraine  }
+	}
+
+	#Military aid to Ukraine
+	focus = {
+		id = HUN_military_aid_to_ukraine
+		icon = GFX_goal_unknown
+		x = 1
+		y = 31
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_diplomatic_ties_with_ukraine  }
+	}
+
+	#Support Ukrainian refugees
+	focus = {
+		id = HUN_support_ukrainian_refugees
+		icon = GFX_goal_unknown
+		x = 1
+		y = 33
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_diplomatic_ties_with_ukraine  }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	#Diplomatic ties with Ukraine
+	focus = {
+		id = HUN_diplomatic_ties_with_ukraine
+		icon = GFX_goal_unknown
+		x = 1
+		y = 29
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_against_seperatism  }
+	}
+
+	#Military exercise on the border.
+	focus = {
+		id = HUN_military_exercise_on_the_border
+		icon = GFX_goal_unknown
+		x = 4
+		y = 35
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_fortify_our_border_with_ukraine  }
+		completion_reward = {
+			army_experience = 25
+			
+			
+		}
+	}
+
+	#Decline trades with Russia
+	focus = {
+		id = HUN_decline_trades_with_russia
+		icon = GFX_goal_unknown
+		x = 0
+		y = 35
+		cost = 6
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_support_ukrainian_refugees  }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	#Russophobia
+	focus = {
+		id = HUN_russophobia
+		icon = GFX_goal_unknown
+		x = 2
+		y = 35
+		cost = 28
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_support_ukrainian_refugees  }
+		completion_reward = {
+			add_stability = 0.05
+			
+			
+		}
+	}
+
+	#Send volunteers into Ukraine
+	focus = {
+		id = HUN_send_volunteers_into_ukraine
+		icon = GFX_goal_unknown
+		x = 1
+		y = 37
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_decline_trades_with_russia  } prerequisite = { focus = HUN_russophobia  }
+	}
+
+	#Fortify our border with Ukraine
+	focus = {
+		id = HUN_fortify_our_border_with_ukraine
+		icon = GFX_goal_unknown
+		x = 5
+		y = 33
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_veto_ukrainian_application  }
+	}
+
+	#Anti-Ukrainian propaganda
+	focus = {
+		id = HUN_antiukrainian_propaganda
+		icon = GFX_goal_unknown
+		x = 6
+		y = 35
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_fortify_our_border_with_ukraine  }
+	}
+
+	#Send volunteer battalions into Ukraine
+	focus = {
+		id = HUN_send_volunteer_battalions_into_ukraine
+		icon = GFX_goal_unknown
+		x = 5
+		y = 37
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_military_exercise_on_the_border  } prerequisite = { focus = HUN_antiukrainian_propaganda  }
+	}
+
+	#Beyond the borders.
+	focus = {
+		id = HUN_beyond_the_borders
+		icon = GFX_goal_unknown
+		x = 12
+		y = 26
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_legacy_of_greater_hungary  }
+		completion_reward = {
+			add_stability = 0.05
+			
+			
+		}
+	}
+
+	#Remind Slovakia
+	focus = {
+		id = HUN_remind_slovakia
+		icon = GFX_goal_unknown
+		x = 12
+		y = 28
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_beyond_the_borders  }
+	}
+
+	#Demand a referendum in Southern Slovakia
+	focus = {
+		id = HUN_demand_a_referendum_in_southern_slovakia
+		icon = GFX_goal_unknown
+		x = 12
+		y = 30
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_remind_slovakia  }
+	}
+
+	#The Translyvanian Queston
+	focus = {
+		id = HUN_the_translyvanian_queston
+		icon = GFX_goal_unknown
+		x = 11
+		y = 32
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = HUN_demand_a_referendum_in_southern_slovakia  }
+	}
+
+	#Translyvania by war
+	focus = {
+		id = HUN_translyvania_by_war
+		icon = GFX_goal_unknown
+		x = 13
+		y = 32
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = HUN_demand_a_referendum_in_southern_slovakia  }
+		mutually_exclusive = { focus = HUN_the_translyvanian_queston  }
+	}
+
+	#Focus on our eastern neighbour
+	focus = {
+		id = HUN_focus_on_our_eastern_neighbour
+		icon = GFX_goal_unknown
+		x = 12
+		y = 34
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_the_translyvanian_queston  } prerequisite = { focus = HUN_translyvania_by_war  }
+	}
+
+	#The violent way
+	focus = {
+		id = HUN_the_violent_way
+		icon = GFX_goal_unknown
+		x = 12
+		y = 36
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_focus_on_our_eastern_neighbour  }
+	}
+
+	#The Right way
+	focus = {
+		id = HUN_the_right_way
+		icon = GFX_goal_unknown
+		x = 25
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_reform_the_politics  }
+	}
+
+	#Nationalist propaganda campaign
+	focus = {
+		id = HUN_nationalist_propaganda_campaign
+		icon = GFX_goal_unknown
+		x = 24
+		y = 14
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_the_right_way  }
+	}
+
+	#The victory of the nation
+	focus = {
+		id = HUN_the_victory_of_the_nation
+		icon = GFX_goal_unknown
+		x = 25
+		y = 16
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_nationalist_propaganda_campaign  }
+	}
+
+	#Our Homeland
+	focus = {
+		id = HUN_our_homeland
+		icon = GFX_goal_unknown
+		x = 29
+		y = 18
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_the_victory_of_the_nation  }
+	}
+
+	#New-Hungarism
+	focus = {
+		id = HUN_newhungarism
+		icon = GFX_goal_unknown
+		x = 21
+		y = 18
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_the_victory_of_the_nation  }
+		mutually_exclusive = { focus = HUN_our_homeland  }
+	}
+
+	#Getting ready for a coup
+	focus = {
+		id = HUN_getting_ready_for_a_coup
+		icon = GFX_goal_unknown
+		x = 21
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_newhungarism  }
+	}
+
+	#Establish a paramilitary group
+	focus = {
+		id = HUN_establish_a_paramilitary_group
+		icon = GFX_goal_unknown
+		x = 22
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_getting_ready_for_a_coup  }
+	}
+
+	#Establish a Secret Police
+	focus = {
+		id = HUN_establish_a_secret_police
+		icon = GFX_goal_unknown
+		x = 20
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_getting_ready_for_a_coup  } prerequisite = { focus = HUN_establish_a_paramilitary_group  }
+	}
+
+	#Nationalistic views
+	focus = {
+		id = HUN_nationalistic_views
+		icon = GFX_goal_unknown
+		x = 29
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_our_homeland  }
+	}
+
+	#Defence of the state
+	focus = {
+		id = HUN_defence_of_the_state
+		icon = GFX_goal_unknown
+		x = 21
+		y = 24
+		cost = 28
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_establish_a_paramilitary_group  } prerequisite = { focus = HUN_establish_a_secret_police  }
+	}
+
+	#Loss of civil liberties
+	focus = {
+		id = HUN_loss_of_civil_liberties
+		icon = GFX_goal_unknown
+		x = 21
+		y = 26
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_defence_of_the_state  }
+	}
+
+	#Execute Opposite politicians
+	focus = {
+		id = HUN_execute_opposite_politicians
+		icon = GFX_goal_unknown
+		x = 19
+		y = 28
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_loss_of_civil_liberties  }
+	}
+
+	#Nationalisation of the economy
+	focus = {
+		id = HUN_nationalisation_of_the_economy
+		icon = GFX_goal_unknown
+		x = 23
+		y = 28
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_loss_of_civil_liberties  } prerequisite = { focus = HUN_execute_opposite_politicians  }
+	}
+
+	#Safety council
+	focus = {
+		id = HUN_safety_council
+		icon = GFX_goal_unknown
+		x = 21
+		y = 30
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_execute_opposite_politicians  } prerequisite = { focus = HUN_nationalisation_of_the_economy  }
+	}
+
+	#Mass mobilization
+	focus = {
+		id = HUN_mass_mobilization
+		icon = GFX_goal_unknown
+		x = 21
+		y = 32
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = HUN_safety_council  }
+	}
+
+	#Modernize the army
+	focus = {
+		id = HUN_modernize_the_army
+		icon = GFX_goal_unknown
+		x = 20
+		y = 34
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = HUN_mass_mobilization  }
+	}
+
+	#Setting up work camps
+	focus = {
+		id = HUN_setting_up_work_camps
+		icon = GFX_goal_unknown
+		x = 22
+		y = 34
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = HUN_mass_mobilization  } prerequisite = { focus = HUN_modernize_the_army  }
+	}
+
+	#Mass deportation
+	focus = {
+		id = HUN_mass_deportation
+		icon = GFX_goal_unknown
+		x = 21
+		y = 36
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = HUN_modernize_the_army  } prerequisite = { focus = HUN_setting_up_work_camps  }
+	}
+
+	#New political programs
+	focus = {
+		id = HUN_new_political_programs
+		icon = GFX_goal_unknown
+		x = 29
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_nationalistic_views  }
+	}
+
+	#Agricultural development
+	focus = {
+		id = HUN_agricultural_development
+		icon = GFX_goal_unknown
+		x = 28
+		y = 24
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = HUN_new_political_programs  }
+	}
+
+	#Death penalty
+	focus = {
+		id = HUN_death_penalty
+		icon = GFX_goal_unknown
+		x = 30
+		y = 24
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = HUN_new_political_programs  } prerequisite = { focus = HUN_agricultural_development  }
+	}
+
+	#Release the political prisoners
+	focus = {
+		id = HUN_release_the_political_prisoners
+		icon = GFX_goal_unknown
+		x = 29
+		y = 26
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = HUN_agricultural_development  } prerequisite = { focus = HUN_death_penalty  }
+	}
+
+	#Send the prisoners to Siberia!
+	focus = {
+		id = HUN_sendtheprisonerstosiberia
+		icon = GFX_goal_unknown
+		x = 29
+		y = 29
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_release_the_political_prisoners  }
+	}
+
+	#Levente movement
+	focus = {
+		id = HUN_levente_movement
+		icon = GFX_goal_unknown
+		x = 29
+		y = 31
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = HUN_sendtheprisonerstosiberia  }
+	}
+
+	#Establish the Greater Hungarian state
+	focus = {
+		id = HUN_establish_the_greater_hungarian_state
+		icon = GFX_goal_unknown
+		x = 29
+		y = 33
+		cost = 35
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = HUN_levente_movement  }
+	}
+
+}

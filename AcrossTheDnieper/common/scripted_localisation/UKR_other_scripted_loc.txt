@@ -1,0 +1,175 @@
+defined_text = {
+    name = UKR_get_event_34_event_picture
+	
+    text = {
+        trigger = {
+            has_country_leader = { name = "Dmytro Yarosh" ruling_only = yes }
+        }
+        localization_key = GFX_report_event_UKR_dmytro_yarosh_speech
+    }
+	text = {
+        trigger = {
+             has_country_leader = { name = "Yulia Tymoshenko" ruling_only = yes }
+        }
+        localization_key = GFX_report_event_UKR_yulia_tymoshenko_speech
+    }
+	text = {
+        trigger = {
+             has_country_leader = { name = "Volodymyr Zelenskyy" ruling_only = yes }
+        }
+        localization_key = GFX_report_event_UKR_no_collaborators
+    }
+	text = {
+        localization_key = GFX_report_event_UKR_petro_poroshenko_podium
+    }
+
+}
+
+defined_text = {
+    name = UKR_current_president_surname
+	
+	text = {
+        trigger = {
+            has_country_leader = { name = "Oleksandr Turchynov" ruling_only = yes }
+        }
+        localization_key = "Turchynov"
+    }
+    text = {
+        trigger = {
+            has_country_leader = { name = "Dmytro Yarosh" ruling_only = yes }
+        }
+        localization_key = "Yarosh"
+    }
+	text = {
+        trigger = {
+             has_country_leader = { name = "Yulia Tymoshenko" ruling_only = yes }
+        }
+        localization_key = "Tymoshenko"
+    }
+	text = {
+		trigger = {
+             has_country_leader = { name = "Petro Poroshenko" ruling_only = yes }
+        }
+        localization_key = "Poroshenko"
+    }
+	text = {
+		trigger = {
+             has_country_leader = { name = "Volodymyr Zelenskyy" ruling_only = yes }
+        }
+        localization_key = "Zelenskyy"
+    }
+	text = {
+		trigger = {
+             has_country_leader = { name = "Viktor Yanukovych" ruling_only = yes }
+        }
+        localization_key = "Yanukovych"
+    }
+	text = {
+		trigger = {
+             has_country_leader = { name = "Viktor Medvedchuk" ruling_only = yes }
+        }
+        localization_key = "Medvedchuk"
+    }
+	text = {
+
+        localization_key = "[ROOT.GetLeader]"
+    }
+}
+
+defined_text = {
+    name = get_donbass_war_status
+	
+    text = {
+        trigger = {
+            has_global_flag = donbass_war_is_ongoing
+        }
+        localization_key = "donbass_war_is_hot_loc"
+    }
+
+	text = {
+        localization_key = "donbass_war_is_cold_loc"
+    }
+}
+
+defined_text = {
+    name = getportownership
+	
+	text = {
+        trigger = {
+            354 = { is_owned_and_controlled_by = UKR }
+        }
+        localization_key = "[354.GetName]"
+    }
+	
+    text = {
+        trigger = {
+            269 = { is_owned_and_controlled_by = UKR }
+        }
+        localization_key = "[269.GetName]"
+    }
+
+	text = {
+        trigger = {
+            236 = { is_owned_and_controlled_by = UKR }
+        }
+        localization_key = "[236.GetName]"
+    }
+	
+	text = {
+        trigger = {
+            264 = { is_owned_and_controlled_by = UKR }
+        }
+        localization_key = "[264.GetName]"
+    }
+
+	text = {
+        localization_key = "[269.GetName]"
+    }
+}
+
+defined_text = {
+    name = get_independence_day_desc
+	
+    text = {
+        trigger = {
+			NOT = { is_puppet_of = SOV }
+            any_country={
+				original_tag = SOV
+				has_war_with = ROOT
+			}
+			92 = { is_controlled_by = ROOT }
+        }
+        localization_key = "independence_day_war_with_russia"
+    }
+
+	text = {
+        trigger = {
+			NOT = { is_puppet_of = SOV }
+            NOT={
+				any_country={
+					original_tag = SOV
+					has_war_with = ROOT
+				}
+			}
+			92 = { is_controlled_by = ROOT }
+        }
+        localization_key = "independence_day_war_peacetime"
+    }
+	
+	text = {
+        trigger = {
+			NOT = { is_puppet_of = SOV }
+            NOT={
+				92 = { is_controlled_by = ROOT }
+			}
+        }
+        localization_key = "independence_day_war_no_kyiv"
+    }
+	
+	text = {
+        trigger = {
+			is_puppet_of = SOV
+        }
+        localization_key = "independence_day_war_puppet"
+    }
+}

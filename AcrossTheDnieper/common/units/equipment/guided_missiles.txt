@@ -1,0 +1,235 @@
+equipments = {
+	
+	guided_missile_equipment = {
+		year = 1936
+
+		allow_mission_type = {
+			strategic_bomber
+		}
+		
+		is_archetype = yes
+		can_license = no
+		type = missile
+		group_by = type
+		sprite = missile_default
+		air_map_icon_frame = 9
+		
+		interface_category = interface_category_air
+				
+		reliability = 0.8
+
+		# Air vs Navy - high damage / low hit chance / hard to hurt
+		naval_strike_attack = 1.5
+		naval_strike_targetting = 0.6
+
+		#Space taken in convoy
+		lend_lease_cost = 1.5
+		
+		resources = {
+			aluminium = 3
+			tungsten = 3
+		}
+
+		build_cost_ic = 450
+		fuel_consumption = 0
+		manpower = 2
+	}
+
+	guided_missile_equipment_1 = {
+		year = 1944
+
+		archetype = guided_missile_equipment
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 11500
+		maximum_speed = 640
+		air_agility = 10
+		air_bombing = 300
+		
+		build_cost_ic = 450
+	}
+
+	guided_missile_equipment_2 = {
+		year = 1945
+
+		archetype = guided_missile_equipment
+		parent = guided_missile_equipment_1
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 14000
+		maximum_speed = 7000
+		air_agility = 10
+		air_bombing = 2100
+		
+		build_cost_ic = 700
+	}
+	
+	guided_missile_equipment_3 = {
+		year = 1946
+
+		archetype = guided_missile_equipment
+		parent = guided_missile_equipment_2
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 25000
+		maximum_speed = 9999
+		air_agility = 10
+		air_bombing = 5000
+		
+		build_cost_ic = 1000
+	}
+}
+
+equipments = {
+	
+	anti_ship_missile_equipment = {
+		year = 1936
+
+		allow_mission_type = {
+			naval_bomber
+			port_strike
+		}
+		
+		is_archetype = yes
+		can_license = no
+		type = missile
+		group_by = type
+		sprite = missile_default
+		air_map_icon_frame = 9
+		
+		interface_category = interface_category_air
+				
+		reliability = 0.8
+
+		# Air vs Navy - high damage / low hit chance / hard to hurt
+		naval_strike_attack = 60
+		naval_strike_targetting = 4
+		
+		air_agility = 10
+		air_bombing = 10
+
+		#Space taken in convoy
+		lend_lease_cost = 1.5
+		
+		resources = {
+			aluminium = 3
+			tungsten = 3
+		}
+
+		build_cost_ic = 450
+		fuel_consumption = 0
+		manpower = 2
+	}
+
+	anti_ship_missile_equipment_1 = {
+		year = 1944
+
+		archetype = anti_ship_missile_equipment
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 200
+		maximum_speed = 5800
+		
+		build_cost_ic = 300
+	}
+
+	anti_ship_missile_equipment_2 = {
+		year = 1945
+
+		archetype = anti_ship_missile_equipment
+		parent = anti_ship_missile_equipment_1
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 300
+		maximum_speed = 7000
+		naval_strike_attack = 80
+		naval_strike_targetting = 4
+		
+		build_cost_ic = 500
+	}
+	
+	anti_ship_missile_equipment_3 = {
+		year = 1946
+
+		archetype = anti_ship_missile_equipment
+		parent = anti_ship_missile_equipment_2
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 400
+		maximum_speed = 8800
+		naval_strike_attack = 110
+		naval_strike_targetting = 4
+		
+		build_cost_ic = 625
+	}
+}
+
+equipments = {
+	
+	kamikaze_drone_equipment = {
+		year = 1936
+
+		allow_mission_type = {
+			strategic_bomber
+			naval_bomber
+			port_strike
+		}
+		
+		is_archetype = yes
+		can_license = no
+		type = suicide
+		group_by = type
+		sprite = missile_default
+		air_map_icon_frame = 9
+		
+		interface_category = interface_category_air
+				
+		reliability = 0.6
+
+		# Air vs Navy - high damage / low hit chance / hard to hurt
+		naval_strike_attack = 80
+		naval_strike_targetting = 3.8
+		
+		air_agility = 8
+		air_bombing = 12
+
+		#Space taken in convoy
+		lend_lease_cost = 1.5
+		
+		resources = {
+			aluminium = 1
+			steel = 1
+		}
+
+		build_cost_ic = 6
+		fuel_consumption = 0
+		manpower = 2
+	}
+
+	kamikaze_drone_equipment_1 = {
+		year = 1944
+
+		archetype = kamikaze_drone_equipment
+		is_buildable = yes
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 440
+		maximum_speed = 440
+		
+		build_cost_ic = 6
+	}
+
+}

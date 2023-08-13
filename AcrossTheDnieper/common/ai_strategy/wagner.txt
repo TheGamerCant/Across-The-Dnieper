@@ -1,0 +1,75 @@
+send_volunteers_to_donbass = {
+	enable = {
+		AND = {
+			has_war = no
+			original_tag = WAG
+		}
+		
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "DON"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "DON"
+		value = 1500
+	}
+	ai_strategy = {
+		type = befriend
+		id = "LHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "LHK"
+		value = 1500
+	}
+	ai_strategy = {
+		type = befriend
+		id = "KHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KHK"
+		value = 1500
+	}
+	ai_strategy = {
+		type = befriend
+		id = "NOV"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "NOV"
+		value = 1500
+	}
+}
+
+send_volunteers_to_russia = {
+	enable = {
+		AND = {
+			original_tag = WAG
+			has_country_flag = wagner_can_send_volunteers_to_russia
+		}
+		
+	}
+	
+	abort = {
+		NOT = { has_country_flag = wagner_can_send_volunteers_to_russia }
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "SOV"
+		value = 100
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SOV"
+		value = 1500
+	}
+}

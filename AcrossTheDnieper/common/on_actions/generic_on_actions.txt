@@ -1,0 +1,275 @@
+on_actions={	
+	on_startup = {
+		effect = {
+			every_country = { country_event = { id = generic.3 } }
+			every_country={
+				limit = {
+					NOT={
+						OR = {
+							tag = WAG 
+							tag = ZZZ
+						}
+					}
+				}
+				add_ideas = generic_demographic_crisis
+				every_state={
+					limit = { is_owned_by = PREV }		#Workaround for now
+					add_core_of = PREV
+				}
+			}	
+			
+			if={
+				limit={
+					has_game_rule = {
+						rule = factions
+						option = NATO_DISBANDED
+					}
+				}
+				USA = { dismantle_faction = yes }
+			}
+			else_if={
+				limit={
+					has_game_rule = {
+						rule = factions
+						option = CSTO_DISBANDED
+					}
+				}
+				SOV = { dismantle_faction = yes }
+			}
+			else_if={
+				limit={
+					has_game_rule = {
+						rule = factions
+						option = ALL_FACTIONS_DISBANDED
+					}
+				}
+				USA = { dismantle_faction = yes }
+				SOV = { dismantle_faction = yes }
+			}
+		}
+	}
+	on_monthly={
+		effect={
+			if={
+				limit = {
+					NOT={
+						OR = {
+							tag = WAG 
+							tag = ZZZ
+						}
+					}
+					NOT = { has_idea = generic_demographic_crisis }
+				}
+				add_ideas = generic_demographic_crisis
+			}
+		}
+	}
+	on_state_control_changed={
+		effect={
+			if = {	#Fall of Kherson
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 264 }
+					NOT={ has_global_flag = kherson_fell }
+                }
+				news_event = { id = city_captures.1 }
+			}
+			else_if = {	#Fall of Mariupol
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 230 }
+					NOT={ has_global_flag = mariupol_fell }
+                }
+				news_event = { id = city_captures.2 }
+			}
+			else_if = {	#Fall of Melitopol
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 250 }
+					NOT={ has_global_flag = melitopol_fell }
+                }
+				news_event = { id = city_captures.3 }
+			}
+			else_if = {	#Fall of Bakhmut
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 146 }
+					NOT={ has_global_flag = bachmut_fell }
+                }
+				news_event = { id = city_captures.4 }
+			}
+			else_if = {	#Liberation of Mariupol
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 230 }
+					NOT={ has_global_flag = mariupol_lib }
+					has_global_flag = mariupol_fell
+                }
+				news_event = { id = city_captures.5 }
+			}
+			else_if = {	#Liberation of Bakhmut
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 146 }
+					NOT={ has_global_flag = bachmut_lib }
+					has_global_flag = bachmut_fell
+                }
+				news_event = { id = city_captures.6 }
+			}
+			else_if = {	#Fall of Simeropol
+                limit = {
+					SOV={ has_war_with = CRI } 
+					tag = SOV
+					FROM.FROM = { state = 344 }
+					NOT={ has_global_flag = cri_simfertopol_fell }
+                }
+				news_event = { id = city_captures.7 }
+			}
+			else_if = {	#Fall of Berdyansk
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 243 }
+					NOT={ has_global_flag = berdyansk_fell }
+                }
+				news_event = { id = city_captures.8 }
+			}
+			else_if = {	#Liberation of Crimea
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					UKR_is_in_full_control_of_crimea = yes
+					NOT={ has_global_flag = crimea_liberated }
+                }
+				news_event = { id = city_captures.9 }
+			}
+			else_if = {	#Liberation of Donetsk
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					UKR_is_in_full_control_of_donetsk = yes
+					NOT={ has_global_flag = lib_donetsk }
+                }
+				news_event = { id = city_captures.10 }
+			}
+			else_if = {	#Liberation of Luhansk
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					UKR_is_in_full_control_of_luhansk = yes
+					NOT={ has_global_flag = lib_luhansk }
+                }
+				news_event = { id = city_captures.11 }
+			}
+			else_if = {	#Liberation of Kerch
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 331 }
+					NOT={ has_global_flag = fall_kerch }
+                }
+				news_event = { id = city_captures.12 }
+			}
+			else_if = {	#Fall of Kyiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 92 }
+					NOT={ has_global_flag = fall_kyiv }
+                }
+				news_event = { id = city_captures.13 }
+			}
+			else_if = {	#Liberation of Kyiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 92 }
+					NOT={ has_global_flag = lib_kyiv }
+					has_global_flag = fall_kyiv
+                }
+				news_event = { id = city_captures.14 }
+			}
+			else_if = {	#Fall of Kharkiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 94 }
+					NOT={ has_global_flag = fall_kharkiv }
+                }
+				news_event = { id = city_captures.15 }
+			}
+			else_if = {	#Liberation of Kharkiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 94 }
+					NOT={ has_global_flag = lib_kharkiv }
+					has_global_flag = fall_kharkiv
+                }
+				news_event = { id = city_captures.16 }
+			}
+			else_if = {	#Fall of Mykolaiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = SOV
+					FROM.FROM = { state = 236 }
+					NOT={ has_global_flag = fall_mykolaiv }
+                }
+				news_event = { id = city_captures.17 }
+			}
+			else_if = {	#Liberation of Mykolaiv
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 236 }
+					NOT={ has_global_flag = lib_mykolaiv }
+					has_global_flag = fall_mykolaiv
+                }
+				news_event = { id = city_captures.18 }
+			}
+			else_if = {	#Fall of Sevastopol
+                limit = {
+					tag = SOV
+					FROM.FROM = { state = 354 }
+					NOT={ has_global_flag = fall_sevastopol }
+                }
+				news_event = { id = city_captures.19 }
+			}
+			else_if = {	#Liberation of Sevastopol
+                limit = {
+					SOV={ has_war_with = UKR } 
+					tag = UKR
+					FROM.FROM = { state = 354 }
+					NOT={ has_global_flag = lib_sevastopol }
+					has_global_flag = fall_sevastopol
+                }
+				news_event = { id = city_captures.20 }
+			}
+		}
+	}
+	on_peace={
+		effect={
+			if={
+				limit={
+					has_war = no
+					OR={
+						has_country_flag = original_economy_law_was_western_economy
+						has_country_flag = original_economy_law_was_oligarchy
+						has_country_flag = original_economy_law_was_centrally_planned_economy
+						has_country_flag = original_economy_law_was_rentier_state
+						has_country_flag = original_army_law_was_volunteer_only
+						has_country_flag = original_army_law_was_army_disbanded
+						has_country_flag = original_army_law_was_limited_conscription
+					}
+				}
+				country_event = { id = generic.2 days = 14 }
+			}
+		}
+	}
+}

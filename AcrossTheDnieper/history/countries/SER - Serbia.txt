@@ -1,0 +1,313 @@
+﻿capital = 337
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "SER_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "SER_2014"
+}
+
+create_country_leader = {
+	name = "Tomislav Nikolić"
+	desc = "Tomislav Nikolić is a member of the Serbian Radical Party and has a long history of nationalist and populist politics. Nikolić is focused on promoting Serbian interests and expanding Serbia's power in the region. He is be a strong supporter of a united Serbia, which may lead him to take an aggressive stance towards neighboring countries like Bosnia, Croatia, and Kosovo. Nikolić has a tendency towards authoritarianism and seeks to consolidate power within Serbia. He prioritizes military development and expansion, and is more willing to take risks in order to achieve his goals. Nikolić is a complex and controversial leader, with a focus on Serbian nationalism and expansionism. His leadership style and goals require careful management and strategic planning in order to be successful."
+	ideology = serbian_populist_subideology
+	picture = gfx/leaders/SER/Portrait_Tomislav_Nikolić.dds
+}
+
+2018.1.1 = {
+    create_country_leader = {
+	    name = "Aleksandar Vučić"
+	    desc = "Test Serbia"
+	    ideology = serbian_populist_subideology
+	    picture = gfx/leaders/SER/Portrait_Aleksandar_Vučić.dds
+    }
+}
+
+set_research_slots = 3
+set_stability = 0.45
+set_war_support = 0.23
+
+set_variable = {
+	gdp = 48.394
+}
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+
+	gw_artillery = 1
+	rocket_artillery = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+		t_90 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		t90_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_convoys = 0
+
+set_politics = {
+	ruling_party = populist
+	last_election = "2012.5.25"
+	election_frequency = 24
+	elections_allowed = yes
+}
+
+add_ideas = {
+	oligarchy
+	authoritarian_democracy
+	limited_conscription
+	free_press
+	free_trade_unions
+	bipolarist
+
+	religion_law_religious
+	womens_rights_traditional_values
+	lgbtq_rights_behind_closed_doors
+	minority_rights_separate_but_equal
+	nationalism_laws_revanchist
+	firearm_laws_restricted
+	alchohol_narcotics_laws_largely_regulated
+}
+
+set_popularities = {
+	fascist = 5
+	ultranationalist = 1
+
+	eastern_conservative = 5
+	populist = 26
+
+	neoconservative = 8
+	eastern_liberal = 5
+	neoliberal = 1
+	libertarian = 6
+	social_democracy = 23
+
+	socialist = 15
+	moderate_communist = 1
+	hardline_communist = 1
+
+	anarchism_ideology = 1
+	absolute_monarchy_ideology = 1
+	theocracy_ideology = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Su-27SM"
+		amount = 46
+		producer = SOV
+	}
+}

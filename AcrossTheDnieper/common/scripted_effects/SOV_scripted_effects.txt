@@ -1,0 +1,400 @@
+get_opposition_o_meter_3000_stats={
+	clamp_variable = { var = SOV_opposition_unity min = 0 max = 100 }
+	clamp_variable = { var = SOV_opposition_strength min = 0 max = 100 }
+	set_variable = { opposition_dial_frame = SOV_opposition_unity }
+	add_to_variable = { opposition_dial_frame = SOV_opposition_strength }
+	divide_variable = { opposition_dial_frame = 2 }
+	set_variable = { opposition_pie_frame = opposition_dial_frame }
+	divide_variable = { opposition_pie_frame = 2 }
+	subtract_from_variable = { opposition_pie_frame = 0.1 }
+
+	set_variable = { opposition_dial_frame2 = 100 } #this is for putins percentage
+	subtract_from_variable = { opposition_dial_frame2 = opposition_dial_frame }
+
+
+	#SOC DEM
+	if = {
+		limit = {
+			NOT = { check_variable = { SOV_soc_dem_opposition_status = -2 } }
+		}
+
+		set_temp_variable = { soc_dem_pp = opposition_dial_frame}
+		divide_temp_variable = { soc_dem_pp  = 1000 }
+		multiply_temp_variable = { soc_dem_pp = THIS.SOV_soc_dem_opposition_status }
+	
+		set_variable = { SOV_soc_dem_opposition_political_power_gain = soc_dem_pp } 
+	
+		set_temp_variable = { soc_dem_drift = opposition_dial_frame}
+		divide_temp_variable = { soc_dem_drift = 2.5 }
+		round_temp_variable = soc_dem_drift
+		divide_temp_variable = { soc_dem_drift  = 1000 }
+		multiply_temp_variable = { soc_dem_drift = THIS.SOV_soc_dem_opposition_status }
+		multiply_temp_variable = { soc_dem_drift = -1 }
+	
+		set_variable = { SOV_soc_dem_opposition_social_democracy_drift = soc_dem_drift }
+	}
+
+	else = {
+		set_temp_variable = { soc_dem_pp = opposition_dial_frame}
+		divide_temp_variable = { soc_dem_pp  = 1000 }
+		multiply_temp_variable = { soc_dem_pp = THIS.SOV_soc_dem_opposition_status }
+		multiply_temp_variable = { soc_dem_pp = -2 }
+	
+		set_variable = { SOV_soc_dem_opposition_political_power_gain = soc_dem_pp } 
+	
+		set_temp_variable = { soc_dem_drift = opposition_dial_frame}
+		divide_temp_variable = { soc_dem_drift = 2.5 }
+		round_temp_variable = soc_dem_drift
+		divide_temp_variable = { soc_dem_drift  = 1000 }
+		multiply_temp_variable = { soc_dem_drift = THIS.SOV_soc_dem_opposition_status }
+	
+		set_variable = { SOV_soc_dem_opposition_social_democracy_drift = soc_dem_drift }
+	}
+
+
+	#ULTRANATIONALIST
+	if = {
+		limit = {
+			NOT = { check_variable = { SOV_ultranationalist_opposition_status = -2 } }
+		}
+
+		set_temp_variable = { ultra_pp = opposition_dial_frame}
+		divide_temp_variable = { ultra_pp  = 1000 }
+		multiply_temp_variable = { ultra_pp = THIS.SOV_ultranationalist_opposition_status }
+	
+		set_variable = { SOV_ultranationalist_opposition_political_power_gain = ultra_pp }
+	
+		set_temp_variable = { ultra_drift = opposition_dial_frame}
+		divide_temp_variable = { ultra_drift = 2.5 }
+		round_temp_variable = ultra_drift
+		divide_temp_variable = { ultra_drift  = 1000 }
+		multiply_temp_variable = { ultra_drift = THIS.SOV_ultranationalist_opposition_status }
+		multiply_temp_variable = { ultra_drift = -1 }
+	
+		set_variable = { SOV_ultranationalist_opposition_ultranationalist_drift = ultra_drift }
+	}
+
+	else = {
+		set_temp_variable = { ultra_pp = opposition_dial_frame}
+		divide_temp_variable = { ultra_pp  = 1000 }
+		multiply_temp_variable = { ultra_pp = THIS.SOV_ultranationalist_opposition_status }
+		multiply_temp_variable = { ultra_pp = -2 }
+	
+		set_variable = { SOV_ultranationalist_opposition_political_power_gain = ultra_pp } 
+	
+		set_temp_variable = { ultra_drift = opposition_dial_frame}
+		divide_temp_variable = { ultra_drift = 2.5 }
+		round_temp_variable = ultra_drift
+		divide_temp_variable = { ultra_drift  = 1000 }
+		multiply_temp_variable = { ultra_drift = THIS.SOV_ultranationalist_opposition_status }
+	
+		set_variable = { SOV_ultranationalist_opposition_ultranationalist_drift = ultra_drift }
+	}
+
+
+	#COMMUNIST
+	if = {
+		limit = {
+			NOT = { check_variable = { SOV_communist_opposition_status = -2 } }
+		}
+
+		set_temp_variable = { commie_pp = opposition_dial_frame}
+		divide_temp_variable = { commie_pp  = 1000 }
+		multiply_temp_variable = { commie_pp = THIS.SOV_communist_opposition_status }
+	
+		set_variable = { SOV_communist_opposition_political_power_gain = commie_pp }
+	
+		set_temp_variable = { commie_drift = opposition_dial_frame}
+		divide_temp_variable = { commie_drift = 2.5 }
+		round_temp_variable = commie_drift
+		divide_temp_variable = { commie_drift  = 1000 }
+		multiply_temp_variable = { commie_drift = THIS.SOV_communist_opposition_status }
+		multiply_temp_variable = { commie_drift = -1 }
+	
+		set_variable = { SOV_communist_opposition_hardline_communist_drift = commie_drift }
+	}
+	
+	else = {
+		set_temp_variable = { commie_pp = opposition_dial_frame}
+		divide_temp_variable = { commie_pp  = 1000 }
+		multiply_temp_variable = { commie_pp = THIS.SOV_communist_opposition_status }
+		multiply_temp_variable = { commie_pp = -2 }
+	
+		set_variable = { SOV_communist_opposition_political_power_gain = commie_pp } 
+	
+		set_temp_variable = { commie_drift = opposition_dial_frame}
+		divide_temp_variable = { commie_drift = 2.5 }
+		round_temp_variable = commie_drift
+		divide_temp_variable = { commie_drift  = 1000 }
+		multiply_temp_variable = { commie_drift = THIS.SOV_communist_opposition_status }
+	
+		set_variable = { SOV_communist_opposition_hardline_communist_drift = commie_drift }
+	}
+
+
+
+
+	#EASTERN LIB
+	if = {
+		limit = {
+			NOT = { check_variable = { SOV_eastern_liberal_opposition_status = -2 } }
+		}
+		set_temp_variable = { lib_pp = opposition_dial_frame}
+		divide_temp_variable = { lib_pp  = 1000 }
+		multiply_temp_variable = { lib_pp = THIS.SOV_eastern_liberal_opposition_status }
+	
+		set_variable = { SOV_eastern_liberal_opposition_political_power_gain = lib_pp }
+	
+		set_temp_variable = { lib_drift = opposition_dial_frame}
+		divide_temp_variable = { lib_drift = 2.5 }
+		round_temp_variable = lib_drift
+		divide_temp_variable = { lib_drift  = 1000 }
+		multiply_temp_variable = { lib_drift = THIS.SOV_eastern_liberal_opposition_status }
+		multiply_temp_variable = { lib_drift = -1 }
+	
+		set_variable = { SOV_eastern_liberal_opposition_eastern_liberal_drift = lib_drift }
+	}
+
+	else = {
+		set_temp_variable = { lib_pp = opposition_dial_frame}
+		divide_temp_variable = { lib_pp  = 1000 }
+		multiply_temp_variable = { lib_pp = THIS.SOV_eastern_liberal_opposition_status }
+		multiply_temp_variable = { lib_pp = -2 }
+	
+		set_variable = { SOV_eastern_liberal_opposition_political_power_gain = lib_pp } 
+	
+		set_temp_variable = { lib_drift = opposition_dial_frame}
+		divide_temp_variable = { lib_drift = 2.5 }
+		round_temp_variable = lib_drift
+		divide_temp_variable = { lib_drift  = 1000 }
+		multiply_temp_variable = { lib_drift = THIS.SOV_eastern_liberal_opposition_status }
+	
+		set_variable = { SOV_eastern_liberal_opposition_eastern_liberal_drift = lib_drift }
+	}
+	
+	#NEOLIBERAL
+	if = {
+		limit = {
+			NOT = { check_variable = { SOV_neoliberal_opposition_status = -2 } }
+		}
+		set_temp_variable = { neolib_pp = opposition_dial_frame}
+		divide_temp_variable = { neolib_pp  = 1000 }
+		multiply_temp_variable = { neolib_pp = THIS.SOV_neoliberal_opposition_status }
+	
+		set_variable = { SOV_neoliberal_opposition_political_power_gain = neolib_pp }
+	
+		set_temp_variable = { neolib_drift = opposition_dial_frame}
+		divide_temp_variable = { neolib_drift = 2.5 }
+		round_temp_variable = neolib_drift
+		divide_temp_variable = { neolib_drift  = 1000 }
+		multiply_temp_variable = { neolib_drift = THIS.SOV_neoliberal_opposition_status }
+		multiply_temp_variable = { neolib_drift = -1 }
+	
+		set_variable = { SOV_neoliberal_opposition_neoliberal_drift = neolib_drift }
+	}
+
+	else = {
+		set_temp_variable = { neolib_pp = opposition_dial_frame}
+		divide_temp_variable = { neolib_pp  = 1000 }
+		multiply_temp_variable = { neolib_pp = THIS.SOV_neoliberal_opposition_status }
+		multiply_temp_variable = { neolib_pp = -2 }
+	
+		set_variable = { SOV_neoliberal_opposition_political_power_gain = neolib_pp } 
+	
+		set_temp_variable = { neolib_drift = opposition_dial_frame}
+		divide_temp_variable = { neolib_drift = 2.5 }
+		round_temp_variable = neolib_drift
+		divide_temp_variable = { neolib_drift  = 1000 }
+		multiply_temp_variable = { neolib_drift = THIS.SOV_neoliberal_opposition_status }
+	
+		set_variable = { SOV_neoliberal_opposition_neoliberal_drift = neolib_drift }
+	}
+	
+	set_variable={ SOV_communist_opposition_frame = SOV_communist_opposition_status }
+	multiply_variable = { SOV_communist_opposition_frame = -1 }
+	add_to_variable = { SOV_communist_opposition_frame = 1 }
+	set_variable={ SOV_ultranationalist_opposition_frame = SOV_ultranationalist_opposition_status }
+	multiply_variable = { SOV_ultranationalist_opposition_frame = -1 }
+	add_to_variable = { SOV_ultranationalist_opposition_frame = 1 }
+	set_variable={ SOV_soc_dem_opposition_frame = SOV_soc_dem_opposition_status }
+	multiply_variable = { SOV_soc_dem_opposition_frame = -1 }
+	add_to_variable = { SOV_soc_dem_opposition_frame = 1 }
+	set_variable={ SOV_eastern_liberal_opposition_frame = SOV_eastern_liberal_opposition_status }
+	multiply_variable = { SOV_eastern_liberal_opposition_frame = -1 }
+	add_to_variable = { SOV_eastern_liberal_opposition_frame = 1 }
+	set_variable={ SOV_neoliberal_opposition_frame = SOV_neoliberal_opposition_status }
+	multiply_variable = { SOV_neoliberal_opposition_frame = -1 }
+	add_to_variable = { SOV_neoliberal_opposition_frame = 1 }
+}
+
+opposition_decrease_strength_by_8 = {
+	custom_effect_tooltip = "opposition_decrease_strength_by_8"
+	subtract_from_variable = { SOV_opposition_strength = 8 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+
+opposition_decrease_strength_by_5 = {
+	custom_effect_tooltip = "opposition_decrease_strength_by_5"
+	subtract_from_variable = { SOV_opposition_strength = 5 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_strength_by_2 = {
+	custom_effect_tooltip = "opposition_decrease_strength_by_2"
+	subtract_from_variable = { SOV_opposition_strength = 2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_strength_by_1 = {
+	custom_effect_tooltip = "opposition_decrease_strength_by_1"
+	subtract_from_variable = { SOV_opposition_strength = 1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_increase_strength_by_3 = {
+	custom_effect_tooltip = "opposition_increase_strength_by_3"
+	add_to_variable = { SOV_opposition_strength = 3 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_increase_strength_by_5 = {
+	custom_effect_tooltip = "opposition_increase_strength_by_5"
+	add_to_variable = { SOV_opposition_strength = 5 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_unity_by_0_5 = {
+	custom_effect_tooltip = "opposition_decrease_unity_by_0_5"
+	subtract_from_variable = { SOV_opposition_unity = 0.5 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_unity_by_2 = {
+	custom_effect_tooltip = "opposition_decrease_unity_by_2"
+	subtract_from_variable = { SOV_opposition_unity = 2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_unity_by_4 = {
+	custom_effect_tooltip = "opposition_decrease_unity_by_4"
+	subtract_from_variable = { SOV_opposition_unity = 4 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_unity_by_5 = {
+	custom_effect_tooltip = "opposition_decrease_unity_by_5"
+	subtract_from_variable = { SOV_opposition_unity = 5 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_decrease_unity_by_8 = {
+	custom_effect_tooltip = "opposition_decrease_unity_by_8"
+	subtract_from_variable = { SOV_opposition_unity = 8 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+
+
+opposition_increase_unity_by_3_5 = {
+	custom_effect_tooltip = "opposition_increase_unity_by_3_5"
+	add_to_variable = { SOV_opposition_unity = 3.5 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+
+#DESTROY ALLAT
+
+opposition_east_lib_change_to_destroyed = {
+	custom_effect_tooltip = "opposition_east_lib_change_to_destroyed"
+	set_variable={ SOV_eastern_liberal_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_neolib_change_to_destroyed = {
+	custom_effect_tooltip = "opposition_neolib_change_to_destroyed"
+	set_variable={ SOV_neoliberal_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_communist_change_to_destroyed = {
+	custom_effect_tooltip = "opposition_communist_change_to_destroyed"
+	set_variable={ SOV_communist_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_ultranationalist_change_to_destroyed = {
+	custom_effect_tooltip = "opposition_ultranationalist_change_to_destroyed"
+	set_variable={ SOV_ultranationalist_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_soc_dem_change_to_destroyed = {
+	custom_effect_tooltip = "opposition_soc_dem_change_to_destroyed"
+	set_variable={ SOV_soc_dem_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+#ACTIVE
+
+opposition_east_lib_change_to_active = {
+	custom_effect_tooltip = "opposition_east_lib_change_to_active"
+	set_variable={ SOV_eastern_liberal_opposition_status = -1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_neolib_change_to_active = {
+	custom_effect_tooltip = "opposition_neolib_change_to_active"
+	set_variable={ SOV_neoliberal_opposition_status = -1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_communist_change_to_active = {
+	custom_effect_tooltip = "opposition_communist_change_to_active"
+	set_variable={ SOV_communist_opposition_status = -1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_ultranationalist_change_to_active = {
+	custom_effect_tooltip = "opposition_ultranationalist_change_to_active"
+	set_variable={ SOV_ultranationalist_opposition_status = -1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_soc_dem_change_to_active = {
+	custom_effect_tooltip = "opposition_soc_dem_change_to_active"
+	set_variable={ SOV_soc_dem_opposition_status = -1 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+#PUPPET
+
+opposition_east_lib_change_to_puppet = {
+	custom_effect_tooltip = "opposition_east_lib_change_to_puppet"
+	set_variable={ SOV_eastern_liberal_opposition_status = 0 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_neolib_change_to_puppet = {
+	custom_effect_tooltip = "opposition_neolib_change_to_puppet"
+	set_variable={ SOV_neoliberal_opposition_status = 0 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_communist_change_to_puppet = {
+	custom_effect_tooltip = "opposition_communist_change_to_puppet"
+	set_variable={ SOV_communist_opposition_status = 0 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_ultranationalist_change_to_puppet = {
+	custom_effect_tooltip = "opposition_ultranationalist_change_to_puppet"
+	set_variable={ SOV_ultranationalist_opposition_status = 0 }
+	get_opposition_o_meter_3000_stats = yes
+}
+
+opposition_soc_dem_change_to_puppet = {
+	custom_effect_tooltip = "opposition_soc_dem_change_to_puppet"
+	set_variable={ SOV_soc_dem_opposition_status = 0 }
+	get_opposition_o_meter_3000_stats = yes
+}

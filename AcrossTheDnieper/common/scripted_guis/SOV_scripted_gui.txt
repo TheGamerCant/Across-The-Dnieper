@@ -1,0 +1,337 @@
+scripted_gui = {
+
+	SOV_putins_opposition_gui = {
+		context_type = decision_category
+		window_name = "SOV_putins_opposition_gui_ui"
+		ai_enabled = {
+			always = no
+		}
+		
+		visible={
+			NOT = { russia_rework_trigger = yes }
+		}
+		
+		properties = {
+			opposition_circle = {
+				frame = opposition_pie_frame
+			}
+			half_dial = {
+				frame = opposition_dial_frame
+			}
+			opposition_communist={
+				frame = SOV_communist_opposition_frame
+			}
+			opposition_ultranationalist={
+				frame = SOV_ultranationalist_opposition_frame
+			}
+			opposition_democrat={
+				frame = SOV_soc_dem_opposition_frame
+			}
+			opposition_eastern_liberal={
+				frame = SOV_eastern_liberal_opposition_frame
+			}
+			opposition_neoliberal={
+				frame = SOV_neoliberal_opposition_frame
+			}
+		}
+	}
+
+	SOV_funding_transnistria_gui = {
+		context_type = decision_category
+		window_name = "SOV_funding_transnistria_gui_ui"
+		ai_enabled = {
+			always = no
+		}
+		
+		visible={
+			NOT = { russia_rework_trigger = yes }
+		}
+	}
+	
+	SOV_media_gui = {
+		context_type = decision_category
+		window_name = "SOV_media_gui"
+		ai_enabled = {
+			always = no
+		}
+		
+		visible={
+			russia_rework_trigger = yes
+		}
+		
+		properties = {
+			SOV_media_dot = {
+				x = SOV.SOV_media_dot_X
+				y = SOV.SOV_media_dot_Y
+			}
+		}
+	}
+	
+	SOV_open_faction_management_political_tab = {
+		window_name = "SOV_open_faction_management_political_tab"
+		context_type = player_context
+		parent_window_token = politics_tab
+		
+		visible={
+			tag = SOV
+			russia_rework_trigger = yes
+		}
+		
+		ai_enabled = {
+			always = no
+		}
+		
+		effects={
+			SOV_open_faction_management_political_tab_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = SOV_opened_faction_management_flag } }
+					set_country_flag = SOV_opened_faction_management_flag
+				}
+				else={
+					clr_country_flag = SOV_opened_faction_management_flag
+				}
+			}
+		}
+	}
+	
+	
+	SOV_open_faction_management_bottom_right = {
+		window_name = "SOV_open_faction_management_bottom_right"
+		context_type = player_context
+		
+		visible={
+			tag = SOV
+			russia_rework_trigger = yes
+		}
+		
+		ai_enabled = {
+			always = no
+		}
+		
+		effects={
+			SOV_open_faction_management_bottom_right_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = SOV_opened_faction_management_flag } }
+					set_country_flag = SOV_opened_faction_management_flag
+				}
+				else={
+					clr_country_flag = SOV_opened_faction_management_flag
+				}
+			}
+		}
+	}
+	
+	SOV_faction_management_window = {
+		window_name = "SOV_faction_management_window"
+		context_type = player_context
+		
+		visible={
+			tag = SOV
+			russia_rework_trigger = yes
+			has_country_flag = SOV_opened_faction_management_flag
+		}
+		
+		triggers={
+			faction_management_desc_box_visible={
+				NOT = { has_country_flag = started_the_faction_management_interface }
+			}
+			start_interface_button_visible={
+				NOT = { has_country_flag = started_the_faction_management_interface }
+			}
+			
+			underlay_1_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			underlay_2_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			underlay_3_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			underlay_4_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			underlay_5_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			underlay_6_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			
+			liberals_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			technocrats_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			oil_and_gas_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			siloviki_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			putinists_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			nationalists_title_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			
+			liberals_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			technocrats_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			oil_and_gas_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			siloviki_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			putinists_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			nationalists_tt_overlay_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			
+			liberals_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			technocrats_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			oil_and_gas_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			siloviki_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			putinists_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			nationalists_status_box_visible={
+				has_country_flag = started_the_faction_management_interface
+			}
+			
+			navalny_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			}
+			yavlinsky_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			}
+			medvedev_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			}
+			kadyrov_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			}
+			girkin_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = igor_girkin_not_active_flag }
+			}
+			prigozhin_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			}
+			chemezov_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			}
+			nemtsov_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			}
+			yuri_kovalchuk_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			}
+			mikhail_kovalchuk_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			}
+			zolotov_icon_visible={
+				has_country_flag = started_the_faction_management_interface
+				NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			}
+		}
+		
+		effects={
+			close_button_click = {
+				clr_country_flag = SOV_opened_faction_management_flag
+			}
+			
+			start_interface_button_click={
+				set_country_flag = started_the_faction_management_interface
+			}
+		}
+		
+		properties={
+			navalny_icon={
+				x = SOV.alexei_navalny_X
+				y = SOV.alexei_navalny_Y
+			}
+			yavlinsky_icon={
+				x = SOV.grigory_yavlinsky_X
+				y = SOV.grigory_yavlinsky_Y
+			}
+			medvedev_icon={
+				x = SOV.dmitri_medvedev_X
+				y = SOV.dmitri_medvedev_Y
+			}
+			kadyrov_icon={
+				x = SOV.ramzan_kadyrov_X
+				y = SOV.ramzan_kadyrov_Y
+			}
+			girkin_icon={
+				x = SOV.igor_girkin_X
+				y = SOV.igor_girkin_Y
+			}
+			prigozhin_icon={
+				x = SOV.yevgeny_prigozhin_X
+				y = SOV.yevgeny_prigozhin_Y
+			}
+			chemezov_icon={
+				x = SOV.sergey_chemezov_X
+				y = SOV.sergey_chemezov_Y
+			}
+			nemtsov_icon={
+				x = SOV.boris_nemtsov_X
+				y = SOV.boris_nemtsov_Y
+			}
+			yuri_kovalchuk_icon={
+				x = SOV.yuri_kovalchuk_X
+				y = SOV.yuri_kovalchuk_Y
+			}
+			mikhail_kovalchuk_icon={
+				x = SOV.mikhail_kovalchuk_X
+				y = SOV.mikhail_kovalchuk_Y
+			}
+			zolotov_icon={
+				x = SOV.viktor_zolotov_X
+				y = SOV.viktor_zolotov_Y
+			}
+		}
+	}
+	
+	SOV_factions_title_window = {
+		window_name = "SOV_factions_title_window"
+		context_type = player_context
+		
+		visible={
+			tag = SOV
+			russia_rework_trigger = yes
+			has_country_flag = SOV_opened_faction_management_flag
+			has_country_flag = started_the_faction_management_interface
+		}
+		
+		triggers={
+			
+		}
+	}
+}

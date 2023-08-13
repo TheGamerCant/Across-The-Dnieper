@@ -1,0 +1,198 @@
+ideas = {
+	mobilization_laws = {
+		law = yes
+		use_list_view = yes
+
+		army_disbanded = {
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 7
+			
+			picture = citizen_militia_1
+
+			available = {
+				
+			}
+			visible = {
+				NOT = { tag = WAG }
+			}
+			modifier = {
+				conscription = 0.0025
+				war_support_factor = -0.2
+				stability_factor = 0.25
+				consumer_goods_factor = -0.1
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+
+			cancel_if_invalid = no
+		}
+
+		volunteer_only = {
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 6
+
+			available = {
+				
+			}
+			visible = {
+				NOT = { tag = WAG }
+			}
+
+			modifier = {
+				conscription = 0.006
+				stability_factor = 0.1
+				consumer_goods_factor = -0.035
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				land_reinforce_rate = 0.04
+				army_org_factor = 0.05
+				training_time_factor = 0.25
+			}
+
+			default = yes
+
+			cancel_if_invalid = no
+		}
+
+		limited_conscription = {
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 5
+
+			available = {
+				
+			}
+			visible = {
+				NOT = { tag = WAG }
+			}
+			modifier = {
+				conscription = 0.012
+				consumer_goods_factor = 0.01
+			}
+
+			cancel_if_invalid = no
+		}
+
+		extensive_conscription = {
+			visible = {
+				NOT = { tag = WAG }
+			}
+			available = {
+				
+			}
+			
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 4
+
+			modifier = {
+				conscription = 0.028
+				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				consumer_goods_factor = 0.08
+				industrial_capacity_dockyard = -0.1
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				defensive_war_stability_factor = 0.05
+				offensive_war_stability_factor = -0.25
+			}
+
+			cancel_if_invalid = no
+		}
+
+		service_by_requirement = {
+			picture = chi_forced_conscription
+
+			available = {
+				
+			}
+
+			visible = {
+				NOT = { tag = WAG }
+			}
+
+			
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 3
+
+			modifier = {
+				conscription = 0.08
+				
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_core_defence_factor = 0.15
+				army_core_attack_factor = 0.1
+				breakthrough_factor = -0.15
+				
+				consumer_goods_factor = 0.25
+				industrial_capacity_factory = -0.3
+				industrial_capacity_dockyard = -0.3
+				production_speed_buildings_factor = -0.3
+				training_time_factor = -0.2
+				mobilization_speed = 0.75
+				defensive_war_stability_factor = -0.1
+				offensive_war_stability_factor = -0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+
+		pmc = {
+			picture = law_private_military_company
+
+			available = {
+				
+			}
+
+			visible = {
+				tag = WAG
+			}
+
+			ai_will_do = {
+   				factor = 1
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+			level = 8
+
+			modifier = {
+				conscription = 1
+				war_support_factor = 0.05
+			}
+
+			cancel_if_invalid = no
+		}
+	}
+}

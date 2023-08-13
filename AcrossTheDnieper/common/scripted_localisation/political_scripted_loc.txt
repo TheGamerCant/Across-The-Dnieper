@@ -1,0 +1,175 @@
+defined_text = {
+    name = GetMainFarRightParty
+	
+    text = {
+        trigger = {
+            check_variable = { party_popularity@fascist > party_popularity@ultranationalist }
+			check_variable = { party_popularity@fascist > party_popularity@military_junta }
+        }
+        localization_key = "main_party_is_fascist"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@ultranationalist > party_popularity@fascist }
+			check_variable = { party_popularity@ultranationalist > party_popularity@military_junta }
+        }
+        localization_key = "main_party_is_ultranationalist"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@military_junta > party_popularity@fascist }
+			check_variable = { party_popularity@military_junta > party_popularity@ultranationalist }
+        }
+        localization_key = "main_party_is_military_junta"
+    }
+
+	text = {
+        localization_key = "no_main_far_right_party"
+    }
+}
+
+defined_text = {
+    name = GetMainIlliberalParty
+	
+    text = {
+        trigger = {
+            check_variable = { party_popularity@eastern_conservative > party_popularity@populist }
+        }
+        localization_key = "main_party_is_eastern_conservative"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@populist > party_popularity@eastern_conservative }
+        }
+        localization_key = "main_party_is_populist"
+    }
+
+	text = {
+        localization_key = "no_main_illiberal_party"
+    }
+}
+
+defined_text = {
+    name = GetMainWesternParty
+	
+    text = {
+        trigger = {
+            check_variable = { party_popularity@neoconservative > party_popularity@neoliberal }
+			check_variable = { party_popularity@neoconservative > party_popularity@eastern_liberal }
+			check_variable = { party_popularity@neoconservative > party_popularity@libertarian }
+			check_variable = { party_popularity@neoconservative > party_popularity@social_democracy }
+        }
+        localization_key = "main_party_is_neoconservative"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@neoliberal > party_popularity@neoconservative }
+			check_variable = { party_popularity@neoliberal > party_popularity@eastern_liberal }
+			check_variable = { party_popularity@neoliberal > party_popularity@libertarian }
+			check_variable = { party_popularity@neoliberal > party_popularity@social_democracy }
+        }
+        localization_key = "main_party_is_neoliberal"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@eastern_liberal > party_popularity@neoconservative }
+			check_variable = { party_popularity@eastern_liberal > party_popularity@neoliberal }
+			check_variable = { party_popularity@eastern_liberal > party_popularity@libertarian }
+			check_variable = { party_popularity@eastern_liberal > party_popularity@social_democracy }
+        }
+        localization_key = "main_party_is_eastern_liberal"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@libertarian > party_popularity@neoconservative }
+			check_variable = { party_popularity@libertarian > party_popularity@neoliberal }
+			check_variable = { party_popularity@libertarian > party_popularity@eastern_liberal }
+			check_variable = { party_popularity@libertarian > party_popularity@social_democracy }
+        }
+        localization_key = "main_party_is_libertarian"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@social_democracy > party_popularity@neoconservative }
+			check_variable = { party_popularity@social_democracy > party_popularity@neoliberal }
+			check_variable = { party_popularity@social_democracy > party_popularity@eastern_liberal }
+			check_variable = { party_popularity@social_democracy > party_popularity@libertarian }
+        }
+        localization_key = "main_party_is_social_democracy"
+    }
+
+	text = {
+        localization_key = "no_main_western_party"
+    }
+}
+
+defined_text = {
+    name = GetMainFarLeftParty
+	
+    text = {
+        trigger = {
+            check_variable = { party_popularity@socialist > party_popularity@moderate_communist }
+			check_variable = { party_popularity@socialist > party_popularity@hardline_communist }
+        }
+        localization_key = "main_party_is_socialist"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@moderate_communist > party_popularity@socialist }
+			check_variable = { party_popularity@moderate_communist > party_popularity@hardline_communist }
+        }
+        localization_key = "main_party_is_moderate_communist"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@hardline_communist > party_popularity@socialist }
+			check_variable = { party_popularity@hardline_communist > party_popularity@moderate_communist }
+        }
+        localization_key = "main_party_is_hardline_communist"
+    }
+
+	text = {
+        localization_key = "no_main_far_left_party"
+    }
+}
+
+defined_text = {
+    name = GetMainNonAlignedParty
+	
+    text = {
+        trigger = {
+            check_variable = { party_popularity@anarchism_ideology > party_popularity@absolute_monarchy_ideology }
+			check_variable = { party_popularity@anarchism_ideology > party_popularity@theocracy_ideology }
+        }
+        localization_key = "main_party_is_anarchism_ideology"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@absolute_monarchy_ideology > party_popularity@anarchism_ideology }
+			check_variable = { party_popularity@absolute_monarchy_ideology > party_popularity@theocracy_ideology }
+        }
+        localization_key = "main_party_is_absolute_monarchy_ideology"
+    }
+	
+	text = {
+        trigger = {
+            check_variable = { party_popularity@theocracy_ideology > party_popularity@anarchism_ideology }
+			check_variable = { party_popularity@theocracy_ideology > party_popularity@absolute_monarchy_ideology }
+        }
+        localization_key = "main_party_is_theocracy_ideology"
+    }
+
+	text = {
+        localization_key = "no_main_non_aligned_party"
+    }
+}

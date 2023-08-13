@@ -1,0 +1,54 @@
+﻿add_namespace = transnistria
+
+country_event = {
+    id = transnistria.1
+    title = transnistria.1.t
+    desc = transnistria.1.d
+    #picture = 
+    is_triggered_only = yes
+
+
+    option = {
+        name = transnistria.1.a
+        SOV = {
+            send_equipment = {
+                equipment = jet_fighter_equipment 
+                amount = 100
+                target = TRZ
+            }
+        }
+
+    }
+}
+
+country_event = {
+    id = transnistria.2
+    title = transnistria.2.t
+    desc = transnistria.2.d
+    #picture = 
+    is_triggered_only = yes
+
+
+    option = {
+        name = transnistria.2.a
+
+        add_war_support = 0.015
+
+        TRZ = {
+            create_wargoal = { type = annex_everything target = MOL }
+        }
+    }
+
+    option = {
+        name = transnistria.2.b
+
+        add_stability = 0.01
+
+        TRZ = {
+            declare_war_on = {
+                target = MOL
+                type = annex_everything
+            }
+        }
+    }
+}

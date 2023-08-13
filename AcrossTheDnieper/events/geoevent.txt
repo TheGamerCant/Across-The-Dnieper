@@ -1,0 +1,99 @@
+add_namespace = geoevent
+
+#Protests against annexation
+country_event = {
+	id = geoevent.1
+	title = geoevent.1.t
+	desc = geoevent.1.d
+
+	picture = protests_against_annexation-423152
+	fire_only_once = yes
+	trigger = {
+		
+tag = GEO
+date < 2014.11.16
+
+
+	}
+	option = {
+		name = geoevent.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		add_war_support = 0.03
+
+add_stability = -0.02
+
+
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = geoevent.1.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		add_war_support = -0.05
+
+add_stability = -0.05
+
+
+		hidden_effect = {
+			
+		}
+	}
+}
+
+#Georgia declares on abkhazia after putins death
+country_event = {
+	id = geoevent.2
+	title = geoevent.2.t
+	desc = geoevent.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = geoevent.2.a
+		declare_war_on = {
+			target = ABK
+			type = annex_everything
+		}
+
+		hidden_effect = {
+			GEO = {
+				set_country_flag = GEO_has_invaded_ABK
+			}
+			
+			news_event = { id = russia.81 }
+		}
+	}
+}
+
+
+#Georgia declares on ossetia
+country_event = {
+	id = geoevent.3
+	title = geoevent.3.t
+	desc = geoevent.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = geoevent.3.a
+		declare_war_on = {
+			target = NOA
+			type = annex_everything
+		}
+
+		hidden_effect = {
+			news_event = { id = russia.83 }
+
+			hidden_effect = {
+				NOA = {
+					set_country_flag = NOA_vs_GEO_started
+				}
+			}
+		}
+	}
+}

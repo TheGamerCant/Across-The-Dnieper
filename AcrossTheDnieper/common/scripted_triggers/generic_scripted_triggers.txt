@@ -1,0 +1,79 @@
+has_far_right_government={
+	custom_trigger_tooltip={
+		tooltip = has_far_right_government_tt
+		OR={
+			has_government = fascist
+			has_government = ultranationalist
+			has_government = military_junta
+		}
+	}
+}
+
+has_illiberal_government={
+	custom_trigger_tooltip={
+		tooltip = has_illiberal_government_tt
+		OR={
+			has_government = eastern_conservative
+			has_government = populist
+		}
+	}
+}
+
+has_western_government={
+	custom_trigger_tooltip={
+		tooltip = has_western_government_tt
+		OR={
+			has_government = neoliberal
+			has_government = neoconservative
+			has_government = eastern_liberal
+			has_government = social_democracy
+			has_government = libertarian
+		}
+	}
+}
+
+has_far_left_government={
+	custom_trigger_tooltip={
+		tooltip = has_far_left_government_tt
+		OR={
+			has_government = socialist
+			has_government = moderate_communist
+			has_government = hardline_communist
+		}
+	}
+}
+
+has_non_aligned_government={
+	custom_trigger_tooltip={
+		tooltip = has_non_aligned_government_tt
+		OR={
+			has_government = anarchism_ideology
+			has_government = absolute_monarchy_ideology
+			has_government = theocracy_ideology
+		}
+	}
+}
+
+is_non_aligned_or_illiberal={	#For Peace conferances
+	OR={
+		has_government = anarchism_ideology
+		has_government = absolute_monarchy_ideology
+		has_government = theocracy_ideology
+		has_government = populist
+		has_government = eastern_conservative
+	}
+}
+
+is_in_nato={
+	is_in_faction_with = USA
+}
+
+any_donbass_country_exists={
+	OR={
+		country_exists = DON
+		country_exists = LHK
+		country_exists = KHK
+		country_exists = ODS
+		country_exists = NOV
+	}
+}

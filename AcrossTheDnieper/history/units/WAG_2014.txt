@@ -1,0 +1,83 @@
+##### Division Templates #####
+division_template = {
+	name = "Musicians"
+	template_counter = 33
+	priority = 2
+	division_names_group = WAG_ESF_01
+	regiments = {
+		elite_special_forces = { x = 0 y = 0 }
+		elite_special_forces = { x = 0 y = 1 }
+		elite_special_forces = { x = 0 y = 2 }
+
+		elite_special_forces = { x = 1 y = 0 }
+		elite_special_forces = { x = 1 y = 1 }
+		elite_special_forces = { x = 1 y = 2 }
+
+        artillery_brigade = { x = 2 y = 0}
+        artillery_brigade = { x = 2 y = 1}
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+}
+
+
+
+units = {
+	division = {
+		location = 14732
+		name = "1st Musician Battalion"
+		division_template = "Musicians"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+		start_manpower_factor = 1
+	}
+}
+
+instant_effect = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_0
+		amount = 1200
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 160
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment_1
+		amount = 160
+		producer = SOV
+	}
+
+    add_equipment_production = {
+        equipment = {
+	    type = infantry_equipment_0
+	    creator = "SOV"
+	    }
+	    requested_factories = 1
+	    progress = 0.05
+	    efficiency = 100
+    }
+
+	add_equipment_production = {
+        equipment = {
+	    type = support_equipment_1
+	    creator = "SOV"
+	    }
+	    requested_factories = 1
+	    progress = 0.05
+	    efficiency = 100
+    }
+
+	add_equipment_production = {
+        equipment = {
+	    type = artillery_equipment_1
+	    creator = "SOV"
+	    }
+	    requested_factories = 1
+	    progress = 0.05
+	    efficiency = 100
+    }
+}

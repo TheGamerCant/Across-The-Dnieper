@@ -1,0 +1,1854 @@
+putin_dies = {
+	hidden_effect = {
+		dismantle_faction = yes
+
+		news_event = { hours = 2 id = russia_news.1 }
+
+		load_focus_tree = russian_civil_war_putin
+	
+		kill_country_leader = yes
+	
+		create_country_leader = {
+			name = "State Duma"
+			desc = ""
+			picture = gfx/leaders/SOV/Portait_The_Federation_Council.png
+			ideology = united_russia_subideology
+		}
+	
+		country_event = { id = russia_civil_war.1 days = 12 } #Zyuganov
+		country_event = { id = russia_civil_war.2 days = 14 } #Dugin
+		country_event = { id = russia_civil_war.3 days = 16 } #Shoigu
+		country_event = { id = russia_civil_war.5 days = 18 } #Central Russia
+		country_event = { id = russia_civil_war.4 days = 22 } #Volga
+		country_event = { id = russia_civil_war.6 days = 25 } #South Russia
+	}
+}
+
+spawn_zyuganov={
+	hidden_effect={
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+
+			set_politics = {
+				ruling_party = moderate_communist
+			}
+			add_popularity = {
+				ideology = moderate_communist
+				popularity = 1
+			}
+			set_cosmetic_tag = SOV_communist
+			set_research_slots = 3
+
+			create_country_leader = {
+				name = "Gennady Zyuganov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Gennady_Zyuganov.png
+				ideology = russian_communist_party_subideology
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_gennady
+
+			add_ideas = {
+				limited_conscription
+				authoritarian_democracy
+				war_economy
+				state_controlled_press
+				trade_syndicates
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned
+				minority_rights_societal_discrimination
+				religion_law_state_atheist
+
+			}
+
+			transfer_state  = 44
+			set_province_controller = 13959
+			set_province_controller = 2250
+			set_province_controller = 7680
+			set_province_controller = 6368
+			set_province_controller = 9107
+			set_province_controller = 8
+			set_province_controller = 16335
+			set_province_controller = 3723
+			set_province_controller = 8606
+			set_province_controller = 4261
+			set_province_controller = 15699
+
+			every_state={
+				limit={
+					is_controlled_by = RFR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RFR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			
+
+			division_template = {
+				name = "Communist Russian Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 12
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Militia\" division_template = \"Communist Russian Militias\" start_experience_factor = 0.05" 
+						owner = RFR
+					}
+				}
+			}
+
+			declare_war_on = {
+				target = SOV
+				type = civil_war
+			}
+
+			add_civil_war_target = SOV
+		}
+		
+		SOV = {
+			transfer_units_fraction = {
+				target = RFR
+				size = 0.12
+				stockpile_ratio = 0.1
+				army_ratio = 0.15
+				navy_ratio = 0.1
+				air_ratio = 0.1
+
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = SOV_sergey_shoygu 
+							is_character = SOV_sergey_shoygu_rework 
+
+							is_character = SOV_valery_gerasimov_rework 
+							is_character = SOV_valery_gerasimov
+							
+							is_character = SOV_alexander_bortnikov_rework 
+							is_character = SOV_alexander_bortnikov
+						}
+					}
+
+				}
+			}
+		}
+	}
+}
+
+spawn_dugin={
+	hidden_effect = {
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = fascist
+			}
+			add_popularity = {
+				ideology = fascist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = fascist
+				long_name = "Partiya Yevraziya"
+				name = "Partiya Yevraziya"
+			}
+			set_cosmetic_tag = SOV_dugin
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Aleksandr Dugin"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Alexandr_Dugin.png
+				ideology = generic_fascist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_dugin
+
+			add_ideas = {
+				limited_conscription
+				authoritarian_democracy
+				centrally_planned_economy
+				state_controlled_press
+				government_trade_unions
+				neutral
+				womens_rights_traditional_values
+				lgbtq_rights_banned
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state  = 118
+
+			every_state={
+				limit={
+					is_controlled_by = SOE
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = SOE }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Eurasian Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 7
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Eurasian Militia\" division_template = \"Eurasian Militias\" start_experience_factor = 0.01" 
+						owner = SOE
+					}
+				}
+			}
+		}
+	}
+}
+
+spawn_shoigu = {
+	hidden_effect = {
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = military_junta
+			}
+			add_popularity = {
+				ideology = military_junta
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = military_junta
+				long_name = "Edinstvo"
+				name = "Edinstvo"
+			}
+			set_cosmetic_tag = SOV_shoigu
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Sergei Shoigu"
+				desc = ""
+				picture = gfx/leaders/SOV/generals/Portrait_sergei_shoigu.png
+				ideology = generic_military_junta
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_shoigu
+
+			add_ideas = {
+				extensive_conscription 
+				authoritarian_democracy
+				rentier_state 
+				state_controlled_press
+				unions_restricted
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state  = 426
+			transfer_state  = 59
+			transfer_state  = 42
+
+			every_state={
+				limit={
+					is_controlled_by = RMJ
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RMJ }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 15
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Militia\" division_template = \"Russian Militias\" start_experience_factor = 0.05" 
+						owner = RMJ
+					}
+				}
+			}
+
+			country_event = { id = russia_civil_war_events.3 days = 20 }
+		}
+
+		SOV = {
+			transfer_units_fraction = {
+				target = RMJ
+				size = 0.05
+				stockpile_ratio = 0.05
+				army_ratio = 0.05
+				navy_ratio = 0.05
+				air_ratio = 0.05
+
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = SOV_valery_gerasimov_rework 
+							is_character = SOV_valery_gerasimov
+
+							is_character = SOV_alexander_bortnikov_rework 
+							is_character = SOV_alexander_bortnikov
+						}
+					}
+
+				}
+
+
+			}
+
+			SOV_sergey_shoygu  = { 
+				set_nationality = RMJ
+			}
+		}
+	}
+}
+
+spawn_volga_warlords={
+	hidden_effect={
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = socialist
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = socialist
+				long_name = "Vycislitelnyj Kongress"
+				name = "Vycislitelnyj Kongress"
+			}
+			set_cosmetic_tag = SOV_wasserman
+			set_research_slots = 3
+
+			create_country_leader = {
+				name = "Anatoly Wasserman"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Anatoliy_Vasserman.png
+				ideology = generic_socialist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_wasserman
+
+			add_ideas = {
+				limited_conscription
+				authoritarian_democracy
+				centrally_planned_economy
+				state_controlled_press
+				trade_syndicates
+				neutral
+				womens_rights_traditional_values
+				lgbtq_rights_banned
+				minority_rights_minor_inequality
+				religion_law_state_atheist
+				nationalism_laws_armed_neutrality
+			}
+
+			transfer_state  = 17
+			transfer_state  = 30
+			transfer_state  = 16
+			
+
+			every_state={
+				limit={
+					is_controlled_by = TSR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = TSR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Technocratic Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 9
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Technocratic Militia\" division_template = \"Russian Technocratic Militias\" start_experience_factor = 0.02" 
+						owner = TSR
+					}
+				}
+			}
+		}
+
+		SOV = {
+			transfer_units_fraction = {
+				target = TSR
+				size = 0.07
+				stockpile_ratio = 0.02
+				army_ratio = 0.1
+				navy_ratio = 0
+				air_ratio = 0.03
+			}
+		}
+		
+
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = military_junta
+			}
+			add_popularity = {
+				ideology = military_junta
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = military_junta
+				long_name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
+				name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
+			}
+			set_cosmetic_tag = SOV_kolokoltsev
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Vladimir Kolokoltsev"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Vladimir_Kolokoltsev.png
+				ideology = generic_military_junta
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_kolokoltsev
+
+			add_ideas = {
+				extensive_conscription 
+				authoritarian_democracy
+				rentier_state 
+				state_controlled_press
+				unions_restricted
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 423
+
+			every_state={
+				limit={
+					is_controlled_by = PFN
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = PFN }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Police"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 12
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Police\" division_template = \"Russian Police\" start_experience_factor = 0.1" 
+						owner = PFN
+					}
+				}
+			}
+
+
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = PFN
+				size = 0.1
+				stockpile_ratio = 0.06
+				army_ratio = 0.1
+				navy_ratio = 0
+				air_ratio = 0.1
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = neoliberal
+			}
+			add_popularity = {
+				ideology = neoliberal
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = neoliberal
+				long_name = "Spravocnik Oligarhov"
+				name = "Spravocnik Oligarhov"
+			}
+			set_cosmetic_tag = SOV_sechin
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Igor Sechin"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Igor_Sechin.png
+				ideology = generic_neoliberal
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_sechin
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy
+				oligarchy 
+				free_press
+				unions_restricted
+				bipolarist
+				womens_rights_patriarchy
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_secular
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 429
+			transfer_state = 88
+
+			every_state={
+				limit={
+					is_controlled_by = MSR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = MSR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Oil Protectorate"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 4
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Oil Protectorate\" division_template = \"Oil Protectorate\" start_experience_factor = 0.03" 
+						owner = MSR
+					}
+				}
+			}
+
+
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = MSR
+				size = 0.02
+				stockpile_ratio = 0.05
+				army_ratio = 0.035
+				navy_ratio = 0
+				air_ratio = 0.05
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = neoconservative
+			}
+			add_popularity = {
+				ideology = neoconservative
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = neoconservative
+				long_name = "Sovet Promyslennikov"
+				name = "Sovet Promyslennikov"
+			}
+			set_cosmetic_tag = SOV_potanin
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Vladimir Potanin"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Vladimir_Potanin.png
+				ideology = generic_neoconservative
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_potanin
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy 
+				oligarchy 
+				state_controlled_press
+				unions_banned
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_secular
+				nationalism_laws_interventionist
+			}
+
+			transfer_state = 428
+
+			every_state={
+				limit={
+					is_controlled_by = RCC
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RCC }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Corps Protector Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 7
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Corps Protector Militia\" division_template = \"Corps Protector Militia\" start_experience_factor = 0.035" 
+						owner = RCC
+					}
+				}
+			}
+		}
+	}
+}
+
+spawn_south_russia_warlords={
+	hidden_effect={
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = eastern_conservative
+				long_name = "Bureu"
+				name = "Bureu"
+			}
+			set_cosmetic_tag = SOV_chemezov
+			set_research_slots = 4
+
+			create_country_leader = {
+				name = "Sergey Chemezov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Sergey_Chemezov.png
+				ideology = generic_eastern_conservative
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_chemezov
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy 
+				oligarchy 
+				state_controlled_press
+				government_trade_unions
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_revanchist 
+			}
+
+			transfer_state = 430
+			transfer_state = 149
+
+			every_state={
+				limit={
+					is_controlled_by = RTF
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RTF }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Technocratic Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 18
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Technocratic Militia\" division_template = \"Russian Technocratic Militia\" start_experience_factor = 0.08" 
+						owner = RTF
+					}
+				}
+			}
+		}
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = absolute_monarchy_ideology
+			}
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = absolute_monarchy_ideology
+				long_name = "Senat Peterburga"
+				name = "Senat Peterburga"
+			}
+			set_cosmetic_tag = SOV_alexander
+			set_research_slots = 3
+
+			create_country_leader = {
+				name = "Alexander IV"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Alexander_IV.png
+				ideology = generic_absolute_monarchy
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_alexander
+
+			add_ideas = {
+				limited_conscription 
+				absolute_monarchy  
+				centrally_planned_economy 
+				state_controlled_press
+				unions_banned
+				neutral
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_armed_neutrality  
+			}
+
+			transfer_state = 256
+
+			every_state={
+				limit={
+					is_controlled_by = RRE
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RRE }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Royal Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 15
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Royal Militia\" division_template = \"Russian Royal Militia\" start_experience_factor = 0.23" 
+						owner = RRE
+					}
+				}	
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = ultranationalist
+			}
+			add_popularity = {
+				ideology = ultranationalist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = ultranationalist
+				long_name = "Akcionery"
+				name = "Akcionery"
+			}
+			set_cosmetic_tag = SOV_sterligov
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "German Sterligov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Zhirovit_Sterligov.png
+				ideology = generic_ultranationalist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_sterligov
+
+			add_ideas = {
+				limited_conscription 
+				absolute_monarchy  
+				centrally_planned_economy 
+				state_controlled_press
+				unions_banned
+				neutral
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_religious
+				nationalism_laws_revanchist  
+			}
+
+			transfer_state = 270
+			transfer_state = 257
+
+			every_state={
+				limit={
+					is_controlled_by = HYF
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = HYF }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Hyperborean Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 10
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Hyperborean Militia\" division_template = \"Hyperborean Militia\" start_experience_factor = 0.3" 
+						owner = HYF
+					}
+				}
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = fascist
+			}
+			add_popularity = {
+				ideology = fascist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = fascist
+				long_name = "Nacionalnaja Kosmiceskaja Organizacija"
+				name = "Nacionalnaja Kosmiceskaja Organizacija"
+			}
+			set_cosmetic_tag = SOV_rogozin
+			set_research_slots = 4
+
+			create_country_leader = {
+				name = "Dmitry Rogozin"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Dmitry_Rogozin.png
+				ideology = generic_fascist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_rogozin
+
+			add_ideas = {
+				volunteer_only  
+				authoritarian_democracy
+				centrally_planned_economy 
+				free_press
+				unions_banned 
+				neutral
+				womens_rights_patriarchy 
+				lgbtq_rights_banned  
+				minority_rights_separate_but_equal 
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state  = 306
+
+			every_state={
+				limit={
+					is_controlled_by = RSU
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RSU }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Space Guards"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			 random_owned_controlled_state = {
+				 create_unit = {
+					division = "name = \"Space Station Guards\" division_template = \"Russian Space Guards\" start_experience_factor = 0.07" 
+					owner = RSU
+				}
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = theocracy_ideology
+			}
+			add_popularity = {
+				ideology = theocracy_ideology
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = theocracy_ideology
+				long_name = "Tsarebozhiye"
+				name = "Tsarebozhiye"
+			}
+			set_cosmetic_tag = SOV_monk
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Shemamonk Sergei"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Schemamonk_Sergius.png
+				ideology = generic_theocracy
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_monk
+
+			add_ideas = {
+				limited_conscription 
+				theocracy 
+				oligarchy 
+				state_controlled_press
+				unions_banned
+				neutral
+				womens_rights_patriarchy
+				lgbtq_rights_banned 
+				minority_rights_societal_discrimination
+				religion_law_fundamentalist
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 350
+
+			every_state={
+				limit={
+					is_controlled_by = AHO
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = AHO }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Holy Russian Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 9
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Holy Militia\" division_template = \"Holy Russian Militia\" start_experience_factor = 0.06" 
+						owner = AHO
+					}
+				}
+			}
+		}
+	}
+}
+
+spawn_central_russian_warlords={
+	hidden_effect={
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = socialist
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = socialist
+				long_name = "Soyuz Marksistov"
+				name = "Soyuz Marksistov"
+			}
+			set_cosmetic_tag = SOV_rudoy
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Andrey Rudoy"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Andrey_Rudoy.png
+				ideology = generic_socialist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_rudoy
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy 
+				centrally_planned_economy 
+				state_controlled_press
+				trade_syndicates
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_minor_inequality
+				religion_law_state_atheist
+				nationalism_laws_armed_neutrality
+			}
+
+			transfer_state = 13
+			transfer_state = 15
+
+			every_state={
+				limit={
+					is_controlled_by = RSE
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RSE }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russia Socialist Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 8
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Socialist Militia\" division_template = \"Russia Socialist Militia\" start_experience_factor = 0.05" 
+						owner = RSE
+					}
+				}
+			}
+
+
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = RSE
+				size = 0.02
+				stockpile_ratio = 0.02
+				army_ratio = 0.02
+				navy_ratio = 0
+				air_ratio = 0
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = fascist
+			}
+			add_popularity = {
+				ideology = fascist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = fascist
+				long_name = "Sputnik i Pogrom"
+				name = "Sputnik i Pogrom"
+			}
+			set_cosmetic_tag = SOV_prosvirnin
+			set_research_slots = 1
+
+			create_country_leader = {
+				name = "Yegor Prosvirnin"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Yegor_Prosvirnin.png
+				ideology = generic_fascist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_prosvirnin
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy 
+				centrally_planned_economy 
+				state_controlled_press
+				unions_banned
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_separate_but_equal
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 32
+
+			every_state={
+				limit={
+					is_controlled_by = RNS
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RNS }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russia Nationalist Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 2
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Nationalist Militia\" division_template = \"Russia Nationalist Militia\" start_experience_factor = 0.25" 
+						owner = RNS
+					}
+				}
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = fascist
+			}
+			add_popularity = {
+				ideology = fascist
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = fascist
+				long_name = "Sovet VGTRK"
+				name = "Sovet VGTRK"
+			}
+			set_cosmetic_tag = SOV_solovyov
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Vladimir Solovyov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Vladimir_Solovyov.png
+				ideology = generic_fascist
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_solovyov
+
+			add_ideas = {
+				limited_conscription 
+				authoritarian_democracy 
+				centrally_planned_economy 
+				state_controlled_press
+				unions_banned
+				bipolarist
+				womens_rights_traditional_values
+				lgbtq_rights_banned 
+				minority_rights_separate_but_equal
+				religion_law_religious
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 425
+			transfer_state = 37
+
+			every_state={
+				limit={
+					is_controlled_by = RSS
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RSS }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Solovyovs Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 13
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Solovyovs Militia\" division_template = \"Solovyovs Militia\" start_experience_factor = 0.1" 
+						owner = RSS
+					}
+				}
+			}
+
+
+		}
+
+		SOV = {
+			transfer_units_fraction = {
+				target = RSS
+				size = 0.01
+				stockpile_ratio = 0.01
+				army_ratio = 0.01
+				navy_ratio = 0
+				air_ratio = 0
+			}
+		}
+		
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = theocracy_ideology
+			}
+			add_popularity = {
+				ideology = theocracy_ideology
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = theocracy_ideology
+				long_name = "Rossijskaja Pravoslavnaja Partija"
+				name = "Rossijskaja Pravoslavnaja Partija"
+			}
+			set_cosmetic_tag = SOV_kirill_state
+			set_research_slots = 1
+
+			create_country_leader = {
+				name = "Patriarch Kirill"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Kirill.png
+				ideology = generic_theocracy
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_kirril
+
+			add_ideas = {
+				limited_conscription 
+				theocracy 
+				oligarchy 
+				state_controlled_press
+				unions_banned
+				neutral
+				womens_rights_patriarchy
+				lgbtq_rights_banned 
+				minority_rights_societal_discrimination
+				religion_law_fundamentalist
+				nationalism_laws_jingoistic
+			}
+
+			transfer_state = 12
+
+			every_state={
+				limit={
+					is_controlled_by = RSR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RSR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Kirill's Guards"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 10
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Kirill's Guards\" division_template = \"Kirill's Guards\" start_experience_factor = 0.2" 
+						owner = RSR
+					}
+				}
+			}
+
+
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = RSR
+				size = 0.02
+				stockpile_ratio = 0.02
+				army_ratio = 0
+				navy_ratio = 0
+				air_ratio = 0
+			}
+		}
+        create_dynamic_country = {
+			original_tag = SOV
+			set_politics = {
+				ruling_party = eastern_liberal
+			}
+			add_popularity = {
+				ideology = eastern_liberal
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = eastern_liberal
+				long_name = "Radikalnaja Gorodskaja Partija"
+				name = "Radikalnaja Gorodskaja Partija"
+			}
+			set_cosmetic_tag = SOV_varlamov
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Ilya Varlamov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Ilya_Varlamov.png
+				ideology = generic_eastern_liberal
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_varlamov
+
+			add_ideas = {
+				limited_conscription
+				authoritarian_democracy
+				centrally_planned_economy
+				state_controlled_press
+				unions_restricted
+				western_aligned
+				womens_rights_traditional_values
+				lgbtq_rights_behind_closed_doors
+				minority_rights_minor_inequality
+				religion_law_secular 
+				nationalism_laws_interventionist
+			}
+
+			transfer_state  = 11
+
+			set_province_controller = 7287
+			set_province_controller = 2652
+
+			every_state={
+				limit={
+					is_controlled_by = UCR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = UCR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Urbanistic Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 13
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Urbanistic Militia\" division_template = \"Russian Urbanistic Militias\" start_experience_factor = 0.035" 
+						owner = UCR
+					}
+				}
+			}
+
+			declare_war_on = {
+				target = SOV
+				type = civil_war
+			}
+
+			add_civil_war_target = SOV
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = neoliberal
+			}
+			add_popularity = {
+				ideology = neoliberal
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = neoliberal
+				long_name = "Russkoe Osvoboditelnoe Dvizenie"
+				name = "Russkoe Osvoboditelnoe Dvizenie"
+			}
+			set_cosmetic_tag = SOV_khodorkovsky
+			set_research_slots = 2
+
+			create_country_leader = {
+				name = "Mikhail Khodorkovsky"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Mikhail_Khodorkovsky.png
+				ideology = generic_neoliberal
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_khodorkovsky
+
+			add_ideas = {
+				limited_conscription 
+				liberal_democracy
+				centrally_planned_economy 
+				free_press
+				unions_restricted
+				neutral
+				womens_rights_traditional_values
+				lgbtq_rights_behind_closed_doors 
+				minority_rights_minor_inequality
+				religion_law_secular
+				nationalism_laws_interventionist
+			}
+
+			transfer_state  = 39
+
+			every_state={
+				limit={
+					is_controlled_by = FSR
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = FSR }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Liberation Militias"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 5
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Liberation Militia\" division_template = \"Russian Liberation Militias\" start_experience_factor = 0.06" 
+						owner = FSR
+					}
+				}
+			}
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = FSR
+				size = 0.06
+				stockpile_ratio = 0.06
+				army_ratio = 0.06
+				navy_ratio = 0.06
+				air_ratio = 0.06
+			}
+		}
+		
+		create_dynamic_country = {
+			original_tag = SOV
+
+			spawn_new_country_economy = yes
+			set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+			set_politics = {
+				ruling_party = eastern_liberal
+			}
+			add_popularity = {
+				ideology = eastern_liberal
+				popularity = 1
+			}
+
+			set_party_name = {
+				ideology = eastern_liberal
+				long_name = "Vmesatelstvo SSA"
+				name = "Vmesatelstvo SSA"
+			}
+			set_cosmetic_tag = SOV_volkov
+			set_research_slots = 3
+
+			create_country_leader = {
+				name = "Leonid Volkov"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Leonid_Volkov.png
+				ideology = generic_eastern_liberal
+				traits = {  }
+			}
+
+			load_focus_tree = russian_civil_war_volkov
+
+			add_ideas = {
+				volunteer_only  
+				liberal_democracy
+				western_economy 
+				free_press
+				unions_restricted
+				western_aligned
+				womens_rights_traditional_values
+				lgbtq_rights_behind_closed_doors
+				minority_rights_minor_inequality
+				religion_law_secular
+				nationalism_laws_interventionist
+			}
+
+			transfer_state = 9
+			transfer_state = 20
+
+			every_state={
+				limit={
+					is_controlled_by = RLC
+				}
+				teleport_armies = {
+					limit = {
+						NOT = { tag = RLC }
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+
+			division_template = {
+				name = "Russian Liberal Militia"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 0 y = 3 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }		
+				}
+			}
+			
+			for_loop_effect = {
+				end = 10
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Liberal Militia\" division_template = \"Russian Liberal Militia\" start_experience_factor = 0.05" 
+						owner = RLC
+					}
+				}
+			}
+
+			declare_war_on = {
+				target = SOV
+				type = civil_war
+			}
+
+			add_civil_war_target = SOV
+		}
+		SOV = {
+			transfer_units_fraction = {
+				target = RLC
+				size = 0.1
+				stockpile_ratio = 0.1
+				army_ratio = 0.23
+				navy_ratio = 0
+				air_ratio = 0.1
+			}
+		}
+	}
+	
+	
+	}

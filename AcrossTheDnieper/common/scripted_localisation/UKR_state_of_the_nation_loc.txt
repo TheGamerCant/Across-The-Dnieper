@@ -1,0 +1,621 @@
+defined_text = {
+    name = UKR_get_next_faction
+	
+    text = {
+        trigger = {
+            has_country_flag = UKR_gui_show_nationalists_flag
+        }
+        localization_key = UKR_liberals_faction_are_next
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_liberals_flag
+        }
+        localization_key = UKR_russian_faction_are_next
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_russians_flag
+        }
+        localization_key = UKR_oligarch_faction_are_next
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_oligarchs_flag
+        }
+        localization_key = UKR_nationalist_faction_are_next
+    }
+}
+
+defined_text = {
+    name = UKR_get_prev_faction
+	
+    text = {
+        trigger = {
+            has_country_flag = UKR_gui_show_nationalists_flag
+        }
+        localization_key = UKR_oligarch_faction_are_backwards
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_liberals_flag
+        }
+        localization_key = UKR_nationalist_faction_are_backwards
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_russians_flag
+        }
+        localization_key = UKR_liberal_faction_are_backwards
+    }
+	text = {
+        trigger = {
+             has_country_flag = UKR_gui_show_oligarchs_flag
+        }
+        localization_key = UKR_russian_faction_are_backwards
+    }
+}
+
+#Faction_loyalty
+defined_text = {
+    name = get_oligarch_faction_loyalty
+	
+    text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = 2 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_in_power"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = 1 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_supportive"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = 0 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_indifferent"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = -1 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_hostile"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = -2 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_enraged"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = -3 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_in_rebellion"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_oligarchs_loyalty value = -4 compare = equals }
+        }
+        localization_key = "UKR_oligarchs_are_in_sidelined"
+    }
+}
+
+defined_text = {
+    name = get_nationalist_faction_loyalty
+	
+    text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = 2 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_in_power"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = 1 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_supportive"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = 0 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_indifferent"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = -1 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_hostile"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = -2 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_enraged"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = -3 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_in_rebellion"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_nationalists_loyalty value = -4 compare = equals }
+        }
+        localization_key = "UKR_nationalists_are_in_sidelined"
+    }
+}
+
+defined_text = {
+    name = get_pro_russian_faction_loyalty
+	
+    text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = 2 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_in_power"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = 1 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_supportive"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = 0 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_indifferent"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = -1 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_hostile"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = -2 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_enraged"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = -3 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_in_rebellion"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_pro_russians_loyalty value = -4 compare = equals }
+        }
+        localization_key = "UKR_pro_russians_are_in_sidelined"
+    }
+}
+
+defined_text = {
+    name = get_liberal_faction_loyalty
+	
+    text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = 2 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_in_power"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = 1 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_supportive"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = 0 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_indifferent"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = -1 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_hostile"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = -2 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_enraged"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = -3 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_in_rebellion"
+    }
+	text = {
+        trigger = {
+            check_variable = { var = UKR_sotn_liberals_loyalty value = -4 compare = equals }
+        }
+        localization_key = "UKR_liberals_are_in_sidelined"
+    }
+}
+
+defined_text = {
+	name = oligarch_consumer_goods_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_consumer_goods_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_consumer_goods_factor > 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_consumer_goods_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_consumer_goods_factor < 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_consumer_goods_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = oligarch_political_power_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_political_power_factor = 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_political_power_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_political_power_factor > 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_political_power_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_political_power_factor < 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_political_power_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = oligarch_stability_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_stability_factor = 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_stability_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_stability_factor > 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_stability_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_oligarchs_stability_factor < 0 }
+		}
+		localization_key = "UKR_sotn_oligarchs_stability_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = nationalist_conscription_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_conscription_factor = 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_conscription_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_conscription_factor > 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_conscription_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_conscription_factor < 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_conscription_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = nationalist_war_support_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_war_support_factor = 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_war_support_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_war_support_factor > 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_war_support_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_war_support_factor < 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_war_support_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = nationalist_stability_weekly_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_stability_weekly = 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_stability_weekly_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_stability_weekly > 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_stability_weekly_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_stability_weekly < 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_stability_weekly_is_negative"
+	}
+}
+
+defined_text = {
+	name = nationalist_ultranationalism_drift_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_ultranationalism_drift = 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_ultranationalism_drift_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_ultranationalism_drift > 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_ultranationalism_drift_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_nationalists_ultranationalism_drift < 0 }
+		}
+		localization_key = "UKR_sotn_nationalists_ultranationalism_drift_is_negative"
+	}
+}
+
+defined_text = {
+	name = pro_russian_political_power_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_political_power_factor = 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_political_power_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_political_power_factor > 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_political_power_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_political_power_factor < 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_political_power_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = pro_russian_stability_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_stability_factor = 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_stability_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_stability_factor > 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_stability_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_stability_factor < 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_stability_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = pro_russian_conscription_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_conscription = 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_conscription_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_conscription > 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_conscription_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_conscription < 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_conscription_is_negative"
+	}
+}
+
+defined_text = {
+	name = pro_russian_party_stab_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor = 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_party_popularity_stability_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor > 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_party_popularity_stability_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor < 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_party_popularity_stability_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = pro_russian_eastern_conservative_drift_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_eastern_conservative_drift = 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_eastern_conservative_drift_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_eastern_conservative_drift > 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_eastern_conservative_drift_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_pro_russians_eastern_conservative_drift < 0 }
+		}
+		localization_key = "UKR_sotn_pro_russians_eastern_conservative_drift_is_negative"
+	}
+}
+
+defined_text = {
+	name = liberal_political_power_gain_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_political_power_gain = 0 }
+		}
+		localization_key = "UKR_sotn_liberals_political_power_gain_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_political_power_gain > 0 }
+		}
+		localization_key = "UKR_sotn_liberals_political_power_gain_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_political_power_gain < 0 }
+		}
+		localization_key = "UKR_sotn_liberals_political_power_gain_is_negative"
+	}
+}
+
+defined_text = {
+	name = liberal_stability_factor_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_stability_factor = 0 }
+		}
+		localization_key = "UKR_sotn_liberals_stability_factor_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_stability_factor > 0 }
+		}
+		localization_key = "UKR_sotn_liberals_stability_factor_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_stability_factor < 0 }
+		}
+		localization_key = "UKR_sotn_liberals_stability_factor_is_negative"
+	}
+}
+
+defined_text = {
+	name = liberal_eastern_liberal_drift_loc
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_eastern_liberal_drift = 0 }
+		}
+		localization_key = "UKR_sotn_liberals_eastern_liberal_drift_is_zero"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_eastern_liberal_drift > 0 }
+		}
+		localization_key = "UKR_sotn_liberals_eastern_liberal_drift_is_positive"
+	}
+	
+	text = {
+		trigger={
+			check_variable = { UKR_sotn_liberals_eastern_liberal_drift < 0 }
+		}
+		localization_key = "UKR_sotn_liberals_eastern_liberal_drift_is_negative"
+	}
+}

@@ -1,0 +1,166 @@
+sub_units = {
+	engineer = {
+		abbreviation = "ENG"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+			flame
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 2
+		max_organisation = 20
+		default_morale = 0.3
+		manpower = 65
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		
+		entrenchment  = 5
+
+				
+		defense = 0.1
+		breakthrough = 0.5
+
+		# Support nerfs to combat abilities
+		soft_attack = -0.5
+
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 2
+			support_equipment = 6
+		}
+
+		can_be_parachuted = yes
+		forest = {
+			defence = 0.25
+			movement = 0.05
+		}
+
+		hills = {
+			defence = 0.1
+		}
+
+		jungle = {
+			defence = 0.25
+		}
+
+		marsh = {
+			defence = 0.25
+			movement = 0.2
+		}
+
+		fort = {
+			attack = 0.1
+			defence = 0.25
+		}
+
+		river = {
+			defence = 0.25
+			movement = 0.25
+		}
+
+		amphibious = {
+			attack = 0.25
+		}
+	}
+
+
+
+
+	assault_battalion = {
+        abbreviation = "AB"
+        sprite = infantry
+        map_icon_category = infantry
+        priority = 300
+        ai_priority = 100
+        active = no
+        affects_speed = no
+        can_be_parachuted = yes
+
+        type = {
+            infantry
+            support
+        }
+
+        group = support
+
+        categories = {
+            #category_support_battalions #To prevent Integrated Support doctrines making them extremely good
+            category_army
+        }
+
+        combat_width = 0
+
+        #Size Definitions
+        max_strength = 40 #Inf is 25
+        max_organisation = 10 #Inf is 60
+        default_morale = 0.2 #Inf is 30
+        manpower = 80
+        training_time = 120 #Same as other support battalions
+
+        #Misc Abilities
+        suppression = 1.5
+        weight = 0.4 #Inf is 0.5
+        supply_consumption = 0.06
+
+        # Important Ability
+        soft_attack = 0.4
+        breakthrough = 8
+		hard_attack = -0.9
+		ap_attack = -0.9
+		air_attack = -0.75
+		defense = -0.6
+
+        need = {
+            infantry_equipment = 80
+            support_equipment = 16
+            infantry_anti_tank_equipment = 4
+            infantry_anti_air_equipment = 4
+        }
+
+		
+		forest = {
+			attack = 0.06
+		}
+		marsh = {
+			attack = 0.06
+		}
+		fort = {
+			attack = 0.06
+		}
+
+		urban = {
+			attack = 0.10
+		}
+		sub_urban = {
+			attack = 0.08
+		}
+		dense_urban = {
+			attack = 0.12
+		}
+    }
+}

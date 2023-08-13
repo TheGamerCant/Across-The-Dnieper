@@ -1,0 +1,787 @@
+﻿add_offsite_building = { type = industrial_complex level = 37 }
+add_offsite_building = { type = arms_factory level = 9 }
+add_offsite_building = { type = dockyard level = 9 }
+
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency  = {
+		name = "Federal'naya Sluzhba Bezopasnosti"
+		icon = GFX_intelligence_agency_logo_RUS	#SOV GFX is already in base game
+	}
+}
+
+#NSB TANKS
+
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_64bv = 1
+		t_72 = 1
+		t_72b = 1
+		t_72b3 = 1
+		t_80 = 1
+		t_80bv = 1
+		t_90 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		t90_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b3"
+		type = t72_chasis
+		parent_version = 2
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-90"
+		type = t90_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+
+
+#PLANES
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = {
+		type = fighter_equipment_0
+		amount = 620
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Su-27SM"
+		amount = 620
+		producer = SOV
+	}
+}
+
+#Moved the equpiment to the top. It might resolve not giving the correct equipment?
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "SOV_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "SOV_2014"
+}
+
+#NAVY
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "SOV_2014_navy_mtg"
+	else = {
+		set_naval_oob = "SOV_2014_navy"
+	}
+}
+
+recruit_character = SOV_valentina_matviyenko
+recruit_character = SOV_aleksandr_dugin
+recruit_character = SOV_valery_gerasimov
+recruit_character = SOV_alexei_navalny
+recruit_character = SOV_kirill
+recruit_character = SOV_svyatoslav_rechkalov
+recruit_character = SOV_igor_vsevolodovich_girkin
+recruit_character = SOV_vladlen_tatarsky
+recruit_character = SOV_dmitry_medvedev
+recruit_character = SOV_mikhail_mishustin
+recruit_character = SOV_kokoltsev_vladimir
+recruit_character = SOV_sergey_lavrov
+recruit_character = SOV_alexander_bastrykin
+recruit_character = SOV_viktor_yanukovych
+recruit_character = SOV_ramzan_kadyrov
+recruit_character = SOV_ilya_kiva
+
+
+recruit_character = SOV_sergey_shoygu
+recruit_character = SOV_alexander_bortnikov
+recruit_character = SOV_andrei_sychevoi
+recruit_character = SOV_oleg_leonidovich
+recruit_character = SOV_dmitry_bulgakov
+recruit_character = SOV_andrey_nikolayevich_mordvichev
+recruit_character = SOV_mikhail_yuryevich_teplinsky
+recruit_character = SOV_viktor_viktorovich_chirkov
+recruit_character = SOV_igor_vladimirovich_osipov
+recruit_character = SOV_aleksandr_vladimirovich_dvornikov
+recruit_character = SOV_gennady_valeryevich_zhidko
+recruit_character = SOV_mikhail_yevgenyevich_mizintsev
+recruit_character = SOV_nikolai_anatolyevich_yevmenov
+recruit_character = SOV_viktor_nikolayevich_sokolov
+recruit_character = SOV_adam_delimkhanov
+recruit_character = SOV_andrey_nikolaevich_serdyukov
+recruit_character = SOV_sergey_yurvevich_kuzovlev
+recruit_character = SOV_yevgeny_valeryevich_nikiforov
+recruit_character = SOV_rustam_usmanovich_muradov
+recruit_character = SOV_roman_vladimirovich_kutuzov
+recruit_character = SOV_roman_borisovich_berdnikov
+recruit_character = SOV_alexander_alexandrovich_zhuravlyov
+recruit_character = SOV_aleksandr_pavlovich_lapin
+recruit_character = SOV_valery_nikolaevich_solodchuk
+recruit_character = SOV_sergey_surovikin
+
+set_country_flag = has_nukes_flag
+
+capital = 11
+
+complete_national_focus = SOV_expand_infrastructure_in_sochi
+complete_national_focus = SOV_expand_sochi_airport
+complete_national_focus = SOV_dope_the_atheletes
+
+create_country_leader = {
+	name = "Vladimir Putin"
+	desc = "vladimir_putin_desc"
+	picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+	ideology = united_russia_subideology
+	traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle }
+}
+
+if = {
+	limit = { NOT = { has_dlc = "La Resistance" } }
+	swap_ruler_traits = {
+		remove = SOV_retired_kgb_agent_lar
+		add = SOV_retired_kgb_agent_no_lar
+	}
+}
+
+create_country_leader = {
+	name = "Dmitry Demushkin"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_Dmitry_Demushkin.png
+	ideology = generic_fascist
+	traits = { SOV_radical_nationalist }
+}
+
+create_country_leader = {
+	name = "Andrey Savelyev"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_Andrey_Savelyev.png
+	ideology = generic_ultranationalist
+}
+
+create_country_leader = {
+	name = "Vladimir Zhirinovsky"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
+	ideology = russia_liberal_democratic_party_subideology
+	traits = { SOV_aggressive_populist }
+}
+
+create_country_leader = {
+	name = "Aleksey Zhuravlyov"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
+	ideology = generic_neoconservative
+}
+
+create_country_leader = {
+	name = "Alexei Navalny"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_Alexei_Navalny.png
+	ideology = russia_of_the_future_subideology
+	traits = { SOV_anti_corruption_crusader }
+}
+
+create_country_leader = {
+	name = "Grigory Yavlinsky"
+	desc = ""
+	picture = gfx/leaders/SOV/Portrait_Grigory_Yavlinski.png
+	ideology = yabloko
+	traits = {}
+}
+
+
+create_country_leader = {
+	name = "Yevgeny Prigozhin"
+	desc = ""
+	picture = gfx/leaders/WAG/Portrait_dmitry_utkin.dds
+	ideology = generic_military_junta
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Sergey Mironov"
+	desc = ""
+	picture = gfx/leaders/SOV/Portrait_Sergey_Mironov.png
+	ideology = a_just_russia_subideology
+	traits = { SOV_pragmatic_negotiator }
+}
+
+create_country_leader = {
+	name = "Grand Duke George Mikhailovich of Russia"
+	desc = ""
+	picture = gfx/leaders/SOV/Portait_George_Mikhailovichy.png
+	ideology = russian_monarchy_party_subideology
+	traits = { SOV_royal_heir }
+}
+
+create_country_leader = {
+	name = "Gennady Zyuganov"
+	desc = ""
+	picture = gfx/leaders/SOV/Portrait_Gennady_Zyuganov.png
+	ideology = russian_communist_party_subideology
+	traits = { SOV_charismatic_revolutionary }
+}
+
+set_research_slots = 4
+set_stability = 0.6
+set_war_support = 0.5
+
+
+add_ideas = SOV_memories_of_1991
+add_ideas = SOV_memories_of_1993
+add_timed_idea={
+	idea = SOV_legacy_of_chechnya
+	days = 1461
+}
+
+2014.1.2={
+	modify_timed_idea = { idea = SOV_legacy_of_chechnya days = -2000 }
+}
+
+set_variable = {
+	gdp = 2288.428
+}
+
+create_faction = "CSTO"
+add_to_faction = BLR
+add_dynamic_modifier = { modifier = SOV_russian_cabinet }
+
+set_variable = { SOV_soc_dem_opposition_political_power_gain = -0.02 }
+set_variable = { SOV_soc_dem_opposition_social_democracy_drift = 0.01 }
+set_variable = { SOV_ultranationalist_opposition_political_power_gain = 0.02 }
+set_variable = { SOV_ultranationalist_opposition_ultranationalist_drift = 0 }
+set_variable = { SOV_communist_opposition_political_power_gain = 0.05 }
+set_variable = { SOV_communist_opposition_hardline_communist_drift = 0 }
+set_variable = { SOV_eastern_liberal_opposition_political_power_gain = -0.03 }
+set_variable = { SOV_eastern_liberal_opposition_eastern_liberal_drift = 0.02 }
+
+set_variable = { SOV_soc_dem_opposition_status = 0 }			#0 = Puppet, -1 = Active, -2 = Destroyed
+set_variable = { SOV_ultranationalist_opposition_status = 0 }
+set_variable = { SOV_communist_opposition_status = 0 }
+set_variable = { SOV_eastern_liberal_opposition_status = -1 }
+set_variable = { SOV_neoliberal_opposition_status = -1 }
+
+clamp_variable = { var = SOV_soc_dem_opposition_status min = -2 max = 0 }
+clamp_variable = { var = SOV_ultranationalist_opposition_status min = -2 max = 0 }
+clamp_variable = { var = SOV_communist_opposition_status min = -2 max = 0 }
+clamp_variable = { var = SOV_eastern_liberal_opposition_status min = -2 max = 0 }
+
+add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+add_dynamic_modifier = { modifier = SOV_communist_opposition }
+add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+
+set_variable = { SOV_opposition_unity = 22 }
+set_variable = { SOV_opposition_strength = 27 }
+
+clamp_variable = { var = SOV_opposition_unity min = 0 max = 100 }
+clamp_variable = { var = SOV_opposition_strength min = 0 max = 100 }
+
+get_opposition_o_meter_3000_stats = yes
+
+add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+add_dynamic_modifier = { modifier = SOV_communist_opposition }
+add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+add_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
+
+set_variable = { SOV_influence_on_transnistria = 15 }
+
+set_variable = { global.days_since_start = 0 }
+
+2022.1.1 = {
+	set_variable = { global.days_since_start = 2953 }
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_oob = "SOV_2022_nsb"
+	}
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_oob = "SOV_2022"
+	}
+
+
+	set_global_flag = kerch_bridge_built_flag
+
+	puppet = DON
+	puppet = LHK
+
+	add_to_faction = DON
+	add_to_faction = LHK
+
+	DON = {
+		set_popularities = {
+			eastern_conservative = 85
+			populist = 3
+			eastern_liberal = 2
+			socialist = 2
+			moderate_communist = 1
+			fascist = 7
+		}		
+	}
+
+	LHK = {
+		set_popularities = {
+			eastern_conservative = 92
+			populist = 3
+			eastern_liberal = 2
+			socialist = 2
+			moderate_communist = 1
+		}
+	}
+
+	load_focus_tree = soviet_focus
+	set_global_flag = russia_ukraine_war
+	set_global_flag = smo_northern_front_open
+	set_global_flag = smo_eastern_front_open
+	set_global_flag = smo_donbass_front_open
+	set_global_flag = smo_southern_front_open
+	
+	complete_national_focus = SOV_russia_and_its_people
+	complete_national_focus = SOV_crimean_water_supply
+	unlock_national_focus = SOV_the_crimean_bridge
+	complete_national_focus = SOV_antigay_laws
+	complete_national_focus = SOV_ban_conversion_therapy
+	unlock_national_focus = SOV_host_2014_grand_prix
+	complete_national_focus = SOV_vks_in_syria
+	complete_national_focus = SOV_send_wagner_to_syria
+
+	complete_national_focus = SOV_the_future_of_russia
+	complete_national_focus = SOV_in_control_of_inner_politics
+	complete_national_focus = SOV_russian_spirit
+	complete_national_focus = SOV_syloviki
+	complete_national_focus = SOV_gem_of_black_sea
+	complete_national_focus = SOV_russian_spirit
+	complete_national_focus = SOV_chernomorsky_flot
+	complete_national_focus = SOV_the_russian_trident
+	complete_national_focus = SOV_international_power
+	complete_national_focus = SOV_turkish_and_asian_corridors
+	complete_national_focus = SOV_pik_and_donstroy
+	complete_national_focus = SOV_big_three
+	unlock_national_focus = SOV_transnistrian_crisis
+	complete_national_focus = SOV_venezuelan_crisis
+	complete_national_focus = SOV_introduce_akhmat_battalions
+	complete_national_focus = SOV_capital_of_northern_caucasus
+	complete_national_focus = SOV_MIR_payment_system
+	complete_national_focus = SOV_increase_interest_rates
+	complete_national_focus = SOV_state_control_of_the_economy
+	complete_national_focus = SOV_patriotic_education
+	complete_national_focus = SOV_ministry_of_culture
+	unlock_national_focus = SOV_better_future
+	complete_national_focus = SOV_media_control
+	complete_national_focus = SOV_eliminating_dissent
+	complete_national_focus = SOV_enforced_loyalty
+	complete_national_focus = SOV_weaken_the_ops
+	complete_national_focus = SOV_peoples_only_choice
+	complete_national_focus = SOV_boost_subsidies
+	unlock_national_focus = SOV_prepare_for_elect
+	
+	complete_national_focus = SOV_novorossiya_at_hand
+
+	complete_national_focus = SOV_2018_elections
+	complete_national_focus = SOV_Putin
+	complete_national_focus = SOV_park_zaryade
+	complete_national_focus = SOV_the_luzhniki
+	complete_national_focus = SOV_traitors_abroad
+	complete_national_focus = SOV_host_the_world_cup
+	complete_national_focus = SOV_tourist_boom
+	complete_national_focus = SOV_soften_pension_reform
+	complete_national_focus = SOV_minsk_accord_ignored
+	complete_national_focus = SOV_kerch_incident
+	complete_national_focus = SOV_vostok_exercises
+	complete_national_focus = SOV_prepare_the_high_command
+	complete_national_focus = SOV_close_borders
+	complete_national_focus = SOV_increase_medical_budget
+	complete_national_focus = SOV_hospitals_overpopulated
+	complete_national_focus = SOV_the_quarantine
+	complete_national_focus = SOV_prepare_constitutional_changes
+	complete_national_focus = SOV_our_own_vaccine
+	complete_national_focus = SOV_address_the_nation
+	complete_national_focus = SOV_vote_yes
+	complete_national_focus = SOV_bad_samesex_marriage
+	complete_national_focus = SOV_heir_to_thrones
+	complete_national_focus = SOV_small_business_crisis_solved
+	complete_national_focus = SOV_nothing_in_the_way
+	complete_national_focus = SOV_refusing_diplomacy
+	complete_national_focus = SOV_prepare_our_people
+	complete_national_focus = SOV_ready_for_what_is_to_come
+	complete_national_focus = SOV_exercises_on_the_ukrainian_border
+	complete_national_focus = SOV_donbass_tv_programs
+	complete_national_focus = SOV_lukashenko_aware
+	complete_national_focus = SOV_neo_nazism_on_the_rise
+	complete_national_focus = SOV_azov_battalions_in_odessa
+	complete_national_focus = SOV_ilya_kiva
+	complete_national_focus = SOV_anti_russian_slogans
+	complete_national_focus = SOV_no_going_back
+	complete_national_focus = SOV_our_victory_symbol
+	unlock_national_focus = SOV_place_an_order_chef
+	complete_national_focus = SOV_topol_rocket_mass_use
+	complete_national_focus = SOV_pass_new_laws_duma
+	complete_national_focus = SOV_prepare_those_who_we_protect
+	complete_national_focus = SOV_power_of_our_industry
+
+	add_ideas = SOV_corrupt_military
+	add_ideas = SOV_the_crimean_burden_better
+	add_ideas = SOV_lowered_pensions
+
+	add_country_leader_trait = great_rus_leader
+
+	set_popularities = {
+		eastern_conservative = 74.2
+		moderate_communist = 13.6
+		social_democracy = 7
+		populist = 5.2
+	}
+
+	set_variable = { SOV_opposition_unity = 38 }
+	set_variable = { SOV_opposition_strength = 31.5 }
+	set_variable = { SOV_eastern_liberal_opposition_status = -2 }
+	get_opposition_o_meter_3000_stats = yes
+
+	set_stability = 0.63
+	set_war_support = 0.55
+
+	russify_city_names = yes
+
+
+	# Russia 2022 gets more tank techs done
+
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_technology = {
+			modern_tank_doctrine = 1
+			upgrade_old_models = 1
+			increase_infantry_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_technology = {
+			armor_tech_2 = 1
+			engine_tech_2 = 1
+			gun_tech_2 = 1
+			at_tech_1 = 1
+			aa_tech_1 = 1
+			tank_module_tech_2 = 1
+		}
+	}
+}
+
+
+
+
+
+
+# Starting tech
+set_technology = {
+	is_post_soviet_technology = 1
+	is_russia_technology = 1
+
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+    infantry_anti_tank_2 = 1
+	infantry_anti_air = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	basic_train = 1
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+    fuel_silos = 1
+    synth_oil_experiments = 1
+    interwar_antiair = 1
+	basic_train = 1
+
+	early_destroyer = 1
+	early_coastal_patrol_ship = 1
+	basic_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+	basic_naval_mines = 1
+	early_submarine = 1
+	basic_submarine = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	early_heavy_cruiser = 1
+	early_battleship = 1
+	early_battlecruiser = 1
+	early_carrier = 1
+	basic_carrier = 1
+}
+
+
+
+add_ideas = {
+	SOV_the_great_patriotic_war_idea
+	SOV_stagnant_economy
+	SOV_wide_is_my_motherland
+	SOV_the_eastern_yoke
+	SOV_wunderwaffe
+	SOV_russia_today
+
+	oligarchy
+	authoritarian_democracy
+	limited_conscription
+
+	state_controlled_press
+	free_trade_unions
+	bipolarist
+	womens_rights_traditional_values
+	lgbtq_rights_behind_closed_doors
+	minority_rights_societal_discrimination
+	nationalism_laws_jingoistic
+	firearm_laws_restricted
+	alchohol_narcotics_laws_largely_regulated
+
+	SOV_dmitry_medvedev
+	SOV_sergey_surovikin
+	SOV_kokoltsev_vladimir
+	SOV_sergey_lavrov
+}
+
+
+
+set_convoys = 342
+
+set_politics = {
+	ruling_party = eastern_conservative
+	last_election = "2012.3.4"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	eastern_conservative = 63.45
+	moderate_communist = 17.38
+	neoconservative = 8.08
+	populist = 6.29
+	social_democracy = 3
+	fascist = 1
+	military_junta = 0.8
+}

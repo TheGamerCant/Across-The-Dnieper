@@ -1,0 +1,254 @@
+# AI tank design
+
+
+
+generic_modern_tanks = {
+	category = land	
+
+	roles = {
+		land_modern_tank
+	}
+
+	priority = {
+		factor = 200
+		modifier = {
+			num_of_factories < 50
+			factor = 0
+		}
+	}
+
+	basic_modern_tank_default = {
+		priority = {
+			factor = 10
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = modern_tank_chassis
+			modules = {
+				main_armament_slot = { 
+					any_of = { 
+						tank_modern_cannon
+						tank_modern_cannon2
+						tank_modern_cannon3
+						tank_modern_cannon4
+					} 
+				}
+				turret_type_slot = { 
+					any_of = { 
+						tank_modern_tank_turret
+						tank_modern_tank_turret2
+						tank_modern_tank_turret3
+						tank_modern_tank_turret4
+					} 
+				}
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_welded_armor
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = tank_special_breakthrough_module
+				special_type_slot_3 = tank_special_armor_module
+				special_type_slot_4 = tank_special_utility_module
+				special_type_slot_5 = tank_special_armor_era_module
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 5
+					modifier = {
+						add = 5
+						has_war = yes
+					}
+					modifier = {
+						any_enemy_country = {
+							is_major = yes
+						}
+						add = 5
+					}
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_modern_cannon
+			tank_modern_cannon2
+			tank_modern_cannon3
+			tank_modern_cannon4
+
+			tank_modern_tank_turret
+			tank_modern_tank_turret2
+			tank_modern_tank_turret3
+			tank_modern_tank_turret4
+			
+			tank_torsion_bar_suspension
+			tank_christie_suspension
+			tank_bogie_suspension
+			tank_interleaved_suspension
+
+			tank_cast_armor
+			tank_welded_armor
+			tank_riveted_armor
+			
+			tank_gasoline_engine
+			tank_diesel_engine
+			tank_gas_turbine_engine
+
+			tank_radio_1
+			tank_radio_2
+			tank_radio_3
+			nv_module
+			ir_module
+			
+			secondary_turret_hmg
+			secondary_turret_auto
+			secondary_turret_small_cannon
+			secondary_aa_missile
+
+			sloped_armor
+			armor_skirts
+			armor_cages
+			armor_era
+			armor_era2
+			armor_era3
+			armor_era4
+
+			stabilizer
+			auto_loader
+			extra_ammo_storage
+			smoke_launchers
+			wet_ammo_storage
+			squeezebore_adaptor
+			atgm_launcher
+			air_detection_radar
+			dozer_blade
+			easy_maintenance
+			additional_machine_guns
+			expanded_fuel_tank
+		}
+	}
+}
+
+generic_modern_tank_destroyer = {
+	category = land
+
+	roles = {
+		land_modern_tank_destroyer
+	}
+
+	priority = {
+		factor = 200
+		modifier = {
+			num_of_factories < 100
+			factor = 0
+		}
+	}
+
+	basic_modern_tank_destroyer_default = {
+		priority = {
+			factor = 10
+			
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = modern_tank_destroyer_chassis_1
+			modules = {
+				main_armament_slot = { 
+					any_of = { 
+						tank_high_velocity_cannon 
+						tank_high_velocity_cannon_2 
+						tank_high_velocity_cannon_3 
+						tank_high_velocity_cannon_4 
+					} 
+				}
+				turret_type_slot = { 
+					any_of = { 
+						tank_modern_tank_turret
+						tank_modern_tank_turret2
+						tank_modern_tank_turret3
+						tank_modern_tank_turret4
+					} 
+				}
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_welded_armor
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = tank_special_breakthrough_module
+				special_type_slot_3 = tank_special_armor_module
+				special_type_slot_4 = tank_special_utility_module
+				special_type_slot_5 = tank_special_armor_era_module
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 5
+					modifier = {
+						add = 5
+						has_war = yes
+					}
+					modifier = {
+						any_enemy_country = {
+							is_major = yes
+						}
+						add = 5
+					}
+				}
+			}
+		}
+
+		allowed_modules = {			
+			tank_high_velocity_cannon 
+			tank_high_velocity_cannon_2 
+			tank_high_velocity_cannon_3 
+			tank_high_velocity_cannon_4 
+
+			tank_modern_tank_turret
+			tank_modern_tank_turret2
+			tank_modern_tank_turret3
+			tank_modern_tank_turret4
+			
+			tank_torsion_bar_suspension
+			tank_christie_suspension
+			tank_bogie_suspension
+			tank_interleaved_suspension
+
+			tank_cast_armor
+			tank_welded_armor
+			tank_riveted_armor
+			
+			tank_gasoline_engine
+			tank_diesel_engine
+			tank_gas_turbine_engine
+
+			tank_radio_1
+			tank_radio_2
+			tank_radio_3
+			nv_module
+			ir_module
+			
+			secondary_turret_hmg
+			secondary_turret_auto
+			secondary_turret_small_cannon
+			secondary_aa_missile
+
+			sloped_armor
+			armor_skirts
+			armor_cages
+			armor_era
+			armor_era2
+			armor_era3
+			armor_era4
+
+			stabilizer
+			auto_loader
+			extra_ammo_storage
+			smoke_launchers
+			wet_ammo_storage
+			squeezebore_adaptor
+			atgm_launcher
+			air_detection_radar
+			dozer_blade
+			easy_maintenance
+			additional_machine_guns
+			expanded_fuel_tank
+		}
+	}
+}

@@ -1,0 +1,323 @@
+﻿capital = 6
+
+set_oob = "LIT_2014"
+
+create_country_leader = {
+	name = "Dalia Grybauskaite"
+	desc = ""
+	picture = gfx/leaders/LIT/Portrait_Dalia_Grybauskaite.png
+	ideology = dalia_grybauskaite_independent
+}
+
+create_country_leader = {
+	name = "Jonas Kronkaitis"
+	desc = ""
+	ideology = generic_military_junta
+}
+
+create_country_leader = {
+	name = "Mindaugas Gervaldas"
+	desc = ""
+	picture = gfx/leaders/LIT/Portrait_Mindaugas_gervaldas_murza.png
+	ideology = generic_fascist
+}
+
+create_country_leader = {
+	name = "Tomas Sileika"
+	desc = ""
+	ideology = generic_anarchism
+}
+
+create_country_leader = {
+	name = "Algirdas Paleckis"
+	desc = ""
+	ideology = lithuanian_socialist_party_subideology
+}
+
+create_country_leader = {
+	name = "Zigmantas Balcytis"
+	desc = ""
+	picture = gfx/leaders/LIT/Zigmantas_Balcytis.png
+	ideology = lithuanian_social_democratic_party_subideology
+}
+
+set_popularities = {
+	neoconservative = 35
+	eastern_conservative = 20
+	social_democracy = 15
+	eastern_liberal = 12
+	populist = 8
+	fascist	= 5
+	libertarian = 2
+	military_junta = 1
+	socialist = 1
+	neoliberal = 0.5
+	anarchism_ideology = 0.5
+}
+
+set_variable = {
+	gdp = 46.523
+}
+add_ai_strategy = {
+    type = alliance
+    id = "USA"
+    value = 200
+}
+
+
+set_country_flag = is_in_european_union
+set_variable = { pro_eu = 66 }
+set_variable = { sce_eu =  30 }
+set_variable = { neu_eu =  4 }
+clamp_variable = { var = pro_eu min = 0 max = 100 }
+clamp_variable = { var = sce_eu min = 0 max = 100 }
+clamp_variable = { var = neu_eu min = 0 max = 100 }
+
+recruit_character = LIT_zilvinas_razminas
+recruit_character = LIT_stanislovas_buskevicius
+recruit_character = LIT_algirdas_butkevicius
+recruit_character = LIT_audrys_backis
+recruit_character = LIT_saulius_skvernelis
+recruit_character = LIT_gabrielius_landsbergis
+
+activate_advisor = LIT_algirdas_butkevicius
+
+add_ideas = {
+	eu_member
+	LIT_partisan_legacy
+	LIT_idea_russian_minority
+	LIT_idea_energy_dependence
+	LIT_idea_high_suicide_rates
+
+	free_trade_unions 
+	religion_law_secular
+	womens_rights_traditional_values 
+	lgbtq_rights_behind_closed_doors 
+}
+
+
+set_research_slots = 3
+set_stability = 0.74
+set_war_support = 0.51
+
+# Starting tech
+set_technology = {
+	is_post_soviet_technology = 1
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	elite_special_forces_tech = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+	
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_convoys = 0
+
+set_politics = {
+	ruling_party = neoconservative
+	last_election = "2014.5.11"
+	election_frequency = 5
+	elections_allowed = yes
+}
+
+2022.1.1 = {
+
+	load_focus_tree = lithuania_2022
+	deactivate_advisor = LIT_algirdas_butkevicius
+
+	set_politics = {
+		ruling_party = social_democracy
+		last_election = "2019.5.26"
+		election_frequency = 5
+		elections_allowed = yes
+	}
+
+	set_party_name = { ideology = eastern_liberal long_name = eastern_liberal name = eastern_liberal }
+
+	set_party_name = { ideology = social_democracy long_name = generic_independent_long name = generic_independent }
+	create_country_leader = {
+		name = "Gitanas Nauseda"
+		desc = ""
+		picture = gfx/leaders/LIT/Portrait_Gitanas_Nauseda.png
+		ideology = gitanas_nauseda_lithuania
+	}
+
+
+	set_popularities = {
+		neoliberal = 31
+		social_democracy = 32
+		populist = 20
+		ultranationalist = 5
+		eastern_conservative = 4
+		libertarian = 1
+		eastern_liberal = 4
+		neoconservative = 3
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+

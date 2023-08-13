@@ -1,0 +1,1118 @@
+ideas = {
+
+	press_laws = {
+		law = yes
+		use_list_view = yes
+
+		free_press = {
+		
+			picture = law_free_press
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = -0.2
+				stability_weekly = 0.001
+				consumer_goods_factor = -0.03
+			}
+
+			default = yes
+
+			cancel_if_invalid = no
+		}
+
+		state_controlled_press = {
+		
+			picture = law_state_controlled_press
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = -0.1
+				political_power_gain = 0.1
+				consumer_goods_factor = 0.02
+				ruling_party_drift = 0.05
+			}
+
+			cancel_if_invalid = no
+		}
+
+		wartime_censorship = {
+		
+			picture = law_wartime_censorship
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.001
+				war_support_weekly = 0.002
+				political_power_gain = 0.25
+				subversive_activites_upkeep = -0.5
+				max_command_power = 20
+				drift_defence_factor = 0.3
+				command_power_gain_mult = 0.15
+			}
+
+			cancel_if_invalid = no
+		}
+
+		
+	}
+
+	foreign_policy = {
+		law = yes
+		use_list_view = yes
+
+		western_aligned = {
+		
+			picture = law_western_aligned
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				western_drift = 0.04
+				consumer_goods_factor = -0.05
+				trade_opinion_factor = 0.25
+				political_power_cost = 0.1
+			}
+
+			default = yes
+
+			cancel_if_invalid = no
+		}
+		
+		bipolarist = {
+		
+			picture = law_bipolarist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				illiberal_drift = 0.04
+				war_support_factor = 0.1
+				army_core_defence_factor = 0.06
+			}
+
+			cancel_if_invalid = no
+		}
+
+		neutral = {
+		
+			picture = law_neutrality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.1
+				enemy_justify_war_goal_time = 0.5
+				political_power_factor = 0.03
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	labour_laws = {
+		law = yes
+		use_list_view = yes
+		unions_banned = {
+		
+			picture = law_unions_banned
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.03
+				political_power_factor = 0.02
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				stability_weekly = -0.001
+				far_left_drift = -0.02
+			}
+			cancel_if_invalid = no
+		}
+
+		unions_restricted = {
+		
+			picture = law_unions_restricted
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.03
+				industrial_capacity_dockyard = 0.03
+				stability_factor = -0.1
+				far_left_drift = -0.01
+			}
+			cancel_if_invalid = no
+		}
+
+		government_trade_unions = {
+		
+			picture = law_government_trade_unions
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.08
+				party_popularity_stability_factor = -0.075
+				drift_defence_factor = 0.3
+				industrial_capacity_factory = -0.03
+				industrial_capacity_dockyard = -0.03
+			}
+			cancel_if_invalid = no
+		}
+
+        free_trade_unions = {
+		
+			picture = law_free_trade_unions
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				political_power_factor = -0.12
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+				stability_factor = 0.1
+				production_factory_max_efficiency_factor = 0.1
+				production_lack_of_resource_penalty_factor = -0.2
+				line_change_production_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.05
+				social_democracy_drift = 0.01
+			}
+
+			default = yes
+			cancel_if_invalid = no
+		}
+
+		trade_syndicates = {
+		
+			picture = law_trade_syndicates
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.06
+				production_factory_max_efficiency_factor = 0.05
+				production_lack_of_resource_penalty_factor = -0.1
+				line_change_production_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.02
+				far_left_drift = 0.05
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	womens_rights = {
+		law = yes
+		use_list_view = yes
+
+		womens_rights_matriarchy = {
+			picture = law_matriarchy
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = -0.05
+				political_power_factor = 0.05
+				conscription_factor = -0.25
+				stability_weekly = -0.002
+				female_random_operative_chance = 2
+				female_divisional_commander_chance = 2
+			}
+			cancel_if_invalid = no
+		}
+
+		
+		womens_rights_equality = {
+			picture = law_equality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				conscription_factor = 0.1
+				stability_factor = 0.1
+				research_speed_factor = 0.04
+				neoliberal_drift = 0.01
+				eastern_liberal_drift = 0.01
+				social_democracy_drift = 0.01
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+
+		womens_rights_traditional_values = {
+			picture = law_traditional_values
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.05
+				conscription_factor = -0.1
+				stability_factor = -0.1
+				eastern_conservative_drift = 0.01
+				neoconservative_drift = 0.01
+				female_random_operative_chance = -0.75
+				female_divisional_commander_chance = -0.75
+			}
+
+			cancel_if_invalid = no
+		}
+
+		womens_rights_patriarchy = {
+			picture = law_patriarchy
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = -0.05
+				political_power_factor = 0.1
+				conscription_factor = -0.15
+				consumer_goods_factor = 0.02
+				stability_weekly = -0.001
+				female_random_operative_chance = -2
+				female_divisional_commander_chance = -2
+
+			}
+			cancel_if_invalid = no
+		}
+
+	}
+
+	lgbtq_rights = {
+		law = yes
+		use_list_view = yes
+
+		lgbtq_rights_full_equality = {
+			picture = law_full_equality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = 0.05
+				party_popularity_stability_factor = 0.05
+				neoliberal_drift = 0.01
+			}
+			cancel_if_invalid = no
+		}
+
+		lgbtq_rights_civil_unions = {
+			picture = law_civil_union
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = 0.03
+				political_power_gain = 0.01
+				eastern_liberal_drift = 0.01
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+
+		lgbtq_rights_tolerated = {
+			picture = law_tolerated
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.01
+				conscription_factor = 0.01
+			}
+			cancel_if_invalid = no
+		}
+
+		lgbtq_rights_behind_closed_doors = {
+			picture = law_behind_closed_doors
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.04
+				stability_factor = -0.025
+				neoconservative_drift = 0.01
+				eastern_conservative_drift = 0.01
+			}
+			cancel_if_invalid = no
+		}
+
+
+		lgbtq_rights_banned = {
+			picture = law_banned
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.05
+				conscription_factor = -0.05
+				political_power_gain = 0.08
+				eastern_conservative_drift = 0.01
+				ultranationalist_drift = 0.01
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	minority_rights = {
+		law = yes
+		use_list_view = yes
+
+		minority_rights_legal_protections = {
+			picture = law_legal_protections
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.02
+				conscription = 0.01
+				conscription_factor = 0.05
+				political_power_factor = -0.05
+				neoliberal_drift = 0.02
+			}
+			cancel_if_invalid = no
+		}
+		minority_rights_full_equality = {
+			picture = law_full_equality_minorities
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.03
+				conscription_factor = 0.1
+				stability_weekly = 0.001
+				neoliberal_drift = 0.01
+			}
+			cancel_if_invalid = no
+		}
+
+		minority_rights_minor_inequality = {
+			picture = law_minor_inequality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = -0.01
+				stability_factor = -0.04
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		
+		minority_rights_societal_discrimination = {
+			picture = law_societal_descrimination
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_weekly = -0.001
+				conscription_factor = -0.08
+			}
+
+			cancel_if_invalid = no
+		}
+
+		minority_rights_separate_but_equal = {
+			picture = law_seperate_but_equal
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_weekly = -0.002
+				conscription_factor = -0.15
+				fascist_drift = 0.01
+			}
+			cancel_if_invalid = no
+		}
+
+		minority_rights_ethnic_servitude = {
+			picture = law_ethnic_servitude
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.03
+				political_power_factor = 0.15
+				stability_weekly = -0.004
+				conscription_factor = -0.25
+				fascist_drift = 0.02
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	nationalism_laws = {
+		law = yes
+		use_list_view = yes
+
+		nationalism_laws_pacifist = {
+			picture = law_equality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				justify_war_goal_time = 1.5
+				generate_wargoal_tension = 0.4
+				production_speed_arms_factory_factor = -0.1
+				production_speed_industrial_complex_factor = 0.3
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+			cancel_if_invalid = no
+		}
+		
+		nationalism_laws_armed_neutrality = {
+			picture = law_armed_neutrality
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.02
+				justify_war_goal_time = 0.4
+				production_speed_arms_factory_factor = 0.1
+			}
+			cancel_if_invalid = no
+		}
+		
+		nationalism_laws_interventionist = {
+			picture = law_interventionist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				justify_war_goal_time = -0.1
+				political_power_gain = 0.02
+				command_power_gain_mult = 0.2
+				max_command_power = 40
+				neoconservative_drift = 0.01
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+				
+		nationalism_laws_revanchist = {
+			picture = law_irridentist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				war_support_weekly = 0.001
+				political_power_factor = 0.05
+				army_core_defence_factor = 0.08
+				army_core_attack_factor = 0.1
+				army_org_factor = 0.06
+				ultranationalist_drift = 0.01
+				generate_wargoal_tension = -1
+				justify_war_goal_time = -0.5
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = -0.05
+				command_power_gain_mult = 0.2
+				max_command_power = 40
+			}
+			cancel_if_invalid = no
+		}
+		
+		nationalism_laws_jingoistic = {
+			picture = law_jingoist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = 0.15
+				stability_factor = -0.1
+				army_defence_factor = -0.05
+				army_attack_factor = 0.1
+				army_morale_factor = -0.04
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = -0.2
+				generate_wargoal_tension = -0.5
+				justify_war_goal_time = -0.25
+				far_right_drift = 0.02
+				command_power_gain_mult = 0.3
+				max_command_power = 60
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	firearm_laws = {
+		law = yes
+		use_list_view = yes
+
+		firearm_laws_banned = {
+			picture = law_banned3
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+			cancel_if_invalid = no
+		}
+
+		firearm_laws_restricted = {
+			picture = law_restricted2
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.03
+				army_core_defence_factor = 0.01
+				industrial_capacity_factory = 0.01
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.03
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+
+		firearm_laws_loose = {
+			picture = law_loose
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				army_core_defence_factor = 0.03
+				industrial_capacity_factory = 0.05
+				conscription = 0.003
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.1
+			}
+			cancel_if_invalid = no
+		}
+
+		firearm_laws_unregulated = {
+			picture = law_unregulated2
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				army_core_defence_factor = 0.08
+				industrial_capacity_factory = 0.1
+				conscription = 0.006
+				stability_weekly = -0.002
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+				artillery = 0.08
+				armor = 0.03
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	alchohol_narcotics_laws = {
+		law = yes
+		use_list_view = yes
+
+		alchohol_narcotics_laws_banned = {
+			picture = law_banned2
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.02
+				research_speed_factor = 0.05
+				stability_factor = -0.1
+				monthly_population = 0.1
+			}
+			cancel_if_invalid = no
+		}
+		
+		alchohol_narcotics_laws_largely_regulated = {
+			picture = law_largely_regulated
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.05
+				research_speed_factor = 0.03
+				stability_factor = 0.03
+				consumer_goods_factor = -0.01
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+
+		alchohol_narcotics_laws_relaxed = {
+			picture = law_relaxed
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.03
+				consumer_goods_factor = -0.02
+				monthly_population = -0.02
+			}
+			cancel_if_invalid = no
+		}
+		
+		alchohol_narcotics_laws_unregulated = {
+			picture = law_unregulated
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.05
+				research_speed_factor = -0.05
+				monthly_population = -0.08
+				consumer_goods_factor = -0.04
+				stability_weekly = -0.001
+			}
+			cancel_if_invalid = no
+		}
+	}
+
+	religion_law = {
+		law = yes
+		use_list_view = yes
+
+		religion_law_state_atheist = {
+			picture = law_state_atheist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.2
+				consumer_goods_factor = -0.04
+				stability_factor = -0.15
+				conscription_factor = -0.2
+				far_left_drift = 0.03
+			}
+			cancel_if_invalid = no
+		}
+
+		religion_law_secular = {
+			picture = law_secular
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				stability_factor = 0.05
+				western_drift = 0.03
+			}
+			cancel_if_invalid = no
+		}
+
+		religion_law_religious = {
+			picture = law_traditional_values
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = 0.02
+				stability_factor = 0.05
+				conscription = 0.001
+				eastern_conservative_drift = 0.03
+			}
+			default = yes
+
+			cancel_if_invalid = no
+		}
+		
+		religion_law_fundamentalist= {
+			picture = law_fundamentalist
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.15
+				consumer_goods_factor = 0.04
+				stability_factor = -0.05
+				weekly_casualties_war_support = 0.001
+				conscription = 0.003
+				theocracy_ideology_drift = 0.05
+				research_speed_factor = -0.05
+			}
+			cancel_if_invalid = no
+		}
+		religion_law_holy_war= {
+			picture = law_holy_war
+		
+			available={
+				
+			}
+
+			cost = 5000
+			allowed_to_remove = {
+				is_ai = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.25
+				consumer_goods_factor = 0.04
+				stability_factor = -0.2
+				weekly_casualties_war_support = 0.002
+				conscription = 0.005
+				theocracy_ideology_drift = 0.1
+				drift_defence_factor = 0.2
+				research_speed_factor = -0.125
+			}
+			cancel_if_invalid = no
+		}
+	}
+}

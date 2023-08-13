@@ -1,0 +1,102 @@
+scripted_gui = {
+
+	ukraine_sotn_gui = {
+		context_type = decision_category
+		window_name = "Ukraine_decision_ui_window"
+		triggers = {
+			nationalists_faction_picture_visible = {
+				has_country_flag = UKR_gui_show_nationalists_flag
+			}
+			nationalists_text_overview_gui_visible={
+				has_country_flag = UKR_gui_show_nationalists_flag
+			}
+			nationalists_text_desc_gui_visible={
+				has_country_flag = UKR_gui_show_nationalists_flag
+			}
+			
+			liberals_faction_picture_visible = {
+				has_country_flag = UKR_gui_show_liberals_flag
+			}
+			liberals_text_overview_gui_visible={
+				has_country_flag = UKR_gui_show_liberals_flag
+			}
+			liberals_text_desc_gui_visible={
+				has_country_flag = UKR_gui_show_liberals_flag
+			}
+			
+			oligarchs_faction_picture_visible = {
+				has_country_flag = UKR_gui_show_oligarchs_flag
+			}
+			oligarchs_text_overview_gui_visible={
+				has_country_flag = UKR_gui_show_oligarchs_flag
+			}
+			oligarchs_text_desc_gui_visible={
+				has_country_flag = UKR_gui_show_oligarchs_flag
+			}
+			
+			russians_faction_picture_visible = {
+				has_country_flag = UKR_gui_show_russians_flag
+			}
+			russians_text_overview_gui_visible={
+				has_country_flag = UKR_gui_show_russians_flag
+			}
+			russians_text_desc_gui_visible={
+				has_country_flag = UKR_gui_show_russians_flag
+			}
+		}
+		
+		effects={
+			UKR_arrow_forward_click={
+				if={
+					limit = { has_country_flag = UKR_gui_show_nationalists_flag }
+					clr_country_flag = UKR_gui_show_nationalists_flag
+					set_country_flag = UKR_gui_show_liberals_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_liberals_flag }
+					clr_country_flag = UKR_gui_show_liberals_flag
+					set_country_flag = UKR_gui_show_russians_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_russians_flag }
+					clr_country_flag = UKR_gui_show_russians_flag
+					set_country_flag = UKR_gui_show_oligarchs_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_oligarchs_flag }
+					clr_country_flag = UKR_gui_show_oligarchs_flag
+					set_country_flag = UKR_gui_show_nationalists_flag
+				}
+			}
+			
+			UKR_arrow_backward_click={
+				if={
+					limit = { has_country_flag = UKR_gui_show_nationalists_flag }
+					clr_country_flag = UKR_gui_show_nationalists_flag
+					set_country_flag = UKR_gui_show_oligarchs_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_oligarchs_flag }
+					clr_country_flag = UKR_gui_show_oligarchs_flag
+					set_country_flag = UKR_gui_show_russians_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_russians_flag }
+					clr_country_flag = UKR_gui_show_russians_flag
+					set_country_flag = UKR_gui_show_liberals_flag
+				}
+				else_if={
+					limit = { has_country_flag = UKR_gui_show_liberals_flag }
+					clr_country_flag = UKR_gui_show_liberals_flag
+					set_country_flag = UKR_gui_show_nationalists_flag
+				}
+			}
+		}
+		properties = { 
+				
+		}
+		ai_enabled = {
+			always = no
+		}
+	}
+}

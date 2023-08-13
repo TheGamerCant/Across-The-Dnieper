@@ -1,0 +1,105 @@
+on_actions = {
+    on_weekly={
+        effect={
+            if={
+                limit = { 
+                      has_country_flag = pro_eu_campaigns_going 
+                      check_variable = { var = pro_eu value = 100 compare = less_than }
+                }
+                add_to_variable = { pro_eu = 0.1 }
+                if={
+                  limit = {  
+                        check_variable = { var = sce_eu value = 0 compare = not_equals }
+                        check_variable = { var = neu_eu value = 0 compare = not_equals }
+                  }
+                  random_list = {
+                      50 = { add_to_variable = { sce_eu  = -0.1 } }
+                      50 = { add_to_variable = { neu_eu  = -0.1 } }
+                
+                  }
+               }
+               else_if={
+                  limit = {  
+                        check_variable = { var = sce_eu value = 0 compare = not_equals }
+                        check_variable = { var = neu_eu value = 0 compare = equals }
+                  }
+
+                    add_to_variable = { sce_eu  = -0.1 } 
+   
+               }
+               else_if={
+                  limit = {  
+                        check_variable = { var = sce_eu value = 0 compare = equals}
+                        check_variable = { var = neu_eu value = 0 compare = not_equals }
+                  }
+
+                    add_to_variable = { neu_eu  = -0.1 } 
+   
+               }
+            }
+
+            every_country = {
+                if={
+                    limit = {
+                        has_country_flag = pro_eu_campaigns_going 
+                        check_variable = { PREV.pro_eu > PREV.sce_eu } 
+                    }
+
+                    add_opinion_modifier = { target = ROOT modifier = same_opinion_on_eu }
+                }
+            }
+        }
+    }
+
+    on_weekly={
+        effect={
+            if={
+                limit = { 
+                      has_country_flag = sce_eu_campaigns_going 
+                      check_variable = { var = sce_eu value = 100 compare = less_than }
+                }
+                add_to_variable = { sce_eu = 0.1 }
+                if={
+                  limit = {  
+                        check_variable = { var = pro_eu value = 0 compare = not_equals }
+                        check_variable = { var = neu_eu value = 0 compare = not_equals }
+                  }
+                  random_list = {
+                      50 = { add_to_variable = { pro_eu  = -0.1 } }
+                      50 = { add_to_variable = { neu_eu  = -0.1 } }
+                
+                  }
+               }
+               else_if={
+                  limit = {  
+                        check_variable = { var = sce_eu value = 0 compare = not_equals }
+                        check_variable = { var = neu_eu value = 0 compare = equals }
+                  }
+
+                  add_to_variable = { pro_eu  = -0.1 } 
+   
+               }
+               else_if={
+                  limit = {  
+                        check_variable = { var = sce_eu value = 0 compare = equals}
+                        check_variable = { var = neu_eu value = 0 compare = not_equals }
+                  }
+
+                    add_to_variable = { neu_eu  = -0.1 } 
+   
+               }
+            }
+
+            every_country = {
+                if={
+                    limit = {
+                        has_country_flag = sce_eu_campaigns_going 
+                        check_variable = { PREV.sce_eu > PREV.pro_eu } 
+                    }
+
+                    add_opinion_modifier = { target = ROOT modifier = same_opinion_on_eu }
+                }
+            }
+        }
+    }
+}

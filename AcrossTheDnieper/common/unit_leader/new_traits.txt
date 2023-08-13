@@ -1,0 +1,132 @@
+
+leader_traits = {
+
+	
+##################################
+# Common Traits
+##################################
+	artillery_officer = {
+		type = land
+		trait_type = basic_trait
+		unit_trigger = {
+			OR = {
+				division_has_battalion_in_template = artillery_brigade
+				division_has_battalion_in_template = mot_artillery_brigade
+				division_has_battalion_in_template = rocket_artillery_brigade
+				division_has_battalion_in_template = mot_rocket_artillery_brigade
+				division_has_battalion_in_template = motorized_rocket_brigade
+			}
+			
+			owner = {
+				NOT = {
+					OR = {
+						has_idea = best_of_the_best_spirit
+						has_idea = academy_scholarships_spirit
+					}
+				}
+			}
+		}
+		
+		gain_xp = {
+			set_temp_variable = { temp = num_units }
+			multiply_temp_variable = { temp = 0.3 }
+			check_variable = { num_artillery > temp }
+		}
+		custom_gain_xp_trigger_tooltip = artillery_ratio_over_30
+
+		cost = 1000
+		
+		modifier = {
+			army_artillery_attack_factor = 0.15
+			army_artillery_defence_factor = 0.15
+		}
+		new_commander_weight = {
+			factor = 1
+		}
+	}
+	
+	militia_leader = {
+		type = all
+		trait_type = personality_trait 
+		
+		modifier = {
+			modifier_army_sub_unit_irregular_infantry_attack_factor = 0.04
+			modifier_army_sub_unit_irregular_infantry_defence_factor = 0.04
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	
+	river_crossing_preparations = {
+		type = all
+		trait_type = personality_trait 
+		
+		modifier = {
+			river_crossing_factor = -0.4
+			river = {
+				movement = 0.15
+				attack = 0.15
+				defence = 0.15
+			}
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	
+	syrian_interventionist = {
+		type = all
+		trait_type = personality_trait 
+		
+		modifier = {
+			army_org_factor = 0.05
+			experience_gain_army_factor = 0.2
+			max_planning = 0.1
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	vdv_expert = {
+		type = all
+		trait_type = personality_trait 
+		
+		attack_skill_factor = 0.15
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	one_with_the_army = {
+		type = all
+		trait_type = personality_trait 
+		
+		modifier = {
+			army_org_factor = 0.1
+			army_speed_factor = 0.05
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	kadyrovs_right_hand = {
+		type = all
+		trait_type = personality_trait 
+		
+		modifier = {
+			army_morale_factor = 0.05
+			experience_gain_army_factor = 0.1
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+}

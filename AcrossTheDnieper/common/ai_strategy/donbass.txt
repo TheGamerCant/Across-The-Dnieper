@@ -1,0 +1,206 @@
+be_friends_with_daddy_russia = {
+	allowed = {
+		OR={
+			tag = DON
+			tag = LHK
+			tag = KHK
+			tag = ODS
+			tag = NOV
+		}
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = SOV
+		value = 200
+	}
+}
+
+DON_LHK_only_allowed_in_donbass = {
+	allowed = {
+		OR={
+			tag = DON
+			tag = LHK
+		}
+	}
+	enable = {
+		KHK = { exists = no }
+	}
+	abort = {
+		KHK = { exists = yes }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = donbass
+		value = 100
+	}
+}
+
+DON_LHK_only_allowed_in_donbass_and_kharkiv = {
+	allowed = {
+		OR={
+			tag = DON
+			tag = LHK
+		}
+	}
+	enable = {
+		KHK = { exists = yes }
+	}
+	abort = {
+		KHK = { exists = no }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = donbass
+		value = 100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = kharkiv
+		value = 100
+	}
+}
+
+KHK_all_alone = {
+	allowed = {
+		tag = KHK
+	}
+	enable = {
+		DON = { exists = no }
+		LHK = { exists = no }
+	}
+	abort = {
+		OR={
+			DON = { exists = yes }
+			LHK = { exists = yes }
+		}
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = kharkiv
+		value = 100
+	}
+}
+
+KHK_also_allowed_in_donbass = {
+	allowed = {
+		tag = KHK
+	}
+	enable = {
+		OR={
+			DON = { exists = yes }
+			LHK = { exists = yes }
+		}
+	}
+	abort = {
+		DON = { exists = no }
+		LHK = { exists = no }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = kharkiv
+		value = 100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = donbass
+		value = 100
+	}
+}
+
+ODS_fight_to_the_last = {
+	allowed = {
+		tag = ODS
+	}
+	enable = {
+		NOV = { exists = no }
+	}
+	abort = {
+		NOV = { exists = yes }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = southern_ukraine
+		value = 100
+	}
+}
+
+ODS_try_to_get_to_novorossiya = {
+	allowed = {
+		tag = ODS
+	}
+	enable = {
+		NOV = { exists = yes }
+	}
+	abort = {
+		NOV = { exists = no }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = southern_ukraine
+		value = 100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = donbass
+		value = 100
+	}
+}
+
+DON_SOV_dont_abandon_donetsk = {
+	allowed = {
+		OR={
+			tag = DON
+			tag = SOV
+		}
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 186
+
+		value = 80
+	}
+}
+
+LHK_SOV_dont_abandon_luhansk = {
+	allowed = {
+		OR={
+			tag = LHK
+			tag = SOV
+		}
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 152
+
+		value = 80
+	}	
+}

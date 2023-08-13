@@ -1,0 +1,20 @@
+on_actions = {
+	on_startup={
+		effect={
+			every_country={
+				get_macro_party_popularities = yes
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			every_country={
+				if = {
+					limit = { has_country_flag = is_on_macro_pie_chart }					
+					get_macro_party_popularities = yes	
+					create_pie_chart = yes
+				}
+			}
+		}
+	}
+}

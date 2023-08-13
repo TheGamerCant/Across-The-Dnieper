@@ -1,0 +1,94 @@
+EU_decisions = {
+	pro_eu_campaigns = {
+		priority = 1
+
+		icon = GFX_decision_eu_opinion
+
+		ai_will_do = {
+            base = 10
+        }
+        
+        allowed = { 
+            has_country_flag = is_in_european_union
+        }
+        
+        available = {
+            NOT = {
+                has_country_flag = {
+                    flag = pro_eu_campaigns_going
+                }
+				has_country_flag = {
+                    flag = sce_eu_campaigns_going
+                }
+            }
+        }
+
+        days_remove = 49
+        days_re_enable = 35
+        
+        
+        fire_only_once = no
+
+        cost = 150
+
+        modifier = {
+            custom_effect_tooltip = "Modify Eu support by +0.1% weekly"
+        }
+        
+        complete_effect = {
+            set_country_flag = pro_eu_campaigns_going
+        }
+
+        remove_effect = {
+            clr_country_flag = pro_eu_campaigns_going
+            
+        }
+	}	
+
+	anti_eu_campaigns = {
+		priority = 1
+
+		icon = GFX_decision_anti_eu_opinion
+
+		ai_will_do = {
+            base = 10
+        }
+        
+        allowed = { 
+            has_country_flag = is_in_european_union
+        }
+        
+        available = {
+            NOT = {
+                has_country_flag = {
+                    flag = pro_eu_campaigns_going
+                }
+				has_country_flag = {
+                    flag = sce_eu_campaigns_going
+                }
+            }
+        }
+
+
+        days_remove = 49
+        days_re_enable = 35
+        
+        
+        fire_only_once = no
+
+        cost = 150
+
+        modifier = {
+            custom_effect_tooltip = "Modify Anti-Eu support by +0.1% weekly"
+        }
+        
+        complete_effect = {
+            set_country_flag = sce_eu_campaigns_going
+        }
+
+        remove_effect = {
+            clr_country_flag = sce_eu_campaigns_going
+            
+        }
+	}	
+}

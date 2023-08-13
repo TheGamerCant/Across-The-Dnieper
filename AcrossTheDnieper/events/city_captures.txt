@@ -1,0 +1,614 @@
+add_namespace = city_captures
+
+news_event = {												#The triggers have been moved to generic_on_actions to reduce lag
+    id = city_captures.1
+    title = city_captures.1.t
+    desc = city_captures.1.d
+    picture = city_event_fall_kherson
+    major = yes
+	is_triggered_only = yes
+	
+    immediate = {
+        set_global_flag = kherson_fell
+    }
+
+	option = {
+		name = city_captures.1.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.1.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.1.c
+		trigger = { TAG = UKR }
+	}
+}
+
+
+news_event = {
+    id = city_captures.2
+    title = city_captures.2.t
+    desc = city_captures.2.d
+    picture = city_event_fall_mariupol
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = mariupol_fell
+    }
+
+	option = {
+		name = city_captures.2.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.2.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.2.c
+		trigger = { TAG = UKR }
+	}
+}
+
+
+news_event = {
+    id = city_captures.3
+    title = city_captures.3.t
+    desc = city_captures.3.d
+    picture = city_event_fall_melitipol
+    major = yes
+	is_triggered_only = yes
+	
+    immediate = {
+        set_global_flag = melitopol_fell
+    }
+
+	option = {
+		name = city_captures.3.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.3.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.3.c
+		trigger = { TAG = UKR }
+	}
+}
+
+news_event = {
+    id = city_captures.4
+    title = city_captures.4.t
+    desc = city_captures.4.d
+    picture = city_event_fall_soledor
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = bachmut_fell
+    }
+
+	option = {
+		name = city_captures.4.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.4.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.4.c
+		trigger = { TAG = UKR }
+	}
+}
+
+news_event = {
+    id = city_captures.5
+    title = city_captures.5.t
+    desc = city_captures.5.d
+    picture = city_event_mariupol_lib
+    major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = city_captures.5.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.5.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.5.c
+		trigger = { TAG = UKR }
+	}
+}
+
+news_event = {
+    id = city_captures.6
+    title = city_captures.6.t
+    desc = city_captures.6.d
+    #picture = city_event_mariupol_lib
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = bachmut_lib
+    }
+
+	option = {
+		name = city_captures.6.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.6.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.6.c
+		trigger = { TAG = UKR }
+	}
+}
+
+
+news_event = {
+    id = city_captures.7
+    title = city_captures.7.t
+    desc = city_captures.7.d
+    #picture = city_event_mariupol_lib
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = cri_simfertopol_fell
+    }
+
+	option = {
+		name = city_captures.7.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.7.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.7.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.8
+    title = city_captures.8.t
+    desc = city_captures.8.d
+    #picture = city_event_mariupol_lib
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = berdyansk_fell
+    }
+
+	option = {
+		name = city_captures.8.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.8.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.8.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.9
+    title = city_captures.9.t
+    desc = city_captures.9.d
+    picture = city_event_crimea_liberated
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = crimea_liberated
+	}
+
+	option = {
+		name = city_captures.9.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.9.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.9.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.10
+    title = city_captures.10.t
+    desc = city_captures.10.d
+    picture = city_event_donetsk_lib
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = lib_donetsk
+    }
+
+	option = {
+		name = city_captures.10.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.10.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.10.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.11
+    title = city_captures.11.t
+    desc = city_captures.11.d
+    picture = city_event_luhansk_lib
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = lib_luhansk
+    }
+
+	option = {
+		name = city_captures.11.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.11.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.11.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.12
+    title = city_captures.12.t
+    desc = city_captures.12.d
+    picture = city_event_fall_kerch
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = fall_kerch
+    }
+
+	option = {
+		name = city_captures.12.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.12.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.12.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.13
+    title = city_captures.13.t
+    desc = city_captures.13.d
+    picture = city_event_fall_kyiv
+    major = yes
+	is_triggered_only = yes
+	
+    immediate = {
+        set_global_flag = fall_kyiv
+    }
+
+	option = {
+		name = city_captures.13.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.13.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.13.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.14
+    title = city_captures.14.t
+    desc = city_captures.14.d
+    picture = city_event_lib_kyiv
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = lib_kyiv
+    }
+
+	option = {
+		name = city_captures.14.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.14.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.14.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.15
+    title = city_captures.15.t
+    desc = city_captures.15.d
+    picture = city_event_kharkov_fall
+    major = yes
+	is_triggered_only = yes
+
+
+    immediate = {
+        set_global_flag = fall_kharkiv
+    }
+
+	option = {
+		name = city_captures.15.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.15.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.15.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.16
+    title = city_captures.16.t
+    desc = city_captures.16.d
+    picture = city_event_lib_kharkov
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = lib_kharkiv
+    }
+
+	option = {
+		name = city_captures.16.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.16.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.16.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.17
+    title = city_captures.17.t
+    desc = city_captures.17.d
+    picture = city_event_fall_mykolaiv
+    major = yes
+	is_triggered_only = yes
+
+
+    immediate = {
+        set_global_flag = fall_mykolaiv
+    }
+
+	option = {
+		name = city_captures.17.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.17.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.17.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.18
+    title = city_captures.18.t
+    desc = city_captures.18.d
+    picture = city_event_lib_mykolaiv
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = lib_mykolaiv
+    }
+
+	option = {
+		name = city_captures.18.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.18.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.18.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.19
+    title = city_captures.19.t
+    desc = city_captures.19.d
+    picture = city_event_fall_sevastopol
+    major = yes
+	is_triggered_only = yes
+
+    immediate = {
+        set_global_flag = fall_sevastopol
+    }
+
+	option = {
+		name = city_captures.19.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.19.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.19.c
+		trigger = { TAG = UKR }
+	}
+}
+news_event = {
+    id = city_captures.20
+    title = city_captures.20.t
+    desc = city_captures.20.d
+    picture = city_event_lib_sevastopol
+    major = yes
+	is_triggered_only = yes
+
+
+    immediate = {
+        set_global_flag = lib_sevastopol
+    }
+
+	option = {
+		name = city_captures.20.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.20.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.20.c
+		trigger = { TAG = UKR }
+	}
+}
+
+
+
+

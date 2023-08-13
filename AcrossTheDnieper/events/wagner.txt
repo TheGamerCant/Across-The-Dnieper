@@ -1,0 +1,68 @@
+﻿add_namespace = wagner
+
+country_event = {
+    id = wagner.1
+    title = wagner.1.t
+    desc = wagner.1.d
+    #picture = 
+    is_triggered_only = yes
+
+
+    option = {
+        name = wagner.1.a
+        add_manpower = -50
+        SOV = {
+            send_equipment = {
+                equipment = infantry_equipment_1
+                amount = 250
+                target = WAG
+            }
+
+            send_equipment = {
+                equipment = artillery_equipment_1
+                amount = 100
+                target = WAG
+            }
+
+            add_opinion_modifier = { target = WAG modifier = SOV_accepted_contract_mod }
+        }
+
+    }
+
+    option = {
+        name = wagner.1.b
+
+        SOV = {
+            add_opinion_modifier = { target = WAG modifier = SOV_no_accepted_contract_mod } 
+        }
+    }
+}
+
+country_event = {
+    id = wagner.2
+    title = wagner.2.t
+    desc = wagner.2.d
+    picture = SOV_wagner_syria_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = wagner.2.a
+        effect_tooltip  = {
+			WAG = {
+				add_manpower = -2500
+				army_experience = 200
+
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 3
+					category = land_doctrine
+				}
+
+				add_war_support = 0.15
+
+				add_offsite_building = { type = arms_factory level = 2 }
+			}
+        }
+    }
+}

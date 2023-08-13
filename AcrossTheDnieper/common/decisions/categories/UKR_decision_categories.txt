@@ -1,0 +1,102 @@
+UKR_state_of_the_nation_decisions = {
+	icon = GFX_state_of_the_nation_category
+	priority = 100
+	allowed = {
+		original_tag = UKR
+	}
+	visible_when_empty = yes
+	visible = {
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+		has_country_flag = sotn_gui_is_active
+	}
+	scripted_gui = ukraine_sotn_gui
+}
+
+UKR_the_verkhovna_rada = {
+	icon = GFX_rada_category
+	priority = 99
+	allowed = {
+		original_tag = UKR
+	}
+	visible_when_empty = yes
+	visible = {
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+		NOT = { has_global_flag = ukraine_rada_disbanded }
+	}
+	scripted_gui = ukraine_rada_gui
+}
+
+
+UKR_war_in_donbass_decisions = {
+	icon = GFX_donbass_war_category
+	priority = 20
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = DON
+			original_tag = LHK
+			original_tag = KHK
+			original_tag = ODS
+			original_tag = NOV
+		}
+	}
+	visible_when_empty = yes
+	visible = {
+		NOT = { SOV = { has_war_with = UKR } }
+		OR={
+			has_global_flag = donbass_war_is_ongoing
+			has_country_flag = has_chosen_to_violate_minsk
+		}
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+		has_start_date < 2022.01.01
+	}
+}
+
+UKR_dealing_with_the_oligarchy = {
+	icon = GFX_UKR_dealing_with_the_oligarchy_category
+	picture = GFX_UKR_dealing_with_the_oligarchy_picture
+	priority = 40
+	allowed = {
+		original_tag = UKR
+	}
+	visible_when_empty = no
+	visible = {
+		OR={
+			has_country_flag = debug_flag_open_oligarchy_decisions
+			has_completed_focus = UKR_off_with_the_eastern_yoke
+		}
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}
+
+UKR_rebuilding_ukraine = {
+	icon = generic_prospect_for_resources
+	priority = 39
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = UGE
+		}
+	}
+	visible_when_empty = no
+	visible = {
+		has_completed_focus = UKR_economic_stabilisation
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}
+
+UKR_hur_decisions = {
+	priority = 40
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = UGE
+		}
+	}
+	visible_when_empty = no
+	visible = {
+		has_completed_focus = UKR_organisation_of_the_partisans
+		any_country = { has_war_with = ROOT original_tag = SOV }
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}

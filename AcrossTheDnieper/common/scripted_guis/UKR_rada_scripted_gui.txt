@@ -1,0 +1,48 @@
+scripted_gui = {
+	ukraine_rada_gui = {
+		context_type = decision_category
+		window_name = "ukraine_rada_gui"
+		
+		dynamic_lists = {
+			rada_diagram = {
+				array = rada_seat_x
+				change_scope = no
+				entry_container = rada_seat
+				index = seat_idx
+			}
+		}
+		triggers={
+			rada_voting_text_box_visible={
+				has_country_flag = there_is_legislation_in_the_rada
+			}
+		}
+		properties = {
+			rada_dot_icon = {
+				x = rada_seat_x^seat_idx
+				y = rada_seat_y^seat_idx
+				frame = rada_seat_frame^seat_idx
+			}
+			UKR_rada_language_button={
+				frame  = rada_button_frame
+			}
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		effects={
+			UKR_rada_language_button_click={
+				if={
+					limit = { has_country_flag = is_on_ukrainian_names }
+					clr_country_flag = is_on_ukrainian_names
+					set_variable = { rada_button_frame = 2 }
+				}
+				else={
+					set_country_flag = is_on_ukrainian_names
+					set_variable = { rada_button_frame = 1 }
+				}
+			}
+		}
+	}
+}

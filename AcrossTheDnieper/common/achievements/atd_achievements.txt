@@ -1,0 +1,157 @@
+unique_id = atd_achievements
+
+kyiv_not_kiev = {
+    possible = {
+        difficulty > 1
+        has_start_date < 2014.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		tag = UKR
+    }
+    
+    happened = {
+		has_global_flag = kyiv_not_kiev_achievement_flag
+    }    
+}
+
+pocoks_wet_dream = {
+    possible = {
+        difficulty > 1
+        has_start_date < 2014.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		tag = HUN
+    }
+    
+    happened = {
+		custom_trigger_tooltip = {
+			tooltip = owns_hungary_tt	
+			275 = { is_owned_and_controlled_by = HUN }
+			276 = { is_owned_and_controlled_by = HUN }
+			267 = { is_owned_and_controlled_by = HUN }
+			261 = { is_owned_and_controlled_by = HUN }
+			263 = { is_owned_and_controlled_by = HUN }
+			251 = { is_owned_and_controlled_by = HUN }
+			244 = { is_owned_and_controlled_by = HUN }
+			237 = { is_owned_and_controlled_by = HUN }
+			235 = { is_owned_and_controlled_by = HUN }
+			232 = { is_owned_and_controlled_by = HUN }
+			226 = { is_owned_and_controlled_by = HUN }
+			228 = { is_owned_and_controlled_by = HUN }
+			221 = { is_owned_and_controlled_by = HUN }
+			212 = { is_owned_and_controlled_by = HUN }
+			205 = { is_owned_and_controlled_by = HUN }
+			203 = { is_owned_and_controlled_by = HUN }
+			204 = { is_owned_and_controlled_by = HUN }
+			201 = { is_owned_and_controlled_by = HUN }
+			191 = { is_owned_and_controlled_by = HUN }
+			184 = { is_owned_and_controlled_by = HUN }
+			185 = { is_owned_and_controlled_by = HUN }
+			179 = { is_owned_and_controlled_by = HUN }
+			177 = { is_owned_and_controlled_by = HUN }
+			178 = { is_owned_and_controlled_by = HUN }
+			172 = { is_owned_and_controlled_by = HUN }
+			170 = { is_owned_and_controlled_by = HUN }
+			171 = { is_owned_and_controlled_by = HUN }
+			157 = { is_owned_and_controlled_by = HUN }
+		}
+		custom_trigger_tooltip = {
+			tooltip = owns_slovakia_tt	
+			111 = { is_owned_and_controlled_by = HUN }
+			116 = { is_owned_and_controlled_by = HUN }
+			120 = { is_owned_and_controlled_by = HUN }
+			130 = { is_owned_and_controlled_by = HUN }
+			134 = { is_owned_and_controlled_by = HUN }
+			137 = { is_owned_and_controlled_by = HUN }
+			138 = { is_owned_and_controlled_by = HUN }
+		}
+		custom_trigger_tooltip = {
+			tooltip = owns_akarpatskia_tt	
+			all_state={
+				OR={
+					NOT = { has_state_flag = akarpatskia_oblast_flag }
+					is_owned_and_controlled_by = HUN
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = owns_croatia_tt	
+			328 = { is_owned_and_controlled_by = HUN }
+			321 = { is_owned_and_controlled_by = HUN }
+			319 = { is_owned_and_controlled_by = HUN }
+			313 = { is_owned_and_controlled_by = HUN }
+			314 = { is_owned_and_controlled_by = HUN }
+			297 = { is_owned_and_controlled_by = HUN }
+			292 = { is_owned_and_controlled_by = HUN }
+			289 = { is_owned_and_controlled_by = HUN }
+		}
+		custom_trigger_tooltip = {
+			tooltip = owns_transylvania_tt	
+			315 = { is_owned_and_controlled_by = HUN }
+			281 = { is_owned_and_controlled_by = HUN }
+			265 = { is_owned_and_controlled_by = HUN }
+			219 = { is_owned_and_controlled_by = HUN }
+			190 = { is_owned_and_controlled_by = HUN }
+			283 = { is_owned_and_controlled_by = HUN }
+			273 = { is_owned_and_controlled_by = HUN }
+			239 = { is_owned_and_controlled_by = HUN }
+			200 = { is_owned_and_controlled_by = HUN }
+			227 = { is_owned_and_controlled_by = HUN }
+			294 = { is_owned_and_controlled_by = HUN }
+			298 = { is_owned_and_controlled_by = HUN }
+			295 = { is_owned_and_controlled_by = HUN }
+			253 = { is_owned_and_controlled_by = HUN }
+			254 = { is_owned_and_controlled_by = HUN }
+			225 = { is_owned_and_controlled_by = HUN }
+		}
+		custom_trigger_tooltip = {
+			tooltip = owns_banat_tt	
+			329 = { is_owned_and_controlled_by = HUN }
+			302 = { is_owned_and_controlled_by = HUN }
+			280 = { is_owned_and_controlled_by = HUN }
+			279 = { is_owned_and_controlled_by = HUN }
+			285 = { is_owned_and_controlled_by = HUN }
+			301 = { is_owned_and_controlled_by = HUN }
+			324 = { is_owned_and_controlled_by = HUN }
+			
+		}
+    }    
+}
+
+beer_stream_one = {
+    possible = {
+        difficulty > 1
+        has_start_date < 2014.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		tag = CZE
+    }
+    
+    happened = {
+		1 = { is_owned_and_controlled_by = ROOT }
+		has_railway_connection = {
+			start_province = 5013
+  			target_province = 14907
+		}
+    }    
+}
+
+red_flood = {
+	
+	possible = {
+		difficulty > 1
+		has_start_date < 2014.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+	
+	happened = {
+		all_country = {
+			OR={
+				has_government = socialist
+				has_government = moderate_communist
+				has_government = hardline_communist
+			}
+		}
+	}
+}

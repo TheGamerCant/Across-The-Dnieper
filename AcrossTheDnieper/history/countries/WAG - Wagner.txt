@@ -1,0 +1,316 @@
+﻿capital = 342
+
+set_oob = "WAG_2014"
+
+give_military_access = SOV
+add_opinion_modifier = { target = SOV modifier = huge_increase }
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+}
+SOV = {
+	add_opinion_modifier = { target = WAG modifier = huge_increase }
+	give_military_access = WAG
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = WAG
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = WAG
+		value = 1000
+	}
+	give_guarantee = WAG
+}
+
+recruit_character = WAG_alexey_nagin
+recruit_character = WAG_musician
+recruit_character = WAG_dober
+recruit_character = WAG_humpbacked
+
+
+2022.1.1 = {
+	set_oob = "WAG_2022"
+
+	add_manpower = 3000
+
+	complete_national_focus = WAG_putins_orders
+	complete_national_focus = WAG_first_ingrediant
+	complete_national_focus = WAG_crimea_is_russia
+	complete_national_focus = WAG_russias_only_ally
+	complete_national_focus = WAG_chefs_special
+	complete_national_focus = WAG_chefs_cooking_tools
+	complete_national_focus = WAG_our_brothers_in_luhansk
+	complete_national_focus = WAG_our_brothers_in_donetsk
+	complete_national_focus = WAG_reverse_side_of_the_medal
+	complete_national_focus = WAG_begin_2014_recruitment_program
+	complete_national_focus = WAG_telegram
+	complete_national_focus = WAG_boot_camps
+	complete_national_focus = WAG_vladlen_tatarsky
+	complete_national_focus = WAG_well_known_in_russia
+	complete_national_focus = WAG_expanding_high_command
+	complete_national_focus = WAG_wagner_guerilla_warfare_tactics
+	complete_national_focus = WAG_finishing_touches
+	complete_national_focus = WAG_the_kremlins_wagner_orchestra
+}
+
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	basic_train = 1
+
+	modern_tank_doctrine = 1
+	ifv = 1
+
+	gw_artillery = 1
+	elite_special_forces_tech = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+create_country_leader = {
+	name = "Yevgeny Prigozhin"
+	desc = ""
+	ideology = wagner_ideology
+	picture = gfx/leaders/WAG/Portrait_dmitry_utkin.png
+}
+
+
+create_country_leader = {
+	name = "Yevgeny Aladeen"
+	desc = ""
+	ideology = generic_hardline_communist
+	picture = gfx/leaders/WAG/Portrait_Yevgeny_Al_Prigozhin.png
+}
+
+create_country_leader = {
+	name = "Eugene Price"
+	desc = ""
+	ideology = generic_neoliberal
+	picture = gfx/leaders/WAG/Portrait_Eugene_Price.png
+}
+
+create_country_leader = {
+	name = "Mohammed Al Prishah"
+	desc = ""
+	ideology = generic_fascist
+	picture = gfx/leaders/WAG/Portrait_Mohammed_Al_Prishah.png
+}
+
+create_country_leader = {
+	name = "John Doe"
+	desc = ""
+	ideology = generic_populist
+	picture = gfx/leaders/WAG/Portrait_John_Doe.png
+}
+
+set_politics = {
+	ruling_party = military_junta
+	elections_allowed = no
+}
+
+set_popularities = {
+	military_junta = 100
+}
+
+set_convoys = 0
+
+set_research_slots = 1
+
+add_ideas = {
+	private_military_company
+
+	pmc
+	parliamentary_organization
+	paramilitary_economy
+
+	wartime_censorship
+	unions_banned
+	bipolarist
+	womens_rights_patriarchy
+	lgbtq_rights_banned
+	minority_rights_societal_discrimination
+	nationalism_laws_jingoistic
+	firearm_laws_unregulated
+	alchohol_narcotics_laws_banned
+}
+
+ai_strategy = {
+    type = alliance
+    id = SOV
+    value = -4000
+}
+ai_strategy = {
+    type = protect
+    id = SOV
+    value = 100
+}
+ai_strategy = {
+    type = send_volunteers_desire
+    id = SOV
+    value = 250
+}
+ai_strategy = {
+    type = support
+    id = SOV
+    value = 1000
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}

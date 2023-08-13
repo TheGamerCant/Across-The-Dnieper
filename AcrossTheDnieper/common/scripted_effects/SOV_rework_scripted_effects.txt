@@ -1,0 +1,3269 @@
+SOV_media_leaning_calculate_XY = {
+	SOV = {
+		clamp_variable = { var = SOV_media_leans_eastern_conservative min = 0 }		#Clamp / correct the variables
+		clamp_variable = { var = SOV_media_leans_eastern_liberal min = 0 }
+		clamp_variable = { var = SOV_media_leans_ultranationalist min = 0 }
+	
+		set_temp_variable = { sum = SOV_media_leans_eastern_conservative }
+		add_to_temp_variable  = { sum = SOV_media_leans_eastern_liberal }
+		add_to_temp_variable  = { sum = SOV_media_leans_ultranationalist }
+		
+		multiply_variable = { SOV_media_leans_eastern_conservative = 100 }
+		divide_variable = { SOV_media_leans_eastern_conservative = sum }
+		multiply_variable = { SOV_media_leans_eastern_liberal = 100 }
+		divide_variable = { SOV_media_leans_eastern_liberal = sum }
+		multiply_variable = { SOV_media_leans_ultranationalist = 100 }
+		divide_variable = { SOV_media_leans_ultranationalist = sum }
+	
+		set_variable = { SOV_media_dot_Y = -100 }
+		subtract_from_variable = { SOV_media_dot_Y = SOV_media_leans_eastern_liberal }
+		subtract_from_variable = { SOV_media_dot_Y = SOV_media_leans_ultranationalist }
+		add_to_variable = { SOV_media_dot_Y = SOV_media_leans_eastern_conservative }
+		multiply_variable = { SOV_media_dot_Y = -1.78 }
+		
+		set_variable = { SOV_media_dot_X = SOV_media_leans_eastern_liberal }
+		subtract_from_variable = { SOV_media_dot_X = SOV_media_leans_ultranationalist }
+		multiply_variable = { SOV_media_dot_X = 2.03 }
+		
+		add_to_variable = { SOV_media_dot_Y = 11 }
+		add_to_variable = { SOV_media_dot_X = 239 }
+		
+		set_variable = { eastern_conservative_drift_from_media = SOV_media_leans_eastern_conservative }
+		divide_variable = { eastern_conservative_drift_from_media = 500 }
+		set_variable = { eastern_liberal_drift_from_media = SOV_media_leans_eastern_liberal }
+		divide_variable = { eastern_liberal_drift_from_media = 500 }
+		set_variable = { ultranationalist_drift_from_media = SOV_media_leans_ultranationalist }
+		divide_variable = { ultranationalist_drift_from_media = 500 }
+	}
+}
+
+increase_eastern_conservative_programming_by_1={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 1 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 0.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 0.5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_2={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 2 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 1 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 1 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_3={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 3 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 1.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 1.5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_4={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 4 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 2 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 2 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_5={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 5 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 2.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 2.5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_6={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 6 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 3 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 3 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_7={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 7 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 3.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 3.5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_8={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 8 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 4 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 4 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_9={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 9 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 4.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 4.5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_conservative_programming_by_10={
+	add_to_variable = { SOV_media_leans_eastern_conservative = 10 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 5 }
+	custom_effect_tooltip = increase_eastern_conservative_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+increase_ultranationalist_programming_by_1={
+	add_to_variable = { SOV_media_leans_ultranationalist = 1 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 0.5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 0.5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_2={
+	add_to_variable = { SOV_media_leans_ultranationalist = 2 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 1 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 1 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_3={
+	add_to_variable = { SOV_media_leans_ultranationalist = 3 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 1.5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 1.5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_4={
+	add_to_variable = { SOV_media_leans_ultranationalist = 4 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 2 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 2 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_5={
+	add_to_variable = { SOV_media_leans_ultranationalist = 5 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 2.5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 2.5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_6={
+	add_to_variable = { SOV_media_leans_ultranationalist = 6 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 3 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 3 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_7={
+	add_to_variable = { SOV_media_leans_ultranationalist = 7 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 3.5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 3.5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_8={
+	add_to_variable = { SOV_media_leans_ultranationalist = 8 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 4 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_9={
+	add_to_variable = { SOV_media_leans_ultranationalist = 9 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 4.5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4.5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_ultranationalist_programming_by_10={
+	add_to_variable = { SOV_media_leans_ultranationalist = 10 }
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 5 }
+	custom_effect_tooltip = increase_ultranationalist_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+increase_eastern_liberal_programming_by_1={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 1 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 0.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 0.5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_2={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 2 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 1 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 1 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_3={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 3 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 1.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 1.5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_4={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 4 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 2 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 2 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_5={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 5 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 2.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 2.5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_6={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 6 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 3 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 3 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_7={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 7 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 3.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 3.5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_8={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 8 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 4 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_9={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 9 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4.5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 4.5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+increase_eastern_liberal_programming_by_10={
+	add_to_variable = { SOV_media_leans_eastern_liberal = 10 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 5 }
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 5 }
+	custom_effect_tooltip = increase_eastern_liberal_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+decrease_eastern_conservative_programming_by_1={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 1 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 0.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 0.5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_2={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 2 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 1 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 1 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_3={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 3 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 1.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 1.5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_4={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 2 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 2 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_5={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 5 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 2.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 2.5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_6={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 6 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 3 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 3 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_7={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 7 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 3.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 3.5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_8={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 8 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 4 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 4 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_9={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 9 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 4.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 4.5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_conservative_programming_by_10={
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 10 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 5 }
+	custom_effect_tooltip = decrease_eastern_conservative_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+decrease_ultranationalist_programming_by_1={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 1 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 0.5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 0.5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_2={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 2 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 1 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 1 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_3={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 3 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 1.5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 1.5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_4={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 4 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 2 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 2 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_5={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 5 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 2.5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 2.5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_6={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 6 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 3 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 3 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_7={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 7 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 3.5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 3.5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_8={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 8 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 4 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 4 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_9={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 9 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 4.5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 4.5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_ultranationalist_programming_by_10={
+	subtract_from_variable = { SOV_media_leans_ultranationalist = 10 }
+	add_to_variable = { SOV_media_leans_eastern_liberal = 5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 5 }
+	custom_effect_tooltip = decrease_ultranationalist_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+decrease_eastern_liberal_programming_by_1={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 1 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 0.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 0.5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_1_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_2={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 2 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 1 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 1 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_2_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_3={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 3 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 1.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 1.5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_3_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_4={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 4 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 2 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 2 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_4_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_5={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 5 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 2.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 2.5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_5_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_6={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 6 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 3 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 3 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_6_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_7={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 7 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 3.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 3.5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_7_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_8={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 8 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 4 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 4 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_8_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_9={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 9 }
+	subtract_from_variable = { SOV_media_leans_eastern_conservative = 4.5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 4.5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_9_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+decrease_eastern_liberal_programming_by_10={
+	subtract_from_variable = { SOV_media_leans_eastern_liberal = 10 }
+	add_to_variable = { SOV_media_leans_eastern_conservative = 5 }
+	add_to_variable = { SOV_media_leans_ultranationalist = 5 }
+	custom_effect_tooltip = decrease_eastern_liberal_programming_by_10_tt
+	SOV_media_leaning_calculate_XY = yes
+}
+
+
+get_next_available_liberal_slot={
+	if={
+		limit = { 
+			liberal_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 270 }
+		set_country_flag = liberal_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_1_is_available = yes }
+			liberal_slot_2_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 270 }
+		set_country_flag = liberal_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_2_is_available = yes }
+			liberal_slot_3_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 270 }
+		set_country_flag = liberal_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_3_is_available = yes }
+			liberal_slot_4_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 338 }
+		set_country_flag = liberal_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_4_is_available = yes }
+			liberal_slot_5_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 338 }
+		set_country_flag = liberal_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_5_is_available = yes }
+			liberal_slot_6_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 338 }
+		set_country_flag = liberal_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_6_is_available = yes }
+			liberal_slot_7_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 406 }
+		set_country_flag = liberal_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_7_is_available = yes }
+			liberal_slot_8_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 406 }
+		set_country_flag = liberal_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_8_is_available = yes }
+			liberal_slot_9_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 406 }
+		set_country_flag = liberal_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_9_is_available = yes }
+			liberal_slot_10_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 474 }
+		set_country_flag = liberal_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_10_is_available = yes }
+			liberal_slot_11_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 474 }
+		set_country_flag = liberal_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_11_is_available = yes }
+			liberal_slot_12_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 474 }
+		set_country_flag = liberal_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_12_is_available = yes }
+			liberal_slot_13_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 542 }
+		set_country_flag = liberal_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_13_is_available = yes }
+			liberal_slot_14_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 542 }
+		set_country_flag = liberal_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_14_is_available = yes }
+			liberal_slot_15_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 542 }
+		set_country_flag = liberal_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_15_is_available = yes }
+			liberal_slot_16_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 21 }
+		set_variable = { next_available_liberal_Y = 610 }
+		set_country_flag = liberal_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_16_is_available = yes }
+			liberal_slot_17_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 85 }
+		set_variable = { next_available_liberal_Y = 610 }
+		set_country_flag = liberal_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { liberal_slot_17_is_available = yes }
+			liberal_slot_18_is_available = yes
+		}
+		set_variable = { next_available_liberal_X = 149 }
+		set_variable = { next_available_liberal_Y = 610 }
+		set_country_flag = liberal_slot_18_taken
+	}
+}
+
+get_next_available_technocrat_slot={
+	if={
+		limit = { 
+			technocrat_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 270 }
+		set_country_flag = technocrat_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_1_is_available = yes }
+			technocrat_slot_2_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 270 }
+		set_country_flag = technocrat_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_2_is_available = yes }
+			technocrat_slot_3_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 270 }
+		set_country_flag = technocrat_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_3_is_available = yes }
+			technocrat_slot_4_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 338 }
+		set_country_flag = technocrat_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_4_is_available = yes }
+			technocrat_slot_5_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 338 }
+		set_country_flag = technocrat_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_5_is_available = yes }
+			technocrat_slot_6_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 338 }
+		set_country_flag = technocrat_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_6_is_available = yes }
+			technocrat_slot_7_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 406 }
+		set_country_flag = technocrat_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_7_is_available = yes }
+			technocrat_slot_8_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 406 }
+		set_country_flag = technocrat_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_8_is_available = yes }
+			technocrat_slot_9_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 406 }
+		set_country_flag = technocrat_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_9_is_available = yes }
+			technocrat_slot_10_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 474 }
+		set_country_flag = technocrat_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_10_is_available = yes }
+			technocrat_slot_11_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 474 }
+		set_country_flag = technocrat_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_11_is_available = yes }
+			technocrat_slot_12_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 474 }
+		set_country_flag = technocrat_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_12_is_available = yes }
+			technocrat_slot_13_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 542 }
+		set_country_flag = technocrat_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_13_is_available = yes }
+			technocrat_slot_14_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 542 }
+		set_country_flag = technocrat_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_14_is_available = yes }
+			technocrat_slot_15_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 542 }
+		set_country_flag = technocrat_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_15_is_available = yes }
+			technocrat_slot_16_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 215 }
+		set_variable = { next_available_technocrat_Y = 610 }
+		set_country_flag = technocrat_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_16_is_available = yes }
+			technocrat_slot_17_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 279 }
+		set_variable = { next_available_technocrat_Y = 610 }
+		set_country_flag = technocrat_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { technocrat_slot_17_is_available = yes }
+			technocrat_slot_18_is_available = yes
+		}
+		set_variable = { next_available_technocrat_X = 343 }
+		set_variable = { next_available_technocrat_Y = 610 }
+		set_country_flag = technocrat_slot_18_taken
+	}
+}
+
+get_next_available_oil_and_gas_slot={
+	if={
+		limit = { 
+			oil_and_gas_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 270 }
+		set_country_flag = oil_and_gas_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_1_is_available = yes }
+			oil_and_gas_slot_2_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 270 }
+		set_country_flag = oil_and_gas_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_2_is_available = yes }
+			oil_and_gas_slot_3_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 270 }
+		set_country_flag = oil_and_gas_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_3_is_available = yes }
+			oil_and_gas_slot_4_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 338 }
+		set_country_flag = oil_and_gas_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_4_is_available = yes }
+			oil_and_gas_slot_5_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 338 }
+		set_country_flag = oil_and_gas_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_5_is_available = yes }
+			oil_and_gas_slot_6_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 338 }
+		set_country_flag = oil_and_gas_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_6_is_available = yes }
+			oil_and_gas_slot_7_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 406 }
+		set_country_flag = oil_and_gas_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_7_is_available = yes }
+			oil_and_gas_slot_8_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 406 }
+		set_country_flag = oil_and_gas_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_8_is_available = yes }
+			oil_and_gas_slot_9_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 406 }
+		set_country_flag = oil_and_gas_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_9_is_available = yes }
+			oil_and_gas_slot_10_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 474 }
+		set_country_flag = oil_and_gas_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_10_is_available = yes }
+			oil_and_gas_slot_11_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 474 }
+		set_country_flag = oil_and_gas_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_11_is_available = yes }
+			oil_and_gas_slot_12_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 474 }
+		set_country_flag = oil_and_gas_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_12_is_available = yes }
+			oil_and_gas_slot_13_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 542 }
+		set_country_flag = oil_and_gas_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_13_is_available = yes }
+			oil_and_gas_slot_14_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 542 }
+		set_country_flag = oil_and_gas_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_14_is_available = yes }
+			oil_and_gas_slot_15_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 542 }
+		set_country_flag = oil_and_gas_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_15_is_available = yes }
+			oil_and_gas_slot_16_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 409 }
+		set_variable = { next_available_oil_and_gas_Y = 610 }
+		set_country_flag = oil_and_gas_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_16_is_available = yes }
+			oil_and_gas_slot_17_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 473 }
+		set_variable = { next_available_oil_and_gas_Y = 610 }
+		set_country_flag = oil_and_gas_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { oil_and_gas_slot_17_is_available = yes }
+			oil_and_gas_slot_18_is_available = yes
+		}
+		set_variable = { next_available_oil_and_gas_X = 537 }
+		set_variable = { next_available_oil_and_gas_Y = 610 }
+		set_country_flag = oil_and_gas_slot_18_taken
+	}
+}
+
+
+get_next_available_siloviki_slot={
+	if={
+		limit = { 
+			siloviki_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 270 }
+		set_country_flag = siloviki_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_1_is_available = yes }
+			siloviki_slot_2_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 270 }
+		set_country_flag = siloviki_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_2_is_available = yes }
+			siloviki_slot_3_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 270 }
+		set_country_flag = siloviki_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_3_is_available = yes }
+			siloviki_slot_4_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 338 }
+		set_country_flag = siloviki_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_4_is_available = yes }
+			siloviki_slot_5_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 338 }
+		set_country_flag = siloviki_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_5_is_available = yes }
+			siloviki_slot_6_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 338 }
+		set_country_flag = siloviki_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_6_is_available = yes }
+			siloviki_slot_7_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 406 }
+		set_country_flag = siloviki_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_7_is_available = yes }
+			siloviki_slot_8_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 406 }
+		set_country_flag = siloviki_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_8_is_available = yes }
+			siloviki_slot_9_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 406 }
+		set_country_flag = siloviki_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_9_is_available = yes }
+			siloviki_slot_10_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 474 }
+		set_country_flag = siloviki_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_10_is_available = yes }
+			siloviki_slot_11_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 474 }
+		set_country_flag = siloviki_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_11_is_available = yes }
+			siloviki_slot_12_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 474 }
+		set_country_flag = siloviki_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_12_is_available = yes }
+			siloviki_slot_13_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 542 }
+		set_country_flag = siloviki_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_13_is_available = yes }
+			siloviki_slot_14_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 542 }
+		set_country_flag = siloviki_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_14_is_available = yes }
+			siloviki_slot_15_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 542 }
+		set_country_flag = siloviki_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_15_is_available = yes }
+			siloviki_slot_16_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 603 }
+		set_variable = { next_available_siloviki_Y = 610 }
+		set_country_flag = siloviki_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_16_is_available = yes }
+			siloviki_slot_17_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 667 }
+		set_variable = { next_available_siloviki_Y = 610 }
+		set_country_flag = siloviki_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { siloviki_slot_17_is_available = yes }
+			siloviki_slot_18_is_available = yes
+		}
+		set_variable = { next_available_siloviki_X = 731 }
+		set_variable = { next_available_siloviki_Y = 610 }
+		set_country_flag = siloviki_slot_18_taken
+	}
+}
+
+
+get_next_available_putinist_slot={
+	if={
+		limit = { 
+			putinist_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 270 }
+		set_country_flag = putinist_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_1_is_available = yes }
+			putinist_slot_2_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 270 }
+		set_country_flag = putinist_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_2_is_available = yes }
+			putinist_slot_3_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 270 }
+		set_country_flag = putinist_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_3_is_available = yes }
+			putinist_slot_4_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 338 }
+		set_country_flag = putinist_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_4_is_available = yes }
+			putinist_slot_5_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 338 }
+		set_country_flag = putinist_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_5_is_available = yes }
+			putinist_slot_6_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 338 }
+		set_country_flag = putinist_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_6_is_available = yes }
+			putinist_slot_7_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 406 }
+		set_country_flag = putinist_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_7_is_available = yes }
+			putinist_slot_8_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 406 }
+		set_country_flag = putinist_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_8_is_available = yes }
+			putinist_slot_9_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 406 }
+		set_country_flag = putinist_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_9_is_available = yes }
+			putinist_slot_10_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 474 }
+		set_country_flag = putinist_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_10_is_available = yes }
+			putinist_slot_11_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 474 }
+		set_country_flag = putinist_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_11_is_available = yes }
+			putinist_slot_12_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 474 }
+		set_country_flag = putinist_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_12_is_available = yes }
+			putinist_slot_13_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 542 }
+		set_country_flag = putinist_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_13_is_available = yes }
+			putinist_slot_14_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 542 }
+		set_country_flag = putinist_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_14_is_available = yes }
+			putinist_slot_15_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 542 }
+		set_country_flag = putinist_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_15_is_available = yes }
+			putinist_slot_16_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 797 }
+		set_variable = { next_available_putinist_Y = 610 }
+		set_country_flag = putinist_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_16_is_available = yes }
+			putinist_slot_17_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 861 }
+		set_variable = { next_available_putinist_Y = 610 }
+		set_country_flag = putinist_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { putinist_slot_17_is_available = yes }
+			putinist_slot_18_is_available = yes
+		}
+		set_variable = { next_available_putinist_X = 925 }
+		set_variable = { next_available_putinist_Y = 610 }
+		set_country_flag = putinist_slot_18_taken
+	}
+}
+
+get_next_available_nationalist_slot={
+	if={
+		limit = { 
+			nationalist_slot_1_is_available = yes 
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 270 }
+		set_country_flag = nationalist_slot_1_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_1_is_available = yes }
+			nationalist_slot_2_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 270 }
+		set_country_flag = nationalist_slot_2_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_2_is_available = yes }
+			nationalist_slot_3_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 270 }
+		set_country_flag = nationalist_slot_3_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_3_is_available = yes }
+			nationalist_slot_4_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 338 }
+		set_country_flag = nationalist_slot_4_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_4_is_available = yes }
+			nationalist_slot_5_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 338 }
+		set_country_flag = nationalist_slot_5_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_5_is_available = yes }
+			nationalist_slot_6_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 338 }
+		set_country_flag = nationalist_slot_6_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_6_is_available = yes }
+			nationalist_slot_7_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 406 }
+		set_country_flag = nationalist_slot_7_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_7_is_available = yes }
+			nationalist_slot_8_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 406 }
+		set_country_flag = nationalist_slot_8_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_8_is_available = yes }
+			nationalist_slot_9_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 406 }
+		set_country_flag = nationalist_slot_9_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_9_is_available = yes }
+			nationalist_slot_10_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 474 }
+		set_country_flag = nationalist_slot_10_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_10_is_available = yes }
+			nationalist_slot_11_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 474 }
+		set_country_flag = nationalist_slot_11_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_11_is_available = yes }
+			nationalist_slot_12_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 474 }
+		set_country_flag = nationalist_slot_12_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_12_is_available = yes }
+			nationalist_slot_13_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 542 }
+		set_country_flag = nationalist_slot_13_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_13_is_available = yes }
+			nationalist_slot_14_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 542 }
+		set_country_flag = nationalist_slot_14_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_14_is_available = yes }
+			nationalist_slot_15_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 542 }
+		set_country_flag = nationalist_slot_15_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_15_is_available = yes }
+			nationalist_slot_16_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 991 }
+		set_variable = { next_available_nationalist_Y = 610 }
+		set_country_flag = nationalist_slot_16_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_16_is_available = yes }
+			nationalist_slot_17_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1055 }
+		set_variable = { next_available_nationalist_Y = 610 }
+		set_country_flag = nationalist_slot_17_taken
+	}
+	else_if={
+		limit = { 
+			NOT = { nationalist_slot_17_is_available = yes }
+			nationalist_slot_18_is_available = yes
+		}
+		set_variable = { next_available_nationalist_X = 1119 }
+		set_variable = { next_available_nationalist_Y = 610 }
+		set_country_flag = nationalist_slot_18_taken
+	}
+}
+
+clear_slot_flags={
+	clr_country_flag = liberal_slot_1_taken
+	clr_country_flag = liberal_slot_2_taken
+	clr_country_flag = liberal_slot_3_taken
+	clr_country_flag = liberal_slot_4_taken
+	clr_country_flag = liberal_slot_5_taken
+	clr_country_flag = liberal_slot_6_taken
+	clr_country_flag = liberal_slot_7_taken
+	clr_country_flag = liberal_slot_8_taken
+	clr_country_flag = liberal_slot_9_taken
+	clr_country_flag = liberal_slot_10_taken
+	clr_country_flag = liberal_slot_11_taken
+	clr_country_flag = liberal_slot_12_taken
+	clr_country_flag = liberal_slot_13_taken
+	clr_country_flag = liberal_slot_14_taken
+	clr_country_flag = liberal_slot_15_taken
+	clr_country_flag = liberal_slot_16_taken
+	clr_country_flag = liberal_slot_17_taken
+	clr_country_flag = liberal_slot_18_taken
+	
+	clr_country_flag = technocrat_slot_1_taken
+	clr_country_flag = technocrat_slot_2_taken
+	clr_country_flag = technocrat_slot_3_taken
+	clr_country_flag = technocrat_slot_4_taken
+	clr_country_flag = technocrat_slot_5_taken
+	clr_country_flag = technocrat_slot_6_taken
+	clr_country_flag = technocrat_slot_7_taken
+	clr_country_flag = technocrat_slot_8_taken
+	clr_country_flag = technocrat_slot_9_taken
+	clr_country_flag = technocrat_slot_10_taken
+	clr_country_flag = technocrat_slot_11_taken
+	clr_country_flag = technocrat_slot_12_taken
+	clr_country_flag = technocrat_slot_13_taken
+	clr_country_flag = technocrat_slot_14_taken
+	clr_country_flag = technocrat_slot_15_taken
+	clr_country_flag = technocrat_slot_16_taken
+	clr_country_flag = technocrat_slot_17_taken
+	clr_country_flag = technocrat_slot_18_taken
+	
+	clr_country_flag = oil_and_gas_slot_1_taken
+	clr_country_flag = oil_and_gas_slot_2_taken
+	clr_country_flag = oil_and_gas_slot_3_taken
+	clr_country_flag = oil_and_gas_slot_4_taken
+	clr_country_flag = oil_and_gas_slot_5_taken
+	clr_country_flag = oil_and_gas_slot_6_taken
+	clr_country_flag = oil_and_gas_slot_7_taken
+	clr_country_flag = oil_and_gas_slot_8_taken
+	clr_country_flag = oil_and_gas_slot_9_taken
+	clr_country_flag = oil_and_gas_slot_10_taken
+	clr_country_flag = oil_and_gas_slot_11_taken
+	clr_country_flag = oil_and_gas_slot_12_taken
+	clr_country_flag = oil_and_gas_slot_13_taken
+	clr_country_flag = oil_and_gas_slot_14_taken
+	clr_country_flag = oil_and_gas_slot_15_taken
+	clr_country_flag = oil_and_gas_slot_16_taken
+	clr_country_flag = oil_and_gas_slot_17_taken
+	clr_country_flag = oil_and_gas_slot_18_taken
+	
+	clr_country_flag = siloviki_slot_1_taken
+	clr_country_flag = siloviki_slot_2_taken
+	clr_country_flag = siloviki_slot_3_taken
+	clr_country_flag = siloviki_slot_4_taken
+	clr_country_flag = siloviki_slot_5_taken
+	clr_country_flag = siloviki_slot_6_taken
+	clr_country_flag = siloviki_slot_7_taken
+	clr_country_flag = siloviki_slot_8_taken
+	clr_country_flag = siloviki_slot_9_taken
+	clr_country_flag = siloviki_slot_10_taken
+	clr_country_flag = siloviki_slot_11_taken
+	clr_country_flag = siloviki_slot_12_taken
+	clr_country_flag = siloviki_slot_13_taken
+	clr_country_flag = siloviki_slot_14_taken
+	clr_country_flag = siloviki_slot_15_taken
+	clr_country_flag = siloviki_slot_16_taken
+	clr_country_flag = siloviki_slot_17_taken
+	clr_country_flag = siloviki_slot_18_taken
+	
+	clr_country_flag = putinist_slot_1_taken
+	clr_country_flag = putinist_slot_2_taken
+	clr_country_flag = putinist_slot_3_taken
+	clr_country_flag = putinist_slot_4_taken
+	clr_country_flag = putinist_slot_5_taken
+	clr_country_flag = putinist_slot_6_taken
+	clr_country_flag = putinist_slot_7_taken
+	clr_country_flag = putinist_slot_8_taken
+	clr_country_flag = putinist_slot_9_taken
+	clr_country_flag = putinist_slot_10_taken
+	clr_country_flag = putinist_slot_11_taken
+	clr_country_flag = putinist_slot_12_taken
+	clr_country_flag = putinist_slot_13_taken
+	clr_country_flag = putinist_slot_14_taken
+	clr_country_flag = putinist_slot_15_taken
+	clr_country_flag = putinist_slot_16_taken
+	clr_country_flag = putinist_slot_17_taken
+	clr_country_flag = putinist_slot_18_taken
+	
+	clr_country_flag = nationalist_slot_1_taken
+	clr_country_flag = nationalist_slot_2_taken
+	clr_country_flag = nationalist_slot_3_taken
+	clr_country_flag = nationalist_slot_4_taken
+	clr_country_flag = nationalist_slot_5_taken
+	clr_country_flag = nationalist_slot_6_taken
+	clr_country_flag = nationalist_slot_7_taken
+	clr_country_flag = nationalist_slot_8_taken
+	clr_country_flag = nationalist_slot_9_taken
+	clr_country_flag = nationalist_slot_10_taken
+	clr_country_flag = nationalist_slot_11_taken
+	clr_country_flag = nationalist_slot_12_taken
+	clr_country_flag = nationalist_slot_13_taken
+	clr_country_flag = nationalist_slot_14_taken
+	clr_country_flag = nationalist_slot_15_taken
+	clr_country_flag = nationalist_slot_16_taken
+	clr_country_flag = nationalist_slot_17_taken
+	clr_country_flag = nationalist_slot_18_taken
+}
+
+SOV_reset_liberal_faction_flags = {
+	clr_country_flag = alexei_navalny_liberal_leader_flag
+	clr_country_flag = grigory_yavlinsky_liberal_leader_flag
+	clr_country_flag = dmitri_medvedev_liberal_leader_flag
+	clr_country_flag = ramzan_kadyrov_liberal_leader_flag
+	clr_country_flag = igor_girkin_liberal_leader_flag
+	clr_country_flag = yevgeny_prigozhin_liberal_leader_flag
+	clr_country_flag = sergey_chemezov_liberal_leader_flag
+	clr_country_flag = boris_nemtsov_liberal_leader_flag
+	clr_country_flag = yuri_kovalchuk_liberal_leader_flag
+	clr_country_flag = mikhail_kovalchuk_liberal_leader_flag
+	clr_country_flag = viktor_zolotov_liberal_leader_flag
+}
+SOV_reset_technocrat_faction_flags = {
+	clr_country_flag = alexei_navalny_technocrat_leader_flag
+	clr_country_flag = grigory_yavlinsky_technocrat_leader_flag
+	clr_country_flag = dmitri_medvedev_technocrat_leader_flag
+	clr_country_flag = ramzan_kadyrov_technocrat_leader_flag
+	clr_country_flag = igor_girkin_technocrat_leader_flag
+	clr_country_flag = yevgeny_prigozhin_technocrat_leader_flag
+	clr_country_flag = sergey_chemezov_technocrat_leader_flag
+	clr_country_flag = boris_nemtsov_technocrat_leader_flag
+	clr_country_flag = yuri_kovalchuk_technocrat_leader_flag
+	clr_country_flag = mikhail_kovalchuk_technocrat_leader_flag
+	clr_country_flag = viktor_zolotov_technocrat_leader_flag
+}
+SOV_reset_oil_and_gas_faction_flags = {
+	clr_country_flag = alexei_navalny_oil_and_gas_leader_flag
+	clr_country_flag = grigory_yavlinsky_oil_and_gas_leader_flag
+	clr_country_flag = dmitri_medvedev_oil_and_gas_leader_flag
+	clr_country_flag = ramzan_kadyrov_oil_and_gas_leader_flag
+	clr_country_flag = igor_girkin_oil_and_gas_leader_flag
+	clr_country_flag = yevgeny_prigozhin_oil_and_gas_leader_flag
+	clr_country_flag = sergey_chemezov_oil_and_gas_leader_flag
+	clr_country_flag = boris_nemtsov_oil_and_gas_leader_flag
+	clr_country_flag = yuri_kovalchuk_oil_and_gas_leader_flag
+	clr_country_flag = mikhail_kovalchuk_oil_and_gas_leader_flag
+	clr_country_flag = viktor_zolotov_oil_and_gas_leader_flag
+}
+SOV_reset_siloviki_faction_flags = {
+	clr_country_flag = alexei_navalny_siloviki_leader_flag
+	clr_country_flag = grigory_yavlinsky_siloviki_leader_flag
+	clr_country_flag = dmitri_medvedev_siloviki_leader_flag
+	clr_country_flag = ramzan_kadyrov_siloviki_leader_flag
+	clr_country_flag = igor_girkin_siloviki_leader_flag
+	clr_country_flag = yevgeny_prigozhin_siloviki_leader_flag
+	clr_country_flag = sergey_chemezov_siloviki_leader_flag
+	clr_country_flag = boris_nemtsov_siloviki_leader_flag
+	clr_country_flag = yuri_kovalchuk_siloviki_leader_flag
+	clr_country_flag = mikhail_kovalchuk_siloviki_leader_flag
+	clr_country_flag = viktor_zolotov_siloviki_leader_flag
+}
+SOV_reset_putinist_faction_flags = {
+	clr_country_flag = alexei_navalny_putinist_leader_flag
+	clr_country_flag = grigory_yavlinsky_putinist_leader_flag
+	clr_country_flag = dmitri_medvedev_putinist_leader_flag
+	clr_country_flag = ramzan_kadyrov_putinist_leader_flag
+	clr_country_flag = igor_girkin_putinist_leader_flag
+	clr_country_flag = yevgeny_prigozhin_putinist_leader_flag
+	clr_country_flag = sergey_chemezov_putinist_leader_flag
+	clr_country_flag = boris_nemtsov_putinist_leader_flag
+	clr_country_flag = yuri_kovalchuk_putinist_leader_flag
+	clr_country_flag = mikhail_kovalchuk_putinist_leader_flag
+	clr_country_flag = viktor_zolotov_putinist_leader_flag
+}
+SOV_reset_nationalist_faction_flags = {
+	clr_country_flag = alexei_navalny_nationalist_leader_flag
+	clr_country_flag = grigory_yavlinsky_nationalist_leader_flag
+	clr_country_flag = dmitri_medvedev_nationalist_leader_flag
+	clr_country_flag = ramzan_kadyrov_nationalist_leader_flag
+	clr_country_flag = igor_girkin_nationalist_leader_flag
+	clr_country_flag = yevgeny_prigozhin_nationalist_leader_flag
+	clr_country_flag = sergey_chemezov_nationalist_leader_flag
+	clr_country_flag = boris_nemtsov_nationalist_leader_flag
+	clr_country_flag = yuri_kovalchuk_nationalist_leader_flag
+	clr_country_flag = mikhail_kovalchuk_nationalist_leader_flag
+	clr_country_flag = viktor_zolotov_nationalist_leader_flag
+}
+
+
+SOV_make_alexei_navalny_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = alexei_navalny_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_alexei_navalny_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = alexei_navalny_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_alexei_navalny_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = alexei_navalny_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_alexei_navalny_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = alexei_navalny_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_alexei_navalny_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = alexei_navalny_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_alexei_navalny_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = alexei_navalny_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_grigory_yavlinsky_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_grigory_yavlinsky_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_grigory_yavlinsky_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_grigory_yavlinsky_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_grigory_yavlinsky_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_grigory_yavlinsky_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = grigory_yavlinsky_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_dmitri_medvedev_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = dmitri_medvedev_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_dmitri_medvedev_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = dmitri_medvedev_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_dmitri_medvedev_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = dmitri_medvedev_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_dmitri_medvedev_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = dmitri_medvedev_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_dmitri_medvedev_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = dmitri_medvedev_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_dmitri_medvedev_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = dmitri_medvedev_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_ramzan_kadyrov_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_ramzan_kadyrov_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_ramzan_kadyrov_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_ramzan_kadyrov_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_ramzan_kadyrov_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_ramzan_kadyrov_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = ramzan_kadyrov_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_igor_girkin_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = igor_girkin_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_igor_girkin_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = igor_girkin_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_igor_girkin_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = igor_girkin_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_igor_girkin_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = igor_girkin_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_igor_girkin_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = igor_girkin_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_igor_girkin_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = igor_girkin_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_yevgeny_prigozhin_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yevgeny_prigozhin_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yevgeny_prigozhin_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yevgeny_prigozhin_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yevgeny_prigozhin_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yevgeny_prigozhin_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = yevgeny_prigozhin_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_sergey_chemezov_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = sergey_chemezov_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_sergey_chemezov_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = sergey_chemezov_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_sergey_chemezov_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = sergey_chemezov_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_sergey_chemezov_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = sergey_chemezov_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_sergey_chemezov_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = sergey_chemezov_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_sergey_chemezov_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = sergey_chemezov_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_boris_nemtsov_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = boris_nemtsov_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_boris_nemtsov_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = boris_nemtsov_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_boris_nemtsov_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = boris_nemtsov_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_boris_nemtsov_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = boris_nemtsov_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_boris_nemtsov_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = boris_nemtsov_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_boris_nemtsov_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = boris_nemtsov_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_yuri_kovalchuk_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yuri_kovalchuk_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yuri_kovalchuk_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yuri_kovalchuk_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yuri_kovalchuk_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_yuri_kovalchuk_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = yuri_kovalchuk_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_mikhail_kovalchuk_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_mikhail_kovalchuk_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_mikhail_kovalchuk_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_mikhail_kovalchuk_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_mikhail_kovalchuk_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_mikhail_kovalchuk_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = mikhail_kovalchuk_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+SOV_make_viktor_zolotov_liberal_leader={
+	SOV_reset_liberal_faction_flags=yes
+	set_country_flag = viktor_zolotov_liberal_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_viktor_zolotov_technocrat_leader={
+	SOV_reset_technocrat_faction_flags=yes
+	set_country_flag = viktor_zolotov_technocrat_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_viktor_zolotov_oil_and_gas_leader={
+	SOV_reset_oil_and_gas_faction_flags=yes
+	set_country_flag = viktor_zolotov_oil_and_gas_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_viktor_zolotov_siloviki_leader={
+	SOV_reset_siloviki_faction_flags=yes
+	set_country_flag = viktor_zolotov_siloviki_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_viktor_zolotov_putinist_leader={
+	SOV_reset_putinist_faction_flags=yes
+	set_country_flag = viktor_zolotov_putinist_leader_flag
+	get_faction_positions = yes
+}
+SOV_make_viktor_zolotov_nationalist_leader={
+	SOV_reset_nationalist_faction_flags=yes
+	set_country_flag = viktor_zolotov_nationalist_leader_flag
+	get_faction_positions = yes
+}
+
+
+get_faction_positions={
+	clear_slot_flags = yes
+	get_next_available_liberal_slot = yes
+	get_next_available_technocrat_slot = yes
+	get_next_available_oil_and_gas_slot = yes
+	get_next_available_siloviki_slot = yes
+	get_next_available_putinist_slot = yes
+	get_next_available_nationalist_slot = yes
+
+	if={							#NAVALNY
+		limit={
+			has_country_flag = alexei_navalny_liberal_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 85 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_liberal_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_liberal_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = alexei_navalny_technocrat_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 279 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_technocrat_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_technocrat_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = alexei_navalny_oil_and_gas_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 473 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = alexei_navalny_siloviki_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 667 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_siloviki_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_siloviki_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = alexei_navalny_putinist_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 861 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_putinist_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_putinist_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = alexei_navalny_nationalist_leader_flag
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = 1055 }
+		set_variable = { SOV.alexei_navalny_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = alexei_navalny_nationalist_leader_flag }
+			NOT = { has_country_flag = alexei_navalny_not_active_flag }
+			check_variable = { var = SOV_alexei_navalny_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.alexei_navalny_X = next_available_nationalist_X }
+		set_variable = { SOV.alexei_navalny_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#YAVLINSKY
+		limit={
+			has_country_flag = grigory_yavlinsky_liberal_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 85 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_liberal_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_liberal_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = grigory_yavlinsky_technocrat_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 279 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_technocrat_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_technocrat_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = grigory_yavlinsky_oil_and_gas_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 473 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = grigory_yavlinsky_siloviki_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 667 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_siloviki_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_siloviki_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = grigory_yavlinsky_putinist_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 861 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_putinist_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_putinist_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = grigory_yavlinsky_nationalist_leader_flag
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = 1055 }
+		set_variable = { SOV.grigory_yavlinsky_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = grigory_yavlinsky_nationalist_leader_flag }
+			NOT = { has_country_flag = grigory_yavlinsky_not_active_flag }
+			check_variable = { var = SOV_grigory_yavlinsky_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.grigory_yavlinsky_X = next_available_nationalist_X }
+		set_variable = { SOV.grigory_yavlinsky_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#MEDVEDEV
+		limit={
+			has_country_flag = dmitri_medvedev_liberal_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 85 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_liberal_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_liberal_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = dmitri_medvedev_technocrat_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 279 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_technocrat_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_technocrat_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = dmitri_medvedev_oil_and_gas_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 473 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = dmitri_medvedev_siloviki_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 667 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_siloviki_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_siloviki_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = dmitri_medvedev_putinist_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 861 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_putinist_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_putinist_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = dmitri_medvedev_nationalist_leader_flag
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = 1055 }
+		set_variable = { SOV.dmitri_medvedev_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = dmitri_medvedev_nationalist_leader_flag }
+			NOT = { has_country_flag = dmitri_medvedev_not_active_flag }
+			check_variable = { var = SOV_dmitri_medvedev_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.dmitri_medvedev_X = next_available_nationalist_X }
+		set_variable = { SOV.dmitri_medvedev_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#KADYROV
+		limit={
+			has_country_flag = ramzan_kadyrov_liberal_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 85 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_liberal_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_liberal_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = ramzan_kadyrov_technocrat_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 279 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_technocrat_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_technocrat_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = ramzan_kadyrov_oil_and_gas_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 473 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = ramzan_kadyrov_siloviki_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 667 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_siloviki_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_siloviki_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = ramzan_kadyrov_putinist_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 861 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_putinist_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_putinist_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = ramzan_kadyrov_nationalist_leader_flag
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = 1055 }
+		set_variable = { SOV.ramzan_kadyrov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = ramzan_kadyrov_nationalist_leader_flag }
+			NOT = { has_country_flag = ramzan_kadyrov_not_active_flag }
+			check_variable = { var = SOV_ramzan_kadyrov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.ramzan_kadyrov_X = next_available_nationalist_X }
+		set_variable = { SOV.ramzan_kadyrov_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#GIRKIN
+		limit={
+			has_country_flag = igor_girkin_liberal_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 85 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_liberal_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_liberal_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = igor_girkin_technocrat_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 279 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_technocrat_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_technocrat_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = igor_girkin_oil_and_gas_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 473 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = igor_girkin_siloviki_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 667 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_siloviki_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_siloviki_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = igor_girkin_putinist_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 861 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_putinist_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_putinist_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = igor_girkin_nationalist_leader_flag
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = 1055 }
+		set_variable = { SOV.igor_girkin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = igor_girkin_nationalist_leader_flag }
+			NOT = { has_country_flag = igor_girkin_not_active_flag }
+			check_variable = { var = SOV_igor_girkin_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.igor_girkin_X = next_available_nationalist_X }
+		set_variable = { SOV.igor_girkin_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#PRIGOZHIN
+		limit={
+			has_country_flag = yevgeny_prigozhin_liberal_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 85 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_liberal_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_liberal_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yevgeny_prigozhin_technocrat_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 279 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_technocrat_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_technocrat_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yevgeny_prigozhin_oil_and_gas_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 473 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yevgeny_prigozhin_siloviki_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 667 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_siloviki_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_siloviki_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yevgeny_prigozhin_putinist_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 861 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_putinist_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_putinist_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yevgeny_prigozhin_nationalist_leader_flag
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = 1055 }
+		set_variable = { SOV.yevgeny_prigozhin_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yevgeny_prigozhin_nationalist_leader_flag }
+			NOT = { has_country_flag = yevgeny_prigozhin_not_active_flag }
+			check_variable = { var = SOV_yevgeny_prigozhin_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.yevgeny_prigozhin_X = next_available_nationalist_X }
+		set_variable = { SOV.yevgeny_prigozhin_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#CHEMEZOV
+		limit={
+			has_country_flag = sergey_chemezov_liberal_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 85 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_liberal_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_liberal_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = sergey_chemezov_technocrat_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 279 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_technocrat_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_technocrat_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = sergey_chemezov_oil_and_gas_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 473 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = sergey_chemezov_siloviki_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 667 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_siloviki_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_siloviki_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = sergey_chemezov_putinist_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 861 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_putinist_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_putinist_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = sergey_chemezov_nationalist_leader_flag
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = 1055 }
+		set_variable = { SOV.sergey_chemezov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = sergey_chemezov_nationalist_leader_flag }
+			NOT = { has_country_flag = sergey_chemezov_not_active_flag }
+			check_variable = { var = SOV_sergey_chemezov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.sergey_chemezov_X = next_available_nationalist_X }
+		set_variable = { SOV.sergey_chemezov_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#NEMTSOV
+		limit={
+			has_country_flag = boris_nemtsov_liberal_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 85 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_liberal_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_liberal_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = boris_nemtsov_technocrat_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 279 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_technocrat_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_technocrat_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = boris_nemtsov_oil_and_gas_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 473 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = boris_nemtsov_siloviki_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 667 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_siloviki_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_siloviki_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = boris_nemtsov_putinist_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 861 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_putinist_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_putinist_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = boris_nemtsov_nationalist_leader_flag
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = 1055 }
+		set_variable = { SOV.boris_nemtsov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = boris_nemtsov_nationalist_leader_flag }
+			NOT = { has_country_flag = boris_nemtsov_not_active_flag }
+			check_variable = { var = SOV_boris_nemtsov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.boris_nemtsov_X = next_available_nationalist_X }
+		set_variable = { SOV.boris_nemtsov_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#YURI KOVALCHUK
+		limit={
+			has_country_flag = yuri_kovalchuk_liberal_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 85 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_liberal_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_liberal_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yuri_kovalchuk_technocrat_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 279 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_technocrat_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_technocrat_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yuri_kovalchuk_oil_and_gas_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 473 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yuri_kovalchuk_siloviki_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 667 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_siloviki_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_siloviki_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yuri_kovalchuk_putinist_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 861 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_putinist_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_putinist_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = yuri_kovalchuk_nationalist_leader_flag
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = 1055 }
+		set_variable = { SOV.yuri_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = yuri_kovalchuk_nationalist_leader_flag }
+			NOT = { has_country_flag = yuri_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_yuri_kovalchuk_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.yuri_kovalchuk_X = next_available_nationalist_X }
+		set_variable = { SOV.yuri_kovalchuk_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#MIKHAIL KOVALCHUK
+		limit={
+			has_country_flag = mikhail_kovalchuk_liberal_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 85 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_liberal_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_liberal_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = mikhail_kovalchuk_technocrat_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 279 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_technocrat_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_technocrat_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = mikhail_kovalchuk_oil_and_gas_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 473 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = mikhail_kovalchuk_siloviki_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 667 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_siloviki_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_siloviki_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = mikhail_kovalchuk_putinist_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 861 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_putinist_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_putinist_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = mikhail_kovalchuk_nationalist_leader_flag
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = 1055 }
+		set_variable = { SOV.mikhail_kovalchuk_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = mikhail_kovalchuk_nationalist_leader_flag }
+			NOT = { has_country_flag = mikhail_kovalchuk_not_active_flag }
+			check_variable = { var = SOV_mikhail_kovalchuk_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.mikhail_kovalchuk_X = next_available_nationalist_X }
+		set_variable = { SOV.mikhail_kovalchuk_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+	
+	if={							#ZOLOTOV
+		limit={
+			has_country_flag = viktor_zolotov_liberal_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 85 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_liberal_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 1 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_liberal_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_liberal_Y }
+		get_next_available_liberal_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = viktor_zolotov_technocrat_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 279 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_technocrat_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 2 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_technocrat_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_technocrat_Y }
+		get_next_available_technocrat_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = viktor_zolotov_oil_and_gas_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 473 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_oil_and_gas_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 3 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_oil_and_gas_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_oil_and_gas_Y }
+		get_next_available_oil_and_gas_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = viktor_zolotov_siloviki_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 667 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_siloviki_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 4 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_siloviki_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_siloviki_Y }
+		get_next_available_siloviki_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = viktor_zolotov_putinist_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 861 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_putinist_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 5 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_putinist_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_putinist_Y }
+		get_next_available_putinist_slot = yes
+	}
+	else_if={
+		limit={
+			has_country_flag = viktor_zolotov_nationalist_leader_flag
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = 1055 }
+		set_variable = { SOV.viktor_zolotov_Y = 181 }
+	}
+	else_if={
+		limit={
+			NOT = { has_country_flag = viktor_zolotov_nationalist_leader_flag }
+			NOT = { has_country_flag = viktor_zolotov_not_active_flag }
+			check_variable = { var = SOV_viktor_zolotov_faction value = 6 compare = equals }
+		}
+		set_variable = { SOV.viktor_zolotov_X = next_available_nationalist_X }
+		set_variable = { SOV.viktor_zolotov_Y = next_available_nationalist_Y }
+		get_next_available_nationalist_slot = yes
+	}
+}

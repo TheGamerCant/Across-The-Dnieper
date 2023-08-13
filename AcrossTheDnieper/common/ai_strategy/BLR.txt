@@ -1,0 +1,342 @@
+belarus_early_template_design = {
+	enable = {
+		original_tag = BLR
+		OR = {
+			date < 2018.1.1
+			has_war = no
+		}
+	}
+	abort = {
+		OR = {
+			date > 2018.1.1
+			has_war = yes
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 6
+	}
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 6
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 94
+	}
+
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = -20
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = armor
+	    value = -20
+	}
+
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 5
+	}
+}
+
+belarus_midlate_template_design = {
+	enable = {
+		original_tag = BLR
+		OR = {
+			date > 2018.1.1
+			has_war = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 10
+	}
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 10
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 90
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 25
+	}
+}
+
+belarus_build_civs_early = {
+	enable = {
+		date < 2016.1.1
+		original_tag = BLR
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	    type = building_target
+	    id = industrial_complex
+	    value = 50
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = infrastructure
+	    value = 48
+	}
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = -60
+	}
+}
+
+belarus_build_mils_late = {
+	enable = {
+		date > 2016.1.1
+		original_tag = BLR
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = 40
+	}
+}
+
+belarus_wants_a_sizable_army = {
+	enable = {
+		original_tag = BLR
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = 80
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = modern_armor
+	    value = 16
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = armor
+	    value = 16
+	}
+}
+
+belarus_shouldnt_prioritize_ukraine = {
+	enable = {
+		original_tag = BLR
+		NOT = {
+			has_war_with = UKR
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = prepare_for_war
+	    id = UKR
+	    value = -100
+	}
+}
+
+belarus_doesnt_care_about_training = {
+	enable = {
+		original_tag = BLR
+		NOT = {
+			has_war = yes
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = ignore_army_incompetence
+	    value = 100
+	}
+}
+
+belarus_has_intelligence = {
+	enable = {
+		original_tag = BLR
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = agency_ai_base_num_factories_factor
+	    value = -100
+	}
+}
+
+belarus_hates_lithuania_and_poland = {
+	enable = {
+		original_tag = BLR
+	}
+
+	abort = {
+		OR = {
+			BLR_is_white_russia_ai = yes
+			BLR_is_socialist_ai = yes
+			BLR_is_liberal_ai = yes
+			BLR_is_conservative_ai = yes
+			BLR_is_nationalist_ai = yes
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = antagonize
+	    id = LIT
+	    value = 60
+	}
+	ai_strategy = {
+	    type = antagonize
+	    id = POL
+	    value = 60
+	}
+}
+
+belarus_if_lit_weak_invade = {
+	enable = {
+		original_tag = BLR
+
+		LIT = {
+			NOT = {
+				is_ally_with = POL
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			BLR_is_white_russia_ai = yes
+			BLR_is_socialist_ai = yes
+			BLR_is_liberal_ai = yes
+			BLR_is_conservative_ai = yes
+			BLR_is_nationalist_ai = yes
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+	    type = consider_weak
+	    id = LIT
+	    value = 200
+	}
+
+	ai_strategy = {
+	    type = conquer
+	    id = LIT
+	    value = 200
+	}
+
+	ai_strategy = {
+	    type = declare_war
+	    id = LIT
+	    value = 200
+	}
+}
+
+
+
+ally_with_donbass = {
+	allowed = {
+		original_tag = BLR
+	}
+	enable = {
+		has_government = eastern_conservative	
+		has_completed_focus = BLR_involvement_in_donbas
+	}						
+	abort = {
+		NOT = { has_government = eastern_conservative }
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "DON"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "DON"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "DON"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "LHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "LHK"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "LHK"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "KHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "KHK"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KHK"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "NOV"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "NOV"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "NOV"
+		value = 1200
+	}
+}

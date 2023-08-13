@@ -1,0 +1,20 @@
+scripted_gui = {
+	donate_gui = {
+		window_name = "donate_gui"
+		context_type = player_context
+		parent_window_token = top_bar
+		
+		visible={
+			has_country_flag = opened_donate_gui
+		}
+		
+		ai_enabled={
+			always = no
+		}
+		
+		effects={
+			close_button_click = {
+				clr_country_flag = opened_donate_gui
+			}
+		}
+	}

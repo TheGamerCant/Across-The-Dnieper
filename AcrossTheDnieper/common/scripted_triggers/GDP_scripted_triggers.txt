@@ -1,0 +1,12 @@
+can_increase_inflation_rate={
+	has_political_power > var:ROOT.cost_to_change_inflation
+	NOT = { has_country_flag = cannot_modify_inflation_rate }
+	NOT = { has_country_flag = has_recently_modified_inflation_rate }
+}
+
+can_decrease_inflation_rate={
+	has_political_power > var:ROOT.cost_to_change_inflation
+	NOT = { has_country_flag = cannot_modify_inflation_rate }
+	NOT = { has_country_flag = has_recently_modified_inflation_rate }
+	NOT = { has_country_leader = { name = "Recep Tayyip Erdoğan" ruling_only = yes } }		#You can't get him but I think it's funni
+}

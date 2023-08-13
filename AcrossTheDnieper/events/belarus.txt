@@ -1,0 +1,568 @@
+add_namespace = blr_event
+
+# Change of Prime Minister
+country_event = {
+	id = blr_event.1
+	title = blr_event.1.t
+	desc = blr_event.1.desc
+
+	picture = GFX_report_event_BLR_change_of_prime_minister
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {
+		name = blr_event.1.a
+		ai_chance = { 
+			base = 2
+			modifier = {
+				factor = 10
+				date < 2015.09.01
+			}
+		}
+
+		custom_effect_tooltip = "Kobyakov will be chosen as the Prime Minister"
+
+		hidden_effect = {
+			deactivate_advisor = BLR_mikhail_myasnikovich
+			deactivate_advisor = BLR_andrei_kobyakov
+			deactivate_advisor = BLR_syarhey_rumas
+			deactivate_advisor = BLR_roman_golovchenko
+
+			activate_advisor = BLR_andrei_kobyakov
+		}
+	}
+	option = {
+		name = blr_event.1.b
+		ai_chance = { base = 2 }
+
+		custom_effect_tooltip = "Rumas will be chosen as the Prime Minister"
+
+		hidden_effect = {
+			deactivate_advisor = BLR_mikhail_myasnikovich
+			deactivate_advisor = BLR_andrei_kobyakov
+			deactivate_advisor = BLR_syarhey_rumas
+			deactivate_advisor = BLR_roman_golovchenko
+
+			activate_advisor = BLR_syarhey_rumas
+		}
+	}
+	option = {
+		name = blr_event.1.c
+		ai_chance = { 
+			base = 2 
+			
+			modifier = {
+				factor = 10
+				date > 2016.09.01
+			}
+		}
+
+		custom_effect_tooltip = "Golovchenko will be chosen as the Prime Minister"
+
+		hidden_effect = {
+			deactivate_advisor = BLR_mikhail_myasnikovich
+			deactivate_advisor = BLR_andrei_kobyakov
+			deactivate_advisor = BLR_syarhey_rumas
+			deactivate_advisor = BLR_roman_golovchenko
+			
+			activate_advisor = BLR_roman_golovchenko
+		}
+	}
+	option = {
+		name = blr_event.1.d
+		ai_chance = { 
+			base = 0
+		}
+		
+		custom_effect_tooltip = "Mysanikovich will be chosen as the Prime Minister"
+		
+		hidden_effect = {
+			deactivate_advisor = BLR_mikhail_myasnikovich
+			deactivate_advisor = BLR_andrei_kobyakov
+			deactivate_advisor = BLR_syarhey_rumas
+			deactivate_advisor = BLR_roman_golovchenko
+
+			activate_advisor = BLR_mikhail_myasnikovich
+		}
+	}
+}
+
+# EEU
+country_event = {
+	id = blr_event.2
+	title = blr_event.2.t
+	desc = blr_event.2.d
+
+	picture = GFX_report_event_BLR_eeu
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {
+		name = blr_event.2.a
+		ai_chance = { base = 100 }
+
+		SOV = {
+			add_opinion_modifier = {
+		    	target = BLR
+		    	modifier = eea_mod
+			}
+			add_ideas = BLR_eea_idea
+		}
+
+		BLR = {
+			add_opinion_modifier = {
+		    	target = SOV
+		    	modifier = eea_mod
+			}
+			add_ideas = BLR_eea_idea
+
+			news_event = {
+			    id = blr_news_event.1
+			    random_hours = 12
+			}
+		}
+
+	}
+	option = {
+		name = blr_event.2.b
+		ai_chance = { base = 1 }
+
+		SOV = {
+			add_opinion_modifier = {
+		    	target = BLR
+		    	modifier = eea_rej_mod
+			}
+		}
+		
+		BLR = {
+			add_opinion_modifier = {
+		    	target = SOV
+		    	modifier = eea_rej_mod
+			}
+			
+			news_event = {
+			    id = blr_news_event.2
+			    random_hours = 12
+			}
+		}
+	}
+}
+
+#Sanctions hit hard
+country_event = {
+	id = blr_event.3
+	title = blr_event.3.t
+	desc = blr_event.3.d
+
+	picture = GFX_report_event_BLR_lukashenko
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {
+		name = blr_event.3.a
+		ai_chance = { base = 100 }
+
+		add_to_variable = { BLR_grimacing_economy_consumer_goods = 0.08 }
+		add_to_variable = { BLR_grimacing_economy_construction_speed = -0.1 }
+
+		set_country_flag = BLR_sanctions_hit_hard
+		
+		every_state={
+			limit={
+				is_controlled_by = BLR
+			}
+			subtract_from_variable = { THIS.state_gdp_per_capita_growth = 0.6 }	
+		}
+
+		custom_effect_tooltip = "blr_event.3_tt"
+
+		#every_country = {
+		#	limit = {
+		#		OR = {
+		#			has_country_flag = is_in_european_union
+		#			tag = UKR
+		#		}
+		#	}
+		#	send_embargo = BLR
+		#}
+	}
+}
+
+
+# Union State
+country_event = {
+	id = blr_event.4
+	title = blr_event.4.t
+	desc = blr_event.4.d
+
+	picture = GFX_report_event_BLR_luka_putin
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {
+		name = blr_event.4.a
+		ai_chance = { base = 0 }
+
+		
+		SOV = {
+			annex_country = {
+			    target = BLR
+			    transfer_troops = yes
+			}
+
+			change_tag_from = ROOT
+			set_cosmetic_tag = SOV_BLR_UNION_STATE
+
+			add_ideas = BLR_russofication5
+		}
+
+		
+		news_event = {
+		    id = blr_news_event.5
+		    random_hours = 12
+		}
+	}
+	option = {
+		name = blr_event.4.b
+		ai_chance = { base = 10 }
+
+		SOV = {
+			puppet = BLR
+			add_ideas = BLR_russofication5
+		}
+
+		BLR = {
+			add_ideas = BLR_russofication5
+		}
+		
+		news_event = {
+		    id = blr_news_event.5
+		    random_hours = 12
+		}
+	}
+	option = {
+		name = blr_event.4.c
+		ai_chance = { base = 2 }
+
+		SOV = {
+			add_political_power = 30
+			add_stability = -0.04
+		}
+
+		BLR = {
+			add_political_power = 30
+			add_stability = -0.04
+		}
+	}
+}
+
+#Chose Revolutioneer
+
+country_event = {
+	id = blr_event.5
+	title = blr_event.5.t
+	desc = blr_event.5.d
+
+	picture = GFX_report_event_BLR_revolution_calls
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {	#neoconservative
+		name = blr_event.5.a
+		ai_chance = { 
+			base = 0 
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = BLR_ai_behavior
+					option = REVOLUTION_CON
+				}
+			}
+		}
+
+		set_politics = {
+			ruling_party = neoconservative
+		    elections_allowed = yes
+		    election_frequency = 48
+		}
+
+		add_popularity = {
+		    ideology = neoconservative
+		    popularity = 0.12
+		}
+
+		set_country_flag = blr_neoconservative
+	}
+	option = {	#neoliberal
+		name = blr_event.5.c
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = BLR_ai_behavior
+					option = REVOLUTION_LIB
+				}
+			}
+		}
+
+		set_politics = {
+			ruling_party = neoliberal
+		    elections_allowed = yes
+		    election_frequency = 48
+		}
+
+		add_popularity = {
+		    ideology = neoliberal
+		    popularity = 0.12
+		}
+		
+		set_country_flag = blr_neoliberal
+	}
+	option = {	#socialist
+		name = blr_event.5.e
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = BLR_ai_behavior
+					option = REVOLUTION_SOC
+				}
+			}
+		}
+		
+		set_politics = {
+			ruling_party = socialist
+		    elections_allowed = yes
+		    election_frequency = 48
+		}
+
+		add_popularity = {
+		    ideology = socialist
+		    popularity = 0.22
+		}
+
+		
+		set_country_flag = blr_socialist
+	}
+	
+	option = {	#ultranationalist
+		name = blr_event.5.f
+		ai_chance = { 
+			base = 0 
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = BLR_ai_behavior
+					option = REVOLUTION_NAT
+				}
+			}
+		}
+
+		set_politics = {
+			ruling_party = ultranationalist
+		    elections_allowed = yes
+		    election_frequency = 48
+		}
+
+		add_popularity = {
+		    ideology = ultranationalist
+		    popularity = 0.12
+		}
+
+		
+		set_country_flag = blr_ultranationalist
+	}
+}
+
+# Migrant Crysis
+country_event = {
+	id = blr_event.6
+	title = blr_event.6.t
+	desc = blr_event.6.d
+
+	#picture = GFX_report_event_BLR_luka_putin
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 15 }
+	timeout_days = 50
+
+	option = {
+		name = blr_event.6.a
+		ai_chance = { base = 10 }
+
+		
+		ROOT = {
+			add_timed_idea = {
+				idea = BLR_migration_crysis
+				days = 160
+			}
+		}
+		
+		news_event = {
+		    id = blr_news_event.8
+		    random_hours = 12
+		}
+	}
+	option = {
+		name = blr_event.6.b
+		ai_chance = { base = 10 }
+
+		ROOT = {
+			add_timed_idea = {
+				idea = BLR_migration_crysis
+				days = 60
+			}
+
+			add_timed_idea = {
+				idea = BLR_extensive_response
+				days = 60
+			}
+		}
+		
+		news_event = {
+		    id = blr_news_event.8
+		    random_hours = 36
+		}
+	}
+}
+
+add_namespace = blr_news_event
+
+# EEU - Accepted
+news_event = {
+    id = blr_news_event.1
+    title = blr_news_event.1.t
+    desc = blr_news_event.1.d
+    
+    picture = GFX_news_event_BLR_news_eeu
+    
+    is_triggered_only = yes
+    major = no
+    
+    option = {
+        name = blr_news_event.1.a
+    }
+}
+
+# EEU - Rejected
+news_event = {
+    id = blr_news_event.2
+    title = blr_news_event.2.t
+    desc = blr_news_event.2.d
+    
+    picture = GFX_news_event_BLR_news_eeu_rej
+    
+    is_triggered_only = yes
+    major = no
+    
+    option = {
+        name = blr_news_event.2.a
+    }
+}
+
+# Mutual Defence
+news_event = {
+    id = blr_news_event.3
+    title = blr_news_event.3.t
+    desc = blr_news_event.3.d
+    
+    picture = GFX_news_event_BLR_luka_putin_shake
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.3.a
+    }
+    option = {
+        name = blr_news_event.3.b
+    }
+}
+
+# CSTO excercise
+news_event = {
+    id = blr_news_event.4
+    title = blr_news_event.4.t
+    desc = blr_news_event.4.d
+    
+    picture = GFX_news_event_BLR_news_csto_ex
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.4.a
+    }
+}
+
+# Union State
+news_event = {
+    id = blr_news_event.5
+    title = blr_news_event.5.t
+    desc = blr_news_event.5.d
+    
+    picture = GFX_news_event_BLR_news_union_state
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.5.a
+    }
+}
+
+# New White Russia
+news_event = {
+    id = blr_news_event.6
+    title = blr_news_event.6.t
+    desc = blr_news_event.6.d
+    
+    picture = GFX_news_event_BLR_news_new_white_russia
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.6.a
+    }
+}
+
+# Restore the USSR
+news_event = {
+    id = blr_news_event.7
+    title = blr_news_event.7.t
+    desc = blr_news_event.7.d
+    
+    picture = GFX_news_event_BLR_news_restoration_of_ussr
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.7.a
+    }
+}
+
+# Migration Crysis
+news_event = {
+    id = blr_news_event.8
+    title = blr_news_event.8.t
+    desc = blr_news_event.8.d
+    
+    #picture = GFX_news_event_BLR_news_restoration_of_ussr
+    
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+        name = blr_news_event.8.a
+    }
+}

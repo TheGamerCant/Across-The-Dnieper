@@ -1,0 +1,377 @@
+﻿capital = 358
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "ROM_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "ROM_2014"
+}
+#Characters
+
+recruit_character = ROM_liviu_dragnea
+recruit_character = ROM_victor_ponta
+recruit_character = ROM_titus_corlatean
+recruit_character = ROM_daniel_chitoiu
+recruit_character = ROM_daniel_petrescu
+recruit_character = ROM_nicolae_ciuca
+recruit_character = ROM_lucian_foca
+
+
+ add_ideas = {
+	ROM_liviu_dragnea
+	ROM_titus_corlatean
+	ROM_daniel_chitoiu
+  
+	ROM_daniel_petrescu
+ 
+	eu_member
+  
+	reliogion_law_religious 
+    womens_rights_traditional_values
+    lgbtq_rights_behind_closed_doors
+    minority_rights_minor_inequality 
+    nationalism_laws_armed_neutrality
+    alcohol_narotics_laws_highly_regulated 
+    firearms_laws_restricted
+}
+ 
+ create_country_leader = {
+	name = "Traian Basescu"
+	desc = ""
+	ideology = pdl
+	expire = 2014.6.7
+	picture = gfx/leaders/ROM/Portrait_Traian_Băsescu.dds
+	traits = { }
+}
+ create_country_leader = {
+	name = "Klaus Iohannis"
+	desc = ""
+	ideology = pnl
+	expire = 2024.6.7
+	picture = gfx/leaders/ROM/Portrait_Klaus_Iohannis.dds
+	traits = { }
+}
+ create_country_leader = {
+	name = "Vadim Tudor"
+	desc = ""
+	ideology = generic_ultranationalist
+	expire = 2015.6.7
+	picture = gfx/leaders/ROM/Portrait_vadim_tudor.dds
+	traits = { }
+}
+ create_country_leader = {
+	name = "Victor Ponta"
+	desc = ""
+	ideology = psd_romania
+	expire = 2024.6.7
+	picture = gfx/leaders/ROM/Portrait_victor_ponta.dds
+	traits = { }
+}
+
+set_country_flag = ponta_cabinet_ii #this is for cabinet assignment
+
+# Starting tech
+set_technology = {
+
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	elite_special_forces_tech = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+	
+	early_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+ 2018.1.1 = {
+
+	set_politics = {
+		ruling_party = eastern_liberal
+		last_election = 2012.11.24
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	
+	set_popularities = {
+		ultranationalist = 1
+		eastern_liberal = 38
+		populist = 1
+		libertarian = 7
+		social_democracy = 22
+		neoliberal = 15
+		neoconservative = 5
+		eastern_conservative = 11
+    }
+
+}
+
+set_research_slots = 4
+set_stability = 0.81
+set_war_support = 0.53
+
+
+
+set_convoys = 56
+
+#DONT REMOVE
+set_country_flag = is_in_european_union
+set_variable = { pro_eu = 59 }
+set_variable = { sce_eu =  18 }
+set_variable = { neu_eu =  24 }
+clamp_variable = { var = pro_eu min = 0 max = 100 }
+clamp_variable = { var = sce_eu min = 0 max = 100 }
+clamp_variable = { var = neu_eu min = 0 max = 100 }
+set_variable = {
+	gdp = 189.790
+}
+
+
+add_ai_strategy = {
+    type = alliance
+    id = "POL"
+    value = 200
+}
+
+set_politics = {
+	ruling_party = libertarian
+	last_election = "2009.12.6"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+set_popularities = {
+	ultranationalist = 1
+	eastern_liberal = 11
+	populist = 3
+	libertarian = 40
+	social_democracy = 30
+	neoliberal = 8
+	neoconservative = 5
+	eastern_conservative = 2
+
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Su-27SM"
+		amount = 46
+		producer = SOV
+	}
+}

@@ -1,0 +1,173 @@
+﻿capital = 1
+
+create_country_leader = {
+	name = "Barack Obama"
+	picture = "GFX_Portrait_Europe_Generic_1"
+}
+
+create_faction = "NATO"
+add_to_faction = LIT
+add_to_faction = ROM
+add_to_faction = BUL
+add_to_faction = SLO
+add_to_faction = HUN
+add_to_faction = CZE
+add_to_faction = CRO
+add_to_faction = POL
+add_to_faction = GER
+add_to_faction = FRA
+add_to_faction = ENG
+2022.1.1 = {
+	add_to_faction = MNT
+}
+
+set_technology = {
+	is_america_technology = 1
+	
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	infantry_weapons2 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	advanced_infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_tank_2 = 1
+	infantry_anti_tank_3 = 1
+	infantry_anti_tank_upgrade = 1
+	infantry_anti_tank_upgrade_2 = 1
+	infantry_anti_tank_4 = 1
+	infantry_anti_air_upgrade = 1
+	infantry_anti_air = 1
+	infantry_anti_air_2 = 1
+
+	tech_support = 1
+	tech_engineers = 1
+
+	ifv = 1
+
+	gw_artillery = 1
+	rocket_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	rocket_artillery2 = 1
+	motorized_rocket_unit = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	mot_rocket_artillery_brigade_2
+
+	f_35 = 1
+
+	early_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		m1_abrams = 1
+		modern_tank_doctrine = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		abrams_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "M1 Abrams"
+		type = abrams_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon3
+			turret_type_slot = tank_modern_tank_turret3
+			suspension_type_slot = tank_interleaved_suspension
+			armor_type_slot = tank_cast_armor
+			engine_type_slot = tank_gas_turbine_engine
+
+			special_type_slot_1 = tank_radio_3
+			special_type_slot_2 = stabilizer
+			special_type_slot_3 = smoke_launchers
+			special_type_slot_4 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 15
+			tank_nsb_armor_upgrade = 15
+		}
+	}
+}
+
+
+#PLANES
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "F-16" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_2
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = air_air_radar_2
+		}
+		obsolete = no
+	}
+}

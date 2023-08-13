@@ -1,0 +1,232 @@
+﻿capital = 94
+
+set_variable = { maximum_number_of_offensives = 1 }
+set_variable = { number_of_undertaken_offensives = 0 }
+
+set_research_slots = 3
+set_stability = 0.40
+set_war_support = 0.80
+
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+add_ideas = KHK_popular_discontent
+add_ideas = oligarchy
+add_ideas = martial_law
+add_ideas = extensive_conscription
+add_ideas = impromptu_militias
+add_ideas = state_controlled_press
+add_ideas = bipolarist
+add_ideas = womens_rights_patriarchy
+add_ideas = lgbtq_right_banned
+add_ideas = minority_rights_societal_descrimination
+add_ideas = nationalism_laws_jingoistic
+
+create_country_leader = {
+	name = "Yevhen Zhylin"
+	desc = ""
+	picture = gfx/leaders/KHK/Portrait_Yevhen_Zhylin.png		
+	ideology = generic_eastern_conservative	
+}	
+
+create_country_leader = {
+	name = "Gonzalo Lira"
+	desc = ""
+	picture = gfx/leaders/KHK/Portrait_Gonzalo_Lira.png		
+	ideology = generic_populist
+	traits = { the_smoker_of_kharkov }	
+}	
+
+set_politics = {
+	ruling_party = eastern_conservative
+	last_election = "2010.10.19"
+	election_frequency = 60
+	elections_allowed = no
+}
+
+set_popularities = {
+	eastern_conservative = 92
+	populist = 3
+	eastern_liberal = 2
+	socialist = 2
+	moderate_communist = 1
+}
+
+set_politics = {
+	ruling_party = eastern_conservative 
+	last_election = "2012.10.27"
+	election_frequency = 60
+	elections_allowed = never
+}
+
+set_popularities = {
+	eastern_conservative = 100
+}
+
+set_convoys = 0
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}

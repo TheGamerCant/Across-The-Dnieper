@@ -1,0 +1,413 @@
+on_actions={	
+	on_startup = {
+		effect = {
+			UKR={
+				if={
+					limit = { 
+						has_start_date > 2022.01.01 
+						has_game_rule = {
+							rule = ukr_2022_start
+							option = FOURTH_REICH_IN_UKRAINE
+						}
+					}
+					set_politics = {
+						ruling_party = fascist
+						elections_allowed = no
+					}
+					add_popularity = {
+						ideology = fascist
+						popularity = 0.8
+					}
+					remove_ideas = { 
+						UKR_ukrainian_malaise
+						
+						western_economy
+						liberal_democracy
+					}
+					add_ideas={
+						military_junta
+						war_economy
+					}
+					load_focus_tree = ukraine_nazi_easter_egg_focus_tree
+					set_cosmetic_tag = RK_ukraine
+					create_country_leader = {
+						name = "Reich-Führer Volodymyr Zelenskyy"
+						desc = "volodymyr_zelenskyy_nazi_leader_desc"
+						ideology = generic_fascist
+						picture = gfx/leaders/UKR/Portrait_zelenskyy_nazi.png
+						traits = { UKR_brutal_tyrant }
+					}
+					
+					
+					set_variable = { UKR_sotn_oligarchs_loyalty = -4 }
+					set_variable = { UKR_sotn_oligarchs_consumer_goods_factor = -0.03 }
+					set_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+					set_variable = { UKR_sotn_oligarchs_stability_factor = 0 } 
+					set_variable = { UKR_sotn_nationalists_loyalty = 2 }
+					set_variable = { UKR_sotn_nationalists_conscription_factor = 0.2 }
+					set_variable = { UKR_sotn_nationalists_war_support_factor = 0.2 }
+					set_variable = { UKR_sotn_nationalists_stability_weekly = -0.001 } 
+					set_variable = { UKR_sotn_nationalists_ultranationalism_drift = 0.01 }
+
+					set_variable = { UKR_sotn_pro_russians_loyalty = -2 }
+					set_variable = { UKR_sotn_pro_russians_political_power_factor = -0.1 }
+					set_variable = { UKR_sotn_pro_russians_stability_factor = -0.05 }
+					set_variable = { UKR_sotn_pro_russians_conscription = -0.002 }
+					set_variable = { UKR_sotn_pro_russians_party_popularity_stability_factor = 0 } 
+					set_variable = { UKR_sotn_pro_russians_eastern_conservative_drift = 0 } 
+					set_variable = { UKR_sotn_liberals_loyalty = 2 }
+					set_variable = { UKR_sotn_liberals_political_power_gain = 0.35 }
+					set_variable = { UKR_sotn_liberals_stability_factor = 0 }
+					set_variable = { UKR_sotn_liberals_eastern_liberal_drift = 0 }
+				}
+			}
+			
+			
+			
+			
+			UKR = {
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = UKR_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = UKR_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							UKR = {
+								set_country_flag = UKR_POROSHENKO_AI_FLAG
+							}
+						}
+						25 = {
+							UKR = {
+								set_country_flag = UKR_TYMOSHENKO_AI_FLAG
+							}
+						}
+						20 = {
+							UKR = {
+								set_country_flag = UKR_YAROSH_ULTRANAT_AI_FLAG
+							}
+						}
+						5 = {
+							UKR = {
+								set_country_flag = UKR_YAROSH_FASCIST_AI_FLAG
+							}
+						}
+					}
+				}
+				
+				
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = UKR_ai_war_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = UKR_ai_war_behavior
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							UKR = {
+								set_country_flag = UKR_STAY_AND_FIGHT_AI_FLAG
+							}
+						}
+						15 = {
+							UKR = {
+								set_country_flag = UKR_DISHONOUR_BEFORE_DEATH_AI_FLAG
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_capitulation_immediate={
+		effect={
+			if={
+				limit={
+					ROOT = { tag = DON }
+					FROM = { tag = UKR }
+					LHK = { exists = yes surrender_progress < 0.95 }
+				}
+				LHK = { set_faction_leader = yes }
+			}
+			
+			if={
+				limit={
+					ROOT = { tag = DON }
+					FROM = { tag = UKR }
+				}
+				set_global_flag = donetsk_has_capitulated
+			}
+			if={
+				limit={
+					ROOT = { tag = LHK }
+					FROM = { tag = UKR }
+				}
+				set_global_flag = luhansk_has_capitulated
+			}
+			if={
+				limit={
+					ROOT = { tag = KHK }
+					FROM = { tag = UKR }
+				}
+				set_global_flag = kharkiv_has_capitulated
+			}
+			if={
+				limit={
+					ROOT = { tag = ODS }
+					FROM = { tag = UKR }
+				}
+				set_global_flag = odesa_has_capitulated
+			}
+			if={
+				limit={
+					ROOT = { tag = NOV }
+					FROM = { tag = UKR }
+				}
+				set_global_flag = novorossiya_has_capitulated
+			}
+		}
+	}
+
+	on_peace={
+		effect={
+			if={
+				limit = { 
+					THIS = { 
+						OR={
+							tag = UKR 
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+						}
+					}
+				}
+				ZZZ={
+					every_country={
+						limit={
+							OR={
+								tag = UKR
+								tag = DON
+								tag = LHK
+								tag = KHK
+								tag = ODS
+								tag = NOV
+							}
+						}
+						every_state={
+							limit = {
+								OR={
+									has_dynamic_modifier = { modifier = UKR_local_offensive_modifier scope = ROOT }	
+									has_dynamic_modifier = { modifier = UKR_war_in_donbass_modifier scope = ROOT }	
+									has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROOT }	
+								}
+							}	
+							remove_dynamic_modifier = {
+								modifier = UKR_local_offensive_modifier
+								scope = ROOT
+							}
+							remove_dynamic_modifier = {
+								modifier = UKR_war_in_donbass_modifier
+								scope = ROOT
+							}
+							remove_dynamic_modifier = {
+								modifier = not_allowed_to_attack_here
+								scope = ROOT
+							}
+						}
+					}
+					clr_global_flag = donbass_war_is_ongoing
+					SOV={
+						if={
+							limit = { has_idea = SOV_secret_involvement }
+							remove_ideas = SOV_secret_involvement
+						}
+						if={
+							limit = { has_idea = SOV_secret_involvement_medium }
+							remove_ideas = SOV_secret_involvement_medium
+						}
+						if={
+							limit = { has_idea = SOV_secret_involvement_large }
+							remove_ideas = SOV_secret_involvement_large
+						}
+						if={
+							limit = { has_idea = SOV_secret_involvement_huge }
+							remove_ideas = SOV_secret_involvement_huge
+						}
+						clr_country_flag = chosen_to_send_volunteers_to_donbass
+					}
+					
+					BLR={
+						if={
+							limit = { has_idea = BLR_secret_involvement_small }
+							remove_ideas = BLR_secret_involvement_small
+						}
+						clr_country_flag = chosen_to_send_volunteers_to_donbass
+					}	
+				}
+			}
+			
+			if={
+				limit={
+					OR={
+						tag = UKR
+						tag = SOV
+					}
+				}
+				clr_global_flag = russia_ukraine_war
+				every_state={
+					limit = {
+						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+					}	
+					remove_dynamic_modifier = {
+						modifier = not_allowed_to_attack_here
+						scope = UKR
+					}
+				}
+				
+				every_state={
+					limit = {
+						has_dynamic_modifier = { modifier = UKR_collaborators scope = SOV }
+					}	
+					remove_dynamic_modifier = {
+						modifier = UKR_collaborators
+						scope = SOV
+					}
+				}
+				SOV = {
+					remove_state_claim = 434
+					remove_state_core = 434
+					remove_state_claim = 435
+					remove_state_core = 435
+					remove_ideas = UKR_overextended
+					remove_ideas = SOV_army_ready
+				}
+	
+				BLR = {
+					transfer_state = 434
+					add_state_core = 434
+	
+					transfer_state = 435
+					add_state_core = 435
+				}
+			}
+		}
+	}
+	
+	on_state_control_changed={
+		effect={
+			if = {	
+                limit = { 
+					AND={
+						UKR = { has_idea = UKR_sevastopol_lease }
+						FROM.FROM = {
+							state = 354
+						}
+					}
+                }
+				UKR = { 
+					remove_ideas = UKR_sevastopol_lease 
+					country_event = { id = ukraine.25 hours = 3 } 
+					country_event = { id = ukraine.21 days = 12 } 
+				}
+			}
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if={ limit = { tag = UKR }
+				clr_global_flag = russia_ukraine_war
+				every_state={
+					limit={
+						OWNER={
+							OR={
+								tag = UKR
+								has_war_with = UKR
+							}
+						}
+					}
+					set_demilitarized_zone = no
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BLR
+						is_core_of = UKR
+					}
+					set_state_controller_to = SOV
+				}
+
+				SOV = {
+					remove_state_claim = 434
+					remove_state_core = 434
+					remove_state_claim = 435
+					remove_state_core = 435
+				}
+	
+				BLR = {
+					transfer_state = 434
+					add_state_core = 434
+	
+					transfer_state = 435
+					add_state_core = 435
+				}
+			}
+		}
+	}
+	
+	on_monthly={
+		effect={
+			if={
+				limit = { has_global_flag = ukraine_has_derussified_city_names }
+				if={
+					limit={
+						NOT = { is_puppet_of = SOV }
+						NOT = { has_cosmetic_tag = UKR_russian_puppet }
+						OR={
+							original_tag = UGE
+							original_tag = FTU
+							original_tag = AZV
+							original_tag = UKR
+							has_western_government = yes
+						}
+					}
+					derussify_city_names = yes
+				}
+				else_if={
+					limit={
+						OR={
+							original_tag = SOV
+							is_puppet_of = SOV
+							is_in_faction_with = SOV
+							has_cosmetic_tag = UKR_russian_puppet
+						}
+					}
+					russify_city_names = yes
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+﻿capital = 1
+create_country_leader = {
+	name = "Nigel Farage"
+	desc = ""
+	ideology = generic_populist
+	picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+	traits = { banished_to_the_shadow_realm }
+}
+
+set_politics = {
+	ruling_party = populist
+	elections_allowed = no
+}
+
+set_popularities = {
+	populist = 100
+}
+
+if={
+	limit = { has_start_date < 2022.01.01  }
+	news_event = { id = atd_news.13 days = 887 }	#hoi4
+	news_event = { id = atd_news.14 days = 2210 }	#covid
+	news_event = { id = atd_news.15 days = 904 }	#brexit
+	news_event = { id = atd_news.16 days = 1042 }	#trump
+	news_event = { id = atd_news.17 days = 2503 }	#biden
+	news_event = { id = atd_news.18 days = 2562 }	#jan 6
+	news_event = { id = atd_news.19 days = 2029 }	#bojo!
+	news_event = { id = atd_news.20 days = 3170 }	#truss
+	news_event = { id = atd_news.21 days = 3219 }	#lettuce
+	news_event = { id = atd_news.22 days = 3172 }	#queen dead :(
+	news_event = { id = atd_news.23 days = 2045 }	#epstein arrested
+	news_event = { id = atd_news.24 days = 2047 }	#epstein dead
+	news_event = { id = atd_news.25 days = 546 }	#greek debt crisis
+}
+
+if={
+	limit = { has_start_date > 2022.01.01  }
+	news_event = { id = atd_news.20 days = 217 }	#truss
+	news_event = { id = atd_news.21 days = 266 }	#lettuce
+	news_event = { id = atd_news.22 days = 219 }	#queen dead :(
+}
+
+add_to_array = { global.donbass_war_countries = UKR }
+add_to_array = { global.donbass_war_countries = DON }
+add_to_array = { global.donbass_war_countries = LHK }
+add_to_array = { global.donbass_war_countries = KHK }
+add_to_array = { global.donbass_war_countries = ODS }
+add_to_array = { global.donbass_war_countries = NOV }
+
+set_variable = { var = global.infr_investment_ukr    value = 0 }
+set_variable = { var = global.civs_investment_ukr    value = 0 }
+set_variable = { var = global.mils_investment_ukr    value = 0 }

@@ -1,0 +1,3665 @@
+defined_text = {
+	name = get_state_oblast	
+	text = {
+		trigger = {
+			FROM = { has_state_flag = akarpatskia_oblast_flag }
+		}
+		localization_key = "UKR_Akarpatskia_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = cherkasy_oblast_flag }
+		}
+		localization_key = "UKR_Cherkasy_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = chernihiv_oblast_flag }
+		}
+		localization_key = "UKR_Chernihiv_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = chernivtsi_oblast_flag }
+		}
+		localization_key = "UKR_Chernivtsi_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = crimea_oblast_flag }
+		}
+		localization_key = "UKR_Crimea_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = dnipro_oblast_flag }
+		}
+		localization_key = "UKR_Dnipro_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = donetsk_oblast_flag }
+		}
+		localization_key = "UKR_Donetsk_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = ivano_frankivsk_oblast_flag }
+		}
+		localization_key = "UKR_Ivano_Frankivsk_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = kharkiv_oblast_flag }
+		}
+		localization_key = "UKR_Kharkiv_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = kherson_oblast_flag }
+		}
+		localization_key = "UKR_Kherson_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = khmelnytskyi_oblast_flag }
+		}
+		localization_key = "UKR_Khmelnytskyi_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = kirovohrad_oblast_flag }
+		}
+		localization_key = "UKR_Kirovohrad_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = kyiv_oblast_flag }
+		}
+		localization_key = "UKR_Kyiv_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = luhansk_oblast_flag }
+		}
+		localization_key = "UKR_Luhansk_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = lviv_oblast_flag }
+		}
+		localization_key = "UKR_Lviv_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = mykolaiv_oblast_flag }
+		}
+		localization_key = "UKR_Mykolaiv_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = odessa_oblast_flag }
+		}
+		localization_key = "UKR_Odessa_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = poltava_oblast_flag }
+		}
+		localization_key = "UKR_Poltava_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = rivne_oblast_flag }
+		}
+		localization_key = "UKR_Rivne_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = sumy_oblast_flag }
+		}
+		localization_key = "UKR_Sumy_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = ternopil_oblast_flag }
+		}
+		localization_key = "UKR_Ternopil_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = vinnytsia_oblast_flag }
+		}
+		localization_key = "UKR_Vinnytsia_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = volyn_oblast_flag }
+		}
+		localization_key = "UKR_Volyn_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = zaporizhia_oblast_flag }
+		}
+		localization_key = "UKR_Zaporizhia_tt"
+	}
+	text = {
+		trigger = {
+			FROM = { has_state_flag = zhytomyr_oblast_flag }
+		}
+		localization_key = "UKR_Zhytomyr_tt"
+	}
+}
+
+
+
+
+defined_text = {
+	name = get_Akarpatskia_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_akarpatskia = yes
+				UKR_is_in_control_of_akarpatskia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_akarpatskia = yes
+				UKR_has_no_control_of_akarpatskia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_orange"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_yellow"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_light_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_hungarian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Akarpatskia_white"
+	}
+}
+defined_text = {
+	name = get_Cherkasy_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_cherkasy = yes
+				UKR_is_in_control_of_cherkasy = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_cherkasy = yes
+				UKR_has_no_control_of_cherkasy = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_ukrainian_ethnicity > cherkasy_russian_ethnicity }
+			check_variable = { cherkasy_ukrainian_ethnicity > cherkasy_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_russian_ethnicity > cherkasy_ukrainian_ethnicity }
+			check_variable = { cherkasy_russian_ethnicity > cherkasy_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_other_ethnicity > cherkasy_ukrainian_ethnicity }
+			check_variable = { cherkasy_other_ethnicity > cherkasy_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Cherkasy_white"
+	}
+}
+defined_text = {
+	name = get_Chernihiv_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_chernihiv = yes
+				UKR_is_in_control_of_chernihiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_chernihiv = yes
+				UKR_has_no_control_of_chernihiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_belarussian_ethnicity }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_belarussian_ethnicity }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernihiv_white"
+	}
+}
+defined_text = {
+	name = get_Chernivtsi_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_chernivtsi = yes
+				UKR_is_in_control_of_chernivtsi = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_chernivtsi = yes
+				UKR_has_no_control_of_chernivtsi = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_romanian_ethnicity }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_romanian_ethnicity }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_yellow"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_romanian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Chernivtsi_white"
+	}
+}
+defined_text = {
+	name = get_Crimea_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_crimea = yes
+				UKR_is_in_control_of_crimea = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_crimea = yes
+				UKR_has_no_control_of_crimea = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_russian_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_tatar_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_grey"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_belarussian_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_other_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Crimea_white"
+	}
+}
+defined_text = {
+	name = get_Dnipro_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_dnipro = yes
+				UKR_is_in_control_of_dnipro = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_dnipro = yes
+				UKR_has_no_control_of_dnipro = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_belarussian_ethnicity }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_russian_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_russian_ethnicity > dnipro_belarussian_ethnicity }
+			check_variable = { dnipro_russian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_other_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_other_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_other_ethnicity > dnipro_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Dnipro_white"
+	}
+}
+defined_text = {
+	name = get_Donetsk_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_donetsk = yes
+				UKR_is_in_control_of_donetsk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_donetsk = yes
+				UKR_has_no_control_of_donetsk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_russian_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_greek_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_light_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_other_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Donetsk_white"
+	}
+}
+defined_text = {
+	name = get_Ivano_Frankivsk_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_ivano_frankivsk = yes
+				UKR_is_in_control_of_ivano_frankivsk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_ivano_frankivsk = yes
+				UKR_has_no_control_of_ivano_frankivsk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_ukrainian_ethnicity > ivano_frankivsk_russian_ethnicity }
+			check_variable = { ivano_frankivsk_ukrainian_ethnicity > ivano_frankivsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_russian_ethnicity > ivano_frankivsk_ukrainian_ethnicity }
+			check_variable = { ivano_frankivsk_russian_ethnicity > ivano_frankivsk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_other_ethnicity > ivano_frankivsk_ukrainian_ethnicity }
+			check_variable = { ivano_frankivsk_other_ethnicity > ivano_frankivsk_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ivano_Frankivsk_white"
+	}
+}
+defined_text = {
+	name = get_Kharkiv_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_kharkiv = yes
+				UKR_is_in_control_of_kharkiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_kharkiv = yes
+				UKR_is_in_control_of_kharkiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_kharkiv = yes
+				UKR_has_no_control_of_kharkiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_ukrainian_ethnicity > kharkiv_russian_ethnicity }
+			check_variable = { kharkiv_ukrainian_ethnicity > kharkiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_russian_ethnicity > kharkiv_ukrainian_ethnicity }
+			check_variable = { kharkiv_russian_ethnicity > kharkiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_other_ethnicity > kharkiv_ukrainian_ethnicity }
+			check_variable = { kharkiv_other_ethnicity > kharkiv_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kharkiv_white"
+	}
+}
+defined_text = {
+	name = get_Kherson_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_kherson = yes
+				UKR_is_in_control_of_kherson = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_kherson = yes
+				UKR_has_no_control_of_kherson = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_ukrainian_ethnicity > kherson_russian_ethnicity }
+			check_variable = { kherson_ukrainian_ethnicity > kherson_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_russian_ethnicity > kherson_ukrainian_ethnicity }
+			check_variable = { kherson_russian_ethnicity > kherson_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_other_ethnicity > kherson_ukrainian_ethnicity }
+			check_variable = { kherson_other_ethnicity > kherson_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kherson_white"
+	}
+}
+defined_text = {
+	name = get_Khmelnytskyi_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_khmelnytskyi = yes
+				UKR_is_in_control_of_khmelnytskyi = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_khmelnytskyi = yes
+				UKR_has_no_control_of_khmelnytskyi = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_polish_ethnicity }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_polish_ethnicity }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_pink"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_polish_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Khmelnytskyi_white"
+	}
+}
+defined_text = {
+	name = get_Kirovohrad_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_kirovohrad = yes
+				UKR_is_in_control_of_kirovohrad = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_kirovohrad = yes
+				UKR_has_no_control_of_kirovohrad = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_romanian_ethnicity }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_romanian_ethnicity }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_yellow"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_romanian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kirovohrad_white"
+	}
+}
+defined_text = {
+	name = get_Kyiv_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_kyiv = yes
+				UKR_is_in_control_of_kyiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_kyiv = yes
+				UKR_has_no_control_of_kyiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_ukrainian_ethnicity > kyiv_russian_ethnicity }
+			check_variable = { kyiv_ukrainian_ethnicity > kyiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_russian_ethnicity > kyiv_ukrainian_ethnicity }
+			check_variable = { kyiv_russian_ethnicity > kyiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_other_ethnicity > kyiv_ukrainian_ethnicity }
+			check_variable = { kyiv_other_ethnicity > kyiv_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Kyiv_white"
+	}
+}
+defined_text = {
+	name = get_Luhansk_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_luhansk = yes
+				UKR_is_in_control_of_luhansk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_luhansk = yes
+				UKR_has_no_control_of_luhansk = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_belarussian_ethnicity }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_russian_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_russian_ethnicity > luhansk_belarussian_ethnicity }
+			check_variable = { luhansk_russian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_other_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_other_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_other_ethnicity > luhansk_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Luhansk_white"
+	}
+}
+defined_text = {
+	name = get_Lviv_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_lviv = yes
+				UKR_is_in_control_of_lviv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_lviv = yes
+				UKR_has_no_control_of_lviv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_polish_ethnicity }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_russian_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_russian_ethnicity > lviv_polish_ethnicity }
+			check_variable = { lviv_russian_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_polish_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_polish_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_polish_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_pink"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_other_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_other_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_other_ethnicity > lviv_polish_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Lviv_white"
+	}
+}
+defined_text = {
+	name = get_Mykolaiv_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_mykolaiv = yes
+				UKR_is_in_control_of_mykolaiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_mykolaiv = yes
+				UKR_has_no_control_of_mykolaiv = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_yellow"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Mykolaiv_white"
+	}
+}
+defined_text = {
+	name = get_Odessa_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_odessa = yes
+				UKR_is_in_control_of_odessa = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_odessa = yes
+				UKR_has_no_control_of_odessa = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_russian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_romanian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_yellow"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_light_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_gagausian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_light_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_other_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_gagausian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Odessa_white"
+	}
+}
+defined_text = {
+	name = get_Poltava_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_poltava = yes
+				UKR_is_in_control_of_poltava = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_poltava = yes
+				UKR_has_no_control_of_poltava = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_ukrainian_ethnicity > poltava_russian_ethnicity }
+			check_variable = { poltava_ukrainian_ethnicity > poltava_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_russian_ethnicity > poltava_ukrainian_ethnicity }
+			check_variable = { poltava_russian_ethnicity > poltava_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_other_ethnicity > poltava_ukrainian_ethnicity }
+			check_variable = { poltava_other_ethnicity > poltava_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Poltava_white"
+	}
+}
+defined_text = {
+	name = get_Rivne_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_rivne = yes
+				UKR_is_in_control_of_rivne = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_rivne = yes
+				UKR_has_no_control_of_rivne = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_belarussian_ethnicity }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_russian_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_russian_ethnicity > rivne_belarussian_ethnicity }
+			check_variable = { rivne_russian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_belarussian_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_belarussian_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_belarussian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_other_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_other_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_other_ethnicity > rivne_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Rivne_white"
+	}
+}
+defined_text = {
+	name = get_Sumy_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_sumy = yes
+				UKR_is_in_control_of_sumy = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_sumy = yes
+				UKR_has_no_control_of_sumy = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_ukrainian_ethnicity > sumy_russian_ethnicity }
+			check_variable = { sumy_ukrainian_ethnicity > sumy_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_russian_ethnicity > sumy_ukrainian_ethnicity }
+			check_variable = { sumy_russian_ethnicity > sumy_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_other_ethnicity > sumy_ukrainian_ethnicity }
+			check_variable = { sumy_other_ethnicity > sumy_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Sumy_white"
+	}
+}
+defined_text = {
+	name = get_Ternopil_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_ternopil = yes
+				UKR_is_in_control_of_ternopil = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_ternopil = yes
+				UKR_has_no_control_of_ternopil = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_ukrainian_ethnicity > ternopil_russian_ethnicity }
+			check_variable = { ternopil_ukrainian_ethnicity > ternopil_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_russian_ethnicity > ternopil_ukrainian_ethnicity }
+			check_variable = { ternopil_russian_ethnicity > ternopil_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_other_ethnicity > ternopil_ukrainian_ethnicity }
+			check_variable = { ternopil_other_ethnicity > ternopil_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Ternopil_white"
+	}
+}
+defined_text = {
+	name = get_Vinnytsia_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_vinnytsia = yes
+				UKR_is_in_control_of_vinnytsia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_vinnytsia = yes
+				UKR_has_no_control_of_vinnytsia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_ukrainian_ethnicity > vinnytsia_russian_ethnicity }
+			check_variable = { vinnytsia_ukrainian_ethnicity > vinnytsia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_russian_ethnicity > vinnytsia_ukrainian_ethnicity }
+			check_variable = { vinnytsia_russian_ethnicity > vinnytsia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_other_ethnicity > vinnytsia_ukrainian_ethnicity }
+			check_variable = { vinnytsia_other_ethnicity > vinnytsia_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Vinnytsia_white"
+	}
+}
+defined_text = {
+	name = get_Volyn_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_volyn = yes
+				UKR_is_in_control_of_volyn = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_volyn = yes
+				UKR_has_no_control_of_volyn = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_ukrainian_ethnicity > volyn_russian_ethnicity }
+			check_variable = { volyn_ukrainian_ethnicity > volyn_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_russian_ethnicity > volyn_ukrainian_ethnicity }
+			check_variable = { volyn_russian_ethnicity > volyn_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_other_ethnicity > volyn_ukrainian_ethnicity }
+			check_variable = { volyn_other_ethnicity > volyn_russian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Volyn_white"
+	}
+}
+defined_text = {
+	name = get_Zaporizhia_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_zaporizhia = yes
+				UKR_is_in_control_of_zaporizhia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_zaporizhia = yes
+				UKR_has_no_control_of_zaporizhia = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_light_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_white"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_belarussian_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zaporizhia_white"
+	}
+}
+defined_text = {
+	name = get_Zhytomyr_gfx
+	text = {
+		trigger = {
+			OR={
+				UKR_is_in_full_control_of_zhytomyr = yes
+				UKR_is_in_control_of_zhytomyr = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_blue"
+	}
+	text = {
+		trigger = {
+			OR={
+				UKR_is_not_in_control_of_zhytomyr = yes
+				UKR_has_no_control_of_zhytomyr = yes
+			}
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_red"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_disputed"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_polish_ethnicity }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_blue"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_polish_ethnicity }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_dark_green"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_pink"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_polish_ethnicity }
+		}
+		localization_key = "GFX_decision_UKR_Zhytomyr_white"
+	}
+}
+
+
+
+
+
+defined_text = {
+	name = get_Akarpatskia_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_akarpatskia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_akarpatskia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_akarpatskia = yes }
+			UKR_is_in_control_of_akarpatskia = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_akarpatskia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_akarpatskia = yes }
+			UKR_is_not_in_control_of_akarpatskia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_akarpatskia_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_akarpatskia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_akarpatskia_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_akarpatskia_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_ukrainian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_russian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_hungarian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_hungarian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_romanian_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_romanian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_hungarian_ethnicity }
+			check_variable = { akarpatskia_roma_ethnicity > akarpatskia_other_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_roma"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_ukrainian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_russian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_romanian_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_roma_ethnicity }
+			check_variable = { akarpatskia_other_ethnicity > akarpatskia_hungarian_ethnicity }
+		}
+		localization_key = "UKR_akarpatskia_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Cherkasy_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_cherkasy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_cherkasy_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_cherkasy = yes }
+			UKR_is_in_control_of_cherkasy = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_cherkasy_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_cherkasy = yes }
+			UKR_is_not_in_control_of_cherkasy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_cherkasy_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_cherkasy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_cherkasy_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_cherkasy_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_ukrainian_ethnicity > cherkasy_russian_ethnicity }
+			check_variable = { cherkasy_ukrainian_ethnicity > cherkasy_other_ethnicity }
+		}
+		localization_key = "UKR_cherkasy_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_russian_ethnicity > cherkasy_ukrainian_ethnicity }
+			check_variable = { cherkasy_russian_ethnicity > cherkasy_other_ethnicity }
+		}
+		localization_key = "UKR_cherkasy_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { cherkasy_other_ethnicity > cherkasy_ukrainian_ethnicity }
+			check_variable = { cherkasy_other_ethnicity > cherkasy_russian_ethnicity }
+		}
+		localization_key = "UKR_cherkasy_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Chernihiv_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_chernihiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_chernihiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_chernihiv = yes }
+			UKR_is_in_control_of_chernihiv = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_chernihiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_chernihiv = yes }
+			UKR_is_not_in_control_of_chernihiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_chernihiv_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_chernihiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_chernihiv_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_chernihiv_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_belarussian_ethnicity }
+			check_variable = { chernihiv_ukrainian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "UKR_chernihiv_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_belarussian_ethnicity }
+			check_variable = { chernihiv_russian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "UKR_chernihiv_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_belarussian_ethnicity > chernihiv_other_ethnicity }
+		}
+		localization_key = "UKR_chernihiv_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_ukrainian_ethnicity }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_russian_ethnicity }
+			check_variable = { chernihiv_other_ethnicity > chernihiv_belarussian_ethnicity }
+		}
+		localization_key = "UKR_chernihiv_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Chernivtsi_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_chernivtsi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_chernivtsi_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_chernivtsi = yes }
+			UKR_is_in_control_of_chernivtsi = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_chernivtsi_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_chernivtsi = yes }
+			UKR_is_not_in_control_of_chernivtsi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_chernivtsi_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_chernivtsi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_chernivtsi_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_chernivtsi_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_romanian_ethnicity }
+			check_variable = { chernivtsi_ukrainian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "UKR_chernivtsi_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_romanian_ethnicity }
+			check_variable = { chernivtsi_russian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "UKR_chernivtsi_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_romanian_ethnicity > chernivtsi_other_ethnicity }
+		}
+		localization_key = "UKR_chernivtsi_largest_ethnicity_is_romanian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_ukrainian_ethnicity }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_russian_ethnicity }
+			check_variable = { chernivtsi_other_ethnicity > chernivtsi_romanian_ethnicity }
+		}
+		localization_key = "UKR_chernivtsi_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Crimea_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_crimea = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_crimea_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_crimea = yes }
+			UKR_is_in_control_of_crimea = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_crimea_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_crimea = yes }
+			UKR_is_not_in_control_of_crimea = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_crimea_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_crimea = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_crimea_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_crimea_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_ukrainian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "UKR_crimea_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_russian_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_russian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "UKR_crimea_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_tatar_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_belarussian_ethnicity }
+			check_variable = { crimea_tatar_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "UKR_crimea_largest_ethnicity_is_tatar"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_belarussian_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_belarussian_ethnicity > crimea_other_ethnicity }
+		}
+		localization_key = "UKR_crimea_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { crimea_other_ethnicity > crimea_ukrainian_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_russian_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_tatar_ethnicity }
+			check_variable = { crimea_other_ethnicity > crimea_belarussian_ethnicity }
+		}
+		localization_key = "UKR_crimea_largest_ethnicity_is_other"
+	}
+}
+
+defined_text = {
+	name = get_Dnipro_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_dnipro = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_dnipro_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_dnipro = yes }
+			UKR_is_in_control_of_dnipro = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_dnipro_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_dnipro = yes }
+			UKR_is_not_in_control_of_dnipro = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_dnipro_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_dnipro = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_dnipro_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_dnipro_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_belarussian_ethnicity }
+			check_variable = { dnipro_ukrainian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "UKR_dnipro_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_russian_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_russian_ethnicity > dnipro_belarussian_ethnicity }
+			check_variable = { dnipro_russian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "UKR_dnipro_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_belarussian_ethnicity > dnipro_other_ethnicity }
+		}
+		localization_key = "UKR_dnipro_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { dnipro_other_ethnicity > dnipro_ukrainian_ethnicity }
+			check_variable = { dnipro_other_ethnicity > dnipro_russian_ethnicity }
+			check_variable = { dnipro_other_ethnicity > dnipro_belarussian_ethnicity }
+		}
+		localization_key = "UKR_dnipro_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Donetsk_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_donetsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_donetsk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_donetsk = yes }
+			UKR_is_in_control_of_donetsk = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_donetsk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_donetsk = yes }
+			UKR_is_not_in_control_of_donetsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_donetsk_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_donetsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_donetsk_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_donetsk_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_ukrainian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "UKR_donetsk_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_russian_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_russian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "UKR_donetsk_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_greek_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_belarussian_ethnicity }
+			check_variable = { donetsk_greek_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "UKR_donetsk_largest_ethnicity_is_greek"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_belarussian_ethnicity > donetsk_other_ethnicity }
+		}
+		localization_key = "UKR_donetsk_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { donetsk_other_ethnicity > donetsk_ukrainian_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_russian_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_greek_ethnicity }
+			check_variable = { donetsk_other_ethnicity > donetsk_belarussian_ethnicity }
+		}
+		localization_key = "UKR_donetsk_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Ivano_Frankivsk_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_ivano_frankivsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_ivano_frankivsk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_ivano_frankivsk = yes }
+			UKR_is_in_control_of_ivano_frankivsk = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_ivano_frankivsk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_ivano_frankivsk = yes }
+			UKR_is_not_in_control_of_ivano_frankivsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_ivano_frankivsk_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_ivano_frankivsk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_ivano_frankivsk_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_ivano_frankivsk_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_ukrainian_ethnicity > ivano_frankivsk_russian_ethnicity }
+			check_variable = { ivano_frankivsk_ukrainian_ethnicity > ivano_frankivsk_other_ethnicity }
+		}
+		localization_key = "UKR_ivano_frankivsk_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_russian_ethnicity > ivano_frankivsk_ukrainian_ethnicity }
+			check_variable = { ivano_frankivsk_russian_ethnicity > ivano_frankivsk_other_ethnicity }
+		}
+		localization_key = "UKR_ivano_frankivsk_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ivano_frankivsk_other_ethnicity > ivano_frankivsk_ukrainian_ethnicity }
+			check_variable = { ivano_frankivsk_other_ethnicity > ivano_frankivsk_russian_ethnicity }
+		}
+		localization_key = "UKR_ivano_frankivsk_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Kharkiv_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_kharkiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_kharkiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_kharkiv = yes }
+			UKR_is_in_control_of_kharkiv = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_kharkiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_kharkiv = yes }
+			UKR_is_not_in_control_of_kharkiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_kharkiv_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_kharkiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_kharkiv_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_kharkiv_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_ukrainian_ethnicity > kharkiv_russian_ethnicity }
+			check_variable = { kharkiv_ukrainian_ethnicity > kharkiv_other_ethnicity }
+		}
+		localization_key = "UKR_kharkiv_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_russian_ethnicity > kharkiv_ukrainian_ethnicity }
+			check_variable = { kharkiv_russian_ethnicity > kharkiv_other_ethnicity }
+		}
+		localization_key = "UKR_kharkiv_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kharkiv_other_ethnicity > kharkiv_ukrainian_ethnicity }
+			check_variable = { kharkiv_other_ethnicity > kharkiv_russian_ethnicity }
+		}
+		localization_key = "UKR_kharkiv_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Kherson_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_kherson = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_kherson_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_kherson = yes }
+			UKR_is_in_control_of_kherson = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_kherson_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_kherson = yes }
+			UKR_is_not_in_control_of_kherson = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_kherson_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_kherson = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_kherson_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_kherson_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_ukrainian_ethnicity > kherson_russian_ethnicity }
+			check_variable = { kherson_ukrainian_ethnicity > kherson_other_ethnicity }
+		}
+		localization_key = "UKR_kherson_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_russian_ethnicity > kherson_ukrainian_ethnicity }
+			check_variable = { kherson_russian_ethnicity > kherson_other_ethnicity }
+		}
+		localization_key = "UKR_kherson_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kherson_other_ethnicity > kherson_ukrainian_ethnicity }
+			check_variable = { kherson_other_ethnicity > kherson_russian_ethnicity }
+		}
+		localization_key = "UKR_kherson_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Khmelnytskyi_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_khmelnytskyi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_khmelnytskyi_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_khmelnytskyi = yes }
+			UKR_is_in_control_of_khmelnytskyi = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_khmelnytskyi_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_khmelnytskyi = yes }
+			UKR_is_not_in_control_of_khmelnytskyi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_khmelnytskyi_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_khmelnytskyi = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_khmelnytskyi_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_khmelnytskyi_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_polish_ethnicity }
+			check_variable = { khmelnytskyi_ukrainian_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "UKR_khmelnytskyi_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_polish_ethnicity }
+			check_variable = { khmelnytskyi_russian_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "UKR_khmelnytskyi_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_polish_ethnicity > khmelnytskyi_other_ethnicity }
+		}
+		localization_key = "UKR_khmelnytskyi_largest_ethnicity_is_polish"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_ukrainian_ethnicity }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_russian_ethnicity }
+			check_variable = { khmelnytskyi_other_ethnicity > khmelnytskyi_polish_ethnicity }
+		}
+		localization_key = "UKR_khmelnytskyi_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Kirovohrad_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_kirovohrad = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_kirovohrad_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_kirovohrad = yes }
+			UKR_is_in_control_of_kirovohrad = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_kirovohrad_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_kirovohrad = yes }
+			UKR_is_not_in_control_of_kirovohrad = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_kirovohrad_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_kirovohrad = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_kirovohrad_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_kirovohrad_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_romanian_ethnicity }
+			check_variable = { kirovohrad_ukrainian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "UKR_kirovohrad_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_romanian_ethnicity }
+			check_variable = { kirovohrad_russian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "UKR_kirovohrad_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_romanian_ethnicity > kirovohrad_other_ethnicity }
+		}
+		localization_key = "UKR_kirovohrad_largest_ethnicity_is_romanian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_ukrainian_ethnicity }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_russian_ethnicity }
+			check_variable = { kirovohrad_other_ethnicity > kirovohrad_romanian_ethnicity }
+		}
+		localization_key = "UKR_kirovohrad_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Kyiv_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_kyiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_kyiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_kyiv = yes }
+			UKR_is_in_control_of_kyiv = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_kyiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_kyiv = yes }
+			UKR_is_not_in_control_of_kyiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_kyiv_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_kyiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_kyiv_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_kyiv_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_ukrainian_ethnicity > kyiv_russian_ethnicity }
+			check_variable = { kyiv_ukrainian_ethnicity > kyiv_other_ethnicity }
+		}
+		localization_key = "UKR_kyiv_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_russian_ethnicity > kyiv_ukrainian_ethnicity }
+			check_variable = { kyiv_russian_ethnicity > kyiv_other_ethnicity }
+		}
+		localization_key = "UKR_kyiv_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { kyiv_other_ethnicity > kyiv_ukrainian_ethnicity }
+			check_variable = { kyiv_other_ethnicity > kyiv_russian_ethnicity }
+		}
+		localization_key = "UKR_kyiv_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Luhansk_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_luhansk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_luhansk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_luhansk = yes }
+			UKR_is_in_control_of_luhansk = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_luhansk_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_luhansk = yes }
+			UKR_is_not_in_control_of_luhansk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_luhansk_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_luhansk = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_luhansk_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_luhansk_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_belarussian_ethnicity }
+			check_variable = { luhansk_ukrainian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "UKR_luhansk_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_russian_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_russian_ethnicity > luhansk_belarussian_ethnicity }
+			check_variable = { luhansk_russian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "UKR_luhansk_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_belarussian_ethnicity > luhansk_other_ethnicity }
+		}
+		localization_key = "UKR_luhansk_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { luhansk_other_ethnicity > luhansk_ukrainian_ethnicity }
+			check_variable = { luhansk_other_ethnicity > luhansk_russian_ethnicity }
+			check_variable = { luhansk_other_ethnicity > luhansk_belarussian_ethnicity }
+		}
+		localization_key = "UKR_luhansk_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Lviv_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_lviv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_lviv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_lviv = yes }
+			UKR_is_in_control_of_lviv = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_lviv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_lviv = yes }
+			UKR_is_not_in_control_of_lviv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_lviv_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_lviv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_lviv_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_lviv_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_polish_ethnicity }
+			check_variable = { lviv_ukrainian_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "UKR_lviv_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_russian_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_russian_ethnicity > lviv_polish_ethnicity }
+			check_variable = { lviv_russian_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "UKR_lviv_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_polish_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_polish_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_polish_ethnicity > lviv_other_ethnicity }
+		}
+		localization_key = "UKR_lviv_largest_ethnicity_is_polish"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { lviv_other_ethnicity > lviv_ukrainian_ethnicity }
+			check_variable = { lviv_other_ethnicity > lviv_russian_ethnicity }
+			check_variable = { lviv_other_ethnicity > lviv_polish_ethnicity }
+		}
+		localization_key = "UKR_lviv_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Mykolaiv_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_mykolaiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_mykolaiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_mykolaiv = yes }
+			UKR_is_in_control_of_mykolaiv = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_mykolaiv_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_mykolaiv = yes }
+			UKR_is_not_in_control_of_mykolaiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_mykolaiv_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_mykolaiv = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_mykolaiv_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_mykolaiv_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_ukrainian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "UKR_mykolaiv_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_russian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "UKR_mykolaiv_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_belarussian_ethnicity }
+			check_variable = { mykolaiv_romanian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "UKR_mykolaiv_largest_ethnicity_is_romanian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_belarussian_ethnicity > mykolaiv_other_ethnicity }
+		}
+		localization_key = "UKR_mykolaiv_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_ukrainian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_russian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_romanian_ethnicity }
+			check_variable = { mykolaiv_other_ethnicity > mykolaiv_belarussian_ethnicity }
+		}
+		localization_key = "UKR_mykolaiv_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Odessa_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_odessa = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_odessa_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_odessa = yes }
+			UKR_is_in_control_of_odessa = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_odessa_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_odessa = yes }
+			UKR_is_not_in_control_of_odessa = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_odessa_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_odessa = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_odessa_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_odessa_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_ukrainian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_russian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_russian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_romanian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_romanian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_romanian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_gagausian_ethnicity }
+			check_variable = { odessa_bulgarian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_bulgarian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_gagausian_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_gagausian_ethnicity > odessa_other_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_gagausian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { odessa_other_ethnicity > odessa_ukrainian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_russian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_romanian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_bulgarian_ethnicity }
+			check_variable = { odessa_other_ethnicity > odessa_gagausian_ethnicity }
+		}
+		localization_key = "UKR_odessa_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Poltava_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_poltava = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_poltava_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_poltava = yes }
+			UKR_is_in_control_of_poltava = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_poltava_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_poltava = yes }
+			UKR_is_not_in_control_of_poltava = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_poltava_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_poltava = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_poltava_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_poltava_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_ukrainian_ethnicity > poltava_russian_ethnicity }
+			check_variable = { poltava_ukrainian_ethnicity > poltava_other_ethnicity }
+		}
+		localization_key = "UKR_poltava_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_russian_ethnicity > poltava_ukrainian_ethnicity }
+			check_variable = { poltava_russian_ethnicity > poltava_other_ethnicity }
+		}
+		localization_key = "UKR_poltava_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { poltava_other_ethnicity > poltava_ukrainian_ethnicity }
+			check_variable = { poltava_other_ethnicity > poltava_russian_ethnicity }
+		}
+		localization_key = "UKR_poltava_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Rivne_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_rivne = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_rivne_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_rivne = yes }
+			UKR_is_in_control_of_rivne = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_rivne_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_rivne = yes }
+			UKR_is_not_in_control_of_rivne = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_rivne_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_rivne = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_rivne_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_rivne_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_belarussian_ethnicity }
+			check_variable = { rivne_ukrainian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "UKR_rivne_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_russian_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_russian_ethnicity > rivne_belarussian_ethnicity }
+			check_variable = { rivne_russian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "UKR_rivne_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_belarussian_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_belarussian_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_belarussian_ethnicity > rivne_other_ethnicity }
+		}
+		localization_key = "UKR_rivne_largest_ethnicity_is_ubelarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { rivne_other_ethnicity > rivne_ukrainian_ethnicity }
+			check_variable = { rivne_other_ethnicity > rivne_russian_ethnicity }
+			check_variable = { rivne_other_ethnicity > rivne_belarussian_ethnicity }
+		}
+		localization_key = "UKR_rivne_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Sumy_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_sumy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_sumy_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_sumy = yes }
+			UKR_is_in_control_of_sumy = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_sumy_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_sumy = yes }
+			UKR_is_not_in_control_of_sumy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_sumy_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_sumy = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_sumy_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_sumy_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_ukrainian_ethnicity > sumy_russian_ethnicity }
+			check_variable = { sumy_ukrainian_ethnicity > sumy_other_ethnicity }
+		}
+		localization_key = "UKR_sumy_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_russian_ethnicity > sumy_ukrainian_ethnicity }
+			check_variable = { sumy_russian_ethnicity > sumy_other_ethnicity }
+		}
+		localization_key = "UKR_sumy_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { sumy_other_ethnicity > sumy_ukrainian_ethnicity }
+			check_variable = { sumy_other_ethnicity > sumy_russian_ethnicity }
+		}
+		localization_key = "UKR_sumy_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Ternopil_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_ternopil = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_ternopil_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_ternopil = yes }
+			UKR_is_in_control_of_ternopil = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_ternopil_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_ternopil = yes }
+			UKR_is_not_in_control_of_ternopil = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_ternopil_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_ternopil = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_ternopil_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_ternopil_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_ukrainian_ethnicity > ternopil_russian_ethnicity }
+			check_variable = { ternopil_ukrainian_ethnicity > ternopil_other_ethnicity }
+		}
+		localization_key = "UKR_ternopil_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_russian_ethnicity > ternopil_ukrainian_ethnicity }
+			check_variable = { ternopil_russian_ethnicity > ternopil_other_ethnicity }
+		}
+		localization_key = "UKR_ternopil_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { ternopil_other_ethnicity > ternopil_ukrainian_ethnicity }
+			check_variable = { ternopil_other_ethnicity > ternopil_russian_ethnicity }
+		}
+		localization_key = "UKR_ternopil_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Vinnytsia_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_vinnytsia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_vinnytsia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_vinnytsia = yes }
+			UKR_is_in_control_of_vinnytsia = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_vinnytsia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_vinnytsia = yes }
+			UKR_is_not_in_control_of_vinnytsia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_vinnytsia_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_vinnytsia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_vinnytsia_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_vinnytsia_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_ukrainian_ethnicity > vinnytsia_russian_ethnicity }
+			check_variable = { vinnytsia_ukrainian_ethnicity > vinnytsia_other_ethnicity }
+		}
+		localization_key = "UKR_vinnytsia_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_russian_ethnicity > vinnytsia_ukrainian_ethnicity }
+			check_variable = { vinnytsia_russian_ethnicity > vinnytsia_other_ethnicity }
+		}
+		localization_key = "UKR_vinnytsia_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { vinnytsia_other_ethnicity > vinnytsia_ukrainian_ethnicity }
+			check_variable = { vinnytsia_other_ethnicity > vinnytsia_russian_ethnicity }
+		}
+		localization_key = "UKR_vinnytsia_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Volyn_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_volyn = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_volyn_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_volyn = yes }
+			UKR_is_in_control_of_volyn = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_volyn_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_volyn = yes }
+			UKR_is_not_in_control_of_volyn = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_volyn_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_volyn = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_volyn_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_volyn_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_ukrainian_ethnicity > volyn_russian_ethnicity }
+			check_variable = { volyn_ukrainian_ethnicity > volyn_other_ethnicity }
+		}
+		localization_key = "UKR_volyn_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_russian_ethnicity > volyn_ukrainian_ethnicity }
+			check_variable = { volyn_russian_ethnicity > volyn_other_ethnicity }
+		}
+		localization_key = "UKR_volyn_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { volyn_other_ethnicity > volyn_ukrainian_ethnicity }
+			check_variable = { volyn_other_ethnicity > volyn_russian_ethnicity }
+		}
+		localization_key = "UKR_volyn_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Zaporizhia_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_zaporizhia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_zaporizhia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_zaporizhia = yes }
+			UKR_is_in_control_of_zaporizhia = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_zaporizhia_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_zaporizhia = yes }
+			UKR_is_not_in_control_of_zaporizhia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_zaporizhia_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_zaporizhia = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_zaporizhia_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_zaporizhia_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_ukrainian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "UKR_zaporizhia_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_russian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "UKR_zaporizhia_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_belarussian_ethnicity }
+			check_variable = { zaporizhia_bulgarian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "UKR_zaporizhia_largest_ethnicity_is_bulgarian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_belarussian_ethnicity > zaporizhia_other_ethnicity }
+		}
+		localization_key = "UKR_zaporizhia_largest_ethnicity_is_belarussian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_ukrainian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_russian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_bulgarian_ethnicity }
+			check_variable = { zaporizhia_other_ethnicity > zaporizhia_belarussian_ethnicity }
+		}
+		localization_key = "UKR_zaporizhia_largest_ethnicity_is_other"
+	}
+}
+defined_text = {
+	name = get_Zhytomyr_tt_lower
+	text = {
+		trigger = {	
+			UKR_is_in_full_control_of_zhytomyr = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_full_control_of_zhytomyr_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_is_in_full_control_of_zhytomyr = yes }
+			UKR_is_in_control_of_zhytomyr = yes
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_some_control_of_zhytomyr_text"
+	}
+	text = {
+		trigger = {	
+			NOT = { UKR_has_no_control_of_zhytomyr = yes }
+			UKR_is_not_in_control_of_zhytomyr = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_little_control_of_zhytomyr_text"
+	}
+	text = {
+		trigger = {	
+			UKR_has_no_control_of_zhytomyr = yes	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_has_no_control_of_zhytomyr_text"
+	}
+	text = {
+		trigger = {	
+			check_variable = { var = UKR_state_control_button_status value = 1 compare = equals }
+		}
+		localization_key = "UKR_zhytomyr_is_disputed_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_polish_ethnicity }
+			check_variable = { zhytomyr_ukrainian_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "UKR_zhytomyr_largest_ethnicity_is_ukrainian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_polish_ethnicity }
+			check_variable = { zhytomyr_russian_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "UKR_zhytomyr_largest_ethnicity_is_russian"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_polish_ethnicity > zhytomyr_other_ethnicity }
+		}
+		localization_key = "UKR_zhytomyr_largest_ethnicity_is_polish"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = UKR_state_control_button_status value = 2 compare = equals }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_ukrainian_ethnicity }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_russian_ethnicity }
+			check_variable = { zhytomyr_other_ethnicity > zhytomyr_polish_ethnicity }
+		}
+		localization_key = "UKR_zhytomyr_largest_ethnicity_is_other"
+	}
+}

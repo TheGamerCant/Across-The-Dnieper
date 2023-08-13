@@ -1,0 +1,184 @@
+SOV_russian_reunification = { #SKELETON BUILD FOR TESTING
+	allowed = {
+		original_tag = SOV
+	}
+	visible_when_empty = no
+	visible = {
+		has_global_flag = russian_civil_war_begun
+		NOT = { russia_rework_trigger = yes }
+	}
+}
+
+SOV_russian_ambitions = {
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = no
+	visible = {
+		always = yes
+		NOT = { russia_rework_trigger = yes }
+	}
+}
+
+SOV_reconquer_russia = {
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = no
+	visible = {
+		has_country_flag = can_retake_russia
+		NOT = { russia_rework_trigger = yes }
+	}
+		
+}
+
+SOV_supplying_donbass = {
+	allowed = {
+		tag = SOV
+		OR = {
+			country_exists = DON
+			country_exists = LHK
+			country_exists = NOV
+			country_exists = ODS
+		}
+
+	}
+	visible = {
+		OR = {
+			has_start_date = 2022.2.23.1
+			has_country_flag = SOV_supplying_donbass_unlocked
+			NOT = { russia_rework_trigger = yes }
+		}
+		
+	}
+		
+}
+
+SOV_bombing_ukraine = {
+	allowed = {
+		tag = SOV
+
+	}
+	visible = {
+		has_country_flag = can_bomb_ukraine_SOV
+		UKR = {
+			has_war_with = SOV
+		}
+		NOT = { russia_rework_trigger = yes }
+	}
+		
+}
+
+SOV_funding_transnistria= {
+
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = yes
+	scripted_gui = SOV_funding_transnistria_gui
+	visible = {
+		country_exists = TRZ
+		NOT = { russia_rework_trigger = yes }
+	}
+		
+}
+
+SOV_smo = {
+	priority = 999
+	allowed = {
+		OR={
+			tag = SOV
+			tag = UKR
+		}
+	}
+	visible_when_empty = yes
+	visible = {
+		has_global_flag = russia_ukraine_war
+	}
+		
+}
+
+SOV_communist_coup = {
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = yes
+	visible = {
+		has_country_flag = coup_has_started
+		NOT = { russia_rework_trigger = yes }
+	}
+		
+}
+
+SOV_vaccines = {
+	allowed = {
+		tag = SOV
+
+		
+	}
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = SOV_create_vaccine
+		has_start_date = 2014.1.1.1
+		NOT = { russia_rework_trigger = yes }
+	}
+	on_map_area = {
+		target_array = SOV.core_states
+		target_trigger = {
+			FROM = {
+				AND = {
+					is_owned_by = SOV
+					NOT = { has_state_flag = vaccine_here_done }
+					NOT = { has_state_flag = is_funni_no_go_round_state }
+				}
+				
+			}
+		}
+		state = target
+		name = tate_targeted2_decision
+		zoom = 650
+	}
+		
+}
+
+
+SOV_putins_opposition = {
+	scripted_gui = SOV_putins_opposition_gui
+	allowed = {
+		tag = sov
+	}
+	visible_when_empty = yes
+	visible = {
+		has_government = eastern_conservative
+		NOT = { has_country_flag = SOV_Putin_alive }
+		NOT = { russia_rework_trigger = yes }
+	}
+		
+}
+
+SOV_referendum_decisions = {
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = no
+	visible = {
+		AND = {
+			has_offensive_war_with = UKR
+			has_country_flag = russia_can_hold_refs
+			NOT = { russia_rework_trigger = yes }
+		}
+		
+	}	
+}
+
+SOV_the_media = {
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = yes
+	visible = {
+		russia_rework_trigger = yes
+	}	
+	
+	scripted_gui = SOV_media_gui
+}

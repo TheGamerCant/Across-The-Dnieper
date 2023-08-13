@@ -1,0 +1,121 @@
+political_actions={
+	block_the_north_crimean_canal_decision = { 
+
+		icon = generic_civil_support
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+			    tooltip = UKR_block_the_north_crimean_canal_tt
+				UKR_is_in_full_control_of_dnipro = yes
+				UKR_is_in_full_control_of_kherson = yes
+			}
+			custom_trigger_tooltip = {
+			    tooltip = UKR_block_the_north_crimean_canal_tt_2
+				UKR_has_no_control_of_crimea = yes
+			}
+		}
+
+		visible = {
+			NOT = { has_global_flag = north_crimean_canal_blocked }
+			date > 2014.5.1
+		}
+
+		cost = 75
+
+		complete_effect = {		
+			every_country={
+				limit = { 354 = { is_controlled_by = PREV } }
+				country_event = { id = ukraine.14 hours = 3 }
+			}
+			set_global_flag = north_crimean_canal_blocked
+		}
+	}
+	
+	unblock_the_north_crimean_canal_decision = { 
+
+		icon = generic_civil_support
+		
+		fire_only_once = no
+
+		available = {
+			242 = { is_controlled_by = ROOT }
+		}
+
+		visible = {
+			has_global_flag = north_crimean_canal_blocked
+			354 = { is_controlled_by = ROOT }
+		}
+
+		cost = 75
+
+		complete_effect = {
+			clr_global_flag = north_crimean_canal_blocked
+			if={
+				limit = { has_idea = UKR_the_crimean_burden }
+				remove_ideas = UKR_the_crimean_burden
+			}
+			if={
+				limit = { has_idea = UKR_the_crimean_burden_better }
+				remove_ideas = UKR_the_crimean_burden_better
+			}
+			every_state = {
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					has_dynamic_modifier = { modifier = drastic_water_shortage }
+				}
+				remove_dynamic_modifier = { modifier = drastic_water_shortage }
+			}
+			every_state = {
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					has_dynamic_modifier = { modifier = water_shortage }
+				}
+				
+				remove_dynamic_modifier = { modifier = water_shortage }
+			}
+		}
+	}
+	
+	generic_build_crimea_bridge = {
+
+		icon = generic_form_nation
+
+		available = {
+			NOT = { 331 = { is_controlled_by = ROOT } }
+			NOT = { 256 = { is_controlled_by = ROOT } }
+		}
+		
+		days_mission_timeout = 1460
+		activation = {
+			has_start_date = 2014.1.1.1 
+			has_completed_focus = SOV_the_crimean_bridge
+		}
+
+		allowed = {
+			331 = { is_controlled_by = ROOT }
+			256 = { is_controlled_by = ROOT }
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			set_global_flag = kerch_bridge_built_flag
+			custom_effect_tooltip = generic_build_crimea_bridge_tt
+			country_event = { id = russia.51 hours = 3 }
+		}
+		
+		complete_effect={
+			
+		}
+	}
+}

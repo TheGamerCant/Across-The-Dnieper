@@ -1,0 +1,68 @@
+on_actions={	
+	on_startup = {
+		effect = {
+			LIT={
+				if = {
+					limit = { 
+						has_start_date < 2022.01.01 
+					}
+
+					country_event = { id = lithuania.29 days = 380 }
+					country_event = { id = lithuania.32 days = 366  }
+				}
+
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = LIT_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = LIT_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+
+					random_list = {		
+						18 = {
+							LIT = {
+								set_country_flag = LIT_DALIA_AI_FLAG
+							}
+						}
+
+						16 = {
+							LIT = {
+								set_country_flag = LIT_ZYGIMANTAS_AI_FLAG
+							}
+						}
+
+						8 = {
+							LIT = {
+								set_country_flag = LIT_INIGO_AI_FLAG
+							}
+						}
+
+						10 = {
+							LIT = {
+								set_country_flag = LIT_MINDAUGAS_AI_FLAG
+							}
+						}
+						
+						2 = {
+							LIT = {
+								set_country_flag = LIT_INIJA_AI_FLAG
+							}
+						}
+					}
+				}
+			}
+
+			
+		}
+	}
+}

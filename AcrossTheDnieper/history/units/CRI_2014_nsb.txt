@@ -1,0 +1,187 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Armoured Division"
+	division_names_group = CRI_INF_01
+	regiments = {
+		modern_armor_nsb = { x = 0 y = 0 }
+		modern_armor_nsb = { x = 0 y = 1 }
+		modern_armor_nsb = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		apc = { x = 1 y = 1 }
+		mot_rocket_artillery_brigade = { x = 1 y = 2 }
+		
+	}
+	support = {
+		maintenance_company = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 }  
+		mot_recon = { x = 0 y = 3 }  
+	}
+}
+
+division_template = {
+	name = "Mechanised Brigade"
+	division_names_group = CRI_INF_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 0 y = 2 }
+		apc = { x = 1 y = 0 }
+		apc = { x = 1 y = 1 }
+		mot_rocket_artillery_brigade = { x = 1 y = 2 }
+		irregular_infantry = { x = 2 y = 0 }
+		irregular_infantry = { x = 2 y = 1 }
+		
+	}
+	support = {
+		maintenance_company = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 }  
+		mot_recon = { x = 0 y = 3 }  
+	}
+}
+
+
+division_template = {
+	name = "Airborne Brigade"
+	division_names_group = CRI_INF_01
+	regiments = {
+		elite_special_forces = { x = 0 y = 0 }
+		elite_special_forces = { x = 0 y = 1 }
+		elite_special_forces = { x = 0 y = 2 }
+		rocket_artillery_brigade = { x = 1 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+		anti_air_brigade = { x = 1 y = 2 }
+		
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+
+
+division_template = {
+	name = "Infantry Division"
+	division_names_group = CRI_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		irregular_infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 2 y = 0 }
+		irregular_infantry = { x = 2 y = 1 }
+		irregular_infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 } 
+	}
+}
+
+division_template = {
+	name = "Artillery Division"
+	division_names_group = CRI_INF_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		irregular_infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 2 y = 0 }
+		irregular_infantry = { x = 2 y = 1 }
+		irregular_infantry = { x = 2 y = 2 }
+		rocket_artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		anti_air_brigade = { x = 3 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 }   
+	}
+}
+
+
+
+
+
+units = {
+	division = {
+		location = 10994
+		name = "406th Artillery Brigade"
+		division_template = "Artillery Division"
+		start_experience_factor = 0.06
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 10994
+		name = "9th Brigade"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.06
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 2537
+		name = "15th Brigade"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.06
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 19885
+		name = "18th Special Mechanized Militia Brigade"
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.01
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 2537
+		name = "42nd Operational Regiment"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.01
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 14220
+		name = "47th Brigade"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.01
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 14220
+		name = "501st Infantry Batallion"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.01
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+
+	division = {
+		location = 19885
+		name = "Special-Purpose Border Guard Batallion"
+		division_template = "Infantry Division"
+		start_experience_factor = 0.01
+		start_equipment_factor = 0.5
+		start_manpower_factor = 1
+	}
+}
+

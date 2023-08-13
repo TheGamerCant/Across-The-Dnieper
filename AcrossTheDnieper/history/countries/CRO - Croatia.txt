@@ -1,0 +1,254 @@
+﻿capital = 289
+
+set_oob = "CRO_2014"
+
+create_country_leader = {
+	name = "Ivo Josipović"
+	desc = "test"
+	ideology = croatia_social_democrat_party
+	picture = gfx/leaders/CRO/Portrait_Ivo_Josipović.dds
+}
+
+2018.1.1 = {
+         create_country_leader = {
+	         name = "Zoran Milanović"
+	         desc = "wow nice"
+	         ideology = croatia_social_democrat_party
+	         picture = gfx/leaders/CRO/Portrait_Zoran_Milanović.dds
+         }
+	 set_politics = {
+		ruling_party = social_democracy
+		last_election = "2020.2.19"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+
+}
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_research_slots = 3
+set_stability = 0.45
+set_war_support = 0.23
+
+set_politics = {
+	ruling_party = social_democracy
+	last_election = "2010.2.19"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+set_popularities = {
+	fascist = 3
+	ultranationalist = 1
+	military_junta = 0
+	eastern_conservative = 1
+	populist = 15
+	neoconservative = 31
+	neoliberal = 3
+	eastern_liberal = 1
+	libertarian = 5
+	social_democracy = 37
+	socialist = 1
+	moderate_communist = 1
+	hardline_communist = 0
+	anarchism_ideology = 0
+	absolute_monarchy_ideology = 1
+	theocracy_ideology = 0
+}
+
+add_ideas = {
+	reliogion_law_religious 
+    womens_rights_traditional_values
+    lgbtq_rights_behind_closed_doors
+    minority_rights_minor_inequality 
+    nationalism_laws_armed_neutrality
+    alcohol_narotics_laws_highly_regulated 
+    firearms_laws_restricted
+}
+
+#DONT REMOVE
+set_country_flag = is_in_european_union
+set_variable = { pro_eu = 59 }
+set_variable = { sce_eu =  27 }
+set_variable = { neu_eu =  14 }
+clamp_variable = { var = pro_eu min = 0 max = 100 }
+clamp_variable = { var = sce_eu min = 0 max = 100 }
+clamp_variable = { var = neu_eu min = 0 max = 100 }
+set_variable = {
+	gdp = 59.032
+}
+add_ai_strategy = {
+    type = alliance
+    id = "USA"
+    value = 200
+}
+
+add_ideas = { eu_member }
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}

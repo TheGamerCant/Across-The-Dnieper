@@ -1,0 +1,74 @@
+scripted_gui = {
+	pie_chart_sg = {
+		window_name = "pie_container"
+		context_type = player_context
+		parent_window_token = politics_tab
+
+		visible = {
+			is_ai = no
+			has_country_flag = is_on_macro_pie_chart
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		effects = {
+			pie_chart_button_2_click = {
+				create_pie_chart = yes
+				get_macro_party_popularities = yes	
+				if={
+					limit = { has_country_flag = is_on_macro_pie_chart }
+					clr_country_flag = is_on_macro_pie_chart
+				}
+				else={
+					set_country_flag = is_on_macro_pie_chart
+				}
+			}
+		}
+
+		properties = {
+			far_right_pie = {
+				frame = ROOT.far_right_pie_chart_frame
+			}
+			illiberal_pie = {
+				frame = ROOT.illiberal_pie_chart_frame
+			}
+			western_pie = {
+				frame = ROOT.western_pie_chart_frame
+			}
+			far_left_pie = {
+				frame = ROOT.far_left_pie_chart_frame
+			}
+			non_aligned_pie = {
+				frame = 100
+			}
+		}
+
+	}
+
+
+	macro_ideologies_list = {
+		window_name = "macro_ideologies_list"
+		context_type = player_context
+		parent_window_token = politics_tab
+
+		visible = {
+			is_ai = no
+			has_country_flag = is_on_macro_pie_chart
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		triggers={
+			leading_pol_party_bg_far_right_visible={ has_far_right_government = yes }
+			leading_pol_party_bg_illiberal_visible={ has_illiberal_government = yes }
+			leading_pol_party_bg_western_visible={ has_western_government = yes }
+			leading_pol_party_bg_far_left_visible={ has_far_left_government = yes }
+			leading_pol_party_bg_non_aligned_visible={ has_non_aligned_government = yes }
+		}
+	}
+}
+

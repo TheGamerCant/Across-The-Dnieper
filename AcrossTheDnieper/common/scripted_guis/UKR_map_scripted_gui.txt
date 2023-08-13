@@ -1,0 +1,148 @@
+scripted_gui = {
+
+	UKR_map_button_window = {
+		window_name = "UKR_map_button_window"
+		context_type = player_context
+		parent_window_token = politics_tab
+		
+		visible={
+#			tag = UKR
+#			NOT = { has_cosmetic_tag = UKR_russian_puppet }
+			always = no
+		}
+		
+		ai_enabled = {
+			always = no
+		}
+		
+		effects={
+			UKR_open_map_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_map_flag } }
+					set_country_flag = UKR_opened_map_flag
+				}
+				else={
+					clr_country_flag = UKR_opened_map_flag
+				}
+			}
+		}
+	}
+	
+	UKR_map_window = {
+		window_name = "UKR_map_window"
+		context_type = player_context
+		
+		visible={
+			tag = UKR
+			has_country_flag = UKR_opened_map_flag
+			NOT = { has_cosmetic_tag = UKR_russian_puppet }
+		}
+		
+		effects={
+			close_button_click = {
+				clr_country_flag = UKR_opened_map_flag
+			}
+			
+			state_control_button_click={				#2 is off, 1 is on
+				if={
+					limit = { check_variable = { var = UKR_state_control_button_status value = 2 compare = equals } }
+					set_variable = { UKR_state_ethnicities_button_status = 2 }
+					set_variable = { UKR_state_control_button_status = 1 }
+				}
+			}
+			
+			state_ethnicity_button_click={
+				if={
+					limit = { check_variable = { var = UKR_state_ethnicities_button_status value = 2 compare = equals } }
+					set_variable = { UKR_state_control_button_status = 2 }
+					set_variable = { UKR_state_ethnicities_button_status = 1 }
+				}
+			}
+		}
+		
+		properties = {
+			state_control_button = {
+				frame = UKR_state_control_button_status
+			}
+			state_ethnicity_button = {
+				frame = UKR_state_ethnicities_button_status
+			}
+					
+			Akarpatskia = {
+				image = "[get_Akarpatskia_gfx]"
+			}
+			Cherkasy = {
+				image = "[get_Cherkasy_gfx]"
+			}
+			Chernihiv = {
+				image = "[get_Chernihiv_gfx]"
+			}
+			Chernivtsi = {
+				image = "[get_Chernivtsi_gfx]"
+			}
+			Crimea = {
+				image = "[get_Crimea_gfx]"
+			}
+			Dnipro = {
+				image = "[get_Dnipro_gfx]"
+			}
+			Donetsk = {
+				image = "[get_Donetsk_gfx]"
+			}
+			Ivano_Frankivsk = {
+				image = "[get_Ivano_Frankivsk_gfx]"
+			}
+			Kharkiv = {
+				image = "[get_Kharkiv_gfx]"
+			}
+			Kherson = {
+				image = "[get_Kherson_gfx]"
+			}
+			Khmelnytskyi = {
+				image = "[get_Khmelnytskyi_gfx]"
+			}
+			Kirovohrad = {
+				image = "[get_Kirovohrad_gfx]"
+			}
+			Kyiv = {
+				image = "[get_Kyiv_gfx]"
+			}
+			Luhansk = {
+				image = "[get_Luhansk_gfx]"
+			}
+			Lviv = {
+				image = "[get_Lviv_gfx]"
+			}
+			Mykolaiv = {
+				image = "[get_Mykolaiv_gfx]"
+			}
+			Odessa = {
+				image = "[get_Odessa_gfx]"
+			}
+			Poltava = {
+				image = "[get_Poltava_gfx]"
+			}
+			Rivne = {
+				image = "[get_Rivne_gfx]"
+			}
+			Sumy = {
+				image = "[get_Sumy_gfx]"
+			}
+			Ternopil = {
+				image = "[get_Ternopil_gfx]"
+			}
+			Vinnytsia = {
+				image = "[get_Vinnytsia_gfx]"
+			}
+			Volyn = {
+				image = "[get_Volyn_gfx]"
+			}
+			Zaporizhia = {
+				image = "[get_Zaporizhia_gfx]"
+			}
+			Zhytomyr = {
+				image = "[get_Zhytomyr_gfx]"
+			}
+		}
+	}
+}

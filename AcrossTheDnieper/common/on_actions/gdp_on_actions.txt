@@ -1,0 +1,1412 @@
+on_actions={	
+	on_startup = {					#Number is in billions of dollars
+		effect = {		
+			every_country={
+				set_variable = { THIS.cost_to_change_inflation = 50 }
+			}
+			if={
+				limit = { 
+					has_start_date < 2022.01.01 	#I'm using 2013 data, as data from 2014 is from the end of 2014, taking sanctions and wars into account
+				}									#https://en.wikipedia.org/wiki/List_of_Ukrainian_subdivisions_by_GDP_per_capita
+													#https://en.wikipedia.org/wiki/List_of_Ukrainian_oblasts_and_territories_by_population		-> Times these two to get GDP for the state for Ukraine
+													#Furthermore, set ROOT.bonus_gdp for off-map states and other sources of government income									
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = akarpatskia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2132 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = cherkasy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3274 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernihiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2828 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernivtsi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 1896 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = crimea_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2952 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = dnipro_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5797 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = donetsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4733 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ivano_frankivsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3005 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kharkiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3894 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kherson_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2416 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = khmelnytskyi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2523 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kirovohrad_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3194 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kyiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5003 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = luhansk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3066 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = lviv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3120 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = mykolaiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3422 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = odessa_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3643 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = poltava_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5000 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = rivne_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2377 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = sumy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2942 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ternopil_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2104 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = vinnytsia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2790 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = volyn_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2479 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zaporizhia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3189 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2538 }
+				}
+				
+				set_variable = { 92.state_gdp_per_capita = 13687 } #Kyiv
+				set_variable = { 68.state_gdp_per_capita = 1000 }	#Chernobyl
+				set_variable = { 436.state_gdp_per_capita = 1000 }
+				set_variable = { 354.state_gdp_per_capita = 3598 }	#Sevastopol
+
+				every_state={
+					limit={
+						is_controlled_by = LIT
+					}
+					set_variable = { THIS.state_gdp_per_capita = 14688 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SLO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 17045 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = POL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 13432 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BUL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 7296 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ROM
+					}
+					set_variable = { THIS.state_gdp_per_capita = 9499 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = HUN
+					}
+					set_variable = { THIS.state_gdp_per_capita = 12698 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CRO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 13530 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CZE
+					}
+					set_variable = { THIS.state_gdp_per_capita = 18861 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SOV
+					}
+					set_variable = { THIS.state_gdp_per_capita = 15974.64 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BLR
+					}
+					set_variable = { THIS.state_gdp_per_capita = 7998.13 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = TRZ
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2132.2 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = GEO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4623.75 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MOL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3321.04 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ABK
+					}
+					set_variable = { THIS.state_gdp_per_capita = 1795 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SER
+					}
+					set_variable = { THIS.state_gdp_per_capita = 6755.07 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = KOS
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3699.33 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MNT
+					}
+					set_variable = { THIS.state_gdp_per_capita = 7189.29 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BOS
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5025.07 }
+				}
+				
+				
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = akarpatskia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.98 }		#Monthly growth = ^12sqrt(yearly growth) * 100
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = cherkasy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.53 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernihiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.19 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernivtsi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.35 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = crimea_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.33 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = dnipro_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.31 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = donetsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.77 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ivano_frankivsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.23 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kharkiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.31 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kherson_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.63 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = khmelnytskyi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.10 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kirovohrad_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 101.22 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kyiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.90 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = luhansk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.52 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = lviv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.18 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = mykolaiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.81 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = odessa_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.61 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = poltava_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.33 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = rivne_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.06 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = sumy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.66 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ternopil_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.08 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = vinnytsia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.81 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = volyn_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.24 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zaporizhia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.96 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.31 }
+				}
+				
+				set_variable = { 92.state_gdp_per_capita_growth = 100.51 } #Kyiv
+				set_variable = { 68.state_gdp_per_capita_growth = 99 }	#Chernobyl
+				set_variable = { 436.state_gdp_per_capita_growth = 99.25 }
+				set_variable = { 354.state_gdp_per_capita_growth = 100.88 }	#Sevastopol
+
+				every_state={
+					limit={
+						is_controlled_by = LIT
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.76 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SLO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.36 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = POL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.34 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BUL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.28 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ROM
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.51 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = HUN
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.46 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CRO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.26 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CZE
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.11 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SOV
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.29 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BLR
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 101.17 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = TRZ
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.93 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = GEO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.37 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MOL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.73 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ABK
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.83 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SER
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.97 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = KOS
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.71 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MNT
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.73 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BOS
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.58 }
+				}
+				
+				set_variable = { LIT.bonus_gdp = 9.421 }	#Billions of dollars -> account for off-map GDP
+				set_variable = { BLR.bonus_gdp = 1.490 }
+				set_variable = { SOV.bonus_gdp = 1419.880 }
+				set_variable = { POL.bonus_gdp = 14.820 }
+				set_variable = { CZE.bonus_gdp = 129.530 }
+				set_variable = { SLO.bonus_gdp = 5.980 }
+				set_variable = { SER.bonus_gdp = 3.570 }
+				set_variable = { CRO.bonus_gdp = 53.530 }
+				set_variable = { BOS.bonus_gdp = 13.130 }
+				set_variable = { MNT.bonus_gdp = 2.246 }
+				set_variable = { KOS.bonus_gdp = 5.660 }
+				set_variable = { BUL.bonus_gdp = 26.610 }
+				
+				set_variable = { UKR.inflation_rate = -0.24 }
+				set_variable = { SOV.inflation_rate = 6.75 }
+				set_variable = { BLR.inflation_rate = 18.31 }
+				set_variable = { LIT.inflation_rate = 1.05 }
+				set_variable = { POL.inflation_rate = 0.99 }
+				set_variable = { CZE.inflation_rate = 1.44 }
+				set_variable = { SLO.inflation_rate = 1.40 }
+				set_variable = { HUN.inflation_rate = 1.73 }
+				set_variable = { MOL.inflation_rate = 4.60 }
+				set_variable = { TRZ.inflation_rate = 6.00 }
+				set_variable = { GEO.inflation_rate = -0.51 }
+				set_variable = { ABK.inflation_rate = 5.00 }
+				set_variable = { ROM.inflation_rate = 3.98 }
+				set_variable = { BUL.inflation_rate = 0.89 }
+				set_variable = { CRO.inflation_rate = 2.22 }
+				set_variable = { BOS.inflation_rate = -0.09 }
+				set_variable = { MNT.inflation_rate = 2.21 }
+				set_variable = { SER.inflation_rate = 7.69 }
+				set_variable = { KOS.inflation_rate = 1.77 }
+			}
+			
+			
+			
+			
+			else={	#2022 
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = akarpatskia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2703 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = cherkasy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3909 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernihiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3794 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = chernivtsi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2331 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = dnipro_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 6352 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = donetsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3600 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ivano_frankivsk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3672 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kharkiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4680 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kherson_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3100 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = khmelnytskyi_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3112 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kirovohrad_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3814 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = kyiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5891 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = luhansk_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3101 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = lviv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4070 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = mykolaiv_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4101 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = odessa_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 4308 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = poltava_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5603 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = rivne_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2905 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = sumy_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3478 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = ternopil_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2759 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = vinnytsia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3400 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = volyn_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3145 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zaporizhia_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3950 }
+				}
+				every_state={
+					limit = {
+						is_controlled_by = UKR
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					set_variable = { THIS.state_gdp_per_capita = 3190 }
+				}
+				
+				set_variable = { 92.state_gdp_per_capita = 17549 } #Kyiv
+				set_variable = { 68.state_gdp_per_capita = 800 }	#Chernobyl
+				set_variable = { 436.state_gdp_per_capita = 800 }
+				
+				every_state={
+					limit={
+						is_controlled_by = LIT
+					}
+					set_variable = { THIS.state_gdp_per_capita = 23723.34 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SLO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 21391.93 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = POL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 17999.91 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BUL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 12221.50 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ROM
+					}
+					set_variable = { THIS.state_gdp_per_capita = 14858.23 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = HUN
+					}
+					set_variable = { THIS.state_gdp_per_capita = 18728.12 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CRO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 17685.33 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CZE
+					}
+					set_variable = { THIS.state_gdp_per_capita = 26821.25 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SOV
+					}
+					set_variable = { THIS.state_gdp_per_capita = 12194.78 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BLR
+					}
+					set_variable = { THIS.state_gdp_per_capita = 7302.26 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = TRZ
+					}
+					set_variable = { THIS.state_gdp_per_capita = 2132.2 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = GEO
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5023.27 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MOL
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5230.66 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ABK
+					}
+					set_variable = { THIS.state_gdp_per_capita = 1795 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SER
+					}
+					set_variable = { THIS.state_gdp_per_capita = 9230.18 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = KOS
+					}
+					set_variable = { THIS.state_gdp_per_capita = 5270 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MNT
+					}
+					set_variable = { THIS.state_gdp_per_capita = 9465.70 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BOS
+					}
+					set_variable = { THIS.state_gdp_per_capita = 7143.31 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = DON
+					}
+					set_variable = { THIS.state_gdp_per_capita = 1258.91 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = LHK
+					}
+					set_variable = { THIS.state_gdp_per_capita = 720.39 }
+				}
+				
+				every_state={				#Most of these numbers are either made up or the same as 2014 coz of the pandemic
+					limit = {
+						is_controlled_by = UKR
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.48 }
+				}
+
+				every_state={
+					limit={
+						is_controlled_by = LIT
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.76 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SLO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.36 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = POL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.34 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BUL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.28 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ROM
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.51 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = HUN
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.46 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CRO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.26 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = CZE
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.11 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SOV
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.29 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BLR
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 101.17 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = TRZ
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.93 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = GEO
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.37 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MOL
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.73 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ABK
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 99.83 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = SER
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.97 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = KOS
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.71 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = MNT
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.73 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = BOS
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.58 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = DON
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.04 }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = LHK
+					}
+					set_variable = { THIS.state_gdp_per_capita_growth = 100.04 }
+				}
+				
+				set_variable = { LIT.bonus_gdp = 5.96 }	#Billions of dollars -> account for off-map GDP
+				set_variable = { BLR.bonus_gdp = 0.57 }
+				set_variable = { SOV.bonus_gdp = 1085.68 }
+				set_variable = { POL.bonus_gdp = 8.05 }
+				set_variable = { CZE.bonus_gdp = 164.94 }
+				set_variable = { SLO.bonus_gdp = 0 }
+				set_variable = { SER.bonus_gdp = 1.83 }
+				set_variable = { CRO.bonus_gdp = 61.77 }
+				set_variable = { BOS.bonus_gdp = 15.62 }
+				set_variable = { MNT.bonus_gdp = 2.941 }
+				set_variable = { KOS.bonus_gdp = 7.88 }
+				set_variable = { BUL.bonus_gdp = 36.33 }
+				
+				set_variable = { UKR.inflation_rate = 7.23 }
+				set_variable = { SOV.inflation_rate = 4.59 }
+				set_variable = { BLR.inflation_rate = 8.01 }
+				set_variable = { LIT.inflation_rate = 3.04 }
+				set_variable = { POL.inflation_rate = 4.24 }
+				set_variable = { CZE.inflation_rate = 3.56 }
+				set_variable = { SLO.inflation_rate = 2.40 }
+				set_variable = { HUN.inflation_rate = 4.87 }
+				set_variable = { MOL.inflation_rate = 4.60 }
+				set_variable = { TRZ.inflation_rate = 5.00 }
+				set_variable = { GEO.inflation_rate = 7.62 }
+				set_variable = { ABK.inflation_rate = 5.00 }
+				set_variable = { ROM.inflation_rate = 3.98 }
+				set_variable = { BUL.inflation_rate = 0.89 }
+				set_variable = { CRO.inflation_rate = 2.31 }
+				set_variable = { BOS.inflation_rate = 0.9 }
+				set_variable = { MNT.inflation_rate = 1.43 }
+				set_variable = { SER.inflation_rate = 3.25 }
+				set_variable = { KOS.inflation_rate = 1.77 }
+				set_variable = { DON.inflation_rate = 1.23 }
+				set_variable = { LHK.inflation_rate = 1.62 }
+			}	
+		
+			every_country={		
+				set_variable = { military_spending_consumer_goods_factor = 0.06 }
+				set_variable = { military_spending_mobilization_speed = 0.5 }
+				set_variable = { military_spending_conscription_factor = 0 }
+				set_variable = { military_spending_industrial_capacity_factory = 0.1 }
+				set_variable = { military_spending_industrial_capacity_dockyard = 0.1 } 
+				set_variable = { military_spending_army_org_factor = 0 } 
+				set_variable = { military_spending_army_attack_factor = 0 } 
+				set_variable = { military_spending_army_defence_factor = 0 } 
+				set_variable = { military_spending_experience_gain_army_factor = -0.1 } 
+				set_variable = { military_spending_experience_gain_navy_factor = -0.1 } 
+				set_variable = { military_spending_experience_gain_air_factor = -0.1 } 
+
+				set_variable = { military_spending_factor = 3 }		#1 = Minimal, 2 = Low, 3 = Medium, 4 = High, 5 = Extreme
+				add_dynamic_modifier = { modifier = military_spending_dynamic_modifier }
+				
+				set_variable = { intelligence_spending_consumer_goods_factor = 0.02 }
+				set_variable = { intelligence_spending_operative_slot = 2 }
+				set_variable = { intelligence_spending_agency_upgrade_time = 0.05 }
+				set_variable = { intelligence_spending_intel_network_gain_factor = 0 } 
+				set_variable = { intelligence_spending_planning_speed = 0 } 
+				set_variable = { intelligence_spending_max_planning = 0.1 } 
+				set_variable = { intelligence_spending_subversive_activites_upkeep = 0 } 
+				set_variable = { intelligence_spending_drift_defence_factor = 0 } 
+				set_variable = { intelligence_spending_resistance_growth_on_our_occupied_states = 0.1 } 
+				set_variable = { intelligence_spending_resistance_decay = 0 } 
+
+				set_variable = { intelligence_spending_factor = 3 }	
+				add_dynamic_modifier = { modifier = intelligence_spending_dynamic_modifier }
+				
+				set_variable = { education_spending_consumer_goods_factor = 0.04 }
+				set_variable = { education_spending_research_speed_factor = 0.06 }
+				set_variable = { education_spending_stability_factor = 0.1 }
+				set_variable = { education_spending_local_resources_factor = 0 } 
+				set_variable = { education_spending_production_speed_industrial_complex_factor = 0 } 
+				set_variable = { education_spending_line_change_production_efficiency_factor = 0.1 } 
+
+				set_variable = { education_spending_factor = 3 }		
+				add_dynamic_modifier = { modifier = education_spending_dynamic_modifier }
+				
+				set_variable = { public_services_spending_consumer_goods_factor = 0.07 }
+				set_variable = { public_services_spending_stability_weekly = 0 }
+				set_variable = { public_services_spending_monthly_population = 0.1 }
+				set_variable = { public_services_spending_industrial_capacity_factory = 0.05 } 
+				set_variable = { public_services_spending_industrial_capacity_dockyard = 0.05 } 
+				set_variable = { public_services_spending_production_speed_buildings_factor = 0.1 } 
+
+				set_variable = { public_services_spending_factor = 3 }		
+				add_dynamic_modifier = { modifier = public_services_spending_dynamic_modifier }
+				
+				add_dynamic_modifier = { modifier = inflation_dynamic_modifier }
+				add_dynamic_modifier = { modifier = real_gdp_pc_dynamic_modifier }
+				add_dynamic_modifier = { modifier = gdp_pc_dynamic_modifier }
+			}
+			
+			UKR={
+				if={
+					limit = { 
+						has_start_date < 2022.01.01 	
+					}	
+					
+					decrease_military_spending = yes
+					decrease_military_spending = yes
+					decrease_intelligence_spending = yes
+					decrease_intelligence_spending = yes
+					decrease_education_spending = yes
+					decrease_public_services_spending = yes
+				}		
+				else={	
+					
+					increase_military_spending = yes
+					increase_intelligence_spending = yes
+				}
+			}
+			
+			SOV={
+				increase_intelligence_spending = yes
+				decrease_education_spending = yes
+				decrease_public_services_spending = yes
+				decrease_public_services_spending = yes
+			}
+			
+			BLR={
+				increase_intelligence_spending = yes
+				decrease_education_spending = yes
+				decrease_public_services_spending = yes
+			}
+
+			LIT = {
+				decrease_military_spending = yes
+				increase_education_spending = yes
+			}
+			
+			POL={
+				decrease_military_spending = yes
+				decrease_intelligence_spending = yes
+				increase_education_spending = yes
+				increase_public_services_spending = yes
+				increase_public_services_spending = yes
+			}
+			
+			HUN={
+				decrease_military_spending = yes
+				decrease_intelligence_spending = yes
+				increase_public_services_spending = yes
+			}
+			
+			ROM={
+				decrease_military_spending = yes
+				decrease_intelligence_spending = yes
+			}
+
+			every_state={
+				set_variable = { THIS.state_gdp_modifier = 1 }
+			}
+			every_state={
+				set_variable = { THIS.state_gdp = THIS.state_population_k }
+				divide_variable = { THIS.state_gdp = 1000 }
+				multiply_variable = { THIS.state_gdp = THIS.state_gdp_per_capita }
+			}
+		
+			every_state={
+				get_yearly_gdp_pc_growth = yes
+			}
+			every_country = { country_event = { id = generic.1 } }
+			every_state={
+				set_variable = { THIS.no_of_civ_factories = industrial_complex_level }
+				set_variable = { THIS.no_of_mil_factories = arms_factory_level }
+				set_variable = { THIS.no_of_dockyards = building_level@dockyard }
+				set_variable = { THIS.no_of_infrastructure = infrastructure_level }
+				set_variable = { THIS.no_of_refineries = building_level@synthetic_refinery }
+			}
+		}
+	}
+	on_monthly={
+		effect={		
+			every_state={
+				limit = { 
+					is_controlled_by = ROOT 
+					check_variable = { var = THIS.state_gdp_per_capita_growth value = 100 compare = greater_than_or_equals }
+				}
+				set_variable = { THIS.state_gdp_per_capita_growth_to_subtract = THIS.state_gdp_per_capita_growth }
+				subtract_from_variable = { THIS.state_gdp_per_capita_growth_to_subtract = 100 }
+				multiply_variable = { THIS.state_gdp_per_capita_growth_to_subtract = 0.03 }				#The lower the number, the slower it tends to 0
+				subtract_from_variable = { THIS.state_gdp_per_capita_growth = THIS.state_gdp_per_capita_growth_to_subtract }
+				clear_variable = THIS.state_gdp_per_capita_growth_to_subtract
+			}	
+			every_state={
+				limit = { 
+					is_controlled_by = ROOT 
+					check_variable = { var = THIS.state_gdp_per_capita_growth value = 100 compare = less_than }
+				}
+				set_variable = { THIS.state_gdp_per_capita_growth_to_subtract = THIS.state_gdp_per_capita_growth }
+				subtract_from_variable = { THIS.state_gdp_per_capita_growth_to_subtract = 100 }
+				multiply_variable = { THIS.state_gdp_per_capita_growth_to_subtract = 0.02 }			#Takes longer to leave a recession
+				subtract_from_variable = { THIS.state_gdp_per_capita_growth = THIS.state_gdp_per_capita_growth_to_subtract }
+				clear_variable = THIS.state_gdp_per_capita_growth_to_subtract
+			}	
+			
+			every_state={
+				limit = { is_controlled_by = ROOT  }
+				if={
+					limit = { NOT = { check_variable = { THIS.no_of_civ_factories = THIS.industrial_complex_level } } }
+					set_variable = { THIS.civ_factory_difference = THIS.industrial_complex_level }
+					subtract_from_variable = { THIS.civ_factory_difference = THIS.no_of_civ_factories }
+					multiply_variable = { THIS.civ_factory_difference = 750 }
+					divide_variable = { THIS.civ_factory_difference = THIS.state_population_k }
+					multiply_variable = { THIS.civ_factory_difference = 0.106 }
+					clamp_variable = { var = THIS.civ_factory_difference min = -1.5 max = 1.5 }
+					add_to_variable = { THIS.state_gdp_per_capita_growth = THIS.civ_factory_difference }
+					clear_variable = THIS.civ_factory_difference
+				}
+				if={
+					limit = { NOT = { check_variable = { THIS.no_of_mil_factories = THIS.arms_factory_level } } }
+					set_variable = { THIS.mil_factory_difference = THIS.arms_factory_level }
+					subtract_from_variable = { THIS.mil_factory_difference = THIS.no_of_mil_factories }
+					multiply_variable = { THIS.mil_factory_difference = 750 }
+					divide_variable = { THIS.mil_factory_difference = THIS.state_population_k }
+					multiply_variable = { THIS.mil_factory_difference = 0.106 }
+					clamp_variable = { var = THIS.mil_factory_difference min = -1.5 max = 1.5 }
+					add_to_variable = { THIS.mil_factory_difference = THIS.mil_factory_difference }
+					clear_variable = THIS.mil_factory_difference
+				}
+				if={
+					limit = { NOT = { check_variable = { THIS.no_of_dockyards = THIS.building_level@dockyard } } }
+					set_variable = { THIS.dockyard_difference = THIS.building_level@dockyard }
+					subtract_from_variable = { THIS.dockyard_difference = THIS.no_of_dockyards }
+					multiply_variable = { THIS.dockyard_difference = 750 }
+					divide_variable = { THIS.dockyard_difference = THIS.state_population_k }
+					multiply_variable = { THIS.dockyard_difference = 0.071 }
+					clamp_variable = { var = THIS.dockyard_difference min = -1.5 max = 1.5 }
+					add_to_variable = { THIS.state_gdp_per_capita_growth = THIS.dockyard_difference }
+					clear_variable = THIS.dockyard_difference
+				}
+				if={
+					limit = { NOT = { check_variable = { THIS.no_of_infrastructure = THIS.infrastructure_level } } }
+					set_variable = { THIS.infrastructure_difference = THIS.infrastructure_level }
+					subtract_from_variable = { THIS.infrastructure_difference = THIS.no_of_infrastructure }
+					multiply_variable = { THIS.infrastructure_difference = 750 }
+					divide_variable = { THIS.infrastructure_difference = THIS.state_population_k }
+					multiply_variable = { THIS.infrastructure_difference = 0.084 }
+					clamp_variable = { var = THIS.infrastructure_difference min = -1.5 max = 1.5 }
+					add_to_variable = { THIS.state_gdp_per_capita_growth = THIS.infrastructure_difference }
+					clear_variable = THIS.infrastructure_difference
+				}
+				if={
+					limit = { NOT = { check_variable = { THIS.no_of_refineries = THIS.building_level@synthetic_refinery } } }
+					set_variable = { THIS.refinery_difference = THIS.building_level@synthetic_refinery }
+					subtract_from_variable = { THIS.refinery_difference = THIS.no_of_refineries }
+					multiply_variable = { THIS.refinery_difference = 750 }
+					divide_variable = { THIS.refinery_difference = THIS.state_population_k }
+					multiply_variable = { THIS.refinery_difference = 0.057 }
+					clamp_variable = { var = THIS.refinery_difference min = -1.5 max = 1.5 }
+					add_to_variable = { THIS.state_gdp_per_capita_growth = THIS.refinery_difference }
+					clear_variable = THIS.refinery_difference
+				}
+			
+				set_variable = { THIS.no_of_civ_factories = industrial_complex_level }
+				set_variable = { THIS.no_of_mil_factories = arms_factory_level }
+				set_variable = { THIS.no_of_dockyards = building_level@dockyard }
+				set_variable = { THIS.no_of_infrastructure = infrastructure_level }
+				set_variable = { THIS.no_of_refineries = building_level@synthetic_refinery }
+			}
+			
+			every_state = { 
+				limit = { is_controlled_by = ROOT }
+				divide_variable = { THIS.state_gdp_per_capita = 100 }
+				multiply_variable = { THIS.state_gdp_per_capita = THIS.state_gdp_per_capita_growth }
+			}
+			
+			every_state={
+				limit = { is_controlled_by = ROOT }
+				set_variable = { THIS.state_gdp = THIS.state_population_k }
+				divide_variable = { THIS.state_gdp = 1000 }
+				multiply_variable = { THIS.state_gdp = THIS.state_gdp_per_capita }
+			}
+			
+			every_state={
+				get_yearly_gdp_pc_growth = yes
+			}
+			get_country_gdp_growth = yes
+			get_country_gdp_from_states = yes
+			get_total_country_gdp = yes
+			get_controlled_states_and_positions = yes
+			get_country_real_gdp_growth = yes
+			get_effects_from_inflation = yes
+			get_effects_from_real_gdp_pc = yes
+			get_effects_from_gdp_pc = yes	
+		}
+	}
+}

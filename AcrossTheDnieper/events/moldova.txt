@@ -1,0 +1,28 @@
+add_namespace = moldova
+
+#Respond to Euromaidan
+country_event = {
+	id = moldova.1
+	title = "Moldovan Response to Euromaidan"
+	desc = moldova.1.desc
+    picture = GFX_report_event_usa_election_generic
+	is_triggered_only = yes
+
+    option = { 
+		name = moldova.1.a 
+		ai_chance = { base = 10 }
+		SOV = { add_opinion_modifier = { target = MOL modifier = MOL_Pro_Protester_Euromaidan } }
+	}
+	
+    option = { 
+		name = moldova.1.b
+		ai_chance = { base = 10 }
+	}	
+
+    option = { 
+		name = moldova.1.c 
+		ai_chance = { base = 10 }
+		SOV = { add_opinion_modifier = { target = MOL modifier = MOL_Pro_Russia_Euromaidan } }
+		add_stability = -0.1
+	}
+}

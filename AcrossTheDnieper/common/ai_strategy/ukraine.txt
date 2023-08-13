@@ -1,0 +1,343 @@
+ukrainen_early_template_design = {
+	enable = {
+		AND = {
+			date < 2018.1.1
+			original_tag = UKR
+		}
+		has_war = no
+	}
+	abort = {
+		date > 2018.1.1
+		has_war = yes
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 5
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 5
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 95
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 25
+	}
+}
+
+ukrainen_midlate_template_design = {
+	enable = {
+		AND = {
+			date > 2018.1.1
+			original_tag = UKR
+		}
+		has_war = yes
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 10
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 10
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 90
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 25
+	}
+}
+
+ukraine_build_civs_early = {
+	enable = {
+		AND = {
+			date < 2018.1.1
+			original_tag = UKR
+		}
+	}
+	abort = {
+		date > 2018.1.1
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = industrial_complex
+	    value = 55
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = infrastructure
+	    value = 50
+	}
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = -80
+	}
+}
+
+ukraine_build_refs_early = {
+	enable = {
+		AND = {
+			date < 2014.6.1
+			original_tag = UKR
+		}
+	}
+	abort = {
+		date > 2014.6.1
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = synthetic_refinery
+	    value = 50
+	}
+}
+
+ukraine_build_mils_late = {
+	enable = {
+		AND = {
+			date > 2018.1.1
+			original_tag = UKR
+		}
+	}
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = 40
+	}
+}
+
+
+ukraine_really_wants_a_large_army = {
+	enable = {
+		original_tag = UKR
+	}
+	abort = {
+		NOT = { original_tag = UKR}
+	}
+	
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = 180
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = modern_armor
+	    value = 40
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = armor
+	    value = 40
+	}
+}
+
+
+UKR_put_loads_of_units_in_donbass_but_dont_get_encircled_like_a_retard = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		OR={
+			has_war_with = DON
+			has_war_with = LHK
+			has_war_with = KHK
+			has_war_with = ODS
+			has_war_with = NOV
+		}
+		NOT = { has_war_with = SOV }
+		has_global_flag = donbass_war_is_ongoing
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR={
+				has_state_flag = crimea_oblast_flag
+				has_state_flag = dnipro_oblast_flag
+				has_state_flag = donetsk_oblast_flag
+				has_state_flag = kharkiv_oblast_flag
+				has_state_flag = kherson_oblast_flag
+				has_state_flag = luhansk_oblast_flag
+				has_state_flag = mykolaiv_oblast_flag
+				has_state_flag = odessa_oblast_flag
+				has_state_flag = zaporizhia_oblast_flag
+			}
+		}
+		priority = 80
+		ordertype = front
+		execution_type = careful
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			OR={
+				tag = DON
+				tag = LHK
+				tag = KHK
+				tag = ODS
+				tag = NOV
+			}	
+		}
+		value = 600
+	}
+}
+
+UKR_SOV_ignore_demilitarised_zones = {
+	allowed = {
+		OR={
+			tag = UKR
+			tag = SOV
+		}
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_demilitarized_zone = yes
+		}
+		priority = -500
+	}
+	
+}
+
+UKR_be_cautious_normally_but_attack_when_offensive = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		any_country={ original_tag = SOV has_war_with = UKR }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR={
+				is_core_of = UKR
+				is_claimed_by = UKR
+			}
+			NOT = { has_dynamic_modifier = {  modifier = UKR_local_offensive_modifier scope = UKR } }
+		}
+		priority = 120
+		ordertype = front
+		execution_type = careful
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR={
+				is_core_of = UKR
+				is_claimed_by = UKR
+			}
+			has_dynamic_modifier = {  modifier = UKR_local_offensive_modifier scope = UKR }
+		}
+		priority = 250
+		ordertype = front
+		execution_type = rush_weak
+		manual_attack = yes
+	}
+}
+
+UKR_secure_kyiv = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		any_country={ original_tag = SOV has_war_with = UKR }
+		has_global_flag = smo_northern_front_open
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_demilitarized_zone = no
+			OR={
+				has_state_flag = zhytomyr_oblast_flag
+				has_state_flag = kyiv_oblast_flag
+				has_state_flag = sumy_oblast_flag
+				has_state_flag = chernihiv_oblast_flag
+			}
+		}
+		priority = 80
+	}
+	
+}
+
+UKR_ignore_the_south = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		any_country={ original_tag = SOV has_war_with = UKR }
+		has_global_flag = smo_southern_front_open
+		has_global_flag = russia_ukraine_war_started_recently
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_demilitarized_zone = no
+			OR={
+				has_state_flag = kherson_oblast_flag
+				has_state_flag = zaporizhia_oblast_flag
+			}
+		}
+		priority = -60
+	}
+}
+
+UKR_ignore_belarus = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		any_country={ original_tag = SOV has_war_with = UKR }
+		NOT = { UKR = { has_war_with = BLR } }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			original_tag = BLR
+		}
+		value = -500
+	}	
+}

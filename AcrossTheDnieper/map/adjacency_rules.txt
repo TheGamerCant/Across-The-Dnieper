@@ -1,0 +1,622 @@
+# Adjacency rules determine if an army, navy or trade can pass through the adjacency (e.g. a canal or strait).
+#
+# If two countries at war control provinces in the adjacency it is considered contested.
+# The optional triggers is_enemy, is_friend and is_neutral are evaluated in order and if one evaluates to true the corresponding rule is used.
+# If is_enemy and is_friend evaluates to false the neutral rule is used. In this case the is_neutral trigger will not be evaluated at all.
+# If is_friend and is_neutral evaluates to false the enemy rule is used.
+# If is_enemy and is_neutral evaluates to false the friend rule is used.
+# If any adjacency province controller is at war with the country the enemy rule is used, unless is_enemy evaluates to false, then the neutral rule is used.
+# If any adjacency province controller is an ally of is giving military access to the country the friend rule is used, unless is_friend evaluates to false, then the neutral rule is used.
+# Otherwise the neutral rule is used, unless is_neutral evaluates to false, then the enemy rule is used.
+#
+# The 'name' property is how you refer to the rule in adjacencies.csv
+
+#Kerch Bridge
+adjacency_rule =
+{
+	name = "Kerch_bridge"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 4758 8207 21874 }
+
+	is_disabled = {
+
+		OR={
+			NOT = { has_global_flag = kerch_bridge_built_flag }
+			has_global_flag = kerch_bridge_destroyed_flag
+		}
+		tooltip = kerch_disabled_tt
+	}
+	
+	icon = 4758
+	offset = { 14 0 -6 }
+}
+
+
+#Kinburn Strait
+adjacency_rule =
+{
+	name = "Kinburn_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 20308 11069 }
+
+	is_disabled = {
+	}
+	
+	icon = 11069
+	offset = { 3 0 -6 }
+}
+
+
+#Kherson-Novakhakovka
+adjacency_rule =
+{
+	name = "Upper_Dniper"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 258 9792 3060 18918 363 10800 4917 19005 8165 3766 18965 2530 834 }
+
+	is_disabled = {
+	}
+	
+	icon = 3766
+	offset = { 3 0 6 }
+}
+
+#Zaporizhia-Kamianske
+adjacency_rule =
+{
+	name = "Zaporizhia_Kamianske"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 18398 8119 12985 5933 4348 8009 18214 4970 10036 18133 18103 67 10155 4541 12511 12059 14537 5322 }
+
+	is_disabled = {
+	}
+	
+	icon = 67
+	offset = { 0 0 8 }
+}
+
+#Kremenchuk Strait
+adjacency_rule =
+{
+	name = "Kremenchuk_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 13099 6389 7775 9862 }
+
+	is_disabled = {
+	}
+	
+	icon = 6389
+	offset = { -1 0 2 }
+}
+
+#Ostriv Plavuchyy
+adjacency_rule =
+{
+	name = "Ostriv_Plavuchyy"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 107 370 5334 17543 17506 }
+
+	is_disabled = {
+	}
+	
+	icon = 370
+	offset = { -1 0 2 }
+}
+
+#Kyiv Strait
+adjacency_rule =
+{
+	name = "Kyiv_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 7575 11987 17415 10505 2948 2184 17334 17394 14008 5771 10990 17288 13011 12930 8800 17163 3105 }
+
+	is_disabled = {
+	}
+	
+	icon = 8800
+	offset = { -1 0 2 }
+}
+
+#Chongar Strait
+adjacency_rule =
+{
+	name = "Chongar_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 21876 21875 }
+
+	is_disabled = {
+	}
+	
+	icon = 12112
+	offset = { 2 0 -6 }
+}
+
+#Cherkasy Blahodatne bridge
+adjacency_rule =
+{
+	name = "Cherkasy_Blahodatne"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 6164 17628 }
+
+	is_disabled = {
+	}
+	
+	icon = 21470
+	offset = { 0 0 4 }
+}
+
+#Suwalki Gap
+adjacency_rule =
+{
+	name = "Suwalki_Gap"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 5989 15019 678 }
+
+	is_disabled = {
+	}
+	
+	icon = 678
+	offset = { 0 0 0 }
+}
+
+#Moscow - Saint-Petersburg - Kaliningrad
+adjacency_rule =
+{
+	name = "Moscow_Saint_Petersburg_Kaliningrad"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 14907 3667 }
+
+	is_disabled = {
+	}
+	
+	icon = 14907
+	offset = { 0 0 0 }
+}
+
+#Baltiysk Strait
+adjacency_rule =
+{
+	name = "Baltiysk_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 14841 }
+
+	is_disabled = {
+	}
+	
+	icon = 14841
+	offset = { 10 -2 0 }
+}
+
+#Klaipeda Strait
+adjacency_rule =
+{
+	name = "Klaipeda_Strait"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 6818 1064 424 }
+
+	is_disabled = {
+	}
+	
+	icon = 1064
+	offset = { -8 0 0 }
+}
+
+#Velyke Hyrlo River
+adjacency_rule =
+{
+	name = "Velyke_Hyrlo"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 13979 7672 }
+
+	is_disabled = {
+	}
+	
+	icon = 13979
+	offset = { 0 -4 0 }
+}

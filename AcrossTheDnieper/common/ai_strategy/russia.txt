@@ -1,0 +1,456 @@
+russian_early_template_design = {
+	enable = {
+		AND = {
+			date < 2018.1.1
+			original_tag = SOV
+		}
+		has_war = no
+	}
+	abort = {
+		date > 2018.1.1
+		has_war = yes
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 5
+	}
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 5
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 95
+	}
+
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = -25
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = armor
+	    value = -50
+	}
+
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 25
+	}
+}
+
+russian_midlate_template_design = {
+	enable = {
+		AND = {
+			date > 2018.1.1
+			original_tag = SOV
+		}
+		has_war = yes
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 10
+	}
+	ai_strategy = {
+		type = template_prio
+		id = armor
+		value = 10
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 90
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 25
+	}
+}
+
+russia_build_civs_early = {
+	enable = {
+		AND = {
+			date < 2016.1.1
+			original_tag = SOV
+		}
+	}
+	abort = {
+		date > 2016.1.1
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = industrial_complex
+	    value = 56
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = infrastructure
+	    value = 48
+	}
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = -80
+	}
+}
+
+russia_build_refs_early = {
+	enable = {
+		AND = {
+			date < 2014.6.1
+			original_tag = SOV
+		}
+	}
+	abort = {
+		date > 2014.6.1
+	}
+
+	ai_strategy = {
+	    type = building_target
+	    id = synthetic_refinery
+	    value = 48
+	}
+}
+
+russia_build_mils_late = {
+	enable = {
+		AND = {
+			date > 2016.1.1
+			original_tag = SOV
+		}
+	}
+
+	ai_strategy = {
+	    type = added_military_to_civilian_factory_ratio
+	    value = 40
+	}
+}
+
+russia_really_wants_a_large_army = {
+	enable = {
+		original_tag = SOV
+	}
+	abort = {
+		NOT = { original_tag = SOV }
+	}
+	
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = 140
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = modern_armor
+	    value = 60
+	}
+}
+
+russia_belarus_neutral_friend = {
+	enable = {
+		AND = {
+			is_ally_with = BLR
+			original_tag = SOV
+		}
+	}
+	
+	ai_strategy = {
+	    type = dont_join_wars_with
+	    id = BLR
+	    value = 100
+	    target_country = CRI
+	}
+}
+
+belarus_russia_neutral_friend = {
+	enable = {
+		AND = {
+			is_ally_with = SOV
+			original_tag = BLR
+		}
+	}
+	
+	ai_strategy = {
+	    type = dont_join_wars_with
+	    id = SOV
+	    value = 100
+	    target_country = CRI
+	}
+}
+
+
+ally_with_donbass = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		always = yes		#Change if you want Russia to not supply Donbass for whatever reason
+	}						#Also make sure they can't send stuff to ODS
+	abort = {
+
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "DON"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "DON"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "DON"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "LHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "LHK"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "LHK"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "KHK"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "KHK"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KHK"
+		value = 1200
+	}
+	ai_strategy = {
+		type = befriend
+		id = "NOV"
+		value = 50
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "NOV"
+		value = 20
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "NOV"
+		value = 1200
+	}
+}
+
+crimea_is_important = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR={
+			331 = { is_controlled_by = SOV }	#Kerch
+			354 = { is_controlled_by = SOV }	#Sevastopol
+			433 = { is_controlled_by = SOV }	#Sevastopol Port
+		}
+	}
+	abort = {
+		AND={
+			331 = { NOT = { is_controlled_by = SOV }	} #Kerch
+			354 = { NOT = { is_controlled_by = SOV }	}	#Sevastopol
+			433 = { NOT = { is_controlled_by = SOV }	}	#Sevastopol Port
+		}
+		date > 2015.1.1
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = crimea
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		area = crimea
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		state = 433
+		value = 40
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = CRI
+		value = 1000
+	}
+}
+
+
+hostile_to_ukraine_maidan = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		date < 2014.2.26
+	}
+	abort = {
+		OR={
+			CRI={ exists = yes }
+			date > 2014.3.1
+		}
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = UKR
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = CRI
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 354
+
+		value = 150
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 433
+
+		value = 150
+	}
+}
+
+dont_attrition_in_kaliningrad = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		1 = { is_owned_by = SOV }
+		date > 2014.3.1
+	}
+	abort = {
+		OR={
+			any_country={
+				NOT={
+					OR={
+						original_tag = UKR
+						original_tag = CRI
+					}
+				}
+				has_wargoal_against = SOV
+				has_war_with = SOV
+			}
+			any_country={
+				is_in_faction_with = USA
+				has_wargoal_against = SOV
+				has_war_with = SOV
+			}
+			1 = { 
+				OR={
+					NOT = { is_owned_by = SOV }
+					any_neighbor_state={
+						NOT = {
+							OR={
+								state = 18
+								state = 21
+							}
+						}
+						is_owned_by = SOV
+					}
+				}
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = POL
+		value = -90
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = LIT
+		value = -90
+	}
+}
+
+SOV_try_to_take_southern_ukraine = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = UKR
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR={
+				has_state_flag = donetsk_oblast_flag
+				has_state_flag = luhansk_oblast_flag
+				has_state_flag = zaporizhia_oblast_flag
+				has_state_flag = kherson_oblast_flag
+				has_state_flag = crimea_oblast_flag
+			}
+		}
+		priority = 300
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+}
+
+SOV_kiev_is_a_feint_trust_me_bro = {
+	allowed = {
+		tag = SOV
+	}
+	enable = {
+		any_country={ original_tag = SOV has_war_with = UKR }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_demilitarized_zone = no
+			OR={
+				has_state_flag = kyiv_oblast_flag
+				has_state_flag = zhytomyr_oblast_flag
+			}
+		}
+		priority = -80
+	}
+}

@@ -1,0 +1,405 @@
+﻿capital = 427
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "POL_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "POL_2014"
+}
+
+create_country_leader = {
+	name = "Bronisław Komorowski"
+	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.dds
+	ideology = civic_platform
+}
+
+create_country_leader = {
+	name = "Robert Winnicki"
+	picture = gfx/leaders/POL/Portrait_Robbert_Winnicki.dds
+	ideology = poland_ultranationalist_subideology
+}
+
+create_country_leader = {
+	name = "Andrzej Duda"
+	picture = gfx/leaders/POL/Portrait_Andrzej_Duda.dds
+	ideology = poland_pis_party
+}
+
+create_country_leader = {
+	name = "Paweł Kukiz"
+	ideology = pawel_kukiz_poland
+}
+
+create_country_leader = {
+	name = "Janusz Korwin-Mikke"
+	ideology = korwin_poland
+}
+
+create_country_leader = {
+	name = "Magdalena Ogórek"
+	ideology = sld_poland
+}
+
+2015.8.6 = {
+	create_country_leader = {
+		name = "Andrzej Duda"
+		desc = "Test Poland"
+		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.dds
+		ideology = poland_pis_party
+	}
+}
+
+#DONT REMOVE
+set_country_flag = is_in_european_union
+set_variable = { pro_eu = 72 }
+set_variable = { sce_eu =  24 }
+set_variable = { neu_eu =  4 }
+clamp_variable = { var = pro_eu min = 0 max = 100 }
+clamp_variable = { var = sce_eu min = 0 max = 100 }
+clamp_variable = { var = neu_eu min = 0 max = 100 }
+set_variable = {
+	gdp = 515.764
+}
+
+add_ai_strategy = {
+    type = alliance
+    id = "USA"
+    value = 200
+}
+
+add_ideas = { eu_member }
+
+add_ideas = {
+	volunteer_only
+	liberal_democracy
+	western_economy
+	free_press
+	free_trade_unions
+	western_aligned
+
+	religion_law_religious
+	womens_rights_traditional_values
+	lgbtq_rights_civil_unions
+	minority_rights_societal_discrimination
+	nationalism_laws_interventionist
+	firearm_laws_restricted
+	alchohol_narcotics_laws_largely_regulated
+}
+
+
+if={
+	limit = { has_start_date < 2022.01.01  }
+
+	country_event = { id = pol_event.2 days = 494 }
+}
+
+
+set_research_slots = 4
+set_stability = 0.62
+set_war_support = 0.75
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	basic_train = 1
+
+	modern_tank_doctrine = 1
+	ifv = 1
+
+	gw_artillery = 1
+	rocket_artillery = 1
+
+	fuel_silos = 1
+	synth_oil_experiments = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+		t_90 = 1
+		leopard2 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		t90_chasis_tech = 1
+		leopard2_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_convoys = 342
+
+set_politics = {
+	ruling_party = eastern_liberal
+	last_election = "2012.3.4"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	neoconservative = 35
+	eastern_liberal = 34
+	populist = 21
+	libertarian = 3
+	social_democracy = 2
+	neoliberal = 1
+	ultranationalist = 2
+	eastern_conservative = 2
+}
+
+add_equipment_to_stockpile = { type = t_72_equipment amount = 642 }
+add_equipment_to_stockpile = { type = t_90_equipment amount = 126 }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 240 }
+add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 620 }
+add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 126 }
+add_equipment_to_stockpile = { type = support_equipment_1 amount = 256 }
+add_equipment_to_stockpile = { type = infantry_anti_tank_equipment amount = 186 }
+add_equipment_to_stockpile = { type = infantry_anti_air_equipment amount = 186 }
+add_equipment_to_stockpile = { type = train_equipment_1 amount = 72 }
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-90"
+		type = t90_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "Leopard 2PL"
+		type = leopard2_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret3
+			suspension_type_slot = tank_interleaved_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = stabilizer
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Su-27SM"
+		amount = 46
+		producer = SOV
+	}
+}

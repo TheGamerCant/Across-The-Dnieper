@@ -1,0 +1,251 @@
+scripted_gui = {
+	money_gui_topbar = {
+		window_name = "money_gui_topbar"
+		context_type = player_context
+		parent_window_token = top_bar
+		
+		visible={
+			always = yes
+		}
+		
+		ai_enabled={
+			always = yes
+		}
+		
+		ai_test_interval = 240		#Will check every 10 days
+		
+		ai_check={
+			OR={
+				has_country_flag = opened_gdp_mechanics
+				AND={
+					OR={
+						check_variable = { var = ROOT.inflation_rate value = 3 compare = greater_than_or_equals }	
+						check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+					}
+					NOT = { has_country_flag = cannot_modify_inflation_rate }
+					NOT = { has_country_flag = has_recently_modified_inflation_rate }
+					can_increase_inflation_rate = yes
+				}
+			}
+		}
+		
+		ai_weights={
+			money_icon_button_click={
+				ai_will_do={
+					factor = 0
+					modifier={
+						OR={
+							AND={
+								OR={
+									check_variable = { var = ROOT.inflation_rate value = 2 compare = greater_than_or_equals }	
+									check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+									check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
+								}
+								NOT = { has_country_flag = cannot_modify_inflation_rate }
+								NOT = { has_country_flag = has_recently_modified_inflation_rate }
+								can_increase_inflation_rate = yes
+							}
+							
+							AND={
+								has_country_flag = opened_gdp_mechanics
+								NOT={
+									AND={
+										OR={
+											check_variable = { var = ROOT.inflation_rate value = 2 compare = greater_than_or_equals }	
+											check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+											check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
+										}
+										NOT = { has_country_flag = cannot_modify_inflation_rate }
+										NOT = { has_country_flag = has_recently_modified_inflation_rate }
+										can_increase_inflation_rate = yes
+									}
+								}
+							}
+						}
+						add = 500
+					}
+				}
+			}
+		}
+		
+		triggers={
+			money_gui_expanded_visible={
+				has_country_flag = opened_gdp_mechanics
+			}
+			gdp_background_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+			inflation_background_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+			gdp_pc_growth_background_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+			gdp_display_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+			inflation_display_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+			gdp_pc_growth_display_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+			}
+		}
+		
+		effects={
+			money_icon_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = opened_gdp_mechanics } }
+					set_country_flag = opened_gdp_mechanics
+				}
+				else={
+					clr_country_flag = opened_gdp_mechanics
+				}
+			}
+		}
+	}
+	
+	money_gui_expanded = {
+		window_name = "money_gui_expanded"
+		context_type = player_context
+		
+		visible={
+			has_country_flag = opened_gdp_mechanics
+			NOT = { has_global_flag = nuclear_war_flag }
+		}
+		
+		ai_enabled={
+			always = yes
+		}
+		
+		
+		ai_check={
+			AND={
+				OR={
+					check_variable = { var = ROOT.inflation_rate value = 2 compare = greater_than_or_equals }	
+					check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+					check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
+				}
+				NOT = { has_country_flag = cannot_modify_inflation_rate }
+				NOT = { has_country_flag = has_recently_modified_inflation_rate }
+				can_increase_inflation_rate = yes
+			}
+		}
+		
+		ai_weights={
+			increase_inflation_button_click={
+				ai_will_do={
+					factor = 0
+					modifier={
+						check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+						add = 150
+					}
+				}
+			}
+			decrease_inflation_button_click={
+				ai_will_do={
+					factor = 0
+					modifier={
+						check_variable = { var = ROOT.inflation_rate value = 2 compare = greater_than_or_equals }	
+						check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
+						add = 150
+					}
+				}
+			}
+		}
+		
+		triggers={
+			increase_inflation_button_click_enabled = {  
+				can_increase_inflation_rate = yes
+			}
+			decrease_inflation_button_click_enabled = {  
+				can_decrease_inflation_rate = yes
+			}
+		}
+		
+		effects={
+			open_state_gdp_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = opened_state_gdp_window } }
+					set_country_flag = opened_state_gdp_window
+				}
+				else={ clr_country_flag = opened_state_gdp_window }
+				
+			}
+			close_button_click={
+				if={
+					limit = { has_country_flag = opened_state_gdp_window }
+					clr_country_flag = opened_state_gdp_window
+				}
+				else = { clr_country_flag = opened_gdp_mechanics }
+			}
+			increase_inflation_button_click = {  
+				set_variable = { pp_to_subtract = ROOT.cost_to_change_inflation }
+				multiply_variable = { pp_to_subtract = -1 }
+				add_political_power = var:ROOT.pp_to_subtract
+				clear_variable = pp_to_subtract
+				add_to_variable = { ROOT.inflation_rate = 0.5 }
+				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
+				get_effects_from_inflation = yes
+				get_country_real_gdp_growth = yes
+				get_effects_from_real_gdp_pc = yes
+				
+				if={
+					limit = { is_ai = yes }
+					log = "[GetDateText]: [Root.GetName] AI increased inflation to [?ROOT.inflation_rate]"
+				}
+			}
+			decrease_inflation_button_click = {  
+				set_variable = { pp_to_subtract = ROOT.cost_to_change_inflation }
+				multiply_variable = { pp_to_subtract = -1 }
+				add_political_power = var:ROOT.pp_to_subtract
+				clear_variable = pp_to_subtract					#For some reason temp variables don't work
+				subtract_from_variable = { ROOT.inflation_rate = 0.5 }
+				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
+				get_effects_from_inflation = yes
+				get_country_real_gdp_growth = yes
+				get_effects_from_real_gdp_pc = yes
+				
+				if={
+					limit = { is_ai = yes }
+					log = "[GetDateText]: [Root.GetName] AI decreased inflation to [?ROOT.inflation_rate]"
+				}
+			}
+		}
+	}
+	
+	state_gdp_expanded = {
+		window_name = "state_gdp_expanded"
+		context_type = player_context
+		
+		ai_enabled={
+			always = no
+		}
+		
+		visible={
+			has_country_flag = opened_gdp_mechanics
+			has_country_flag = opened_state_gdp_window
+			NOT = { has_global_flag = nuclear_war_flag }
+		}
+		
+		dynamic_lists = {
+			state_gdp_grid_box = {
+				array = current_line_array
+				change_scope = no
+				entry_container = state_gdp_container
+				index = current_line_idx
+			}
+		}
+		
+		properties = {
+			state_gdp_text_box = {
+				y = current_line_array^current_line_idx
+			}
+		}
+		effects={
+			close_button_states_click={
+				clr_country_flag = opened_state_gdp_window
+			}
+		}
+	}	
+}

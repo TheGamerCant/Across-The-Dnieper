@@ -1,0 +1,802 @@
+armor_generic = {
+
+	blocked_for = {
+		USA
+	}
+
+	roles = {
+		armor
+	}
+	
+	upgrade_prio = {
+		base = 2
+
+		modifier = {
+			factor = 2
+			has_tech = t_72
+		}
+		
+		modifier = {
+			factor = 2
+			has_tech = t_90
+		}
+		
+		modifier = {
+			factor = 0
+			num_of_military_factories < 30
+		}
+
+		modifier = {
+			factor = 2
+			num_of_military_factories > 35
+		}
+	}
+	
+	match_to_count = 0.30
+
+	MODERN_ARMOR_TEMPLATE = {
+		upgrade_prio = {
+			factor = 10
+
+			modifier = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				factor = 0
+			}
+		}
+		production_prio = {
+			factor = 10
+
+			modifier = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				factor = 0
+			}
+		}
+
+		can_upgrade_in_field = {
+			OR = {
+				has_equipment = { modern_tank_archetype > 320 }
+			}
+		}
+
+		target_width = 30.0
+		width_weight = 3.0
+		column_swap_factor = 0.2
+		reinforce_prio = 2
+
+		stat_weights = {
+			0.00 #-- default_morale
+			1.10 #-- defense
+			1.10 #-- breakthrough
+			0.60 #-- hardness
+			2.00 #-- soft_attack
+			2.00 #-- hard_attack
+			0.10 #-- recon
+			0.01 #-- entrenchment
+			0.10 #-- initiative
+			0.01 #-- casualty_trickleback
+			-0.05 #-- supply_consumption_factor
+			-0.01 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.01 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.02 #-- air_attack
+			#-- Common Values
+			50.00 #-- max_organisation
+			0.80 #-- max_strength
+			10.0 #-- maximum_speed
+			0.20 #-- armor_value
+			0.05 #-- ap_attack
+			0.10 #-- reliability
+			0.10 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 7000.0
+
+			regiments = {
+				modern_armor = 8
+				mechanized = 7
+			}
+
+			support = {
+				mot_recon = 1
+				signal_company = 1
+			}
+		}
+
+		allowed_types = {
+			modern_armor
+			motorized
+			mechanized
+			motorized_rocket_brigade
+			engineer
+			mot_recon
+			signal_company
+			maintenance_company
+			logistics_company
+			military_police
+			artillery
+			anti_air
+			rocket_artillery
+		}
+	}
+
+	
+	NSB_MODERN_ARMOR_TEMPLATE = {
+		upgrade_prio = {
+			factor = 10
+
+			modifier = {
+				limit = {
+					not = {
+						has_dlc = "No Step Back"
+					}
+				}
+				factor = 0
+			}
+		}
+		production_prio = {
+			factor = 10
+
+			modifier = {
+				limit = {
+					not = {
+						has_dlc = "No Step Back"
+					}
+				}
+				factor = 0
+			}
+		}
+
+		can_upgrade_in_field = {
+			OR = {
+				has_equipment = { modern_tank_chassis > 320 }
+			}
+		}
+
+		target_width = 30.0
+		width_weight = 3.0
+		column_swap_factor = 0.2
+		reinforce_prio = 2
+
+		stat_weights = {
+			0.00 #-- default_morale
+			1.10 #-- defense
+			1.10 #-- breakthrough
+			0.60 #-- hardness
+			2.00 #-- soft_attack
+			2.00 #-- hard_attack
+			0.10 #-- recon
+			0.01 #-- entrenchment
+			0.10 #-- initiative
+			0.01 #-- casualty_trickleback
+			-0.05 #-- supply_consumption_factor
+			-0.01 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.01 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.02 #-- air_attack
+			#-- Common Values
+			50.00 #-- max_organisation
+			0.80 #-- max_strength
+			10.0 #-- maximum_speed
+			0.20 #-- armor_value
+			0.05 #-- ap_attack
+			0.10 #-- reliability
+			0.10 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 7000.0
+
+			regiments = {
+				modern_armor_nsb = 8
+				mechanized = 7
+			}
+
+			support = {
+				mot_recon = 1
+				signal_company = 1
+			}
+		}
+
+		allowed_types = {
+			modern_armor_nsb
+			motorized
+			mechanized
+			motorized_rocket_brigade
+			engineer
+			mot_recon
+			signal_company
+			maintenance_company
+			logistics_company
+			military_police
+			artillery
+			anti_air
+			rocket_artillery
+		}
+	}
+}
+
+garrison_generic = {
+
+	blocked_for = {
+		USA
+	}
+	
+	roles = { garrison }
+	upgrade_prio = { factor = 1 }
+	match_to_count = 0.4
+
+	# For countries with <10 military factories
+	CHEAP_GARRISON_TEMPLATE = {
+		production_prio = {
+			base = 0
+			modifier = {
+				add = 10
+				num_of_military_factories < 10
+			}
+		}
+		upgrade_prio = {
+			base = 0
+			modifier = {
+				add = 1
+				num_of_military_factories < 10
+			}
+		}
+
+		custom_icon = 12
+
+		#TEMPLATE
+		target_width = 12
+		width_weight = 1
+		column_swap_factor = 0.5
+		reinforce_prio = 0
+
+		stat_weights = {
+			0.00 #-- default_morale
+			1.00 #-- defense
+			0.00 #-- breakthrough
+			0.00 #-- hardness
+			2.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			4.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 3000
+
+			regiments = {
+				infantry = 6
+			}
+		}
+
+		allowed_types = {
+			infantry
+		}
+	}
+
+	# For countries with 10+ military factories
+	GARRISON_TEMPLATE = {
+		production_prio = {
+			base = 0
+			modifier = {
+				add = 10
+				num_of_military_factories > 9
+			}
+		}
+		upgrade_prio = {
+			base = 0
+			modifier = {
+				add = 1
+				num_of_military_factories > 9
+			}
+		}
+		
+		custom_icon = 12
+
+		#TEMPLATE
+		target_width = 12
+		width_weight = 1
+		column_swap_factor = 0.5
+		reinforce_prio = 0
+
+		stat_weights = {
+			0.00 #-- default_morale
+			1.00 #-- defense
+			0.00 #-- breakthrough
+			0.00 #-- hardness
+			2.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			4.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 3000
+
+			regiments = {
+				infantry = 6
+			}
+
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+		}
+
+		allowed_types = {
+			infantry
+			engineer
+			artillery
+		}
+	}
+}
+
+suppression_generic = {
+
+	blocked_for = {
+		USA
+	}
+	
+	roles = {
+		suppression
+	}
+	
+	upgrade_prio = {
+		factor = 1
+
+		modifier = {
+			factor = 20
+			has_war = yes
+		}
+	}
+	
+	match_to_count = 0.20
+
+	suppression_generic = {
+	
+		reinforce_prio = 0
+		custom_icon = 13
+	
+		upgrade_prio = {
+			factor = 5
+		}
+		
+		target_width = 12.0
+		width_weight = 0.2
+		column_swap_factor = 0.2
+		
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			0.00 #-- breakthrough
+			0.00 #-- hardness
+			1.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			1.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			20.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			4.00 #-- build_cost_ic
+		}
+		
+		target_template = {
+			weight = 8.0
+			match_value = 3000.0
+			
+			support = { 
+				military_police = 1
+			}
+			
+			regiments = {
+				cavalry = 6
+			}
+		}
+		
+		allowed_types = {
+			cavalry
+			irregular_infantry
+
+			military_police	
+		}
+	}
+}
+
+infantry_generic = {
+
+	blocked_for = {
+		USA
+	}
+
+	roles = { infantry }
+	
+	upgrade_prio = { factor = 10 }
+	match_to_count = 0.35
+	
+	# For countries with <10 military factories
+	infantry_template_small = {
+		production_prio = {
+			base = 0
+			modifier = {
+				add = 10
+				num_of_military_factories < 10
+			}
+		}
+		upgrade_prio = {
+			base = 0
+			modifier = {
+				add = 5
+				num_of_military_factories < 10
+			}
+		}
+
+		custom_icon = 7
+
+		target_width = 18
+		width_weight = 1.3
+		column_swap_factor = 0.5
+		reinforce_prio = 1
+
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			1.00 #-- breakthrough
+			0.00 #-- hardness
+			4.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			1.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 9000.0
+
+			regiments = {
+				infantry = 9
+			}
+		}
+
+		allowed_types = {
+			infantry
+			engineer
+		}
+
+		replace_at_match = 0.7
+		replace_with = infantry_template_medium
+		target_min_match = 0.7
+	}
+
+	# For countries with 10-25 military factories
+	infantry_template_medium = {
+		production_prio = {
+			base = 0
+			modifier = {
+				add = 10
+				num_of_military_factories > 9
+				num_of_military_factories < 25
+			}
+		}
+		upgrade_prio = {
+			base = 0
+			modifier = {
+				add = 5
+				num_of_military_factories > 9
+				num_of_military_factories < 25
+			}
+		}
+
+		target_width = 21.0
+		width_weight = 1.3
+		column_swap_factor = 0.5
+		reinforce_prio = 1
+		
+		custom_icon = 3
+
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			1.00 #-- breakthrough
+			0.00 #-- hardness
+			4.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			1.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 9000.0
+
+			regiments = {
+				infantry = 9
+				artillery_brigade = 1
+			}
+
+			support = {
+				engineer = 1
+				anti_air = 1
+			}
+		}
+
+		allowed_types = {
+			infantry
+			engineer
+			recon
+			field_hospital
+			logistics_company
+			signal_company
+			
+			anti_air
+			artillery
+			artillery_brigade
+			rocket_artillery
+			rocket_artillery_brigade
+		}
+
+		replace_at_match = 0.7
+		replace_with = infantry_template_large
+		target_min_match = 0.7
+	}
+
+	# For countries with 25+ military factories
+	infantry_template_large = {
+		production_prio = {
+			base = 0
+			modifier = {
+				add = 10
+				num_of_military_factories > 24
+			}
+		}
+		upgrade_prio = {
+			base = 0
+			modifier = {
+				add = 5
+				num_of_military_factories > 24
+			}
+		}
+
+		target_width = 27
+		width_weight = 1.3
+		column_swap_factor = 0.5
+		reinforce_prio = 1
+		
+		custom_icon = 3
+
+		can_upgrade_in_field = {
+			has_equipment = { artillery_equipment > 1000 }
+		}
+
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			1.00 #-- breakthrough
+			0.00 #-- hardness
+			4.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			1.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			0.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+
+		target_template = {
+			weight = 0.9
+			match_value = 9000.0
+
+			regiments = {
+				infantry = 9
+				artillery_brigade = 3
+			}
+
+			support = {
+				engineer = 1
+				anti_air = 1
+				maintenance_company = 1
+			}
+		}
+
+		allowed_types = {
+			infantry
+			engineer
+			recon
+			field_hospital
+			logistics_company
+			signal_company
+			anti_air
+			artillery
+			artillery_brigade
+			rocket_artillery
+			rocket_artillery_brigade
+		}
+	}
+}

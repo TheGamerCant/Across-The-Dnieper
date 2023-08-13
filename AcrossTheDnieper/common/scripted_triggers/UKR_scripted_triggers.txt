@@ -1,0 +1,1082 @@
+UKR_is_poroshenko_ai={
+	OR={
+		has_country_flag = UKR_POROSHENKO_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_behavior
+			option = POROSHENKO
+		}
+		AND={
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = UKR_ai_behavior
+				option = DEFAULT
+			}
+		}
+	}
+}
+
+UKR_is_tymoshenko_ai={
+	OR={
+		has_country_flag = UKR_TYMOSHENKO_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_behavior
+			option = TYMOSHENKO
+		}
+	}
+}
+
+UKR_is_yarosh_ultranat_ai={
+	OR={
+		has_country_flag = UKR_YAROSH_ULTRANAT_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_behavior
+			option = YAROSH_ULTRANAT
+		}
+	}
+}
+
+UKR_is_yarosh_fascist_ai={
+	OR={
+		has_country_flag = UKR_YAROSH_FASCIST_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_behavior
+			option = YAROSH_FASCIST
+		}
+	}
+}
+
+UKR_is_stay_and_fight_ai={
+	OR={
+		has_country_flag = UKR_STAY_AND_FIGHT_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_war_behavior
+			option = STAY_AND_FIGHT
+		}
+		AND={
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = UKR_ai_war_behavior
+				option = DEFAULT
+			}
+		}
+	}
+}
+
+UKR_is_dishonour_before_death_ai={
+	OR={
+		has_country_flag = UKR_DISHONOUR_BEFORE_DEATH_AI_FLAG
+		has_game_rule = {
+			rule = UKR_ai_war_behavior
+			option = DISHONOUR_BEFORE_DEATH
+		}
+		has_game_rule = {
+			rule = UKR_ai_war_behavior
+			option = DISHONOUR_BEFORE_DEATH_QUICK_COLLAPSE
+		}
+	}
+}
+
+
+UKR_is_in_full_control_of_akarpatskia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = akarpatskia_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_akarpatskia = {
+	count_triggers = {		
+		amount > 4
+		140 = { is_controlled_by = ROOT }
+		147 = { is_controlled_by = ROOT }
+		156 = { is_controlled_by = ROOT }
+		169 = { is_controlled_by = ROOT }
+		175 = { is_controlled_by = ROOT }
+		181 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_akarpatskia = {
+	count_triggers = {		
+		amount > 4
+		NOT = { 140 = { is_controlled_by = ROOT } } 
+		NOT = { 147 = { is_controlled_by = ROOT } } 
+		NOT = { 156 = { is_controlled_by = ROOT } }
+		NOT = { 169 = { is_controlled_by = ROOT } } 
+		NOT = { 175 = { is_controlled_by = ROOT } } 
+		NOT = { 181 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_akarpatskia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = akarpatskia_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_cherkasy = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = cherkasy_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_cherkasy = {
+	count_triggers = {		
+		amount > 3
+		106 = { is_controlled_by = ROOT }
+		115 = { is_controlled_by = ROOT }
+		132 = { is_controlled_by = ROOT }
+		141 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_cherkasy = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 106 = { is_controlled_by = ROOT } } 
+		NOT = { 115 = { is_controlled_by = ROOT } } 
+		NOT = { 132 = { is_controlled_by = ROOT } }
+		NOT = { 141 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_cherkasy = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = cherkasy_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_chernihiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = chernihiv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_chernihiv = {
+	count_triggers = {		
+		amount > 4
+		54 = { is_controlled_by = ROOT }
+		55 = { is_controlled_by = ROOT }
+		56 = { is_controlled_by = ROOT }
+		69 = { is_controlled_by = ROOT }
+		79 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_chernihiv = {
+	count_triggers = {		
+		amount > 4
+		NOT = { 54 = { is_controlled_by = ROOT } } 
+		NOT = { 55 = { is_controlled_by = ROOT } } 
+		NOT = { 56 = { is_controlled_by = ROOT } }
+		NOT = { 69 = { is_controlled_by = ROOT } } 
+		NOT = { 79 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_chernihiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = chernihiv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_chernivtsi = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = chernihiv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_chernivtsi = {
+	count_triggers = {		
+		amount > 2
+		167 = { is_controlled_by = ROOT }
+		176 = { is_controlled_by = ROOT }
+		183 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_chernivtsi = {
+	count_triggers = {		
+		amount > 2
+		NOT = { 167 = { is_controlled_by = ROOT } } 
+		NOT = { 176 = { is_controlled_by = ROOT } } 
+		NOT = { 183 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_chernivtsi = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = chernihiv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_crimea = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = crimea_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_crimea = {
+	count_triggers = {		
+		amount > 9
+		299 = { is_controlled_by = ROOT }
+		309 = { is_controlled_by = ROOT }
+		317 = { is_controlled_by = ROOT }
+		323 = { is_controlled_by = ROOT }
+		326 = { is_controlled_by = ROOT }
+		330 = { is_controlled_by = ROOT }
+		331 = { is_controlled_by = ROOT }
+		344 = { is_controlled_by = ROOT }
+		353 = { is_controlled_by = ROOT }
+		354 = { is_controlled_by = ROOT }
+		433 = { is_controlled_by = ROOT }
+		445 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_crimea = {
+	count_triggers = {		
+		amount > 9
+		NOT = { 299 = { is_controlled_by = ROOT } } 
+		NOT = { 309 = { is_controlled_by = ROOT } } 
+		NOT = { 317 = { is_controlled_by = ROOT } }
+		NOT = { 323 = { is_controlled_by = ROOT } } 
+		NOT = { 326 = { is_controlled_by = ROOT } } 
+		NOT = { 330 = { is_controlled_by = ROOT } }
+		NOT = { 331 = { is_controlled_by = ROOT } } 
+		NOT = { 344 = { is_controlled_by = ROOT } }
+		NOT = { 353 = { is_controlled_by = ROOT } }
+		NOT = { 354 = { is_controlled_by = ROOT } }
+		NOT = { 433 = { is_controlled_by = ROOT } }
+		NOT = { 445 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_crimea = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = crimea_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_dnipro = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = dnipro_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_dnipro = {
+	count_triggers = {		
+		amount > 6
+		143 = { is_controlled_by = ROOT }
+		145 = { is_controlled_by = ROOT }
+		151 = { is_controlled_by = ROOT }
+		163 = { is_controlled_by = ROOT }
+		165 = { is_controlled_by = ROOT }
+		194 = { is_controlled_by = ROOT }
+		209 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_dnipro = {
+	count_triggers = {		
+		amount > 9
+		NOT = { 143 = { is_controlled_by = ROOT } } 
+		NOT = { 145 = { is_controlled_by = ROOT } } 
+		NOT = { 151 = { is_controlled_by = ROOT } }
+		NOT = { 163 = { is_controlled_by = ROOT } } 
+		NOT = { 165 = { is_controlled_by = ROOT } } 
+		NOT = { 194 = { is_controlled_by = ROOT } }
+		NOT = { 209 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_dnipro = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = dnipro_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}
+
+	
+UKR_is_in_full_control_of_donetsk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = donetsk_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_donetsk = {
+	count_triggers = {		
+		amount > 7
+		135 = { is_controlled_by = ROOT }
+		146 = { is_controlled_by = ROOT }
+		166 = { is_controlled_by = ROOT }
+		173 = { is_controlled_by = ROOT }
+		186 = { is_controlled_by = ROOT }
+		195 = { is_controlled_by = ROOT }
+		208 = { is_controlled_by = ROOT }
+		230 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_donetsk = {
+	count_triggers = {		
+		amount > 7
+		NOT = { 135 = { is_controlled_by = ROOT } } 
+		NOT = { 146 = { is_controlled_by = ROOT } } 
+		NOT = { 166 = { is_controlled_by = ROOT } }
+		NOT = { 173 = { is_controlled_by = ROOT } } 
+		NOT = { 186 = { is_controlled_by = ROOT } } 
+		NOT = { 195 = { is_controlled_by = ROOT } }
+		NOT = { 208 = { is_controlled_by = ROOT } } 
+		NOT = { 230 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_donetsk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = donetsk_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_ivano_frankivsk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = ivano_frankivsk_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_ivano_frankivsk = {
+	count_triggers = {		
+		amount > 4
+		127 = { is_controlled_by = ROOT }
+		139 = { is_controlled_by = ROOT }
+		158 = { is_controlled_by = ROOT }
+		164 = { is_controlled_by = ROOT }
+		180 = { is_controlled_by = ROOT }
+		187 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_ivano_frankivsk = {
+	count_triggers = {		
+		amount > 4
+		NOT = { 127 = { is_controlled_by = ROOT } } 
+		NOT = { 139 = { is_controlled_by = ROOT } } 
+		NOT = { 158 = { is_controlled_by = ROOT } }
+		NOT = { 164 = { is_controlled_by = ROOT } } 
+		NOT = { 180 = { is_controlled_by = ROOT } } 
+		NOT = { 187 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_ivano_frankivsk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = ivano_frankivsk_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_kharkiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kharkiv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_kharkiv = {
+	count_triggers = {		
+		amount > 6
+		89 = { is_controlled_by = ROOT }
+		93 = { is_controlled_by = ROOT }
+		94 = { is_controlled_by = ROOT }
+		95 = { is_controlled_by = ROOT }
+		122 = { is_controlled_by = ROOT }
+		123 = { is_controlled_by = ROOT }
+		126 = { is_controlled_by = ROOT }
+		128 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_kharkiv = {
+	count_triggers = {		
+		amount > 6
+		NOT = { 89 = { is_controlled_by = ROOT } } 
+		NOT = { 93 = { is_controlled_by = ROOT } } 
+		NOT = { 94 = { is_controlled_by = ROOT } }
+		NOT = { 95 = { is_controlled_by = ROOT } } 
+		NOT = { 122 = { is_controlled_by = ROOT } } 
+		NOT = { 123 = { is_controlled_by = ROOT } }
+		NOT = { 126 = { is_controlled_by = ROOT } } 
+		NOT = { 128 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_kharkiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kharkiv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_kherson = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kherson_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_kherson = {
+	count_triggers = {		
+		amount > 9
+		231 = { is_controlled_by = ROOT }
+		242 = { is_controlled_by = ROOT }
+		255 = { is_controlled_by = ROOT }
+		264 = { is_controlled_by = ROOT }
+		282 = { is_controlled_by = ROOT }
+		296 = { is_controlled_by = ROOT }
+		304 = { is_controlled_by = ROOT }
+		310 = { is_controlled_by = ROOT }
+		311 = { is_controlled_by = ROOT }
+		312 = { is_controlled_by = ROOT }
+		438 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_kherson = {
+	count_triggers = {		
+		amount > 9
+		NOT = { 231= { is_controlled_by = ROOT } } 
+		NOT = { 242 = { is_controlled_by = ROOT } } 
+		NOT = { 255 = { is_controlled_by = ROOT } }
+		NOT = { 264 = { is_controlled_by = ROOT } } 
+		NOT = { 282 = { is_controlled_by = ROOT } } 
+		NOT = { 296 = { is_controlled_by = ROOT } }
+		NOT = { 304 = { is_controlled_by = ROOT } } 
+		NOT = { 310 = { is_controlled_by = ROOT } }
+		NOT = { 311 = { is_controlled_by = ROOT } }
+		NOT = { 312 = { is_controlled_by = ROOT } }
+		NOT = { 438 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_kherson = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kherson_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_khmelnytskyi = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = khmelnytskyi_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_khmelnytskyi = {
+	count_triggers = {		
+		amount > 2
+		90 = { is_controlled_by = ROOT }
+		114 = { is_controlled_by = ROOT }
+		144 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_khmelnytskyi = {
+	count_triggers = {		
+		amount > 2
+		NOT = { 90 = { is_controlled_by = ROOT } } 
+		NOT = { 114 = { is_controlled_by = ROOT } } 
+		NOT = { 144 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_khmelnytskyi = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = khmelnytskyi_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_kirovohrad = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kirovohrad_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_kirovohrad = {
+	count_triggers = {		
+		amount > 3
+		148 = { is_controlled_by = ROOT }
+		153 = { is_controlled_by = ROOT }
+		161 = { is_controlled_by = ROOT }
+		168 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_kirovohrad = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 148 = { is_controlled_by = ROOT } } 
+		NOT = { 153 = { is_controlled_by = ROOT } } 
+		NOT = { 161 = { is_controlled_by = ROOT } }
+		NOT = { 168 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_kirovohrad = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kirovohrad_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_kyiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kyiv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_kyiv = {
+	count_triggers = {		
+		amount > 8
+		68 = { is_controlled_by = ROOT }
+		72 = { is_controlled_by = ROOT }
+		85 = { is_controlled_by = ROOT }
+		86 = { is_controlled_by = ROOT }
+		92 = { is_controlled_by = ROOT }
+		97 = { is_controlled_by = ROOT }
+		102 = { is_controlled_by = ROOT }
+		105 = { is_controlled_by = ROOT }
+		112 = { is_controlled_by = ROOT }
+		436 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_kyiv = {
+	count_triggers = {		
+		amount > 7
+		NOT = { 68 = { is_controlled_by = ROOT } } 
+		NOT = { 72 = { is_controlled_by = ROOT } } 
+		NOT = { 85 = { is_controlled_by = ROOT } }
+		NOT = { 86 = { is_controlled_by = ROOT } } 
+		NOT = { 92 = { is_controlled_by = ROOT } } 
+		NOT = { 97 = { is_controlled_by = ROOT } } 
+		NOT = { 102 = { is_controlled_by = ROOT } } 
+		NOT = { 107 = { is_controlled_by = ROOT } } 
+		NOT = { 112 = { is_controlled_by = ROOT } } 
+		NOT = { 436 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_kyiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = kyiv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_luhansk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = luhansk_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_luhansk = {
+	count_triggers = {		
+		amount > 7
+		103 = { is_controlled_by = ROOT }
+		109 = { is_controlled_by = ROOT }
+		131 = { is_controlled_by = ROOT }
+		136 = { is_controlled_by = ROOT }
+		152 = { is_controlled_by = ROOT }
+		154 = { is_controlled_by = ROOT }
+		155 = { is_controlled_by = ROOT }
+		159 = { is_controlled_by = ROOT }
+		174 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_luhansk = {
+	count_triggers = {		
+		amount > 7
+		NOT = { 103 = { is_controlled_by = ROOT } } 
+		NOT = { 109 = { is_controlled_by = ROOT } } 
+		NOT = { 131 = { is_controlled_by = ROOT } }
+		NOT = { 136 = { is_controlled_by = ROOT } } 
+		NOT = { 152 = { is_controlled_by = ROOT } } 
+		NOT = { 154 = { is_controlled_by = ROOT } } 
+		NOT = { 155 = { is_controlled_by = ROOT } } 
+		NOT = { 159 = { is_controlled_by = ROOT } } 
+		NOT = { 174 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_luhansk = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = luhansk_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_lviv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = lviv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_lviv = {
+	count_triggers = {		
+		amount > 5
+		84 = { is_controlled_by = ROOT }
+		96 = { is_controlled_by = ROOT }
+		99 = { is_controlled_by = ROOT }
+		101 = { is_controlled_by = ROOT }
+		117 = { is_controlled_by = ROOT }
+		121 = { is_controlled_by = ROOT }
+		125 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_lviv = {
+	count_triggers = {		
+		amount > 5
+		NOT = { 84 = { is_controlled_by = ROOT } } 
+		NOT = { 96 = { is_controlled_by = ROOT } } 
+		NOT = { 99 = { is_controlled_by = ROOT } }
+		NOT = { 101 = { is_controlled_by = ROOT } } 
+		NOT = { 117 = { is_controlled_by = ROOT } } 
+		NOT = { 121 = { is_controlled_by = ROOT } } 
+		NOT = { 125 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_lviv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = lviv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_mykolaiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = mykolaiv_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_mykolaiv = {
+	count_triggers = {		
+		amount > 3
+		198 = { is_controlled_by = ROOT }
+		207 = { is_controlled_by = ROOT }
+		211 = { is_controlled_by = ROOT }
+		236 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_mykolaiv = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 198 = { is_controlled_by = ROOT } } 
+		NOT = { 207 = { is_controlled_by = ROOT } } 
+		NOT = { 211 = { is_controlled_by = ROOT } }
+		NOT = { 236 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_mykolaiv = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = mykolaiv_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_odessa = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = odessa_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_odessa = {
+	count_triggers = {		
+		amount > 7
+		199 = { is_controlled_by = ROOT }
+		229 = { is_controlled_by = ROOT }
+		238 = { is_controlled_by = ROOT }
+		269 = { is_controlled_by = ROOT }
+		287 = { is_controlled_by = ROOT }
+		291 = { is_controlled_by = ROOT }
+		320 = { is_controlled_by = ROOT }
+		322 = { is_controlled_by = ROOT }
+		332 = { is_controlled_by = ROOT }
+		444 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_odessa = {
+	count_triggers = {		
+		amount > 7
+		NOT = { 199 = { is_controlled_by = ROOT } } 
+		NOT = { 229 = { is_controlled_by = ROOT } } 
+		NOT = { 238 = { is_controlled_by = ROOT } }
+		NOT = { 269 = { is_controlled_by = ROOT } } 
+		NOT = { 287 = { is_controlled_by = ROOT } } 
+		NOT = { 291 = { is_controlled_by = ROOT } } 
+		NOT = { 320 = { is_controlled_by = ROOT } } 
+		NOT = { 322 = { is_controlled_by = ROOT } }
+		NOT = { 332 = { is_controlled_by = ROOT } } 
+		NOT = { 444 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_odessa = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = odessa_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_poltava = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = poltava_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_poltava = {
+	count_triggers = {		
+		amount > 3
+		91 = { is_controlled_by = ROOT }
+		98 = { is_controlled_by = ROOT }
+		100 = { is_controlled_by = ROOT }
+		124 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_poltava = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 91 = { is_controlled_by = ROOT } } 
+		NOT = { 98 = { is_controlled_by = ROOT } } 
+		NOT = { 100 = { is_controlled_by = ROOT } }
+		NOT = { 124 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_poltava = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = poltava_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_rivne = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = rivne_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_rivne = {
+	count_triggers = {		
+		amount > 3
+		60 = { is_controlled_by = ROOT }
+		61 = { is_controlled_by = ROOT }
+		74 = { is_controlled_by = ROOT }
+		83 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_rivne = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 60 = { is_controlled_by = ROOT } } 
+		NOT = { 61 = { is_controlled_by = ROOT } } 
+		NOT = { 74 = { is_controlled_by = ROOT } }
+		NOT = { 83 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_rivne = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = rivne_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_sumy = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = sumy_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_sumy = {
+	count_triggers = {		
+		amount > 3
+		53 = { is_controlled_by = ROOT }
+		63 = { is_controlled_by = ROOT }
+		70 = { is_controlled_by = ROOT }
+		77 = { is_controlled_by = ROOT }
+		82 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_sumy = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 53 = { is_controlled_by = ROOT } } 
+		NOT = { 63 = { is_controlled_by = ROOT } } 
+		NOT = { 70 = { is_controlled_by = ROOT } }
+		NOT = { 77 = { is_controlled_by = ROOT } } 
+		NOT = { 82 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_sumy = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = sumy_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_ternopil = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = ternopil_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_ternopil = {
+	count_triggers = {		
+		amount > 3
+		104 = { is_controlled_by = ROOT }
+		113 = { is_controlled_by = ROOT }
+		133 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_ternopil = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 104 = { is_controlled_by = ROOT } } 
+		NOT = { 113 = { is_controlled_by = ROOT } } 
+		NOT = { 133 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_ternopil = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = ternopil_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_vinnytsia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = vinnytsia_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_vinnytsia = {
+	count_triggers = {		
+		amount > 4
+		119 = { is_controlled_by = ROOT }
+		129 = { is_controlled_by = ROOT }
+		142 = { is_controlled_by = ROOT }
+		150 = { is_controlled_by = ROOT }
+		160 = { is_controlled_by = ROOT }
+		162 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_vinnytsia = {
+	count_triggers = {		
+		amount > 4
+		NOT = { 119 = { is_controlled_by = ROOT } } 
+		NOT = { 129 = { is_controlled_by = ROOT } } 
+		NOT = { 142 = { is_controlled_by = ROOT } }
+		NOT = { 150 = { is_controlled_by = ROOT } } 
+		NOT = { 160 = { is_controlled_by = ROOT } } 
+		NOT = { 162 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_vinnytsia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = vinnytsia_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_volyn = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = volyn_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_volyn = {
+	count_triggers = {		
+		amount > 3
+		57 = { is_controlled_by = ROOT }
+		58 = { is_controlled_by = ROOT }
+		71 = { is_controlled_by = ROOT }
+		73 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_volyn = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 57 = { is_controlled_by = ROOT } } 
+		NOT = { 58 = { is_controlled_by = ROOT } } 
+		NOT = { 71 = { is_controlled_by = ROOT } }
+		NOT = { 73 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_volyn = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = volyn_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+
+UKR_is_in_full_control_of_zaporizhia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = zaporizhia_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_zaporizhia = {
+	count_triggers = {		
+		amount > 4
+		196 = { is_controlled_by = ROOT }
+		214 = { is_controlled_by = ROOT }
+		223 = { is_controlled_by = ROOT }
+		243 = { is_controlled_by = ROOT }
+		250 = { is_controlled_by = ROOT }
+		300 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_zaporizhia = {
+	count_triggers = {		
+		amount > 4
+		NOT = { 196 = { is_controlled_by = ROOT } } 
+		NOT = { 214 = { is_controlled_by = ROOT } } 
+		NOT = { 223 = { is_controlled_by = ROOT } }
+		NOT = { 243 = { is_controlled_by = ROOT } } 
+		NOT = { 250 = { is_controlled_by = ROOT } } 
+		NOT = { 300 = { is_controlled_by = ROOT } }
+	}
+}
+UKR_has_no_control_of_zaporizhia = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = zaporizhia_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}	
+
+UKR_is_in_full_control_of_zhytomyr = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = zhytomyr_oblast_flag }
+			UKR = { has_full_control_of_state = PREV }
+		}
+	}
+}	
+UKR_is_in_control_of_zhytomyr = {
+	count_triggers = {		
+		amount > 3
+		65 = { is_controlled_by = ROOT }
+		78 = { is_controlled_by = ROOT }
+		87 = { is_controlled_by = ROOT }
+		110 = { is_controlled_by = ROOT }
+	}
+}	
+UKR_is_not_in_control_of_zhytomyr = {
+	count_triggers = {		
+		amount > 3
+		NOT = { 65 = { is_controlled_by = ROOT } } 
+		NOT = { 78 = { is_controlled_by = ROOT } } 
+		NOT = { 87 = { is_controlled_by = ROOT } }
+		NOT = { 110 = { is_controlled_by = ROOT } } 
+	}
+}
+UKR_has_no_control_of_zhytomyr = {
+	all_state={
+		OR={
+			NOT = { has_state_flag = zhytomyr_oblast_flag }
+			UKR = { NOT = { has_full_control_of_state = PREV } }
+		}
+	}
+}

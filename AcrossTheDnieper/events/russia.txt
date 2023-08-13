@@ -1,0 +1,4888 @@
+﻿add_namespace = russia
+add_namespace = russia_news
+add_namespace = russia_equipment_goes_missing
+add_namespace = russia_referendums
+add_namespace = russia_civil_war
+add_namespace = russia_civil_war_events
+
+news_event = {
+	id = russia_news.1
+	title = russia_news.1.t
+	desc = russia_news.1.desc
+	is_triggered_only = yes
+    picture = GFX_news_event_duma
+
+	option = { 
+		name = russia_news.1.a
+		ai_chance = {
+			base = 10
+		}
+		
+	}
+}
+
+news_event = {
+	id = russia_news.2
+	title = russia_news.2.t
+	desc = russia_news.2.desc
+	is_triggered_only = yes
+    picture = GFX_news_event_dead_putin
+
+	option = { 
+		name = russia_news.2.a
+		ai_chance = {
+			base = 20
+		}
+		
+	}
+}
+
+news_event = {
+	id = russia_news.3
+	title = russia_news.3.t
+	desc = russia_news.3.desc
+	is_triggered_only = yes
+    picture = GFX_news_event_fled_putin
+
+	option = { 
+		name = russia_news.3.a
+		ai_chance = {
+			base = 30
+		}
+		
+	}
+}
+
+
+country_event = {
+    id = russia_equipment_goes_missing.1
+    title = russia_equipment_goes_missing.1.t
+    desc = russia_equipment_goes_missing.1.desc
+    picture = SOV_tank_gets_towed
+    is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			if={
+				limit={
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = modern_tank_chassis
+					amount = -500
+					producer = SOV
+				}
+			}	
+			else={
+				add_equipment_to_stockpile = { 
+					type = modern_tank_archetype
+					amount = -500
+					producer = SOV
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.1.a
+		effect_tooltip={
+			if={
+				limit={
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = modern_tank_chassis
+					amount = -500
+					producer = SOV
+				}
+			}	
+			else={
+				add_equipment_to_stockpile = { 
+					type = modern_tank_archetype
+					amount = -500
+					producer = SOV
+				}
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.2
+    title = russia_equipment_goes_missing.2.t
+    desc = russia_equipment_goes_missing.2.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -6000
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.2.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -6000
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.3
+    title = russia_equipment_goes_missing.3.t
+    desc = russia_equipment_goes_missing.3.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment
+				amount = -1400
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.3.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment
+				amount = -1400
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.4
+    title = russia_equipment_goes_missing.4.t
+    desc = russia_equipment_goes_missing.4.desc
+    picture = SOV_airbase
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			SOV={
+				transfer_units_fraction= {
+					target = ZZZ
+					target_organization = 1
+					source_organization = 0.9
+					size = 0
+					stockpile_ratio = 0
+					army_ratio = 0
+					navy_ratio = 0
+					air_ratio = 0.1
+					keep_unit_leaders_trigger = {
+						always = yes 
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.4.a
+		custom_effect_tooltip = russia_equipment_goes_missing.4.tt
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.5
+    title = russia_equipment_goes_missing.5.t
+    desc = russia_equipment_goes_missing.5.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -2000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment
+				amount = -150
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment
+				amount = -125
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -350
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.5.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -2000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment
+				amount = -150
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment
+				amount = -125
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -350
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.6
+    title = russia_equipment_goes_missing.6.t
+    desc = russia_equipment_goes_missing.6.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+
+	immediate={
+		hidden_effect = {
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				amount = -500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				amount = -300
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.6.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				amount = -500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				amount = -300
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.7
+    title = russia_equipment_goes_missing.7.t
+    desc = russia_equipment_goes_missing.7.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			add_equipment_to_stockpile = { 
+				type = rocket_artillery_equipment
+				amount = -600
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment
+				amount = -600
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.7.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = rocket_artillery_equipment
+				amount = -600
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment
+				amount = -600
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.8
+    title = russia_equipment_goes_missing.8.t
+    desc = russia_equipment_goes_missing.8.desc
+    picture = SOV_navy
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			SOV={
+				transfer_units_fraction= {
+					target = ZZZ
+					target_organization = 1
+					source_organization = 0.9
+					size = 0
+					stockpile_ratio = 0
+					army_ratio = 0
+					navy_ratio = 0.1
+					air_ratio = 0
+					keep_unit_leaders_trigger = {
+						always = yes 
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.8.a
+		custom_effect_tooltip = russia_equipment_goes_missing.8.tt
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.9
+    title = russia_equipment_goes_missing.9.t
+    desc = russia_equipment_goes_missing.9.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -850
+				producer = SOV
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.9.a
+		effect_tooltip={
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -850
+				producer = SOV
+			}
+		}
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.10
+    title = russia_equipment_goes_missing.10.t
+    desc = russia_equipment_goes_missing.10.desc
+    picture = SOV_tank_gets_towed
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			random_enemy_country={
+				country_event = { id = russia_equipment_goes_missing.12 hours = 8 }
+				SOV={
+					transfer_units_fraction= {
+						target = PREV
+						target_organization = 1
+						source_organization = 0.9
+						size = 0
+						stockpile_ratio = 0.06
+						army_ratio = 0
+						navy_ratio = 0
+						air_ratio = 0.01
+						keep_unit_leaders_trigger = {
+							always = yes 
+						}
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.10.a
+		custom_effect_tooltip = russia_equipment_goes_missing.10.tt
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.11
+    title = russia_equipment_goes_missing.11.t
+    desc = russia_equipment_goes_missing.11.desc
+    picture = SOV_equipment
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			SOV={
+				transfer_units_fraction= {
+					target = ZZZ
+					target_organization = 1
+					source_organization = 0.9
+					size = 0
+					stockpile_ratio = 0.08
+					army_ratio = 0
+					navy_ratio = 0
+					air_ratio = 0
+					keep_unit_leaders_trigger = {
+						always = yes 
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia_equipment_goes_missing.11.a
+		custom_effect_tooltip = russia_equipment_goes_missing.11.tt
+    }
+}
+
+country_event = {
+    id = russia_equipment_goes_missing.12
+    title = russia_equipment_goes_missing.12.t
+    desc = russia_equipment_goes_missing.12.desc
+    picture = SOV_tank_gets_towed
+    is_triggered_only = yes
+
+    option = {
+        name = russia_equipment_goes_missing.12.a
+		
+    }
+}
+
+country_event = {
+    id = russia.1
+    title = russia.1.t
+    desc = russia.1.d
+    picture = SOV_event_crimean_referendum
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1.a
+    }
+}
+
+country_event = {
+    id = russia.3
+    title = russia.3.t
+    desc = russia.3.d
+    picture = SOV_event_2018_election
+    is_triggered_only = yes
+
+
+    immediate = {
+        hidden_effect = {
+            complete_national_focus = SOV_election_results
+
+            set_party_name = { ideology = neoliberal long_name = SOV_dem_party_long name = SOV_dem_party }
+            create_country_leader = {
+                name = "Timur Bogdanov"
+                desc = ""
+                ideology = dem_party_of_russia
+            }
+
+        }
+
+    }
+    option = {
+        name = russia.3.a
+
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                OR = {
+                    SOV_is_sobchak_ai = yes
+                    SOV_is_yavlinski_ai = yes
+                }
+			}
+		}
+        hidden_effect = {
+            complete_national_focus = SOV_2018_elections
+
+            complete_national_focus = SOV_Putin
+
+            set_popularities = {
+	            eastern_liberal = 17
+                libertarian = 2
+                eastern_conservative = 73
+                moderate_communist = 6
+                neoliberal = 2
+            }
+
+            news_event = { hours = 6 id = atd_news.44 }
+        }
+        
+        custom_effect_tooltip = russia.1.b_tooltip
+        
+    }
+
+    option = {
+        name = russia.3.b
+
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                OR = {
+                    SOV_is_yavlinski_ai = yes
+                    SOV_is_putin_ai = yes
+                    SOV_is_putin_dead_ai = yes
+                }
+			}
+
+            
+		}
+
+        hidden_effect = {
+            set_party_name = { ideology = eastern_liberal long_name = SOV_eastern_liberal_2018_party_long name = SOV_eastern_liberal_2018_party }
+
+            create_country_leader = {
+                name = "Ksenia Sobchak"
+                desc = ""
+                picture = gfx/leaders/SOV/Portrait_Ksenia_Sobchak.png
+                ideology = civic_initiative_SOV
+            }
+    
+            set_politics = {
+                ruling_party = eastern_liberal
+                elections_allowed = yes
+            }
+
+            set_popularities = {
+	            eastern_liberal = 42
+                libertarian = 10
+                eastern_conservative = 38
+                social_democracy = 5
+                neoliberal = 5
+            }
+            remove_ideas = SOV_russia_today
+            remove_ideas = SOV_united_russia
+
+            swap_ideas = { 
+                remove_idea = authoritarian_democracy  
+                add_idea = liberal_democracy  
+            }
+
+            swap_ideas = { 
+                remove_idea = state_controlled_press   
+                add_idea = free_press   
+            }
+
+            swap_ideas = { 
+                remove_idea = free_trade_unions    
+                add_idea = government_trade_unions    
+            }
+
+            swap_ideas = { 
+                remove_idea = bipolarist 
+                add_idea = western_aligned 
+            }
+
+            swap_ideas = { 
+                remove_idea = womens_rights_traditional_values     
+                add_idea = womens_rights_equality     
+            }
+
+            swap_ideas = { 
+                remove_idea = lgbtq_rights_behind_closed_doors      
+                add_idea = lgbtq_rights_civil_unions      
+            }
+
+            swap_ideas = { 
+                remove_idea = minority_rights_societal_discrimination       
+                add_idea = minority_rights_minor_inequality       
+            }
+
+            swap_ideas = { 
+                remove_idea = nationalism_laws_jingoistic        
+                add_idea = nationalism_laws_interventionist        
+            }
+
+            swap_ideas = { 
+                remove_idea = alchohol_narcotics_laws_unregulated         
+                add_idea = alchohol_narcotics_laws_relaxed         
+            }
+            complete_national_focus = SOV_2018_elections
+
+
+            complete_national_focus = SOV_Sobchak
+
+            news_event = { hours = 6 id = atd_news.45 }
+
+            country_event = { id = russia.46 days = 2 }
+        }
+        custom_effect_tooltip = russia.3.b_tooltip
+    }
+    
+    option = {
+        name = russia.3.c
+
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                OR = {
+                    SOV_is_sobchak_ai = yes
+                    SOV_is_putin_ai = yes
+                    SOV_is_putin_dead_ai = yes
+                }
+			}
+		}
+        hidden_effect = {
+            set_party_name = { ideology = libertarian long_name = SOV_social_democracy_2018_party_long name = SOV_social_democracy_2018_party }
+
+    
+            set_politics = {
+                ruling_party = libertarian
+                elections_allowed = yes
+            }
+            set_popularities = {
+	            eastern_liberal = 18
+                libertarian = 39
+                eastern_conservative = 21
+                social_democracy = 11
+                moderate_communist = 1
+                neoliberal = 10
+            }
+            remove_ideas = SOV_russia_today
+            remove_ideas = SOV_united_russia
+
+            swap_ideas = { 
+                remove_idea = state_controlled_press   
+                add_idea = free_press   
+            }
+
+            swap_ideas = { 
+                remove_idea = free_trade_unions    
+                add_idea = unions_restricted    
+            }
+
+            swap_ideas = { 
+                remove_idea = bipolarist     
+                add_idea = western_aligned     
+            }
+
+            swap_ideas = { 
+                remove_idea = nationalism_laws_jingoistic      
+                add_idea = nationalism_laws_interventionist      
+            }
+
+            swap_ideas = { 
+                remove_idea = alchohol_narcotics_laws_unregulated       
+                add_idea = alchohol_narcotics_laws_relaxed       
+            }
+            complete_national_focus = SOV_2018_elections
+
+
+            complete_national_focus = SOV_Yavlinksy
+
+            news_event = { hours = 6 id = atd_news.46 }
+        }
+
+        custom_effect_tooltip = russia.2.b_tooltip
+    }
+}
+
+
+country_event = {
+    id = russia.7
+    title = russia.7.t
+    desc = russia.7.d
+    picture = SOV_event_the_2018_world_cup
+    is_triggered_only = yes
+
+    option = {
+        name = russia.7.a
+        ai_chance = {
+            base = 5
+        }
+        hidden_effect = {
+            country_event = { id = russia.8 days = 32 }
+        }
+    }
+    option = {
+        name = russia.7.b
+        ai_chance = {
+            base = 10
+            modifier = {
+                factor = 100
+                SOV_is_putin_ai = yes
+            }
+        }
+        hidden_effect = {
+            country_event = { id = russia.9 days = 32 }
+        }
+    }
+}
+
+country_event = {
+    id = russia.8
+    title = russia.8.t
+    desc = russia.8.d
+    picture = SOV_event_world_cup_russia
+    is_triggered_only = yes
+
+    option = {
+        name = russia.8.a
+        add_stability = -0.05
+        add_ideas = SOV_worldcup_winners
+    }
+}
+
+country_event = {
+    id = russia.9
+    title = russia.9.t
+    desc = russia.9.d
+    picture = SOV_event_world_cup_france
+    is_triggered_only = yes
+
+    option = {
+        name = russia.9.a
+        add_stability = 0.02
+        11 = {
+            increase_state_gdp_growth_by_0_5 = yes
+        }
+    }
+}
+
+
+country_event = {
+    id = russia.11
+    title = russia.11.t
+    desc = russia.11.d
+    picture = SOV_event_world_cup_woes
+    is_triggered_only = yes
+
+    option = {
+        name = russia.11.a
+        add_stability = -0.04
+
+
+        add_ideas = SOV_2018_worldcup_host
+    }
+
+    option = {
+        name = russia.11.b
+        add_stability = 0.03
+
+        POL = {
+            add_ideas = SOV_2018_worldcup_host
+        }
+    }
+}
+
+country_event = {
+    id = russia.12
+    title = russia.12.t
+    desc = russia.12.d
+    picture = SOV_event_China_Pact
+    is_triggered_only = yes
+
+    option = {
+        name = russia.12.a
+
+        every_country = {
+            add_opinion_modifier = {
+                target = SOV
+                modifier = SOV_china_deal
+            }
+        }
+
+        add_popularity = {
+            ideology = moderate_communist
+            popularity = 0.02
+        }
+    }
+}
+
+
+country_event = {
+    id = russia.13
+    title = russia.13.t
+    desc = russia.13.d
+    picture = SOV_event_liberalism
+    is_triggered_only = yes
+
+    option = {
+        name = russia.13.a
+        add_stability = -0.03
+        add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.05
+        }
+
+        hidden_effect = {
+            country_event = { id = russia.29 days = 15 }
+            country_event = { id = russia.32 days = 250 }
+            country_event = { id = russia.33 days = 425 }
+        }
+    }
+}
+
+
+country_event = {
+    id = russia.14
+    title = russia.14.t
+    desc = russia.14.d
+    picture = SOV_event_world_cup_woes
+    is_triggered_only = yes
+
+    option = {
+        name = russia.14.a
+        every_owned_state = {
+            decrease_state_gdp_growth_by_0_5 = yes
+
+
+        }
+
+        add_stability = -0.03
+        add_popularity = {
+            ideology = libertarian
+            popularity = -0.03
+        }
+    }
+}
+
+country_event = {
+    id = russia.15
+    title = russia.15.t
+    desc = russia.15.d
+    picture = SOV_event_deals_with_the_eu
+    is_triggered_only = yes
+
+    option = {
+        name = russia.15.a
+        add_popularity = {
+            ideology = libertarian
+            popularity = -0.03
+        }
+        add_stability = 0.03
+    }
+    option = {
+        name = russia.15.b
+        add_popularity = {
+            ideology = libertarian
+            popularity = 0.03
+        }
+        add_stability = -0.03
+    }
+}
+
+country_event = {
+    id = russia.16
+    title = russia.16.t
+    desc = russia.16.d
+    picture = SOV_event_join_the_eu
+    is_triggered_only = yes
+
+    option = {
+        name = russia.16.a
+
+        add_stability = -0.05
+        add_war_support = -0.05
+        add_popularity = {
+            ideology = libertarian
+            popularity = -0.05
+        }
+        hidden_effect = {
+            set_country_flag = SOV_got_eu_support
+        }
+    }
+
+    option = {
+        name = russia.16.b
+        add_stability = 0.05
+        add_popularity = {
+            ideology = libertarian
+            popularity = 0.03
+        }
+    }
+
+}
+
+
+country_event = {
+    id = russia.17
+    title = russia.17.t
+    desc = russia.17.d
+    picture = SOV_event_join_nato
+    is_triggered_only = yes
+
+    option = {
+        name = russia.17.a
+        add_stability = -0.05
+        add_war_support = -0.05
+        add_popularity = {
+            ideology = libertarian
+            popularity = -0.05
+        }
+
+        hidden_effect = {
+            set_country_flag = SOV_got_nato_support
+        }
+    }
+
+    option = {
+        name = russia.17.b
+        add_stability = 0.05
+        add_popularity = {
+            ideology = libertarian
+            popularity = 0.03
+        }
+    }
+
+}
+
+country_event = {
+    id = russia.20
+    title = russia.20.t
+    desc = russia.20.d
+    picture = SOV_event_poisoning_of_navalny
+    is_triggered_only = yes
+
+    option = {
+        name = russia.20.a
+
+        unlock_decision_tooltip  = SOV_jail_navalny
+
+        add_stability = -0.03
+        opposition_increase_unity_by_3_5 = yes
+        hidden_effect = {
+            set_country_flag = navalny_has_been_poisoned
+        }
+    }
+}
+
+country_event = {
+    id = russia.21
+    title = russia.21.t
+    desc = russia.21.d
+    picture = SOV_event_2_more_terms
+    is_triggered_only = yes
+
+    option = {
+        name = russia.21.a
+        add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.05
+        }
+        opposition_decrease_unity_by_0_5 = yes
+        add_stability = 0.03
+        add_war_support = 0.05
+    }
+}
+
+country_event = {
+    id = russia.80
+    title = russia.80.t
+    desc = russia.80.d
+    picture = SOV_caucasus_independent_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            359 = { add_core_of = KBA KBA = { transfer_state = PREV } }
+            350 = { add_core_of = KCA KCA = { transfer_state = PREV } }
+			363 = { add_core_of = NOA NOA = { transfer_state = PREV } }
+			372 = { add_core_of = ING ING = { transfer_state = PREV } }
+			395 = { add_core_of = ING ING = { transfer_state = PREV } }
+            
+
+            every_state = {
+                limit = {
+                    OR = {
+                        is_owned_by = NOA
+                        is_owned_by = ING
+                    }
+                }
+                add_claim_by = NOA
+                add_claim_by = ING
+            }
+
+
+            GEO = {  country_event = {days = 3 id = geoevent.2} }
+
+
+
+            #TROOP SPAWN
+
+            KBA = {
+                load_focus_tree = north_caucasus_kabardino
+
+                capital_scope = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = KBA
+                        count = 4
+                    }
+                }
+
+                create_country_leader = {
+                    name = "Yuri Kokov"
+                    picture = gfx/leaders/OTHER/Portrait_KBA_Yuri_Kokov.png
+                    ideology = generic_eastern_conservative
+                }
+
+                set_politics = {
+                    ruling_party = eastern_conservative
+                }
+
+                set_popularities = {
+                    eastern_conservative = 100
+                }
+            }
+
+            KCA = {
+                load_focus_tree = north_caucasus_cherkessia
+
+                capital_scope = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = KCA
+                        count = 3
+                    }
+                }
+
+                create_country_leader = {
+                    name = "Rashid Temrezov"
+                    picture = gfx/leaders/OTHER/Portrait_KCA_Rashid_Temrezov.png
+                    ideology = generic_eastern_conservative
+                }
+
+                set_politics = {
+                    ruling_party = eastern_conservative
+                }
+
+                set_popularities = {
+                    eastern_conservative = 100
+                }
+            }
+            
+            NOA = {
+                load_focus_tree = north_caucasus_ossetia
+                
+                capital_scope = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = NOA
+                        count = 5
+                    }
+                }
+
+                
+                create_country_leader = {
+                    name = "Vyacheslav Bitarov"
+                    picture = gfx/leaders/OTHER/Portrait_NOA_Vyacheslav_Bitarov.png
+                    ideology = generic_eastern_conservative
+                }
+
+                set_politics = {
+                    ruling_party = eastern_conservative
+                }
+
+                set_popularities = {
+                    eastern_conservative = 100
+                }
+            }
+
+            ING = {
+                load_focus_tree = north_caucasus_ichkeria
+
+                capital_scope = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = ING
+                        count = 4
+                    }
+                }
+
+                395 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = ING
+                        count = 1
+                    }
+                }
+
+                set_cosmetic_tag = ING_Ichkeria
+
+                create_country_leader = {
+                    name = "Zakaev Khalidovich"
+                    picture = gfx/leaders/OTHER/Potrait_ING_Zakaev_Khalidovich.png
+                    ideology = generic_ultranationalist
+                }
+
+                set_politics = {
+                    ruling_party = ultranationalist
+                }
+
+                set_popularities = {
+                    ultranationalist = 100
+                }
+            }
+
+
+        }
+
+
+
+    }
+
+
+    option = {
+        name = russia.80.a
+		hidden_effect={
+			SOV = {
+				end_puppet = KCA
+				remove_from_faction = KCA
+				end_puppet = KBA
+				remove_from_faction = KBA
+				end_puppet = NOA
+				remove_from_faction = NOA
+				end_puppet = ING
+				remove_from_faction = ING
+			}
+		}
+    }
+
+    option = {
+        trigger = {
+            is_ai = no
+        }
+        name = russia.80.b
+
+        NOA = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        trigger = {
+            is_ai = no
+        }
+        name = russia.80.c
+
+        ING = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        trigger = {
+            is_ai = no
+        }
+        name = russia.80.dd
+
+        KBA = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        trigger = {
+            is_ai = no
+        }
+        name = russia.80.e
+
+        KCA = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+
+country_event = {
+    id = russia.79
+    title = russia.79.t
+    desc = russia.79.d
+    picture = SOV_crimean_civil_war_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+
+            create_dynamic_country = {
+                original_tag = CRI
+
+                create_country_leader = {
+                    name = "Mustafa Dzhemilev"
+                    picture = gfx/leaders/CRI/Portrait_Mustafa_Dzhemilev.png
+                    ideology = generic_neoliberal
+                }
+
+                set_politics = {
+                    ruling_party = neoliberal
+                }
+
+                set_popularities = {
+                    neoliberal = 100
+                }
+    
+                set_research_slots = 3
+                set_cosmetic_tag = CRI_CIVIL
+
+
+
+                load_focus_tree = crimea_cw_main
+               
+            }
+            every_state = {
+                limit = { has_state_flag = crimea_oblast_flag }
+
+                SKG = { transfer_state = PREV }
+            }
+
+            SKG = {
+                326 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = SKG
+                        count = 8
+                    }
+                }
+
+                433 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = SKG
+                        count = 1
+                    }
+                }
+            }
+
+            
+
+            create_dynamic_country = { #Ukrainian Crimea
+                original_tag = CRI
+
+                create_country_leader = {
+                    name = "Andrey Biletsky"
+                    picture = gfx/leaders/CRI/Portrait_Andrey_Biletsky.png
+                    ideology = generic_fascist
+                }
+
+                set_politics = {
+                    ruling_party = fascist
+                }
+
+                set_popularities = {
+                    fascist = 100
+                }
+    
+
+                set_cosmetic_tag = UOD
+
+                load_focus_tree = crimea_cw_ukraine
+
+                
+                set_research_slots = 3
+                transfer_state = 299
+                transfer_state = 317
+                transfer_state = 308
+                transfer_state = 309
+    
+                set_capital = {state = 299}
+    
+                299 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = UOD
+                        count = 5
+                    }
+                }
+
+                317 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = UOD
+                        count = 3
+                    }
+                }
+
+                308 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = UOD
+                        count = 5
+                    }
+                }
+    
+    
+                declare_war_on = {
+                    target = SKG
+                    type = civil_war
+                }
+    
+                add_civil_war_target = SKG
+            }
+
+            
+            create_dynamic_country = { #Tatar Crimea
+                original_tag = CRI
+
+                create_country_leader = {
+                    name = "Refat Chubarov"
+                    picture = gfx/leaders/CRI/Portrait_Refat_Chubarov.png
+                    ideology = generic_ultranationalist
+                }
+
+                set_politics = {
+                    ruling_party = ultranationalist
+                }
+
+                set_popularities = {
+                    ultranationalist = 100
+                }
+
+                set_cosmetic_tag = TVP
+
+                load_focus_tree = crimea_cw_tatar
+                
+                set_research_slots = 3
+                transfer_state = 323
+                transfer_state = 330
+    
+                set_capital = {state = 323}
+               
+                323 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = TVP
+                        count = 5
+                    }
+                }
+
+                330 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                        owner = TVP
+                        count = 5
+                    }
+                }
+    
+    
+                declare_war_on = {
+                    target = SKG
+                    type = civil_war
+                }
+
+                declare_war_on = {
+                    target = UOD
+                    type = civil_war
+                }
+    
+                add_civil_war_target = UOD
+                add_civil_war_target = SKG
+            }
+
+        create_dynamic_country = { #Russian Crimea
+            original_tag = CRI
+
+            create_country_leader = {
+                name = "Sergey Valerievich Aksyonov"
+                picture = gfx/leaders/CRI/Portrait_Sergey_Aksyonov.png
+                ideology = generic_moderate_communist
+            }
+
+            set_politics = {
+                ruling_party = moderate_communist
+            }
+
+            set_popularities = {
+                moderate_communist = 100
+            }
+
+            set_cosmetic_tag = VEB
+
+            set_research_slots = 3
+            transfer_state = 354
+            transfer_state = 353
+            transfer_state = 344
+            transfer_state = 331
+			transfer_state = 445
+
+            load_focus_tree = crimea_cw_russia
+
+            set_capital = {state = 344}
+           
+            354 = {
+                create_unit = {
+                    division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                    owner = VEB
+                    count = 4
+                }
+            }
+
+            353 = {
+                create_unit = {
+                    division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                    owner = VEB
+                    count = 4
+                }
+            }
+
+            344 = {
+                create_unit = {
+                    division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                    owner = VEB
+                    count = 5
+                }
+            }
+
+            331 = {
+                create_unit = {
+                    division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
+                    owner = VEB
+                    count = 2
+                }
+            }
+
+
+            declare_war_on = {
+                target = SKG
+                type = civil_war
+            }
+
+            declare_war_on = {
+                target = UOD
+                type = civil_war
+            }
+
+            declare_war_on = {
+                target = TVP
+                type = civil_war
+            }
+
+            add_civil_war_target = UOD
+            add_civil_war_target = TVP
+            add_civil_war_target = SKG
+        }
+        }
+
+    }
+
+    option = {
+        name = russia.79.a
+    }
+
+    option = {
+        name = russia.79.b
+        trigger = {
+            is_ai = no
+        }
+        VEB = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia.79.c
+        trigger = {
+            is_ai = no
+        }
+        UOD = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia.79.dd
+        trigger = {
+            is_ai = no
+        }
+        TVP = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia.79.e
+        trigger = {
+            is_ai = no
+        }
+        SKG = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+
+#DELETE IN THE FUTURE
+#CIVIL FUCKING WAR
+
+country_event = {
+    id = russia.22
+    title = russia.22.t
+    desc = russia.22.d
+    picture = SOV_event_putin_mobilizes
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = eastern_conservative
+                }
+                add_popularity = {
+                    ideology = eastern_conservative
+                    popularity = 1
+                }
+                set_cosmetic_tag = SOV_putin_tag
+                set_research_slots = 3
+                reserve_dynamic_country = yes
+            
+                create_country_leader = {
+                    name = "Vladimir Putin"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+                    ideology = united_russia_subideology
+                }
+            }
+
+            every_country={
+                limit = { is_ai = no }
+                set_country_flag = Super_Event_Visible
+                set_country_flag = sp_rus_civil_war
+            }
+
+            URF = {
+                transfer_state = 11
+                transfer_state = 12
+                transfer_state = 10
+                transfer_state = 13
+                transfer_state = 15
+                transfer_state = 28
+                transfer_state = 387
+                transfer_state = 16
+                transfer_state = 30
+
+                set_capital = {state = 11}
+
+
+                declare_war_on = {
+                    target = SOV
+                    type = civil_war
+                }
+                add_civil_war_target = SOV
+
+                load_oob = "SOV_CIVWAR_1"
+
+                
+
+            }
+
+            SOV = {
+                set_country_flag = take_moscow_now
+
+                transfer_units_fraction = {
+                    target = URF
+                    size = 0.22
+                    stockpile_ratio = 0.25
+                    army_ratio = 0.25
+                    navy_ratio = 0.25
+                    air_ratio = 0.25
+                }
+
+                delete_units = {
+                    division_template = "Armoured Division"
+                    disband = yes
+                }
+            }
+            country_event = { id = russia.31 days = 2}
+            country_event = { id = russia.23 days = 5 }
+            country_event = { id = russia.26 days = 7 }
+        }
+
+    }
+
+    option = {
+        name = russia.22.a
+        add_stability = -1
+    }
+
+    option = {
+        name = russia.22.b
+        URF = { change_tag_from = SOV }
+    }
+}
+
+
+country_event = {
+    id = russia.23
+    title = russia.23.t
+    desc = russia.23.d
+    picture = SOV_event_navalny_mobilIzes
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = eastern_liberal
+                }
+                add_popularity = {
+                    ideology = eastern_liberal
+                    popularity = 1
+                }
+                set_cosmetic_tag = SOV_navalny_tag
+                set_research_slots = 3
+                reserve_dynamic_country = yes
+                create_country_leader = {
+                    name = "Alexei Navalny"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portait_Alexei_Navalny.png
+                    ideology = russia_of_the_future_subideology
+                }
+                
+            }
+            
+
+            if = {
+                limit = {
+                    SOV = {
+                        owns_state = 1
+                    }
+                }
+
+                1 = {
+                    set_demilitarized_zone = yes
+                }
+            }
+
+            RDU = {
+                transfer_state = 39
+                transfer_state = 9
+
+                declare_war_on = {
+                    target = SOV
+                    type = civil_war
+                }
+                add_civil_war_target = SOV
+
+                load_oob = "SOV_CIVWAR_2"
+
+            }
+
+            SOV = {
+                transfer_units_fraction = {
+                    target = RDU
+                    size = 0.3
+                    stockpile_ratio = 0.3
+                    army_ratio = 0.3
+                    navy_ratio = 0.3
+                    air_ratio = 0.3
+                }
+            }
+
+            URF = {
+                declare_war_on = {
+                    target = RDU
+                    type = civil_war
+                }
+                add_civil_war_target = RDU
+            }
+            
+
+            if = {
+                limit = {
+                    SOV = {
+                        has_country_flag = SOV_got_nato_support
+                    }
+                    
+                }
+
+                URF = {
+                    country_event = { id = russia.27 } 
+                }
+
+                RDU = {
+                    country_event = { id = russia.27} 
+                }
+
+                country_event = { id = russia.24 days = 5 }
+            }
+
+            SOV = {
+                country_event = { id = russia.28 days = 20 }
+            }
+            URF = {
+                country_event = { id = russia.28 days = 20 }
+            }
+            RDU = {
+                country_event = { id = russia.28 days = 20 }
+            }
+            FUR = {
+                country_event = { id = russia.28 days = 20 }
+            }
+            USR = {
+                country_event = { id = russia.28 days = 20 }
+            }
+
+
+            
+            country_event = { id = russia.25 days = 10 }
+            
+        }
+
+    }
+
+    option = {
+        name = russia.23.a
+
+    }
+}
+
+country_event = {
+    id = russia.24
+    title = russia.24.t
+    desc = russia.24.d
+    picture = SOV_mironov_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = social_democracy
+                }
+                add_popularity = {
+                    ideology = social_democracy
+                    popularity = 1
+                }
+                set_cosmetic_tag = SOV_mironov_tag
+                set_research_slots = 3
+                reserve_dynamic_country = yes
+                create_country_leader = {
+                    name = "Sergey Mironov"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portrait_Sergey_Mironov.png
+                    ideology = a_just_russia_subideology
+                }
+            }
+            
+            USR = {
+                transfer_state = 149
+
+
+
+                declare_war_on = {
+                    target = SOV
+                    type = civil_war
+                }
+                add_civil_war_target = SOV
+
+                load_oob = "SOV_CIVWAR_3"
+            }
+
+            
+            SOV = {
+                transfer_units_fraction = {
+                    target = USR
+                    size = 0.4
+                    stockpile_ratio = 0.4
+                    army_ratio = 0.4
+                    navy_ratio = 0.4
+                    air_ratio = 0.4
+                }
+            }
+        }
+
+    }
+
+    option = {
+        name = russia.24.a
+
+    }
+}
+
+
+
+country_event = {
+    id = russia.25
+    title = russia.25.t
+    desc = russia.25.d
+    picture = SOV_event_bogdanov_mobilizes
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = neoliberal
+                }
+                add_popularity = {
+                    ideology = neoliberal
+                    popularity = 1
+                }
+                set_cosmetic_tag = SOV_bogdanov_tag
+                set_research_slots = 3
+                reserve_dynamic_country = yes
+                
+                create_country_leader = {
+                    name = "Timur Bogdanov"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portrait_Timur_Bogdanov.png
+                    ideology = dem_party_of_russia
+                }
+            }
+            
+            FUR = {
+
+                transfer_state = 372
+                transfer_state = 363
+                transfer_state = 359
+                transfer_state = 395
+
+                declare_war_on = {
+                    target = SOV
+                    type = civil_war
+                }
+                add_civil_war_target = SOV
+
+                declare_war_on = {
+                    target = URF
+                    type = civil_war
+                }
+                add_civil_war_target = URF
+
+                load_oob = "SOV_CIVWAR_4"
+
+
+            }
+
+            if = {
+                limit = {
+                    SOV = {has_country_flag = SOV_got_eu_support}
+                }
+
+                SOV = {
+                    transfer_units_fraction = {
+                        target = FUR
+                        size = 0.30
+                        stockpile_ratio = 0.30
+                        army_ratio = 0.30
+                        navy_ratio = 0.30
+                        air_ratio = 0.30
+                    }
+                }
+            }
+            else = {
+                SOV = {
+                    transfer_units_fraction = {
+                        target = FUR
+                        size = 0.15
+                        stockpile_ratio = 0.15
+                        army_ratio = 0.15
+                        navy_ratio = 0.15
+                        air_ratio = 0.15
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    option = {
+        name = russia.25.a
+
+    }
+}
+
+
+
+country_event = {
+    id = russia.26
+    title = russia.26.t
+    desc = russia.26.d
+    picture = SOV_event_belgorod_rally
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            URF = {
+                transfer_state = 66
+
+                66 = {
+                    create_unit = {
+                        division = "division_template = \"Infantry Division\" start_experience_factor = 0.1" 
+                        owner = URF
+                        allow_spawning_on_enemy_provs = yes
+                        count = 14
+                    }
+                }
+
+
+            }
+        }
+
+    }
+
+    option = {
+        name = russia.26.a
+        add_stability = -0.05
+    }
+}
+
+
+country_event = {
+    id = russia.27
+    title = russia.27.t
+    desc = russia.27.d
+    picture = SOV_event_nato_involvment
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            SOV = {
+                army_experience = 75
+
+            }
+
+            every_country = {
+                limit = {
+                    has_country_flag = is_in_nato
+                }
+
+                If = {
+                    has_equipment = {
+                        infantry_equipment_1 > 100
+                    }
+                    send_equipment = {
+                        equipment = infantry_equipment_1
+                        amount = 100
+                        target = SOV
+                    }
+                }
+            }
+        }
+
+    }
+
+    option = {
+        name = russia.27.a
+
+    }
+}
+
+country_event = {
+    id = russia.28
+    title = russia.28.t
+    desc = russia.28.d
+    picture = SOV_event_kerch_bridge_attacl
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            if = {
+                limit = {
+                     331 = {
+                         is_demilitarized_zone = no
+                     }
+
+                }
+
+                331 = {
+                    set_demilitarized_zone = yes
+                }
+            }
+
+        }
+    }
+
+    option = {
+        name = russia.28.a
+        SOV = {
+            add_stability = -0.02
+        }
+    }
+}
+
+country_event = {
+    id = russia.29
+    title = russia.29.t
+    desc = russia.29.d
+    picture = SOV_event_student_protests
+    is_triggered_only = yes
+
+    option = {
+        name = russia.29.a
+        add_stability = -0.05
+        hidden_effect = {
+            country_event = { id = russia.30 days = 70 }
+        }
+    }
+}
+
+country_event = {
+    id = russia.30
+    title = russia.30.t
+    desc = russia.30.d
+    picture = SOV_event_massacre
+    is_triggered_only = yes
+
+    option = {
+        name = russia.30.a
+        add_stability = -0.05
+
+    }
+}
+
+country_event = {
+    id = russia.31
+    title = russia.31.t
+    desc = russia.31.d
+    picture = SOV_kalinin_independence_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            KAL = {
+                transfer_state = 1
+                transfer_state = 18
+                transfer_state = 21
+            }
+        }
+
+    }
+
+    option = {
+        name = russia.31.a
+
+    }
+}
+
+country_event = {
+    id = russia.32
+    title = russia.32.t
+    desc = russia.32.d
+    picture = SOV_event_assassination
+    is_triggered_only = yes
+
+    option = {
+        name = russia.32.a
+        add_stability = -0.1
+    }
+
+    option = {
+        name = russia.32.b
+        add_stability = -0.25
+        custom_effect_tooltip = "russia.32._tooltip"
+    }
+}
+
+country_event = {
+    id = russia.33
+    title = russia.33.t
+    desc = russia.33.d
+    picture = SOV_event_assassination
+    is_triggered_only = yes
+
+    option = {
+        name = russia.33.a
+        add_stability = -0.05
+    }
+
+}
+
+country_event = {
+    id = russia.34
+    title = russia.34.t
+    desc = russia.34.d
+    picture = SOV_event_assassination
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            set_party_name = { ideology = libertarian long_name = SOV_social_democracy_2018_party_long name = SOV_social_democracy_2018_party }
+        }
+    }
+
+    option = {
+        name = russia.34.a
+        add_stability = -0.25
+    }
+
+}
+
+country_event = {
+    id = russia.35
+    title = russia.35.t
+    desc = russia.35.d
+    picture = SOV_event_constitition_vote
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.35.a
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                SOV_is_putin_ai = yes
+			}      
+		}
+        complete_national_focus = SOV_vote_no
+    }
+
+    option = {
+        name = russia.35.b
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                SOV_is_putin_dead_ai = yes
+			}      
+		}
+        complete_national_focus = SOV_vote_yes
+    }
+}
+
+country_event = {
+    id = russia.36
+    title = russia.36.t
+    desc = russia.36.d
+    picture = SOV_event_attaCK
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.36.a
+        add_popularity = {
+            ideology = moderate_communist
+            popularity = 0.05
+        }
+    }
+
+    option = {
+        name = russia.36.b
+        add_stability = -0.1
+        add_popularity = {
+            ideology = eastern_liberal
+            popularity = -0.05
+        }
+        hidden_effect = {
+            country_event = {
+                id = russia.37
+                days = 10
+            }
+        }
+    }
+}
+
+country_event = {
+    id = russia.37
+    title = russia.37.t
+    desc = russia.37.d
+    picture = SOV_event_aftermath
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.37.a
+        add_stability = -0.25
+        add_war_support = -0.25
+        add_popularity = {
+            ideology = moderate_communist
+            popularity = 0.25
+        }
+    }
+
+}
+
+
+country_event = {
+    id = russia.38
+    title = russia.38.t
+    desc = russia.38.d
+    picture = SOV_sanctions_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.38.a
+        add_stability = -0.05
+		if={
+			limit = { russia_rework_trigger = yes }
+			add_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		else={
+			add_ideas = SOV_western_sanctions
+		}
+        subtract_from_variable = { SOV.bonus_gdp = 400 }
+		add_to_variable = { ROOT.inflation_rate = 6 }
+		custom_effect_tooltip = russia.38.tt
+        every_state={
+			limit={
+				is_controlled_by = SOV
+			}
+			decrease_state_gdp_growth_by_5 = yes
+			subtract_from_variable = { THIS.state_gdp_per_capita = 1200 }
+		}
+		if = {
+			limit = { russia_rework_trigger = yes }
+			decrease_eastern_liberal_programming_by_10 = yes
+		}
+    }
+
+}
+
+
+country_event = {
+    id = russia.39
+    title = russia.39.t
+    desc = russia.39.d
+    picture = SOV_coup_start_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.39.a
+        add_stability = -0.05
+        add_political_power = 75
+    }
+
+}
+
+country_event = {
+    id = russia.40
+    title = russia.40.t
+    desc = russia.40.d
+    picture = SOV_coup_start_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.40.a
+        add_stability = -0.1
+        activate_mission = communist_coup_underway
+        hidden_effect = {
+            set_country_flag = coup_has_started
+        }
+    }
+
+}
+
+country_event = {
+    id = russia.41
+    title = russia.41.t
+    desc = russia.41.d
+    picture = SOV_coup_fail_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            set_politics = {
+                ruling_party = moderate_communist
+                elections_allowed = no
+            }
+
+            set_popularities = {
+	            eastern_conservative = 5
+                social_democracy = 5
+                socialist = 1
+                moderate_communist = 79
+                hardline_communist = 10
+            }
+
+
+        }
+    }
+
+
+    option = {
+        name = russia.41.a
+        custom_effect_tooltip = "russia.41.tt"
+        add_stability = 0.35
+    }
+
+}
+
+country_event = {
+    id = russia.42
+    title = russia.42.t
+    desc = russia.42.d
+    picture = SOV_coup_fail_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.42.a
+        add_stability = 0.085
+    }
+
+}
+
+country_event = {
+    id = russia.43
+    title = russia.43.t
+    desc = russia.43.d
+    picture = SOV_lit_invaded_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.43.a
+        SOV = {
+            create_wargoal = { type = annex_everything target = LIT }
+        }
+    }
+
+    
+    option = {
+        name = russia.43.b
+        SOV = {
+            annex_country = { target = LIT transfer_troops = no }
+        }
+    }
+
+
+}
+
+country_event = {
+    id = russia.46
+    title = russia.46.t
+    desc = russia.46.d
+    picture = SOV_document_event
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = SOV_Sobchak_signed_secret
+    }
+
+
+    option = {
+        name = russia.46.a
+        add_popularity = {
+            ideology = moderate_communist
+            popularity = 0.015
+        }
+        swap_ideas = { 
+            remove_idea = government_trade_unions   
+            add_idea = trade_syndicates   
+        }
+    }
+}
+
+country_event = {
+    id = russia.48
+    title = russia.48.t
+    desc = russia.48.d
+    picture = SOV_sochi_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.48.a
+        add_stability = 0.01
+        add_war_support = -0.08
+        add_political_power = 25
+        256 = {
+            increase_state_gdp_growth_by_1_5 = yes
+        }
+    }
+}
+
+country_event = {
+    id = russia.49
+    title = russia.49.t
+    desc = russia.49.d
+    picture = SOV_assasination_fail_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.49.a
+        add_stability = -0.01
+        add_political_power = -50
+        add_war_support = 0.01
+        add_popularity = {
+            ideology = military_junta 
+            popularity = 0.03
+        }
+        hidden_effect = {
+            country_event = { id = russia.50 days = 28 }
+        }
+    }
+}
+
+country_event = {
+    id = russia.50
+    title = russia.50.t
+    desc = russia.50.d
+    picture = SOV_putin_dead_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            set_country_flag = SOV_Putin_alive
+            create_country_leader = {
+                name = "The Federation Council"
+                desc = ""
+                picture = gfx/leaders/SOV/Portait_The_Federation_Council.png
+                ideology = united_russia_subideology
+                traits = { SOV_interim_stabilizer }
+            }
+            remove_ideas = SOV_russia_today
+            remove_ideas = SOV_united_russia
+
+            set_party_name = { ideology = eastern_conservative long_name = SOV_temp_party_long name = SOV_temp_party }
+            news_event = { hours = 1 id = atd_news.11 }
+
+            
+        }
+    }
+
+
+    option = {
+        name = russia.50.a 
+        hidden_effect = {
+            load_focus_tree = russia_after_putins_death
+
+            country_event = {
+				id = russia.79 days = 11
+			}
+
+            country_event = {
+				id = russia.80 days = 15
+			}
+        }    
+    }
+}
+
+country_event = {
+    id = russia.51
+    title = russia.51.t
+    desc = russia.51.d
+    picture = SOV_crimean_bridge_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.51.a
+       
+    }
+}
+
+country_event = {
+    id = russia.52
+    title = russia.52.t
+    desc = russia.52.d
+    picture = SOV_jumbo_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.52.a
+        set_country_flag = SOV_jumbo_unlocked
+        recruit_character = SOV_jumbo
+    }
+}
+
+country_event = {
+    id = russia.53
+    title = russia.53.t
+    desc = russia.53.d
+    picture = SOV_sochi_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.53.a
+    }
+}
+
+country_event = {
+    id = russia.54
+    title = russia.54.t
+    desc = russia.54.d
+    picture = SOV_sochi_oops_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.54.a
+    }
+}
+
+country_event = {
+    id = russia.55
+    title = russia.55.t
+    desc = russia.55.d
+    picture = SOV_prix_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.55.a
+    }
+}
+
+country_event = {
+    id = russia.56
+    title = russia.56.t
+    desc = russia.56.d
+    picture = SOV_syria_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.56.a
+    }
+}
+
+country_event = {
+    id = russia.57
+    title = russia.57.t
+    desc = russia.57.d
+    picture = SOV_akhmat_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.57.a
+    }
+}
+
+country_event = {
+    id = russia.59
+    title = russia.59.t
+    desc = russia.59.d
+    picture = SOV_zaryadie_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.59.a
+        add_stability = 0.02
+        add_war_support = -0.03
+    }
+}
+
+country_event = {
+    id = russia.60
+    title = russia.60.t
+    desc = russia.60.d
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.60.a
+        ai_chance = {base = 0}
+       
+        retire_character = SOV_sergey_shoygu
+        retire_character = SOV_valery_gerasimov
+        retire_character = SOV_yevgeny_valeryevich_nikiforov
+        retire_character = SOV_sergey_yurvevich_kuzovlev
+        retire_character = SOV_rustam_usmanovich_muradov
+		swap_ideas={
+			remove_idea = SOV_the_eastern_yoke
+			add_idea = SOV_the_eastern_yoke_improved
+		}
+        add_timed_idea = { idea = SOV_reorganizing_the_military  days = 365 }
+		add_political_power = -150
+        hidden_effect = {
+            set_country_flag = SOV_military_reformed
+        }
+    }
+
+    option = {
+        ai_chance = {
+            base = 10
+            modifier = {
+                factor = 1
+                SOV_is_putin_ai = yes
+            }
+        }
+        name = russia.60.b
+        add_stability = 0.05
+        add_war_support = 0.03
+        add_ideas = SOV_corrupt_military
+
+    }
+}
+
+country_event = {
+    id = russia.61
+    title = russia.61.t
+    desc = russia.61.d
+    picture = SOV_great_fast_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            country_event = { id = russia.61 days = 365 }
+        }
+       
+    }
+
+    option = {
+        name = russia.61.a
+        add_timed_idea = { idea = SOV_great_fast_idea days = 40 }
+    }
+}
+
+country_event = {
+    id = russia.62
+    title = russia.62.t
+    desc = russia.62.d
+    picture = SOV_victory_day_event
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            country_event = { id = russia.62 days = 365 }
+        }
+       
+    }
+
+    option = {
+        name = russia.62.a
+        
+    }
+}
+
+country_event = {
+    id = russia.63
+    title = russia.63.t
+    desc = russia.63.d
+    picture = SOV_medvedev_event 
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            country_event = { id = russia.63 days = 366 }
+        }
+       
+    }
+
+    option = {
+        ai_chance = {
+            base = 0
+        }
+        name = russia.63.a
+        add_stability = -0.02
+        add_political_power = -100
+    }
+
+    option = {
+        ai_chance = {
+            base = 10
+            modifier = {
+                factor = 1
+                SOV_is_putin_ai = yes
+            }
+        }
+        name = russia.63.b
+        add_political_power = 15
+        deactivate_advisor = SOV_dmitry_medvedev
+        activate_advisor = SOV_mikhail_mishustin
+    }
+}
+
+
+country_event = {
+    id = russia.64
+    title = russia.64.t
+    desc = russia.64.d
+    picture = SOV_rysskie_party_outlawed_event 
+    is_triggered_only = yes
+
+    option = {
+        name = russia.64.a
+        add_popularity = {
+            ideology = fascist
+            popularity = -0.05
+        }
+        set_party_name = { ideology = fascist long_name = SOV_new_fascist_party_long name = SOV_new_fascist_party }
+        create_country_leader = {
+            name = "Vladimir Khomyakov"
+            desc = ""
+            picture = gfx/leaders/SOV/Portait_Vladimir_Khomyakov.png
+            ideology = generic_fascist
+        }
+    }
+}
+
+country_event = {
+    id = russia.65
+    title = russia.65.t
+    desc = russia.65.d
+    picture = SOV_meeting_trz_event 
+    is_triggered_only = yes
+
+    option = {
+        name = russia.65.a
+        add_political_power = 50
+        TRZ = {
+            add_stability = -0.05
+        }
+    }
+
+    option = {
+        name = russia.65.b
+        trigger = {
+            is_ai = no
+        }
+
+        
+        give_guarantee = TRZ
+        add_political_power = -75
+    }
+}
+
+country_event = {
+    id = russia.66
+    title = russia.66.t
+    desc = russia.66.d
+    picture = SOV_trz_rus_troops_withdraws_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.66.a
+        add_war_support = 0.05
+        add_political_power = -10
+    }
+}
+
+#Leader of Ukraine?
+country_event = {
+    id = russia.67
+    title = russia.67.t
+    desc = russia.67.desc
+    picture =  SOV_new_leader_of_ulr_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.67.a
+		ai_chance = {
+			base = 10
+		}
+        every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Yanukovych"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png
+				traits = { twice_removed_twice_returned }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+		}
+    }
+	
+	 option = {
+        name = russia.67.b
+		ai_chance = {
+			base = 10
+		}
+        every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Yanukovych"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png
+				traits = { twice_removed_twice_returned }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+			change_tag_from = ROOT 
+		}
+    }
+	
+	option = {
+        name = russia.67.c
+        ai_chance = {
+			base = 10
+		}
+		trigger = { NOT = { has_global_flag = medvedchuck_is_dead } }
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Medvedchuck"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Medvedchuck.png
+				traits = { putin_loyalist }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+		}
+    }
+	
+	option = {
+        name = russia.67.d
+        ai_chance = {
+			base = 10
+		}
+		trigger = { NOT = { has_global_flag = medvedchuck_is_dead } }
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Medvedchuck"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Medvedchuck.png
+				traits = { putin_loyalist }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+			change_tag_from = ROOT 
+		}
+    }
+	
+	option = {
+        name = russia.67.e
+		ai_chance = {
+			base = 0
+		}
+        trigger={
+			WAG = { 
+				exists = yes
+				has_country_leader = {
+					name = "Yevgeny Prigozhin"
+					ruling_only = yes
+				}
+			} 
+		}
+		
+		WAG = { country_event = { id = russia.68 hours = 3 } }
+    }
+}
+
+#Accept offer?
+country_event = {
+    id = russia.68
+    title = russia.68.t
+    desc = russia.68.d
+    picture = SOV_wagner_leader_ukraine_event
+    is_triggered_only = yes
+
+    option = {	#Yes
+        name = russia.68.a
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = SOV
+					is_in_faction_with = SOV
+				}
+			}
+			change_tag_from = ROOT
+		}
+		SOV = { country_event = { id = russia.69 hours = 3 } }
+    }
+	
+	option = {	#No
+        name = russia.68.b
+		ai_chance = {
+			base = 0
+		}
+		
+		SOV = { country_event = { id = russia.70 hours = 3 } }
+    }
+}
+
+#Wagner accepts
+country_event = {
+    id = russia.69
+    title = russia.69.t
+    desc = russia.69.d
+    picture = SOV_wagner_accepts_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.69.a
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = SOV
+					is_in_faction_with = SOV
+				}
+			}
+			set_politics = {
+				ruling_party = military_junta
+			}
+			add_popularity = {
+				ideology = military_junta 
+				popularity = 0.5
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Yevgeny Prigozhin"
+				desc = ""
+				ideology = wagner_ideology
+				picture = gfx/leaders/WAG/Portrait_dmitry_utkin.png
+				traits = { the_butcher }
+			}
+			set_party_name = { ideology = military_junta long_name = WAG_military_junta_party_long name = WAG_military_junta_party }
+			load_russian_occupation = yes
+			remove_cores = yes
+		}
+		every_state={
+			limit = { is_owned_and_controlled_by = WAG }
+			SOV = { transfer_state = PREV }
+			add_core_of = SOV
+		}
+    }
+	
+	option = {
+        name = russia.69.b
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = SOV
+					is_in_faction_with = SOV
+				}
+			}
+			
+			set_politics = {
+				ruling_party = military_junta
+			}
+			add_popularity = {
+				ideology = military_junta 
+				popularity = 0.5
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Yevgeny Prigozhin"
+				desc = ""
+				ideology = wagner_ideology
+				picture = gfx/leaders/WAG/Portrait_dmitry_utkin.png
+				traits = { the_butcher }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+			change_tag_from = ROOT 
+		}
+		every_state={
+			limit = { is_owned_and_controlled_by = WAG }
+			SOV = { transfer_state = PREV }
+			add_core_of = SOV
+		}
+    }
+}
+
+#Wagner says no
+country_event = {
+    id = russia.70
+    title = russia.70.t
+    desc = russia.70.desc
+    picture = SOV_wagner_declines_event 
+    is_triggered_only = yes
+
+    option = {
+        name = russia.70.a
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Yanukovych"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png
+				traits = { twice_removed_twice_returned }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+		}
+    }
+	
+	option = {
+        name = russia.70.b
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Yanukovych"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png
+				traits = { twice_removed_twice_returned }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+			change_tag_from = ROOT 
+		}
+    }
+	
+	option = {
+        name = russia.70.c
+        ai_chance = {
+			base = 10
+		}
+		trigger = { NOT = { has_global_flag = medvedchuck_is_dead } }
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Medvedchuck"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Medvedchuck.png
+				traits = { putin_loyalist }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+		}
+    }
+	
+	option = {
+        name = russia.70.d
+        ai_chance = {
+			base = 10
+		}
+		trigger = { NOT = { has_global_flag = medvedchuck_is_dead } }
+		every_country_with_original_tag = {
+			original_tag_to_check = UKR
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Viktor Medvedchuck"
+				desc = ""
+				ideology = party_of_regions_subideology
+				picture = gfx/leaders/UKR/Portrait_Viktor_Medvedchuck.png
+				traits = { putin_loyalist }
+			}
+			load_russian_occupation = yes
+			remove_cores = yes
+			change_tag_from = ROOT 
+		}
+    }
+}
+
+#Leader of Novorossiya?
+country_event = {
+    id = russia.71
+    title = russia.71.t
+    desc = russia.71.d
+    picture = SOV_leader_novorossyia_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.71.a
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = NOV
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Igor Gerkin"
+				desc = ""
+				ideology = donetsk_party
+				picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
+				traits = { retired_fsb_agent }
+			}
+			hidden_effect = { set_cosmetic_tag = NOV_russian_puppet }
+		}
+		hidden_effect = { country_event = { id = russia.72 days = 14 } }
+    }
+	
+	option = {
+        name = russia.71.b
+        ai_chance = {
+			base = 10
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = NOV
+			limit={
+				OR={
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			set_politics = {
+				ruling_party = eastern_conservative
+			}
+			hidden_effect = { kill_country_leader = yes }
+			create_country_leader = {
+				name = "Oleg Tsarev"
+				desc = ""
+				ideology = donetsk_party
+				picture = gfx/leaders/DON/Portrait_Oleg_Zarev.png
+				traits = { the_collaborator }
+			}
+			hidden_effect = { set_cosmetic_tag = NOV_russian_puppet }
+		}
+		hidden_effect = { country_event = { id = russia.72 days = 14 } }
+    }
+}
+
+#Novorossiya referendum to be held
+country_event = {
+    id = russia.72
+    title = russia.72.t
+    desc = russia.72.d
+    picture = SOV_novorossiya_referendum_event  
+    is_triggered_only = yes
+
+    option = {
+        name = russia.72.a
+        ai_chance = {
+			base = 10
+		}
+		add_political_power = 50
+		hidden_effect = { country_event = { id = russia.73 days = 3 } }
+    }
+}
+
+
+#Novorossiya annexed
+country_event = {
+    id = russia.73
+    title = russia.73.t
+    desc = russia.73.d
+    picture = SOV_novorossiya_annexed_event 
+    is_triggered_only = yes
+
+    option = {
+        name = russia.73.a
+        ai_chance = {
+			base = 10
+		}
+		annex_country = {
+			target = NOV
+			transfer_troops = yes
+		}
+		every_state={
+			limit={
+				OR={
+					is_core_of = NOV
+					is_claimed_by = NOV
+				}
+			}
+			add_claim_by = ROOT
+		}
+    }
+}
+
+#Russian Occupied Ukraine meets with russian officials
+country_event = {
+    id = russia.74
+    title = russia.74.t
+    desc = russia.74.d
+    picture = SOV_ukraine_meeting_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.74.a
+		ai_chance = {
+			base = 10
+		}
+        UKR = {
+            country_event = { days = 2 id = russia.75 }
+        }
+
+    }
+
+    option = {
+        name = russia.74.b
+		ai_chance = {
+			base = 0
+		}
+
+        UKR = {
+            country_event = { days = 2 id = russia.76 }
+        }
+    }
+}
+
+#Russian Occupied Ukraine gets integrated
+country_event = {
+    id = russia.75
+    title = russia.75.t
+    desc = russia.75.d
+    picture = SOV_ukraine_meeting_event 
+    is_triggered_only = yes
+
+    immediate = {
+        complete_national_focus = ROU_one_people_one_country
+    }
+
+    option = {
+        name = russia.75.a
+        SOV = {
+            annex_country = {
+                target = ROOT
+                transfer_troops = yes
+            }
+        }
+    }
+}
+
+#Russian Occupied Ukraine join CSTO
+country_event = {
+    id = russia.76
+    title = russia.76.t
+    desc = russia.76.d
+    picture = SOV_ukraine_meeting_event 
+    is_triggered_only = yes
+
+    immediate = {
+        complete_national_focus = ROU_csto_membership_application
+    }
+
+    option = {
+        name = russia.76.a
+        SOV = {
+            add_to_faction = ROOT
+        }
+    }
+}
+
+country_event = {
+    id = russia.77
+    title = russia.77.t
+    desc = russia.77.d
+    picture = SOV_peace_meeting_event 
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.77.a
+        custom_effect_tooltip = "russia.77.a_tt"
+        hidden_effect = {
+            UKR = {
+                country_event = { id = russia.78 days = 1 }
+            }
+        }
+    }
+}
+
+
+# UKRAINE PEACE NEGOTIATIONS
+country_event = {
+    id = russia.78
+    title = russia.78.t
+    desc = russia.78.d
+    picture = SOV_peace_meeting_event 
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.78.a
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                NOT = {
+                    is_historical_focus_on = yes
+                }
+
+			}
+		}
+
+        
+        add_stability = -0.02
+        add_war_support = 0.02
+
+        custom_effect_tooltip = "russia.78.a_tt"
+
+        hidden_effect = {
+            SOV = {
+                complete_national_focus = SOV_stoneheaded_fools
+            }
+           
+        }
+    }
+
+    option = {
+        name = russia.78.b
+        ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+                is_historical_focus_on = yes
+
+			}
+		}
+
+        add_stability = -0.05
+        add_war_support = 0.05
+        add_political_power = 50
+
+        UKR = {
+            white_peace = SOV
+        }
+
+        hidden_effect = {
+            SOV = {
+                complete_national_focus = SOV_great_victors
+            }
+           
+        }
+    }
+}
+
+news_event = {
+    id = russia.81
+    title = russia.81.t
+    desc = russia.81.d
+    #picture =   
+    is_triggered_only = yes
+    major = yes
+
+
+    option = {
+        name = russia.81.a
+        trigger = {
+            NOT = { tag = SOV }
+        }
+
+    }
+
+    option = {
+        name = russia.81.b
+        trigger = {
+            tag = SOV 
+        }
+        
+    }
+}
+
+news_event = {
+    id = russia.82
+    title = russia.82.t
+    desc = russia.82.d
+    #picture =      
+    is_triggered_only = yes
+    major = yes
+
+
+
+    option = {
+        name = russia.82.a
+        trigger = {
+            NOT = { tag = SOV }
+        }
+
+    }
+
+    option = {
+        name = russia.82.b
+        trigger = {
+            tag = SOV 
+        }
+        
+    }
+}
+
+news_event = {
+    id = russia.83
+    title = russia.83.t
+    desc = russia.83.d
+    #picture =      
+    is_triggered_only = yes
+    major = yes
+
+    immediate = {
+        hidden_effect = {
+            NOA = {
+                complete_national_focus = NOA_2008_all_over_again
+            }
+        }
+
+    }
+
+
+    option = {
+        name = russia.83.a
+        trigger = {
+            NOT = { tag = SOV }
+        }
+
+    }
+
+    option = {
+        name = russia.83.b
+        trigger = {
+            tag = SOV 
+        }
+        
+    }
+}
+
+#Russian Volunteer Corps
+country_event = {
+    id = russia.84
+    title = russia.84.t
+    desc = russia.84.d
+    #picture =  
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+
+                create_country_leader = {
+                    name = "Denis Kapustin"
+                    picture = gfx/leaders/OTHER/Portrait_RVC_Denis_Kapustin.png
+                    ideology = generic_fascist
+                }
+
+                set_politics = {
+                    ruling_party = fascist
+                }
+
+                set_popularities = {
+                    fascist = 100
+                }
+    
+                set_cosmetic_tag = RVC
+    
+                add_ideas = ANY_paramilitary
+    
+                66 = { set_state_owner_to = RVC }
+                39 = { set_state_owner_to = RVC }
+
+                set_province_controller = 11526
+                set_province_controller = 10381
+                set_province_controller = 11638
+                set_province_controller = 10571
+                set_province_controller = 16946
+
+                39 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = RVC
+                        count = 4
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                66 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = RVC
+                        count = 4
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                declare_war_on = {
+                    target = SOV
+                    type = annex_everything
+                }
+
+
+            }
+        }
+
+    }
+
+
+    option = {
+        name = russia.84.a
+
+    }
+}
+
+
+#National Republican Army
+country_event = {
+    id = russia.85
+    title = russia.85.t
+    desc = russia.85.d
+    #picture =  
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+
+                set_politics = {
+                    ruling_party = eastern_liberal
+                }
+
+                set_popularities = {
+                    eastern_liberal = 100
+                }
+    
+    
+                set_cosmetic_tag = NRA
+    
+                add_ideas = ANY_paramilitary
+    
+                430 = { set_state_owner_to = NRA }
+                66 = { set_state_owner_to = NRA }
+                52 = { set_state_owner_to = NRA }
+
+                set_province_controller = 2548
+                set_province_controller = 8135
+                set_province_controller = 8578
+                set_province_controller = 8389
+                set_province_controller = 620
+
+                430 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = NRA
+                        count = 3
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                66 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = NRA
+                        count = 3
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                52 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = NRA
+                        count = 2
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                declare_war_on = {
+                    target = SOV
+                    type = annex_everything
+                }
+
+
+            }
+
+            
+        }
+
+    }
+
+
+    option = {
+        name = russia.85.a
+
+    }
+}
+
+
+#Freedom of Russia Legion
+country_event = {
+    id = russia.86
+    title = russia.86.t
+    desc = russia.86.d
+    #picture =  
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+
+                set_politics = {
+                    ruling_party = eastern_liberal
+                }
+
+                set_popularities = {
+                    eastern_liberal = 100
+                }
+    
+    
+                set_cosmetic_tag = FRL
+    
+                add_ideas = ANY_paramilitary
+    
+                50 = { set_state_owner_to = FRL }
+                430 = { set_state_owner_to = FRL }
+                39 = { set_state_owner_to = FRL }
+
+                set_province_controller = 10460
+                set_province_controller = 14018
+                set_province_controller = 12442
+                set_province_controller = 3098
+                set_province_controller = 9071
+
+                50 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = FRL
+                        count = 3
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                430 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = FRL
+                        count = 4
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                39 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = FRL
+                        count = 2
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                declare_war_on = {
+                    target = SOV
+                    type = annex_everything
+                }
+
+
+            }
+
+            
+        }
+
+    }
+
+
+    option = {
+        name = russia.86.a
+
+    }
+}
+
+
+#Russian Insurgent Army
+country_event = {
+    id = russia.87
+    title = russia.87.t
+    desc = russia.87.d
+    #picture =  
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+
+                set_politics = {
+                    ruling_party = fascist
+                }
+
+                set_popularities = {
+                    fascist = 100
+                }
+    
+    
+                set_cosmetic_tag = RIA
+    
+                add_ideas = ANY_paramilitary
+    
+                88 = { set_state_owner_to = RIA }
+
+                set_province_controller = 10150
+                set_province_controller = 6861
+                set_province_controller = 4459
+
+                88 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = RIA
+                        count = 5
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+
+
+                declare_war_on = {
+                    target = SOV
+                    type = annex_everything
+                }
+
+
+            }
+
+            
+        }
+
+    }
+
+
+    option = {
+        name = russia.87.a
+
+    }
+}
+
+country_event = {
+    id = russia.88
+    title = russia.88.t
+    desc = russia.88.d
+    picture = SOV_belarus_to_kiev_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.88.a
+        ai_chance = {
+			base = 10
+		}
+
+        ROOT = {
+            transfer_state = 434
+            add_state_claim = 434
+        }
+
+        BLR = {
+            add_stability = -0.05
+            add_war_support = 0.01
+            add_political_power = -20
+            add_opinion_modifier = { target = ROOT modifier = small_increase }
+        }
+
+
+
+    }
+
+    option = {
+        name = russia.88.b
+        ai_chance = {
+			base = 0
+		}
+
+        add_stability = 0.02
+        add_war_support = -0.005
+        BLR = {
+            add_political_power = 50
+        }
+    }
+}
+
+country_event = {
+    id = russia.89
+    title = russia.89.t
+    desc = russia.89.desc
+    picture = SOV_xi_arrives
+    is_triggered_only = yes
+
+    option = {
+        name = russia.89.a
+        ai_chance = {
+			base = 10
+		}
+
+       add_political_power = 5
+    }
+}
+
+country_event = {
+    id = russia.90
+    title = russia.90.t
+    desc = russia.90.desc
+    picture = SOV_mbs_arrives
+    is_triggered_only = yes
+
+    option = {
+        name = russia.90.a
+        ai_chance = {
+			base = 10
+		}
+
+       add_political_power = 5
+    }
+}
+
+country_event = {
+    id = russia.91
+    title = russia.91.t
+    desc = russia.91.desc
+    picture = SOV_lukashenko_arrives
+    is_triggered_only = yes
+
+    option = {
+        name = russia.91.a
+        ai_chance = {
+			base = 10
+		}
+
+       add_political_power = 5
+    }
+}
+
+country_event = {
+    id = russia.92
+    title = russia.92.t
+    desc = russia.92.desc
+    picture = SOV_putin_dead_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.92.a
+        ai_chance = {
+			base = 0
+		}
+		add_popularity = {
+			ideology = eastern_conservative
+			popularity = 0.04
+		}
+    }
+	
+	option = {
+        name = russia.92.b
+        ai_chance = {
+			base = 0
+		}
+		add_popularity = {
+			ideology = theocracy_ideology
+			popularity = 0.04
+		}
+    }
+	
+	option = {
+        name = russia.92.c
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = {
+			ideology = absolute_monarchy_ideology
+			popularity = 0.04
+		}
+		hidden_effect = { country_event = { id = russia.93 days = 3 } }
+    }
+	
+	option = {
+        name = russia.92.d
+        ai_chance = {
+			base = 0
+		}
+		add_stability = 0.02
+    }
+}
+
+country_event = {
+    id = russia.93
+    title = russia.93.t
+    desc = russia.93.desc
+    picture = SOV_putin_dead_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.93.a
+        ai_chance = {
+			base = 0
+		}
+    }
+	
+	option = {
+        name = russia.93.b
+        ai_chance = {
+			base = 10
+		}
+		set_country_flag = open_casket_funeral
+    }
+}
+
+country_event = {
+    id = russia.94
+    title = russia.94.t
+    desc = russia.94.desc
+    picture = SOV_putin_missing
+    is_triggered_only = yes
+
+    option = {
+        name = russia.94.a
+        ai_chance = {
+			base = 10
+		}
+		add_stability = -0.2
+		add_political_power = -100
+		hidden_effect={
+			country_event = { id = russia.95 hours = 17 }
+		}	
+    }
+}
+
+country_event = {
+    id = russia.95
+    title = russia.95.t
+    desc = russia.95.desc
+    picture = GFX_report_event_BLR_lukashenko
+    is_triggered_only = yes
+
+    option = {
+        name = russia.95.a
+        ai_chance = {
+			base = 10
+		}
+		annex_country = { target = BLR transfer_troops = yes }
+		every_state={
+			limit= { is_core_of = BLR }
+			add_core_of = ROOT
+		}
+		set_politics = {
+			ruling_party = absolute_monarchy_ideology
+		}
+		create_country_leader = {
+			name = "Alexander Lukashenko"
+			desc = ""
+			ideology = generic_absolute_monarchy
+			picture = gfx/leaders/BLR/Portrait_Alexander_Lukashenko_regent.png
+			traits = { }
+		}
+		set_party_name = { ideology = absolute_monarchy_ideology long_name = SOV_regency_party_long name = SOV_regency_party }
+    }
+	
+	option = {
+        name = russia.95.b
+        ai_chance = {
+			base = 0
+		}
+		
+    }
+}
+
+country_event = {
+    id = russia.96
+    title = russia.96.t
+    desc = russia.96.desc
+    #picture = 
+    is_triggered_only = yes
+
+    option = {
+        name = russia.96.a
+        ai_chance = {
+			base = 25
+		}
+        SOV = {
+            puppet = ABK
+        }
+
+        hidden_effect = {
+            GEO = {
+                declare_war_on = {
+                    target = ABK
+                    type = annex_everything
+                }
+            }
+        }
+      
+    }
+
+    option = {
+        name = russia.96.b
+        ai_chance = {
+			base = 10
+		}
+    }
+}
+
+country_event = {
+    id = russia_referendums.1 #Donetsk Referendums Succeed
+    title = russia_referendums.1.t
+    desc = russia_referendums.1.desc
+    #picture = 
+    is_triggered_only = yes
+
+    option = {
+        name = russia_referendums.1.a
+        ai_chance = {
+			base = 10
+		}
+
+
+        every_state = {
+            limit = { 
+                AND = {
+                    has_state_flag = donetsk_oblast_flag 
+                    is_fully_controlled_by = SOV
+
+                    NOT = {
+                        is_core_of = SOV
+                    }
+                }
+                
+            }
+
+            add_core_of = SOV
+        }
+    }
+}
+
+
+country_event = {
+    id = russia_referendums.2 #Donetsk Referendums Fails
+    title = russia_referendums.2.t
+    desc = russia_referendums.2.desc
+    #picture = 
+    is_triggered_only = yes
+
+    option = {
+        name = russia_referendums.2.a
+        ai_chance = {
+			base = 20
+		}
+
+
+        every_state = {
+            limit = { 
+                AND = {
+                    has_state_flag = donetsk_oblast_flag 
+                    is_fully_controlled_by = SOV
+
+                    NOT = {
+                        is_core_of = SOV
+                    }
+                }
+                
+            }
+
+            add_resistance = 20
+        }
+    }
+}
+
+country_event = {
+    id = russia_referendums.3 #Zaporizhia Referendums Succeed
+    title = russia_referendums.3.t
+    desc = russia_referendums.3.desc
+    #picture = 
+    is_triggered_only = yes
+
+    option = {
+        name = russia_referendums.3.a
+        ai_chance = {
+			base = 30
+		}
+
+
+        every_state = {
+            limit = { 
+                AND = {
+                    has_state_flag = zaporizhia_oblast_flag 
+                    is_fully_controlled_by = SOV
+
+                    NOT = {
+                        is_core_of = SOV
+                    }
+                }
+                
+            }
+
+            add_core_of = SOV
+        }
+    }
+}
+
+country_event = {
+    id = russia_referendums.4 #Zaporizhia Referendums Fails
+    title = russia_referendums.4.t
+    desc = russia_referendums.4.desc
+    #picture = 
+    is_triggered_only = yes
+
+    option = {
+        name = russia_referendums.4.a
+        ai_chance = {
+			base = 40
+		}
+
+
+        every_state = {
+            limit = { 
+                AND = {
+                    has_state_flag = zaporizhia_oblast_flag 
+                    is_fully_controlled_by = SOV
+
+                    NOT = {
+                        is_core_of = SOV
+                    }
+                }
+                
+            }
+
+            add_resistance = 40
+        }
+    }
+}
+
+#GENNADY MOBILIZES
+country_event = {
+    id = russia_civil_war.1
+    title = russia_civil_war.1.t
+    desc = russia_civil_war.1.desc
+    picture = SOV_cw_gennedy
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            set_global_flag = russian_civil_war_begun
+
+            set_cosmetic_tag = SOV_legitimate_government
+
+            spawn_zyuganov = yes
+        }
+    }
+
+
+    option = {
+        name = russia_civil_war.1.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.1.b
+		ai_chance = {
+			base = 0
+		}
+        
+        RFR = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#DUGIN
+country_event = {
+    id = russia_civil_war.2
+    title = russia_civil_war.2.t
+    desc = russia_civil_war.2.desc
+    picture = SOV_cw_dugin
+    is_triggered_only = yes
+
+    immediate = {
+        spawn_dugin = yes
+    }
+
+    option = {
+        name = russia_civil_war.2.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.2.b
+		ai_chance = {
+			base = 0
+		}
+        
+        SOE = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#Shoigu Flees
+country_event = {
+    id = russia_civil_war.3
+    title = russia_civil_war.3.t
+    desc = russia_civil_war.3.desc
+    picture = SOV_cw_shoigu
+    is_triggered_only = yes
+
+    immediate = {
+        spawn_shoigu = yes
+    }
+
+    option = {
+        name = russia_civil_war.3.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.3.b
+		ai_chance = {
+			base = 0
+		}
+        
+        RMJ = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#Volga Rise Up
+country_event = {
+    id = russia_civil_war.4
+    title = russia_civil_war.4.t
+    desc = russia_civil_war.4.desc
+    picture = SOV_cw_rogozin
+    is_triggered_only = yes
+
+    immediate = {
+        spawn_volga_warlords = yes
+    }
+
+    option = {
+        name = russia_civil_war.4.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.4.b
+		ai_chance = {
+			base = 0
+		}
+        
+        TSR = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.4.c
+		ai_chance = {
+			base = 0
+		}
+        
+        PFN = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.4.d
+		ai_chance = {
+			base = 0
+		}
+        
+        MSR = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.4.e
+		ai_chance = {
+			base = 0
+		}
+        
+        RCC = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#Central Russia Rise Up
+country_event = {
+    id = russia_civil_war.5
+    title = russia_civil_war.5.t
+    desc = russia_civil_war.5.desc
+    picture = SOV_cw_kirill
+    is_triggered_only = yes
+
+    immediate = {
+        spawn_central_russian_warlords = yes
+    }
+
+    option = {
+        name = russia_civil_war.5.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.5.b
+		ai_chance = {
+			base = 0
+		}
+        
+        RSE = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.5.c
+		ai_chance = {
+			base = 0
+		}
+        
+        RNS = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.5.d
+		ai_chance = {
+			base = 0
+		}
+        
+        RSS = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.5.e
+		ai_chance = {
+			base = 0
+		}
+        
+        RSR = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.5.f
+		ai_chance = {
+			base = 0
+		}
+        
+        UCR = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.5.g
+		ai_chance = {
+			base = 0
+		}
+        
+        FSR = {
+            change_tag_from = ROOT
+        }
+    }
+    
+    option = {
+        name = russia_civil_war.5.g
+		ai_chance = {
+			base = 0
+		}
+        
+        RLC = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#South Russia Rise Up
+country_event = {
+    id = russia_civil_war.6
+    title = russia_civil_war.6.t
+    desc = russia_civil_war.6.desc
+    picture = SOV_cw_khodorkovsky
+    is_triggered_only = yes
+
+    immediate = {
+        spawn_south_russia_warlords = yes
+    }
+
+    option = {
+        name = russia_civil_war.6.a
+		ai_chance = {
+			base = 10
+		}
+		
+    }
+
+    option = {
+        name = russia_civil_war.6.b
+		ai_chance = {
+			base = 0
+		}
+        
+        RTF = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.6.c
+		ai_chance = {
+			base = 0
+		}
+        
+        RRE = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.6.d
+		ai_chance = {
+			base = 0
+		}
+        
+        HYF = {
+            change_tag_from = ROOT
+        }
+    }
+
+    option = {
+        name = russia_civil_war.6.e
+		ai_chance = {
+			base = 0
+		}
+        
+        RSU = {
+            change_tag_from = ROOT
+        }
+    }
+
+    
+    option = {
+        name = russia_civil_war.6.f
+		ai_chance = {
+			base = 0
+		}
+        
+        AHO = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+#Eastern Anarchy
+country_event = {
+    id = russia_civil_war.7
+    title = russia_civil_war.7.t
+    desc = russia_civil_war.7.desc
+    picture = SOV_cw_volkov
+    is_triggered_only = yes
+
+    option = {
+        name = russia_civil_war.7.a
+		ai_chance = {
+			base = 10
+		}
+		
+        remove_ideas = SOV_wide_is_my_motherland
+    }
+}
+
+
+
+
+country_event = {
+    id = russia_civil_war_events.1
+    title = russia_civil_war_events.1.t
+    desc = russia_civil_war_events.1.desc
+    picture = GFX_report_event_SOV_donetsk_burned
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_civil_war_events.1.a
+		ai_chance = {
+			base = 10
+		}
+        complete_national_focus = SOV_vyacheslav_volodin
+    }
+    option = {
+        name = russia_civil_war_events.1.b
+		ai_chance = {
+			base = 50
+		}
+        complete_national_focus = SOV_dmitry_medvedev
+    }
+    option = {
+        name = russia_civil_war_events.1.c
+		ai_chance = {
+			base = 10
+		}
+        complete_national_focus = SOV_mikhail_mishustin
+    }
+}
+
+country_event = {
+    id = russia_civil_war_events.2
+    title = russia_civil_war_events.2.t
+    desc = russia_civil_war_events.2.desc
+    picture = SOV_samara_clashes
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = military_junta
+                }
+                add_popularity = {
+                    ideology = military_junta
+                    popularity = 1
+                }
+
+                set_party_name = {
+                    ideology = military_junta
+                    long_name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
+                    name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
+                }
+                set_cosmetic_tag = SOV_bortnikov
+                set_research_slots = 1
+
+                create_country_leader = {
+                    name = "Alexander Bortnikov"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portrait_Alexander_Bortnikov.png
+                    ideology = generic_military_junta
+                    traits = {  }
+                }
+
+                load_focus_tree = russian_civil_war_bortnikov
+
+                add_ideas = {
+                    extensive_conscription 
+                    authoritarian_democracy
+                    centrally_planned_economy 
+                    state_controlled_press
+                    unions_restricted
+                    bipolarist
+                    womens_rights_traditional_values
+                    lgbtq_rights_banned 
+                    minority_rights_minor_inequality
+                    religion_law_religious
+                    nationalism_laws_jingoistic
+                }
+
+                transfer_state  = 59
+
+                every_state={
+					limit={
+						is_controlled_by = FPR
+					}
+					teleport_armies = {
+						limit = {
+                            OR = {
+                                NOT = { tag = FPR }
+                            }
+							
+						}
+						to_state_array = owned_controlled_states
+					}
+				}
+
+                division_template = {
+                    name = "Russian Funded Militias"
+                    division_names_group = SOV_INF_01
+                    regiments = {
+                        irregular_infantry = { x = 0 y = 0 }
+                        irregular_infantry = { x = 0 y = 1 }
+                        irregular_infantry = { x = 0 y = 2 }
+                        irregular_infantry = { x = 0 y = 3 }
+                        irregular_infantry = { x = 1 y = 0 }
+                        irregular_infantry = { x = 1 y = 1 }
+                        artillery_brigade = { x = 2 y = 0 }		
+                    }
+                }
+                
+                for_loop_effect = {
+                    end = 24
+                    value = temp
+                    random_owned_controlled_state = {
+                        create_unit = {
+                            division = "name = \"Funded Militia\" division_template = \"Russian Funded Militias\" start_experience_factor = 0.1" 
+                            owner = FPR
+                        }
+                    }
+                }
+
+                declare_war_on = {
+                    target = RMJ
+                    type = civil_war
+                }
+                add_civil_war_target = RMJ
+
+            }
+
+            SOV = {
+                SOV_alexander_bortnikov  = { 
+                    set_nationality = FPR
+                }
+                SOV_alexander_bortnikov_rework  = { 
+                    set_nationality = FPR
+                }
+            }
+        }
+    }
+
+
+    option = {
+        name = russia_civil_war_events.2.a
+		ai_chance = {
+			base = 10
+		}
+        add_war_support = 0.05
+    }
+    option = {
+        name = russia_civil_war_events.2.b
+		ai_chance = {
+			base = 0
+		}
+        RMJ = {
+            change_tag_from = ROOT
+        }
+    }
+}
+
+country_event = {
+    id = russia_civil_war_events.3
+    title = russia_civil_war_events.3.t
+    desc = russia_civil_war_events.3.desc
+    picture = SOV_samara_clashes
+    is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+
+            create_dynamic_country = {
+                original_tag = SOV
+                set_politics = {
+                    ruling_party = military_junta
+                }
+                add_popularity = {
+                    ideology = military_junta
+                    popularity = 1
+                }
+
+                set_party_name = {
+                    ideology = military_junta
+                    long_name = "Federalnaya Sluzhba Voysk Natsionalnoy Gvardii Rossiyskoy Federatsii"
+                    name = "Rosgvardiya"
+                }
+                set_cosmetic_tag = SOV_zolotov
+                set_research_slots = 1
+
+                create_country_leader = {
+                    name = "Viktor Zolotov"
+                    desc = ""
+                    picture = gfx/leaders/SOV/Portrait_Viktor_Zolotov.png
+                    ideology = generic_military_junta
+                    traits = {  }
+                }
+
+                load_focus_tree = russian_civil_war_zolotov
+
+                add_ideas = {
+                    extensive_conscription 
+                    authoritarian_democracy
+                    centrally_planned_economy 
+                    state_controlled_press
+                    unions_restricted
+                    bipolarist
+                    womens_rights_traditional_values
+                    lgbtq_rights_banned 
+                    minority_rights_minor_inequality
+                    religion_law_religious
+                    nationalism_laws_jingoistic
+                }
+
+                transfer_state  = 42
+
+                every_state={
+					limit={
+						is_controlled_by = RGJ
+					}
+					teleport_armies = {
+						limit = {
+                            NOT = { tag = RGJ }
+							
+						}
+						to_state_array = owned_controlled_states
+					}
+				}
+
+                division_template = {
+                    name = "Russian National Guard"
+                    division_names_group = SOV_INF_01
+                    regiments = {
+                        irregular_infantry = { x = 0 y = 0 }
+                        irregular_infantry = { x = 0 y = 1 }
+                        irregular_infantry = { x = 0 y = 2 }
+                        irregular_infantry = { x = 0 y = 3 }
+                        irregular_infantry = { x = 1 y = 0 }
+                        irregular_infantry = { x = 1 y = 1 }
+                        artillery_brigade = { x = 2 y = 0 }		
+                    }
+                }
+                
+                for_loop_effect = {
+                    end = 13
+                    value = temp
+                    random_owned_controlled_state = {
+                        create_unit = {
+                            division = "name = \"National Guard\" division_template = \"Russian National Guard\" start_experience_factor = 0.09" 
+                            owner = RGJ
+                        }
+                    }
+                }
+
+                declare_war_on = {
+                    target = RMJ
+                    type = civil_war
+                }
+                add_civil_war_target = RMJ
+
+            }
+        }
+    }
+
+
+    option = {
+        name = russia_civil_war_events.3.a
+		ai_chance = {
+			base = 10
+		}
+        add_war_support = 0.05
+    }
+    option = {
+        name = russia_civil_war_events.3.b
+		ai_chance = {
+			base = 0
+		}
+        RGJ = {
+            change_tag_from = ROOT
+        }
+    }
+}

@@ -1,0 +1,42 @@
+CZE_directon={
+	
+	CZE_elections_ANO = {
+
+		icon = generic_form_nation
+		
+		days_mission_timeout = 365
+		activation = {
+		}
+
+        available = { 
+		AND = {
+		date > 2014.3.01
+		neoconservative > 0.3
+		}
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+		set_politics = {
+	  ruling_party = neoliberal
+      elections_allowed = yes
+      last_election = "2017.10.10"
+      election_frequency = 48
+}
+		}
+		
+		complete_effect={
+		set_politics = {
+	  ruling_party = neoconservative
+      elections_allowed = yes
+      last_election = "2017.10.10"
+      election_frequency = 48
+}
+	    }
+	}
+}

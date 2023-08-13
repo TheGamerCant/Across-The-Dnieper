@@ -1,0 +1,238 @@
+defined_text = {
+    name = get_military_spending_status
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.military_spending_factor value = 5 compare = equals }
+        }
+       localization_key = "military_spending_is_extreme"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.military_spending_factor value = 4 compare = equals }
+        }
+       localization_key = "military_spending_is_high"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.military_spending_factor value = 3 compare = equals }
+        }
+       localization_key = "military_spending_is_medium"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.military_spending_factor value = 2 compare = equals }
+        }
+       localization_key = "military_spending_is_low"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.military_spending_factor value = 1 compare = equals }
+        }
+       localization_key = "military_spending_is_minimal"
+    }
+}
+
+defined_text = {
+    name = get_intelligence_spending_status
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.intelligence_spending_factor value = 5 compare = equals }
+        }
+       localization_key = "intelligence_spending_is_extreme"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.intelligence_spending_factor value = 4 compare = equals }
+        }
+       localization_key = "intelligence_spending_is_high"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.intelligence_spending_factor value = 3 compare = equals }
+        }
+       localization_key = "intelligence_spending_is_medium"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.intelligence_spending_factor value = 2 compare = equals }
+        }
+       localization_key = "intelligence_spending_is_low"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.intelligence_spending_factor value = 1 compare = equals }
+        }
+       localization_key = "intelligence_spending_is_minimal"
+    }
+}
+
+
+defined_text = {
+    name = get_education_spending_status
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.education_spending_factor value = 5 compare = equals }
+        }
+       localization_key = "education_spending_is_extreme"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.education_spending_factor value = 4 compare = equals }
+        }
+       localization_key = "education_spending_is_high"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.education_spending_factor value = 3 compare = equals }
+        }
+       localization_key = "education_spending_is_medium"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.education_spending_factor value = 2 compare = equals }
+        }
+       localization_key = "education_spending_is_low"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.education_spending_factor value = 1 compare = equals }
+        }
+       localization_key = "education_spending_is_minimal"
+    }
+}
+
+
+defined_text = {
+    name = get_public_services_spending_status
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.public_services_spending_factor value = 5 compare = equals }
+        }
+       localization_key = "public_services_spending_is_extreme"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.public_services_spending_factor value = 4 compare = equals }
+        }
+       localization_key = "public_services_spending_is_high"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.public_services_spending_factor value = 3 compare = equals }
+        }
+       localization_key = "public_services_spending_is_medium"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.public_services_spending_factor value = 2 compare = equals }
+        }
+       localization_key = "public_services_spending_is_low"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { var = ROOT.public_services_spending_factor value = 1 compare = equals }
+        }
+       localization_key = "public_services_spending_is_minimal"
+    }
+}
+
+
+defined_text = {
+    name = inflation_has_enough_political_power
+	
+    text = {
+        trigger = {
+			has_political_power < var:ROOT.cost_to_change_inflation
+        }
+       localization_key = "R"
+    }
+	
+    text = {
+       localization_key = "Y"
+    }
+}
+
+defined_text = {
+    name = inflation_can_modify_inflation_rate
+	
+    text = {
+        trigger = {
+			NOT = { has_country_flag = cannot_modify_inflation_rate }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = inflation_has_recently_modified_inflation
+	
+    text = {
+        trigger = {
+			NOT = { has_country_flag = has_recently_modified_inflation_rate }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = is_erdogan_not_your_leader
+	
+    text = {
+        trigger = {
+			NOT = { has_country_leader = { name = "Recep Tayyip Erdoğan" ruling_only = yes } }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = inflation_good_or_bad
+	
+    text = {
+        trigger = {
+			OR={
+				check_variable = { var = ROOT.inflation_rate value = 7.5 compare = greater_than_or_equals }
+				check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
+				check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
+			}
+        }
+        localization_key = "R"
+    }
+	
+    text = {
+		localization_key = "G"
+    }
+}
+

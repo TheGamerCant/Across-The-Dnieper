@@ -1,0 +1,333 @@
+UKR_get_non_aligned_seats={
+	set_variable = { UKR_rada_non_aligned_seats = 450 }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_fatherland_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_party_of_regions_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_svoboda_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_udar_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_kpu_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_right_sector_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_economic_development_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_peoples_will_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_peoples_front_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_european_solidarity_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_servant_of_the_people_seats }
+	subtract_from_variable = { UKR_rada_non_aligned_seats = UKR_rada_opposition_bloc_seats }
+}
+
+UKR_clr_party_flags={
+	clr_country_flag = fatherland_in_opposition
+	clr_country_flag = fatherland_in_power
+	clr_country_flag = party_of_regions_in_opposition
+	clr_country_flag = party_of_regions_in_power
+	clr_country_flag = svoboda_in_opposition
+	clr_country_flag = svoboda_in_power
+	clr_country_flag = udar_in_opposition
+	clr_country_flag = udar_in_power
+	clr_country_flag = kpu_in_opposition
+	clr_country_flag = kpu_in_power
+	clr_country_flag = right_sector_in_opposition
+	clr_country_flag = right_sector_in_power
+	clr_country_flag = economic_development_in_opposition
+	clr_country_flag = economic_development_in_power
+	clr_country_flag = peoples_will_in_opposition
+	clr_country_flag = peoples_will_in_power
+	clr_country_flag = peoples_front_in_opposition
+	clr_country_flag = peoples_front_in_power
+	clr_country_flag = european_solidarity_in_opposition
+	clr_country_flag = european_solidarity_in_power
+	clr_country_flag = servant_of_the_people_in_opposition
+	clr_country_flag = servant_of_the_people_in_power
+	clr_country_flag = opposition_bloc_in_opposition
+	clr_country_flag = opposition_bloc_in_power
+}
+
+UKR_get_rada_seats={
+	set_temp_variable = { t1 = UKR_rada_fatherland_seats }
+	set_temp_variable = { t2 = UKR_rada_party_of_regions_seats }
+	set_temp_variable = { t3 = UKR_rada_svoboda_seats }
+	set_temp_variable = { t4 = UKR_rada_udar_seats }
+	set_temp_variable = { t5 = UKR_rada_kpu_seats }
+	set_temp_variable = { t6 = UKR_rada_right_sector_seats }
+	set_temp_variable = { t7 = UKR_rada_economic_development_seats }
+	set_temp_variable = { t8 = UKR_rada_peoples_will_seats }
+	set_temp_variable = { t9 = UKR_rada_peoples_front_seats }
+	set_temp_variable = { t10 = UKR_rada_european_solidarity_seats }
+	set_temp_variable = { t11 = UKR_rada_servant_of_the_people_seats }
+	set_temp_variable = { t12 = UKR_rada_opposition_bloc_seats }
+	set_temp_variable = { t13 = 450 }
+	
+	add_to_temp_variable = { t2 = t1 }
+	add_to_temp_variable = { t3 = t2 }
+	add_to_temp_variable = { t4 = t3 }
+	add_to_temp_variable = { t5 = t4 }
+	add_to_temp_variable = { t6 = t5 }
+	add_to_temp_variable = { t7 = t6 }
+	add_to_temp_variable = { t8 = t7 }
+	add_to_temp_variable = { t9 = t8 }
+	add_to_temp_variable = { t10 = t9 }
+	add_to_temp_variable = { t11 = t10 }
+	add_to_temp_variable = { t12 = t11 }
+	add_to_temp_variable = { t13 = t12 }
+
+
+	clear_array = rada_seat_frame
+
+	resize_array = {
+		array = rada_seat_frame
+		value = 1
+		size = t1
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 2
+		size = t2
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 3
+		size = t3
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 4
+		size = t4
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 5
+		size = t5
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 6
+		size = t6
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 7
+		size = t7
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 8
+		size = t8
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 9
+		size = t9
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 10
+		size = t10
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 11
+		size = t11
+	}
+	resize_array = {
+		array = rada_seat_frame
+		value = 12
+		size = t12
+	}	
+	resize_array = {
+		array = rada_seat_frame
+		value = 13
+		size = t13
+	}	
+}
+
+UKR_get_government_majority_status={
+	set_variable = { government_seats = 0 }
+	if={ limit = { has_country_flag = fatherland_in_power } add_to_variable = { government_seats = UKR_rada_fatherland_seats } }
+	if={ limit = { has_country_flag = party_of_regions_in_power } add_to_variable = { government_seats = UKR_rada_party_of_regions_seats } }
+	if={ limit = { has_country_flag = svoboda_in_power } add_to_variable = { government_seats = UKR_rada_svoboda_seats } }
+	if={ limit = { has_country_flag = udar_in_power } add_to_variable = { government_seats = UKR_rada_udar_seats } }
+	if={ limit = { has_country_flag = kpu_in_power } add_to_variable = { government_seats = UKR_rada_kpu_seats } }
+	if={ limit = { has_country_flag = right_sector_in_power } add_to_variable = { government_seats = UKR_rada_right_sector_seats } }
+	if={ limit = { has_country_flag = economic_development_in_power } add_to_variable = { government_seats = UKR_rada_economic_development_seats } }
+	if={ limit = { has_country_flag = peoples_will_in_power } add_to_variable = { government_seats = UKR_rada_peoples_will_seats } }
+	if={ limit = { has_country_flag = peoples_front_in_power } add_to_variable = { government_seats = UKR_rada_peoples_front_seats } }
+	if={ limit = { has_country_flag = european_solidarity_in_power } add_to_variable = { government_seats = UKR_rada_european_solidarity_seats } }
+	if={ limit = { has_country_flag = servant_of_the_people_in_power } add_to_variable = { government_seats = UKR_rada_servant_of_the_people_seats } }
+	if={ limit = { has_country_flag = opposition_bloc_in_power } add_to_variable = { government_seats = UKR_rada_opposition_bloc_seats } }
+}
+
+get_party_votes_for_the_bill={
+	set_variable = { votes_for_the_bill = 0 }
+	add_to_variable = { votes_for_the_bill = UKR_rada_fatherland_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_party_of_regions_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_svoboda_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_udar_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_kpu_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_right_sector_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_economic_development_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_peoples_will_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_peoples_front_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_european_solidarity_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_servant_of_the_people_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_opposition_bloc_votes }
+	add_to_variable = { votes_for_the_bill = UKR_rada_non_aligned_votes }
+	set_variable = { votes_against_the_bill = 450 }
+	subtract_from_variable = { votes_against_the_bill = votes_for_the_bill }
+	
+	set_variable = { UKR_rada_fatherland_votes_remaining = UKR_rada_fatherland_seats }
+	set_variable = { UKR_rada_party_of_regions_votes_remaining = UKR_rada_party_of_regions_seats }
+	set_variable = { UKR_rada_svoboda_votes_votes_remaining = UKR_rada_svoboda_seats }
+	set_variable = { UKR_rada_udar_votes_remaining = UKR_rada_udar_seats }
+	set_variable = { UKR_rada_kpu_votes_remaining = UKR_rada_kpu_seats }
+	set_variable = { UKR_rada_right_sector_votes_remaining = UKR_rada_right_sector_seats }
+	set_variable = { UKR_rada_economic_development_votes_remaining = UKR_rada_economic_development_seats }
+	set_variable = { UKR_rada_peoples_will_votes_remaining = UKR_rada_peoples_will_seats }
+	set_variable = { UKR_rada_peoples_front_votes_remaining = UKR_rada_peoples_front_seats }
+	set_variable = { UKR_rada_european_solidarity_votes_remaining = UKR_rada_european_solidarity_seats }
+	set_variable = { UKR_rada_servant_of_the_people_votes_remaining = UKR_rada_servant_of_the_people_seats }
+	set_variable = { UKR_rada_opposition_bloc_votes_remaining = UKR_rada_opposition_bloc_seats }
+	set_variable = { UKR_rada_non_aligned_votes_remaining = UKR_rada_UKR_rada_non_aligned_seats }
+	
+	subtract_from_variable = { UKR_rada_fatherland_votes_remaining = UKR_rada_fatherland_votes }
+	subtract_from_variable = { UKR_rada_party_of_regions_votes_remaining = UKR_rada_party_of_regions_votes }
+	subtract_from_variable = { UKR_rada_svoboda_votes_votes_remaining = UKR_rada_svoboda_votes }
+	subtract_from_variable = { UKR_rada_udar_votes_remaining = UKR_rada_udar_votes }
+	subtract_from_variable = { UKR_rada_kpu_votes_remaining = UKR_rada_kpu_votes }
+	subtract_from_variable = { UKR_rada_right_sector_votes_remaining = UKR_rada_right_sector_votes }
+	subtract_from_variable = { UKR_rada_economic_development_votes_remaining = UKR_rada_economic_development_votes }
+	subtract_from_variable = { UKR_rada_peoples_will_votes_remaining = UKR_rada_peoples_will_votes }
+	subtract_from_variable = { UKR_rada_peoples_front_votes_remaining = UKR_rada_peoples_front_votes }
+	subtract_from_variable = { UKR_rada_european_solidarity_votes_remaining = UKR_rada_european_solidarity_votes }
+	subtract_from_variable = { UKR_rada_servant_of_the_people_votes_remaining = UKR_rada_servant_of_the_people_votes }
+	subtract_from_variable = { UKR_rada_opposition_bloc_votes_remaining = UKR_rada_opposition_bloc_votes }
+	subtract_from_variable = { UKR_rada_non_aligned_votes_remaining = UKR_rada_non_aligned_votes }
+}
+
+get_party_votes_for_anti_protest_laws={
+	set_variable = { UKR_rada_fatherland_votes = 0 }
+	set_variable = { UKR_rada_party_of_regions_votes = UKR_rada_party_of_regions_seats }
+	set_variable = { UKR_rada_svoboda_votes = 0 }
+	set_variable = { UKR_rada_udar_votes = 0 }
+	set_variable = { UKR_rada_kpu_votes = 30 }
+	set_variable = { UKR_rada_right_sector_votes = 0 }
+	set_variable = { UKR_rada_economic_development_votes = 0 }
+	set_variable = { UKR_rada_peoples_will_votes = 0 }
+	set_variable = { UKR_rada_peoples_front_votes = 0 }
+	set_variable = { UKR_rada_european_solidarity_votes = 0 }
+	set_variable = { UKR_rada_servant_of_the_people_votes = 0 }
+	set_variable = { UKR_rada_non_aligned_votes = 2 }
+}
+
+UKR_bill_is_minor={
+	set_variable = { UKR_required_votes = 226 }	
+	set_country_flag = there_is_legislation_in_the_rada
+	custom_effect_tooltip = UKR_put_legislation_to_the_rada_minor_tt
+}
+
+UKR_bill_is_major={
+	set_variable = { UKR_required_votes = 301 }	
+	set_country_flag = there_is_legislation_in_the_rada
+	custom_effect_tooltip = UKR_put_legislation_to_the_rada_major_tt
+	hidden_effect = {
+		if={		#Meant to simulate spending pp on decisions, but AI kinda sucks at is so i let the cheat :)
+			limit = { is_ai = yes }
+			add_political_power = -60
+		}
+	}
+}
+
+get_party_votes_ai={
+	set_variable = { UKR_rada_fatherland_votes = UKR_rada_fatherland_seats }
+	set_variable = { UKR_rada_party_of_regions_votes = UKR_rada_party_of_regions_seats }
+	set_variable = { UKR_rada_svoboda_votes = UKR_rada_svoboda_seats }
+	set_variable = { UKR_rada_udar_votes = UKR_rada_udar_seats }
+	set_variable = { UKR_rada_kpu_votes = UKR_rada_kpu_seats }
+	set_variable = { UKR_rada_right_sector_votes = UKR_rada_right_sector_seats }
+	set_variable = { UKR_rada_economic_development_votes = UKR_rada_economic_development_seats }
+	set_variable = { UKR_rada_peoples_will_votes = UKR_rada_peoples_will_seats }
+	set_variable = { UKR_rada_peoples_front_votes = UKR_rada_peoples_front_seats }
+	set_variable = { UKR_rada_european_solidarity_votes = UKR_rada_european_solidarity_seats }
+	set_variable = { UKR_rada_servant_of_the_people_votes = UKR_rada_servant_of_the_people_seats }
+	set_variable = { UKR_rada_opposition_bloc_votes = UKR_rada_opposition_bloc_seats }
+	set_variable = { UKR_rada_non_aligned_votes = UKR_rada_non_aligned_seats }
+}
+
+get_party_votes_player={
+	if={
+		limit={ has_country_flag = fatherland_in_power }
+		set_variable = { UKR_rada_fatherland_votes = UKR_rada_fatherland_seats }
+	}
+	else={ set_variable = { UKR_rada_fatherland_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = party_of_regions_in_power }
+		set_variable = { UKR_rada_party_of_regions_votes = UKR_rada_party_of_regions_seats }
+	}
+	else={ set_variable = { UKR_rada_party_of_regions_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = svoboda_in_power }
+		set_variable = { UKR_rada_svoboda_votes = UKR_rada_svoboda_seats }
+	}
+	else={ set_variable = { UKR_rada_svoboda_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = udar_in_power }
+		set_variable = { UKR_rada_udar_votes = UKR_rada_udar_seats }
+	}
+	else={ set_variable = { UKR_rada_udar_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = kpu_in_power }
+		set_variable = { UKR_rada_kpu_votes = UKR_rada_kpu_seats }
+	}
+	else={ set_variable = { UKR_rada_kpu_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = right_sector_in_power }
+		set_variable = { UKR_rada_right_sector_votes = UKR_rada_right_sector_seats }
+	}
+	else={ set_variable = { UKR_rada_right_sector_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = economic_development_in_power }
+		set_variable = { UKR_rada_economic_development_votes = UKR_rada_economic_development_seats }
+	}
+	else={ set_variable = { UKR_rada_economic_development_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = peoples_will_in_power }
+		set_variable = { UKR_rada_peoples_will_votes = UKR_rada_peoples_will_seats }
+	}
+	else={ set_variable = { UKR_rada_peoples_will_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = peoples_front_in_power }
+		set_variable = { UKR_rada_peoples_front_votes = UKR_rada_peoples_front_seats }
+	}
+	else={ set_variable = { UKR_rada_peoples_front_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = european_solidarity_in_power }
+		set_variable = { UKR_rada_european_solidarity_votes = UKR_rada_european_solidarity_seats }
+	}
+	else={ set_variable = { UKR_rada_european_solidarity_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = servant_of_the_people_in_power }
+		set_variable = { UKR_rada_servant_of_the_people_votes = UKR_rada_servant_of_the_people_seats }
+	}
+	else={ set_variable = { UKR_rada_servant_of_the_people_votes = 0 } }
+	
+	if={
+		limit={ has_country_flag = opposition_bloc_in_power }
+		set_variable = { UKR_rada_opposition_bloc_votes = UKR_rada_opposition_bloc_seats }
+	}
+	else={ set_variable = { UKR_rada_opposition_bloc_votes = 0 } }
+	
+	set_variable_to_random = {
+		var = UKR_rada_non_aligned_votes
+		min = 0
+		max = UKR_rada_non_aligned_seats
+		integer = yes
+	}
+}

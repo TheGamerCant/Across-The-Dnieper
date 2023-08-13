@@ -1,0 +1,470 @@
+on_actions={
+	on_weekly={
+		effect={
+			if={
+				limit = { 
+					OR={
+						has_idea = SOV_the_eastern_yoke 
+						has_idea = SOV_the_eastern_yoke_monarch
+						has_idea = SOV_raspizdyaystvo
+					}
+					has_war = yes
+					OR={
+						is_ai = no
+						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
+					}
+				}
+				random_owned_controlled_state={
+					limit={ NOT={ state = 14 } }
+					set_variable = { ROOT.random_state_selected = THIS }	#For loc
+				}
+				random_list = {
+					4 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+                    1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+					4 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+                    1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
+					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+                    1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+                    1 = { 
+						if={
+							limit = {
+								any_state = {
+									is_coastal = yes
+									is_controlled_by = ROOT
+									NOT = { state = 14 }
+								}
+							}
+							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
+						}
+					}
+					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+                    5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
+					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
+					20 = {} #You should get an event once every two weeks, given you have equipment
+				}
+			}
+			else_if={
+				limit = { 
+					has_idea = SOV_the_eastern_yoke_improved 
+					has_war = yes
+					OR={
+						is_ai = no
+						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
+					}
+				}
+				random_owned_controlled_state={
+					limit={ NOT={ state = 14 } }
+					set_variable = { ROOT.random_state_selected = THIS }	#For loc
+				}
+				random_list = {
+					4 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+                    1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+					4 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+                    1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
+					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+                    1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+                    1 = { 
+						if={
+							limit = {
+								any_state = {
+									is_coastal = yes
+									is_controlled_by = ROOT
+									NOT = { state = 14 }
+								}
+							}
+							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
+						}
+					}
+					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+                    5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
+					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
+					40 = {} #You should get an event once every three weeks, given you have equipment
+				}
+			}
+		}
+	}
+
+	on_startup = {
+		effect={
+			SOV = {
+				if = {
+					limit = { 
+						has_start_date < 2022.01.01 
+						NOT = { russia_rework_trigger = yes }
+					}
+
+					country_event = { id = russia.3 days = 1536 }
+					country_event = { id = russia.63 days = 2547  }
+					country_event = { id = russia.64 days = 666  }
+				}
+
+				else_if = {
+					limit = { 
+						has_start_date > 2022.01.01 
+						NOT = { russia_rework_trigger = yes }
+					}
+					country_event = { id = russia.88 days = 1 }
+				}
+				country_event = { id = russia.61 days = 77 }
+				country_event = { id = russia.62 days = 129 }
+
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = SOV_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+
+					random_list = {		
+						8 = {
+							SOV = {
+								set_country_flag = SOV_PUTIN_DEAD_AI_FLAG
+							}
+						}
+
+						15 = {
+							SOV = {
+								set_country_flag = SOV_SOBCHAK_AI_FLAG
+							}
+						}
+
+						15 = {
+							SOV = {
+								set_country_flag = SOV_YAVLINKSI_AI_FLAG
+							}
+						}
+
+						2 = {
+							SOV = {
+								set_country_flag = SOV_PUTIN_AI_FLAG
+							}
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			SOV={
+				if = {
+					limit = { russia_rework_trigger = yes has_start_date < 2022.01.01 }
+					
+					add_popularity = { ideology = neoconservative popularity = -0.06 }
+					add_popularity = { ideology = eastern_liberal popularity = 0.1 }
+					add_popularity = { ideology = ultranationalist popularity = 0.021 }
+					remove_ideas = SOV_russia_today
+					remove_ideas = SOV_stagnant_economy
+					remove_ideas = SOV_the_eastern_yoke
+					remove_ideas = SOV_the_great_patriotic_war_idea
+					remove_ideas = SOV_wunderwaffe
+					add_ideas = SOV_stagnant_economy_rework
+					add_ideas = SOV_bloated_welfare_system
+					add_ideas = SOV_wunderwaffe_rework
+					add_ideas = SOV_raspizdyaystvo
+					add_ideas = SOV_rampant_oligarchy
+					add_ideas = SOV_oil_revenues
+					remove_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+					remove_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+					remove_dynamic_modifier = { modifier = SOV_communist_opposition }
+					remove_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+					remove_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
+					remove_dynamic_modifier = { modifier = SOV_russian_cabinet }
+					
+					swap_ruler_traits = {
+						remove = SOV_king_of_the_castle
+						add = SOV_king_of_the_castle_rework
+					}	
+					
+					
+					add_dynamic_modifier = { modifier = SOV_effects_from_media }
+	
+					set_variable = { SOV.SOV_media_dot_X = 0 }
+					set_variable = { SOV.SOV_media_dot_Y = 0 }
+					
+					set_variable = { SOV.SOV_media_leans_eastern_conservative = 81 }
+					set_variable = { SOV.SOV_media_leans_ultranationalist = 6 }
+					set_variable = { SOV.SOV_media_leans_eastern_liberal = 13 }
+					
+					SOV_media_leaning_calculate_XY = yes	
+
+					country_event = { id = russia.1005 days = 42 }
+					
+					retire_character = SOV_valentina_matviyenko
+					retire_character = SOV_aleksandr_dugin
+					retire_character = SOV_valery_gerasimov
+					retire_character = SOV_alexei_navalny
+					retire_character = SOV_kirill
+					retire_character = SOV_svyatoslav_rechkalov
+					retire_character = SOV_igor_vsevolodovich_girkin
+					retire_character = SOV_vladlen_tatarsky
+					retire_character = SOV_dmitry_medvedev
+					retire_character = SOV_mikhail_mishustin
+					retire_character = SOV_kokoltsev_vladimir
+					retire_character = SOV_sergey_lavrov
+					retire_character = SOV_alexander_bastrykin
+					retire_character = SOV_viktor_yanukovych
+					retire_character = SOV_ramzan_kadyrov
+					retire_character = SOV_ilya_kiva
+					retire_character = SOV_sergey_shoygu
+					retire_character = SOV_alexander_bortnikov
+					retire_character = SOV_andrei_sychevoi
+					retire_character = SOV_oleg_leonidovich
+					retire_character = SOV_dmitry_bulgakov
+					retire_character = SOV_andrey_nikolayevich_mordvichev
+					retire_character = SOV_mikhail_yuryevich_teplinsky
+					retire_character = SOV_viktor_viktorovich_chirkov
+					retire_character = SOV_igor_vladimirovich_osipov
+					retire_character = SOV_aleksandr_vladimirovich_dvornikov
+					retire_character = SOV_gennady_valeryevich_zhidko
+					retire_character = SOV_mikhail_yevgenyevich_mizintsev
+					retire_character = SOV_nikolai_anatolyevich_yevmenov
+					retire_character = SOV_viktor_nikolayevich_sokolov
+					retire_character = SOV_adam_delimkhanov
+					retire_character = SOV_andrey_nikolaevich_serdyukov
+					retire_character = SOV_sergey_yurvevich_kuzovlev
+					retire_character = SOV_yevgeny_valeryevich_nikiforov
+					retire_character = SOV_rustam_usmanovich_muradov
+					retire_character = SOV_roman_vladimirovich_kutuzov
+					retire_character = SOV_roman_borisovich_berdnikov
+					retire_character = SOV_alexander_alexandrovich_zhuravlyov
+					retire_character = SOV_aleksandr_pavlovich_lapin
+					retire_character = SOV_valery_nikolaevich_solodchuk
+					retire_character = SOV_sergey_surovikin
+					
+					
+					
+					#TODO: Oleg Tsarev advisor
+					
+					recruit_character = SOV_valentina_matviyenko_rework
+					recruit_character = SOV_aleksandr_dugin_rework
+					recruit_character = SOV_valery_gerasimov_rework
+					recruit_character = SOV_alexei_navalny_rework
+					recruit_character = SOV_garry_kasparov
+					recruit_character = SOV_kirill_rework
+					recruit_character = SOV_igor_vsevolodovich_girkin_rework
+					recruit_character = SOV_vladlen_tatarsky_rework
+					recruit_character = SOV_dmitry_medvedev_rework
+					recruit_character = SOV_mikhail_mishustin_rework
+					recruit_character = SOV_kokoltsev_vladimir_rework
+					recruit_character = SOV_sergey_lavrov_rework
+					recruit_character = SOV_alexander_bastrykin_rework
+					recruit_character = SOV_viktor_yanukovych_rework
+					recruit_character = SOV_ramzan_kadyrov_rework
+					recruit_character = SOV_ilya_kiva_rework
+					recruit_character = SOV_sergey_shoygu_rework
+					recruit_character = SOV_alexander_bortnikov_rework
+					recruit_character = SOV_andrei_sychevoi_rework
+					recruit_character = SOV_oleg_leonidovich_rework
+					recruit_character = SOV_dmitry_bulgakov_rework
+					recruit_character = SOV_andrey_nikolayevich_mordvichev_rework
+					recruit_character = SOV_mikhail_yuryevich_teplinsky_rework
+					recruit_character = SOV_viktor_viktorovich_chirkov_rework
+					recruit_character = SOV_igor_vladimirovich_osipov_rework
+					recruit_character = SOV_aleksandr_vladimirovich_dvornikov_rework
+					recruit_character = SOV_gennady_valeryevich_zhidko_rework
+					recruit_character = SOV_mikhail_yevgenyevich_mizintsev_rework
+					recruit_character = SOV_nikolai_anatolyevich_yevmenov_rework
+					recruit_character = SOV_viktor_nikolayevich_sokolov_rework
+					recruit_character = SOV_adam_delimkhanov_rework
+					recruit_character = SOV_andrey_nikolaevich_serdyukov_rework
+					recruit_character = SOV_sergey_yurvevich_kuzovlev_rework
+					recruit_character = SOV_yevgeny_valeryevich_nikiforov_rework
+					recruit_character = SOV_rustam_usmanovich_muradov_rework
+					recruit_character = SOV_roman_vladimirovich_kutuzov_rework
+					recruit_character = SOV_roman_borisovich_berdnikov_rework
+					recruit_character = SOV_alexander_alexandrovich_zhuravlyov_rework
+					recruit_character = SOV_aleksandr_pavlovich_lapin_rework
+					recruit_character = SOV_valery_nikolaevich_solodchuk_rework
+					recruit_character = SOV_sergey_surovikin_rework		
+					recruit_character = SOV_vladimir_solovyov_rework
+					recruit_character = SOV_vladimir_zhirinovsky_rework
+					recruit_character = SOV_dmitry_utkin
+					
+					add_ideas = SOV_dmitry_medvedev_rework 
+					add_ideas = SOV_sergey_shoygu_rework
+					add_ideas = SOV_sergey_lavrov_rework
+					add_ideas = SOV_alexander_bortnikov_rework
+					add_ideas = SOV_valery_gerasimov_rework
+					
+					add_war_support = -0.3
+					
+					set_variable = { SOV_sanctions_industrial_capacity_factory = -0.15 }
+					set_variable = { SOV_sanctions_production_speed_buildings_factor = -0.15 }
+					set_variable = { SOV_sanctions_research_speed_factor = -0.1 }
+					set_variable = { SOV_sanctions_consumer_goods_factor = 0.08 }
+					set_variable = { SOV_sanctions_stability_weekly = -0.002 }
+					set_variable = { SOV_sanctions_production_factory_max_efficiency_factor = -0.25 }
+					set_variable = { SOV_sanctions_line_change_production_efficiency_factor = -0.25 }
+					set_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = -0.25 }
+					set_variable = { SOV_sanctions_inflation_monthly = 0.05 }
+					
+					if = {
+						limit = { NOT = { has_dlc = "La Resistance" } }
+						remove_trait = {
+							character = SOV_alexander_bortnikov_rework
+							slot = political_advisor
+							trait = SOV_head_of_fsb_rework
+						}
+						add_trait = {
+							character = SOV_alexander_bortnikov_rework
+							slot = political_advisor
+							trait = SOV_head_of_fsb_rework_no_lar
+						}
+					}
+					
+					annex_country = { target = WAG transfer_troops = no }
+					432 = { add_core_of = SOV }
+					
+					set_country_flag = russia_rework_flag
+					
+					add_dynamic_modifier = { modifier = SOV_army_modernisation_plan }
+					
+					set_variable = { SOV_army_mobilization_speed = 0 }
+					set_variable = { SOV_army_army_armor_defence_factor = 0 }
+					set_variable = { SOV_army_army_armor_attack_factor = 0 }
+					set_variable = { SOV_army_coordination_bonus = 0 } 
+					set_variable = { SOV_army_supply_consumption_factor = 0 } 
+					set_variable = { SOV_army_land_doctrine_cost_factor = 0 } 
+					set_variable = { SOV_army_army_org_factor = 0 } 
+					set_variable = { SOV_army_supply_combat_penalties_on_core_factor = 0 }
+					set_variable = { SOV_army_org_loss_when_moving = 0 } 
+					set_variable = { SOV_army_supply_node_range = 0 } 
+					set_variable = { SOV_army_industrial_capacity_factory = 0 } 
+					set_variable = { SOV_army_conscription_factor = -0.1 }
+					set_variable = { SOV_army_attrition = -0.06 }
+					set_variable = { SOV_army_army_core_defence_factor = 0 }
+					set_variable = { SOV_army_training_time_factor = 0 }
+					set_variable = { SOV_army_army_artillery_attack_factor = 0 }
+					set_variable = { SOV_army_army_artillery_defence_factor = 0 }
+					set_variable = { SOV_army_army_infantry_attack_factor = 0 }
+					set_variable = { SOV_army_army_infantry_defence_factor = 0 }
+					set_variable = { SOV_army_modifier_army_sub_unit_infantry_speed_factor = 0 }
+					set_variable = { SOV_army_production_speed_bunker_factor = 0 }
+					set_variable = { SOV_army_max_dig_in = 0 }
+					set_variable = { SOV_army_enemy_army_bonus_air_superiority_factor = 0 }
+					set_variable = { SOV_army_army_attack_factor = 0 }
+					set_variable = { SOV_army_army_defence_factor = 0 }
+					set_variable = { SOV_army_experience_loss_factor = 0 }
+					set_variable = { SOV_army_army_speed_factor = 0 }
+					set_variable = { SOV_army_air_accidents_factor = 0 }
+					set_variable = { SOV_army_consumer_goods_factor = 0.01 }
+					set_variable = { SOV_army_air_cas_present_factor = 0 }
+					set_variable = { SOV_army_land_night_attack = 0 }
+					set_variable = { SOV_army_experience_gain_army = 0.04 } 
+					set_variable = { SOV_army_breakthrough_factor = 0 }
+					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_attack_factor = 0 }
+					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_defence_factor = 0 }
+					set_variable = { SOV_army_modifier_army_sub_unit_apc_attack_factor = 0 }
+					set_variable = { SOV_army_modifier_army_sub_unit_apc_defence_factor = 0 }
+					set_variable = { SOV_army_army_bonus_air_superiority_factor = 0 }
+					set_variable = { SOV_army_special_forces_cap = 0 }
+					
+					set_variable = { liberal_faction_strength = 0.12 }
+					set_variable = { technocrat_faction_strength = 0.08 }
+					set_variable = { oil_and_gas_faction_strength = 0.20 }
+					set_variable = { siloviki_faction_strength = 0.30 }
+					set_variable = { putinist_faction_strength = 0.23 }
+					set_variable = { nationalist_faction_strength = 0.07 }
+					
+					
+					set_variable = { SOV_alexei_navalny_faction = 1 }
+					set_variable = { SOV_grigory_yavlinsky_faction = 1 }
+					set_variable = { SOV_dmitri_medvedev_faction = 5 }
+					set_variable = { SOV_ramzan_kadyrov_faction = 5 }
+					set_variable = { SOV_igor_girkin_faction = 6 }
+					set_variable = { SOV_yevgeny_prigozhin_faction = 5 }
+					set_variable = { SOV_sergey_chemezov_faction = 4 }
+					set_variable = { SOV_boris_nemtsov_faction = 1 }
+					set_variable = { SOV_yuri_kovalchuk_faction = 5 }
+					set_variable = { SOV_mikhail_kovalchuk_faction = 5 }
+					set_variable = { SOV_viktor_zolotov_faction = 4 }
+					
+					SOV_make_boris_nemtsov_liberal_leader = yes
+					SOV_make_dmitri_medvedev_putinist_leader = yes
+					SOV_make_sergey_chemezov_siloviki_leader = yes
+				}
+				else_if={
+					limit = { NOT = { russia_rework_trigger = yes } has_start_date < 2022.01.01 }
+					load_focus_tree = soviet_crimea
+				}
+				
+				every_state = {
+					limit = {
+						is_owned_and_controlled_by = SOV
+						infrastructure < 2
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	on_daily_SOV={
+		effect={
+			add_to_variable = { global.days_since_start = 1 }
+			if={
+				limit = { SOV_can_fire_propaganda_events = yes }
+				if={
+					limit = { check_variable = { global.days_since_start = 48 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
+					country_event = { id = russia_propaganda.5 }						#You don't wanna know how much of a headache RT being banned was for me researching this shit
+				}
+				if={
+					limit = { check_variable = { global.days_since_start = 91 } }		#1 April 2014
+					country_event = { id = russia_propaganda.1 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 98 } }		#8 April 2014
+					country_event = { id = russia_propaganda.2 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 116 } }		#26 April 2014
+					country_event = { id = russia_propaganda.3 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 143 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }		#23 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
+					country_event = { id = russia_propaganda.4 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 146 } any_donbass_country_exists = yes }		#26 May 2014
+					country_event = { id = russia_propaganda.6 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }		#3 December 2014
+					country_event = { id = russia.1011 }
+				}
+				
+			}
+		}
+	}
+	
+	on_capitulation={
+		effect={
+			if={
+				limit={
+					FROM = { original_tag = SOV }
+					ROOT = { original_tag = CRI }
+					NOT = { has_global_flag = crimea_cap_event_flag }
+				}
+				SOV = { country_event = { id = russia.1007 days = 5 }
+			}
+		}
+	}
+} 

@@ -1,0 +1,468 @@
+ideas ={
+    country = {
+
+
+		SLO_Corrupt_politicians = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_Corrupt_politicians
+
+
+			modifier = {
+				political_power_factor = -0.10
+				party_popularity_stability_factor = -0.1
+				stability_weekly = -0.005
+				consumer_goods_factor = 0.15
+			}
+		}
+
+		SLO_visegrad_member = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_visegrad_member
+
+
+
+			modifier = {
+				political_power_gain = 0.08
+				opinion_gain_monthly = 0.1
+				
+			}
+		}
+		
+		SLO_High_Tatras_Skying_Resort = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_High_Tatras_Skying_Resort
+
+
+
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.08
+			}
+		}
+		
+		SLO_bad_spirit_in_the_army = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_bad_spirit_in_the_army
+
+
+
+			modifier = {
+				army_morale_factor = -0.08
+				army_core_attack_factor = -0.06
+				army_core_defence_factor = -0.06
+				breakthrough_factor = -0.15
+				training_time_factor = 0.2
+				mobilization_speed = 0.5
+				army_org_factor = -0.15
+				org_loss_when_moving = 0.1
+			}
+		}
+		
+		SLO_disorganized_Slovak_Airforce = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_disorganized_Slovak_Airforce
+
+
+
+			modifier = {
+				air_agility_factor = -0.025
+				air_ace_bonuses_factor = -0.15
+				air_mission_efficiency = -0.1
+				air_weather_penalty = 0.1
+				
+			}
+		}
+		
+		SLO_stagnant_economy = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_stagnant_economy
+
+
+
+			modifier = {
+			    consumer_goods_factor = 0.12
+				industrial_capacity_factory = -0.1
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = -0.05
+			
+				
+			}
+		}
+		
+		SLO_Spis_Castle = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_Spis_Castle
+
+
+
+			modifier = {
+			    war_support_factor = 0.1
+				surrender_limit = 0.1
+			    
+			}
+		}
+		
+		SLO_new_hospitals = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_new_hospitals
+
+
+
+			modifier = {
+			    monthly_population = 0.05
+			    
+			}
+		}
+		
+		SLO_finally_money = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_finally_money
+
+
+
+			modifier = {
+			    production_factory_efficiency_gain_factor = 0.05
+				industrial_capacity_factory = 0.05
+			    production_factory_start_efficiency_factor = 0.05
+			    
+			}
+		}
+		
+		SLO_growing_economy = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_growing_economy
+
+
+
+			modifier = {
+			    consumer_goods_factor = 0.07
+				production_speed_buildings_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+			
+			
+				
+			}
+		}
+		
+		SLO_state_production = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_state_production
+
+
+
+			modifier = {
+			    production_speed_buildings_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+				production_speed_industrial_complex_factor = 0.20
+			
+			
+				
+			}
+		}
+		
+		SLO_Europes_car_producer = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_Europes_car_producer
+
+
+
+			modifier = {
+			    faction_trade_opinion_factor = 0.10
+				production_speed_industrial_complex_factor = 0.15
+			
+			
+				
+			}
+		}
+		
+		SLO_army_production = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_army_production
+
+
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.10
+			
+			
+				
+			}
+		}
+		
+		SLO_civilian_production = {
+			removal_cost = -1
+			picture = GFX_idea_SLO_civilian_production
+
+
+
+			modifier = {
+			    production_speed_arms_factory_factor = 0.10
+				
+			
+			
+				
+			}
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		#######################
+		#######################
+		#######################
+
+    tank_manufacturer = { 
+		
+		designer = yes
+		
+		SLO_kerametal = {
+
+			picture = GFX_idea_kerametal
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = infantry_tank_manufacturer limit = 1 } }
+			}
+			
+			research_bonus = {
+				armor = 0.12
+			}
+			
+			traits = { infantry_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		SLO_vyvoj_Martin = {
+
+			picture = GFX_idea_Vyvoj_Martin
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = fast_tank_manufacturer limit = 1 } }
+			}
+			
+			research_bonus = {
+				armor = 0.12
+			}
+			
+			traits = { fast_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	naval_manufacturer = { 
+		
+		designer = yes
+		
+	}
+	
+	aircraft_manufacturer = { 
+			
+		designer = yes
+		
+		vrm = {
+
+			picture = GFX_idea_VRM
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = light_aircraft_manufacturer limit = 1 } }
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		aliter_technologies = { 
+
+			picture = GFX_idea_Aliter
+
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = CAS_manufacturer limit = 1 } }
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { CAS_manufacturer }
+			
+			equipment_bonus = {
+				
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+	}
+	
+	industrial_concern = {
+
+		slovnaft = {
+
+			picture = GFX_idea_slovnaft
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = refinery_concern limit = 1 } }
+			}
+			
+			research_bonus = {
+				construction = 0.12
+				industry = 0.05
+			}
+
+			modifier = { 
+				production_speed_buildings_factor = 0.06
+			}
+
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { refinery_concern }
+		}
+
+		us_steel = {
+
+			picture = GFX_idea_USS
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = industrial_concern limit = 1 } }
+			}
+			
+			research_bonus = {
+				construction = 0.12
+			}
+
+			modifier = {
+				research_speed_factor = 0.04
+			}
+			
+			traits = { industrial_concern }
+		}
+		
+		zse = {
+
+			picture = GFX_idea_ZSE
+			
+			allowed = {
+				original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = electronics_concern limit = 1 } }
+			}
+			
+			research_bonus = {
+				electronics = 0.13
+			}
+
+			modifier = { 
+				research_speed_factor = 0.04
+			}
+
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { electronics_concern }
+		}
+	}
+	
+	materiel_manufacturer = {
+        
+        designer = yes
+        
+        grand_power = {
+
+            picture = GFX_idea_grand_power
+            
+            allowed = {
+                original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = infantry_equipment_manufacturer limit = 1 } }
+            }
+            
+            research_bonus = {
+                infantry_weapons = 0.12
+            }
+            
+            traits = { infantry_equipment_manufacturer }
+        }
+        
+        tatra = {
+
+            picture = GFX_idea_tatra
+            
+            allowed = {
+                original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = motorized_equipment_manufacturer limit = 1 } }
+            }
+            
+            research_bonus = {
+                motorized_equipment = 0.12
+            }
+            
+            traits = { motorized_equipment_manufacturer }
+            
+            ai_will_do = {
+                factor = 2
+            }
+        }
+        
+        konstrukta = {
+
+            picture = GFX_idea_konštrukta
+            
+            allowed = {
+                original_tag = SLO
+                NOT = { has_available_idea_with_traits = { idea = artillery_manufacturer limit = 1 } }
+            }
+            
+            research_bonus = {
+                artilerry = 0.12
+            }
+            
+            traits = { artillery_manufacturer }
+        }
+    }
+}
+
+	   
+	
+
+	
+	 
+
+ 

@@ -1,0 +1,58 @@
+on_actions={	
+	on_startup = {
+		effect = {
+			BLR = {
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = BLR_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = BLR_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+
+					random_list = {		#They don't need to add up to 100, as they are proportional to eachother
+						6 = {			#So right now, they are all equal
+							BLR = {
+								set_country_flag = BLR_LUKASHENKO_AI_FLAG
+							}
+						}
+						16 = {
+							BLR = {
+								set_country_flag = BLR_WHITE_RUSSIA_AI_FLAG
+							}
+						}
+						20 = {
+							BLR = {
+								set_country_flag = BLR_SOCIALIST_AI_FLAG
+							}
+						}
+						8 = {
+							BLR = {
+								set_country_flag = BLR_LIBERAL_AI_FLAG
+							}
+						}
+						8 = {
+							BLR = {
+								set_country_flag = BLR_CONSERVATIVE_AI_FLAG
+							}
+						}
+						16 = {
+							BLR = {
+								set_country_flag = BLR_NATIONALIST_AI_FLAG
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+create_pie_chart = {
+	clear_variable = far_right_pie_chart_frame
+	clear_variable = illiberal_pie_chart_frame
+	clear_variable = western_pie_chart_frame
+	clear_variable = far_left_pie_chart_frame
+	clear_variable = non_aligned_pie_chart_frame
+	
+	set_temp_variable = { far_right_pop = party_popularity@fascist }
+	add_to_temp_variable = { far_right_pop = party_popularity@ultranationalist }
+	add_to_temp_variable = { far_right_pop = party_popularity@military_junta }
+	multiply_temp_variable = { far_right_pop = 100 }
+	set_variable = { far_right_pie_chart_frame = far_right_pop }
+
+	set_temp_variable = { illiberal_democracy_pop = party_popularity@eastern_conservative }
+	add_to_temp_variable = { illiberal_democracy_pop = party_popularity@populist }
+	multiply_temp_variable = { illiberal_democracy_pop = 100 }
+
+	set_variable = { illiberal_pie_chart_frame = far_right_pop }
+	add_to_variable = { illiberal_pie_chart_frame = illiberal_democracy_pop }
+
+
+	set_temp_variable = { western_democracy_pop = party_popularity@neoconservative }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@neoliberal }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@eastern_liberal }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@libertarian }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@social_democracy }
+	multiply_temp_variable = { western_democracy_pop = 100 }
+
+	set_variable = { western_pie_chart_frame = far_right_pop }
+	add_to_variable = { western_pie_chart_frame = illiberal_democracy_pop }
+	add_to_variable = { western_pie_chart_frame = western_democracy_pop }
+	
+	set_temp_variable = { far_left_pop = party_popularity@socialist }
+	add_to_temp_variable = { far_left_pop = party_popularity@moderate_communist }
+	add_to_temp_variable = { far_left_pop = party_popularity@hardline_communist }
+	multiply_temp_variable = { far_left_pop = 100 }
+	set_variable = { far_left_pie_chart_frame = far_right_pop }
+	add_to_variable = { far_left_pie_chart_frame = illiberal_democracy_pop }
+	add_to_variable = { far_left_pie_chart_frame = western_democracy_pop }
+	add_to_variable = { far_left_pie_chart_frame = far_left_pop }
+}
+
+get_macro_party_popularities={
+	set_variable = { ROOT.country_far_right_popularity = party_popularity@fascist }
+	add_to_variable = { ROOT.country_far_right_popularity = party_popularity@ultranationalist }
+	add_to_variable = { ROOT.country_far_right_popularity = party_popularity@military_junta }
+	set_variable = { ROOT.country_far_right_popularity_100 = ROOT.country_far_right_popularity }
+	multiply_variable = { ROOT.country_far_right_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_illiberal_popularity = party_popularity@eastern_conservative }
+	add_to_variable = { ROOT.country_illiberal_popularity = party_popularity@populist }
+	set_variable = { ROOT.country_illiberal_popularity_100 = ROOT.country_illiberal_popularity }
+	multiply_variable = { ROOT.country_illiberal_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_western_popularity = party_popularity@neoconservative }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@neoliberal }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@eastern_liberal }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@libertarian }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@social_democracy }
+	set_variable = { ROOT.country_western_popularity_100 = ROOT.country_western_popularity }
+	multiply_variable = { ROOT.country_western_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_far_left_popularity = party_popularity@socialist }
+	add_to_variable = { ROOT.country_far_left_popularity = party_popularity@moderate_communist }
+	add_to_variable = { ROOT.country_far_left_popularity = party_popularity@hardline_communist }
+	set_variable = { ROOT.country_far_left_popularity_100 = ROOT.country_far_left_popularity }
+	multiply_variable = { ROOT.country_far_left_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_non_aligned_popularity = party_popularity@anarchism_ideology }
+	add_to_variable = { ROOT.country_non_aligned_popularity = party_popularity@absolute_monarchy_ideology }
+	add_to_variable = { ROOT.country_non_aligned_popularity = party_popularity@theocracy_ideology }
+	set_variable = { ROOT.country_non_aligned_popularity_100 = ROOT.country_non_aligned_popularity }
+	multiply_variable = { ROOT.country_non_aligned_popularity_100 = 100 }
+}
