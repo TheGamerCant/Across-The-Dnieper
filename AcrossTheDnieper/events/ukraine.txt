@@ -1925,22 +1925,24 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		if={
-			limit = { has_idea = SOV_secret_involvement_large }
-			swap_ideas={
-				remove_idea = SOV_secret_involvement_large
-				add_idea = SOV_secret_involvement_huge
+		hidden_effect={
+			if={
+				limit = { has_idea = SOV_secret_involvement_large }
+				swap_ideas={
+					remove_idea = SOV_secret_involvement_large
+					add_idea = SOV_secret_involvement_huge
+				}
 			}
-		}
-		else_if={
-			limit = { has_idea = SOV_secret_involvement }
-			swap_ideas={
-				remove_idea = SOV_secret_involvement
-				add_idea = SOV_secret_involvement_large
+			else_if={
+				limit = { has_idea = SOV_secret_involvement }
+				swap_ideas={
+					remove_idea = SOV_secret_involvement
+					add_idea = SOV_secret_involvement_large
+				}
 			}
-		}
-		else={
-			add_ideas = SOV_secret_involvement
+			else={
+				add_ideas = SOV_secret_involvement
+			}
 		}
 	}
 	
