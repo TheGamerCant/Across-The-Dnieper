@@ -87,11 +87,20 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
+		land_reinforce_rate = 0.1
+		army_org_factor = 0.05
 		army_morale_factor = 0.05
-		supply_consumption_factor = -0.05
+		breakthrough_factor = 0.05
 
-		category_army = {
-			recon = 0.05
+		air_superiority_efficiency = 0.1
+
+		infantry = {
+			recon = 0.1
+		}
+
+		category_front_line = {
+			hard_attack = 0.05
+			defense = 0.05
 		}
 
 		
@@ -338,10 +347,12 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		planning_speed = -0.1
-		army_speed_factor = 0.1
-		naval_invasion_planning_bonus_speed = 0.1
-		transport_capacity = 0.1
+		land_reinforce_rate = 0.1
+		army_speed_factor = 0.05
+		army_morale_factor = 0.05
+		air_superiority_efficiency = 0.05
+		army_org_factor = 0.05
+		
 		
 		categories = {
 			land_doctrine
@@ -801,7 +812,7 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		xor = { combined_arms }
+		xor = { combined_arms anticipatory_strikes }
 
 		planning_speed = 0.15
 		land_reinforce_rate = 0.1
@@ -1514,6 +1525,163 @@ technologies = {
 		
 		ai_research_weights = {
 			industry = 2.0
+		}
+	}
+
+	anticipatory_strikes  = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+
+		xor = { deep_operations }
+		
+		recon_factor = 0.15
+		army_speed_factor = 0.1
+		army_morale_factor = 0.1
+		land_reinforce_rate = 0.1
+
+		air_superiority_efficiency = 0.15
+
+		enable_tactic = tactic_suprise_attack
+
+		category_front_line = {
+			hard_attack = 0.1
+			defense = 0.1
+		}
+
+
+		categories = {
+			land_doctrine
+		}
+
+		path = {
+			leads_to_tech = local_counterattacks 
+			research_cost_coeff = 1
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 1 }
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
+		}
+	}
+
+	local_counterattacks  = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+
+		recon_factor = 0.1
+		army_speed_factor = 0.05
+		breakthrough_factor = 0.05
+		army_org_factor = 0.05
+
+		army_core_attack_factor = 0.05
+		army_core_defence_factor = 0.05
+
+		category_front_line = {
+			breakthrough = 0.03
+		}
+
+
+		categories = {
+			land_doctrine
+		}
+
+		path = {
+			leads_to_tech = high_unit_cooperations 
+			research_cost_coeff = 1
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 3 }
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
+		}
+	}
+
+	
+	high_unit_cooperations  = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+		
+		land_reinforce_rate = 0.1
+		org_loss_when_moving = -0.05
+
+		category_all_infantry = {
+			soft_attack = 0.05
+			recon = 0.1
+		}
+
+		categories = {
+			land_doctrine
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 5 }
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
 		}
 	}
 }
