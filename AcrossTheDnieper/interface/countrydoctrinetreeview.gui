@@ -32,13 +32,25 @@ guiTypes = {
 			iconType = {
 				name ="soviet_banner"
 				spriteType = "GFX_soviet_banner"
-				position = { x=565 y=460 }
+				position = { x=2005 y=460 }
 			}
 
 			iconType = {
 				name ="wagner_banner"
 				spriteType = "GFX_wagner_banner"
 				position = { x=1045 y=460 }
+			}
+
+			iconType = {
+				name ="ukro_banner"
+				spriteType = "GFX_ukro_banner"
+				position = { x=565 y=460 }
+			}
+
+			iconType = {
+				name ="russia_banner"
+				spriteType = "GFX_russia_banner"
+				position = { x=1530 y=460 }
 			}
 
 			background = {
@@ -59,12 +71,16 @@ guiTypes = {
 				position = { x=85 y=33 }
 			}
 			
-
+			iconType = {
+				name ="russia_bg"
+				spriteType = "GFX_russia_doctrine_bg"
+				position = { x=1530 y=33 }
+			}
 				
 			iconType = {
 				name ="sup_firepower_bg"
 				spriteType = "GFX_sup_firepower_bg"
-				position = { x=575 y=33 }
+				position = { x=2005 y=33 }
 			}	
 	
 			iconType = {
@@ -81,11 +97,25 @@ guiTypes = {
 				alwaystransparent = yes
 			}
 	
-			#iconType = {
-			#	name ="mass_assault_bg"
-			#	spriteType = "GFX_mass_assault_bg"
-			#	position = { x=1535 y=33 }
-			#}		
+			iconType = {
+				name ="mass_assault_bg"
+				spriteType = "GFX_mass_assault_bg"
+				position = { x=570 y=33 }
+			}		
+
+			instantTextBoxType = {
+				name = "russia_title"
+				position = { x = 1565 y = 148 }
+				textureFile = ""
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "RUSSIA_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "RUSSIA_DOCTRINE_LABEL"
+			}	
 			
 			instantTextBoxType = {
 				name = "mob_warfare_title"
@@ -98,12 +128,14 @@ guiTypes = {
 				maxHeight = 122
 				format = center
 				Orientation = "UPPER_LEFT"
-				pdx_tooltip =  "NATO_DOCTRINE_LABEL_TT"
+				pdx_tooltip = "NATO_DOCTRINE_LABEL"
+				pdx_tooltip_delayed =  "NATO_DOCTRINE_LABEL_TT"
 			}			
 
 			instantTextBoxType = {
 				name = "superior_firepower_title"
-				position = { x = 605 y = 148 }
+				
+				position = { x = 2030 y = 148 }
 				textureFile = ""
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
@@ -112,8 +144,11 @@ guiTypes = {
 				maxHeight = 122
 				format = center
 				Orientation = "UPPER_LEFT"
-				pdx_tooltip =  "SOVIET_DOCTRINE_LABEL_TT"
+				pdx_tooltip = "SOVIET_DOCTRINE_LABEL"
+				pdx_tooltip_delayed =  "SOVIET_DOCTRINE_LABEL_TT"
 			}
+
+
 
 			instantTextBoxType = {
 				name = "grand_battleplan_title"
@@ -126,20 +161,22 @@ guiTypes = {
 				maxHeight = 122
 				format = center
 				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "PMC_DOCTRINE_LABEL"
 			}
 			
-			#instantTextBoxType = {
-			#	name = "mass_assault_title"
-			#	position = { x = 1560 y = 35 }
-			#	textureFile = ""
-			#	font = "hoi_22tech"
-			#	borderSize = {x = 0 y = 4}
-			#	text = "MASS_ASSAULT_DOCTRINE_LABEL"
-			#	maxWidth = 400
-			#	maxHeight = 122
-			#	format = center
-			#	Orientation = "UPPER_LEFT"
-			#}				
+			instantTextBoxType = {
+				name = "mass_assault_title"
+				position = { x = 605 y = 148 }
+				textureFile = ""
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "NATO_UKRAINE_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "NATO_UKRAINE_DOCTRINE_LABEL"
+			}				
 
 			
 			instantTextBoxType = {
@@ -196,7 +233,7 @@ guiTypes = {
 			
 			instantTextBoxType = {
 				name = "sup_firepower_subtitle1"
-				position = { x = 630 y = 380 }
+				position = { x = 2065 y = 380 }
 				textureFile = ""
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
@@ -209,7 +246,7 @@ guiTypes = {
 
 			instantTextBoxType = {
 				name = "sup_firepower_subtitle2"
-				position = { x = 832 y = 380 }
+				position = { x = 2265 y = 380 }
 				textureFile = ""
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
@@ -222,7 +259,7 @@ guiTypes = {
 			
 			instantTextBoxType = {
 				name = "sup_firepower_subtitle3"
-				position = { x = 630 y = 860 }
+				position = { x = 2065 y = 860 }
 				textureFile = ""
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
@@ -235,11 +272,11 @@ guiTypes = {
 
 			instantTextBoxType = {
 				name = "sup_firepower_subtitle4"
-				position = { x = 832 y = 860 }
+				position = { x = 2265 y = 860 }
 				textureFile = ""
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
-				text = "GERASIMOV_LABEL"
+				text = "STRAT_DECEPTION_LABEL"
 				maxWidth = 170
 				maxHeight = 122
 				format = center
@@ -289,8 +326,22 @@ guiTypes = {
 			}
 
 			gridboxtype = {
+				name = "russia_tree"
+				position = { x=1520 y=172 }
+				size = { width = 478 height = 1350 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_fullborder_tiled"
+					position = { x=0 y=-150 }					
+				}				
+			}
+
+			gridboxtype = {
 				name = "deep_operations_tree"
-				position = { x=560 y=172 }
+				position = { x=2000 y=172 }
 				size = { width = 480 height = 1350 }
 				slotsize = { width=60 height= 60 }
 				format = "UP"
@@ -317,20 +368,20 @@ guiTypes = {
 				
 			}
 
-			#gridboxtype = {
-			#	name = "mass_assault_tree"
-			#	position = { x=1520 y=172 }
-			#	size = { width = 480 height = 1350 }
-			#	slotsize = { width=60 height= 60 }
-			#	format = "UP"
-			#	
-			#	background = {
-			#		name = "Background"
-			#		quadTextureSprite ="GFX_fullborder_tiled"
-			#		position = { x=0 y=-150 }					
-			#	}					
-			#	
-			#}
+			gridboxtype = {
+				name = "ukraine_nato_tree"
+				position = { x=560 y=172 }
+				size = { width = 480 height = 1350 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+				
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_fullborder_tiled"
+					position = { x=0 y=-150 }					
+				}					
+				
+			}
 		}
 
 		containerWindowType = {
