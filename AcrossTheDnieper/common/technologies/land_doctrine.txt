@@ -1528,6 +1528,8 @@ technologies = {
 		}
 	}
 
+	#Radvils effects going from here
+
 	anticipatory_strikes  = {
 
 		xp_research_type = army
@@ -1660,10 +1662,163 @@ technologies = {
 		categories = {
 			land_doctrine
 		}
+
+		path = {
+			leads_to_tech = fortress_city 
+			research_cost_coeff = 1
+		}
 		
 		folder = {
 			name = land_doctrine_folder
 			position = { x = 0 y = 5 }
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
+		}
+	}
+
+	
+	
+	fortress_city  = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+		
+		infantry = {
+			urban = {
+				attack = 0.05
+				defense = 0.05
+
+				max_organisation = 0.05
+				breakthrough = 0.1
+
+				movement = 0.05
+			}
+		}
+
+		production_speed_bunker_factor = 0.15
+
+		categories = {
+			land_doctrine
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -2 y = 7 }
+		}
+
+		path = {
+			leads_to_tech = guerrilla_detachments 
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
+		}
+	}
+
+	guerrilla_detachments = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+
+		army_morale_factor = 0.05
+		army_speed_factor = 0.05
+
+		category_army = {
+			breakthrough = 0.1
+			soft_attack = 0.1
+		}
+
+		categories = {
+			land_doctrine
+		}
+
+		path = {
+			leads_to_tech = raids_on_enemy_logistics 
+			research_cost_coeff = 1
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -2 y = 9 }
+		}
+		
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		
+		ai_research_weights = {
+			industry = 2.0
+		}
+
+		allow = {
+			original_tag = UKR
+		}
+	}
+
+	raids_on_enemy_logistics = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		doctrine = yes	
+		research_cost = 4.5
+
+		category_front_line = {
+			hard_attack = 0.03
+			recon = 0.03
+			soft_attack = 0.03
+		}
+
+		categories = {
+			land_doctrine
+		}
+		
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -2 y = 11 }
 		}
 		
 		ai_will_do = {
