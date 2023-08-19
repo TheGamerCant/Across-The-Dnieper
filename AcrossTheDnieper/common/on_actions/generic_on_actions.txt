@@ -62,6 +62,23 @@ on_actions={
 				}
 				add_ideas = generic_demographic_crisis
 			}
+			
+			
+			
+			if={
+				limit = {
+					NOT={
+						OR = {
+							has_tech = can_do_nato_doctrine
+							has_tech = can_do_ukraine_doctrine
+							has_tech = can_do_pmc_doctrine
+							has_tech = can_do_russian_doctrine
+							has_tech = can_do_soviet_doctrine
+						}
+					}
+				}
+				load_soviet_doctrine = yes
+			}
 		}
 	}
 	on_state_control_changed={
