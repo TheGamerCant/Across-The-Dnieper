@@ -88,13 +88,17 @@ political_actions={
 
 		available = {
 			NOT = { 331 = { is_controlled_by = ROOT } }
+			NOT = { 445 = { is_controlled_by = ROOT } }
 			NOT = { 256 = { is_controlled_by = ROOT } }
 		}
 		
 		days_mission_timeout = 1460
 		activation = {
 			has_start_date = 2014.1.1.1 
-			has_completed_focus = SOV_the_crimean_bridge
+			OR={
+				has_completed_focus = SOV_the_crimean_bridge
+				has_completed_focus = SOV_build_the_crimean_bridge
+			}
 		}
 
 		allowed = {

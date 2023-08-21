@@ -362,6 +362,41 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SOV_build_the_crimean_bridge
+		icon = GFX_focus_crimean_water_supply
+		x = 0
+		y = 1
+		
+		cost = 35
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = { focus = SOV_welcome_home_2 }
+		relative_position_id = SOV_welcome_home_2
+		available = {
+			331 = { is_controlled_by = ROOT }
+			445 = { is_controlled_by = ROOT }
+			256 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = SOV_build_the_crimean_bridge_tt
+			hidden_effect={
+				add_timed_idea={
+					idea = SOV_crimean_bridge_under_construction
+					days = 1460
+				}
+			}
+		}
+	}
+	
+	focus = {
 		id = SOV_brothers_in_donbass
 		icon = GFX_focus_generic_donbass
 		x = -4
@@ -1237,7 +1272,7 @@ focus_tree = {
 	focus = {
 		id = SOV_russia_united
 		icon = GFX_focus_united_russia
-		x = 45
+		x = 52
 		y = 0
 		cost = 24
 		search_filters = {
@@ -1265,14 +1300,15 @@ focus_tree = {
 	focus = {
 		id = SOV_putin_at_the_helm
 		icon = GFX_focus_SOV_putin_at_the_helm
-		x = -10
-		y = 0
+		x = -25
+		y = 1
 		cost = 30
 		search_filters = {
 			
 		}
 		prerequisite = { focus = SOV_russia_united }
 		relative_position_id = SOV_russia_united
+		mutually_exclusive = { focus = SOV_movement_in_the_shadows }
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
@@ -1283,6 +1319,228 @@ focus_tree = {
 				remove = SOV_king_of_the_castle_rework
 				add = SOV_king_of_the_castle_rework_2
 			}	
+		}
+	}
+	
+	focus = {
+		id = SOV_pivot_to_the_east
+		icon = GFX_focus_SOV_BRICS
+		x = -3
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+		relative_position_id = SOV_putin_at_the_helm
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_our_operations_in_syria
+		icon = GFX_focus_vks_in_syria
+		x = -1
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_pivot_to_the_east }
+		relative_position_id = SOV_pivot_to_the_east
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			OR={
+				has_completed_focus = SOV_send_gerasimov_to_syria
+				has_completed_focus = SOV_send_surovikin_to_syria
+			}
+		}
+		
+		completion_reward={
+			if={
+				limit={ has_completed_focus = SOV_send_gerasimov_to_syria }
+				army_experience = 80
+				air_experience = 40
+			}
+			else={
+				army_experience = 40
+				air_experience = 80
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_closer_ties_with_china
+		icon = GFX_focus_SOV_closer_ties_with_china
+		x = 1
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_pivot_to_the_east }
+		relative_position_id = SOV_pivot_to_the_east
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+			
+			custom_effect_tooltip = SOV_closer_ties_with_china_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_multipolarism
+		icon = GFX_focus_SOV_BRICS
+		x = 1
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_closer_ties_with_china }
+		prerequisite = { focus = SOV_increase_our_operations_in_syria }
+		relative_position_id = SOV_increase_our_operations_in_syria
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			has_idea = SOV_sergey_lavrov_rework
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_multipolarism_tt
+			hidden_effect={
+				remove_trait = {
+					character = SOV_sergey_lavrov_rework
+					slot = political_advisor
+					trait = sergey_lavrov_trait
+				}
+				add_trait = {
+					character = SOV_sergey_lavrov_rework
+					slot = political_advisor
+					trait = sergey_lavrov_trait_2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_strong_president_strong_country
+		icon = GFX_focus_SOV_only_putin
+		x = 11
+		y = 1
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+		relative_position_id = SOV_putin_at_the_helm
+		mutually_exclusive = { focus = SOV_memories_of_old focus = SOV_the_need_for_reforms }
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			has_country_flag = putin_normal_flag
+		}
+		
+		completion_reward={
+			increase_eastern_conservative_programming_by_2_5 = yes
+			SOV_increase_putinist_faction_small = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_the_need_for_reforms
+		icon = GFX_focus_SOV_only_putin
+		x = 3
+		y = 1
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+		relative_position_id = SOV_putin_at_the_helm
+		mutually_exclusive = { focus = SOV_memories_of_old focus = SOV_strong_president_strong_country }
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			has_country_flag = putin_reform_flag
+		}
+		
+		completion_reward={
+			increase_eastern_liberal_programming_by_2_5 = yes
+			SOV_increase_technocrat_faction_small = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_memories_of_old
+		icon = GFX_focus_SOV_memories_of_old
+		x = 19
+		y = 1
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+		relative_position_id = SOV_putin_at_the_helm
+		mutually_exclusive = { focus = SOV_the_need_for_reforms focus = SOV_strong_president_strong_country }
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			has_country_flag = putin_nationalist_flag
+		}
+		
+		completion_reward={
+			increase_ultranationalist_programming_by_2_5 = yes
+			SOV_increase_nationalist_faction_small = yes
+			set_party_name = { ideology = ultranationalist long_name = SOV_eastern_conservative_party_ultranat_long name = SOV_eastern_conservative_party_ultranat }
+			create_country_leader = {
+				name = "Vladimir Putin"
+				picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+				ideology = generic_ultranationalist
+			}
+			hidden_effect={
+				create_country_leader = {
+					name = "Vladimir Putin"
+					desc = "vladimir_putin_desc"
+					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+					ideology = generic_ultranationalist
+					traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework_2 }
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_movement_in_the_shadows
+		icon = GFX_focus_
+		x = 25
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_russia_united }
+		relative_position_id = SOV_russia_united
+		mutually_exclusive = { focus = SOV_putin_at_the_helm }
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			
 		}
 	}
 	

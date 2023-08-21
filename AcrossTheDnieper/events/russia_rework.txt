@@ -450,8 +450,9 @@ country_event = {
 			base = 10
 		}
 		increase_eastern_conservative_programming_by_4 = yes
-		add_stability = 0.02
+		add_political_power = 10
 		complete_national_focus = SOV_russia_united
+		set_country_flag = putin_normal_flag
     }
 	
 	option = {
@@ -462,9 +463,52 @@ country_event = {
 		increase_ultranationalist_programming_by_4 = yes
 		add_war_support = 0.02
 		complete_national_focus = SOV_russia_united
+		set_country_flag = putin_nationalist_flag
+    }
+	
+	option = {
+        name = russia.1011.c
+		ai_chance = {
+			base = 0
+		}
+		add_stability = 0.02
+		complete_national_focus = SOV_russia_united
+		set_country_flag = putin_reform_flag
     }
 }
 
+#Nemtsov dies
+country_event = {
+    id = russia.1012
+    title = russia.1012.t
+    desc = russia.1012.desc
+    picture = GFX_report_event_SOV_nemtsov_dead
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1012.a
+		ai_chance = {
+			base = 10
+		}
+		set_country_flag = boris_nemtsov_not_active_flag
+		SOV_make_alexei_navalny_liberal_leader = yes
+		add_stability = 0.05
+		
+		custom_effect_tooltip = russia.1012.tt
+    }
+	
+	option = {
+        name = russia.1012.b
+		ai_chance = {
+			base = 10
+		}
+		set_country_flag = boris_nemtsov_not_active_flag
+		SOV_make_alexei_navalny_liberal_leader = yes
+		add_political_power = 5
+		
+		custom_effect_tooltip = russia.1012.tt
+    }
+}
 
 
 
