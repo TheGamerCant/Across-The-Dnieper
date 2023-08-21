@@ -46,6 +46,46 @@ characters={
 		}	
 	}
 	
+	SOV_yevgeny_prigozhin_rework = {
+		name = SOV_yevgeny_prigozhin
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Yevgeny_Prigozhin_Advisor.png"
+				large = "gfx/leaders/SOV/generals/Portrait_dmitry_utkin.dds"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_yevgeny_prigozhin_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				SOV_prigozhin_trait
+			}
+			available={
+				has_completed_focus = SOV_utilise_wagner
+			}
+			ai_will_do = {
+			}
+			
+			on_add = {
+				owner = {
+					get_prigozhin_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_prigozhin_fire_effect = yes
+				}
+			}
+		}
+	}
+	
 	SOV_dmitry_utkin = {
 		name = SOV_dmitry_utkin
 		portraits = {
@@ -226,6 +266,82 @@ characters={
 			}
 		}
 	}
+	
+	SOV_sergey_kiriyenko = {
+		name = SOV_sergey_kiriyenko
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Kiriyenko_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Sergey_Kiriyenko.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_sergey_kiriyenko
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				SOV_kiriyenko_trait
+			}
+			ai_will_do = {
+			}
+			cost = 200
+			
+			on_add = {
+				owner = {
+					get_kiriyenko_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_kiriyenko_fire_effect = yes
+				}
+			}
+		}
+	}
+	
+	SOV_alexei_miller = {
+		name = SOV_alexei_miller
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Alexei_Miller_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Alexei_Miller.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_alexei_miller
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				SOV_ceo_of_gazprom
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			
+			on_add = {
+				owner = {
+					get_miller_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_miller_fire_effect = yes
+				}
+			}
+		}
+	}
 
 	SOV_igor_vsevolodovich_girkin_rework = {
 		name = SOV_igor_vsevolodovich_girkin_rework
@@ -254,6 +370,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0
+			}
+			
+			on_add = {
+				owner = {
+					get_girkin_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_girkin_fire_effect = yes
+				}
 			}
 		}
 	}
@@ -287,7 +414,17 @@ characters={
             }
 			traits = {
 				medvedev_pm_trait
-				drunkard
+			}
+			
+			on_add = {
+				owner = {
+					get_medvedev_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_medvedev_fire_effect = yes
+				}
 			}
 		}
 	}
@@ -321,6 +458,17 @@ characters={
 			traits = {
 				mishustin_pm_trait
 			}
+			
+			on_add = {
+				owner = {
+					get_mishustin_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_mishustin_fire_effect = yes
+				}
+			}
 		}
 	}
 
@@ -353,6 +501,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0
+			}
+			
+			on_add = {
+				owner = {
+					get_dugin_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_dugin_fire_effect = yes
+				}
 			}
 		}
 	}
@@ -400,6 +559,17 @@ characters={
 			}
 			traits = {
 				sergey_lavrov_trait
+			}
+			
+			on_add = {
+				owner = {
+					SOV_increase_putinist_faction_small = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					SOV_decrease_putinist_faction_small = yes
+				}
 			}
 		}
 	}
@@ -523,6 +693,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0
+			}
+			
+			on_add = {
+				owner = {
+					SOV_increase_putinist_faction_medium = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					SOV_decrease_putinist_faction_medium = yes
+				}
 			}
 		}
 	}

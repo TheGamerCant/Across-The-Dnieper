@@ -1235,9 +1235,9 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_putin_at_the_helm
-		icon = GFX_focus_SOV_putin_at_the_helm
-		x = 32
+		id = SOV_russia_united
+		icon = GFX_focus_united_russia
+		x = 45
 		y = 0
 		cost = 24
 		search_filters = {
@@ -1254,11 +1254,35 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				has_country_flag = putin_at_helm_flag
+				has_country_flag = russia_united_flag
 			}
 		}
 		completion_reward={
 			
+		}
+	}
+	
+	focus = {
+		id = SOV_putin_at_the_helm
+		icon = GFX_focus_SOV_putin_at_the_helm
+		x = -10
+		y = 0
+		cost = 30
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_russia_united }
+		relative_position_id = SOV_russia_united
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			swap_ruler_traits = {
+				remove = SOV_king_of_the_castle_rework
+				add = SOV_king_of_the_castle_rework_2
+			}	
 		}
 	}
 	
@@ -1277,10 +1301,7 @@ shared_focus = {
 	}
 
 	available = {
-		OR={
-			has_completed_focus = SOV_economic_corridors
-			has_country_flag = can_do_army_tree_flag
-		}
+		has_completed_focus = SOV_welcome_home_2
 	}
 	
 	
@@ -1328,7 +1349,7 @@ shared_focus = {
 			name = land_doc_bonus
 			cost_reduction = 0.35
 			uses = 2
-			category = cat_superior_firepower
+			category = land_doctrine
 		}
 	}
 }
@@ -1820,6 +1841,8 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		custom_effect_tooltip = SOV_utilise_wagner_tt
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_yevgeny_prigozhin_rework
 		add_war_support = 0.05
 		army_experience = 50
 	}
@@ -1921,7 +1944,7 @@ shared_focus = {
 			name = land_doc_bonus
 			cost_reduction = 0.35
 			uses = 2
-			category = cat_mass_assault
+			category = land_doctrine
 		}
 	}
 }

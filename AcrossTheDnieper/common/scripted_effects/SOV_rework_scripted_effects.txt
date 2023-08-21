@@ -468,6 +468,403 @@ decrease_eastern_liberal_programming_by_10={
 	SOV_media_leaning_calculate_XY = yes
 }
 
+SOV_clamp_influences = {
+	SOV = {
+		clamp_variable = { var = liberal_faction_strength min = 0 }		#Clamp / correct the variables
+		clamp_variable = { var = technocrat_faction_strength min = 0 }
+		clamp_variable = { var = oil_and_gas_faction_strength min = 0 }
+		clamp_variable = { var = siloviki_faction_strength min = 0 }
+		clamp_variable = { var = putinist_faction_strength min = 0 }
+		clamp_variable = { var = nationalist_faction_strength min = 0 }
+	
+		set_temp_variable = { sum = liberal_faction_strength }
+		add_to_temp_variable  = { sum = technocrat_faction_strength }
+		add_to_temp_variable  = { sum = oil_and_gas_faction_strength }
+		add_to_temp_variable  = { sum = siloviki_faction_strength }
+		add_to_temp_variable  = { sum = putinist_faction_strength }
+		add_to_temp_variable  = { sum = nationalist_faction_strength }
+		
+		multiply_variable = { liberal_faction_strength = 100 }
+		divide_variable = { liberal_faction_strength = sum }
+		multiply_variable = { technocrat_faction_strength = 100 }
+		divide_variable = { technocrat_faction_strength = sum }
+		multiply_variable = { oil_and_gas_faction_strength = 100 }
+		divide_variable = { oil_and_gas_faction_strength = sum }
+		multiply_variable = { siloviki_faction_strength = 100 }
+		divide_variable = { siloviki_faction_strength = sum }
+		multiply_variable = { putinist_faction_strength = 100 }
+		divide_variable = { putinist_faction_strength = sum }
+		multiply_variable = { nationalist_faction_strength = 100 }
+		divide_variable = { nationalist_faction_strength = sum }
+	}
+}
+
+SOV_increase_liberal_faction_small={
+	custom_effect_tooltip = SOV_increase_liberal_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 2.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 0.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 0.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 0.5 }
+	subtract_from_variable  = { putinist_faction_strength = 0.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_liberal_faction_medium={
+	custom_effect_tooltip = SOV_increase_liberal_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 5 }
+	subtract_from_variable  = { technocrat_faction_strength = 1 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 1 }
+	subtract_from_variable  = { siloviki_faction_strength = 1 }
+	subtract_from_variable  = { putinist_faction_strength = 1 }
+	subtract_from_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_liberal_faction_large={
+	custom_effect_tooltip = SOV_increase_liberal_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 10 }
+	subtract_from_variable  = { technocrat_faction_strength = 2 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2 }
+	subtract_from_variable  = { siloviki_faction_strength = 2 }
+	subtract_from_variable  = { putinist_faction_strength = 2 }
+	subtract_from_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_liberal_faction_small={
+	custom_effect_tooltip = SOV_decrease_liberal_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 2.5 }
+	add_to_variable  = { technocrat_faction_strength = 0.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 0.5 }
+	add_to_variable  = { siloviki_faction_strength = 0.5 }
+	add_to_variable  = { putinist_faction_strength = 0.5 }
+	add_to_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_liberal_faction_medium={
+	custom_effect_tooltip = SOV_decrease_liberal_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 5 }
+	add_to_variable  = { technocrat_faction_strength = 1 }
+	add_to_variable  = { oil_and_gas_faction_strength = 1 }
+	add_to_variable  = { siloviki_faction_strength = 1 }
+	add_to_variable  = { putinist_faction_strength = 1 }
+	add_to_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_liberal_faction_large={
+	custom_effect_tooltip = SOV_decrease_liberal_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 10 }
+	add_to_variable  = { technocrat_faction_strength = 2 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2 }
+	add_to_variable  = { siloviki_faction_strength = 2 }
+	add_to_variable  = { putinist_faction_strength = 2 }
+	add_to_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+
+SOV_increase_technocrat_faction_small={
+	custom_effect_tooltip = SOV_increase_technocrat_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 0.5 }
+	add_to_variable  = { technocrat_faction_strength = 2.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 0.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 0.5 }
+	subtract_from_variable  = { putinist_faction_strength = 0.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_technocrat_faction_medium={
+	custom_effect_tooltip = SOV_increase_technocrat_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 1 }
+	add_to_variable  = { technocrat_faction_strength = 5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 1 }
+	subtract_from_variable  = { siloviki_faction_strength = 1 }
+	subtract_from_variable  = { putinist_faction_strength = 1 }
+	subtract_from_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_technocrat_faction_large={
+	custom_effect_tooltip = SOV_increase_technocrat_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 2 }
+	add_to_variable  = { technocrat_faction_strength = 10 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2 }
+	subtract_from_variable  = { siloviki_faction_strength = 2 }
+	subtract_from_variable  = { putinist_faction_strength = 2 }
+	subtract_from_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_technocrat_faction_small={
+	custom_effect_tooltip = SOV_decrease_technocrat_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 0.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 2.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 0.5 }
+	add_to_variable  = { siloviki_faction_strength = 0.5 }
+	add_to_variable  = { putinist_faction_strength = 0.5 }
+	add_to_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_technocrat_faction_medium={
+	custom_effect_tooltip = SOV_decrease_technocrat_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 1 }
+	subtract_from_variable  = { technocrat_faction_strength = 5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 1 }
+	add_to_variable  = { siloviki_faction_strength = 1 }
+	add_to_variable  = { putinist_faction_strength = 1 }
+	add_to_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_technocrat_faction_large={
+	custom_effect_tooltip = SOV_decrease_technocrat_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 2 }
+	subtract_from_variable  = { technocrat_faction_strength = 10 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2 }
+	add_to_variable  = { siloviki_faction_strength = 2 }
+	add_to_variable  = { putinist_faction_strength = 2 }
+	add_to_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+
+SOV_increase_oil_and_gas_faction_small={
+	custom_effect_tooltip = SOV_increase_oil_and_gas_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 0.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 0.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 0.5 }
+	subtract_from_variable  = { putinist_faction_strength = 0.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_oil_and_gas_faction_medium={
+	custom_effect_tooltip = SOV_increase_oil_and_gas_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 1 }
+	subtract_from_variable  = { technocrat_faction_strength = 1 }
+	add_to_variable  = { oil_and_gas_faction_strength = 5 }
+	subtract_from_variable  = { siloviki_faction_strength = 1 }
+	subtract_from_variable  = { putinist_faction_strength = 1 }
+	subtract_from_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_oil_and_gas_faction_large={
+	custom_effect_tooltip = SOV_increase_oil_and_gas_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 2 }
+	subtract_from_variable  = { technocrat_faction_strength = 2 }
+	add_to_variable  = { oil_and_gas_faction_strength = 10 }
+	subtract_from_variable  = { siloviki_faction_strength = 2 }
+	subtract_from_variable  = { putinist_faction_strength = 2 }
+	subtract_from_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_oil_and_gas_faction_small={
+	custom_effect_tooltip = SOV_decrease_oil_and_gas_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 0.5 }
+	add_to_variable  = { technocrat_faction_strength = 0.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2.5 }
+	add_to_variable  = { siloviki_faction_strength = 0.5 }
+	add_to_variable  = { putinist_faction_strength = 0.5 }
+	add_to_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_oil_and_gas_faction_medium={
+	custom_effect_tooltip = SOV_decrease_oil_and_gas_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 1 }
+	add_to_variable  = { technocrat_faction_strength = 1 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 5 }
+	add_to_variable  = { siloviki_faction_strength = 1 }
+	add_to_variable  = { putinist_faction_strength = 1 }
+	add_to_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_oil_and_gas_faction_large={
+	custom_effect_tooltip = SOV_decrease_oil_and_gas_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 2 }
+	add_to_variable  = { technocrat_faction_strength = 2 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 10 }
+	add_to_variable  = { siloviki_faction_strength = 2 }
+	add_to_variable  = { putinist_faction_strength = 2 }
+	add_to_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+
+SOV_increase_siloviki_faction_small={
+	custom_effect_tooltip = SOV_increase_siloviki_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 0.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 0.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 0.5 }
+	add_to_variable  = { siloviki_faction_strength = 2.5 }
+	subtract_from_variable  = { putinist_faction_strength = 0.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_siloviki_faction_medium={
+	custom_effect_tooltip = SOV_increase_siloviki_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 1 }
+	subtract_from_variable  = { technocrat_faction_strength = 1 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 1 }
+	add_to_variable  = { siloviki_faction_strength = 5 }
+	subtract_from_variable  = { putinist_faction_strength = 1 }
+	subtract_from_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_siloviki_faction_large={
+	custom_effect_tooltip = SOV_increase_siloviki_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 2 }
+	subtract_from_variable  = { technocrat_faction_strength = 2 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2 }
+	add_to_variable  = { siloviki_faction_strength = 10 }
+	subtract_from_variable  = { putinist_faction_strength = 2 }
+	subtract_from_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_siloviki_faction_small={
+	custom_effect_tooltip = SOV_decrease_siloviki_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 0.5 }
+	add_to_variable  = { technocrat_faction_strength = 0.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 0.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 2.5 }
+	add_to_variable  = { putinist_faction_strength = 0.5 }
+	add_to_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_siloviki_faction_medium={
+	custom_effect_tooltip = SOV_decrease_siloviki_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 1 }
+	add_to_variable  = { technocrat_faction_strength = 1 }
+	add_to_variable  = { oil_and_gas_faction_strength = 1 }
+	subtract_from_variable  = { siloviki_faction_strength = 5 }
+	add_to_variable  = { putinist_faction_strength = 1 }
+	add_to_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_siloviki_faction_large={
+	custom_effect_tooltip = SOV_decrease_siloviki_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 2 }
+	add_to_variable  = { technocrat_faction_strength = 2 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2 }
+	subtract_from_variable  = { siloviki_faction_strength = 10 }
+	add_to_variable  = { putinist_faction_strength = 2 }
+	add_to_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+
+SOV_increase_putinist_faction_small={
+	custom_effect_tooltip = SOV_increase_putinist_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 0.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 0.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 0.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 0.5 }
+	add_to_variable  = { putinist_faction_strength = 2.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_putinist_faction_medium={
+	custom_effect_tooltip = SOV_increase_putinist_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 1 }
+	subtract_from_variable  = { technocrat_faction_strength = 1 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 1 }
+	subtract_from_variable  = { siloviki_faction_strength = 1 }
+	add_to_variable  = { putinist_faction_strength = 5 }
+	subtract_from_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_putinist_faction_large={
+	custom_effect_tooltip = SOV_increase_putinist_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 2 }
+	subtract_from_variable  = { technocrat_faction_strength = 2 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2 }
+	subtract_from_variable  = { siloviki_faction_strength = 2 }
+	add_to_variable  = { putinist_faction_strength = 10 }
+	subtract_from_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_putinist_faction_small={
+	custom_effect_tooltip = SOV_decrease_putinist_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 0.5 }
+	add_to_variable  = { technocrat_faction_strength = 0.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 0.5 }
+	add_to_variable  = { siloviki_faction_strength = 0.5 }
+	subtract_from_variable  = { putinist_faction_strength = 2.5 }
+	add_to_variable  = { nationalist_faction_strength = 0.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_putinist_faction_medium={
+	custom_effect_tooltip = SOV_decrease_putinist_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 1 }
+	add_to_variable  = { technocrat_faction_strength = 1 }
+	add_to_variable  = { oil_and_gas_faction_strength = 1 }
+	add_to_variable  = { siloviki_faction_strength = 1 }
+	subtract_from_variable  = { putinist_faction_strength = 5 }
+	add_to_variable  = { nationalist_faction_strength = 1 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_putinist_faction_large={
+	custom_effect_tooltip = SOV_decrease_putinist_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 2 }
+	add_to_variable  = { technocrat_faction_strength = 2 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2 }
+	add_to_variable  = { siloviki_faction_strength = 2 }
+	subtract_from_variable  = { putinist_faction_strength = 10 }
+	add_to_variable  = { nationalist_faction_strength = 2 }
+	SOV_clamp_influences = yes
+}
+
+SOV_increase_nationalist_faction_small={
+	custom_effect_tooltip = SOV_increase_nationalist_faction_small_tt
+	subtract_from_variable = { liberal_faction_strength = 0.5 }
+	subtract_from_variable  = { technocrat_faction_strength = 0.5 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 0.5 }
+	subtract_from_variable  = { siloviki_faction_strength = 0.5 }
+	subtract_from_variable  = { putinist_faction_strength = 0.5 }
+	add_to_variable  = { nationalist_faction_strength = 2.5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_nationalist_faction_medium={
+	custom_effect_tooltip = SOV_increase_nationalist_faction_medium_tt
+	subtract_from_variable = { liberal_faction_strength = 1 }
+	subtract_from_variable  = { technocrat_faction_strength = 1 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 1 }
+	subtract_from_variable  = { siloviki_faction_strength = 1 }
+	subtract_from_variable  = { putinist_faction_strength = 1 }
+	add_to_variable  = { nationalist_faction_strength = 5 }
+	SOV_clamp_influences = yes
+}
+SOV_increase_nationalist_faction_large={
+	custom_effect_tooltip = SOV_increase_nationalist_faction_large_tt
+	subtract_from_variable = { liberal_faction_strength = 2 }
+	subtract_from_variable  = { technocrat_faction_strength = 2 }
+	subtract_from_variable  = { oil_and_gas_faction_strength = 2 }
+	subtract_from_variable  = { siloviki_faction_strength = 2 }
+	subtract_from_variable  = { putinist_faction_strength = 2 }
+	add_to_variable  = { nationalist_faction_strength = 10 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_nationalist_faction_small={
+	custom_effect_tooltip = SOV_decrease_nationalist_faction_small_tt
+	add_to_variable = { liberal_faction_strength = 0.5 }
+	add_to_variable  = { technocrat_faction_strength = 0.5 }
+	add_to_variable  = { oil_and_gas_faction_strength = 0.5 }
+	add_to_variable  = { siloviki_faction_strength = 0.5 }
+	add_to_variable  = { putinist_faction_strength = 0.5 }
+	subtract_from_variable  = { nationalist_faction_strength = 2.5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_nationalist_faction_medium={
+	custom_effect_tooltip = SOV_decrease_nationalist_faction_medium_tt
+	add_to_variable = { liberal_faction_strength = 1 }
+	add_to_variable  = { technocrat_faction_strength = 1 }
+	add_to_variable  = { oil_and_gas_faction_strength = 1 }
+	add_to_variable  = { siloviki_faction_strength = 1 }
+	add_to_variable  = { putinist_faction_strength = 1 }
+	subtract_from_variable  = { nationalist_faction_strength = 5 }
+	SOV_clamp_influences = yes
+}
+SOV_decrease_nationalist_faction_large={
+	custom_effect_tooltip = SOV_decrease_nationalist_faction_large_tt
+	add_to_variable = { liberal_faction_strength = 2 }
+	add_to_variable  = { technocrat_faction_strength = 2 }
+	add_to_variable  = { oil_and_gas_faction_strength = 2 }
+	add_to_variable  = { siloviki_faction_strength = 2 }
+	add_to_variable  = { putinist_faction_strength = 2 }
+	subtract_from_variable  = { nationalist_faction_strength = 10 }
+	SOV_clamp_influences = yes
+}
+
 
 get_next_available_liberal_slot={
 	if={
@@ -6305,5 +6702,376 @@ get_faction_positions={
 		set_variable = { SOV.denis_manturov_X = next_available_nationalist_X }
 		set_variable = { SOV.denis_manturov_Y = next_available_nationalist_Y }
 		get_next_available_nationalist_slot = yes
+	}
+}
+
+get_girkin_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+}
+get_girkin_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_igor_girkin_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+}
+
+get_medvedev_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+}
+get_medvedev_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_dmitry_medvedev_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+}
+
+get_mishustin_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+}
+get_mishustin_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_mikhail_mishustin_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+}
+
+get_dugin_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_small = yes
+	}
+}
+get_dugin_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_small = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_dugin_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_small = yes
+	}
+}
+
+get_kiriyenko_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+}
+get_kiriyenko_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_sergey_kiriyenko_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+}
+
+get_miller_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+}
+get_miller_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexei_miller_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+}
+
+get_prigozhin_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_large = yes
+	}
+}
+get_prigozhin_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_large = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_yevgeny_prigozhin_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_large = yes
 	}
 }
