@@ -369,7 +369,7 @@ focus_tree = {
 		
 		cost = 35
 		ai_will_do = {
-			factor = 0
+			factor = 100
 		}
 		prerequisite = { focus = SOV_welcome_home_2 }
 		relative_position_id = SOV_welcome_home_2
@@ -882,7 +882,7 @@ focus_tree = {
 			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
 			custom_effect_tooltip = SOV_no_need_for_western_food_tt
 			decrease_eastern_liberal_programming_by_4 = yes
-			hidden_effect = {  country_event = { id = russia.1010 } days = 28 }
+			hidden_effect = { country_event = { id = russia.1010 } days = 28 }
 		}
 	}
 	
@@ -1404,7 +1404,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_BRICS
 		x = 1
 		y = 1
-		cost = 56
+		cost = 70
 		search_filters = {
 			
 		}
@@ -1437,19 +1437,44 @@ focus_tree = {
 	focus = {
 		id = SOV_strong_president_strong_country
 		icon = GFX_focus_SOV_only_putin
-		x = 11
+		x = 3
 		y = 1
-		cost = 24
+		cost = 20
 		search_filters = {
 			
 		}
 		prerequisite = { focus = SOV_putin_at_the_helm }
 		relative_position_id = SOV_putin_at_the_helm
-		mutually_exclusive = { focus = SOV_memories_of_old focus = SOV_the_need_for_reforms }
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 			has_country_flag = putin_normal_flag
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_country_flag = putin_normal_flag
+				}
+			}
+		}
+		
+		offset = {
+			x = 8
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_country_flag = view_all_russia_trees
+			}
 		}
 		
 		completion_reward={
@@ -1463,19 +1488,31 @@ focus_tree = {
 		icon = GFX_focus_SOV_only_putin
 		x = 3
 		y = 1
-		cost = 24
+		cost = 20
 		search_filters = {
 			
 		}
 		prerequisite = { focus = SOV_putin_at_the_helm }
 		relative_position_id = SOV_putin_at_the_helm
-		mutually_exclusive = { focus = SOV_memories_of_old focus = SOV_strong_president_strong_country }
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 			has_country_flag = putin_reform_flag
 		}
-		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_country_flag = putin_reform_flag
+				}
+			}
+		}
 		completion_reward={
 			increase_eastern_liberal_programming_by_2_5 = yes
 			SOV_increase_technocrat_faction_small = yes
@@ -1483,23 +1520,124 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SOV_ambitious_new_faces_2
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_the_need_for_reforms }
+		relative_position_id = SOV_the_need_for_reforms
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			set_can_be_fired_in_advisor_role = {	
+				character = SOV_dmitry_medvedev_rework 
+				value = yes
+			}
+			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_mikhail_mishustin_rework
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_sergey_kiriyenko
+			
+			SOV_increase_technocrat_faction_small = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_liberalise_the_banking_sector
+		icon = GFX_focus_SOV_liberalise_the_banking_sector
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_ambitious_new_faces_2 }
+		relative_position_id = SOV_ambitious_new_faces_2
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			add_political_power = -75
+			add_ideas = SOV_banking_sector_reforms
+		}
+	}
+	
+	focus = {
+		id = SOV_invest_in_internet_banking
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_liberalise_the_banking_sector }
+		relative_position_id = SOV_liberalise_the_banking_sector
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			swap_ideas={
+				remove_idea = SOV_banking_sector_reforms
+				add_idea = SOV_banking_sector_reforms_2
+			}
+		}
+	}
+	
+	focus = {
 		id = SOV_memories_of_old
 		icon = GFX_focus_SOV_memories_of_old
-		x = 19
+		x = 3
 		y = 1
-		cost = 24
+		cost = 20
 		search_filters = {
 			
 		}
 		prerequisite = { focus = SOV_putin_at_the_helm }
 		relative_position_id = SOV_putin_at_the_helm
-		mutually_exclusive = { focus = SOV_the_need_for_reforms focus = SOV_strong_president_strong_country }
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 			has_country_flag = putin_nationalist_flag
 		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_country_flag = putin_nationalist_flag
+				}
+			}
+		}
 		
+		offset = {
+			x = 16
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_country_flag = view_all_russia_trees
+			}
+		}
 		completion_reward={
 			increase_ultranationalist_programming_by_2_5 = yes
 			SOV_increase_nationalist_faction_small = yes
