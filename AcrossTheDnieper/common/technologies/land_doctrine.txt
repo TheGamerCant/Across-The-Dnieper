@@ -1427,7 +1427,7 @@ technologies = {
 		
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -3 y = 18 }
+			position = { x = -2 y = 19 }
 		}
 		
 		ai_will_do = {
@@ -1469,7 +1469,7 @@ technologies = {
 		
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 3 y = 18 }
+			position = { x = 2 y = 19 }
 		}
 		
 		ai_will_do = {
@@ -1633,6 +1633,11 @@ technologies = {
 			leads_to_tech = fortress_city 
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = all_frontal_defence 
+			research_cost_coeff = 1
+		}
 		
 		folder = {
 			name = land_doctrine_folder
@@ -1667,6 +1672,8 @@ technologies = {
 
 		doctrine = yes	
 		research_cost = 4.5
+
+		xor = { all_frontal_defence }
 		
 		infantry = {
 			urban = {
@@ -1784,6 +1791,11 @@ technologies = {
 			land_doctrine
 			cat_ukraine_doctrine
 		}
+
+		path = {
+			leads_to_tech = survival_in_environment 
+			research_cost_coeff = 1
+		}
 		
 		folder = {
 			name = land_doctrine_folder
@@ -1808,4 +1820,453 @@ technologies = {
 			can_do_ukraine_doctrine = 1
 		}
 	}
+
+	survival_in_environment = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    category_all_infantry = {
+        attrition = -0.10
+    }
+
+	planning_speed  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 13 }
+    }
+    
+	path = {
+        leads_to_tech = decentralized_management 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 100
+            }
+            factor = 0.8
+        }
+        factor = 15
+    }
+    
+    ai_research_weights = {
+        land_combat = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+
+
+
+all_frontal_defence = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+
+	xor = { fortress_city }
+    
+    infantry = {
+        defense = 0.15
+    }
+    
+    dig_in_speed_factor  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 7 }
+    }
+    
+    path = {
+        leads_to_tech = scorched_earth 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+scorched_earth = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    category_all_infantry = {
+        entrenchment  = 0.10
+    }
+    
+    supply_factor  = -0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 9 }
+    }
+    
+    path = {
+        leads_to_tech = adaptive_tactics 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_combat = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+adaptive_tactics = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    category_army = {
+        planning_speed = 0.10
+    }
+    
+    army_speed_factor = 0.05
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 11 }
+    }
+    
+    path = {
+        leads_to_tech = battles_behind_enemy_lines 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+battles_behind_enemy_lines = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+
+    army_speed_factor = 0.05
+    out_of_supply_factor  = -0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 13 }
+    }
+    
+    path = {
+        leads_to_tech = decentralized_management 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_combat = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+decentralized_management = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    land_reinforce_rate  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 15 }
+    }
+    
+    path = {
+        leads_to_tech = targeted_missile_strikes 
+        research_cost_coeff = 1
+    }
+
+	path = {
+        leads_to_tech = widespread_use_of_drones 
+        research_cost_coeff = 1
+    }
+
+	path = {
+        leads_to_tech = special_operations_forces 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+
+targeted_missile_strikes = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    air_superiority_efficiency  = 0.10
+    air_strategic_bomber_bombing_factor  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 17 }
+    }
+    
+    path = {
+        leads_to_tech = subversive_intelligence_groups 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+widespread_use_of_drones = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    recon_factor = 0.10
+    army_morale_factor = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 17 }
+    }
+    
+    path = {
+        leads_to_tech = subversive_intelligence_groups 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+
+special_operations_forces = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    special_forces_cap = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 17 }
+    }
+    
+    path = {
+        leads_to_tech = subversive_intelligence_groups 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+subversive_intelligence_groups = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    decryption_factor  = 0.10
+    intelligence_agency_defense  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 19 }
+    }
+    
+    path = {
+        leads_to_tech = intelligence_warfare 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_ukraine_doctrine = 1
+	}
+}
+
 }
