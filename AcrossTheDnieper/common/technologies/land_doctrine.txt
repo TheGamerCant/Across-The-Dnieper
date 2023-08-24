@@ -2269,4 +2269,437 @@ subversive_intelligence_groups = {
 	}
 }
 
+
+information_warfare_russia = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    increase_eastern_conservative_programming_by_1 = yes
+    resistance_target  = -0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 1 }
+    }
+    
+    path = {
+        leads_to_tech = political_dominance 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
+political_dominance = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    weekly_casualties_war_support = 0.005
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 3 }
+    }
+    
+    path = {
+        leads_to_tech = cyber_warfare 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+cyber_warfare = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    intel_network_gain_factor  = 0.05
+    encryption_factor = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 5 }
+    }
+    
+    path = {
+        leads_to_tech = civilian_support 
+        research_cost_coeff = 1
+    }
+
+	path = {
+        leads_to_tech = special_operations 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+civilian_support = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+
+	xor = { special_operations }
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    recruitable_population_factor = 0.05
+    offensive_war_stability_factor  = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 7 }
+    }
+    
+    path = {
+        leads_to_tech = crisis_management 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
+crisis_management = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    mobilization_speed = 0.10
+    weekly_casualties_war_support = 0.003
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 9 }
+    }
+    
+    path = {
+        leads_to_tech = asymmetrical_warfare_russia 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
+special_operations = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+	xor = { civilian_support }
+
+    doctrine = yes
+    research_cost = 4.5
+    
+    special_forces_cap = 0.10
+    special_forces_training_time_factor  = -0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 7 }
+    }
+    
+    path = {
+        leads_to_tech = electronic_warfare 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+electronic_warfare = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+
+	category_front_line = {
+		attack = 0.1
+	}
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 9 }
+    }
+    
+    path = {
+        leads_to_tech = asymmetrical_warfare_russia 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+asymmetrical_warfare_russia = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_attack_factor = 0.10
+    army_defence_factor = 0.10
+    supply_consumption_factor = -0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 11 }
+    }
+    
+    path = {
+        leads_to_tech = stealth_technology 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+stealth_technology = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_speed_factor = 0.10
+    recon_factor = 0.10
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 13 }
+    }
+    
+    path = {
+        leads_to_tech = full_war 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
+full_war = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    recruitable_population_factor = 0.10
+    army_attack_factor = 0.10
+    army_defence_factor = 0.10
+    weekly_casualties_war_support = 0.003
+    
+    categories = {
+        land_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 15 }
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
 }
