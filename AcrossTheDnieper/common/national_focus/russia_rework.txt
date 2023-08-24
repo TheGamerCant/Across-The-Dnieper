@@ -1340,6 +1340,7 @@ focus_tree = {
 		
 		completion_reward={
 			add_political_power = 80
+			add_popularity = { ideology = eastern_conservative popularity = 0.05 }
 		}
 	}
 	
@@ -1390,6 +1391,19 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		bypass={
+			NOT={
+				custom_trigger_tooltip={
+					tooltip = SOV_has_western_sanctions_tt
+					has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+				}
+			}
 		}
 		
 		completion_reward={
@@ -1478,8 +1492,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			increase_eastern_conservative_programming_by_2_5 = yes
-			SOV_increase_putinist_faction_small = yes
+			increase_eastern_conservative_programming_by_2 = yes
+			SOV_increase_putinist_faction_medium = yes
 		}
 	}
 	
@@ -1514,14 +1528,13 @@ focus_tree = {
 			}
 		}
 		completion_reward={
-			increase_eastern_liberal_programming_by_2_5 = yes
-			SOV_increase_technocrat_faction_small = yes
+			SOV_increase_technocrat_faction_medium = yes
 		}
 	}
 	
 	focus = {
 		id = SOV_ambitious_new_faces_2
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_ambitious_new_faces_2
 		x = 0
 		y = 1
 		cost = 48
@@ -1551,11 +1564,59 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SOV_russia_the_land_of_opportunities
+		icon = GFX_focus_time_for_a_new_leader
+		x = 2
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_ambitious_new_faces_2 }
+		relative_position_id = SOV_ambitious_new_faces_2
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			add_political_power = 100
+			set_country_flag = { flag = SOV_russia_the_land_of_opportunities_flag value = 1 days = 364 }
+		}
+	}
+	
+	focus = {
+		id = SOV_bureaucratic_reforms
+		icon = GFX_focus_UKR_a_meeting_in_moscow
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_russia_the_land_of_opportunities }
+		relative_position_id = SOV_russia_the_land_of_opportunities
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			NOT = { has_country_flag = SOV_russia_the_land_of_opportunities_flag }
+		}
+
+		completion_reward={
+			swap_ideas={
+				remove_idea = SOV_raspizdyaystvo
+				add_idea = SOV_raspizdyaystvo_2
+			}
+			add_stability = -0.03
+		}
+	}
+	
+	focus = {
 		id = SOV_liberalise_the_banking_sector
 		icon = GFX_focus_SOV_liberalise_the_banking_sector
 		x = 0
 		y = 1
-		cost = 48
+		cost = 70
 		search_filters = {
 			
 		}
@@ -1574,10 +1635,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_invest_in_internet_banking
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_liberalise_the_banking_sector
 		x = 0
 		y = 1
-		cost = 48
+		cost = 70
 		search_filters = {
 			
 		}
@@ -1592,6 +1653,96 @@ focus_tree = {
 			swap_ideas={
 				remove_idea = SOV_banking_sector_reforms
 				add_idea = SOV_banking_sector_reforms_2
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_vk_group
+		icon = GFX_focus_SOV_vk
+		x = -2
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_ambitious_new_faces_2 }
+		relative_position_id = SOV_ambitious_new_faces_2
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			increase_eastern_conservative_programming_by_4 = yes
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = SOV_internet_infastructure
+		icon = GFX_focus_UKR_smart_urban_planning
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_expand_vk_group }
+		relative_position_id = SOV_expand_vk_group
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
 			}
 		}
 	}
@@ -1639,8 +1790,8 @@ focus_tree = {
 			}
 		}
 		completion_reward={
-			increase_ultranationalist_programming_by_2_5 = yes
-			SOV_increase_nationalist_faction_small = yes
+			increase_ultranationalist_programming_by_2 = yes
+			SOV_increase_nationalist_faction_medium = yes
 			set_party_name = { ideology = ultranationalist long_name = SOV_eastern_conservative_party_ultranat_long name = SOV_eastern_conservative_party_ultranat }
 			create_country_leader = {
 				name = "Vladimir Putin"
