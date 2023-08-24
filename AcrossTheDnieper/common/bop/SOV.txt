@@ -1,0 +1,62 @@
+
+SOV_power_balance = {
+	initial_value = 0.35
+	left_side = SOV_technocrat_bop_side	
+	right_side = SOV_siloviki_bop_side	
+	decision_category = SOV_balance_of_power_category
+
+	range = {
+		id = SOV_balance_range
+		min = -0.90
+		max = 0.90
+		modifier = {
+		}
+		on_activate = {
+
+		}
+		on_deactivate = {
+			
+		}
+	}
+
+	side = {
+		id = SOV_technocrat_bop_side	
+		icon = GFX_SOV_gref_icon_large
+
+		range = {
+			id = SOV_technocrats_big
+			min = -1.0
+			max = -0.9
+			modifier = {
+				political_advisor_cost_factor = -0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+	}
+
+	side = {
+		id = SOV_siloviki_bop_side	
+		icon = GFX_SOV_shoigu_icon_large
+
+		range = {
+			id = SOV_siloviki_big
+			min = 0.9
+			max = 1.0
+			modifier = {
+				political_power_factor = 0.05
+				war_support_factor = 0.01
+				stability_factor = 0.01
+			}
+			on_activate = {
+			}
+			on_deactivate = {	
+			}
+		}
+	}
+}
+

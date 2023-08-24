@@ -1537,7 +1537,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_ambitious_new_faces_2
 		x = 0
 		y = 1
-		cost = 48
+		cost = 60
 		search_filters = {
 			
 		}
@@ -1616,7 +1616,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_liberalise_the_banking_sector
 		x = 0
 		y = 1
-		cost = 70
+		cost = 60
 		search_filters = {
 			
 		}
@@ -1638,7 +1638,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_liberalise_the_banking_sector
 		x = 0
 		y = 1
-		cost = 70
+		cost = 80
 		search_filters = {
 			
 		}
@@ -1746,6 +1746,55 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = SOV_strengthen_the_central_bank
+		icon = GFX_focus_SOV_hike_interest_rates
+		x = -1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_bureaucratic_reforms }
+		prerequisite = { focus = SOV_invest_in_internet_banking }
+		relative_position_id = SOV_bureaucratic_reforms
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			decrease_inflation_rate_by_5 = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_huawei_contrats
+		icon = GFX_focus_SOV_huawei
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_internet_infastructure }
+		prerequisite = { focus = SOV_invest_in_internet_banking }
+		relative_position_id = SOV_internet_infastructure
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+
+		completion_reward={
+			add_political_power = 75
+			swap_ideas={
+				remove_idea = SOV_banking_sector_reforms_2
+				add_idea = SOV_russia_of_a_new_age
+			}
+		}
+	}
+	
 	
 	focus = {
 		id = SOV_memories_of_old

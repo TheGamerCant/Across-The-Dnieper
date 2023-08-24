@@ -25,4 +25,38 @@ debug_decisions = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
+	
+	SOV_start_technocrat_siloviki_bop = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_any_power_balance = no
+				}
+				set_power_balance = {
+					id = SOV_power_balance
+					left_side = SOV_technocrat_bop_side 
+					right_side = SOV_siloviki_bop_side 
+					set_value = 0.2
+				}
+			}
+		}
+	}
 }
