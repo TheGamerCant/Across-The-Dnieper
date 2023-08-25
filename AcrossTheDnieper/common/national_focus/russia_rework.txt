@@ -802,6 +802,7 @@ focus_tree = {
 		
 		cost = 22
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_welcome_home_2 }
 		relative_position_id = SOV_welcome_home_2
@@ -832,6 +833,7 @@ focus_tree = {
 		
 		cost = 22
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_welcome_home_2 }
 		relative_position_id = SOV_welcome_home_2
@@ -862,6 +864,7 @@ focus_tree = {
 		
 		cost = 42
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_fight_western_sanctions }
 		relative_position_id = SOV_fight_western_sanctions
@@ -894,6 +897,7 @@ focus_tree = {
 		
 		cost = 80
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_no_need_for_western_food }
 		relative_position_id = SOV_no_need_for_western_food
@@ -945,6 +949,7 @@ focus_tree = {
 		
 		cost = 60
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_fight_western_sanctions focus = SOV_cope_with_sanctions }
 		relative_position_id = SOV_fight_western_sanctions
@@ -981,6 +986,7 @@ focus_tree = {
 		
 		cost = 40
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_nationalise_western_assets }
 		relative_position_id = SOV_nationalise_western_assets
@@ -1019,6 +1025,7 @@ focus_tree = {
 		
 		cost = 40
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_nationalise_western_assets }
 		relative_position_id = SOV_nationalise_western_assets
@@ -1058,6 +1065,7 @@ focus_tree = {
 		
 		cost = 42
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_cope_with_sanctions }
 		relative_position_id = SOV_cope_with_sanctions
@@ -1087,6 +1095,7 @@ focus_tree = {
 		
 		cost = 80
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_learn_from_iran }
 		relative_position_id = SOV_learn_from_iran
@@ -1150,6 +1159,7 @@ focus_tree = {
 		
 		cost = 56
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_increase_economic_bureaucracy }
 		prerequisite = { focus = SOV_hike_interest_rates }
@@ -1184,6 +1194,7 @@ focus_tree = {
 		
 		cost = 56
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_economic_corridors }
 		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
@@ -1218,6 +1229,7 @@ focus_tree = {
 		
 		cost = 56
 		ai_will_do = {
+			factor = 10
 		}
 		prerequisite = { focus = SOV_economic_corridors }
 		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
@@ -1391,25 +1403,20 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
 		}
 		
 		bypass={
-			NOT={
-				custom_trigger_tooltip={
-					tooltip = SOV_has_western_sanctions_tt
-					has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-				}
-			}
 		}
 		
 		completion_reward={
 			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
 			
 			custom_effect_tooltip = SOV_closer_ties_with_china_tt
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_1 = yes
+			}
 		}
 	}
 	
