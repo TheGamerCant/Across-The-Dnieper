@@ -173,7 +173,6 @@ on_actions={
 					remove_ideas = SOV_the_eastern_yoke
 					remove_ideas = SOV_the_great_patriotic_war_idea
 					remove_ideas = SOV_wunderwaffe
-					add_ideas = SOV_stagnant_economy_rework
 					add_ideas = SOV_bloated_welfare_system
 					add_ideas = SOV_wunderwaffe_rework
 					add_ideas = SOV_raspizdyaystvo
@@ -197,9 +196,9 @@ on_actions={
 					set_variable = { SOV.SOV_media_dot_X = 0 }
 					set_variable = { SOV.SOV_media_dot_Y = 0 }
 					
-					set_variable = { SOV.SOV_media_leans_eastern_conservative = 81 }
+					set_variable = { SOV.SOV_media_leans_eastern_conservative = 78 }
 					set_variable = { SOV.SOV_media_leans_ultranationalist = 6 }
-					set_variable = { SOV.SOV_media_leans_eastern_liberal = 13 }
+					set_variable = { SOV.SOV_media_leans_eastern_liberal = 16 }
 					
 					SOV_media_leaning_calculate_XY = yes	
 
@@ -308,17 +307,22 @@ on_actions={
 					add_ideas = SOV_valery_gerasimov_rework
 					
 					add_war_support = -0.3
+
+					set_variable = { SOV_sanctions_industrial_capacity_factory = -0.2 }
+					set_variable = { SOV_sanctions_production_speed_buildings_factor = -0.35 }
+					set_variable = { SOV_sanctions_research_speed_factor = -0.15 }
+					set_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+					set_variable = { SOV_sanctions_stability_weekly = -0.001 }
+					set_variable = { SOV_sanctions_inflation_monthly = 0 }
+					set_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0 }
+					set_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0 }
+					set_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0 }
+					set_variable = { SOV_sanctions_political_power_cost = 0 }
+					set_variable = { SOV_sanctions_industrial_capacity_dockyard = -0.25 }
+					set_variable = { SOV_sanctions_production_speed_industrial_complex_factor = -0.15 }
+					set_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0 }
 					
-					set_variable = { SOV_sanctions_industrial_capacity_factory = -0.15 }
-					set_variable = { SOV_sanctions_production_speed_buildings_factor = -0.15 }
-					set_variable = { SOV_sanctions_research_speed_factor = -0.1 }
-					set_variable = { SOV_sanctions_consumer_goods_factor = 0.08 }
-					set_variable = { SOV_sanctions_stability_weekly = -0.002 }
-					set_variable = { SOV_sanctions_production_factory_max_efficiency_factor = -0.25 }
-					set_variable = { SOV_sanctions_line_change_production_efficiency_factor = -0.25 }
-					set_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = -0.25 }
-					set_variable = { SOV_sanctions_inflation_monthly = 0.05 }
-					set_variable = { SOV_sanctions_political_power_cost = 0.6 }
+					add_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
 					
 					if = {
 						limit = { NOT = { has_dlc = "La Resistance" } }

@@ -1157,7 +1157,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		
-		cost = 56
+		cost = 80
 		ai_will_do = {
 			factor = 10
 		}
@@ -1183,6 +1183,11 @@ focus_tree = {
 			add_to_variable = { SOV_sanctions_stability_weekly = 0.002 }
 			
 			custom_effect_tooltip = SOV_economic_corridors_tt
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_2_5 = yes
+			}
 		}
 	}
 	
@@ -1218,6 +1223,11 @@ focus_tree = {
 			custom_effect_tooltip = SOV_no_need_for_western_food_tt
 			
 			add_political_power = 75
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_1 = yes
+			}
 		}
 	}
 	
@@ -1278,6 +1288,11 @@ focus_tree = {
 			}
 			
 			add_stability = 0.05
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_1_5 = yes
+			}
 		}
 	}
 	
@@ -1670,6 +1685,9 @@ focus_tree = {
 
 		
 		completion_reward={
+			add_political_power = 75
+			add_stability = 0.02
+		
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SOV_kirill_rework
 		}
@@ -1778,6 +1796,7 @@ focus_tree = {
 		}
 		completion_reward={
 			SOV_increase_technocrat_faction_medium = yes
+			add_political_power = 25
 		}
 	}
 	

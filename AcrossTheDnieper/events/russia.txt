@@ -2232,26 +2232,58 @@ country_event = {
     picture = SOV_sanctions_event
     is_triggered_only = yes
 
+	immediate={
+		hidden_effect={
+			subtract_from_variable = { SOV.bonus_gdp = 410 }
+			add_to_variable = { ROOT.inflation_rate = 6 }
+			every_state={
+				limit={
+					is_controlled_by = SOV
+				}
+				decrease_state_gdp_growth_by_5 = yes
+				subtract_from_variable = { THIS.state_gdp_per_capita = 1200 }
+			}
+
+		}
+	}
 
     option = {
         name = russia.38.a
         add_stability = -0.05
 		if={
 			limit = { russia_rework_trigger = yes }
-			add_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			custom_effect_tooltip = western_sanctions_tt
+			
+			hidden_effect={
+				add_to_variable = { SOV_sanctions_industrial_capacity_factory = -0.15 }
+				add_to_variable = { SOV_sanctions_production_speed_buildings_factor = -0.15 }
+				add_to_variable = { SOV_sanctions_research_speed_factor = -0.1 }
+				add_to_variable = { SOV_sanctions_consumer_goods_factor = 0.08 }
+				add_to_variable = { SOV_sanctions_stability_weekly = -0.002 }
+				add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = -0.25 }
+				add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = -0.25 }
+				add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = -0.25 }
+				add_to_variable = { SOV_sanctions_inflation_monthly = 0.05 }
+				add_to_variable = { SOV_sanctions_political_power_cost = 0.6 }
+				add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = -0.2 }
+				
+				add_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+				remove_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
+			}
 		}
 		else={
 			add_ideas = SOV_western_sanctions
 		}
-        subtract_from_variable = { SOV.bonus_gdp = 400 }
-		add_to_variable = { ROOT.inflation_rate = 6 }
-		custom_effect_tooltip = russia.38.tt
-        every_state={
-			limit={
-				is_controlled_by = SOV
+		
+		effect_tooltip={
+			custom_effect_tooltip = russia.38.tt
+			every_state={
+				limit={
+					is_controlled_by = SOV
+				}
+				decrease_state_gdp_growth_by_5 = yes
+				subtract_from_variable = { THIS.state_gdp_per_capita = 1200 }
 			}
-			decrease_state_gdp_growth_by_5 = yes
-			subtract_from_variable = { THIS.state_gdp_per_capita = 1200 }
 		}
 		if = {
 			limit = { russia_rework_trigger = yes }
