@@ -237,6 +237,21 @@ ideas = {
 				electronics = 0.15
 			}
 		}
+		
+		SOV_subsidies_for_childbirth_idea = {
+			available = { NOT = { has_global_flag = russian_civil_war_begun } }
+
+			removal_cost = -1
+			picture = SOV_stagnant_economy
+			modifier = {
+				consumer_goods_factor = 0.01
+				political_power_cost = 0.05
+				monthly_population = 0.35
+				ruling_party_drift = 0.1
+				stability_factor = 0.04
+			}
+
+		}
 	
 		SOV_memories_of_1991 = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }
@@ -244,7 +259,7 @@ ideas = {
 			removal_cost = -1
 			picture = SOV_memories_of_1991
 			modifier = {
-				moderate_communist_drift = 0.1
+				moderate_communist_drift = 0.12
 				war_support_factor = 0.05
 				justify_war_goal_time = -0.1
 			}
@@ -256,7 +271,7 @@ ideas = {
 			removal_cost = -1
 			picture = SOV_memories_of_1993
 			modifier = {
-				eastern_liberal_drift = 0.05
+				eastern_liberal_drift = 0.06
 				stability_factor = -0.04
 				political_power_cost = -0.15
 			}
@@ -377,6 +392,21 @@ ideas = {
 				fuel_gain_factor = 0.25
 				min_export = 0.2
 				local_resources_factor = 0.1
+				political_power_cost = -0.3
+			}
+		}
+		
+		SOV_oil_revenues_2 = {
+			available = { NOT = { has_global_flag = russian_civil_war_begun } }
+
+			removal_cost = -1
+			picture = generic_stockpile_fuel
+			modifier = {
+				consumer_goods_factor = -0.14
+				max_fuel_factor = 0.4
+				fuel_gain_factor = 0.4
+				min_export = 0.2
+				local_resources_factor = 0.2
 				political_power_cost = -0.3
 			}
 		}
