@@ -1329,7 +1329,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_putin_at_the_helm
 		x = -25
 		y = 1
-		cost = 30
+		cost = 45
 		search_filters = {
 			
 		}
@@ -1354,7 +1354,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_BRICS
 		x = -3
 		y = 1
-		cost = 56
+		cost = 44
 		search_filters = {
 			
 		}
@@ -1376,7 +1376,7 @@ focus_tree = {
 		icon = GFX_focus_vks_in_syria
 		x = -1
 		y = 1
-		cost = 56
+		cost = 44
 		search_filters = {
 			
 		}
@@ -1544,7 +1544,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_black_sea_pipelines
-		icon = GFX_focus_
+		icon = GFX_focus_generic_black_sea_focus
 		x = 0
 		y = 1
 		cost = 60
@@ -1579,7 +1579,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_closer_ties_with_gazprom
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_closer_ties_with_gazprom
 		x = 0
 		y = 1
 		cost = 80
@@ -1873,9 +1873,8 @@ focus_tree = {
 		completion_reward={
 			swap_ideas={
 				remove_idea = SOV_raspizdyaystvo
-				add_idea = SOV_raspizdyaystvo_2
+				add_idea = SOV_raspizdyaystvo_technocrat
 			}
-			add_stability = -0.03
 		}
 	}
 	
@@ -2034,6 +2033,19 @@ focus_tree = {
 
 		completion_reward={
 			decrease_inflation_rate_by_5 = yes
+			add_political_power = 25
+			
+			random_owned_controlled_state={
+				prioritize = { 11 }
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
 		}
 	}
 	
@@ -2110,10 +2122,12 @@ focus_tree = {
 			increase_ultranationalist_programming_by_2 = yes
 			SOV_increase_nationalist_faction_medium = yes
 			set_party_name = { ideology = ultranationalist long_name = SOV_eastern_conservative_party_ultranat_long name = SOV_eastern_conservative_party_ultranat }
-			create_country_leader = {
-				name = "Vladimir Putin"
-				picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
-				ideology = united_russia_ultranat_subideology
+			effect_tooltip={
+				create_country_leader = {
+					name = "Vladimir Putin"
+					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+					ideology = united_russia_ultranat_subideology
+				}
 			}
 			hidden_effect={
 				create_country_leader = {
@@ -2127,6 +2141,238 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_patriots_from_a_young_age
+		icon = GFX_focus_UKR_patriotic_education
+		x = 0
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_memories_of_old }
+		relative_position_id = SOV_memories_of_old
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1015 hours = 4 }
+		}
+	}
+	
+	focus = {
+		id = SOV_our_grand_history
+		icon = GFX_focus_SOV_memories_of_old
+		x = -2
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_patriots_from_a_young_age }
+		relative_position_id = SOV_patriots_from_a_young_age
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_popularity = { ideology = eastern_conservative popularity = 0.1 }
+		}
+	}
+	
+	focus = {
+		id = SOV_our_grander_borders
+		icon = GFX_focus_SOV_our_grander_borders
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_our_grand_history }
+		relative_position_id = SOV_our_grand_history
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_war_support = 0.05
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = SOV_holy_russia
+		icon = GFX_focus_cathedral
+		x = 0
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_patriots_from_a_young_age }
+		relative_position_id = SOV_patriots_from_a_young_age
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = 100
+		
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_kirill_rework
+		}
+	}
+	
+	focus = {
+		id = SOV_the_teachings_of_ivan_ilyin
+		icon = GFX_focus_SOV_ivan_ilyin
+		x = 0
+		y = 1
+		cost = 80
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_holy_russia }
+		relative_position_id = SOV_holy_russia
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1016 hours = 6 }
+		}
+	}
+	
+	focus = {
+		id = SOV_victors_now_and_forever
+		icon = GFX_focus_SOV_our_grander_borders
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_our_grander_borders }
+		prerequisite = { focus = SOV_the_teachings_of_ivan_ilyin }
+		relative_position_id = SOV_our_grander_borders
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_ideas = SOV_victors_now_and_forever_idea
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = SOV_tackle_draft_dodging
+		icon = GFX_focus_SOV_end_conscription
+		x = 2
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_patriots_from_a_young_age }
+		relative_position_id = SOV_patriots_from_a_young_age
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			swap_ideas={
+				remove_idea = SOV_raspizdyaystvo
+				add_idea = SOV_raspizdyaystvo_nationalist
+			}
+			add_stability = -0.075
+		}
+	}
+	
+	focus = {
+		id = SOV_kickstart_the_industry
+		icon = GFX_focus_BLR_local_arms_manufacturing
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_tackle_draft_dodging }
+		relative_position_id = SOV_tackle_draft_dodging
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			
+			add_political_power = -100
+		}
+	}
+	
+	focus = {
+		id = SOV_great_helmsman
+		icon = GFX_focus_SOV_putin_at_the_helm
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_the_teachings_of_ivan_ilyin }
+		prerequisite = { focus = SOV_kickstart_the_industry }
+		relative_position_id = SOV_the_teachings_of_ivan_ilyin
+		
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			SOV_increase_nationalist_faction_medium = yes
+			add_country_leader_trait = SOV_the_great_helmsman_trait
+		}
+	}
+	
 	
 	focus = {
 		id = SOV_movement_in_the_shadows
@@ -2136,6 +2382,9 @@ focus_tree = {
 		cost = 30
 		search_filters = {
 			
+		}
+		ai_will_do={
+			factor = 0					############################################CHANGE WHEN DONE
 		}
 		prerequisite = { focus = SOV_russia_united }
 		relative_position_id = SOV_russia_united
@@ -2407,6 +2656,8 @@ shared_focus = {
 	relative_position_id = SOV_defensive_drills
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2442,6 +2693,8 @@ shared_focus = {
 	relative_position_id = SOV_end_conscription
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2475,6 +2728,8 @@ shared_focus = {
 	relative_position_id = SOV_end_conscription
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2525,6 +2780,8 @@ shared_focus = {
 	relative_position_id = SOV_end_conscription
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2556,6 +2813,8 @@ shared_focus = {
 	relative_position_id = SOV_end_conscription
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2586,6 +2845,8 @@ shared_focus = {
 	relative_position_id = SOV_end_conscription
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -2850,8 +3111,7 @@ shared_focus = {
 	completion_reward = {
 		add_to_variable = { SOV_army_conscription_factor = 0.2 }
 		custom_effect_tooltip = SOV_continue_to_conscript_from_the_republics_tt
-		
-		add_stability = 0.05
+		add_political_power = 25
 	}
 }
 
@@ -2880,7 +3140,8 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_to_variable = { SOV_army_mobilization_speed = 1 }
-		add_to_variable = { SOV_army_consumer_goods_factor = 0.015 }
+		add_to_variable = { SOV_army_consumer_goods_factor = 0.01 }
+		add_to_variable = { SOV_army_conscription = 0.003 }
 		subtract_from_variable = { SOV_army_training_time_factor = 0.4 }
 		custom_effect_tooltip = SOV_modernise_conscription_practices_tt
 		
@@ -2890,7 +3151,6 @@ shared_focus = {
 			uses = 1
 			category = electronics
 		}
-		add_political_power = 100
 	}
 }
 
@@ -3020,6 +3280,8 @@ shared_focus = {
 	relative_position_id = SOV_artillieriya
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -3057,6 +3319,8 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -3084,6 +3348,8 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -3126,6 +3392,8 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -3173,6 +3441,8 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	
@@ -3214,6 +3484,8 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		NOT = { has_idea = SOV_raspizdyaystvo }
+		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
 	}
 	
 	

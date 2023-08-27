@@ -603,6 +603,49 @@ country_event = {
     }
 }
 
+#Patriotic Education
+country_event = {
+    id = russia.1015
+    title = russia.1015.t
+    desc = russia.1015.desc
+    picture = GFX_report_event_SOV_students
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1015.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 100
+		add_stability = -0.03
+		increase_ultranationalist_programming_by_3 = yes
+		
+		add_ideas = SOV_patriots_from_a_young_age_idea
+    }
+}
+
+#Ivan Ilyin
+country_event = {
+    id = russia.1016
+    title = russia.1016.t
+    desc = russia.1016.desc
+    picture = GFX_report_event_SOV_students
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1016.a
+		ai_chance = {
+			base = 10
+		}
+		swap_ideas={
+			remove_idea = SOV_patriots_from_a_young_age_idea
+			add_idea = SOV_patriots_from_a_young_age_idea_2
+		}
+		
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_aleksandr_dugin_rework
+    }
+}
 
 
 
