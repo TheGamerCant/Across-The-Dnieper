@@ -1319,6 +1319,18 @@ focus_tree = {
 				has_country_flag = russia_united_flag
 			}
 		}
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_putin_at_the_helm
+			}
+		}
+		
 		completion_reward={
 			
 		}
@@ -1327,14 +1339,14 @@ focus_tree = {
 	focus = {
 		id = SOV_putin_at_the_helm
 		icon = GFX_focus_SOV_putin_at_the_helm
-		x = -25
+		x = 27
 		y = 1
 		cost = 45
 		search_filters = {
 			
 		}
 		prerequisite = { focus = SOV_russia_united }
-		relative_position_id = SOV_russia_united
+
 		mutually_exclusive = { focus = SOV_movement_in_the_shadows }
 		
 		available={
@@ -1346,6 +1358,7 @@ focus_tree = {
 				remove = SOV_king_of_the_castle_rework
 				add = SOV_king_of_the_castle_rework_2
 			}	
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	
@@ -2179,7 +2192,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_popularity = { ideology = eastern_conservative popularity = 0.1 }
+			add_popularity = { ideology = ultranationalist popularity = 0.1 }
+			add_stability = 0.04
 		}
 	}
 	
@@ -2202,6 +2216,10 @@ focus_tree = {
 		completion_reward={
 			add_war_support = 0.05
 			add_political_power = 80
+			swap_ideas={
+				remove_idea = SOV_memories_of_1991
+				add_idea = SOV_memories_of_1991_2
+			}
 		}
 	}
 	
@@ -2369,7 +2387,10 @@ focus_tree = {
 		
 		completion_reward={
 			SOV_increase_nationalist_faction_medium = yes
-			add_country_leader_trait = SOV_the_great_helmsman_trait
+			swap_ruler_traits = {
+				remove = SOV_king_of_the_castle_rework_2
+				add = SOV_the_great_helmsman_trait
+			}
 		}
 	}
 	
@@ -2389,7 +2410,17 @@ focus_tree = {
 		prerequisite = { focus = SOV_russia_united }
 		relative_position_id = SOV_russia_united
 		mutually_exclusive = { focus = SOV_putin_at_the_helm }
-		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = SOV_putin_at_the_helm }
+			}
+		}
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 		}
@@ -2655,9 +2686,12 @@ shared_focus = {
 
 	relative_position_id = SOV_defensive_drills
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -2692,9 +2726,12 @@ shared_focus = {
 
 	relative_position_id = SOV_end_conscription
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -2727,9 +2764,12 @@ shared_focus = {
 
 	relative_position_id = SOV_end_conscription
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -2779,9 +2819,12 @@ shared_focus = {
 
 	relative_position_id = SOV_end_conscription
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -2812,9 +2855,12 @@ shared_focus = {
 
 	relative_position_id = SOV_end_conscription
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -2844,9 +2890,12 @@ shared_focus = {
 
 	relative_position_id = SOV_end_conscription
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3279,9 +3328,12 @@ shared_focus = {
 
 	relative_position_id = SOV_artillieriya
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3318,9 +3370,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3347,9 +3402,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3391,9 +3449,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3440,9 +3501,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
@@ -3467,6 +3531,8 @@ shared_focus = {
 			uses = 2
 			category = cat_special_forces_generic
 		}
+		
+		add_war_support = 0.03
 	}
 }
 
@@ -3483,9 +3549,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		NOT = { has_idea = SOV_raspizdyaystvo }
-		NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-		NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		custom_trigger_tooltip={
+			tooltip = does_not_have_raspizdyaystvo_tt
+			NOT = { has_idea = SOV_raspizdyaystvo }
+			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
+			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+		}
 	}
 	
 	
