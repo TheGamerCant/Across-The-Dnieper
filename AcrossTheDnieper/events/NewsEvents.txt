@@ -1215,3 +1215,59 @@ news_event = { #Mindaugas Gervaldas Coups The 2014 election
 		name = atd_news.49.a
 	}
 }
+
+news_event = {	#Putin dead 2
+	id = atd_news.50
+	title = atd_news.50.t
+	desc = atd_news.50.desc
+	picture = GFX_news_event_putin_dead
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = {
+				tag = SOV
+			}
+		}
+		name = atd_news.50.a
+	}
+
+	option = {
+		trigger = {
+			tag = SOV
+		}
+		name = atd_news.50.b
+	}
+}
+
+news_event = {	#Ukraine enters Crimea
+	id = atd_news.51
+	title = atd_news.51.t
+	desc = atd_news.51.desc
+	picture = city_event_crimea_liberated
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = { tag = SOV }
+			NOT = { tag = UKR }
+		}
+		name = atd_news.51.a
+	}
+
+	option = {
+		trigger = {
+			tag = SOV
+		}
+		name = atd_news.51.b
+	}
+	
+	option = {
+		trigger = {
+			tag = UKR
+		}
+		name = atd_news.51.c
+	}
+}

@@ -1327,7 +1327,13 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_putin_at_the_helm
+				OR={
+					has_completed_focus = SOV_putin_at_the_helm
+					has_completed_focus = SOV_russia_of_the_future
+					has_completed_focus = SOV_the_good_ol_days_of_yeltsin
+					has_completed_focus = SOV_the_siloviki_state
+					has_completed_focus = SOV_a_strong_russia
+				}
 			}
 		}
 		
@@ -1348,7 +1354,17 @@ focus_tree = {
 		prerequisite = { focus = SOV_russia_united }
 
 		mutually_exclusive = { focus = SOV_movement_in_the_shadows }
-		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+			}
+		}
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 		}
@@ -1511,6 +1527,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = putin_normal_flag
 				}
+				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
 		}
 		
@@ -1805,6 +1822,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = putin_reform_flag
 				}
+				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
 		}
 		completion_reward={
@@ -2117,6 +2135,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = putin_nationalist_flag
 				}
+				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
 		}
 		
@@ -2421,12 +2440,235 @@ focus_tree = {
 				NOT = { has_completed_focus = SOV_putin_at_the_helm }
 			}
 		}
+		
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_movement_in_the_shadows
+			}
+		}
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 		}
 		
 		completion_reward={
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_russia_of_the_future
+		icon = GFX_focus_
+		x = -15
+		y = 1
+		cost = 30
+		search_filters = {
 			
+		}
+
+		offset = {
+			x = 15
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_russia_of_the_future
+			}
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT={
+					OR={
+						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
+						has_completed_focus = SOV_the_siloviki_state
+						has_completed_focus = SOV_a_strong_russia
+					}
+				}
+			}
+		}
+
+		prerequisite = { focus = SOV_movement_in_the_shadows }
+		relative_position_id = SOV_movement_in_the_shadows
+		mutually_exclusive = { focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_the_good_ol_days_of_yeltsin
+		icon = GFX_focus_
+		x = -5
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		offset = {
+			x = 5
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_the_good_ol_days_of_yeltsin
+			}
+		}
+		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT={
+					OR={
+						has_completed_focus = SOV_russia_of_the_future
+						has_completed_focus = SOV_the_siloviki_state
+						has_completed_focus = SOV_a_strong_russia
+					}
+				}
+			}
+		}
+
+		prerequisite = { focus = SOV_movement_in_the_shadows }
+		relative_position_id = SOV_movement_in_the_shadows
+		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_the_siloviki_state
+		icon = GFX_focus_
+		x = 5
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_the_siloviki_state
+			}
+		}
+		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT={
+					OR={
+						has_completed_focus = SOV_russia_of_the_future
+						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
+						has_completed_focus = SOV_a_strong_russia
+					}
+				}
+			}
+		}
+
+		prerequisite = { focus = SOV_movement_in_the_shadows }
+		relative_position_id = SOV_movement_in_the_shadows
+		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_a_strong_russia }
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_a_strong_russia
+		icon = GFX_focus_
+		x = 15
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+
+		offset = {
+			x = -15
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_a_strong_russia
+			}
+		}
+		
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT={
+					OR={
+						has_completed_focus = SOV_russia_of_the_future
+						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
+						has_completed_focus = SOV_the_siloviki_state
+					}
+				}
+			}
+		}
+
+		prerequisite = { focus = SOV_movement_in_the_shadows }
+		relative_position_id = SOV_movement_in_the_shadows
+		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_the_siloviki_state }
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	

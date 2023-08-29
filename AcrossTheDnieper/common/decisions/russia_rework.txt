@@ -60,3 +60,47 @@ debug_decisions = {
 		}
 	}
 }
+
+SOV_russian_ambitions = {
+	take_crimea_mission_rework = {
+		activation = {
+			always = no
+		}
+		available = {
+			NOT = { country_exists = CRI } 
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			add_stability = -0.05
+			add_political_power = -100
+			country_event = { id = russia.1019 }
+		}
+	}
+}
+
+political_actions = {
+	SOV_snap_elections = {
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		icon = mission_icon
+		is_good = yes
+		days_mission_timeout = 120
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			
+		}
+	}
+}
