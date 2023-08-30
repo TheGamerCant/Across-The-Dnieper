@@ -805,6 +805,43 @@ country_event = {
     }
 }
 
+#Kiriyenko's influence grows
+country_event = {
+    id = russia.1023
+    title = russia.1023.t
+    desc = russia.1023.desc
+    picture = GFX_report_event_SOV_kiriyenko
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1023.a
+		ai_chance = {
+			base = 10
+		}
+		if={
+			limit={
+				has_completed_focus = SOV_ambitious_new_faces_2
+			}
+			SOV_increase_technocrat_faction_large = yes
+		}
+		else={
+			SOV_increase_technocrat_faction_medium = yes
+		}
+		
+		SOV_make_sergey_kiriyenko_technocrat_leader = yes
+		custom_effect_tooltip = russia.1023.tt
+    }
+	
+	option = {
+        name = russia.1023.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_decrease_technocrat_faction_medium = yes
+		add_political_power = -60
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1

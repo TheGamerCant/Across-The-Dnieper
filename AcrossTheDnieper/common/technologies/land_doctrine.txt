@@ -6,7 +6,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		xor = { deep_operations_yes anticipatory_strikes }
+		xor = { deep_operations_yes anticipatory_strikes all_weather_training information_warfare_russia }
 		
 		doctrine = yes	
 		research_cost = 4.5
@@ -19,20 +19,10 @@ technologies = {
 			soft_attack = 0.05
 		}
 
-		category_support_battalions = {
-			hard_attack = 0.05
-			soft_attack = 0.05
-		}
-
-		category_all_infantry = {
-			hard_attack = 0.05
-			soft_attack = 0.05
-		}
-
 		planning_speed = -0.1
 		max_planning_factor = 0.1
 
-		signal_company = {
+		category_support_battalions = {
 			max_organisation  = 10
 		}
 		
@@ -79,19 +69,15 @@ technologies = {
 		research_cost = 4.5
 
 		land_reinforce_rate = 0.1
-		army_org_factor = 0.05
 		army_morale_factor = 0.05
-		breakthrough_factor = 0.05
-
+		air_cas_present_factor = 0.2
 		air_superiority_efficiency = 0.1
 
-		infantry = {
-			recon = 0.1
-		}
 
 		category_front_line = {
 			hard_attack = 0.05
 			defense = 0.05
+			recon = 0.1
 		}
 
 		
@@ -143,15 +129,14 @@ technologies = {
 
 		category_special_forces = {
 			soft_attack  = 0.1
+			defense = 0.1
 		}
 
 		category_army = {
 			suppression_factor = 0.1
-			hardness = -0.1
 		}
-
-		resistance_target = 0.1
-		intelligence_agency_defense = 10
+		
+		intelligence_agency_defense = 5
 
 		enable_tactic = tactic_unexpected_thrust
 
@@ -201,7 +186,7 @@ technologies = {
 
 		army_defence_factor = 0.05
 		army_morale_factor = 0.1
-		dig_in_speed_factor = 0.1
+		dig_in_speed_factor = 0.15
 
 		infantry = {
 			urban = {
@@ -259,6 +244,8 @@ technologies = {
 		encryption_factor = 0.1 
 		intel_network_gain_factor = 0.05
 		operation_outcome = 0.1
+		intelligence_agency_defense = 5
+		agency_upgrade_time = -0.2
 		
 		categories = {
 			land_doctrine
@@ -302,11 +289,10 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		land_reinforce_rate = 0.1
-		army_speed_factor = 0.05
+		land_reinforce_rate = 0.08
+		army_speed_factor = 0.12
 		army_morale_factor = 0.05
-		air_superiority_efficiency = 0.05
-		army_org_factor = 0.05
+		air_superiority_efficiency = 0.08
 		
 		
 		categories = {
@@ -351,8 +337,6 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-
-		supply_consumption_factor = -0.1
 		supply_factor = 0.1
 
 		category_army = {
@@ -361,7 +345,7 @@ technologies = {
 			ap_attack = 0.1
 		}
 
-		experience_gain_army_factor = -0.1
+		experience_gain_army_factor = 0.15
 
 		
 		categories = {
@@ -409,6 +393,7 @@ technologies = {
 		category_all_infantry = {
 			maximum_speed = 0.1
 		}
+		dig_in_speed_factor = 0.1
 		
 		categories = {
 			land_doctrine
@@ -464,6 +449,12 @@ technologies = {
 		static_anti_air_damage_factor = 0.04
 		static_anti_air_hit_chance_factor = 0.04
 		
+		ruling_party_drift = 0.1
+		
+		category_all_infantry = {
+			air_attack = 0.1
+		}
+		
 		categories = {
 			land_doctrine
 			cat_nato_doctrine
@@ -506,8 +497,9 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		defensive_war_stability_factor = 0.05
+		defensive_war_stability_factor = 0.2
 		experience_gain_army_factor = 0.05
+		stability_factor = 0.05
 		
 		categories = {
 			land_doctrine
@@ -557,7 +549,7 @@ technologies = {
 		air_superiority_bonus_in_combat = 0.15
 		army_bonus_air_superiority_factor = 0.1
 		naval_invasion_planning_bonus_speed = 0.1
-		naval_invasion_capacity = 4
+		naval_invasion_capacity = 10
 		navy_carrier_air_attack_factor = 0.1
 		
 		categories = {
@@ -602,12 +594,11 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		defensive_war_stability_factor = 0.2
-		drift_defence_factor = 0.02
+		drift_defence_factor = 0.25
 		command_power_gain_mult = 0.1
-		training_time_factor = -0.05
-		army_core_attack_factor = 0.05
-		army_core_defence_factor = 0.05
+		training_time_factor = -0.15
+		mobilization_speed = 0.25
+		production_speed_radar_station_factor = 0.3
 		
 		categories = {
 			land_doctrine
@@ -651,9 +642,12 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		weekly_casualties_war_support = 0.003
+		war_support_factor = 0.05
 		air_superiority_efficiency = 0.2
 		war_stability_factor = 0.05
+		
+		army_attack_factor = 0.05
+		army_defence_factor = 0.05
 		
 		categories = {
 			land_doctrine
@@ -695,12 +689,11 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		xor = { combined_arms anticipatory_strikes }
+		xor = { combined_arms anticipatory_strikes all_weather_training information_warfare_russia }
 
 		planning_speed = 0.15
-		land_reinforce_rate = 0.1
-		supply_consumption_factor = -0.05
-		max_planning_factor = 0.05
+		supply_node_range = 0.05
+		recon_factor = 0.05
 
 		
 		categories = {
@@ -745,10 +738,9 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		fortification_damage = 0.1
-		army_org_factor = 0.1
-		planning_speed = 0.1
-
+		fortification_damage = 0.2
+		breakthrough_factor = 0.15
+		
 		enable_tactic = tactic_frontal_assault
 
 		
@@ -804,8 +796,8 @@ technologies = {
 		attrition = -0.1
 
 		category_artillery = {
-			soft_attack = 0.1
-			supply_consumption = -0.05
+			soft_attack = 0.2
+			supply_consumption = 0.05
 		}
 		
 		categories = {
@@ -855,10 +847,10 @@ technologies = {
 		xor = { artillery_barrages }
 
 		army_morale_factor = 0.15
-		army_org_factor = -0.15
-		army_defence_factor = -0.15
-		army_speed_factor = -0.1
 		army_core_attack_factor = 0.05
+		army_org_regain = -0.06
+		
+		experience_loss_factor = 0.15
 
 		infantry = {
 			hard_attack = 0.1
@@ -910,10 +902,11 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		conscription = 0.02
+		conscription = 0.015
 		attrition = 0.05
 		army_morale_factor = 0.1
 		training_time_factor = -0.25
+		mobilization_speed = 0.4
 
 		categories = {
 			land_doctrine
@@ -960,10 +953,9 @@ technologies = {
 
 
 		army_attack_factor = 0.05
-		army_core_attack_factor = 0.1
-		army_core_defence_factor = 0.05
+		army_speed_factor = 0.1
 		recon_factor = 0.05
-		supply_consumption_factor = -0.1
+		supply_consumption_factor = -0.04
 
 
 		categories = {
@@ -1008,11 +1000,13 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		recon_factor = 0.05
-		attrition = -0.1
+		attrition = -0.08
 		army_morale_factor = 0.1
 		dig_in_speed_factor = 0.15 
 
+		category_artillery = {
+			soft_attack = 0.08
+		}
 
 		categories = {
 			land_doctrine
@@ -1056,8 +1050,7 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		army_core_defence_factor = 0.1
-		army_core_attack_factor = 0.1
+		supply_consumption_factor = -0.1
 		fortification_damage = 0.1
 
 		artillery = {
@@ -1114,17 +1107,11 @@ technologies = {
 		xor = { information_warfare }
 
 		category_all_infantry = {
-			soft_attack = 0.2
+			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
-		army_morale_factor = -0.1
-		attrition = 0.1
-
-		infantry = {
-			urban = {
-				defense = -0.2
-			}
-		}
+		attrition = 0.05
 
 
 		categories = {
@@ -1174,12 +1161,12 @@ technologies = {
 		research_cost = 4.5
 
 		recon_factor = 0.15
-		army_morale_factor = -0.1
-		resistance_growth  = -0.2
+		political_power_gain = 0.08
+		resistance_growth  = -0.15
 
 		infantry = {
 			urban = {
-				defense = -0.2
+				defence = -0.2
 			}
 		}
 
@@ -1228,8 +1215,9 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		recon_factor = 0.1
-		army_speed_factor = 0.05
+		army_speed_factor = 0.1
+		max_planning_factor = 0.15
+		justify_war_goal_time = -0.2
 
 		categories = {
 			land_doctrine
@@ -1273,11 +1261,9 @@ technologies = {
 		research_cost = 4.5
 
 
-		army_defence_factor = 0.1
-		breakthrough_factor = 0.05
-		army_morale_factor = -0.1
-		land_reinforce_rate = 0.1
-		army_speed_factor = -0.05
+		army_defence_factor = 0.03
+		breakthrough_factor = 0.1
+		land_reinforce_rate = 0.03
 
 		categories = {
 			land_doctrine
@@ -1324,6 +1310,7 @@ technologies = {
 		army_morale_factor = 0.1
 		dig_in_speed_factor = 0.15
 		attrition = -0.05
+		supply_consumption_factor = -0.05
 
 
 		categories = {
@@ -1369,8 +1356,8 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		attrition = -0.2
-		dig_in_speed_factor = 0.15
+		attrition = -0.1
+		army_core_defence_factor = 0.08
 		army_morale_factor = 0.1
 		
 
@@ -1457,7 +1444,6 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		recon_factor_while_entrenched = -0.05
 		political_power_factor = 0.05
 		war_support_weekly_factor = 0.05
 
@@ -1501,14 +1487,13 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 
-		xor = { deep_operations_yes anticipatory_strikes }
+		xor = { deep_operations_yes combined_arms all_weather_training information_warfare_russia }
 		
 		recon_factor = 0.15
 		army_speed_factor = 0.1
-		army_morale_factor = 0.1
+		army_morale_factor = 0.05
 		land_reinforce_rate = 0.1
-
-		air_superiority_efficiency = 0.15
+		max_planning_factor = 0.15
 
 		enable_tactic = tactic_suprise_attack
 
@@ -1562,8 +1547,7 @@ technologies = {
 
 		recon_factor = 0.1
 		army_speed_factor = 0.05
-		breakthrough_factor = 0.05
-		army_org_factor = 0.05
+		breakthrough_factor = 0.15
 
 		army_core_attack_factor = 0.05
 		army_core_defence_factor = 0.05
@@ -1616,12 +1600,12 @@ technologies = {
 		doctrine = yes	
 		research_cost = 4.5
 		
-		land_reinforce_rate = 0.1
-		org_loss_when_moving = -0.05
+		land_reinforce_rate = 0.06
+		org_loss_when_moving = -0.1
 
 		category_all_infantry = {
-			soft_attack = 0.05
-			recon = 0.1
+			soft_attack = 0.1
+			recon = 0.15
 		}
 
 		categories = {
@@ -1677,13 +1661,16 @@ technologies = {
 		
 		infantry = {
 			urban = {
-				attack = 0.05
-				defense = 0.05
-
-				max_organisation = 0.05
-				breakthrough = 0.1
-
-				movement = 0.05
+				attack = 0.15
+				defence = 0.15
+				movement = 0.15
+			}
+		}
+		irregular_infantry = {
+			urban = {
+				attack = 0.15
+				defence = 0.15
+				movement = 0.15
 			}
 		}
 
@@ -1738,6 +1725,8 @@ technologies = {
 			breakthrough = 0.1
 			soft_attack = 0.1
 		}
+		
+		resistance_growth_on_our_occupied_states = 0.2
 
 		categories = {
 			land_doctrine
@@ -1783,8 +1772,8 @@ technologies = {
 
 		category_front_line = {
 			hard_attack = 0.03
-			recon = 0.03
-			soft_attack = 0.03
+			recon = 0.08
+			soft_attack = 0.08
 		}
 
 		categories = {
@@ -1828,11 +1817,8 @@ technologies = {
     doctrine = yes
     research_cost = 4.5
     
-    category_all_infantry = {
-        attrition = -0.10
-    }
-
-	planning_speed  = 0.10
+    attrition = -0.10
+	supply_consumption_factor = -0.04
     
     categories = {
         land_doctrine
@@ -1884,6 +1870,7 @@ all_frontal_defence = {
     }
     
     dig_in_speed_factor  = 0.10
+	max_dig_in = 4
     
     categories = {
         land_doctrine
@@ -1929,7 +1916,6 @@ scorched_earth = {
         entrenchment  = 0.10
     }
     
-    supply_factor  = -0.10
     
     categories = {
         land_doctrine
@@ -1971,11 +1957,9 @@ adaptive_tactics = {
     doctrine = yes
     research_cost = 4.5
     
-    category_army = {
-        planning_speed = 0.10
-    }
-    
+    planning_speed = 0.10
     army_speed_factor = 0.05
+	experience_gain_army_factor = 0.2
     
     categories = {
         land_doctrine
@@ -2018,8 +2002,9 @@ battles_behind_enemy_lines = {
     research_cost = 4.5
     
 
-    army_speed_factor = 0.05
+    army_speed_factor = 0.1
     out_of_supply_factor  = -0.10
+	recon_factor = 0.10
     
     categories = {
         land_doctrine
@@ -2062,6 +2047,7 @@ decentralized_management = {
     research_cost = 4.5
     
     land_reinforce_rate  = 0.10
+	experience_gain_army_factor = 0.05
     
     categories = {
         land_doctrine
@@ -2159,6 +2145,7 @@ widespread_use_of_drones = {
     
     recon_factor = 0.10
     army_morale_factor = 0.10
+	breakthrough_factor = 0.15
     
     categories = {
         land_doctrine
@@ -2201,6 +2188,10 @@ special_operations_forces = {
     research_cost = 4.5
     
     special_forces_cap = 0.10
+	category_special_forces = {
+		soft_attack = 0.15
+		defense = 0.15
+	}
     
     categories = {
         land_doctrine
@@ -2243,7 +2234,9 @@ subversive_intelligence_groups = {
     research_cost = 4.5
     
     decryption_factor  = 0.10
-    intelligence_agency_defense  = 0.10
+    intelligence_agency_defense  = 4
+	subversive_activites_upkeep = -0.2
+	intel_network_gain_factor = 0.15
     
     categories = {
         land_doctrine
@@ -2287,8 +2280,10 @@ information_warfare_russia = {
     doctrine = yes
     research_cost = 4.5
     
-    increase_eastern_conservative_programming_by_1 = yes
     resistance_target  = -0.10
+	ruling_party_drift = 0.06
+	
+	xor = { deep_operations_yes combined_arms all_weather_training anticipatory_strikes }
     
     categories = {
         land_doctrine
@@ -2332,6 +2327,7 @@ political_dominance = {
     research_cost = 4.5
     
     weekly_casualties_war_support = 0.005
+	political_power_factor = 0.04
     
     categories = {
         land_doctrine
@@ -2373,8 +2369,9 @@ cyber_warfare = {
     doctrine = yes
     research_cost = 4.5
     
-    intel_network_gain_factor  = 0.05
+    intel_network_gain_factor = 0.1
     encryption_factor = 0.10
+	decryption_factor = 0.10
     
     categories = {
         land_doctrine
@@ -2423,8 +2420,9 @@ civilian_support = {
     doctrine = yes
     research_cost = 4.5
     
-    recruitable_population_factor = 0.05
-    offensive_war_stability_factor  = 0.10
+    conscription_factor = 0.08
+    war_stability_factor  = 0.1
+	army_morale_factor = 0.06
     
     categories = {
         land_doctrine
@@ -2467,8 +2465,9 @@ crisis_management = {
     doctrine = yes
     research_cost = 4.5
     
-    mobilization_speed = 0.10
-    weekly_casualties_war_support = 0.003
+    mobilization_speed = 0.25
+    war_stability_factor = 0.15
+	army_org_regain = 0.18
     
     categories = {
         land_doctrine
@@ -2515,6 +2514,10 @@ special_operations = {
     
     special_forces_cap = 0.10
     special_forces_training_time_factor  = -0.10
+	category_special_forces = {
+		soft_attack = 0.05
+		defense = 0.1
+	}
     
     categories = {
         land_doctrine
@@ -2556,9 +2559,9 @@ electronic_warfare = {
     doctrine = yes
     research_cost = 4.5
 
-	category_front_line = {
-		attack = 0.1
-	}
+	research_speed_factor = 0.03
+	army_attack_factor = 0.03
+	army_defence_factor = 0.05
     
     categories = {
         land_doctrine
@@ -2600,8 +2603,7 @@ asymmetrical_warfare_russia = {
     doctrine = yes
     research_cost = 4.5
     
-    army_attack_factor = 0.10
-    army_defence_factor = 0.10
+    army_defence_factor = 0.06
     supply_consumption_factor = -0.10
     
     categories = {
@@ -2658,6 +2660,51 @@ stealth_technology = {
     }
     
     path = {
+        leads_to_tech = suicide_drones 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+
+suicide_drones = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    air_strategic_bomber_bombing_factor = 0.2
+	air_bombing_targetting = 0.2
+	
+    
+    categories = {
+        land_doctrine
+		cat_russian_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 15 }
+    }
+	
+	path = {
         leads_to_tech = full_war 
         research_cost_coeff = 1
     }
@@ -2688,10 +2735,9 @@ full_war = {
     doctrine = yes
     research_cost = 4.5
     
-    recruitable_population_factor = 0.10
-    army_attack_factor = 0.10
-    army_defence_factor = 0.10
-    weekly_casualties_war_support = 0.003
+    conscription = 0.012
+	industrial_capacity_factory = 0.1
+	industrial_capacity_dockyard = 0.1
     
     categories = {
         land_doctrine
@@ -2700,7 +2746,7 @@ full_war = {
     
     folder = {
         name = land_doctrine_folder
-        position = { x = 0 y = 15 }
+        position = { x = 0 y = 17 }
     }
     
     ai_will_do = {
@@ -2719,6 +2765,634 @@ full_war = {
 
 	dependencies = {
 		can_do_russian_doctrine = 1
+	}
+}
+
+
+all_weather_training = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    category_special_forces = {
+		acclimatization_hot_climate_gain_factor = 0.15
+		acclimatization_cold_climate_gain_factor = 0.15
+	}
+	
+	category_all_infantry = {
+		acclimatization_hot_climate_gain_factor = 0.05
+		acclimatization_cold_climate_gain_factor = 0.05
+	}
+    
+	xor = { deep_operations_yes combined_arms information_warfare_russia anticipatory_strikes }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 1 }
+    }
+    
+    path = {
+        leads_to_tech = plausible_deniability
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+plausible_deniability = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    encryption_factor = 0.1
+	intelligence_agency_defense = 4
+	political_power_gain = 0.04
+    
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 3 }
+    }
+    
+	path = {
+		leads_to_tech = expanded_officer_corps
+		research_cost_coeff = 1
+	}
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+expanded_officer_corps = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    max_planning_factor = 0.2
+	command_power_gain_mult = 0.1
+	max_command_power = 30
+	army_attack_factor = 0.05
+    
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 5 }
+    }
+    
+	path = {
+		leads_to_tech = global_logistics
+		research_cost_coeff = 1
+	}
+	
+	path = {
+		leads_to_tech = local_supplies
+		research_cost_coeff = 1
+	}
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+global_logistics = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_morale_factor = 0.12
+	army_speed_factor = 0.08
+    
+	xor = { local_supplies }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 7 }
+    }
+	
+	path = {
+		leads_to_tech = command_structure_integration
+		research_cost_coeff = 1
+	}
+
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+local_supplies = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    supply_consumption_factor = -0.1
+	supply_node_range = 0.06
+    
+	xor = { global_logistics }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 7 }
+    }
+    
+	path = {
+		leads_to_tech = cooperation_with_local_forces
+		research_cost_coeff = 1
+	}
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+cooperation_with_local_forces = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    weekly_manpower = 150
+	army_org_regain = 0.1
+    army_speed_factor = 0.15
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+	
+	path = {
+		leads_to_tech = tip_of_the_spear
+		research_cost_coeff = 1
+	}
+    
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 9 }
+    }
+   
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+command_structure_integration = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_attack_factor = 0.05
+	army_defence_factor = 0.05
+	max_command_power = -20
+	
+    path = {
+		leads_to_tech = tip_of_the_spear
+		research_cost_coeff = 1
+	}
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 9 }
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+tip_of_the_spear = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    breakthrough_factor = 0.2
+	air_cas_present_factor = 0.075
+    
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 11 }
+    }
+    
+	path = {
+		leads_to_tech = masters_of_urban_warfare
+		research_cost_coeff = 1
+	}
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+masters_of_urban_warfare = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+   infantry = {
+		urban = {
+			movement  = 0.15
+			attack = 0.15
+			defence = 0.15
+		}
+	}
+    
+	irregular_infantry = {
+		urban = {
+			movement  = 0.1
+			attack = 0.1
+			defence = 0.1
+		}
+	}
+    
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 13 }
+    }
+	
+	path = {
+		leads_to_tech = best_of_the_best
+		research_cost_coeff = 1
+	}
+	
+	path = {
+		leads_to_tech = prison_recruitment
+		research_cost_coeff = 1
+	}
+	
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+best_of_the_best = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_attack_factor = 0.05
+	army_defence_factor = 0.05
+	land_reinforce_rate  = 0.08
+    
+	xor = { prison_recruitment }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 15 }
+    }
+	
+	path = {
+		leads_to_tech = inherited_expertise
+		research_cost_coeff = 1
+	}
+	
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+
+inherited_expertise = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    training_time_factor = -0.2
+	experience_gain_army_factor = 0.15
+	army_org = 4
+    
+	xor = { prison_recruitment }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = -2 y = 17 }
+    }
+	
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+prison_recruitment = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    weekly_manpower = 500
+	weekly_casualties_war_support = 0.005
+	irregular_infantry = {
+		recon = 0.1
+	}
+    
+	xor = { best_of_the_best }
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 15 }
+    }
+	
+	path = {
+		leads_to_tech = human_wave_attacks_pmc
+		research_cost_coeff = 1
+	}
+	
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
+	}
+}
+
+human_wave_attacks_pmc = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    category_front_line = {
+		breakthrough = 0.2
+	}
+	irregular_infantry = {
+		urban = {
+			movement  = 0.1
+			attack = 0.05
+		}
+	}
+    experience_loss_factor = 0.1
+	
+    categories = {
+        land_doctrine
+		cat_pmc_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 2 y = 17 }
+    }
+
+	
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_pmc_doctrine = 1
 	}
 }
 

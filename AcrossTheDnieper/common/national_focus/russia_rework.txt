@@ -1375,6 +1375,10 @@ focus_tree = {
 				add = SOV_king_of_the_castle_rework_2
 			}	
 			mark_focus_tree_layout_dirty = yes
+			
+			hidden_effect = {
+				country_event = { id = russia.1023 days = 832 } #Kiriyenko
+			}
 		}
 	}
 	
@@ -1902,10 +1906,9 @@ focus_tree = {
 		}
 
 		completion_reward={
-			swap_ideas={
-				remove_idea = SOV_raspizdyaystvo
-				add_idea = SOV_raspizdyaystvo_technocrat
-			}
+			custom_effect_tooltip = SOV_bureaucratic_reforms_tt
+			add_to_variable = { SOV_raspizdyaystvo_political_advisor_cost_factor = -0.15 }
+			add_to_variable = { SOV_raspizdyaystvo_political_power_cost = -0.2 }
 		}
 	}
 	
@@ -2327,10 +2330,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			swap_ideas={
-				remove_idea = SOV_raspizdyaystvo
-				add_idea = SOV_raspizdyaystvo_nationalist
-			}
+			custom_effect_tooltip = SOV_tackle_draft_dodging_tt
+			add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.16 }
 			add_stability = -0.075
 		}
 	}
@@ -2930,9 +2931,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -2970,9 +2969,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3008,9 +3005,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3063,9 +3058,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3099,9 +3092,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3134,9 +3125,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3572,9 +3561,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3614,9 +3601,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3646,9 +3631,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3693,9 +3676,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3745,9 +3726,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
@@ -3793,9 +3772,7 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip={
 			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_idea = SOV_raspizdyaystvo }
-			NOT = { has_idea = SOV_raspizdyaystvo_technocrat }
-			NOT = { has_idea = SOV_raspizdyaystvo_nationalist }
+			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 		}
 	}
 	
