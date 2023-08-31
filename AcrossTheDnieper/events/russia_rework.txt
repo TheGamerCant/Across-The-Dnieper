@@ -872,6 +872,136 @@ country_event = {
     }
 }
 
+#Union State - for Belarus
+country_event = {
+    id = russia.1025
+    title = russia.1025.t
+    desc = russia.1025.desc
+    picture = GFX_report_event_BLR_luka_putin
+    is_triggered_only = yes
+
+    option = {				#Be annexed by Russia
+        name = russia.1025.a
+		ai_chance = {
+			base = 6
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				NOT = { is_puppet_of = SOV }
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		SOV = { country_event = { id = russia.1026 } }
+    }
+	
+	option = {				#Be puppeted by Russia
+        name = russia.1025.b
+		ai_chance = {
+			base = 11
+			modifier = {
+				factor = 0
+				is_puppet_of = SOV
+			}
+		}
+		effect_tooltip={
+			SOV = { puppet = BLR }
+		}
+		SOV = { country_event = { id = russia.1027 } }
+    }
+	
+	option = {				#No more union state
+        name = russia.1025.c
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 0
+				OR={
+					is_historical_focus_on = yes
+					is_puppet_of = SOV
+				}
+			}
+		}
+		leave_faction = yes
+		SOV = { country_event = { id = russia.1028 } }
+    }
+}
+
+#Belarus accepts annexation!
+country_event = {
+    id = russia.1026
+    title = russia.1026.t
+    desc = russia.1026.desc
+    picture = GFX_report_event_BLR_luka_putin
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1026.a
+		ai_chance = {
+			base = 10
+		}
+		annex_country = { target = BLR transfer_troops = yes }
+		every_state={
+			limit = { is_core_of = BLR }
+			add_core_of = ROOT
+		}
+		effect_tooltip={
+			create_field_marshal = {
+				name = "Alexander Lukashenko"
+				picture = "gfx/leaders/BLR/Portrait_Alexander_Lukashenko_wid_da_brim.dds"
+				traits = { politically_connected media_personality organizer }
+				skill = 3
+				attack_skill = 4
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 3
+			}
+		}
+		set_country_flag = luka_field_marshal_flag
+    }
+}
+
+#Belarus becomes puppet
+country_event = {
+    id = russia.1027
+    title = russia.1027.t
+    desc = russia.1027.desc
+    picture = GFX_report_event_BLR_luka_putin
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1027.a
+		ai_chance = {
+			base = 10
+		}
+		puppet = BLR
+    }
+}
+
+#Belarus says no
+country_event = {
+    id = russia.1028
+    title = russia.1028.t
+    desc = russia.1028.desc
+    picture = GFX_report_event_BLR_lukashenko
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1028.a
+		ai_chance = {
+			base = 10
+		}
+		declare_war_on = { target = BLR type = annex_everything  }
+    }
+	
+	option = {				
+        name = russia.1028.a
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -50
+		add_war_support = -0.02
+    }
+}
 
 country_event = {
     id = russia_propaganda.1

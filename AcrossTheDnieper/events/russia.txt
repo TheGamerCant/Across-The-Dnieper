@@ -3904,6 +3904,19 @@ country_event = {
     desc = russia.88.d
     picture = SOV_belarus_to_kiev_event
     is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			if={
+				limit = { russia_rework_trigger = yes }
+				set_global_flag = russia_ukraine_war
+				set_global_flag = smo_northern_front_open
+				set_global_flag = smo_eastern_front_open
+				set_global_flag = smo_donbass_front_open
+				set_global_flag = smo_southern_front_open
+			}
+		}
+	}
 
     option = {
         name = russia.88.a
