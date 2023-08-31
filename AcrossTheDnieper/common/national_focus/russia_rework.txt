@@ -1363,6 +1363,7 @@ focus_tree = {
 					}
 				}
 				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+				has_country_flag = russia_united_flag
 			}
 		}
 		available={
@@ -1375,10 +1376,6 @@ focus_tree = {
 				add = SOV_king_of_the_castle_rework_2
 			}	
 			mark_focus_tree_layout_dirty = yes
-			
-			hidden_effect = {
-				country_event = { id = russia.1023 days = 832 } #Kiriyenko
-			}
 		}
 	}
 	
@@ -1517,7 +1514,16 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-			has_country_flag = putin_normal_flag
+			OR={
+				NOT = { has_completed_focus = SOV_the_need_for_reforms }
+				has_completed_focus = SOV_huawei_contrats
+				has_completed_focus = SOV_strengthen_the_central_bank
+			}
+			OR={
+				NOT = { has_completed_focus = SOV_memories_of_old }
+				has_completed_focus = SOV_great_helmsman
+				has_completed_focus = SOV_victors_now_and_forever
+			}
 		}
 		allow_branch = {
 			if = {
@@ -1529,7 +1535,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_country_flag = putin_normal_flag
+					has_country_flag = russia_united_flag
 				}
 				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
@@ -1543,7 +1549,10 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_country_flag = view_all_russia_trees
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_country_flag = russia_united_flag
+				}
 			}
 		}
 		
@@ -1716,14 +1725,31 @@ focus_tree = {
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 		}
-
 		
 		completion_reward={
 			add_political_power = 75
 			add_stability = 0.02
 		
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SOV_kirill_rework
+			if={
+				limit={ has_completed_focus = SOV_holy_russia }
+				custom_effect_tooltip = SOV_promote_orthodoxy_tt
+				hidden_effect={
+					remove_trait = {
+						character = SOV_kirill_rework
+						slot = political_advisor
+						trait = patriarch_of_moscow
+					}
+					add_trait = {
+						character = SOV_kirill_rework
+						slot = political_advisor
+						trait = patriarch_of_moscow_3
+					}
+				}
+			}
+			else={
+				custom_effect_tooltip = available_political_advisor
+				show_ideas_tooltip = SOV_kirill_rework
+			}
 		}
 	}
 	
@@ -1812,7 +1838,16 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-			has_country_flag = putin_reform_flag
+			OR={
+				NOT = { has_completed_focus = SOV_strong_president_strong_country }
+				has_completed_focus = SOV_geopolitical_grandmaster
+				has_completed_focus = SOV_promote_orthodoxy
+			}
+			OR={
+				NOT = { has_completed_focus = SOV_memories_of_old }
+				has_completed_focus = SOV_great_helmsman
+				has_completed_focus = SOV_victors_now_and_forever
+			}
 		}
 		allow_branch = {
 			if = {
@@ -1824,7 +1859,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_country_flag = putin_reform_flag
+					has_country_flag = russia_united_flag
 				}
 				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
@@ -2124,7 +2159,16 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-			has_country_flag = putin_nationalist_flag
+			OR={
+				NOT = { has_completed_focus = SOV_the_need_for_reforms }
+				has_completed_focus = SOV_huawei_contrats
+				has_completed_focus = SOV_strengthen_the_central_bank
+			}
+			OR={
+				NOT = { has_completed_focus = SOV_strong_president_strong_country }
+				has_completed_focus = SOV_geopolitical_grandmaster
+				has_completed_focus = SOV_promote_orthodoxy
+			}
 		}
 		allow_branch = {
 			if = {
@@ -2136,7 +2180,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_country_flag = putin_nationalist_flag
+					has_country_flag = russia_united_flag
 				}
 				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
 			}
@@ -2150,7 +2194,10 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_country_flag = view_all_russia_trees
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_country_flag = russia_united_flag
+				}
 			}
 		}
 		completion_reward={
@@ -2262,10 +2309,28 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_political_power = 100
-		
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SOV_kirill_rework
+			add_political_power = 60
+			
+			if={
+				limit={ has_completed_focus = SOV_promote_orthodoxy }
+				custom_effect_tooltip = SOV_holy_russia_tt
+				hidden_effect={
+					remove_trait = {
+						character = SOV_kirill_rework
+						slot = political_advisor
+						trait = patriarch_of_moscow
+					}
+					add_trait = {
+						character = SOV_kirill_rework
+						slot = political_advisor
+						trait = patriarch_of_moscow_2
+					}
+				}
+			}
+			else={
+				custom_effect_tooltip = available_political_advisor
+				show_ideas_tooltip = SOV_kirill_rework
+			}
 		}
 	}
 	
@@ -2439,6 +2504,7 @@ focus_tree = {
 					}
 				}
 				NOT = { has_completed_focus = SOV_putin_at_the_helm }
+				has_country_flag = russia_united_flag
 			}
 		}
 		
@@ -2496,8 +2562,10 @@ focus_tree = {
 						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_the_siloviki_state
 						has_completed_focus = SOV_a_strong_russia
+						has_completed_focus = SOV_putin_at_the_helm
 					}
 				}
+				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -2549,8 +2617,10 @@ focus_tree = {
 						has_completed_focus = SOV_russia_of_the_future
 						has_completed_focus = SOV_the_siloviki_state
 						has_completed_focus = SOV_a_strong_russia
+						has_completed_focus = SOV_putin_at_the_helm
 					}
 				}
+				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -2602,8 +2672,10 @@ focus_tree = {
 						has_completed_focus = SOV_russia_of_the_future
 						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_a_strong_russia
+						has_completed_focus = SOV_putin_at_the_helm
 					}
 				}
+				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -2655,8 +2727,10 @@ focus_tree = {
 						has_completed_focus = SOV_russia_of_the_future
 						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_the_siloviki_state
+						has_completed_focus = SOV_putin_at_the_helm
 					}
 				}
+				has_country_flag = russia_united_flag
 			}
 		}
 
