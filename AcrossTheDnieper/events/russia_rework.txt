@@ -442,6 +442,11 @@ country_event = {
 	immediate={
 		set_country_flag = russia_united_flag
 		mark_focus_tree_layout_dirty = yes
+		
+		hidden_effect = {
+			country_event = { id = russia.1023 days = 832 } #Kiriyenko
+			country_event = { id = russia.1024 days = 329 } #Shoigu
+		}
 	}
 
 
@@ -453,7 +458,6 @@ country_event = {
 		increase_eastern_conservative_programming_by_4 = yes
 		add_political_power = 10
 		complete_national_focus = SOV_russia_united
-		set_country_flag = putin_normal_flag
 		mark_focus_tree_layout_dirty = yes
     }
 	
@@ -465,7 +469,6 @@ country_event = {
 		increase_ultranationalist_programming_by_4 = yes
 		add_war_support = 0.02
 		complete_national_focus = SOV_russia_united
-		set_country_flag = putin_nationalist_flag
 		mark_focus_tree_layout_dirty = yes
     }
 	
@@ -476,7 +479,6 @@ country_event = {
 		}
 		add_stability = 0.02
 		complete_national_focus = SOV_russia_united
-		set_country_flag = putin_reform_flag
 		mark_focus_tree_layout_dirty = yes
     }
 }
@@ -615,8 +617,8 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		add_political_power = 100
-		add_stability = -0.03
+		add_political_power = 80
+		add_stability = -0.05
 		increase_ultranationalist_programming_by_3 = yes
 		
 		add_ideas = SOV_patriots_from_a_young_age_idea
@@ -760,6 +762,7 @@ country_event = {
 			base = 10
 		}
 		add_stability = -0.2
+		add_political_power = -150
 		
 		custom_effect_tooltip = russia.1021.tt
 		effect_tooltip={
@@ -839,6 +842,33 @@ country_event = {
 		}
 		SOV_decrease_technocrat_faction_medium = yes
 		add_political_power = -60
+    }
+}
+
+#Shoigu's mansion
+country_event = {
+    id = russia.1024
+    title = russia.1024.t
+    desc = russia.1024.desc
+    picture = GFX_report_event_SOV_shoigu_mansion
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1024.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_increase_siloviki_faction_small = yes
+		add_stability = -0.02
+    }
+	
+	option = {
+        name = russia.1024.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_decrease_siloviki_faction_medium = yes
+		add_political_power = -100
     }
 }
 
@@ -989,6 +1019,40 @@ country_event = {
 
     option = {
         name = russia_propaganda.9.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_propaganda_event_effect = yes
+    }
+}
+
+country_event = {
+    id = russia_propaganda.10
+    title = russia_propaganda.10.t
+    desc = russia_propaganda.10.desc
+    picture = GFX_report_event_SOV_maidan
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.10.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_propaganda_event_effect = yes
+    }
+}
+
+country_event = {
+    id = russia_propaganda.11
+    title = russia_propaganda.11.t
+    desc = russia_propaganda.11.desc
+    picture = SOV_cw_dugin
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.11.a
 		ai_chance = {
 			base = 10
 		}
