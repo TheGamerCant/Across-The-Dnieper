@@ -1,0 +1,62 @@
+add_namespace = czechia
+
+#Protests against annexation
+country_event = {
+	id = czechia.1
+	title = czechia.1.t
+	desc = czechia.1.d
+
+	picture = protests_against_annexation-423152
+	fire_only_once = yes
+	trigger = {
+	
+date > 2016.10.01
+date < 2016.10.10
+
+
+	}
+	option = {
+		name = "Upcoming elections"
+		ai_chance = { factor = 1 }
+		complete_national_focus = CZE_direction
+
+
+		hidden_effect = {
+			
+		}
+	}
+}
+country_event = {
+	id = czechia.2
+	title = "Usvit to SPD"
+	desc = "blabla"
+	fire_only_once = yes
+
+	option = {
+		name = "mkay"
+		set_party_name = {
+    ideology = eastern_conservative
+    long_name = "Svobod a přímá demokracie"
+    name = "SPD"
+}
+	}
+}
+
+
+
+country_event = {
+	id = czechia.3
+	title = "Election prep"
+	desc = "grrr"
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "ANO"
+		complete_national_focus = CZE_ANO
+	}
+	option = {
+		name = "SPD"
+		complete_national_focus = CZE_SPD
+	}
+}
