@@ -31,8 +31,60 @@ CZE_directon={
 		}
 		
 		complete_effect={
+		hidden_effect ={
+		set_popularities = {
+	social_democracy = 7.5
+	eastern_liberal = 3.5
+	neoliberal = 12.5
+	theocracy_ideology = 5
+	eastern_conservative = 11
+	neoconservative = 39
+	moderate_communist = 7.5
+	libertarian = 14
+	}
+}
 		set_politics = {
 	  ruling_party = neoconservative
+      elections_allowed = yes
+      last_election = "2017.10.10"
+      election_frequency = 48
+}
+	    }
+	}
+	
+	CZE_elections_SPD = {
+
+		icon = generic_form_nation
+		
+		days_mission_timeout = 365
+		activation = {
+		}
+
+        available = { 
+		AND = {
+		date > 2014.3.01
+		eastern_conservative > 0.3
+		}
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+		set_politics = {
+	  ruling_party = neoconservative
+      elections_allowed = yes
+      last_election = "2017.10.10"
+      election_frequency = 48
+}
+		}
+		
+		complete_effect={
+		set_politics = {
+	  ruling_party = eastern_conservative
       elections_allowed = yes
       last_election = "2017.10.10"
       election_frequency = 48
