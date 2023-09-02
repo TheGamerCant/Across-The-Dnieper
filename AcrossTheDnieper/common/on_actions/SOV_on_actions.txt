@@ -219,9 +219,6 @@ on_actions={
 					set_variable = { SOV.SOV_media_leans_eastern_liberal = 16 }
 					
 					SOV_media_leaning_calculate_XY = yes	
-
-					country_event = { id = russia.1005 days = 42 }
-					country_event = { id = russia.1012 days = 421 }
 					
 					retire_character = SOV_valentina_matviyenko
 					retire_character = SOV_aleksandr_dugin
@@ -396,7 +393,7 @@ on_actions={
 					set_variable = { SOV_army_consumer_goods_factor = 0.01 }
 					set_variable = { SOV_army_air_cas_present_factor = 0 }
 					set_variable = { SOV_army_land_night_attack = 0 }
-					set_variable = { SOV_army_experience_gain_army = 0.04 } 
+					set_variable = { SOV_army_experience_gain_army = 0.1 } 
 					set_variable = { SOV_army_breakthrough_factor = 0 }
 					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_attack_factor = 0 }
 					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_defence_factor = 0 }
@@ -486,6 +483,12 @@ on_actions={
 						ideology = russia_liberal_democratic_party_ultranat_subideology
 						traits = { SOV_aggressive_populist }
 					}
+					
+					
+					
+					country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
+					country_event = { id = russia.1012 days = 421 }			#Nemtsov Dies
+					country_event = { id = russia.1029 days = 1626 }		#World Cup					
 				}
 				else_if={
 					limit = { NOT = { russia_rework_trigger = yes } has_start_date < 2022.01.01 }

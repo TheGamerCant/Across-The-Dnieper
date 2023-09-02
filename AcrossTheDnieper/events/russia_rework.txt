@@ -498,7 +498,7 @@ country_event = {
 		}
 		set_country_flag = boris_nemtsov_not_active_flag
 		SOV_make_alexei_navalny_liberal_leader = yes
-		add_stability = 0.05
+		add_stability = 0.025
 		
 		custom_effect_tooltip = russia.1012.tt
     }
@@ -1002,6 +1002,79 @@ country_event = {
 		add_war_support = -0.02
     }
 }
+
+#World Cup
+country_event = {
+    id = russia.1029
+    title = russia.1029.t
+    desc = russia.1029.desc
+    picture = SOV_event_the_2018_world_cup
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			country_event = { id = russia.1030 hours = 14 }
+		}
+	}
+
+    option = {				
+        name = russia.1029.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 10
+		add_stability = 0.01
+    }
+}
+
+#Raise the retirement age?
+country_event = {
+    id = russia.1030
+    title = russia.1030.t
+    desc = russia.1030.desc
+    picture = SOV_medvedev_event
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1030.a
+		ai_chance = {
+			base = 10
+		}
+		remove_ideas = SOV_bloated_welfare_system
+		hidden_effect = { country_event = { id = russia.1031 days = 35 } }
+    }
+	
+	option = {				
+        name = russia.1030.b
+		ai_chance = {
+			base = 0
+		}
+		swap_ideas={
+			remove_idea = SOV_bloated_welfare_system
+			add_idea = SOV_bloated_welfare_system_2
+		}
+    }
+}
+
+#Pension Protests
+country_event = {
+    id = russia.1031
+    title = russia.1031.t
+    desc = russia.1031.desc
+    picture = GFX_report_event_SOV_pension_protests
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1031.a
+		ai_chance = {
+			base = 10
+		}
+		add_stability = -0.2
+		add_popularity = { ideology = eastern_conservative popularity = -0.15 }
+    }
+}
+
+
 
 country_event = {
     id = russia_propaganda.1
