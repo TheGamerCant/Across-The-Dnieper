@@ -2234,13 +2234,13 @@ country_event = {
 
 	immediate={
 		hidden_effect={
-			subtract_from_variable = { SOV.bonus_gdp = 390 }
+			subtract_from_variable = { SOV.bonus_gdp = 380 }
 			add_to_variable = { ROOT.inflation_rate = 6 }
 			every_state={
 				limit={
 					is_controlled_by = SOV
 				}
-				decrease_state_gdp_growth_by_5 = yes
+				decrease_state_gdp_growth_by_10 = yes
 				subtract_from_variable = { THIS.state_gdp_per_capita = 1800 }
 			}
 
@@ -2281,8 +2281,7 @@ country_event = {
 				limit={
 					is_controlled_by = SOV
 				}
-				decrease_state_gdp_growth_by_5 = yes
-				subtract_from_variable = { THIS.state_gdp_per_capita = 1200 }
+				decrease_state_gdp_growth_by_10 = yes
 			}
 		}
 		if = {
