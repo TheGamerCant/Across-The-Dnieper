@@ -1,0 +1,50 @@
+UKR_infiltrate_russia = {
+	allowed = {
+		tag = UKR
+	}
+	
+	enable = {
+		tag = UKR
+		SOV = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = UKR }
+		}
+		
+		date > 2016.1.1
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_infiltrate_civilian
+		value = 200
+		operation_target = SOV
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_infiltrate_armed_forces_army
+		value = 200
+		operation_target = SOV
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_infiltrate_armed_forces_navy
+		value = 200
+		operation_target = SOV
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_infiltrate_armed_forces_airforce
+		value = 200
+		operation_target = SOV
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = SOV
+	}
+}

@@ -1,0 +1,30 @@
+SOV_make_collab_gov_in_ukraine = {
+	allowed = {
+		tag = SOV
+	}
+	
+	enable = {
+		tag = SOV
+		UKR = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = SOV }
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_collaboration_government
+		value = 200
+		operation_target = UKR
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = UKR
+	}
+}
