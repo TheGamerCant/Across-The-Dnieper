@@ -1180,7 +1180,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
-			add_to_variable = { SOV_sanctions_stability_weekly = 0.002 }
+			add_to_variable = { SOV_sanctions_stability_weekly = 0.003 }
 			
 			custom_effect_tooltip = SOV_economic_corridors_tt
 			
@@ -1189,7 +1189,7 @@ focus_tree = {
 				increase_state_gdp_growth_by_2_5 = yes
 			}
 			
-			add_stability = 0.1
+			add_stability = 0.025
 		}
 	}
 	
@@ -1386,7 +1386,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_union_state
 		x = -8
 		y = 1
-		cost = 35
+		cost = 45
 		search_filters = {
 			
 		}
@@ -1431,7 +1431,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_strengthen_the_government_in_transnistria
 		x = 0
 		y = 1
-		cost = 35
+		cost = 45
 		search_filters = {
 			
 		}
@@ -1490,6 +1490,7 @@ focus_tree = {
 				}
 			}
 			puppet = TRZ
+			add_political_power = 50
 		}
 	}
 	
@@ -1498,7 +1499,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_movements_on_the_border
 		x = 0
 		y = 1
-		cost = 105
+		cost = 100
 		search_filters = {
 			
 		}
@@ -2022,6 +2023,7 @@ focus_tree = {
 			else={
 				custom_effect_tooltip = available_political_advisor
 				show_ideas_tooltip = SOV_kirill_rework
+				custom_effect_tooltip = kirill_tt
 			}
 		}
 	}
@@ -2192,7 +2194,6 @@ focus_tree = {
 
 		completion_reward={
 			country_event = { id = russia.1014 hours = 4 }
-			set_country_flag = { flag = SOV_russia_the_land_of_opportunities_flag value = 1 days = 364 }
 		}
 	}
 	
@@ -2210,7 +2211,6 @@ focus_tree = {
 		
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-			NOT = { has_country_flag = SOV_russia_the_land_of_opportunities_flag }
 		}
 
 		completion_reward={
@@ -2383,8 +2383,7 @@ focus_tree = {
 		}
 
 		completion_reward={
-			decrease_inflation_rate_by_5 = yes
-			add_political_power = 25
+			add_research_slot = 1
 			
 			random_owned_controlled_state={
 				prioritize = { 11 }
@@ -2395,7 +2394,7 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
-				increase_state_gdp_growth_by_5 = yes
+				increase_state_gdp_growth_by_2 = yes
 			}
 		}
 	}
@@ -2612,6 +2611,7 @@ focus_tree = {
 			else={
 				custom_effect_tooltip = available_political_advisor
 				show_ideas_tooltip = SOV_kirill_rework
+				custom_effect_tooltip = kirill_tt
 			}
 		}
 	}
@@ -3087,6 +3087,8 @@ shared_focus = {
 		
 		subtract_from_variable = { SOV_army_conscription_factor = 0.1 }
 		custom_effect_tooltip = SOV_move_to_a_professional_military_tt
+		
+		load_russian_doctrine = yes
 		
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
@@ -3606,6 +3608,7 @@ shared_focus = {
 		show_ideas_tooltip = SOV_yevgeny_prigozhin_rework
 		add_war_support = 0.05
 		army_experience = 50
+		SOV_increase_putinist_faction_small = yes
 	}
 }
 
@@ -3646,6 +3649,7 @@ shared_focus = {
 		
 		add_political_power = 50
 		army_experience = 50
+		SOV_increase_putinist_faction_small = yes
 	}
 }
 
@@ -3663,6 +3667,7 @@ shared_focus = {
 	relative_position_id = SOV_send_surovikin_to_syria
 	mutually_exclusive = { focus = SOV_utilise_wagner focus = SOV_the_kadyrovites }
 	available = {
+		has_country_flag = SOV_patriot_pmc_formed
 	}
 	
 	
@@ -3679,6 +3684,8 @@ shared_focus = {
 		}
 		army_experience = 30
 		add_political_power = 75
+		
+		SOV_increase_siloviki_faction_small = yes
 	}
 }
 

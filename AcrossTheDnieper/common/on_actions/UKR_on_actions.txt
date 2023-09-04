@@ -408,6 +408,21 @@ on_actions={
 					russify_city_names = yes
 				}
 			}
+			else_if={
+				NOT = { limit = { has_global_flag = donbass_war_is_ongoing } }
+				if={
+					limit={
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+							original_tag = NOV
+						}
+					}
+					russify_city_names = yes
+				}
+			}
 		}
 	}
 }

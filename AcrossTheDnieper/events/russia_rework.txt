@@ -446,6 +446,9 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = russia.1023 days = 832 } #Kiriyenko
 			country_event = { id = russia.1024 days = 329 } #Shoigu
+			country_event = { id = russia.1032 days = 1012 } #Patriot PMC
+			country_event = { id = russia.1033 days = 765 } #Economic Stagnation
+			country_event = { id = russia.1034 days = 1542 } #Oligarchy gets worse
 		}
 	}
 
@@ -1074,6 +1077,92 @@ country_event = {
     }
 }
 
+#Patriot PMC
+country_event = {
+    id = russia.1032
+    title = russia.1032.t
+    desc = russia.1032.desc
+    picture = GFX_report_event_SOV_shoigu
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1032.a
+		ai_chance = {
+			base = 10
+		}
+		set_country_flag = SOV_patriot_pmc_formed
+		army_experience = 10
+		SOV_increase_siloviki_faction_small = yes
+    }
+}
+
+
+#test
+#country_event = {
+#	id = russia.1033
+#	hidden = yes
+#	
+#	fire_only_once = yes
+#	trigger = {
+#		SOV={
+#			focus_progress = {
+#				focus = SOV_finalise_construction_of_the_stadium
+#				progress > 0.5				#Focus us 22 days, will fire on 12th 
+#			}
+#		}
+#	}
+#	
+#	immediate={
+#		SOV={ country_event = { id = russia.1032 } }
+#	}
+#}
+
+#Continued Stagnation
+country_event = {
+    id = russia.1033
+    title = russia.1033.t
+    desc = russia.1033.desc
+    picture = SOV_sanctions_event
+    is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			add_to_variable = { SOV_sanctions_consumer_goods_factor = 0.05 }
+			add_to_variable = { SOV_sanctions_research_speed_factor = -0.12 }
+			add_to_variable = { SOV_sanctions_political_power_cost = 0.1 }
+		}
+	}
+
+    option = {				
+        name = russia.1033.a
+		ai_chance = {
+			base = 10
+		}
+		
+		custom_effect_tooltip = russia.1033.tt
+		add_stability = -0.1
+    }
+}
+
+#Oligarchy gets worse
+country_event = {
+    id = russia.1034
+    title = russia.1034.t
+    desc = russia.1034.desc
+    picture = SOV_event_2018_election
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1034.a
+		ai_chance = {
+			base = 10
+		}
+		swap_ideas={
+			remove_idea = SOV_rampant_oligarchy
+			add_idea = SOV_rampant_oligarchy_2
+		}
+    }
+}
 
 
 country_event = {
