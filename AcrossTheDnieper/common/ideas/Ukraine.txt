@@ -1579,12 +1579,16 @@ ideas ={
 			picture = generic_naval_manufacturer_2
 
 			allowed = {
-				original_tag = UKR
+				OR={
+					original_tag = UKR
+					original_tag = SOV
+					original_tag = NOV
+				}
                 NOT = { has_available_idea_with_traits = { idea = battlefleet_designer limit = 1 } }
 			}
 			
 			available={
-
+				354 = { is_controlled_by = ROOT }
 			}
 
 			research_bonus = {
@@ -1636,7 +1640,7 @@ ideas ={
 			}
 
 			research_bonus = {
-				naval_equipment = 0.3
+				naval_equipment = 0.25
 			}
 
 			traits = { naval_manufacturer }

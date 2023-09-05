@@ -175,7 +175,11 @@ SOV_smo={
 
 			add_political_power = -100
 			add_war_support = -0.1
-			remove_ideas = SOV_army_ready
+			if={
+				limit = { has_idea = SOV_army_ready }
+				remove_ideas = SOV_army_ready
+			}
+			
 			add_timed_idea={
 				idea = UKR_overextended
 				days = 120

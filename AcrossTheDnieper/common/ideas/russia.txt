@@ -24,6 +24,9 @@ ideas = {
 			research_bonus = {
 				industry = 0.12
 			}
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
 
 			traits = { industrial_concern  }
 
@@ -52,7 +55,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				industry = 0.14
+				industry = 0.18
 			}
 
 			traits = { industrial_concern  }
@@ -117,8 +120,8 @@ ideas = {
 			}
 
 			research_bonus = {
-				electronics = 0.1
-				nuclear = 0.1
+				electronics = 0.15
+				nuclear = 0.15
 			}
 
 			traits = { industrial_concern  }
@@ -148,8 +151,8 @@ ideas = {
 			}
 
 			modifier = {
-				min_export = -0.25
-				local_resources_factor = 0.05
+				min_export = -0.05
+				local_resources_factor = 0.1
 			}
 
 			traits = { industrial_concern  }
@@ -199,6 +202,118 @@ ideas = {
 			}
 		}
 	}
+	
+	aircraft_manufacturer = {
+	
+		designer = yes
+		
+		sukhoi = {	
+
+			picture = SOV_sukhoi
+
+			allowed = {
+				original_tag = SOV
+                NOT = { has_available_idea_with_traits = { idea = light_aircraft_manufacturer limit = 1 } }
+			}
+			
+			available={
+
+			}
+
+			research_bonus = {
+				air_equipment = 0.2
+			}
+
+			traits = { light_aircraft_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		ilyushin = {	
+
+			picture = SOV_ilyushin
+
+			allowed = {
+				original_tag = SOV
+                NOT = { has_available_idea_with_traits = { idea = heavy_aircraft_manufacturer limit = 1 } }
+			}
+			
+			available={
+
+			}
+
+			research_bonus = {
+				air_equipment = 0.2
+			}
+
+			traits = { heavy_aircraft_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	naval_manufacturer = {
+	
+		designer = yes
+
+		murmansk_shipyards = {
+
+			picture = generic_naval_manufacturer_1
+
+			allowed = {
+				original_tag = SOV
+                NOT = { has_available_idea_with_traits = { idea = convoy_escort_naval_manufacturer limit = 1 } }
+			}
+			
+			available={
+
+			}
+
+			research_bonus = {
+				naval_equipment = 0.1
+			}
+
+			traits = { convoy_escort_naval_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	tank_manufacturer = {
+
+		designer = yes
+
+		uralvagonzavod = {
+
+			picture = SOV_uralvagonzavod
+
+			allowed = {
+				original_tag = SOV
+                NOT = { has_available_idea_with_traits = { idea = medium_tank_manufacturer limit = 1 } }
+			}
+			
+			available={
+
+			}
+
+			research_bonus = {
+				armor = 0.15
+			}
+
+			traits = { medium_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
 	country = {
 		SOV_banking_sector_reforms = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }
@@ -285,7 +400,7 @@ ideas = {
 			removal_cost = -1
 			picture = SOV_memories_of_1993
 			modifier = {
-				eastern_liberal_drift = 0.06
+				eastern_liberal_drift = 0.1
 				stability_factor = -0.04
 				political_power_cost = -0.15
 			}
@@ -417,6 +532,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = 0.09
 				stability_weekly = -0.001
+				political_power_cost = 0.1
 			}
 		}
 		
@@ -429,6 +545,7 @@ ideas = {
 				consumer_goods_factor = 0.12
 				stability_weekly = -0.001
 				stability_factor = -0.1
+				political_power_cost = 0.4
 			}
 		}
 		
@@ -1105,6 +1222,25 @@ ideas = {
 			modifier = {
 				political_power_gain = -0.01
 				consumer_goods_factor = 0.02
+			}
+		}
+		
+		SOV_the_crimean_burden_rework = {
+			removal_cost = -1
+
+			picture = UKR_the_crimean_burden
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = -0.04
+				stability_factor = -0.01
+				consumer_goods_factor = 0.01
 			}
 		}
 		

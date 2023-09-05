@@ -1510,7 +1510,7 @@ focus_tree = {
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
 			has_completed_focus = SOV_memories_of_old
-			ultranationalist > 0.18
+			ultranationalist > 0.20
 		}
 		bypass={
 			OR={
@@ -1733,7 +1733,7 @@ focus_tree = {
 			
 			every_state={
 				limit={ is_controlled_by = ROOT }
-				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_2_5 = yes
 			}
 		}
 	}
@@ -1910,6 +1910,7 @@ focus_tree = {
 			OR={
 				has_idea = SOV_dmitry_medvedev_rework
 				has_idea = SOV_alexei_miller
+				has_idea = gazprom
 			}
 		}
 
@@ -3092,7 +3093,7 @@ shared_focus = {
 		
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
-			cost_reduction = 1.0
+			cost_reduction = 0.8
 			uses = 2
 			category = land_doctrine
 		}
@@ -3273,8 +3274,8 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = SOV_end_conscription
-	icon = GFX_focus_SOV_end_conscription
+	id = SOV_bureaucratic_oversight
+	icon = GFX_focus_SOV_bureaucratic_oversight
 	x = 0
 	y = 1
 	
@@ -3287,9 +3288,52 @@ shared_focus = {
 
 	relative_position_id = SOV_defensive_drills
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { SOV_army_army_attack_factor = 0.06 }
+		add_to_variable = { SOV_army_army_defence_factor = 0.06 }
+		subtract_from_variable = { SOV_army_attrition = 0.04 }
+		subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.1 }
+		subtract_from_variable = { SOV_army_consumer_goods_factor = 0.01 }
+		custom_effect_tooltip = SOV_bureaucratic_oversight_tt
+		add_political_power = -200
+	}
+}
+
+shared_focus = {
+	id = SOV_end_conscription
+	icon = GFX_focus_SOV_end_conscription
+	x = -2
+	y = 1
+	
+	cost = 80
+	ai_will_do = {
+		factor = 0
+	}
+	prerequisite = { focus = SOV_bureaucratic_oversight }
+
+	relative_position_id = SOV_bureaucratic_oversight
+	available = {
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3313,42 +3357,6 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = SOV_bureaucratic_oversight
-	icon = GFX_focus_SOV_bureaucratic_oversight
-	x = -2
-	y = 1
-	
-	cost = 80
-	ai_will_do = {
-	}
-	prerequisite = { focus = SOV_end_conscription }
-
-	relative_position_id = SOV_end_conscription
-	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
-		}
-	}
-	
-	
-	bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = yes
-	completion_reward = {
-		add_to_variable = { SOV_army_army_attack_factor = 0.06 }
-		add_to_variable = { SOV_army_army_defence_factor = 0.06 }
-		subtract_from_variable = { SOV_army_attrition = 0.04 }
-		subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.1 }
-		subtract_from_variable = { SOV_army_consumer_goods_factor = 0.01 }
-		custom_effect_tooltip = SOV_bureaucratic_oversight_tt
-		add_political_power = -200
-	}
-}
-
-shared_focus = {
 	id = SOV_russias_finest_gear
 	icon = GFX_focus_SOV_russias_finest_gear
 	x = 0
@@ -3357,13 +3365,16 @@ shared_focus = {
 	cost = 80
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_end_conscription }
+	prerequisite = { focus = SOV_bureaucratic_oversight }
 
-	relative_position_id = SOV_end_conscription
+	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3410,13 +3421,16 @@ shared_focus = {
 	cost = 80
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_end_conscription }
+	prerequisite = { focus = SOV_bureaucratic_oversight }
 
-	relative_position_id = SOV_end_conscription
+	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3444,13 +3458,16 @@ shared_focus = {
 	cost = 80
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_end_conscription }
+	prerequisite = { focus = SOV_bureaucratic_oversight }
 
-	relative_position_id = SOV_end_conscription
+	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3477,13 +3494,16 @@ shared_focus = {
 	cost = 80
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_end_conscription }
+	prerequisite = { focus = SOV_bureaucratic_oversight }
 
-	relative_position_id = SOV_end_conscription
+	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3690,6 +3710,66 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_lease_tartus_naval_base
+	icon = GFX_focus_generic_refit_civilian_ships
+	x = 0
+	y = 2
+	
+	cost = 50
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_send_gerasimov_to_syria focus = SOV_send_surovikin_to_syria }
+
+	relative_position_id = SOV_send_surovikin_to_syria
+
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		navy_experience = 100
+	}
+}
+
+shared_focus = {
+	id = SOV_grom_2019
+	icon = GFX_focus_BLR_CSTO_exercise_2015
+	x = 2
+	y = 2
+	
+	cost = 70
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_send_gerasimov_to_syria focus = SOV_send_surovikin_to_syria }
+
+	relative_position_id = SOV_send_surovikin_to_syria
+
+	available = {
+		date > 2019.1.1
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		army_experience = 75
+		air_experience = 75
+		navy_experience = 50
+		
+	}
+}
+
+
+shared_focus = {
 	id = SOV_perfect_the_soviet_doctrine
 	icon = GFX_focus_SOV_perfect_the_soviet_doctrine
 	x = 6
@@ -3721,7 +3801,7 @@ shared_focus = {
 		
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
-			cost_reduction = 1.0
+			cost_reduction = 0.8
 			uses = 2
 			category = land_doctrine
 		}
@@ -3908,7 +3988,7 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = SOV_strike_deep_and_hard
+	id = SOV_strike_deep_and_hard			#That's what she said
 	icon = GFX_focus_UKR_across_the_dnieper
 	x = 0
 	y = 1
@@ -3922,9 +4002,12 @@ shared_focus = {
 
 	relative_position_id = SOV_artillieriya
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3962,9 +4045,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -3992,9 +4078,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -4037,9 +4126,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -4087,9 +4179,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	
@@ -4133,9 +4228,12 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-		custom_trigger_tooltip={
-			tooltip = does_not_have_raspizdyaystvo_tt
-			NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+		OR={
+			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = does_not_have_raspizdyaystvo_tt
+				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
+			}
 		}
 	}
 	

@@ -72,6 +72,7 @@ technologies = {
 		army_morale_factor = 0.05
 		air_cas_present_factor = 0.2
 		air_superiority_efficiency = 0.1
+		land_doctrine_cost_factor = -0.15
 
 
 		category_front_line = {
@@ -393,6 +394,8 @@ technologies = {
 		category_all_infantry = {
 			maximum_speed = 0.1
 		}
+		army_speed_factor = 0.1
+		planning_speed = 0.2
 		dig_in_speed_factor = 0.1
 		
 		categories = {
@@ -500,6 +503,7 @@ technologies = {
 		defensive_war_stability_factor = 0.2
 		experience_gain_army_factor = 0.05
 		stability_factor = 0.05
+		political_power_gain = 0.08
 		
 		categories = {
 			land_doctrine
@@ -644,7 +648,7 @@ technologies = {
 
 		war_support_factor = 0.05
 		air_superiority_efficiency = 0.2
-		war_stability_factor = 0.05
+		war_stability_factor = 0.2
 		
 		army_attack_factor = 0.05
 		army_defence_factor = 0.05
@@ -1776,6 +1780,9 @@ technologies = {
 			soft_attack = 0.08
 		}
 
+		supply_consumption_factor = -0.06
+		attrition = -0.02
+		
 		categories = {
 			land_doctrine
 			cat_ukraine_doctrine
@@ -1819,6 +1826,8 @@ technologies = {
     
     attrition = -0.10
 	supply_consumption_factor = -0.04
+	max_dig_in = 0.15
+	org_loss_when_moving = -0.05
     
     categories = {
         land_doctrine
@@ -1864,13 +1873,10 @@ all_frontal_defence = {
     research_cost = 4.5
 
 	xor = { fortress_city }
-    
-    infantry = {
-        defense = 0.15
-    }
-    
+
     dig_in_speed_factor  = 0.10
 	max_dig_in = 4
+	army_defence_factor = 0.05
     
     categories = {
         land_doctrine
@@ -1915,6 +1921,8 @@ scorched_earth = {
     category_all_infantry = {
         entrenchment  = 0.10
     }
+	org_loss_when_moving = -0.15
+	attrition = -0.03
     
     
     categories = {
@@ -1957,9 +1965,9 @@ adaptive_tactics = {
     doctrine = yes
     research_cost = 4.5
     
-    planning_speed = 0.10
-    army_speed_factor = 0.05
-	experience_gain_army_factor = 0.2
+    planning_speed = 0.25
+    army_speed_factor = 0.1
+	experience_gain_army_factor = 0.1
     
     categories = {
         land_doctrine
@@ -2046,8 +2054,10 @@ decentralized_management = {
     doctrine = yes
     research_cost = 4.5
     
-    land_reinforce_rate  = 0.10
-	experience_gain_army_factor = 0.05
+    land_reinforce_rate  = 0.07
+	experience_gain_army_factor = 0.15
+	army_attack_factor = 0.04
+	army_defence_factor = 0.04
     
     categories = {
         land_doctrine
@@ -2145,7 +2155,8 @@ widespread_use_of_drones = {
     
     recon_factor = 0.10
     army_morale_factor = 0.10
-	breakthrough_factor = 0.15
+	breakthrough_factor = 0.2
+	max_dig_in = 2.5
     
     categories = {
         land_doctrine

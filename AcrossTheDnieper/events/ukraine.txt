@@ -516,7 +516,14 @@ country_event = {
 			}
 			add_dynamic_modifier = { modifier = water_shortage }
 		}
-		add_ideas = UKR_the_crimean_burden
+		
+		if={
+			limit = { russia_rework_trigger = yes }
+			add_ideas = SOV_the_crimean_burden_rework
+		}
+		else={
+			add_ideas = UKR_the_crimean_burden
+		}
 	}
 	
 	option = { 
@@ -530,7 +537,7 @@ country_event = {
 			}
 			add_dynamic_modifier = { modifier = drastic_water_shortage }
 		}
-		add_stability = -0.025
+		add_stability = -0.075
 	}
 }
 
