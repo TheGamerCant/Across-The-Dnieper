@@ -1015,6 +1015,42 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_SDPS_Balkans
 		}
+		completion_reward = {
+			MNT = { country_event = { id = serbia_foreign.1  hours = 1 }}
+			BOS = { country_event = { id = serbia_foreign.1  hours = 1}}
+			CRO = { country_event = { id = serbia_foreign.1  hours = 1}}
+
+			add_opinion_modifier = { target = CRO modifier = small_increase} 
+			add_opinion_modifier = { target = MNT modifier = small_increase} 
+			add_opinion_modifier = { target = BOS modifier = small_increase} 
+
+			365 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			289 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			345 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			313 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+
+			add_political_power = -25
+		}
 
 		relative_position_id = SER_SDPS_Balkans
 
@@ -1030,6 +1066,13 @@ focus_tree = {
 			focus = SER_SDPS_joint_infrastructure_projects
 		}
 
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+		}
+
 		relative_position_id = SER_SDPS_joint_infrastructure_projects
 
 		x = 0
@@ -1043,7 +1086,15 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_SDPS_preservation_historical_sites
 		}
-
+		completion_reward = {
+			add_ideas = SER_Balkan_economic_union
+			CRO = { country_event = { id = serbia_foreign.2  hours = 1}}
+			BOS = { country_event = { id = serbia_foreign.2  hours = 1}}
+			MNT = { country_event = { id = serbia_foreign.2  hours = 1}}
+			HUN = { country_event = { id = serbia_foreign.2  hours = 1}}
+			ROM = { country_event = { id = serbia_foreign.2  hours = 1}}
+			BUL = { country_event = { id = serbia_foreign.2  hours = 1}}
+		}
 		relative_position_id = SER_SDPS_preservation_historical_sites
 
 		x = 0
@@ -1056,6 +1107,17 @@ focus_tree = {
 		cost = 35
 		prerequisite = {
 			focus = SER_SDPS_Balkans
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = -0.05
+			}
+
+			add_opinion_modifier = { target = BOS modifier = medium_increase} 
+			BOS = {add_opinion_modifier = { target = CRO modifier = medium_increase} }
+
+			add_stability = 0.01
 		}
 
 		relative_position_id = SER_SDPS_Balkans
@@ -1072,6 +1134,17 @@ focus_tree = {
 			focus = SER_SDPS_apologize_Srebrenica_massacre
 		}
 
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -5
+
+			MNT = { country_event = { id = serbia_foreign.3  hours = 1}}
+			BOS = { country_event = { id = serbia_foreign.3  hours = 1}}
+			CRO = { country_event = { id = serbia_foreign.3  hours = 1}}
+			HUN = { country_event = { id = serbia_foreign.3  hours = 1}}
+			ROM = { country_event = { id = serbia_foreign.3  hours = 1}}
+			BUL = { country_event = { id = serbia_foreign.3  hours = 1}}
+		}
 		relative_position_id = SER_SDPS_apologize_Srebrenica_massacre
 
 		x = 0
@@ -1084,6 +1157,14 @@ focus_tree = {
 		cost = 35
 		prerequisite = {
 			focus = SER_SDPS_popularize_our_cultures_together
+		}
+		completion_reward = {
+			MNT = { country_event = { id = serbia_foreign.4  hours = 1}}
+			BOS = { country_event = { id = serbia_foreign.4  hours = 1}}
+			CRO = { country_event = { id = serbia_foreign.4  hours = 1}}
+			HUN = { country_event = { id = serbia_foreign.4  hours = 1}}
+			ROM = { country_event = { id = serbia_foreign.4  hours = 1}}
+			BUL = { country_event = { id = serbia_foreign.4  hours = 1}}
 		}
 
 		relative_position_id = SER_SDPS_popularize_our_cultures_together
@@ -1566,18 +1647,16 @@ focus_tree = {
 		id = SER_SDPS_Kosovo
 		icon = GFX_goal_unknown
 		cost = 35
+
 		prerequisite = {
 			focus = SER_SDPS_Join_EU
-		}
-		prerequisite = {
 			focus = SER_SDPS_reconciliation
-		}
-		prerequisite = {
-			focus = SER_SDPS_Eastern_Trade_Route
+			focus = SER_SDPS_Eastern_Trade_Route	
 		}
 
 		completion_reward = {
 			#РЕШЕНИЯ!
+			custom_effect_tooltip = SER_SDPS_allFocuses
 		}
 
 		relative_position_id = SER_SDPS_foreign_policy
