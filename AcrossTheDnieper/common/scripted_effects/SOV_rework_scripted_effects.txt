@@ -7079,3 +7079,76 @@ get_prigozhin_fire_effect={
 		SOV_decrease_nationalist_faction_large = yes
 	}
 }
+
+get_zolotov_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+	
+	if={
+		limit = {
+			has_any_power_balance = yes
+		}
+		add_power_balance_value = {
+			id = SOV_power_balance
+			value = -0.2
+		}
+	}
+}
+get_zolotov_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_viktor_zolotov_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+	
+	if={
+		limit = {
+			has_any_power_balance = yes
+		}
+		add_power_balance_value = {
+			id = SOV_power_balance
+			value = 0.2
+		}
+	}
+}

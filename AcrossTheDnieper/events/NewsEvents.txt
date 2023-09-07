@@ -1271,3 +1271,28 @@ news_event = {	#Ukraine enters Crimea
 		name = atd_news.51.c
 	}
 }
+
+news_event = {	#Siloviki Coup
+	id = atd_news.52
+	title = atd_news.52.t
+	desc = atd_news.52.desc
+	picture = GFX_news_event_russia_coup
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = {
+				tag = SOV
+			}
+		}
+		name = atd_news.52.a
+	}
+
+	option = {
+		trigger = {
+			tag = SOV
+		}
+		name = atd_news.52.b
+	}
+}

@@ -1315,7 +1315,7 @@ characters={
 				tag = SOV
 			}
 			traits = {
-				navy_chief_decisive_battle_2
+				navy_chief_reform_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -1696,6 +1696,58 @@ characters={
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 3
+		}	
+	}
+	
+	SOV_viktor_zolotov = {
+		name = SOV_viktor_zolotov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/Portrait_Viktor_Zolotov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Viktor_Zolotov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+			
+		advisor = {
+			slot = high_command
+			idea_token = SOV_viktor_zolotov
+			allowed = {
+				original_tag = SOV
+			}
+			cost = 150
+			traits = {
+				SOV_head_of_rosgvardiya
+			}
+			available={
+				has_completed_focus = SOV_approach_zolotov
+			}
+			on_add = {
+				owner = {
+					get_zolotov_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_zolotov_fire_effect = yes
+				}
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				
+			}
+
+			skill = 2
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
 		}	
 	}
 }

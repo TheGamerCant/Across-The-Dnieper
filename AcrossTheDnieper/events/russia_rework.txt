@@ -444,11 +444,11 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes
 		
 		hidden_effect = {
-			country_event = { id = russia.1023 days = 832 } #Kiriyenko
-			country_event = { id = russia.1024 days = 329 } #Shoigu
-			country_event = { id = russia.1032 days = 1012 } #Patriot PMC
+			country_event = { id = russia.1024 days = 329 } #Shoigu corruption
+			country_event = { id = russia.1023 days = 461 } #Kiriyenko
+			country_event = { id = russia.1032 days = 704 } #Patriot PMC
 			country_event = { id = russia.1033 days = 765 } #Economic Stagnation
-			country_event = { id = russia.1034 days = 1542 } #Oligarchy gets worse
+			country_event = { id = russia.1034 days = 1392 } #Oligarchy gets worse
 		}
 	}
 
@@ -553,7 +553,7 @@ country_event = {
 	option = {
         name = russia.1013.b
 		ai_chance = {
-			base = 0
+			base = 10
 		}
 		random_controlled_state={
 			add_extra_state_shared_building_slots = 4
@@ -576,7 +576,7 @@ country_event = {
 	option = {
         name = russia.1013.c
 		ai_chance = {
-			base = 0
+			base = 10
 		}
 		add_political_power = 120
 		
@@ -665,7 +665,8 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-	
+		add_stability = -0.01
+		SOV_increase_liberal_faction_small = yes
     }
 }
 
@@ -682,7 +683,8 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		add_stability = -0.02
+		add_stability = -0.05
+		SOV_increase_liberal_faction_medium = yes
     }
 }
 
@@ -843,8 +845,18 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		SOV_decrease_technocrat_faction_medium = yes
+		SOV_decrease_technocrat_faction_small = yes
 		add_political_power = -60
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.05
+			}
+		}
     }
 }
 
@@ -863,6 +875,16 @@ country_event = {
 		}
 		SOV_increase_siloviki_faction_small = yes
 		add_stability = -0.02
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.05
+			}
+		}
     }
 	
 	option = {
@@ -1044,7 +1066,7 @@ country_event = {
 			base = 10
 		}
 		remove_ideas = SOV_bloated_welfare_system
-		hidden_effect = { country_event = { id = russia.1031 days = 35 } }
+		hidden_effect = { country_event = { id = russia.1031 days = 15 } }
     }
 	
 	option = {				
@@ -1052,6 +1074,11 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
+		
+		trigger={
+			has_completed_focus = SOV_putin_at_the_helm
+		}
+		
 		swap_ideas={
 			remove_idea = SOV_bloated_welfare_system
 			add_idea = SOV_bloated_welfare_system_2
@@ -1074,6 +1101,7 @@ country_event = {
 		}
 		add_stability = -0.2
 		add_popularity = { ideology = eastern_conservative popularity = -0.15 }
+		add_political_power = -150
     }
 }
 
@@ -1161,6 +1189,107 @@ country_event = {
 			remove_idea = SOV_rampant_oligarchy
 			add_idea = SOV_rampant_oligarchy_2
 		}
+    }
+}
+
+#Leader of Siloviki
+country_event = {
+    id = russia.1035
+    title = russia.1035.t
+    desc = russia.1035.desc
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1035.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_make_sergei_shoigu_siloviki_leader = yes
+		custom_effect_tooltip = make_shoigu_siloviki_leader_tt
+		
+		create_country_leader = {
+			name = "Sergey Shoigu"
+			picture = GFX_SOV_shoigu_icon_large
+			ideology = generic_military_junta
+		}
+		
+		set_power_balance_gfx = {
+			id = SOV_power_balance
+			side = SOV_siloviki_bop_side
+			gfx = GFX_SOV_shoigu_icon_large
+		}
+    }
+	
+	option = {				
+        name = russia.1035.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_make_nikolai_patrushev_siloviki_leader = yes
+		custom_effect_tooltip = make_patrushev_siloviki_leader_tt
+		
+		create_country_leader = {
+			name = "Nikolai Patrushev"
+			picture = GFX_SOV_patrushev_icon_large
+			ideology = generic_military_junta
+		}
+		
+		set_power_balance_gfx = {
+			id = SOV_power_balance
+			side = SOV_siloviki_bop_side
+			gfx = GFX_SOV_patrushev_icon_large
+		}
+    }
+	
+	option = {				
+        name = russia.1035.c
+		ai_chance = {
+			base = 0
+		}
+		SOV_make_alexander_bortnikov_siloviki_leader = yes
+		custom_effect_tooltip = make_bortnikov_siloviki_leader_tt
+
+		create_country_leader = {
+			name = "Alexander Bortnikov"
+			picture = GFX_SOV_bortnikov_icon_large
+			ideology = generic_military_junta
+		}
+		
+		
+		set_power_balance_gfx = {
+			id = SOV_power_balance
+			side = SOV_siloviki_bop_side
+			gfx = GFX_SOV_bortnikov_icon_large
+		}
+    }
+}
+
+#Coup D'etat
+country_event = {
+    id = russia.1036
+    title = russia.1036.t
+    desc = russia.1036.desc
+    picture = SOV_coup_start_event
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1036.a
+		ai_chance = {
+			base = 10
+		}
+		effect_tooltip={
+			set_politics = {
+				ruling_party = military_junta
+				elections_allowed = no
+			}
+		}
+		custom_effect_tooltip = russia.1036.tt
+		add_stability = -0.2
+		remove_power_balance = {
+			id = SOV_power_balance
+		}
+		
+		hidden_effect = { news_event = { id = atd_news.52 hours = 3 } }
     }
 }
 

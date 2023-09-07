@@ -47,14 +47,7 @@ ideas = {
 			ledger = army
 			
 			visible = {
-				OR = {
-					has_government = neoconservative
-					has_government = neoliberal
-					has_government = eastern_liberal
-					has_government = libertarian
-					has_government = social_democracy
-				}
-				
+				has_western_government = yes
 			}
 			modifier = {
 				army_leader_start_level = 2
@@ -71,13 +64,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					OR = {
-						has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-					}
+					has_western_government = yes
 				}
 			}
 
@@ -86,12 +73,7 @@ ideas = {
 			ledger = army
 			
 			visible = {
-				OR = {
-					has_government = socialist
-					has_government = moderate_communist
-					has_government = hardline_communist
-				}
-				
+				has_far_left_government = yes
 			}
 			modifier = {
 				army_leader_start_level = 1
@@ -109,11 +91,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					OR = {
-						has_government = socialist
-						has_government = moderate_communist
-						has_government = hardline_communist
-					}
+					has_far_left_government = yes
 				}
 			}
 		}
@@ -122,10 +100,9 @@ ideas = {
 			
 			visible = { 
 				OR = {
-					has_government = fascist
-					has_government = ultranationalist
-					has_government = eastern_conservative
-					has_government = populist
+					has_illiberal_government = yes
+					has_far_right_government = yes
+					has_far_left_government = yes
 				}
 			}
 			modifier = {
@@ -144,10 +121,9 @@ ideas = {
 				modifier = {
 					factor = 2
 					OR = {
-						has_government = fascist
-						has_government = ultranationalist
-						has_government = eastern_conservative
-						has_government = populist
+						has_illiberal_government = yes
+						has_far_right_government = yes
+						has_far_left_government = yes
 					}
 				}
 			}
@@ -329,13 +305,7 @@ ideas = {
 		relief_of_command_spirit = {
 			ledger = army
 			visible = {
-				OR = {
-					has_government = neoconservative
-					has_government = neoliberal
-					has_government = eastern_liberal
-					has_government = libertarian
-					has_government = social_democracy
-				}
+				has_western_government = yes
 			}
 			modifier = {
 				experience_gain_army_factor = 0.25
@@ -351,13 +321,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					OR = {
-						has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-					}
+					has_western_government = yes
 				}
 			}
 		}
@@ -366,9 +330,8 @@ ideas = {
 			ledger = army
 			visible = { 
 				OR = {
-					has_government = socialist
-					has_government = moderate_communist
-					has_government = hardline_communist
+					has_far_left_government = yes
+					has_far_right_government = yes
 				}
 		    }
 			modifier = {
@@ -386,10 +349,9 @@ ideas = {
 				modifier = {
 					factor = 2
 					OR = {
-						has_government = socialist
-						has_government = moderate_communist
-						has_government = hardline_communist
-					}
+					has_far_left_government = yes
+					has_far_right_government = yes
+				}
 				}
 			}
 		}
@@ -397,11 +359,7 @@ ideas = {
 		state_serves_the_military_spirit = {
 			ledger = army
 			visible = {
-				OR = {
-					has_government = fascist
-					has_government = ultranationalist
-					has_government = military_junta
-				}
+				has_far_right_government = yes
 			}
 			modifier = {
 				political_power_factor = 0.1
@@ -417,11 +375,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					OR = {
-						has_government = fascist
-						has_government = ultranationalist
-						has_government = military_junta
-					}
+					has_far_right_government = yes
 				}
 			}
 		}

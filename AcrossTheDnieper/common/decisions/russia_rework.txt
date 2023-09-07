@@ -26,7 +26,7 @@ debug_decisions = {
 		}
 	}
 	
-	SOV_start_technocrat_siloviki_bop = { 
+	SOV_start_putin_siloviki_bop = { 
 		priority = 200
 
 		icon = eng_ally_imperialist_coup
@@ -52,9 +52,9 @@ debug_decisions = {
 				}
 				set_power_balance = {
 					id = SOV_power_balance
-					left_side = SOV_technocrat_bop_side 
-					right_side = SOV_siloviki_bop_side 
-					set_value = 0.2
+					left_side = SOV_siloviki_bop_side 
+					right_side = SOV_putin_bop_side 
+					set_value = 0.8
 				}
 			}
 		}
@@ -101,6 +101,282 @@ political_actions = {
 		}
 		timeout_effect = {
 			
+		}
+	}
+}
+
+SOV_balance_of_power_category = {
+	SOV_siloviki_coup_decision = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+		available = {
+			eastern_conservative < 0.5
+			custom_trigger_tooltip={
+				tooltip = siloviki_faction_bigger_than_40_tt
+				check_variable = { var = siloviki_faction_strength value = 40 compare = greater_than_or_equals }
+			}
+			
+			OR={
+				is_power_balance_in_range = {
+					id = SOV_power_balance
+					range = SOV_siloviki_medium
+				}
+				is_power_balance_in_range = {
+					id = SOV_power_balance
+					range = SOV_siloviki_large
+				}
+				is_power_balance_in_range = {
+					id = SOV_power_balance
+					range = SOV_siloviki_max
+				}
+			}
+		}
+			
+		modifier={
+			
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+
+		remove_effect = {
+			hidden_effect={
+				set_politics = {
+					ruling_party = military_junta
+					elections_allowed = no
+				}
+			}
+			country_event = { id = russia.1036 }
+		}
+	}
+	
+	SOV_get_rid_of_disloyal_generals = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+		available = {
+			has_completed_focus = SOV_the_siloviki_state
+		}
+		
+		days_remove = 45
+		days_re_enable = 90
+		
+		modifier={
+			
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = no
+		
+		cost = 75
+
+		remove_effect = {
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.15
+			}
+		}
+	}
+	
+	SOV_siloviki_acquire_funding = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+		available = {
+			has_completed_focus = SOV_the_siloviki_state
+		}
+		
+		days_remove = 45
+		days_re_enable = 90
+		
+		modifier={
+			
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = no
+		
+		cost = 75
+
+		remove_effect = {
+			SOV_increase_siloviki_faction_medium = yes
+			add_political_power = 50
+			add_popularity = { ideology = military_junta popularity = 0.035 }
+		}
+	}
+	
+	SOV_strengthen_our_presence_in_the_fsb = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+		available = {
+			has_completed_focus = SOV_the_siloviki_state
+		}
+		
+		days_remove = 45
+		days_re_enable = 90
+		
+		modifier={
+			
+		}
+
+		visible = {
+			
+		}
+		
+		fire_only_once = no
+		
+		cost = 75
+
+		remove_effect = {
+			SOV_increase_siloviki_faction_small = yes
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.1
+			}
+		}
+	}
+	
+	SOV_undermine_putins_control = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+		available = {
+			has_completed_focus = SOV_the_siloviki_state
+		}
+		
+		days_remove = 45
+		days_re_enable = 90
+		
+		modifier={
+			
+		}
+
+		visible = {
+			
+		}
+		
+		fire_only_once = no
+		
+		cost = 75
+
+		remove_effect = {
+			SOV_decrease_putinist_faction_medium = yes
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.05
+			}
+		}
+	}
+	
+	SOV_putin_strengthens_his_control = {
+		activation = {
+			has_completed_focus = SOV_the_siloviki_state
+		}
+		available = {
+			always = no
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 140
+		fire_only_once = no
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			SOV_decrease_siloviki_faction_medium = yes
+			SOV_increase_putinist_faction_small = yes
+			
+			random_list = {
+				10 = {
+					add_power_balance_value = {
+						id = SOV_power_balance
+						value = 0.05
+					}
+				}
+				10 = {
+					add_power_balance_value = {
+						id = SOV_power_balance
+						value = 0.1
+					}
+				}
+				10 = {
+					add_power_balance_value = {
+						id = SOV_power_balance
+						value = 0.15
+					}
+				}
+				10 = {
+					add_power_balance_value = {
+						id = SOV_power_balance
+						value = 0.2
+					}
+				}
+				10 = {
+					add_power_balance_value = {
+						id = SOV_power_balance
+						value = 0.25
+					}
+				}
+			}
 		}
 	}
 }

@@ -323,982 +323,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_welcome_home_2
-		icon = GFX_focus_SOV_welcome_home_2
-		x = 8
-		y = 0
-		cost = 24
-		search_filters = {
-			
-		}
-		available={
-			all_state={
-				OR={
-					NOT = { has_state_flag = crimea_oblast_flag }
-					is_owned_and_controlled_by = ROOT
-				}
-			}
-		}
-		completion_reward={
-			delete_unit_template_and_units   = {
-				division_template  = "Sevastopol Garrison"
-			}
-			add_popularity = {
-				ideology = eastern_conservative
-				popularity = 0.02
-			}
-			every_state={
-				limit = {
-					has_state_flag = crimea_oblast_flag
-					NOT = { is_core_of = ROOT }
-				}
-				add_compliance = 10
-			}
-
-			UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
-			
-			country_event = { id = russia.1008 days = 4 }
-		}
-	}
-	
-	focus = {
-		id = SOV_build_the_crimean_bridge
-		icon = GFX_focus_crimean_water_supply
-		x = 0
-		y = 1
-		
-		cost = 35
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = { focus = SOV_welcome_home_2 }
-		relative_position_id = SOV_welcome_home_2
-		available = {
-			331 = { is_controlled_by = ROOT }
-			445 = { is_controlled_by = ROOT }
-			256 = { is_controlled_by = ROOT }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = SOV_build_the_crimean_bridge_tt
-			hidden_effect={
-				add_timed_idea={
-					idea = SOV_crimean_bridge_under_construction
-					days = 1460
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = SOV_brothers_in_donbass
-		icon = GFX_focus_generic_donbass
-		x = -4
-		y = 1
-		
-		cost = 30
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_welcome_home_2 }
-		relative_position_id = SOV_welcome_home_2
-		available = {
-			always = no
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_war_support = 0.04
-		}
-	}
-	
-	focus = {
-		id = SOV_send_them_aa
-		icon = GFX_focus_UKR_air_denial
-		x = -2
-		y = 1
-		
-		cost = 24
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_brothers_in_donbass }
-		relative_position_id = SOV_brothers_in_donbass
-		available = {
-			any_donbass_country_exists = yes
-			has_equipment = { infantry_anti_air_equipment > 249 }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			every_country={
-				limit={
-					exists = yes
-					OR={
-						original_tag = DON
-						original_tag = LHK
-						original_tag = KHK
-						original_tag = ODS
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = infantry_anti_air_equipment
-						amount = 100
-						target = PREV
-					}
-				}
-			}
-			every_country={
-				limit={
-					exists = yes
-					original_tag = NOV
-				}
-				PREV={
-					send_equipment = { 
-						type = infantry_anti_air_equipment
-						amount = 300
-						target = PREV
-					}
-				}
-			}
-			
-			army_experience = 25
-		}
-	}
-	
-	focus = {
-		id = SOV_send_them_rifles
-		icon = GFX_focus_BLR_guns
-		x = 0
-		y = 1
-		
-		cost = 24
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_brothers_in_donbass }
-		relative_position_id = SOV_brothers_in_donbass
-		available = {
-			any_donbass_country_exists = yes
-			has_equipment = { infantry_equipment > 1999 }
-			has_equipment = { support_equipment > 399 }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			every_country={
-				limit={
-					exists = yes
-					OR={
-						original_tag = DON
-						original_tag = LHK
-						original_tag = KHK
-						original_tag = ODS
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = infantry_equipment
-						amount = 900
-						target = PREV
-					}
-					send_equipment = { 
-						type = support_equipment
-						amount = 160
-						target = PREV
-					}
-				}
-			}
-			every_country={
-				limit={
-					exists = yes
-					original_tag = NOV
-				}
-				PREV={
-					send_equipment = { 
-						type = infantry_equipment
-						amount = 900
-						target = PREV
-					}
-					send_equipment = { 
-						type = support_equipment
-						amount = 400
-						target = PREV
-					}
-				}
-			}
-			
-			army_experience = 25
-		}
-	}
-	
-	focus = {
-		id = SOV_send_them_artillery
-		icon = GFX_focus_BLR_artillery
-		x = 2
-		y = 1
-		
-		cost = 24
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_brothers_in_donbass }
-		relative_position_id = SOV_brothers_in_donbass
-		available = {
-			any_donbass_country_exists = yes
-			has_equipment = { artillery_equipment > 599 }
-			has_equipment = { rocket_artillery_equipment > 599 }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			every_country={
-				limit={
-					exists = yes
-					OR={
-						original_tag = DON
-						original_tag = LHK
-						original_tag = KHK
-						original_tag = ODS
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = artillery_equipment
-						amount = 250
-						target = PREV
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = rocket_artillery_equipment
-						amount = 250
-						target = PREV
-					}
-				}
-			}
-			every_country={
-				limit={
-					exists = yes
-					original_tag = NOV
-				}
-				PREV={
-					send_equipment = { 
-						type = artillery_equipment
-						amount = 600
-						target = PREV
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = rocket_artillery_equipment
-						amount = 600
-						target = PREV
-					}
-				}
-			}
-			
-			army_experience = 25
-		}
-	}
-	
-	focus = {
-		id = SOV_send_them_tanks
-		icon = GFX_focus_UKR_sell_abroad
-		x = -1
-		y = 2
-		
-		cost = 40
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_brothers_in_donbass }
-		relative_position_id = SOV_brothers_in_donbass
-		available = {
-			any_donbass_country_exists = yes
-			OR={ has_equipment = { modern_tank_chassis > 249 } has_equipment = { modern_tank_archetype > 249 } }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			if={
-				limit = { has_dlc = "No Step Back" }
-				every_country={
-					limit={
-						exists = yes
-						OR={
-							original_tag = DON
-							original_tag = LHK
-							original_tag = KHK
-							original_tag = ODS
-						}
-					}
-					PREV={
-						send_equipment = { 
-							type = modern_tank_chassis
-							amount = 80
-							target = PREV
-						}
-					}
-				}
-				every_country={
-					limit={
-						exists = yes
-						original_tag = NOV
-					}
-					PREV={
-						send_equipment = { 
-							type = modern_tank_chassis
-							amount = 250
-							target = PREV
-						}
-					}
-				}
-			}
-			else={
-				every_country={
-					limit={
-						exists = yes
-						OR={
-							original_tag = DON
-							original_tag = LHK
-							original_tag = KHK
-							original_tag = ODS
-						}
-					}
-					PREV={
-						send_equipment = { 
-							type = modern_tank_archetype
-							amount = 80
-							target = PREV
-						}
-					}
-				}
-				every_country={
-					limit={
-						exists = yes
-						original_tag = NOV
-					}
-					PREV={
-						send_equipment = { 
-							type = modern_tank_archetype
-							amount = 250
-							target = PREV
-						}
-					}
-				}
-			}
-			
-			army_experience = 25
-		}
-	}
-	
-	focus = {
-		id = SOV_send_them_armour
-		icon = GFX_focus_BLR_purchase_russian_tanks
-		x = 1
-		y = 2
-		
-		cost = 40
-		ai_will_do = {
-		}
-		prerequisite = { focus = SOV_brothers_in_donbass }
-		relative_position_id = SOV_brothers_in_donbass
-		available = {
-			any_donbass_country_exists = yes
-			has_equipment = { apc_equipment > 499 } 
-			has_equipment = { mechanized_equipment > 299 }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			every_country={
-				limit={
-					exists = yes
-					OR={
-						original_tag = DON
-						original_tag = LHK
-						original_tag = KHK
-						original_tag = ODS
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = apc_equipment
-						amount = 200
-						target = PREV
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = mechanized_equipment
-						amount = 115
-						target = PREV
-					}
-				}
-			}
-			every_country={
-				limit={
-					exists = yes
-					original_tag = NOV
-				}
-				PREV={
-					send_equipment = { 
-						type = apc_equipment
-						amount = 550
-						target = PREV
-					}
-				}
-				PREV={
-					send_equipment = { 
-						type = mechanized_equipment
-						amount = 300
-						target = PREV
-					}
-				}
-			}
-			
-			army_experience = 25
-		}
-	}
-	
-	focus = {
-		id = SOV_fight_western_sanctions
-		icon = GFX_focus_SOV_Great_foreign_diplomacy
-		x = 3
-		y = 1
-		
-		cost = 22
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_welcome_home_2 }
-		relative_position_id = SOV_welcome_home_2
-		mutually_exclusive = { focus = SOV_cope_with_sanctions }
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			decrease_eastern_liberal_programming_by_2 = yes
-		}
-	}
-	
-	focus = {
-		id = SOV_cope_with_sanctions
-		icon = GFX_focus_BLR_industrial_3
-		x = 5
-		y = 1
-		
-		cost = 22
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_welcome_home_2 }
-		relative_position_id = SOV_welcome_home_2
-		mutually_exclusive = { focus = SOV_fight_western_sanctions }
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			increase_ultranationalist_programming_by_2 = yes
-		}
-	}
-	
-	focus = {
-		id = SOV_no_need_for_western_food
-		icon = GFX_focus_LIT_cauliflower_revolution
-		x = -1
-		y = 1
-		
-		cost = 42
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_fight_western_sanctions }
-		relative_position_id = SOV_fight_western_sanctions
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
-			custom_effect_tooltip = SOV_no_need_for_western_food_tt
-			decrease_eastern_liberal_programming_by_4 = yes
-			hidden_effect = { country_event = { id = russia.1010 } days = 28 }
-		}
-	}
-	
-	focus = {
-		id = SOV_BRICS_investments
-		icon = GFX_focus_SOV_BRICS_investments
-		x = -1
-		y = 1
-		
-		cost = 80
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_no_need_for_western_food }
-		relative_position_id = SOV_no_need_for_western_food
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_to_variable = { SOV_sanctions_research_speed_factor = 0.15 }
-			add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0.15 }
-			custom_effect_tooltip = SOV_BRICS_investments_tt
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-		}
-	}
-	
-	focus = {
-		id = SOV_nationalise_western_assets
-		icon = GFX_focus_SOV_nationalise_western_assets
-		x = 1
-		y = 1
-		
-		cost = 60
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_fight_western_sanctions focus = SOV_cope_with_sanctions }
-		relative_position_id = SOV_fight_western_sanctions
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 3 }
-			add_offsite_building = { type = arms_factory level = 1 }
-			decrease_inflation_rate_by_1 = yes
-			add_political_power = -100
-			
-			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
-			add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
-			custom_effect_tooltip = SOV_nationalise_western_assets_tt
-		}
-	}
-	
-	focus = {
-		id = SOV_hike_interest_rates
-		icon = GFX_focus_SOV_hike_interest_rates
-		x = 1
-		y = 1
-		
-		cost = 40
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_nationalise_western_assets }
-		relative_position_id = SOV_nationalise_western_assets
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			decrease_inflation_rate_by_3 = yes
-			add_stability = -0.05
-			add_popularity = {
-				ideology = eastern_conservative
-				popularity = -0.06
-			}
-			add_political_power = -100
-			
-			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
-			custom_effect_tooltip = SOV_hike_interest_rates_tt
-		}
-	}
-	
-	focus = {
-		id = SOV_increase_economic_bureaucracy
-		icon = GFX_focus_SOV_hike_interest_rates
-		x = -1
-		y = 1
-		
-		cost = 40
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_nationalise_western_assets }
-		relative_position_id = SOV_nationalise_western_assets
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			decrease_inflation_rate_by_5 = yes
-			add_political_power = -150
-			every_state={
-				limit={
-					is_controlled_by = SOV
-				}
-				decrease_state_gdp_growth_by_2 = yes
-			}
-			
-			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
-			custom_effect_tooltip = SOV_hike_interest_rates_tt
-		}
-	}
-	
-	focus = {
-		id = SOV_learn_from_iran
-		icon = GFX_focus_SOV_learn_from_iran
-		x = 1
-		y = 1
-		
-		cost = 42
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_cope_with_sanctions }
-		relative_position_id = SOV_cope_with_sanctions
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			country_event = { id = russia.1009 }
-		}
-	}
-	
-	focus = {
-		id = SOV_bring_the_factories_back_online
-		icon = GFX_focus_BLR_local_arms_manufacturing
-		x = 1
-		y = 1
-		
-		cost = 80
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_learn_from_iran }
-		relative_position_id = SOV_learn_from_iran
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.4 }
-			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
-			add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
-			custom_effect_tooltip = SOV_bring_the_factories_back_online_tt
-			
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-		}
-	}
-	
-	focus = {
-		id = SOV_economic_corridors
-		icon = GFX_focus_SOV_economic_corridors
-		x = 1
-		y = 1
-		
-		cost = 80
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_increase_economic_bureaucracy }
-		prerequisite = { focus = SOV_hike_interest_rates }
-		prerequisite = { focus = SOV_no_need_for_western_food focus = SOV_learn_from_iran }
-		relative_position_id = SOV_increase_economic_bureaucracy
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
-			add_to_variable = { SOV_sanctions_stability_weekly = 0.003 }
-			
-			custom_effect_tooltip = SOV_economic_corridors_tt
-			
-			every_state={
-				limit={ is_controlled_by = ROOT }
-				increase_state_gdp_growth_by_2_5 = yes
-			}
-			
-			add_stability = 0.025
-		}
-	}
-	
-	focus = {
-		id = SOV_bypass_western_sanctions
-		icon = GFX_focus_SOV_economic_corridors
-		x = -2
-		y = 1
-		
-		cost = 70
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_economic_corridors }
-		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
-		mutually_exclusive = { focus = SOV_boost_domestic_production }
-		relative_position_id = SOV_economic_corridors
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
-			custom_effect_tooltip = SOV_no_need_for_western_food_tt
-			
-			add_political_power = 100
-			
-			every_state={
-				limit={ is_controlled_by = ROOT }
-				increase_state_gdp_growth_by_1 = yes
-			}
-		}
-	}
-	
-	focus = {
-		id = SOV_boost_domestic_production
-		icon = GFX_focus_SOV_boost_domestic_production
-		x = 2
-		y = 1
-		
-		cost = 70
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = SOV_economic_corridors }
-		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
-		mutually_exclusive = { focus = SOV_bypass_western_sanctions }
-		relative_position_id = SOV_economic_corridors
-		available = {
-			custom_trigger_tooltip={
-				tooltip = SOV_has_western_sanctions_tt
-				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-			}
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.15 }
-			custom_effect_tooltip = SOV_boost_domestic_production_tt
-			
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
-			}
-
-			
-			add_tech_bonus = {
-				name = SOV_boost_domestic_production
-				bonus = 0.5
-				uses = 2
-				category = industry
-				category = electronics
-			}
-			
-			add_stability = 0.075
-			
-			every_state={
-				limit={ is_controlled_by = ROOT }
-				increase_state_gdp_growth_by_1_5 = yes
-			}
-		}
-	}
-	
-	focus = {
 		id = SOV_russia_united
 		icon = GFX_focus_united_russia
 		x = 52
@@ -1340,7 +364,6 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			
 		}
 	}
 	
@@ -1472,19 +495,19 @@ focus_tree = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
 							division = "name = \"14th Guards\" division_template = \"Russian Infantry\" start_experience_factor = 0.1" 
-							owner = UKR
+							owner = TRZ
 						}
 						create_unit = {
 							division = "name = \"15th Guards\" division_template = \"Russian Infantry\" start_experience_factor = 0.1" 
-							owner = UKR
+							owner = TRZ
 						}
 						create_unit = {
 							division = "name = \"16th Guards\" division_template = \"Russian Infantry\" start_experience_factor = 0.1" 
-							owner = UKR
+							owner = TRZ
 						}
 						create_unit = {
 							division = "name = \"17th Guards\" division_template = \"Russian Infantry\" start_experience_factor = 0.1" 
-							owner = UKR
+							owner = TRZ
 						}
 					}
 				}
@@ -2808,13 +1831,16 @@ focus_tree = {
 		
 		completion_reward={
 			mark_focus_tree_layout_dirty = yes
+			
+			add_political_power = 100
+			add_stability = -0.05
 		}
 	}
 	
 	focus = {
 		id = SOV_russia_of_the_future
 		icon = GFX_focus_
-		x = -15
+		x = -10
 		y = 1
 		cost = 30
 		search_filters = {
@@ -2822,7 +1848,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 15
+			x = 10
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -2842,7 +1868,6 @@ focus_tree = {
 				}
 				NOT={
 					OR={
-						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_the_siloviki_state
 						has_completed_focus = SOV_a_strong_russia
 						has_completed_focus = SOV_putin_at_the_helm
@@ -2854,62 +1879,7 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_movement_in_the_shadows }
 		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
-
-		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
-		}
-		
-		completion_reward={
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	
-	focus = {
-		id = SOV_the_good_ol_days_of_yeltsin
-		icon = GFX_focus_
-		x = -5
-		y = 1
-		cost = 30
-		search_filters = {
-			
-		}
-		
-		offset = {
-			x = 5
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = SOV_the_good_ol_days_of_yeltsin
-			}
-		}
-		
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT={
-					OR={
-						has_completed_focus = SOV_russia_of_the_future
-						has_completed_focus = SOV_the_siloviki_state
-						has_completed_focus = SOV_a_strong_russia
-						has_completed_focus = SOV_putin_at_the_helm
-					}
-				}
-				has_country_flag = russia_united_flag
-			}
-		}
-
-		prerequisite = { focus = SOV_movement_in_the_shadows }
-		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
+		mutually_exclusive = { focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
 
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
@@ -2922,25 +1892,14 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_siloviki_state
-		icon = GFX_focus_
-		x = 5
+		icon = GFX_focus_SOV_the_siloviki_state
+		x = 0
 		y = 1
 		cost = 30
 		search_filters = {
 			
 		}
 		
-		offset = {
-			x = -5
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = SOV_the_siloviki_state
-			}
-		}
 		
 		allow_branch = {
 			if = {
@@ -2953,7 +1912,6 @@ focus_tree = {
 				NOT={
 					OR={
 						has_completed_focus = SOV_russia_of_the_future
-						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_a_strong_russia
 						has_completed_focus = SOV_putin_at_the_helm
 					}
@@ -2964,7 +1922,7 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_movement_in_the_shadows }
 		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_a_strong_russia }
+		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_a_strong_russia }
 
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
@@ -2972,13 +1930,347 @@ focus_tree = {
 		
 		completion_reward={
 			mark_focus_tree_layout_dirty = yes
+			
+			set_party_name = { ideology = military_junta long_name = SOV_siloviki_party_long name = SOV_siloviki_party }
+			
+			if = {
+				limit = {
+					has_any_power_balance = no
+				}
+				set_power_balance = {
+					id = SOV_power_balance
+					left_side = SOV_siloviki_bop_side 
+					right_side = SOV_putin_bop_side 
+					set_value = 0.8
+				}
+			}
+			
+			country_event = { id = russia.1035 hours = 3 }
+			
+			add_political_power = 200
+		}
+	}
+	
+	focus = {
+		id = SOV_approach_zolotov
+		icon = GFX_focus_SOV_approach_zolotov
+		x = 0
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_the_siloviki_state }
+		relative_position_id = SOV_the_siloviki_state
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = SOV_viktor_zolotov
+			add_political_power = 100
+			SOV_increase_siloviki_faction_medium = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_supply_tanks_to_rosgvardiya
+		icon = GFX_focus_BLR_purchase_russian_tanks
+		x = 0
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_approach_zolotov }
+		relative_position_id = SOV_approach_zolotov
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			has_idea = SOV_viktor_zolotov
+		}
+		
+		completion_reward={
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Rosgvardiya Armour\" division_template = \"Armoured Division\" start_experience_factor = 0.1" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Rosgvardiya Armour\" division_template = \"Armoured Division\" start_experience_factor = 0.1" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Rosgvardiya Armour\" division_template = \"Armoured Division\" start_experience_factor = 0.1" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Rosgvardiya Armour\" division_template = \"Armoured Division\" start_experience_factor = 0.1" 
+					owner = ROOT
+				}
+			}
+			army_experience = 50
+			SOV_increase_siloviki_faction_medium = yes
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_secure_wagner
+		icon = GFX_focus_SOV_secure_wagner
+		x = -1
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+		
+		mutually_exclusive = { focus = SOV_destroy_wagner }
+		prerequisite = { focus = SOV_supply_tanks_to_rosgvardiya }
+		relative_position_id = SOV_supply_tanks_to_rosgvardiya
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = -75
+			set_variable = { SOV_yevgeny_prigozhin_faction = 4 }
+			get_faction_positions = yes
+			custom_effect_tooltip = SOV_secure_wagner_tt
+			
+			SOV_decrease_putinist_faction_small = yes
+			SOV_increase_siloviki_faction_small = yes
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.05
+			}
+			
+			army_experience = 50
+		}
+	}
+	
+	focus = {
+		id = SOV_destroy_wagner
+		icon = GFX_focus_SOV_destroy_wagner
+		x = 1
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+		
+		mutually_exclusive = { focus = SOV_secure_wagner }
+		prerequisite = { focus = SOV_supply_tanks_to_rosgvardiya }
+		relative_position_id = SOV_supply_tanks_to_rosgvardiya
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.15
+			}
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = SOV_social_media_bots
+		icon = GFX_focus_SOV_vk
+		x = -2
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_the_siloviki_state }
+		relative_position_id = SOV_the_siloviki_state
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_ideas = SOV_social_media_bots_idea
+			SOV_increase_siloviki_faction_small = yes
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = SOV_limit_funding_to_traditional_media
+		icon = GFX_focus_SOV_limit_funding_to_traditional_media
+		x = -1
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_social_media_bots }
+		relative_position_id = SOV_social_media_bots
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			decrease_eastern_conservative_programming_by_4 = yes
+			add_political_power = 150
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_fsb_funding
+		icon = GFX_focus_SOV_increase_fsb_funding
+		x = 2
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_the_siloviki_state }
+		relative_position_id = SOV_the_siloviki_state
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			increase_intelligence_spending = yes
+			SOV_increase_siloviki_faction_small = yes
+			
+			add_political_power = 75
+		}
+	}
+	
+	focus = {
+		id = SOV_reshuffle_the_security_council
+		icon = GFX_focus_SOV_security_council
+		x = 1
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_increase_fsb_funding }
+		relative_position_id = SOV_increase_fsb_funding
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = 120
+			SOV_increase_siloviki_faction_medium = yes
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.15
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_get_naryshkin_on_side
+		icon = GFX_focus_SOV_naryshkin
+		x = 0
+		y = 3
+		cost = 70
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_increase_fsb_funding }
+		prerequisite = { focus = SOV_secure_wagner focus = SOV_destroy_wagner }
+		relative_position_id = SOV_increase_fsb_funding
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = 100
+			SOV_increase_siloviki_faction_large = yes
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.2
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_sway_lower_bureaucrats
+		icon = GFX_focus_UKR_a_meeting_in_moscow
+		x = 0
+		y = 3
+		cost = 70
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_social_media_bots }
+		prerequisite = { focus = SOV_secure_wagner focus = SOV_destroy_wagner }
+		relative_position_id = SOV_social_media_bots
+
+		available={
+			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+		}
+		
+		completion_reward={
+			add_political_power = 100
+			SOV_decrease_putinist_faction_large = yes
+			
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.2
+			}
 		}
 	}
 	
 	focus = {
 		id = SOV_a_strong_russia
 		icon = GFX_focus_
-		x = 15
+		x = 10
 		y = 1
 		cost = 30
 		search_filters = {
@@ -2986,7 +2278,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -15
+			x = -10
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -3008,7 +2300,6 @@ focus_tree = {
 				NOT={
 					OR={
 						has_completed_focus = SOV_russia_of_the_future
-						has_completed_focus = SOV_the_good_ol_days_of_yeltsin
 						has_completed_focus = SOV_the_siloviki_state
 						has_completed_focus = SOV_putin_at_the_helm
 					}
@@ -3019,7 +2310,7 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_movement_in_the_shadows }
 		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_good_ol_days_of_yeltsin focus = SOV_the_siloviki_state }
+		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_siloviki_state }
 
 		available={
 			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
@@ -3030,9 +2321,988 @@ focus_tree = {
 		}
 	}
 	
+	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation
 }
 	
+shared_focus = {
+	id = SOV_welcome_home_2
+	icon = GFX_focus_SOV_welcome_home_2
+	x = 8
+	y = 0
+	cost = 24
+	search_filters = {
+		
+	}
+	available={
+		all_state={
+			OR={
+				NOT = { has_state_flag = crimea_oblast_flag }
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+	}
+	completion_reward={
+		delete_unit_template_and_units   = {
+			division_template  = "Sevastopol Garrison"
+		}
+		add_popularity = {
+			ideology = eastern_conservative
+			popularity = 0.02
+		}
+		every_state={
+			limit = {
+				has_state_flag = crimea_oblast_flag
+				NOT = { is_core_of = ROOT }
+			}
+			add_compliance = 10
+		}
+
+		UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+		
+		country_event = { id = russia.1008 days = 4 }
+	}
+}
+
+shared_focus = {
+	id = SOV_build_the_crimean_bridge
+	icon = GFX_focus_crimean_water_supply
+	x = 0
+	y = 1
+	
+	cost = 35
+	ai_will_do = {
+		factor = 100
+	}
+	prerequisite = { focus = SOV_welcome_home_2 }
+	relative_position_id = SOV_welcome_home_2
+	available = {
+		331 = { is_controlled_by = ROOT }
+		445 = { is_controlled_by = ROOT }
+		256 = { is_controlled_by = ROOT }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		custom_effect_tooltip = SOV_build_the_crimean_bridge_tt
+		hidden_effect={
+			add_timed_idea={
+				idea = SOV_crimean_bridge_under_construction
+				days = 1460
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_brothers_in_donbass
+	icon = GFX_focus_generic_donbass
+	x = -4
+	y = 1
+	
+	cost = 30
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_welcome_home_2 }
+	relative_position_id = SOV_welcome_home_2
+	available = {
+		always = no
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_war_support = 0.04
+	}
+}
+
+shared_focus = {
+	id = SOV_send_them_aa
+	icon = GFX_focus_UKR_air_denial
+	x = -2
+	y = 1
+	
+	cost = 24
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_brothers_in_donbass }
+	relative_position_id = SOV_brothers_in_donbass
+	available = {
+		any_donbass_country_exists = yes
+		has_equipment = { infantry_anti_air_equipment > 249 }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit={
+				exists = yes
+				OR={
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = ODS
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = infantry_anti_air_equipment
+					amount = 100
+					target = PREV
+				}
+			}
+		}
+		every_country={
+			limit={
+				exists = yes
+				original_tag = NOV
+			}
+			PREV={
+				send_equipment = { 
+					type = infantry_anti_air_equipment
+					amount = 300
+					target = PREV
+				}
+			}
+		}
+		
+		army_experience = 25
+	}
+}
+
+shared_focus = {
+	id = SOV_send_them_rifles
+	icon = GFX_focus_BLR_guns
+	x = 0
+	y = 1
+	
+	cost = 24
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_brothers_in_donbass }
+	relative_position_id = SOV_brothers_in_donbass
+	available = {
+		any_donbass_country_exists = yes
+		has_equipment = { infantry_equipment > 1999 }
+		has_equipment = { support_equipment > 399 }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit={
+				exists = yes
+				OR={
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = ODS
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = infantry_equipment
+					amount = 900
+					target = PREV
+				}
+				send_equipment = { 
+					type = support_equipment
+					amount = 160
+					target = PREV
+				}
+			}
+		}
+		every_country={
+			limit={
+				exists = yes
+				original_tag = NOV
+			}
+			PREV={
+				send_equipment = { 
+					type = infantry_equipment
+					amount = 900
+					target = PREV
+				}
+				send_equipment = { 
+					type = support_equipment
+					amount = 400
+					target = PREV
+				}
+			}
+		}
+		
+		army_experience = 25
+	}
+}
+
+shared_focus = {
+	id = SOV_send_them_artillery
+	icon = GFX_focus_BLR_artillery
+	x = 2
+	y = 1
+	
+	cost = 24
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_brothers_in_donbass }
+	relative_position_id = SOV_brothers_in_donbass
+	available = {
+		any_donbass_country_exists = yes
+		has_equipment = { artillery_equipment > 599 }
+		has_equipment = { rocket_artillery_equipment > 599 }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit={
+				exists = yes
+				OR={
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = ODS
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = artillery_equipment
+					amount = 250
+					target = PREV
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = rocket_artillery_equipment
+					amount = 250
+					target = PREV
+				}
+			}
+		}
+		every_country={
+			limit={
+				exists = yes
+				original_tag = NOV
+			}
+			PREV={
+				send_equipment = { 
+					type = artillery_equipment
+					amount = 600
+					target = PREV
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = rocket_artillery_equipment
+					amount = 600
+					target = PREV
+				}
+			}
+		}
+		
+		army_experience = 25
+	}
+}
+
+shared_focus = {
+	id = SOV_send_them_tanks
+	icon = GFX_focus_UKR_sell_abroad
+	x = -1
+	y = 2
+	
+	cost = 40
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_brothers_in_donbass }
+	relative_position_id = SOV_brothers_in_donbass
+	available = {
+		any_donbass_country_exists = yes
+		OR={ has_equipment = { modern_tank_chassis > 249 } has_equipment = { modern_tank_archetype > 249 } }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		if={
+			limit = { has_dlc = "No Step Back" }
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = modern_tank_chassis
+						amount = 80
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = modern_tank_chassis
+						amount = 250
+						target = PREV
+					}
+				}
+			}
+		}
+		else={
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = modern_tank_archetype
+						amount = 80
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = modern_tank_archetype
+						amount = 250
+						target = PREV
+					}
+				}
+			}
+		}
+		
+		army_experience = 25
+	}
+}
+
+shared_focus = {
+	id = SOV_send_them_armour
+	icon = GFX_focus_BLR_purchase_russian_tanks
+	x = 1
+	y = 2
+	
+	cost = 40
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_brothers_in_donbass }
+	relative_position_id = SOV_brothers_in_donbass
+	available = {
+		any_donbass_country_exists = yes
+		has_equipment = { apc_equipment > 499 } 
+		has_equipment = { mechanized_equipment > 299 }
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit={
+				exists = yes
+				OR={
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = ODS
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = apc_equipment
+					amount = 200
+					target = PREV
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = mechanized_equipment
+					amount = 115
+					target = PREV
+				}
+			}
+		}
+		every_country={
+			limit={
+				exists = yes
+				original_tag = NOV
+			}
+			PREV={
+				send_equipment = { 
+					type = apc_equipment
+					amount = 550
+					target = PREV
+				}
+			}
+			PREV={
+				send_equipment = { 
+					type = mechanized_equipment
+					amount = 300
+					target = PREV
+				}
+			}
+		}
+		
+		army_experience = 25
+	}
+}
+
+shared_focus = {
+	id = SOV_fight_western_sanctions
+	icon = GFX_focus_SOV_Great_foreign_diplomacy
+	x = 3
+	y = 1
+	
+	cost = 22
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_welcome_home_2 }
+	relative_position_id = SOV_welcome_home_2
+	mutually_exclusive = { focus = SOV_cope_with_sanctions }
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		decrease_eastern_liberal_programming_by_2 = yes
+	}
+}
+
+shared_focus = {
+	id = SOV_cope_with_sanctions
+	icon = GFX_focus_BLR_industrial_3
+	x = 5
+	y = 1
+	
+	cost = 22
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_welcome_home_2 }
+	relative_position_id = SOV_welcome_home_2
+	mutually_exclusive = { focus = SOV_fight_western_sanctions }
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		increase_ultranationalist_programming_by_2 = yes
+	}
+}
+
+shared_focus = {
+	id = SOV_no_need_for_western_food
+	icon = GFX_focus_LIT_cauliflower_revolution
+	x = -1
+	y = 1
+	
+	cost = 42
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_fight_western_sanctions }
+	relative_position_id = SOV_fight_western_sanctions
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+		custom_effect_tooltip = SOV_no_need_for_western_food_tt
+		decrease_eastern_liberal_programming_by_4 = yes
+		hidden_effect = { country_event = { id = russia.1010 } days = 28 }
+	}
+}
+
+shared_focus = {
+	id = SOV_BRICS_investments
+	icon = GFX_focus_SOV_BRICS_investments
+	x = -1
+	y = 1
+	
+	cost = 80
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_no_need_for_western_food }
+	relative_position_id = SOV_no_need_for_western_food
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { SOV_sanctions_research_speed_factor = 0.15 }
+		add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0.15 }
+		custom_effect_tooltip = SOV_BRICS_investments_tt
+		random_owned_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_5 = yes
+		}
+		random_owned_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_5 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_nationalise_western_assets
+	icon = GFX_focus_SOV_nationalise_western_assets
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_fight_western_sanctions focus = SOV_cope_with_sanctions }
+	relative_position_id = SOV_fight_western_sanctions
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		add_offsite_building = { type = arms_factory level = 1 }
+		decrease_inflation_rate_by_1 = yes
+		add_political_power = -100
+		
+		add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
+		add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
+		custom_effect_tooltip = SOV_nationalise_western_assets_tt
+	}
+}
+
+shared_focus = {
+	id = SOV_hike_interest_rates
+	icon = GFX_focus_SOV_hike_interest_rates
+	x = 1
+	y = 1
+	
+	cost = 40
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_nationalise_western_assets }
+	relative_position_id = SOV_nationalise_western_assets
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		decrease_inflation_rate_by_3 = yes
+		add_stability = -0.05
+		add_popularity = {
+			ideology = eastern_conservative
+			popularity = -0.06
+		}
+		add_political_power = -100
+		
+		subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
+		custom_effect_tooltip = SOV_hike_interest_rates_tt
+	}
+}
+
+shared_focus = {
+	id = SOV_increase_economic_bureaucracy
+	icon = GFX_focus_SOV_hike_interest_rates
+	x = -1
+	y = 1
+	
+	cost = 40
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_nationalise_western_assets }
+	relative_position_id = SOV_nationalise_western_assets
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		decrease_inflation_rate_by_5 = yes
+		add_political_power = -150
+		every_state={
+			limit={
+				is_controlled_by = SOV
+			}
+			decrease_state_gdp_growth_by_2 = yes
+		}
+		
+		subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
+		custom_effect_tooltip = SOV_hike_interest_rates_tt
+	}
+}
+
+shared_focus = {
+	id = SOV_learn_from_iran
+	icon = GFX_focus_SOV_learn_from_iran
+	x = 1
+	y = 1
+	
+	cost = 42
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_cope_with_sanctions }
+	relative_position_id = SOV_cope_with_sanctions
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		country_event = { id = russia.1009 }
+	}
+}
+
+shared_focus = {
+	id = SOV_bring_the_factories_back_online
+	icon = GFX_focus_BLR_local_arms_manufacturing
+	x = 1
+	y = 1
+	
+	cost = 80
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_learn_from_iran }
+	relative_position_id = SOV_learn_from_iran
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.4 }
+		add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
+		add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
+		custom_effect_tooltip = SOV_bring_the_factories_back_online_tt
+		
+		random_owned_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_5 = yes
+		}
+		random_owned_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_5 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_economic_corridors
+	icon = GFX_focus_SOV_economic_corridors
+	x = 1
+	y = 1
+	
+	cost = 80
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_increase_economic_bureaucracy }
+	prerequisite = { focus = SOV_hike_interest_rates }
+	prerequisite = { focus = SOV_no_need_for_western_food focus = SOV_learn_from_iran }
+	relative_position_id = SOV_increase_economic_bureaucracy
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+		add_to_variable = { SOV_sanctions_stability_weekly = 0.003 }
+		
+		custom_effect_tooltip = SOV_economic_corridors_tt
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		add_stability = 0.025
+	}
+}
+
+shared_focus = {
+	id = SOV_bypass_western_sanctions
+	icon = GFX_focus_SOV_economic_corridors
+	x = -2
+	y = 1
+	
+	cost = 70
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_economic_corridors }
+	prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
+	mutually_exclusive = { focus = SOV_boost_domestic_production }
+	relative_position_id = SOV_economic_corridors
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+		custom_effect_tooltip = SOV_no_need_for_western_food_tt
+		
+		add_political_power = 100
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_1 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_boost_domestic_production
+	icon = GFX_focus_SOV_boost_domestic_production
+	x = 2
+	y = 1
+	
+	cost = 70
+	ai_will_do = {
+		factor = 10
+	}
+	prerequisite = { focus = SOV_economic_corridors }
+	prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
+	mutually_exclusive = { focus = SOV_bypass_western_sanctions }
+	relative_position_id = SOV_economic_corridors
+	available = {
+		custom_trigger_tooltip={
+			tooltip = SOV_has_western_sanctions_tt
+			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.15 }
+		custom_effect_tooltip = SOV_boost_domestic_production_tt
+		
+		random_owned_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_4 = yes
+		}
+
+		
+		add_tech_bonus = {
+			name = SOV_boost_domestic_production
+			bonus = 0.5
+			uses = 2
+			category = industry
+			category = electronics
+		}
+		
+		add_stability = 0.075
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_1_5 = yes
+		}
+	}
+}
+
+
+
 
 shared_focus = {
 	id = SOV_army_modernisation
@@ -3289,7 +3559,10 @@ shared_focus = {
 	relative_position_id = SOV_defensive_drills
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3329,7 +3602,10 @@ shared_focus = {
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3370,7 +3646,10 @@ shared_focus = {
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3426,7 +3705,10 @@ shared_focus = {
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3463,7 +3745,10 @@ shared_focus = {
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3499,7 +3784,10 @@ shared_focus = {
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -3543,6 +3831,9 @@ shared_focus = {
 	
 	
 	bypass = {
+		NOT = { has_idea = SOV_sergey_surovikin_rework }
+		NOT = { has_idea = SOV_sergey_surovikin_air_force_rework }
+		NOT = { has_idea = SOV_valery_gerasimov_rework }
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -3581,6 +3872,9 @@ shared_focus = {
 	
 	
 	bypass = {
+		NOT = { has_idea = SOV_sergey_surovikin_rework }
+		NOT = { has_idea = SOV_sergey_surovikin_air_force_rework }
+		NOT = { has_idea = SOV_valery_gerasimov_rework }
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -3614,6 +3908,7 @@ shared_focus = {
 	relative_position_id = SOV_send_surovikin_to_syria
 	mutually_exclusive = { focus = SOV_utilise_patriot focus = SOV_the_kadyrovites }
 	available = {
+		NOT = { has_completed_focus = SOV_destroy_wagner }
 	}
 	
 	
@@ -3629,6 +3924,27 @@ shared_focus = {
 		add_war_support = 0.05
 		army_experience = 50
 		SOV_increase_putinist_faction_small = yes
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+				has_completed_focus = SOV_secure_wagner
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.1
+			}
+		}
+		else_if={
+			limit = {
+				has_any_power_balance = yes
+				NOT = { has_completed_focus = SOV_secure_wagner }
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = 0.1
+			}
+		}
 	}
 }
 
@@ -3670,6 +3986,16 @@ shared_focus = {
 		add_political_power = 50
 		army_experience = 50
 		SOV_increase_putinist_faction_small = yes
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = 0.1
+			}
+		}
 	}
 }
 
@@ -3706,6 +4032,16 @@ shared_focus = {
 		add_political_power = 75
 		
 		SOV_increase_siloviki_faction_small = yes
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = -0.1
+			}
+		}
 	}
 }
 
@@ -4003,7 +4339,10 @@ shared_focus = {
 	relative_position_id = SOV_artillieriya
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -4046,7 +4385,10 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -4079,7 +4421,10 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -4127,7 +4472,10 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -4180,7 +4528,10 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
@@ -4229,7 +4580,10 @@ shared_focus = {
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
 		OR={
-			has_war = yes
+			custom_trigger_tooltip={
+				tooltip = has_war_with_a_major_country_tt
+				any_country={ is_major = yes has_war_with = ROOT }
+			}
 			custom_trigger_tooltip={
 				tooltip = does_not_have_raspizdyaystvo_tt
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
