@@ -442,14 +442,6 @@ country_event = {
 	immediate={
 		set_country_flag = russia_united_flag
 		mark_focus_tree_layout_dirty = yes
-		
-		hidden_effect = {
-			country_event = { id = russia.1024 days = 329 } #Shoigu corruption
-			country_event = { id = russia.1023 days = 461 } #Kiriyenko
-			country_event = { id = russia.1032 days = 704 } #Patriot PMC
-			country_event = { id = russia.1033 days = 765 } #Economic Stagnation
-			country_event = { id = russia.1034 days = 1392 } #Oligarchy gets worse
-		}
 	}
 
 
@@ -851,6 +843,7 @@ country_event = {
 		if={
 			limit = {
 				has_any_power_balance = yes
+				has_country_flag = putin_siloviki_power_balance
 			}
 			add_power_balance_value = {
 				id = SOV_power_balance
@@ -1288,11 +1281,53 @@ country_event = {
 		remove_power_balance = {
 			id = SOV_power_balance
 		}
+		clr_country_flag = putin_siloviki_power_balance
 		
 		hidden_effect = { news_event = { id = atd_news.52 hours = 3 } }
     }
 }
 
+
+#Putin defunds the FSB
+country_event = {
+    id = russia.1037
+    title = russia.1037.t
+    desc = russia.1037.desc
+    picture = GFX_report_event_SOV_putin_desk
+    is_triggered_only = yes
+
+    option = {				
+        name = russia.1037.a
+		ai_chance = {
+			base = 10
+		}
+		decrease_intelligence_spending = yes
+		add_power_balance_value = {
+			id = SOV_power_balance
+			value = 0.1
+		}
+    }
+}
+
+#Putin empowers the technocrats
+country_event = {
+    id = russia.1038
+    title = russia.1038.t
+    desc = russia.1038.desc
+    picture = GFX_report_event_SOV_kiriyenko
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1038.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_increase_technocrat_faction_large = yes
+		SOV_decrease_siloviki_faction_small = yes
+		add_political_power = -50
+		custom_effect_tooltip = russia.1023.tt
+    }
+}
 
 country_event = {
     id = russia_propaganda.1

@@ -561,12 +561,37 @@ on_actions={
 					limit = { check_variable = { global.days_since_start = 198 } any_donbass_country_exists = yes }		#17 July 2014
 					country_event = { id = russia_propaganda.9 }
 				}
-				
 				else_if={
 					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }		#3 December 2014, SOTN speech
 					country_event = { id = russia.1011 }
+				}			
+			}
+			
+			if={
+				limit = {
+					russia_rework_trigger = yes
+					NOT = { has_western_government = yes }
 				}
-				
+				if={
+					limit = { check_variable = { global.days_since_start = 704 }  }			#Shoigu corruption 
+					country_event = { id = russia.1024 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 849 }  }			#Rise of Kiriyenko
+					country_event = { id = russia.1023 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 1041 }  }			#Patriot PMC
+					country_event = { id = russia.1032 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 1138 }  }			#Continued economic stagnation
+					country_event = { id = russia.1033 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 1645 }  }			#Oligarchy gets worse
+					country_event = { id = russia.1034 }
+				}
 			}
 		}
 	}
