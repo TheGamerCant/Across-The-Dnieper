@@ -432,33 +432,3 @@ SOV_try_to_take_southern_ukraine = {
 		manual_attack = yes
 	}
 }
-
-SOV_kiev_is_a_feint_trust_me_bro = {
-	allowed = {
-		tag = SOV
-	}
-	enable = {
-		any_country={ original_tag = SOV has_war_with = UKR }
-	}
-	abort_when_not_enabled = yes
-	
-	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			is_demilitarized_zone = no
-			OR={
-				has_state_flag = kyiv_oblast_flag
-			}
-		}
-		priority = -80
-	}
-	
-	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			is_demilitarized_zone = no
-			has_state_flag = zhytomyr_oblast_flag
-		}
-		priority = -250
-	}
-}
