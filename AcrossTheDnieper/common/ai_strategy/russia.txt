@@ -432,3 +432,26 @@ SOV_try_to_take_southern_ukraine = {
 		manual_attack = yes
 	}
 }
+
+SOV_ignore_western_front = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = UKR
+		NOT = { has_global_flag = smo_western_front_open }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR={
+				has_state_flag = volyn_oblast_flag
+				has_state_flag = rivne_oblast_flag
+				has_state_flag = zhytomyr_oblast_flag
+			}
+		}
+		priority = -600
+	}
+}
