@@ -444,7 +444,15 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			BLR = { country_event = { id = russia.1025 hours = 6 } }
+			if={
+				limit = { has_start_date < 2022.01.01 }
+				BLR = { country_event = { id = russia.1025 hours = 6 } }
+			}
+			else={
+				effect_tooltip = { 
+					BLR = { country_event = { id = russia.1025 hours = 6 } }
+				}
+			}
 		}
 	}
 	
@@ -670,6 +678,8 @@ focus_tree = {
 						}
 					}
 				}
+				
+				add_timed_idea = { idea = SOV_three_days_to_kiev days = 20 } 
 			}
 		}
 	}
@@ -1072,7 +1082,15 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			country_event = { id = russia.57 hours = 2 }
+			if={
+				limit = { has_start_date < 2022.01.01 }
+				country_event = { id = russia.57 hours = 2 }
+			}
+			else={
+				effect_tooltip={
+					country_event = { id = russia.57 hours = 2 }
+				}
+			}
 			custom_effect_tooltip = SOV_the_kadyrovites_tt
 		}
 	}
@@ -1094,7 +1112,15 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			country_event = { id = russia.1013 hours = 4 }
+			if={
+				limit = { has_start_date < 2022.01.01 }
+				country_event = { id = russia.1013 hours = 4 }
+			}
+			else={
+				effect_tooltip={
+					country_event = { id = russia.1013 hours = 4 }
+				}
+			}
 		}
 	}
 	
@@ -2372,6 +2398,52 @@ shared_focus = {
 		UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
 		
 		country_event = { id = russia.1008 days = 4 }
+		
+		
+		
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			delete_unit_template_and_units   = {
+				division_template  = "Sevastopol Garrison"
+			}
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.02
+			}
+			every_state={
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					NOT = { is_core_of = ROOT }
+				}
+				add_compliance = 10
+			}
+
+			UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+			
+			country_event = { id = russia.1008 days = 4 }
+		}
+		else={
+			effect_tooltip = { 
+				delete_unit_template_and_units   = {
+					division_template  = "Sevastopol Garrison"
+				}
+				add_popularity = {
+					ideology = eastern_conservative
+					popularity = 0.02
+				}
+				every_state={
+					limit = {
+						has_state_flag = crimea_oblast_flag
+						NOT = { is_core_of = ROOT }
+					}
+					add_compliance = 10
+				}
+
+				UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+				
+				country_event = { id = russia.1008 days = 4 }
+			}
+		}
 	}
 }
 
@@ -2401,10 +2473,13 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		custom_effect_tooltip = SOV_build_the_crimean_bridge_tt
-		hidden_effect={
-			add_timed_idea={
-				idea = SOV_crimean_bridge_under_construction
-				days = 1460
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			hidden_effect={
+				add_timed_idea={
+					idea = SOV_crimean_bridge_under_construction
+					days = 1460
+				}
 			}
 		}
 	}
@@ -2491,7 +2566,8 @@ shared_focus = {
 			}
 		}
 		
-		army_experience = 25
+		army_experience = 75
+		add_political_power = 50
 	}
 }
 
@@ -2519,49 +2595,98 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		every_country={
-			limit={
-				exists = yes
-				OR={
-					original_tag = DON
-					original_tag = LHK
-					original_tag = KHK
-					original_tag = ODS
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = infantry_equipment
+						amount = 900
+						target = PREV
+					}
+					send_equipment = { 
+						type = support_equipment
+						amount = 160
+						target = PREV
+					}
 				}
 			}
-			PREV={
-				send_equipment = { 
-					type = infantry_equipment
-					amount = 900
-					target = PREV
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
 				}
-				send_equipment = { 
-					type = support_equipment
-					amount = 160
-					target = PREV
+				PREV={
+					send_equipment = { 
+						type = infantry_equipment
+						amount = 900
+						target = PREV
+					}
+					send_equipment = { 
+						type = support_equipment
+						amount = 400
+						target = PREV
+					}
 				}
 			}
 		}
-		every_country={
-			limit={
-				exists = yes
-				original_tag = NOV
-			}
-			PREV={
-				send_equipment = { 
-					type = infantry_equipment
-					amount = 900
-					target = PREV
+		else={
+			effect_tooltip={
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = infantry_equipment
+							amount = 900
+							target = PREV
+						}
+						send_equipment = { 
+							type = support_equipment
+							amount = 160
+							target = PREV
+						}
+					}
 				}
-				send_equipment = { 
-					type = support_equipment
-					amount = 400
-					target = PREV
+				every_country={
+					limit={
+						exists = yes
+						original_tag = NOV
+					}
+					PREV={
+						send_equipment = { 
+							type = infantry_equipment
+							amount = 900
+							target = PREV
+						}
+						send_equipment = { 
+							type = support_equipment
+							amount = 400
+							target = PREV
+						}
+					}
 				}
 			}
 		}
 		
-		army_experience = 25
+		army_experience = 75
+		add_political_power = 50
 	}
 }
 
@@ -2589,53 +2714,106 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		every_country={
-			limit={
-				exists = yes
-				OR={
-					original_tag = DON
-					original_tag = LHK
-					original_tag = KHK
-					original_tag = ODS
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = artillery_equipment
+						amount = 250
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = rocket_artillery_equipment
+						amount = 250
+						target = PREV
+					}
 				}
 			}
-			PREV={
-				send_equipment = { 
-					type = artillery_equipment
-					amount = 250
-					target = PREV
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
 				}
-			}
-			PREV={
-				send_equipment = { 
-					type = rocket_artillery_equipment
-					amount = 250
-					target = PREV
+				PREV={
+					send_equipment = { 
+						type = artillery_equipment
+						amount = 600
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = rocket_artillery_equipment
+						amount = 600
+						target = PREV
+					}
 				}
 			}
 		}
-		every_country={
-			limit={
-				exists = yes
-				original_tag = NOV
-			}
-			PREV={
-				send_equipment = { 
-					type = artillery_equipment
-					amount = 600
-					target = PREV
+		else={
+			effect_tooltip={
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = artillery_equipment
+							amount = 250
+							target = PREV
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = rocket_artillery_equipment
+							amount = 250
+							target = PREV
+						}
+					}
 				}
-			}
-			PREV={
-				send_equipment = { 
-					type = rocket_artillery_equipment
-					amount = 600
-					target = PREV
+				every_country={
+					limit={
+						exists = yes
+						original_tag = NOV
+					}
+					PREV={
+						send_equipment = { 
+							type = artillery_equipment
+							amount = 600
+							target = PREV
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = rocket_artillery_equipment
+							amount = 600
+							target = PREV
+						}
+					}
 				}
 			}
 		}
 		
-		army_experience = 25
+		army_experience = 75
+		add_political_power = 50
 	}
 }
 
@@ -2730,7 +2908,8 @@ shared_focus = {
 			}
 		}
 		
-		army_experience = 25
+		army_experience = 75
+		add_political_power = 50
 	}
 }
 
@@ -2758,53 +2937,107 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		every_country={
-			limit={
-				exists = yes
-				OR={
-					original_tag = DON
-					original_tag = LHK
-					original_tag = KHK
-					original_tag = ODS
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = apc_equipment
+						amount = 200
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = mechanized_equipment
+						amount = 115
+						target = PREV
+					}
 				}
 			}
-			PREV={
-				send_equipment = { 
-					type = apc_equipment
-					amount = 200
-					target = PREV
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
 				}
-			}
-			PREV={
-				send_equipment = { 
-					type = mechanized_equipment
-					amount = 115
-					target = PREV
+				PREV={
+					send_equipment = { 
+						type = apc_equipment
+						amount = 550
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = mechanized_equipment
+						amount = 300
+						target = PREV
+					}
 				}
 			}
 		}
-		every_country={
-			limit={
-				exists = yes
-				original_tag = NOV
-			}
-			PREV={
-				send_equipment = { 
-					type = apc_equipment
-					amount = 550
-					target = PREV
+		else={
+			effect_tooltip={
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = apc_equipment
+							amount = 200
+							target = PREV
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = mechanized_equipment
+							amount = 115
+							target = PREV
+						}
+					}
 				}
-			}
-			PREV={
-				send_equipment = { 
-					type = mechanized_equipment
-					amount = 300
-					target = PREV
+				every_country={
+					limit={
+						exists = yes
+						original_tag = NOV
+					}
+					PREV={
+						send_equipment = { 
+							type = apc_equipment
+							amount = 550
+							target = PREV
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = mechanized_equipment
+							amount = 300
+							target = PREV
+						}
+					}
 				}
 			}
 		}
 		
-		army_experience = 25
+		
+		army_experience = 75
+		add_political_power = 50
 	}
 }
 
@@ -2899,7 +3132,10 @@ shared_focus = {
 		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
 		custom_effect_tooltip = SOV_no_need_for_western_food_tt
 		decrease_eastern_liberal_programming_by_4 = yes
-		hidden_effect = { country_event = { id = russia.1010 } days = 28 }
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			hidden_effect = { country_event = { id = russia.1010 days = 28 } }
+		}
 	}
 }
 
@@ -4063,7 +4299,7 @@ shared_focus = {
 	x = 0
 	y = 2
 	
-	cost = 50
+	cost = 42
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_send_gerasimov_to_syria focus = SOV_send_surovikin_to_syria }

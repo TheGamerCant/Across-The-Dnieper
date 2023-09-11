@@ -160,342 +160,404 @@ on_actions={
 			
 			
 			SOV={
-				if = {
-					limit = { russia_rework_trigger = yes has_start_date < 2022.01.01 }
-					
+			
+				if={
+					limit = { russia_rework_trigger = yes }
+					set_party_name = { ideology = populist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
+					set_party_name = { ideology = ultranationalist long_name = SOV_populist_party_long name = SOV_populist_party }
+					set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
 					add_popularity = { ideology = neoconservative popularity = -0.06 }
 					add_popularity = { ideology = eastern_liberal popularity = 0.1 }
 					add_popularity = { ideology = ultranationalist popularity = 0.051 }
 					add_popularity = { ideology = populist popularity = -0.04 }
-					remove_ideas = SOV_russia_today
-					remove_ideas = SOV_stagnant_economy
-					remove_ideas = SOV_the_eastern_yoke
-					remove_ideas = SOV_the_great_patriotic_war_idea
-					remove_ideas = SOV_wunderwaffe
-					add_ideas = SOV_bloated_welfare_system
-					add_ideas = SOV_wunderwaffe_rework
-					add_ideas = SOV_rampant_oligarchy
-					add_ideas = SOV_oil_revenues
-					remove_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
-					remove_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
-					remove_dynamic_modifier = { modifier = SOV_communist_opposition }
-					remove_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
-					remove_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
-					remove_dynamic_modifier = { modifier = SOV_russian_cabinet }
-					
-					swap_ruler_traits = {
-						remove = SOV_king_of_the_castle
-						add = SOV_king_of_the_castle_rework
-					}	
-					
-					load_soviet_doctrine = yes
-					
-					set_variable = { SOV_raspizdyaystvo_political_advisor_cost_factor = 1 }
-					set_variable = { SOV_raspizdyaystvo_consumer_goods_factor = 0.07 }
-					set_variable = { SOV_raspizdyaystvo_research_speed_factor = -0.1 }
-					set_variable = { SOV_raspizdyaystvo_political_power_cost = 2.5 }
-					set_variable = { SOV_raspizdyaystvo_supply_node_range = -0.1 }
-					set_variable = { SOV_raspizdyaystvo_industrial_capacity_factory = -0.5 }
-					set_variable = { SOV_raspizdyaystvo_industrial_capacity_dockyard = -0.5 }
-					set_variable = { SOV_raspizdyaystvo_land_doctrine_cost_factor = 0.8 }
-					set_variable = { SOV_raspizdyaystvo_naval_doctrine_cost_factor = 0.8 }
-					set_variable = { SOV_raspizdyaystvo_air_doctrine_cost_factor = 0.8 }
-					set_variable = { SOV_raspizdyaystvo_army_morale_factor = -0.12 }
-					set_variable = { SOV_raspizdyaystvo_stability_factor = -0.1 }
-					set_variable = { SOV_raspizdyaystvo_air_accidents_factor = 0.4 }
-					set_variable = { SOV_raspizdyaystvo_attrition = 0.16 }
-					set_variable = { SOV_raspizdyaystvo_army_attack_factor = -0.2 }
-					set_variable = { SOV_raspizdyaystvo_army_defence_factor = -0.2 }
-					set_variable = { SOV_raspizdyaystvo_conscription_factor = -0.38 }
-					set_variable = { SOV_raspizdyaystvo_agency_upgrade_time = 2 }
-					
-					add_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
-					
-					add_dynamic_modifier = { modifier = SOV_effects_from_media }
-	
-					set_variable = { SOV.SOV_media_dot_X = 0 }
-					set_variable = { SOV.SOV_media_dot_Y = 0 }
-					
-					set_variable = { SOV.SOV_media_leans_eastern_conservative = 78 }
-					set_variable = { SOV.SOV_media_leans_ultranationalist = 6 }
-					set_variable = { SOV.SOV_media_leans_eastern_liberal = 16 }
-					
-					SOV_media_leaning_calculate_XY = yes	
-					
-					retire_character = SOV_valentina_matviyenko
-					retire_character = SOV_aleksandr_dugin
-					retire_character = SOV_valery_gerasimov
-					retire_character = SOV_alexei_navalny
-					retire_character = SOV_kirill
-					retire_character = SOV_svyatoslav_rechkalov
-					retire_character = SOV_igor_vsevolodovich_girkin
-					retire_character = SOV_vladlen_tatarsky
-					retire_character = SOV_dmitry_medvedev
-					retire_character = SOV_mikhail_mishustin
-					retire_character = SOV_kokoltsev_vladimir
-					retire_character = SOV_sergey_lavrov
-					retire_character = SOV_alexander_bastrykin
-					retire_character = SOV_viktor_yanukovych
-					retire_character = SOV_ramzan_kadyrov
-					retire_character = SOV_ilya_kiva
-					retire_character = SOV_sergey_shoygu
-					retire_character = SOV_alexander_bortnikov
-					retire_character = SOV_andrei_sychevoi
-					retire_character = SOV_oleg_leonidovich
-					retire_character = SOV_dmitry_bulgakov
-					retire_character = SOV_andrey_nikolayevich_mordvichev
-					retire_character = SOV_mikhail_yuryevich_teplinsky
-					retire_character = SOV_viktor_viktorovich_chirkov
-					retire_character = SOV_igor_vladimirovich_osipov
-					retire_character = SOV_aleksandr_vladimirovich_dvornikov
-					retire_character = SOV_gennady_valeryevich_zhidko
-					retire_character = SOV_mikhail_yevgenyevich_mizintsev
-					retire_character = SOV_nikolai_anatolyevich_yevmenov
-					retire_character = SOV_viktor_nikolayevich_sokolov
-					retire_character = SOV_adam_delimkhanov
-					retire_character = SOV_andrey_nikolaevich_serdyukov
-					retire_character = SOV_sergey_yurvevich_kuzovlev
-					retire_character = SOV_yevgeny_valeryevich_nikiforov
-					retire_character = SOV_rustam_usmanovich_muradov
-					retire_character = SOV_roman_vladimirovich_kutuzov
-					retire_character = SOV_roman_borisovich_berdnikov
-					retire_character = SOV_alexander_alexandrovich_zhuravlyov
-					retire_character = SOV_aleksandr_pavlovich_lapin
-					retire_character = SOV_valery_nikolaevich_solodchuk
-					retire_character = SOV_sergey_surovikin
-					
-					
-					
-					#TODO: Oleg Tsarev advisor
-					
-					recruit_character = SOV_valentina_matviyenko_rework
-					recruit_character = SOV_aleksandr_dugin_rework
-					recruit_character = SOV_valery_gerasimov_rework
-					recruit_character = SOV_alexei_navalny_rework
-					recruit_character = SOV_garry_kasparov
-					recruit_character = SOV_kirill_rework
-					recruit_character = SOV_igor_vsevolodovich_girkin_rework
-					recruit_character = SOV_vladlen_tatarsky_rework
-					recruit_character = SOV_dmitry_medvedev_rework
-					recruit_character = SOV_mikhail_mishustin_rework
-					recruit_character = SOV_kokoltsev_vladimir_rework
-					recruit_character = SOV_sergey_lavrov_rework
-					recruit_character = SOV_alexander_bastrykin_rework
-					recruit_character = SOV_viktor_yanukovych_rework
-					recruit_character = SOV_ramzan_kadyrov_rework
-					recruit_character = SOV_ilya_kiva_rework
-					recruit_character = SOV_sergey_shoygu_rework
-					recruit_character = SOV_alexander_bortnikov_rework
-					recruit_character = SOV_andrei_sychevoi_rework
-					recruit_character = SOV_oleg_leonidovich_rework
-					recruit_character = SOV_dmitry_bulgakov_rework
-					recruit_character = SOV_andrey_nikolayevich_mordvichev_rework
-					recruit_character = SOV_mikhail_yuryevich_teplinsky_rework
-					recruit_character = SOV_viktor_viktorovich_chirkov_rework
-					recruit_character = SOV_igor_vladimirovich_osipov_rework
-					recruit_character = SOV_aleksandr_vladimirovich_dvornikov_rework
-					recruit_character = SOV_gennady_valeryevich_zhidko_rework
-					recruit_character = SOV_mikhail_yevgenyevich_mizintsev_rework
-					recruit_character = SOV_nikolai_anatolyevich_yevmenov_rework
-					recruit_character = SOV_viktor_nikolayevich_sokolov_rework
-					recruit_character = SOV_adam_delimkhanov_rework
-					recruit_character = SOV_andrey_nikolaevich_serdyukov_rework
-					recruit_character = SOV_sergey_yurvevich_kuzovlev_rework
-					recruit_character = SOV_yevgeny_valeryevich_nikiforov_rework
-					recruit_character = SOV_rustam_usmanovich_muradov_rework
-					recruit_character = SOV_roman_vladimirovich_kutuzov_rework
-					recruit_character = SOV_roman_borisovich_berdnikov_rework
-					recruit_character = SOV_alexander_alexandrovich_zhuravlyov_rework
-					recruit_character = SOV_aleksandr_pavlovich_lapin_rework
-					recruit_character = SOV_valery_nikolaevich_solodchuk_rework
-					recruit_character = SOV_sergey_surovikin_rework		
-					recruit_character = SOV_vladimir_solovyov_rework
-					recruit_character = SOV_vladimir_zhirinovsky_rework
-					recruit_character = SOV_dmitry_utkin
-					recruit_character = SOV_sergey_kiriyenko
-					recruit_character = SOV_alexei_miller
-					recruit_character = SOV_yevgeny_prigozhin_rework
-					recruit_character = SOV_ivan_popov
-					recruit_character = SOV_lukashenko
-					recruit_character = SOV_viktor_zolotov
-					
-					add_ideas = SOV_dmitry_medvedev_rework 
-					add_ideas = SOV_sergey_shoygu_rework
-					add_ideas = SOV_sergey_lavrov_rework
-					add_ideas = SOV_alexander_bortnikov_rework
-					add_ideas = SOV_valery_gerasimov_rework
-					
 					add_war_support = -0.3
 
-					set_variable = { SOV_sanctions_industrial_capacity_factory = -0.2 }
-					set_variable = { SOV_sanctions_production_speed_buildings_factor = -0.35 }
-					set_variable = { SOV_sanctions_research_speed_factor = -0.15 }
-					set_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
-					set_variable = { SOV_sanctions_stability_weekly = -0.001 }
-					set_variable = { SOV_sanctions_inflation_monthly = 0.03 }
-					set_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0 }
-					set_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0 }
-					set_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0 }
-					set_variable = { SOV_sanctions_political_power_cost = 0 }
-					set_variable = { SOV_sanctions_industrial_capacity_dockyard = -0.25 }
-					set_variable = { SOV_sanctions_production_speed_industrial_complex_factor = -0.15 }
-					set_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0 }
-					
-					add_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
-					
-					if = {
-						limit = { NOT = { has_dlc = "La Resistance" } }
-						remove_trait = {
-							character = SOV_alexander_bortnikov_rework
-							slot = political_advisor
-							trait = SOV_head_of_fsb_rework
-						}
-						add_trait = {
-							character = SOV_alexander_bortnikov_rework
-							slot = political_advisor
-							trait = SOV_head_of_fsb_rework_no_lar
-						}
+					if={
+						limit = { has_start_date < 2022.01.01 }
+						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
+						country_event = { id = russia.1012 days = 421 }			#Nemtsov Dies
+						country_event = { id = russia.1029 days = 1626 }		#World Cup
 					}
-					
-					annex_country = { target = WAG transfer_troops = no }
-					432 = { add_core_of = SOV }
-					
-					set_country_flag = russia_rework_flag
-					
-					add_dynamic_modifier = { modifier = SOV_army_modernisation_plan }
-					
-					set_variable = { SOV_army_mobilization_speed = 0 }
-					set_variable = { SOV_army_army_armor_defence_factor = 0 }
-					set_variable = { SOV_army_army_armor_attack_factor = 0 }
-					set_variable = { SOV_army_coordination_bonus = 0 } 
-					set_variable = { SOV_army_supply_consumption_factor = 0 } 
-					set_variable = { SOV_army_land_doctrine_cost_factor = 0 } 
-					set_variable = { SOV_army_army_org_factor = 0 } 
-					set_variable = { SOV_army_supply_combat_penalties_on_core_factor = 0 }
-					set_variable = { SOV_army_org_loss_when_moving = 0 } 
-					set_variable = { SOV_army_supply_node_range = 0 } 
-					set_variable = { SOV_army_industrial_capacity_factory = 0 } 
-					set_variable = { SOV_army_conscription_factor = -0.1 }
-					set_variable = { SOV_army_conscription = 0 }
-					set_variable = { SOV_army_attrition = -0.06 }
-					set_variable = { SOV_army_army_core_defence_factor = 0 }
-					set_variable = { SOV_army_training_time_factor = 0 }
-					set_variable = { SOV_army_army_artillery_attack_factor = 0 }
-					set_variable = { SOV_army_army_artillery_defence_factor = 0 }
-					set_variable = { SOV_army_army_infantry_attack_factor = 0 }
-					set_variable = { SOV_army_army_infantry_defence_factor = 0 }
-					set_variable = { SOV_army_modifier_army_sub_unit_infantry_speed_factor = 0 }
-					set_variable = { SOV_army_production_speed_bunker_factor = 0 }
-					set_variable = { SOV_army_max_dig_in = 0 }
-					set_variable = { SOV_army_enemy_army_bonus_air_superiority_factor = 0 }
-					set_variable = { SOV_army_army_attack_factor = 0 }
-					set_variable = { SOV_army_army_defence_factor = 0 }
-					set_variable = { SOV_army_experience_loss_factor = 0 }
-					set_variable = { SOV_army_army_speed_factor = 0 }
-					set_variable = { SOV_army_air_accidents_factor = 0 }
-					set_variable = { SOV_army_consumer_goods_factor = 0.01 }
-					set_variable = { SOV_army_air_cas_present_factor = 0 }
-					set_variable = { SOV_army_land_night_attack = 0 }
-					set_variable = { SOV_army_experience_gain_army = 0.1 } 
-					set_variable = { SOV_army_breakthrough_factor = 0 }
-					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_attack_factor = 0 }
-					set_variable = { SOV_army_modifier_army_sub_unit_mechanized_defence_factor = 0 }
-					set_variable = { SOV_army_modifier_army_sub_unit_apc_attack_factor = 0 }
-					set_variable = { SOV_army_modifier_army_sub_unit_apc_defence_factor = 0 }
-					set_variable = { SOV_army_army_bonus_air_superiority_factor = 0 }
-					set_variable = { SOV_army_special_forces_cap = 0 }
-					
-					set_variable = { liberal_faction_strength = 10 }
-					set_variable = { technocrat_faction_strength = 10 }
-					set_variable = { oil_and_gas_faction_strength = 23 }
-					set_variable = { siloviki_faction_strength = 23 }
-					set_variable = { putinist_faction_strength = 27 }
-					set_variable = { nationalist_faction_strength = 7 }
-					
-					
-					set_variable = { SOV_alexei_navalny_faction = 1 }
-					set_variable = { SOV_grigory_yavlinsky_faction = 1 }
-					set_variable = { SOV_dmitry_medvedev_faction = 5 }
-					set_variable = { SOV_ramzan_kadyrov_faction = 5 }
-					set_variable = { SOV_igor_girkin_faction = 6 }
-					set_variable = { SOV_yevgeny_prigozhin_faction = 5 }
-					set_variable = { SOV_sergey_chemezov_faction = 4 }
-					set_variable = { SOV_boris_nemtsov_faction = 1 }
-					set_variable = { SOV_yuri_kovalchuk_faction = 5 }
-					set_variable = { SOV_mikhail_kovalchuk_faction = 5 }
-					set_variable = { SOV_viktor_zolotov_faction = 4 }
-					set_variable = { SOV_sergei_shoigu_faction = 4 }
-					set_variable = { SOV_alexei_miller_faction = 3 }
-					set_variable = { SOV_dmitry_utkin_faction = 6 }
-					set_variable = { SOV_arkady_rotenberg_faction = 3 }
-					set_variable = { SOV_boris_rotenberg_faction = 3 }
-					set_variable = { SOV_sergey_kiriyenko_faction = 2 }
-					set_variable = { SOV_herman_gref_faction = 2 }
-					set_variable = { SOV_alexander_bortnikov_faction = 4 }
-					set_variable = { SOV_nikolai_patrushev_faction = 4 }
-					set_variable = { SOV_anton_vaino_faction = 4 }
-					set_variable = { SOV_dmitry_kozak_faction = 5 }
-					set_variable = { SOV_mikhail_mishustin_faction = 2 }
-					set_variable = { SOV_igor_sechin_faction = 3 }
-					set_variable = { SOV_maxim_katz_faction = 1 }
-					set_variable = { SOV_gennady_timchenko_faction = 3 }
-					set_variable = { SOV_anton_siluanov_faction = 2 }
-					set_variable = { SOV_alexander_dugin_faction = 6 }
-					set_variable = { SOV_sergey_naryshkin_faction = 4 }
-					set_variable = { SOV_viktor_vekselberg_faction = 3 }
-					set_variable = { SOV_denis_manturov_faction = 2 }
-					
-					SOV_make_boris_nemtsov_liberal_leader = yes
-					SOV_make_dmitry_medvedev_putinist_leader = yes
-					SOV_make_sergey_chemezov_siloviki_leader = yes
-					SOV_make_alexei_miller_oil_and_gas_leader = yes
-					SOV_make_herman_gref_technocrat_leader = yes
-					
-					create_country_leader = {
-						name = "Alexei Navalny"
-						desc = ""
-						picture = gfx/leaders/SOV/Portait_Alexei_Navalny.png
-						ideology = russia_of_the_future_subideology
-						traits = { SOV_anti_corruption_crusader }
+					else={
+						puppet = BLR
+						add_ideas = SOV_sergey_surovikin_air_force_rework
+						add_war_support = -0.1
+						add_stability = -0.25
+						add_political_power = 748
+						add_command_power = 100
+						SOV_increase_technocrat_faction_large = yes
+						SOV_increase_technocrat_faction_medium = yes
+						SOV_decrease_putinist_faction_small = yes
+						SOV_decrease_oil_and_gas_faction_small = yes
 					}
-					
-					set_party_name = { ideology = populist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
-					set_party_name = { ideology = ultranationalist long_name = SOV_populist_party_long name = SOV_populist_party }
-					set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
-					
+				}
+				else = {
+					remove_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
+					remove_dynamic_modifier = { modifier = SOV_army_modernisation_plan }
+					remove_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
+				
+					add_dynamic_modifier = { modifier = SOV_russian_cabinet }
+
+					set_variable = { SOV_soc_dem_opposition_political_power_gain = -0.02 }
+					set_variable = { SOV_soc_dem_opposition_social_democracy_drift = 0.01 }
+					set_variable = { SOV_ultranationalist_opposition_political_power_gain = 0.02 }
+					set_variable = { SOV_ultranationalist_opposition_ultranationalist_drift = 0 }
+					set_variable = { SOV_communist_opposition_political_power_gain = 0.05 }
+					set_variable = { SOV_communist_opposition_hardline_communist_drift = 0 }
+					set_variable = { SOV_eastern_liberal_opposition_political_power_gain = -0.03 }
+					set_variable = { SOV_eastern_liberal_opposition_eastern_liberal_drift = 0.02 }
+
+					set_variable = { SOV_soc_dem_opposition_status = 0 }			#0 = Puppet, -1 = Active, -2 = Destroyed
+					set_variable = { SOV_ultranationalist_opposition_status = 0 }
+					set_variable = { SOV_communist_opposition_status = 0 }
+					set_variable = { SOV_eastern_liberal_opposition_status = -1 }
+					set_variable = { SOV_neoliberal_opposition_status = -1 }
+
+					clamp_variable = { var = SOV_soc_dem_opposition_status min = -2 max = 0 }
+					clamp_variable = { var = SOV_ultranationalist_opposition_status min = -2 max = 0 }
+					clamp_variable = { var = SOV_communist_opposition_status min = -2 max = 0 }
+					clamp_variable = { var = SOV_eastern_liberal_opposition_status min = -2 max = 0 }
+
+					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+					add_dynamic_modifier = { modifier = SOV_communist_opposition }
+					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+
+					set_variable = { SOV_opposition_unity = 22 }
+					set_variable = { SOV_opposition_strength = 27 }
+
+					clamp_variable = { var = SOV_opposition_unity min = 0 max = 100 }
+					clamp_variable = { var = SOV_opposition_strength min = 0 max = 100 }
+
+					get_opposition_o_meter_3000_stats = yes
+
+					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+					add_dynamic_modifier = { modifier = SOV_communist_opposition }
+					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+					add_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
+
+					set_variable = { SOV_influence_on_transnistria = 15 }
+				
+				
 					create_country_leader = {
-						name = "Viktor Yevgeny"
+						name = "Andrey Savelyev"
 						desc = ""
-						picture = gfx/leaders/WAG/Portrait_John_Doe.png
-						ideology = generic_neoconservative
-						traits = {  }
+						picture = gfx/leaders/SOV/Portait_Andrey_Savelyev.png
+						ideology = generic_ultranationalist
 					}
 
-					
 					create_country_leader = {
 						name = "Aleksey Zhuravlyov"
 						desc = ""
 						picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
-						ideology = generic_populist
+						ideology = generic_neoconservative
 					}
 					
 					create_country_leader = {
 						name = "Vladimir Zhirinovsky"
 						desc = ""
 						picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
-						ideology = russia_liberal_democratic_party_ultranat_subideology
+						ideology = russia_liberal_democratic_party_subideology
 						traits = { SOV_aggressive_populist }
 					}
+
+					
+					remove_ideas = SOV_bloated_welfare_system
+					remove_ideas = SOV_wunderwaffe_rework
+					remove_ideas = SOV_rampant_oligarchy
+					remove_ideas = SOV_oil_revenues
+					remove_ideas = SOV_rampant_oligarchy_2				
+					
+					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
+					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
+					add_dynamic_modifier = { modifier = SOV_communist_opposition }
+					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
+					add_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
+					add_dynamic_modifier = { modifier = SOV_russian_cabinet }
+					
+					swap_ruler_traits = {
+						remove = SOV_king_of_the_castle_rework
+						add = SOV_king_of_the_castle
+					}	
+					
+					load_russian_doctrine = yes
+
+					recruit_character = SOV_valentina_matviyenko
+					recruit_character = SOV_aleksandr_dugin
+					recruit_character = SOV_valery_gerasimov
+					recruit_character = SOV_alexei_navalny
+					recruit_character = SOV_kirill
+					recruit_character = SOV_svyatoslav_rechkalov
+					recruit_character = SOV_igor_vsevolodovich_girkin
+					recruit_character = SOV_vladlen_tatarsky
+					recruit_character = SOV_dmitry_medvedev
+					recruit_character = SOV_mikhail_mishustin
+					recruit_character = SOV_kokoltsev_vladimir
+					recruit_character = SOV_sergey_lavrov
+					recruit_character = SOV_alexander_bastrykin
+					recruit_character = SOV_viktor_yanukovych
+					recruit_character = SOV_ramzan_kadyrov
+					recruit_character = SOV_ilya_kiva
+					recruit_character = SOV_sergey_shoygu
+					recruit_character = SOV_alexander_bortnikov
+					recruit_character = SOV_andrei_sychevoi
+					recruit_character = SOV_oleg_leonidovich
+					recruit_character = SOV_dmitry_bulgakov
+					recruit_character = SOV_andrey_nikolayevich_mordvichev
+					recruit_character = SOV_mikhail_yuryevich_teplinsky
+					recruit_character = SOV_viktor_viktorovich_chirkov
+					recruit_character = SOV_igor_vladimirovich_osipov
+					recruit_character = SOV_aleksandr_vladimirovich_dvornikov
+					recruit_character = SOV_gennady_valeryevich_zhidko
+					recruit_character = SOV_mikhail_yevgenyevich_mizintsev
+					recruit_character = SOV_nikolai_anatolyevich_yevmenov
+					recruit_character = SOV_viktor_nikolayevich_sokolov
+					recruit_character = SOV_adam_delimkhanov
+					recruit_character = SOV_andrey_nikolaevich_serdyukov
+					recruit_character = SOV_sergey_yurvevich_kuzovlev
+					recruit_character = SOV_yevgeny_valeryevich_nikiforov
+					recruit_character = SOV_rustam_usmanovich_muradov
+					recruit_character = SOV_roman_vladimirovich_kutuzov
+					recruit_character = SOV_roman_borisovich_berdnikov
+					recruit_character = SOV_alexander_alexandrovich_zhuravlyov
+					recruit_character = SOV_aleksandr_pavlovich_lapin
+					recruit_character = SOV_valery_nikolaevich_solodchuk
+					recruit_character = SOV_sergey_surovikin
 					
 					
 					
-					country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
-					country_event = { id = russia.1012 days = 421 }			#Nemtsov Dies
-					country_event = { id = russia.1029 days = 1626 }		#World Cup					
+					#TODO: Oleg Tsarev advisor
+					
+					retire_character = SOV_valentina_matviyenko_rework
+					retire_character = SOV_aleksandr_dugin_rework
+					retire_character = SOV_valery_gerasimov_rework
+					retire_character = SOV_alexei_navalny_rework
+					retire_character = SOV_garry_kasparov
+					retire_character = SOV_kirill_rework
+					retire_character = SOV_igor_vsevolodovich_girkin_rework
+					retire_character = SOV_vladlen_tatarsky_rework
+					retire_character = SOV_dmitry_medvedev_rework
+					retire_character = SOV_mikhail_mishustin_rework
+					retire_character = SOV_kokoltsev_vladimir_rework
+					retire_character = SOV_sergey_lavrov_rework
+					retire_character = SOV_alexander_bastrykin_rework
+					retire_character = SOV_viktor_yanukovych_rework
+					retire_character = SOV_ramzan_kadyrov_rework
+					retire_character = SOV_ilya_kiva_rework
+					retire_character = SOV_sergey_shoygu_rework
+					retire_character = SOV_alexander_bortnikov_rework
+					retire_character = SOV_andrei_sychevoi_rework
+					retire_character = SOV_oleg_leonidovich_rework
+					retire_character = SOV_dmitry_bulgakov_rework
+					retire_character = SOV_andrey_nikolayevich_mordvichev_rework
+					retire_character = SOV_mikhail_yuryevich_teplinsky_rework
+					retire_character = SOV_viktor_viktorovich_chirkov_rework
+					retire_character = SOV_igor_vladimirovich_osipov_rework
+					retire_character = SOV_aleksandr_vladimirovich_dvornikov_rework
+					retire_character = SOV_gennady_valeryevich_zhidko_rework
+					retire_character = SOV_mikhail_yevgenyevich_mizintsev_rework
+					retire_character = SOV_nikolai_anatolyevich_yevmenov_rework
+					retire_character = SOV_viktor_nikolayevich_sokolov_rework
+					retire_character = SOV_adam_delimkhanov_rework
+					retire_character = SOV_andrey_nikolaevich_serdyukov_rework
+					retire_character = SOV_sergey_yurvevich_kuzovlev_rework
+					retire_character = SOV_yevgeny_valeryevich_nikiforov_rework
+					retire_character = SOV_rustam_usmanovich_muradov_rework
+					retire_character = SOV_roman_vladimirovich_kutuzov_rework
+					retire_character = SOV_roman_borisovich_berdnikov_rework
+					retire_character = SOV_alexander_alexandrovich_zhuravlyov_rework
+					retire_character = SOV_aleksandr_pavlovich_lapin_rework
+					retire_character = SOV_valery_nikolaevich_solodchuk_rework
+					retire_character = SOV_sergey_surovikin_rework		
+					retire_character = SOV_vladimir_solovyov_rework
+					retire_character = SOV_vladimir_zhirinovsky_rework
+					retire_character = SOV_dmitry_utkin
+					retire_character = SOV_sergey_kiriyenko
+					retire_character = SOV_alexei_miller
+					retire_character = SOV_yevgeny_prigozhin_rework
+					retire_character = SOV_ivan_popov
+					retire_character = SOV_lukashenko
+					retire_character = SOV_viktor_zolotov
+					
+					add_ideas = {
+						SOV_the_great_patriotic_war_idea
+						SOV_stagnant_economy
+						SOV_wide_is_my_motherland
+						SOV_the_eastern_yoke
+						SOV_wunderwaffe
+						SOV_russia_today
+
+						SOV_dmitry_medvedev
+						SOV_sergey_surovikin
+						SOV_kokoltsev_vladimir
+						SOV_sergey_lavrov
+					}
+				
+					WAG = { transfer_state = 432 }	
+
+					if={
+						limit = { has_start_date < 2022.01.01 }
+						load_focus_tree = soviet_crimea
+					}
+					else={
+						remove_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+					
+						load_focus_tree = soviet_focus
+						complete_national_focus = SOV_russia_and_its_people
+						complete_national_focus = SOV_crimean_water_supply
+						unlock_national_focus = SOV_the_crimean_bridge
+						complete_national_focus = SOV_antigay_laws
+						complete_national_focus = SOV_ban_conversion_therapy
+						unlock_national_focus = SOV_host_2014_grand_prix
+						complete_national_focus = SOV_vks_in_syria
+						complete_national_focus = SOV_send_wagner_to_syria
+
+						complete_national_focus = SOV_the_future_of_russia
+						complete_national_focus = SOV_in_control_of_inner_politics
+						complete_national_focus = SOV_russian_spirit
+						complete_national_focus = SOV_syloviki
+						complete_national_focus = SOV_gem_of_black_sea
+						complete_national_focus = SOV_russian_spirit
+						complete_national_focus = SOV_chernomorsky_flot
+						complete_national_focus = SOV_the_russian_trident
+						complete_national_focus = SOV_international_power
+						complete_national_focus = SOV_turkish_and_asian_corridors
+						complete_national_focus = SOV_pik_and_donstroy
+						complete_national_focus = SOV_big_three
+						unlock_national_focus = SOV_transnistrian_crisis
+						complete_national_focus = SOV_venezuelan_crisis
+						complete_national_focus = SOV_introduce_akhmat_battalions
+						complete_national_focus = SOV_capital_of_northern_caucasus
+						complete_national_focus = SOV_MIR_payment_system
+						complete_national_focus = SOV_increase_interest_rates
+						complete_national_focus = SOV_state_control_of_the_economy
+						complete_national_focus = SOV_patriotic_education
+						complete_national_focus = SOV_ministry_of_culture
+						unlock_national_focus = SOV_better_future
+						complete_national_focus = SOV_media_control
+						complete_national_focus = SOV_eliminating_dissent
+						complete_national_focus = SOV_enforced_loyalty
+						complete_national_focus = SOV_weaken_the_ops
+						complete_national_focus = SOV_peoples_only_choice
+						complete_national_focus = SOV_boost_subsidies
+						unlock_national_focus = SOV_prepare_for_elect
+						
+						complete_national_focus = SOV_novorossiya_at_hand
+
+						complete_national_focus = SOV_2018_elections
+						complete_national_focus = SOV_Putin
+						complete_national_focus = SOV_park_zaryade
+						complete_national_focus = SOV_the_luzhniki
+						complete_national_focus = SOV_traitors_abroad
+						complete_national_focus = SOV_host_the_world_cup
+						complete_national_focus = SOV_tourist_boom
+						complete_national_focus = SOV_soften_pension_reform
+						complete_national_focus = SOV_minsk_accord_ignored
+						complete_national_focus = SOV_kerch_incident
+						complete_national_focus = SOV_vostok_exercises
+						complete_national_focus = SOV_prepare_the_high_command
+						complete_national_focus = SOV_close_borders
+						complete_national_focus = SOV_increase_medical_budget
+						complete_national_focus = SOV_hospitals_overpopulated
+						complete_national_focus = SOV_the_quarantine
+						complete_national_focus = SOV_prepare_constitutional_changes
+						complete_national_focus = SOV_our_own_vaccine
+						complete_national_focus = SOV_address_the_nation
+						complete_national_focus = SOV_vote_yes
+						complete_national_focus = SOV_bad_samesex_marriage
+						complete_national_focus = SOV_heir_to_thrones
+						complete_national_focus = SOV_small_business_crisis_solved
+						complete_national_focus = SOV_nothing_in_the_way
+						complete_national_focus = SOV_refusing_diplomacy
+						complete_national_focus = SOV_prepare_our_people
+						complete_national_focus = SOV_ready_for_what_is_to_come
+						complete_national_focus = SOV_exercises_on_the_ukrainian_border
+						complete_national_focus = SOV_donbass_tv_programs
+						complete_national_focus = SOV_lukashenko_aware
+						complete_national_focus = SOV_neo_nazism_on_the_rise
+						complete_national_focus = SOV_azov_battalions_in_odessa
+						complete_national_focus = SOV_ilya_kiva
+						complete_national_focus = SOV_anti_russian_slogans
+						complete_national_focus = SOV_no_going_back
+						complete_national_focus = SOV_our_victory_symbol
+						unlock_national_focus = SOV_place_an_order_chef
+						complete_national_focus = SOV_topol_rocket_mass_use
+						complete_national_focus = SOV_pass_new_laws_duma
+						complete_national_focus = SOV_prepare_those_who_we_protect
+						complete_national_focus = SOV_power_of_our_industry
+
+						add_ideas = SOV_corrupt_military
+						add_ideas = SOV_the_crimean_burden_better
+						add_ideas = SOV_lowered_pensions
+
+						add_country_leader_trait = great_rus_leader
+
+						set_popularities = {
+							eastern_conservative = 74.2
+							moderate_communist = 13.6
+							social_democracy = 7
+							populist = 5.2
+						}
+
+						set_variable = { SOV_opposition_unity = 38 }
+						set_variable = { SOV_opposition_strength = 31.5 }
+						set_variable = { SOV_eastern_liberal_opposition_status = -2 }
+						get_opposition_o_meter_3000_stats = yes
+
+						set_stability = 0.63
+						set_war_support = 0.55
+						
+						
+					}
 				}
-				else_if={
-					limit = { NOT = { russia_rework_trigger = yes } has_start_date < 2022.01.01 }
-					load_focus_tree = soviet_crimea
+				
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						has_start_date < 2022.01.01
+					}
+					set_oob = "SOV_2014_nsb"
+				}
+				if = {
+					limit = {
+						NOT = { has_dlc = "No Step Back" }
+						has_start_date < 2022.01.01
+					}
+					set_oob = "SOV_2014"
+				}
+
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						russia_rework_trigger = yes
+						has_start_date > 2022.01.01
+					}
+					load_oob = "SOV_2022_nsb_rework"
+				}
+				if = {
+					limit = {
+						NOT = { has_dlc = "No Step Back" }
+						russia_rework_trigger = yes
+						has_start_date > 2022.01.01
+					}
+					load_oob = "SOV_2022_rework"
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						NOT = { russia_rework_trigger = yes }
+						has_start_date > 2022.01.01
+					}
+					load_oob = "SOV_2022_nsb"
+				}
+				if = {
+					limit = {
+						NOT = { has_dlc = "No Step Back" }
+						NOT = { russia_rework_trigger = yes }
+						has_start_date > 2022.01.01
+					}
+					load_oob = "SOV_2022"
 				}
 				
 				every_state = {
