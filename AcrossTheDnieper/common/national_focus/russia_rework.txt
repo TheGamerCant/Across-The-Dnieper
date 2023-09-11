@@ -317,7 +317,7 @@ focus_tree = {
 
 focus_tree = {
 	id = post_crimea_tree
-	continuous_focus_position = { x = 80 y = 600 } 
+	continuous_focus_position = { x = 80 y = 2600 } 
 	country = {
 		factor = 0
 	}
@@ -2563,7 +2563,6 @@ shared_focus = {
 		}
 		
 		army_experience = 75
-		add_political_power = 50
 	}
 }
 
@@ -2682,7 +2681,6 @@ shared_focus = {
 		}
 		
 		army_experience = 75
-		add_political_power = 50
 	}
 }
 
@@ -2809,7 +2807,6 @@ shared_focus = {
 		}
 		
 		army_experience = 75
-		add_political_power = 50
 	}
 }
 
@@ -2905,7 +2902,6 @@ shared_focus = {
 		}
 		
 		army_experience = 75
-		add_political_power = 50
 	}
 }
 
@@ -3033,9 +3029,75 @@ shared_focus = {
 		
 		
 		army_experience = 75
-		add_political_power = 50
 	}
 }
+
+shared_focus = {
+	id = SOV_economic_integration
+	icon = GFX_focus_SOV_economic_integration
+	x = 0
+	y = 3
+	
+	cost = 100
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_send_them_rifles focus = SOV_send_them_aa focus = SOV_send_them_artillery focus = SOV_send_them_tanks focus = SOV_send_them_armour }
+	relative_position_id = SOV_send_them_rifles
+	available = {
+		any_country={
+			OR={
+				tag = DON
+				tag = LHK
+				tag = KHK
+				tag = ODS
+				tag = NOV
+			}
+			exists = yes
+			is_puppet_of = ROOT
+		}
+		
+		count_triggers = {		
+			amount > 2
+			has_completed_focus = SOV_send_them_rifles
+			has_completed_focus = SOV_send_them_aa
+			has_completed_focus = SOV_send_them_artillery
+			has_completed_focus = SOV_send_them_tanks
+			has_completed_focus = SOV_send_them_armour
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit={
+				OR={
+					tag = DON
+					tag = LHK
+					tag = KHK
+					tag = ODS
+					tag = NOV
+				}
+			}
+			every_state={
+				limit={ is_owned_and_controlled_by = PREV }
+				give_resource_rights = { receiver = SOV state = THIS }
+			}	
+		}
+		
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 2 }
+	}
+}
+
+
+
+
+
 
 shared_focus = {
 	id = SOV_fight_western_sanctions
