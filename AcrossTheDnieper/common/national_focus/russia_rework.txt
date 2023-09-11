@@ -1242,7 +1242,15 @@ focus_tree = {
 		}
 
 		completion_reward={
-			country_event = { id = russia.1014 hours = 4 }
+			if={
+				limit = { has_start_date < 2022.01.01 }
+				country_event = { id = russia.1014 hours = 4 }
+			}
+			else={
+				effect_tooltip={
+					country_event = { id = russia.1014 hours = 4 }
+				}
+			}
 		}
 	}
 	
@@ -1570,7 +1578,15 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			country_event = { id = russia.1015 hours = 4 }
+			if={
+				limit = { has_start_date < 2022.01.01 }
+				country_event = { id = russia.1015 hours = 4 }
+			}
+			else={
+				effect_tooltip = {
+					country_event = { id = russia.1015 hours = 4 }
+				}
+			}
 		}
 	}
 	
@@ -2380,31 +2396,11 @@ shared_focus = {
 		}
 	}
 	completion_reward={
-		delete_unit_template_and_units   = {
-			division_template  = "Sevastopol Garrison"
-		}
-		add_popularity = {
-			ideology = eastern_conservative
-			popularity = 0.02
-		}
-		every_state={
-			limit = {
-				has_state_flag = crimea_oblast_flag
-				NOT = { is_core_of = ROOT }
-			}
-			add_compliance = 10
-		}
-
-		UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
-		
-		country_event = { id = russia.1008 days = 4 }
-		
-		
 		
 		if={
 			limit = { has_start_date < 2022.01.01 }
-			delete_unit_template_and_units   = {
-				division_template  = "Sevastopol Garrison"
+			delete_unit_template_and_units = {
+				division_template = "Sevastopol Garrison"
 			}
 			add_popularity = {
 				ideology = eastern_conservative
@@ -2424,8 +2420,8 @@ shared_focus = {
 		}
 		else={
 			effect_tooltip = { 
-				delete_unit_template_and_units   = {
-					division_template  = "Sevastopol Garrison"
+				delete_unit_template_and_units = {
+					division_template = "Sevastopol Garrison"
 				}
 				add_popularity = {
 					ideology = eastern_conservative
