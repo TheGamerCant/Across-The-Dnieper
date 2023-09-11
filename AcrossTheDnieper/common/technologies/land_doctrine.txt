@@ -2636,6 +2636,52 @@ asymmetrical_warfare_russia = {
     }
     
     path = {
+        leads_to_tech = recon_drones 
+        research_cost_coeff = 1
+    }
+    
+    ai_will_do = {
+        modifier = {
+            not = {
+                has_army_experience > 120
+            }
+            factor = 0.8
+        }
+        factor = 20
+    }
+    
+    ai_research_weights = {
+        land_doctrine = 2.0
+    }
+
+	dependencies = {
+		can_do_russian_doctrine = 1
+	}
+}
+recon_drones = {
+    xp_research_type = army
+    xp_unlock_cost = 100
+    
+    doctrine = yes
+    research_cost = 4.5
+    
+    army_org_factor = 0.08
+	max_dig_in_factor = 0.08
+	category_recon = {
+		recon = 2.5
+	}
+    
+    categories = {
+        land_doctrine
+		cat_russian_doctrine
+    }
+    
+    folder = {
+        name = land_doctrine_folder
+        position = { x = 0 y = 13 }
+    }
+    
+    path = {
         leads_to_tech = stealth_technology 
         research_cost_coeff = 1
     }
@@ -2675,7 +2721,7 @@ stealth_technology = {
     
     folder = {
         name = land_doctrine_folder
-        position = { x = 0 y = 13 }
+        position = { x = 0 y = 15 }
     }
     
     path = {
@@ -2720,7 +2766,7 @@ suicide_drones = {
     
     folder = {
         name = land_doctrine_folder
-        position = { x = 0 y = 15 }
+        position = { x = 0 y = 17 }
     }
 	
 	path = {
@@ -2765,7 +2811,7 @@ full_war = {
     
     folder = {
         name = land_doctrine_folder
-        position = { x = 0 y = 17 }
+        position = { x = 0 y = 19 }
     }
     
     ai_will_do = {
