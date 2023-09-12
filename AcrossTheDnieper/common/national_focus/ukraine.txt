@@ -408,97 +408,6 @@ focus_tree = {
 }
 
 
-
-
-
-
-
-
-
-
-
-focus_tree = {
-	id = ukraine_yanukovych_tree
-	continuous_focus_position = { x = -40 y = 1050 } 
-	country = {
-		factor = 0
-	}	
-	
-	focus = {
-		id = UKR_send_in_the_tanks
-		icon = GFX_focus_UKR_send_in_the_tanks
-		x = 10
-		y = 1
-		mutually_exclusive = { focus = UKR_the_revolution_of_dignity }
-		available = {
-			NOT = { is_puppet_of = SOV }
-			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Viktor Yanukovych"
-				ruling_only = yes
-			}
-		}
-		cost = 2
-		search_filters = {
-			
-		}
-	}
-	
-	focus = {
-		id = UKR_nothing_in_or_out
-		icon = GFX_focus_UKR_nothing_in_or_out
-		prerequisite = { focus = UKR_send_in_the_tanks }
-		relative_position_id = UKR_send_in_the_tanks
-		x = -1
-		y = 1
-		available = {
-			NOT = { is_puppet_of = SOV }
-			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-	
-		}
-		cost = 0.72
-		search_filters = {
-			
-		}
-	}
-	
-	focus = {
-		id = UKR_ban_foreign_press
-		icon = GFX_focus_UKR_ban_foreign_press
-		prerequisite = { focus = UKR_send_in_the_tanks }
-		relative_position_id = UKR_send_in_the_tanks
-		x = 1
-		y = 1
-		available = {
-			NOT = { is_puppet_of = SOV }
-			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-	
-		}
-		cost = 0.72
-		search_filters = {
-			
-		}
-	}
-	
-	focus = {
-		id = UKR_the_second_battle_of_kyiv
-		icon = GFX_focus_UKR_the_second_battle_of_kyiv
-		prerequisite = { focus = UKR_nothing_in_or_out focus = UKR_ban_foreign_press }
-		relative_position_id = UKR_nothing_in_or_out
-		x = 1
-		y = 2
-		available = {
-			NOT = { is_puppet_of = SOV }
-			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-	
-		}
-		cost = 0.72
-		search_filters = {
-			
-		}
-	}
-}
-
 focus_tree = {
 	id = ukraine_maidan_protestor_victory_tree
 	continuous_focus_position = { x = -40 y = 1050 } 
@@ -518,10 +427,7 @@ focus_tree = {
 			custom_trigger_tooltip = {
 			    tooltip = UKR_yanukovych_is_gone_tt		#Dancing Crab Emoji
 				NOT={
-					has_country_leader = {
-						name = "Viktor Yanukovych"
-						ruling_only = yes
-					}
+					viktor_yanukovych_is_leader = yes
 				}
 			}
 		}
@@ -1419,10 +1325,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 		}
 		
 		bypass = {
@@ -1477,10 +1380,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 		}
 		
 		bypass = {
@@ -1513,10 +1413,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 			any_donbass_country_exists = yes
 		}
 		
@@ -1555,10 +1452,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 		}
 		
 		bypass = {
@@ -1592,10 +1486,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 		}
 		
 		bypass = {
@@ -2109,15 +2000,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2149,15 +2034,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2195,15 +2074,9 @@ focus_tree = {
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			NOT = { has_country_flag = UKR_increased_regional_budgets }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2242,15 +2115,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2286,15 +2153,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2330,15 +2191,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2426,15 +2281,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2468,15 +2317,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Petro Poroshenko"
-					ruling_only = yes
-				}
+				petro_poroshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -2663,10 +2506,7 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			NOT={
-				has_country_leader = {
-					name = "Dmytro Yarosh"
-					ruling_only = yes
-				}
+				dmytro_yarosh_is_leader = yes
 			}
 		}
 		
@@ -2797,10 +2637,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -3032,10 +2869,7 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			NOT={
-				has_country_leader = {
-					name = "Volodymyr Zelenskyy"
-					ruling_only = yes
-				}
+				volodymyr_zelenskyy_is_leader = yes
 			}
 		}
 		
@@ -3090,10 +2924,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Volodymyr Zelenskyy"
-				ruling_only = yes
-			}
+			volodymyr_zelenskyy_is_leader = yes
 		}
 		
 		bypass = {
@@ -3707,15 +3538,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -3747,15 +3572,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -3805,15 +3624,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -3849,15 +3662,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -3913,15 +3720,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -3960,15 +3761,9 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -4035,15 +3830,9 @@ focus_tree = {
 			has_completed_focus = UKR_dismiss_kolomoyskyi
 			has_political_power > 100
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -4130,15 +3919,9 @@ focus_tree = {
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
 			has_political_power > 200
 			OR={
-				has_country_leader = {
-					name = "Yulia Tymoshenko"
-					ruling_only = yes
-				}
+				yulia_tymoshenko_is_leader = yes
 				AND={
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 					has_country_flag = zelenskyy_has_chosen_to_continue_policy
 				}
 			}
@@ -4218,10 +4001,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_idea = liberal_democracy
 			has_completed_focus = UKR_elections_to_the_rada
 			has_completed_focus = UKR_local_militias
@@ -4253,10 +4033,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			NOT = { has_country_flag = there_is_legislation_in_the_rada }
 		}
 		
@@ -4295,10 +4072,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4328,10 +4102,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4363,10 +4134,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4394,10 +4162,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_patriotic_education
 		}
 		
@@ -4430,10 +4195,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4463,10 +4225,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4497,10 +4256,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_off_with_the_eastern_yoke
 		}
 		
@@ -4533,10 +4289,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_idea = western_economy
 		}
 		
@@ -4622,10 +4375,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4691,10 +4441,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_fight_for_your_country
 		}
 		
@@ -4733,10 +4480,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_idea = martial_law
 			has_completed_focus = UKR_elections_to_the_rada
 			has_completed_focus = UKR_local_militias
@@ -4768,10 +4512,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4810,10 +4551,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_country_flag = UKR_expand_presidential_powers_was_successful
 		}
 		
@@ -4855,10 +4593,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_global_flag = ukraine_rada_disbanded
 		}
 		
@@ -4889,10 +4624,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_ideological_policing
 		}
 		
@@ -4924,10 +4656,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -4993,10 +4722,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 
 		}
 		
@@ -5050,10 +4776,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 
 		}
 		
@@ -5092,10 +4815,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			
 		}
 		
@@ -5124,10 +4844,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			
 		}
 		
@@ -5162,10 +4879,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_global_flag = ukraine_rada_disbanded
 		}
 		
@@ -5194,10 +4908,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_idea = fascist_regime
 		}
 		
@@ -5233,10 +4944,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_elections_to_the_rada
 			has_completed_focus = UKR_local_militias
 		}
@@ -5281,10 +4989,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5314,10 +5019,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5344,10 +5046,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5392,10 +5091,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			NOT = { has_country_flag = there_is_legislation_in_the_rada }
 		}
 		
@@ -5449,10 +5145,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5479,10 +5172,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 			has_completed_focus = UKR_the_orthodox_church_of_ukraine
 		}
 		
@@ -5515,10 +5205,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5569,10 +5256,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5626,10 +5310,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -5660,10 +5341,7 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			has_country_leader = {
-				name = "Dmytro Yarosh"
-				ruling_only = yes
-			}
+			dmytro_yarosh_is_leader = yes
 		}
 		
 		bypass = {
@@ -7279,10 +6957,7 @@ focus_tree = {
 		completion_reward = {
 			if={
 				limit = {
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 				}
 				set_country_leader_portrait = {
 					portrait = "gfx/leaders/UKR/Portrait_Volodymyr_Zelenskyy_war.png"
@@ -7645,10 +7320,7 @@ focus_tree = {
 		completion_reward = {
 			if={
 				limit = {
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 				}
 				swap_ruler_traits = {
 					remove = the_iron_joker
@@ -8096,10 +7768,7 @@ focus_tree = {
 		completion_reward = {
 			if={
 				limit = {
-					has_country_leader = {
-						name = "Volodymyr Zelenskyy"
-						ruling_only = yes
-					}
+					volodymyr_zelenskyy_is_leader = yes
 				}
 				swap_ruler_traits = {
 					remove = the_iron_joker_2
@@ -8422,10 +8091,7 @@ focus_tree = {
 		available = {
 			any_country={ original_tag = SOV has_war_with = ROOT }
 			NOT={
-				has_country_leader = {
-					name = "Dmytro Yarosh"
-					ruling_only = yes
-				}
+				dmytro_yarosh_is_leader = yes
 			}
 		}
 		
@@ -9525,7 +9191,7 @@ shared_focus = {
 		}
 		
 		if={
-			limit = { has_country_leader = { name = "Valerii Zaluzhnyi" ruling_only = yes } }
+			limit = { valerii_zaluzhnyi_is_leader = yes }
 			set_politics = {
 				ruling_party = neoliberal
 				elections_allowed = yes
@@ -9544,7 +9210,7 @@ shared_focus = {
 	ai_will_do = {
 	}
 	available = {
-		has_country_leader = { name = "Valerii Zaluzhnyi" ruling_only = yes }
+		valerii_zaluzhnyi_is_leader = yes
 	}
 	prerequisite = { focus = UKR_the_rebuilding }
 	relative_position_id = UKR_the_rebuilding

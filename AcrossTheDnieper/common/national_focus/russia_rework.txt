@@ -391,7 +391,7 @@ focus_tree = {
 			}
 		}
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -416,7 +416,7 @@ focus_tree = {
 		relative_position_id = SOV_putin_at_the_helm
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			BLR={
 				OR = { 
 					is_in_faction_with = ROOT
@@ -469,7 +469,7 @@ focus_tree = {
 		relative_position_id = SOV_strengthen_the_union_state
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		bypass={
 			OR={
@@ -538,7 +538,7 @@ focus_tree = {
 		relative_position_id = SOV_strengthen_the_government_in_transnistria
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			has_completed_focus = SOV_memories_of_old
 			ultranationalist > 0.20
 		}
@@ -612,10 +612,7 @@ focus_tree = {
 				UKR = { 
 					if={
 						limit = { 
-							has_country_leader = {
-								name = "Volodymyr Zelenskyy"
-								ruling_only = yes
-							}
+							volodymyr_zelenskyy_is_leader = yes
 						}
 						country_event = { id = ukraine.82 hours = 2 } 
 					}
@@ -680,6 +677,40 @@ focus_tree = {
 				}
 				
 				add_timed_idea = { idea = SOV_three_days_to_kiev days = 20 } 
+				mark_focus_tree_layout_dirty = yes
+				
+				if={
+					limit={
+						is_ai = no
+						UKR = { is_ai = yes }
+					}
+					UKR={
+						division_template = {
+							name = "AI Emergency National Guard"
+							division_names_group = UKR_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }	
+							}
+						}
+						
+						for_loop_effect = {
+							end = 40
+							value = temp
+							random_owned_controlled_state = {
+								limit = { UKR = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									owner = UKR
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -697,7 +728,7 @@ focus_tree = {
 		relative_position_id = SOV_putin_at_the_helm
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -719,7 +750,7 @@ focus_tree = {
 		relative_position_id = SOV_pivot_to_the_east
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			OR={
 				has_completed_focus = SOV_send_gerasimov_to_syria
 				has_completed_focus = SOV_send_surovikin_to_syria
@@ -752,7 +783,7 @@ focus_tree = {
 		relative_position_id = SOV_pivot_to_the_east
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		bypass={
@@ -784,7 +815,7 @@ focus_tree = {
 		relative_position_id = SOV_increase_our_operations_in_syria
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			has_idea = SOV_sergey_lavrov_rework
 		}
 		
@@ -818,7 +849,7 @@ focus_tree = {
 		relative_position_id = SOV_putin_at_the_helm
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			OR={
 				NOT = { has_completed_focus = SOV_the_need_for_reforms }
 				has_completed_focus = SOV_huawei_contrats
@@ -880,7 +911,7 @@ focus_tree = {
 		relative_position_id = SOV_strong_president_strong_country
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		
@@ -903,7 +934,7 @@ focus_tree = {
 		relative_position_id = SOV_the_control_of_inner_politic
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		
@@ -938,7 +969,7 @@ focus_tree = {
 		relative_position_id = SOV_black_sea_pipelines
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			OR={
 				has_idea = SOV_dmitry_medvedev_rework
 				has_idea = SOV_alexei_miller
@@ -969,7 +1000,7 @@ focus_tree = {
 		relative_position_id = SOV_the_control_of_inner_politic
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		
@@ -995,7 +1026,7 @@ focus_tree = {
 		relative_position_id = SOV_subsidies_for_childbirth
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		
@@ -1030,7 +1061,7 @@ focus_tree = {
 		relative_position_id = SOV_the_western_infestation
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1074,7 +1105,7 @@ focus_tree = {
 		relative_position_id = SOV_the_control_of_inner_politic
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			372 = { is_controlled_by = ROOT }
 		}
 		bypass={
@@ -1108,7 +1139,7 @@ focus_tree = {
 		relative_position_id = SOV_raise_akhmat_battallions
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1138,7 +1169,7 @@ focus_tree = {
 		relative_position_id = SOV_closer_ties_with_gazprom
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			has_completed_focus = SOV_multipolarism
 		}
 
@@ -1161,7 +1192,7 @@ focus_tree = {
 		relative_position_id = SOV_putin_at_the_helm
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			OR={
 				NOT = { has_completed_focus = SOV_strong_president_strong_country }
 				has_completed_focus = SOV_geopolitical_grandmaster
@@ -1207,7 +1238,7 @@ focus_tree = {
 		relative_position_id = SOV_the_need_for_reforms
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1238,7 +1269,7 @@ focus_tree = {
 		relative_position_id = SOV_ambitious_new_faces_2
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1267,7 +1298,7 @@ focus_tree = {
 		relative_position_id = SOV_russia_the_land_of_opportunities
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1292,7 +1323,7 @@ focus_tree = {
 		relative_position_id = SOV_ambitious_new_faces_2
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1314,7 +1345,7 @@ focus_tree = {
 		relative_position_id = SOV_liberalise_the_banking_sector
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1338,7 +1369,7 @@ focus_tree = {
 		relative_position_id = SOV_ambitious_new_faces_2
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1360,7 +1391,7 @@ focus_tree = {
 		relative_position_id = SOV_expand_vk_group
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1436,7 +1467,7 @@ focus_tree = {
 		relative_position_id = SOV_bureaucratic_reforms
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1470,7 +1501,7 @@ focus_tree = {
 		relative_position_id = SOV_internet_infastructure
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 
 		completion_reward={
@@ -1496,7 +1527,7 @@ focus_tree = {
 		relative_position_id = SOV_putin_at_the_helm
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			OR={
 				NOT = { has_completed_focus = SOV_the_need_for_reforms }
 				has_completed_focus = SOV_huawei_contrats
@@ -1574,7 +1605,7 @@ focus_tree = {
 		relative_position_id = SOV_memories_of_old
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1603,7 +1634,7 @@ focus_tree = {
 		relative_position_id = SOV_patriots_from_a_young_age
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1625,7 +1656,7 @@ focus_tree = {
 		relative_position_id = SOV_our_grand_history
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1651,7 +1682,7 @@ focus_tree = {
 		relative_position_id = SOV_patriots_from_a_young_age
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1694,7 +1725,7 @@ focus_tree = {
 		relative_position_id = SOV_holy_russia
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1716,7 +1747,7 @@ focus_tree = {
 		relative_position_id = SOV_our_grander_borders
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1738,7 +1769,7 @@ focus_tree = {
 		relative_position_id = SOV_patriots_from_a_young_age
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1761,7 +1792,7 @@ focus_tree = {
 		relative_position_id = SOV_tackle_draft_dodging
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1814,7 +1845,7 @@ focus_tree = {
 		relative_position_id = SOV_the_teachings_of_ivan_ilyin
 		
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1867,7 +1898,7 @@ focus_tree = {
 			}
 		}
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1923,7 +1954,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_the_siloviki_state focus = SOV_a_strong_russia }
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -1966,7 +1997,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_a_strong_russia }
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2012,7 +2043,7 @@ focus_tree = {
 		relative_position_id = SOV_the_siloviki_state
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2045,7 +2076,7 @@ focus_tree = {
 		relative_position_id = SOV_approach_zolotov
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 			has_idea = SOV_viktor_zolotov
 		}
 		
@@ -2103,7 +2134,7 @@ focus_tree = {
 		relative_position_id = SOV_supply_tanks_to_rosgvardiya
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2139,7 +2170,7 @@ focus_tree = {
 		relative_position_id = SOV_supply_tanks_to_rosgvardiya
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2166,7 +2197,7 @@ focus_tree = {
 		relative_position_id = SOV_the_siloviki_state
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2191,7 +2222,7 @@ focus_tree = {
 		relative_position_id = SOV_social_media_bots
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2220,7 +2251,7 @@ focus_tree = {
 		relative_position_id = SOV_the_siloviki_state
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2246,7 +2277,7 @@ focus_tree = {
 		relative_position_id = SOV_increase_fsb_funding
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2276,7 +2307,7 @@ focus_tree = {
 		relative_position_id = SOV_increase_fsb_funding
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2306,7 +2337,7 @@ focus_tree = {
 		relative_position_id = SOV_social_media_bots
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
@@ -2366,13 +2397,88 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_russia_of_the_future focus = SOV_the_siloviki_state }
 
 		available={
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		
 		completion_reward={
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
+	
+
+	
+	focus = {
+		id = SOV_great_victors_2
+		icon = GFX_focus_SOV_great_victors_2
+		x = 52
+		y = 8
+		cost = 10
+		search_filters = {
+			
+		}
+		available={
+			OR={
+				NOT = { country_exists = UKR }
+				UKR = { has_capitulated = yes }
+			}
+			has_war = no
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				has_completed_focus = SOV_movements_on_the_border
+			}
+		}
+		
+		
+		completion_reward={
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_the_quagmire
+		icon = GFX_focus_SOV_the_quagmire
+		x = 34
+		y = 8
+		cost = 10
+		search_filters = {
+			
+		}
+		available={
+			has_war_with = UKR
+			custom_trigger_tooltip={
+				tooltip = SOV_the_quagmire_tt
+				NOT = { has_global_flag = russia_ukraine_war_started_recently }
+			}
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				has_completed_focus = SOV_movements_on_the_border
+			}
+		}
+		
+		
+		completion_reward={
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation
@@ -3073,21 +3179,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		every_country={
-			limit={
-				OR={
-					tag = DON
-					tag = LHK
-					tag = KHK
-					tag = ODS
-					tag = NOV
-				}
-			}
-			every_state={
-				limit={ is_owned_and_controlled_by = PREV }
-				give_resource_rights = { receiver = SOV state = THIS }
-			}	
-		}
+		DON = { give_resource_rights = { receiver = SOV state = 186 } }
 		
 		add_offsite_building = { type = industrial_complex level = 2 }
 		add_offsite_building = { type = arms_factory level = 2 }

@@ -48,12 +48,26 @@ political_actions={
 		fire_only_once = no
 
 		available = {
-			242 = { is_controlled_by = ROOT }
+			242={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
 		}
 
 		visible = {
 			has_global_flag = north_crimean_canal_blocked
-			354 = { is_controlled_by = ROOT }
+			any_state={
+				is_controlled_by = ROOT
+				OR={
+					has_dynamic_modifier = { modifier = water_shortage }
+					has_dynamic_modifier = { modifier = drastic_water_shortage }
+				}
+			}
 		}
 		
 		ai_will_do = {
@@ -99,9 +113,39 @@ political_actions={
 		icon = generic_form_nation
 
 		available = {
-			NOT = { 331 = { is_controlled_by = ROOT } }
-			NOT = { 445 = { is_controlled_by = ROOT } }
-			NOT = { 256 = { is_controlled_by = ROOT } }
+			NOT={
+				331={
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_puppet_of = ROOT
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
+			NOT={
+				445={
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_puppet_of = ROOT
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
+			NOT={
+				256={
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_puppet_of = ROOT
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
 		}
 		
 		days_mission_timeout = 1460
@@ -113,9 +157,35 @@ political_actions={
 			}
 		}
 
-		allowed = {
-			331 = { is_controlled_by = ROOT }
-			256 = { is_controlled_by = ROOT }
+		allowed = {	
+			331={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			445={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			256={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			
 		}		
 
 		fixed_random_seed = no

@@ -1296,3 +1296,35 @@ news_event = {	#Siloviki Coup
 		name = atd_news.52.b
 	}
 }
+
+news_event = {	#Ukraine president killed
+	id = atd_news.53
+	title = atd_news.53.t
+	desc = atd_news.53.desc
+	picture = city_event_fall_mariupol
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = { tag = SOV }
+			NOT = { tag = UKR }
+		}
+		name = atd_news.53.a
+	}
+
+	option = {
+		trigger = {
+			tag = SOV
+		}
+		name = atd_news.53.b
+	}
+	
+	option = {
+		trigger = {
+			tag = UKR
+		}
+		name = atd_news.53.c
+		effect_tooltip = { load_fallen_rada = yes }
+	}
+}

@@ -66,7 +66,7 @@ country_event = {
 			base = 0
 		}
 		if={
-			limit = { has_country_leader = { name = "Vladimir Putin" ruling_only = yes } }
+			limit = { vladimir_putin_is_leader = yes }
 			set_country_leader_portrait = {
 				portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_Ice_Hockey.png"
 			}
@@ -89,7 +89,7 @@ country_event = {
 			base = 10
 		}
 		if={
-			limit = { has_country_leader = { name = "Vladimir Putin" ruling_only = yes } }
+			limit = { vladimir_putin_is_leader = yes }
 			set_country_leader_portrait = {
 				portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin.png"	
 			}
@@ -1326,6 +1326,27 @@ country_event = {
 		SOV_decrease_siloviki_faction_small = yes
 		add_political_power = -50
 		custom_effect_tooltip = russia.1023.tt
+    }
+}
+
+#Ukraine president dead
+country_event = {
+    id = russia.1039
+    title = russia.1039.t
+    desc = russia.1039.desc
+    picture = SOV_event_massacre
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1039.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect={
+			news_event = { id = atd_news.53 }
+			load_fallen_rada = yes
+		}
+		effect_tooltip={ load_fallen_rada = yes }
     }
 }
 

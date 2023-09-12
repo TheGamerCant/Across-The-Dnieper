@@ -1059,7 +1059,7 @@ country_event = {
 				NOV = { exists = yes }
 			}
 			
-			has_country_leader = { name = "Vladimir Putin" ruling_only = yes }
+			vladimir_putin_is_leader = yes
 		}
 		set_country_flag = chosen_to_send_volunteers_to_donbass
 		if={
@@ -2456,10 +2456,7 @@ country_event = {
 		}
 		trigger={
 			NOT={
-				has_country_leader = {
-					name = "Dmytro Yarosh"
-					ruling_only = yes
-				}
+				dmytro_yarosh_is_leader = yes
 			}
 		}
 		set_politics = {
@@ -2496,10 +2493,7 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT={
-					has_country_leader = {
-						name = "Dmytro Yarosh"
-						ruling_only = yes
-					}
+					dmytro_yarosh_is_leader = yes
 				}
 			}
 		}
@@ -2508,15 +2502,15 @@ country_event = {
 		add_political_power = 100
 		hidden_effect={
 			if={
-				limit={ has_country_leader = { name = "Dmytro Yarosh"ruling_only = yes } }
+				limit={ dmytro_yarosh_is_leader = yes }
 				news_event = { hours = 6 id = atd_news.42 }
 			}
 			else_if={
-				limit={ has_country_leader = { name = "Yulia Tymoshenko"ruling_only = yes } }
+				limit={ yulia_tymoshenko_is_leader = yes }
 				news_event = { hours = 6 id = atd_news.41 }
 			}
 			else_if={
-				limit={ has_country_leader = { name = "Petro Poroshenko"ruling_only = yes } }
+				limit={ petro_poroshenko_is_leader = yes }
 				news_event = { hours = 6 id = atd_news.40 }
 			}
 		}
