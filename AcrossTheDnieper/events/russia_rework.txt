@@ -921,6 +921,12 @@ country_event = {
 				is_puppet_of = SOV
 			}
 		}
+		
+		trigger={
+			NOT = { is_puppet_of = SOV }
+			NOT = { SOV = { has_completed_focus = SOV_annex_belarus } }
+		}
+		
 		effect_tooltip={
 			SOV = { puppet = BLR }
 		}
@@ -1345,8 +1351,40 @@ country_event = {
 		hidden_effect={
 			news_event = { id = atd_news.53 }
 			load_fallen_rada = yes
+			country_event = { id = russia.1040 days = 2 }
 		}
 		effect_tooltip={ load_fallen_rada = yes }
+    }
+}
+
+#Fate of Ukraine
+country_event = {
+    id = russia.1040
+    title = russia.1040.t
+    desc = russia.1040.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_putin_gerasimov
+
+    option = {
+        name = russia.1040.a
+		ai_chance = {
+			base = 10
+		}
+		
+		every_state={
+			limit = { is_core_of = UKR }
+			add_claim_by = ROOT
+		}
+		add_political_power = -150
+    }
+	
+	option = {
+        name = russia.1040.b
+		ai_chance = {
+			base = 0
+		}
+		
+		
     }
 }
 

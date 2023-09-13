@@ -537,6 +537,8 @@ focus_tree = {
 		prerequisite = { focus = SOV_strengthen_the_government_in_transnistria }
 		relative_position_id = SOV_strengthen_the_government_in_transnistria
 		
+		will_lead_to_war_with = UKR
+		
 		available={
 			vladimir_putin_is_leader = yes
 			has_completed_focus = SOV_memories_of_old
@@ -694,12 +696,14 @@ focus_tree = {
 								infantry = { x = 0 y = 2 }
 								infantry = { x = 1 y = 0 }
 								infantry = { x = 1 y = 1 }	
-								infantry = { x = 1 y = 2 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
 							}
 						}
 						
 						for_loop_effect = {
-							end = 40
+							end = 80
 							value = temp
 							random_owned_controlled_state = {
 								limit = { UKR = { has_full_control_of_state = PREV } }
@@ -2417,6 +2421,9 @@ focus_tree = {
 			
 		}
 		available={
+			always = no
+		}
+		bypass={
 			OR={
 				NOT = { country_exists = UKR }
 				UKR = { has_capitulated = yes }
@@ -2433,7 +2440,10 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				has_completed_focus = SOV_movements_on_the_border
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_completed_focus = SOV_movements_on_the_border
+				}
 			}
 		}
 		
@@ -2442,17 +2452,470 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_relocate_ukrainian_industry
+		icon = GFX_focus_
+		x = -3
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		
+
+		prerequisite = { focus = SOV_great_victors_2 }
+		relative_position_id = SOV_great_victors_2
+
+		available={
+			OR={
+				NOT = { country_exists = UKR }
+				UKR = { has_capitulated = yes }
+				UKR = { is_puppet_of = ROOT }
+				UKR = { is_in_faction_with = ROOT }
+			}
+			custom_trigger_tooltip={
+				tooltip = SOV_relocate_ukrainian_industry_tt
+				any_state={
+					OR={
+						has_state_flag = akarpatskia_oblast_flag
+						has_state_flag = cherkasy_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = chernivtsi_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = ivano_frankivsk_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = khmelnytskyi_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = lviv_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = poltava_oblast_flag
+						has_state_flag = rivne_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = ternopil_oblast_flag
+						has_state_flag = vinnytsia_oblast_flag
+						has_state_flag = volyn_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		completion_reward={
+			random_state={
+				limit={
+					OR={
+						has_state_flag = akarpatskia_oblast_flag
+						has_state_flag = cherkasy_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = chernivtsi_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = ivano_frankivsk_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = khmelnytskyi_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = lviv_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = poltava_oblast_flag
+						has_state_flag = rivne_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = ternopil_oblast_flag
+						has_state_flag = vinnytsia_oblast_flag
+						has_state_flag = volyn_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					industrial_complex_level > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resistance = 5
+				add_compliance = -5
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			
+			random_state={
+				limit={
+					OR={
+						has_state_flag = akarpatskia_oblast_flag
+						has_state_flag = cherkasy_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = chernivtsi_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = ivano_frankivsk_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = khmelnytskyi_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = lviv_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = poltava_oblast_flag
+						has_state_flag = rivne_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = ternopil_oblast_flag
+						has_state_flag = vinnytsia_oblast_flag
+						has_state_flag = volyn_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					industrial_complex_level > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resistance = 5
+				add_compliance = -5
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			
+			random_state={
+				limit={
+					OR={
+						has_state_flag = akarpatskia_oblast_flag
+						has_state_flag = cherkasy_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = chernivtsi_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = ivano_frankivsk_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = khmelnytskyi_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = lviv_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = poltava_oblast_flag
+						has_state_flag = rivne_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = ternopil_oblast_flag
+						has_state_flag = vinnytsia_oblast_flag
+						has_state_flag = volyn_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					arms_factory_level > 0
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				add_resistance = 5
+				add_compliance = -5
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			
+			random_state={
+				limit={
+					OR={
+						has_state_flag = akarpatskia_oblast_flag
+						has_state_flag = cherkasy_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = chernivtsi_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = ivano_frankivsk_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = khmelnytskyi_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = lviv_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = poltava_oblast_flag
+						has_state_flag = rivne_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = ternopil_oblast_flag
+						has_state_flag = vinnytsia_oblast_flag
+						has_state_flag = volyn_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					arms_factory_level > 0
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				add_resistance = 5
+				add_compliance = -5
+			}
+			random_owned_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_the_second_special_military_operation
+		icon = GFX_focus_SOV_the_second_special_military_operation
+		x = -1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		will_lead_to_war_with = MOL
+
+		prerequisite = { focus = SOV_great_victors_2 }
+		relative_position_id = SOV_great_victors_2
+
+		available={
+			any_country={
+				OR={
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+				is_neighbor_of = MOL
+				NOT = { tag = TRZ }
+			}
+			MOL = { is_in_faction = no }
+		}
+		
+		completion_reward={
+			every_country={
+				limit={
+					OR={
+						AND={
+							OR={
+								is_in_faction_with = ROOT
+								is_puppet_of = ROOT
+							}
+							is_neighbor_of = MOL
+						}
+						tag = ROOT
+					}
+				}
+				declare_war_on = {
+					target = MOL
+					type = take_state_focus
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_operations_in_ukraine
+		icon = GFX_focus_UKR_subordination_to_the_fsb
+		x = 3
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_great_victors_2 }
+		relative_position_id = SOV_great_victors_2
+
+		available={
+		}
+		
+		completion_reward={
+			if={
+				limit = { UKR = { is_puppet_of = SOV } }
+				SOV={
+					send_equipment = { 
+						type = infantry_equipment
+						amount = 4000
+						target = UKR
+					}
+				}
+				UKR = { add_manpower = 25000 }
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment
+					amount = -4000
+					producer = SOV
+				}
+			}
+			add_manpower = -25000
+			
+			every_state={
+				limit = {
+					OR={
+						is_core_of = UGE
+						is_core_of = UKR
+					}
+				}
+				add_compliance = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_annex_abkhazia
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_great_victors_2 }
+		relative_position_id = SOV_great_victors_2
+
+		available={
+			country_exists = ABK
+		}
+		
+		completion_reward={
+			SOV = { annex_country = { target = ABK transfer_troops = yes } }
+			387 = { add_core_of = ROOT }
+		}
+	}
+	
+	focus = {
+		id = SOV_annex_belarus
+		icon = GFX_focus_BLR_russofication_of_belarus
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_annex_abkhazia }
+		prerequisite = { focus = SOV_increase_operations_in_ukraine }
+		prerequisite = { focus = SOV_relocate_ukrainian_industry }
+		prerequisite = { focus = SOV_the_second_special_military_operation }
+		relative_position_id = SOV_the_second_special_military_operation
+
+		available={
+			has_completed_focus = SOV_huawei_contrats
+			has_completed_focus = SOV_strengthen_the_central_bank
+			has_completed_focus = SOV_promote_orthodoxy
+			has_completed_focus = SOV_geopolitical_grandmaster
+			has_completed_focus = SOV_victors_now_and_forever
+			has_completed_focus = SOV_great_helmsman
+			country_exists = BLR
+		}
+		
+		completion_reward={
+			every_state={
+				limit = { is_core_of = BLR }
+				add_claim_by = ROOT
+			}
+			BLR = { country_event = { id = russia.1025 } }
+		}
+	}
+	
+#	focus = {
+#		id = SOV_the_vozhd
+#		icon = GFX_focus_
+#		x = 0
+#		y = 1
+#		cost = 60
+#		search_filters = {
+#			
+#		}
+#
+#		prerequisite = { focus = SOV_annex_belarus }
+#		relative_position_id = SOV_annex_belarus
+#		available={
+#			vladimir_putin_is_leader = yes
+#		}
+#		
+#		completion_reward={
+#			
+#		}
+#	}
 	
 	focus = {
 		id = SOV_the_quagmire
 		icon = GFX_focus_SOV_the_quagmire
-		x = 34
+		x = 31
 		y = 8
 		cost = 10
 		search_filters = {
 			
 		}
 		available={
+			always = no
+		}
+		bypass={
 			has_war_with = UKR
 			custom_trigger_tooltip={
 				tooltip = SOV_the_quagmire_tt
@@ -2467,7 +2930,10 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				has_completed_focus = SOV_movements_on_the_border
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_completed_focus = SOV_movements_on_the_border
+				}
 			}
 		}
 		
