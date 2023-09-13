@@ -5678,6 +5678,75 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				WAG = { set_country_flag = wagner_can_send_volunteers_to_russia }
+				
+				if={
+					limit={
+						is_ai = no
+						UKR = { is_ai = yes }
+					}
+					UKR={
+						division_template = {
+							name = "AI Emergency National Guard"
+							division_names_group = UKR_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 80
+							value = temp
+							random_owned_controlled_state = {
+								limit = { UKR = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									owner = UKR
+								}
+							}
+						}
+					}
+				}
+				else_if={
+					limit={
+						is_ai = yes
+						UKR = { is_ai = no }
+					}
+					SOV={
+						division_template = {
+							name = "AI boost division"
+							division_names_group = SOV_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 50
+							value = temp
+							random_owned_controlled_state = {
+								limit = { SOV = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
+									owner = SOV
+								}
+							}
+						}
+					}
+				}
 			}
 			
 			add_stability = -0.03
@@ -6848,6 +6917,77 @@ focus_tree = {
 				popularity = -0.05
 			}
 			add_war_support = 0.03
+			
+			hidden_effect={
+				if={			#From TGC, makes the war last longer
+					limit={
+						is_ai = no
+						UKR = { is_ai = yes }
+					}
+					UKR={
+						division_template = {
+							name = "AI Emergency National Guard"
+							division_names_group = UKR_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 80
+							value = temp
+							random_owned_controlled_state = {
+								limit = { UKR = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									owner = UKR
+								}
+							}
+						}
+					}
+				}
+				else_if={
+					limit={
+						is_ai = yes
+						UKR = { is_ai = no }
+					}
+					SOV={
+						division_template = {
+							name = "AI boost division"
+							division_names_group = SOV_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 50
+							value = temp
+							random_owned_controlled_state = {
+								limit = { SOV = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
+									owner = SOV
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	focus = {
