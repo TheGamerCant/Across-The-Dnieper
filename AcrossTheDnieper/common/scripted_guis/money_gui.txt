@@ -90,6 +90,11 @@ scripted_gui = {
 			gdp_pc_growth_display_visible={
 				NOT = { has_country_flag = money_gui_topbar_off }
 			}
+			
+			click_me_icon_visible={
+				NOT = { has_country_flag = money_gui_topbar_off }
+				NOT = { has_country_flag = clicked_money_button_for_the_first_time }
+			}
 		}
 		
 		effects={
@@ -100,6 +105,11 @@ scripted_gui = {
 				}
 				else={
 					clr_country_flag = opened_gdp_mechanics
+				}
+				
+				if={
+					NOT = { has_country_flag = clicked_money_button_for_the_first_time }
+					set_country_flag = clicked_money_button_for_the_first_time
 				}
 			}
 		}
