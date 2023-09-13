@@ -715,6 +715,40 @@ focus_tree = {
 						}
 					}
 				}
+				else_if={
+					limit={
+						is_ai = yes
+						UKR = { is_ai = no }
+					}
+					SOV={
+						division_template = {
+							name = "AI boost division"
+							division_names_group = SOV_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 50
+							value = temp
+							random_owned_controlled_state = {
+								limit = { SOV = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
+									owner = SOV
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
