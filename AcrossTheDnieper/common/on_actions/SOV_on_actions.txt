@@ -191,7 +191,8 @@ on_actions={
 						SOV_decrease_oil_and_gas_faction_small = yes
 						SOV_increase_liberal_faction_small = yes
 						
-						add_popularity = { ideology = ultranationalist popularity = 0.18 }
+						add_popularity = { ideology = ultranationalist popularity = 0.182 }
+						add_popularity = { ideology = social_democracy popularity = -0.012 }
 						
 						set_variable = { SOV.SOV_media_leans_eastern_conservative = 79 }
 						set_variable = { SOV.SOV_media_leans_ultranationalist = 18 }
@@ -202,6 +203,10 @@ on_actions={
 						modify_timed_idea = { idea = SOV_subsidies_for_childbirth_idea days = -1030 }
 						
 						country_event = { id = russia.88 days = 12 }
+						
+						DON = { give_resource_rights = { receiver = SOV state = 186 } }
+						LHK = { give_resource_rights = { receiver = SOV state = 152 } }
+						LHK = { give_resource_rights = { receiver = SOV state = 174 } }
 					}
 				}
 				else = {
@@ -532,14 +537,14 @@ on_actions={
 						has_dlc = "No Step Back"
 						has_start_date < 2022.01.01
 					}
-					set_oob = "SOV_2014_nsb"
+					load_oob = "SOV_2014_nsb"
 				}
 				if = {
 					limit = {
 						NOT = { has_dlc = "No Step Back" }
 						has_start_date < 2022.01.01
 					}
-					set_oob = "SOV_2014"
+					load_oob = "SOV_2014"
 				}
 
 				if = {
@@ -683,6 +688,39 @@ on_actions={
 					NOT = { has_global_flag = crimea_cap_event_flag }
 				}
 				SOV = { country_event = { id = russia.1007 days = 5 }
+			}
+		}
+	}
+	
+	on_monthly_ZZZ={
+		effect={
+			if={
+				limit = { SOV = { has_completed_focus = SOV_economic_integration } }
+				every_state={
+					limit={
+						is_controlled_by = UKR
+						state_has_any_resource = yes
+					}
+					UKR = { remove_resource_rights = PREV }
+				}
+				
+				every_state={
+					limit={
+						state_has_any_resource = yes
+						OR={
+							is_controlled_by = DON
+							is_controlled_by = LHK
+							is_controlled_by = KHK
+							is_controlled_by = ODS
+							is_controlled_by = NOV
+						}
+					}
+					set_temp_variable = { state_owner = THIS.OWNER }
+					set_temp_variable = { state_with_resources = THIS }
+					var:state_owner={
+						give_resource_rights = { receiver = SOV state = var:state_with_resources }
+					}
+				}
 			}
 		}
 	}

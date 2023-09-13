@@ -2420,6 +2420,8 @@ focus_tree = {
 			OR={
 				NOT = { country_exists = UKR }
 				UKR = { has_capitulated = yes }
+				UKR = { is_puppet_of = ROOT }
+				UKR = { is_in_faction_with = ROOT }
 			}
 			has_war = no
 		}
@@ -3179,7 +3181,24 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		DON = { give_resource_rights = { receiver = SOV state = 186 } }
+		every_state={
+			limit ={
+				OR={
+					is_controlled_by = DON
+					is_controlled_by = LHK
+					is_controlled_by = KHK
+					is_controlled_by = ODS
+					is_controlled_by = NOV
+				}
+				state_has_any_resource = yes
+			}
+			
+			set_temp_variable = { state_owner = THIS.OWNER }
+			set_temp_variable = { state_with_resources = THIS }
+			var:state_owner={
+				give_resource_rights = { receiver = SOV state = var:state_with_resources }
+			}
+		}
 		
 		add_offsite_building = { type = industrial_complex level = 2 }
 		add_offsite_building = { type = arms_factory level = 2 }
@@ -3375,6 +3394,13 @@ shared_focus = {
 		add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
 		add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
 		custom_effect_tooltip = SOV_nationalise_western_assets_tt
+		
+		every_state={
+			limit={
+				is_controlled_by = SOV
+			}
+			increase_state_gdp_growth_by_0_5 = yes
+		}
 	}
 }
 

@@ -455,3 +455,21 @@ SOV_ignore_western_front = {
 		priority = -600
 	}
 }
+
+SOV_focus_on_ukraine = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = UKR
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			tag = UKR
+		}
+		value = 350
+	}
+}

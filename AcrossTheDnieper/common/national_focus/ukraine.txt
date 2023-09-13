@@ -3272,7 +3272,6 @@ focus_tree = {
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			145 = { is_owned_and_controlled_by = UKR }
 			has_political_power > 99
 			NOT = { has_country_flag = UKR_done_an_oligarchy_focus_recently }
 		}
@@ -7027,14 +7026,26 @@ focus_tree = {
 			92 = {
 				add_building_construction = {
 					type = bunker
-					level = 2
+					level = 3
 					province = 17163
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = bunker
-					level = 2
+					level = 3
 					province = 17164
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 8013
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 4
+					province = 8800
 					instant_build = yes
 				}
 			}
@@ -7237,15 +7248,17 @@ focus_tree = {
 				idea = UKR_high_command_purged
 				days = 90
 			}
-			hidden_effect={ country_event = { id = ukraine.97 days = 93 } }
-			
-			every_state={
-				limit = {
-					has_dynamic_modifier = { modifier = UKR_collaborators scope = SOV }
-				}	
-				remove_dynamic_modifier = {
-					modifier = UKR_collaborators
-					scope = SOV
+			hidden_effect={ country_event = { id = ukraine.97 days = 90 } }
+			effect_tooltip={
+				custom_effect_tooltip = UKR_root_out_collaborators_tt
+				every_state={
+					limit = {
+						has_dynamic_modifier = { modifier = UKR_collaborators scope = SOV }
+					}	
+					remove_dynamic_modifier = {
+						modifier = UKR_collaborators
+						scope = SOV
+					}
 				}
 			}
 		}

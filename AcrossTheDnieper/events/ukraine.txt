@@ -3562,6 +3562,16 @@ country_event = {
 		}
 		add_political_power = 100
 		add_ideas = UKR_loyal_sons_of_ukraine
+		
+		every_state={
+			limit = {
+				has_dynamic_modifier = { modifier = UKR_collaborators scope = SOV }
+			}	
+			remove_dynamic_modifier = {
+				modifier = UKR_collaborators
+				scope = SOV
+			}
+		}
 	}
 }
 
