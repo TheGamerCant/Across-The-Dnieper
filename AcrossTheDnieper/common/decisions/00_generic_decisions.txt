@@ -239,27 +239,31 @@ war_measures = {
 		}
 
 		complete_effect = {
-			IF = {
-				limit = {
-					has_idea = volunteer_only
+			if={
+				limit = { has_war = yes }
+			
+				IF = {
+					limit = {
+						has_idea = volunteer_only
+					}
+					swap_ideas = {
+						add_idea = limited_conscription
+						remove_idea = volunteer_only
+					}
+					add_war_support = -0.05
+					set_country_flag = original_army_law_was_volunteer_only
 				}
-				swap_ideas = {
-					add_idea = limited_conscription
-					remove_idea = volunteer_only
+				ELSE_IF = {
+					limit = {
+						has_idea = army_disbanded
+					}
+					swap_ideas = {
+						add_idea = limited_conscription
+						remove_idea = army_disbanded
+					}
+					add_war_support = -0.15
+					set_country_flag = original_army_law_was_army_disbanded
 				}
-				add_war_support = -0.05
-				set_country_flag = original_army_law_was_volunteer_only
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = army_disbanded
-				}
-				swap_ideas = {
-					add_idea = limited_conscription
-					remove_idea = army_disbanded
-				}
-				add_war_support = -0.15
-				set_country_flag = original_army_law_was_army_disbanded
 			}
 		}
 	}
@@ -293,18 +297,21 @@ war_measures = {
 		}
 
 		complete_effect = {
-			add_manpower = 40000
-			swap_ideas = {
-				add_idea = extensive_conscription
-				remove_idea = limited_conscription
-			}
-			add_war_support = -0.1
 			if={
-				limit={
-					NOT={ has_country_flag = original_army_law_was_volunteer_only }
-					NOT={ has_country_flag = original_army_law_was_army_disbanded }
+				limit = { has_war = yes }
+				add_manpower = 40000
+				swap_ideas = {
+					add_idea = extensive_conscription
+					remove_idea = limited_conscription
 				}
-				set_country_flag = original_army_law_was_limited_conscription
+				add_war_support = -0.1
+				if={
+					limit={
+						NOT={ has_country_flag = original_army_law_was_volunteer_only }
+						NOT={ has_country_flag = original_army_law_was_army_disbanded }
+					}
+					set_country_flag = original_army_law_was_limited_conscription
+				}
 			}
 		}
 	}
@@ -380,7 +387,7 @@ war_measures = {
 
 		fire_only_once = no
 		days_re_enable = 365
-        days_remove = 90
+        days_remove = 15
 
 		ai_will_do = {
 			base = 0
@@ -390,46 +397,49 @@ war_measures = {
 			}
 		}
 
-		remove_effect = {		
-			IF = {
-				limit = {
-					has_idea = western_economy
+		remove_effect = {
+			if={
+				limit = { has_war = yes }
+				IF = {
+					limit = {
+						has_idea = western_economy
+					}
+					swap_ideas = {
+						add_idea = war_economy
+						remove_idea = western_economy
+					}
+					set_country_flag = original_economy_law_was_western_economy
 				}
-				swap_ideas = {
-					add_idea = war_economy
-					remove_idea = western_economy
+				ELSE_IF = {
+					limit = {
+						has_idea = oligarchy
+					}
+					swap_ideas = {
+						add_idea = war_economy
+						remove_idea = oligarchy
+					}
+					set_country_flag = original_economy_law_was_oligarchy
 				}
-				set_country_flag = original_economy_law_was_western_economy
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = oligarchy
+				ELSE_IF = {
+					limit = {
+						has_idea = centrally_planned_economy
+					}
+					swap_ideas = {
+						add_idea = war_economy
+						remove_idea = centrally_planned_economy
+					}
+					set_country_flag = original_economy_law_was_centrally_planned_economy
 				}
-				swap_ideas = {
-					add_idea = war_economy
-					remove_idea = oligarchy
+				ELSE_IF = {
+					limit = {
+						has_idea = rentier_state
+					}
+					swap_ideas = {
+						add_idea = war_economy
+						remove_idea = rentier_state
+					}
+					set_country_flag = original_economy_law_was_rentier_state
 				}
-				set_country_flag = original_economy_law_was_oligarchy
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = centrally_planned_economy
-				}
-				swap_ideas = {
-					add_idea = war_economy
-					remove_idea = centrally_planned_economy
-				}
-				set_country_flag = original_economy_law_was_centrally_planned_economy
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = rentier_state
-				}
-				swap_ideas = {
-					add_idea = war_economy
-					remove_idea = rentier_state
-				}
-				set_country_flag = original_economy_law_was_rentier_state
 			}
 		}
 	}

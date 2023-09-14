@@ -7,12 +7,14 @@ SOV_putin = {
 	}
 	enable = {
 		SOV_is_putin_ai = yes
+		NOT = { russia_rework_trigger = yes }
 	}
 	abort = {
 		OR = {
 			SOV_is_putin_dead_ai = yes
 			SOV_is_sobchak_ai = yes
 			SOV_is_yavlinski_ai = yes
+			russia_rework_trigger = yes
 		}
 	}
 
@@ -102,3 +104,112 @@ SOV_putin = {
 
 }
 
+
+SOV_russia_historical_rework = {
+	name = "Russian historical plan rework"
+	desc = ""
+
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		russia_rework_trigger = yes
+	}
+	abort = {
+		NOT = { russia_rework_trigger = yes }
+	}
+
+	ai_national_focuses = {
+		
+		SOV_putin_at_the_helm
+		
+		SOV_welcome_home_2
+		SOV_build_the_crimean_bridge
+		SOV_encourage_crimean_settlement
+		SOV_brothers_in_donbass
+		SOV_send_them_artillery
+		SOV_send_them_armour
+		SOV_fight_western_sanctions
+		SOV_no_need_for_western_food
+		SOV_BRICS_investments
+		SOV_nationalise_western_assets
+		SOV_hike_interest_rates
+		SOV_increase_economic_bureaucracy
+		SOV_economic_corridors
+		SOV_army_modernisation
+		SOV_move_to_a_professional_military
+		SOV_send_surovikin_to_syria
+		SOV_bypass_western_sanctions
+	
+		SOV_strong_president_strong_country
+		SOV_the_control_of_inner_politic
+		SOV_black_sea_pipelines
+		SOV_closer_ties_with_gazprom
+		SOV_utilise_wagner
+		SOV_lease_tartus_naval_base
+		SOV_subsidies_for_childbirth
+		SOV_the_western_infestation
+		SOV_promote_orthodoxy
+		SOV_raise_akhmat_battallions
+		SOV_pivot_to_the_east
+		SOV_increase_our_operations_in_syria
+		SOV_closer_ties_with_china
+		SOV_multipolarism
+		SOV_secure_chemezovs_loyalty
+		SOV_geopolitical_grandmaster
+		SOV_the_need_for_reforms
+		SOV_ambitious_new_faces_2
+		SOV_russia_the_land_of_opportunities
+		SOV_bureaucratic_reforms
+		SOV_liberalise_the_banking_sector
+		SOV_invest_in_internet_banking
+		SOV_drone_infantry_integration
+		SOV_improve_our_air_defences
+		SOV_modernise_our_t_72s
+		SOV_defensive_drills
+		SOV_strengthen_the_central_bank
+		SOV_memories_of_old
+		SOV_grom_2019
+		SOV_economic_integration
+		SOV_patriots_from_a_young_age
+		SOV_expand_vk_group
+		SOV_internet_infastructure
+		SOV_huawei_contrats
+
+		
+		SOV_strengthen_the_union_state
+		SOV_strengthen_the_government_in_transnistria
+		SOV_our_grand_history
+		SOV_movements_on_the_border
+		
+		SOV_bureaucratic_oversight
+		SOV_fix_our_logistics
+		SOV_offensives_in_donbass
+		SOV_announce_the_draft
+	}
+
+	research = {
+		
+	}
+
+	ideas = {
+		SOV_roman_vladimirovich_kutuzov_rework = 5
+		SOV_sergey_kiriyenko = 5
+	}
+
+	traits = {
+		
+	}
+
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

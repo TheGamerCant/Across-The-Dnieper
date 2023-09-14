@@ -364,9 +364,29 @@ ideas = {
 				political_power_cost = 0.05
 				monthly_population = 0.35
 				ruling_party_drift = 0.1
-				stability_factor = 0.04
+				stability_weekly = 0.001
 			}
 
+		}
+		
+		SOV_unpopular_mobilisation = {
+			available = { 
+				OR={
+					has_idea = extensive_conscription
+					has_idea = service_by_requirement
+				}
+			}
+
+			removal_cost = -1
+			picture = SOV_unpopular_mobilisation
+			modifier = {
+				political_power_cost = 0.35
+				monthly_population = -0.2
+				conscription = -0.004
+				research_speed_factor = -0.08
+				production_factory_max_efficiency_factor = -0.1
+				custom_modifier_tooltip = SOV_unpopular_mobilisation_tt
+			}
 		}
 	
 		SOV_memories_of_1991 = {
@@ -463,7 +483,7 @@ ideas = {
 			picture = SOV_military_doctrine
 			modifier = {
 				ultranationalist_drift = 0.1
-				political_power_factor = 0.06
+				political_power_factor = 0.02
 				conscription = 0.004
 				army_core_attack_factor = 0.1
 			}

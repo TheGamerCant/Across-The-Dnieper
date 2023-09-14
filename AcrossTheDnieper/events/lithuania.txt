@@ -956,6 +956,19 @@ country_event = {
 		BLR = {
 			leave_faction = yes
 		}
+		
+		if = {
+			limit = {
+				BLR = { is_guaranteed_by = SOV }
+			}
+			SOV = {
+				diplomatic_relation = {
+					country = BLR
+					relation = guarantee
+					active = no
+				}
+			}
+		}
 
 		hidden_effect = {
 			LIT = { country_event = { id = lithuania.24 days = 1 } }

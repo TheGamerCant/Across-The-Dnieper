@@ -806,9 +806,7 @@ UKR_the_verkhovna_rada={
 		icon = eng_trade_unions_support
 
 		available = {
-			NOT={
-				viktor_yanukovych_is_leader = yes
-			}
+			viktor_yanukovych_is_not_leader = yes
 		}
 		
 		allowed = { 
@@ -2330,7 +2328,6 @@ UKR_war_in_donbass_decisions={
 				add_command_power = -25
 				every_country={
 					limit = { 
-						has_war_with = ROOT
 						OR={
 							tag = UKR
 							tag = DON
@@ -2338,7 +2335,7 @@ UKR_war_in_donbass_decisions={
 							tag = KHK
 							tag = ODS
 							tag = NOV
-							tag = SOV	#Remind them
+							has_country_flag = chosen_to_send_volunteers_to_donbass		#Remind SOV and BLR if they're involved
 						}
 					}
 					country_event = { id = ukraine.38 }

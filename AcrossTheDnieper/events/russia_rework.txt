@@ -349,7 +349,7 @@ country_event = {
     option = {
         name = russia.1008.a
 		ai_chance = {
-			base = 10
+			base = 0
 		}
         every_state={
 			limit = {
@@ -366,7 +366,7 @@ country_event = {
         name = russia.1008.b
 		
 		ai_chance = {
-			base = 0
+			base = 10
 		}
         every_state={
 			limit = {
@@ -1387,6 +1387,79 @@ country_event = {
 		
     }
 }
+
+#Putin announces draft
+country_event = {
+    id = russia.1041
+    title = russia.1041.t
+    desc = russia.1041.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_putin_desk_2
+
+    option = {
+        name = russia.1041.a
+		ai_chance = {
+			base = 10
+		}
+		
+		if = {
+			limit = {
+				has_idea = volunteer_only
+			}
+			swap_ideas = {
+				add_idea = extensive_conscription
+				remove_idea = volunteer_only
+			}
+			set_country_flag = original_army_law_was_volunteer_only
+		}
+		else_if = {
+			limit = {
+				has_idea = army_disbanded
+			}
+			swap_ideas = {
+				add_idea = extensive_conscription
+				remove_idea = army_disbanded
+			}
+			set_country_flag = original_army_law_was_army_disbanded
+		}
+		else_if = {
+			limit = {
+				has_idea = limited_conscription
+			}
+			swap_ideas = {
+				add_idea = extensive_conscription
+				remove_idea = limited_conscription
+			}
+			set_country_flag = original_army_law_was_limited_conscription
+		}
+		
+		add_stability = -0.05
+		
+		hidden_effect = { country_event = { id = russia.1042 days = 7 } }
+    }
+}
+
+country_event = {
+    id = russia.1042
+    title = russia.1042.t
+    desc = russia.1042.desc
+    is_triggered_only = yes
+	picture = SOV_cw_kolokoltsev
+
+    option = {
+        name = russia.1042.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_ideas = SOV_unpopular_mobilisation
+		add_manpower = -150000
+		add_political_power = -100
+		add_stability = -0.1
+		add_war_support = -0.1
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1

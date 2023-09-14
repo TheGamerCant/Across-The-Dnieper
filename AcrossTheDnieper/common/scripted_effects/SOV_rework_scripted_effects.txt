@@ -7155,6 +7155,81 @@ get_zolotov_fire_effect={
 	}
 }
 
+get_bortnikov_hire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 1 compare = equals } }
+		SOV_increase_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 2 compare = equals } }
+		SOV_increase_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 3 compare = equals } }
+		SOV_increase_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 4 compare = equals } }
+		SOV_increase_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 5 compare = equals } }
+		SOV_increase_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 6 compare = equals } }
+		SOV_increase_nationalist_faction_medium = yes
+	}
+	
+	if={
+		limit = {
+			has_any_power_balance = yes
+			has_country_flag = putin_siloviki_power_balance
+		}
+		add_power_balance_value = {
+			id = SOV_power_balance
+			value = -0.15
+		}
+	}
+}
+get_bortnikov_fire_effect={
+	if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 1 compare = equals } }
+		SOV_decrease_liberal_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 2 compare = equals } }
+		SOV_decrease_technocrat_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 3 compare = equals } }
+		SOV_decrease_oil_and_gas_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 4 compare = equals } }
+		SOV_decrease_siloviki_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 5 compare = equals } }
+		SOV_decrease_putinist_faction_medium = yes
+	}
+	else_if={
+		limit={ check_variable = { var = SOV_alexander_bortnikov_faction value = 6 compare = equals } }
+		SOV_decrease_nationalist_faction_medium = yes
+	}
+	
+	if={
+		limit = {
+			has_any_power_balance = yes
+			has_country_flag = putin_siloviki_power_balance
+		}
+		add_power_balance_value = {
+			id = SOV_power_balance
+			value = 0.15
+		}
+	}
+}
+
 load_fallen_rada={
 	UKR={
 		kill_country_leader = yes

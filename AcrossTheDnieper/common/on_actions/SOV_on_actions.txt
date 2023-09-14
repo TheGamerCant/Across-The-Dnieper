@@ -177,21 +177,28 @@ on_actions={
 						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
 						country_event = { id = russia.1012 days = 421 }			#Nemtsov Dies
 						country_event = { id = russia.1029 days = 1626 }		#World Cup
+						
+						if={
+							limit = { is_ai = yes }
+							add_ideas = SOV_sergey_surovikin_air_force_rework
+						}
+						remove_ideas = SOV_alexander_bortnikov_rework
 					}
 					else={
 						puppet = BLR
 						add_ideas = SOV_sergey_surovikin_air_force_rework
+						remove_ideas = SOV_dmitry_medvedev_rework
+						add_ideas = SOV_mikhail_mishustin_rework
 						add_war_support = -0.1
 						add_stability = -0.25
 						add_political_power = 748
 						add_command_power = 100
 						SOV_increase_technocrat_faction_large = yes
-						SOV_increase_technocrat_faction_medium = yes
 						SOV_decrease_putinist_faction_small = yes
 						SOV_decrease_oil_and_gas_faction_small = yes
 						SOV_increase_liberal_faction_small = yes
 						
-						add_popularity = { ideology = ultranationalist popularity = 0.182 }
+						add_popularity = { ideology = ultranationalist popularity = 0.1 }
 						add_popularity = { ideology = social_democracy popularity = -0.012 }
 						
 						set_variable = { SOV.SOV_media_leans_eastern_conservative = 79 }
