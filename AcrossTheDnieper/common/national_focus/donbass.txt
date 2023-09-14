@@ -1,0 +1,76 @@
+focus_tree = {
+    id = donetsk
+	continuous_focus_position = { x = -40 y = 1300 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = DON
+		}
+	}
+
+    focus = {
+		id = DON_glory_to_the_republic
+		icon = GFX_focus_DON_glory_to_the_republic
+		x = 10
+		y = 0
+		cost = 7
+		search_filters = {
+			
+		}
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+            add_political_power = 50
+
+			hidden_effect = {
+				set_country_flag = DON_begin_referendum_mission
+				country_event = { id = donetsk.1 days = 19 }
+			}
+           
+		}
+	}
+
+	focus = {
+		id = DON_glory_to_the_power
+		icon = GFX_no
+		x = 11
+		y = 1
+		cost = 10
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = DON_glory_to_the_republic }
+        available = {
+
+        }
+		completion_reward ={
+
+		}
+	}
+
+	focus = {
+		id = DON_glory_to_the_beloved
+		icon = GFX_no
+		x = 9
+		y = 1
+		cost = 10
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = DON_glory_to_the_republic }
+        available = {
+
+        }
+		completion_reward ={
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DON_igor_khakimzyanov
+		}
+	}
+}
