@@ -903,6 +903,25 @@ focus_tree = {
 						}
 					}
 				}
+				
+				if={
+					limit = {
+						is_ai = yes
+						SOV = { is_ai = no }
+					}
+					
+					for_loop_effect = {
+						end = 40
+						value = temp
+						random_owned_controlled_state = {
+							limit = { ROOT = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"Anti-Terrorist Police Force\" start_experience_factor = 0.2" 
+								owner = UKR
+							}
+						}
+					}
+				}
 			}
 		}
 	}

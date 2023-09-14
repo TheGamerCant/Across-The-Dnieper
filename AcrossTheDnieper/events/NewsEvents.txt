@@ -1328,3 +1328,54 @@ news_event = {	#Ukraine president killed
 		effect_tooltip = { load_fallen_rada = yes }
 	}
 }
+
+news_event = {	#Ukrainian victory
+	id = atd_news.54
+	title = atd_news.54.t
+	desc = atd_news.54.desc
+	picture = city_event_crimea_liberated
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = {
+				tag = SOV
+			}
+		}
+		name = atd_news.54.a
+		
+		hidden_effect={
+			every_state={
+				limit={
+					is_demilitarized_zone = yes
+					OR={
+						is_core_of = SOV
+						is_core_of = UKR
+					}
+				}
+				set_demilitarized_zone = no
+			}
+		}
+	}
+
+	option = {
+		trigger = {
+			tag = SOV
+		}
+		name = atd_news.54.b
+		
+		hidden_effect={
+			every_state={
+				limit={
+					is_demilitarized_zone = yes
+					OR={
+						is_core_of = SOV
+						is_core_of = UKR
+					}
+				}
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
