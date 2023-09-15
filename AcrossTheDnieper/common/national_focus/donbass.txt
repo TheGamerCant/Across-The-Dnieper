@@ -9,12 +9,12 @@ focus_tree = {
 		}
 	}
 
-    focus = {
-		id = DON_glory_to_the_republic
-		icon = GFX_focus_DON_glory_to_the_republic
+	focus = {
+		id = DON_storm_the_rsa
+		icon = GFX_focus_DON_storm_the_rsa
 		x = 10
 		y = 0
-		cost = 7
+		cost = 3
 		search_filters = {
 			
 		}
@@ -25,6 +25,107 @@ focus_tree = {
             }
         }
 		completion_reward ={
+			effect_tooltip = {
+				country_event = { id = donetsk.3 }
+			}
+		}
+	}
+
+	focus = {
+		id = DON_appoint_new_leadership
+		icon = GFX_focus_DON_appoint_new_leadership
+		x = 10
+		y = 1
+		cost = 3
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = DON_storm_the_rsa }
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DON_igor_khakimzyanov
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DON_alexander_borodai
+		}
+	}
+
+	focus = {
+		id = DON_hold_referendum_rallies
+		icon = GFX_focus_DON_hold_referendum_rallies
+		x = 8
+		y = 1
+		cost = 3
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = DON_storm_the_rsa }
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+			effect_tooltip = {
+				add_war_support = 0.1
+				add_stability = 0.02
+			}
+		}
+	}
+
+	focus = {
+		id = DON_demand_russian_peacekeeping_troops
+		icon = GFX_focus_DON_demand_russian_peacekeeping_troops
+		x = 12
+		y = 1
+		cost = 3
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = DON_storm_the_rsa }
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+			effect_tooltip = {
+				add_political_power = 100
+				add_stability = -0.02
+			}
+		}
+	}
+
+    focus = {
+		id = DON_glory_to_the_republic
+		icon = GFX_focus_DON_glory_to_the_republic
+		x = 10
+		y = 2
+		cost = 7
+		search_filters = {
+			
+		}
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		prerequisite = { focus = DON_appoint_new_leadership }
+		prerequisite = { focus = DON_hold_referendum_rallies }
+		prerequisite = { focus = DON_demand_russian_peacekeeping_troops }
+
+		completion_reward ={
             add_political_power = 50
 
 			hidden_effect = {
@@ -32,45 +133,6 @@ focus_tree = {
 				country_event = { id = donetsk.1 days = 19 }
 			}
            
-		}
-	}
-
-	focus = {
-		id = DON_glory_to_the_power
-		icon = GFX_no
-		x = 11
-		y = 1
-		cost = 10
-		search_filters = {
-			
-		}
-
-		prerequisite = { focus = DON_glory_to_the_republic }
-        available = {
-
-        }
-		completion_reward ={
-
-		}
-	}
-
-	focus = {
-		id = DON_glory_to_the_beloved
-		icon = GFX_no
-		x = 9
-		y = 1
-		cost = 10
-		search_filters = {
-			
-		}
-
-		prerequisite = { focus = DON_glory_to_the_republic }
-        available = {
-
-        }
-		completion_reward ={
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = DON_igor_khakimzyanov
 		}
 	}
 }
