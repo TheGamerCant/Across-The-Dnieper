@@ -135,4 +135,57 @@ focus_tree = {
            
 		}
 	}
+
+
+
+
+	focus = {
+		id = DON_independence_day
+		icon = GFX_focus_DON_independence_day
+		x = 28
+		y = 0
+		cost = 10
+		search_filters = {
+			
+		}
+
+		allow_branch = {
+			has_country_flag = DON_independence_day_flag
+		}
+
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+			add_stability = 0.03
+			add_political_power = 15
+		}
+	}
+
+	
+	focus = {
+		id = DON_closer_to_russia
+		icon = GFX_focus_DON_closer_to_russia
+		x = 20
+		y = 1
+		cost = 40
+		search_filters = {
+			
+		}
+
+		prerequisite = {focus = DON_independence_day }
+
+        available = {
+        }
+		completion_reward ={
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+		}
+	}
 }

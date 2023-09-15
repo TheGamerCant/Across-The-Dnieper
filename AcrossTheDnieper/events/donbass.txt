@@ -61,6 +61,18 @@ country_event = {
 
 		add_ideas = DON_free_in_spirit
 
+		hidden_effect = {
+			country_event = { id = donetsk.4 days = 5 }
+
+			every_country={
+				limit = {
+					OR = { original_tag = DON original_tag = SOV original_tag = UKR }
+				}
+
+				country_event = { id = donetsk.5 days = 1 }
+			}
+			
+		}
 		
 	}
 
@@ -72,3 +84,74 @@ country_event = {
 	title = donetsk.3.t
 	is_triggered_only = yes
 }
+
+#Donetsk "Independence" Day
+country_event = {
+	id = donetsk.4
+	title = donetsk.4.t
+	desc = donetsk.4.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_celebration
+
+	option = { 
+		name = donetsk.4.a
+		ai_chance = {
+			base = 40
+		}
+
+
+		set_country_flag = DON_independence_day_flag
+		complete_national_focus = DON_independence_day
+	}
+
+}
+
+#Donetsk Leaked Audio Recording
+country_event = {
+	id = donetsk.5
+	title = donetsk.5.t
+	desc = donetsk.5.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_me_at_the_function
+
+	option = { 
+		name = donetsk.5.a
+		ai_chance = {
+			base = 50
+		}
+
+		trigger = {
+			original_tag = DON
+		}
+
+		add_stability = -0.05
+		add_political_power = -25
+	}
+
+	option = { 
+		name = donetsk.5.b
+		ai_chance = {
+			base = 50
+		}
+
+		trigger = {
+			original_tag = UKR	
+		}
+
+		add_political_power = 5
+	}
+
+	option = { 
+		name = donetsk.5.c
+		ai_chance = {
+			base = 50
+		}
+
+		trigger = {
+			original_tag = SOV	
+		}
+
+		add_political_power = -2
+	}
+}
+
