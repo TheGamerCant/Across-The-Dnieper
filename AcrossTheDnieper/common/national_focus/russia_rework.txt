@@ -371,7 +371,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_putin_at_the_helm
 		x = 27
 		y = 1
-		cost = 47
+		cost = 48
 		search_filters = {
 			
 		}
@@ -500,8 +500,8 @@ focus_tree = {
 							artillery_brigade = { x = 2 y = 1 }
 						}
 					}
-					random_owned_controlled_state = {
-						limit = { ROOT = { has_full_control_of_state = PREV } }
+					random_state = {
+						limit = { TRZ = { has_full_control_of_state = PREV } }
 						create_unit = {
 							division = "name = \"14th Guards\" division_template = \"Russian Infantry\" start_experience_factor = 0.1" 
 							owner = TRZ
@@ -570,7 +570,56 @@ focus_tree = {
 					}
 				}
 				
-				country_event = { id = russia.88 days = 70 }
+				country_event = { id = russia.88 days = 56 }
+			}
+			
+			if={
+				limit = { has_start_date < 2022.01.01 is_ai = yes }
+				SOV={
+					division_template = {
+						name = "Russian Regular Forces"
+						division_names_group = SOV_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }	
+							infantry = { x = 1 y = 2 }
+							mechanized = { x = 2 y = 0 }
+							mechanized = { x = 2 y = 1 }
+						}
+					}
+					
+					for_loop_effect = {
+						end = 120
+						value = temp
+						random_owned_controlled_state = {
+							limit = { SOV = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
+								owner = SOV
+							}
+						}
+					}
+				}
+			}
+			
+			if={
+				limit = { has_start_date < 2022.01.01 is_ai = yes UKR = { is_ai = no } }
+				SOV={					
+					for_loop_effect = {
+						end = 120
+						value = temp
+						random_owned_controlled_state = {
+							limit = { SOV = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
+								owner = SOV
+							}
+						}
+					}
+				}
 			}
 		}
 		
@@ -599,6 +648,9 @@ focus_tree = {
 							has_state_flag = kherson_oblast_flag
 							has_state_flag = zaporizhia_oblast_flag
 							has_state_flag = crimea_oblast_flag
+							has_state_flag = donetsk_oblast_flag
+							has_state_flag = luhansk_oblast_flag
+							has_state_flag = kharkiv_oblast_flag
 						}
 					}
 					add_dynamic_modifier = {
@@ -680,7 +732,7 @@ focus_tree = {
 					}
 				}
 				
-				add_timed_idea = { idea = SOV_three_days_to_kiev days = 20 } 
+				add_timed_idea = { idea = SOV_three_days_to_kiev days = 30 } 
 				mark_focus_tree_layout_dirty = yes
 				
 				if={
@@ -751,6 +803,22 @@ focus_tree = {
 						}
 					}
 				}
+				
+				
+				
+				if={
+					limit = { is_ai = yes  has_start_date < 2022.01.01 }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_1 days = 60 }
+				}
+				if={
+					limit = { is_ai = yes  has_start_date > 2022.01.01 }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_3 days = 60 }
+				}
+				if={
+					limit = { is_ai = yes UKR = { is_ai = no } }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_2 days = 365 }
+				}
+
 			}
 		}
 	}
@@ -975,12 +1043,46 @@ focus_tree = {
 		
 		available={
 			vladimir_putin_is_leader = yes
+			OR={
+				256 = { is_controlled_by = ROOT }
+				387 = { is_controlled_by = ROOT }
+				430 = { is_controlled_by = ROOT }
+				331 = { is_controlled_by = ROOT }
+				330 = { is_controlled_by = ROOT }
+				353 = { is_controlled_by = ROOT }
+				326 = { is_controlled_by = ROOT }
+				354 = { is_controlled_by = ROOT }
+			}
 		}
 
-		
+		bypass={
+			NOT={
+				OR={
+					256 = { is_controlled_by = ROOT }
+					387 = { is_controlled_by = ROOT }
+					430 = { is_controlled_by = ROOT }
+					331 = { is_controlled_by = ROOT }
+					330 = { is_controlled_by = ROOT }
+					353 = { is_controlled_by = ROOT }
+					326 = { is_controlled_by = ROOT }
+					354 = { is_controlled_by = ROOT }
+				}
+			}
+		}
 		completion_reward={
 			random_owned_controlled_state = { 
-				prioritize = { 256 }
+				limit={
+					OR={
+						state = 256
+						state = 387
+						state = 430
+						state = 331
+						state = 330
+						state = 353
+						state = 326
+						state = 354
+					}
+				}
 				add_resource = { 
 					type = oil
 					amount = 150
@@ -1293,6 +1395,14 @@ focus_tree = {
 			show_ideas_tooltip = SOV_sergey_kiriyenko
 			
 			SOV_increase_technocrat_faction_small = yes
+			
+			hidden_effect={		#Happens two years earlier in game than irl, but it's kinda a pain to get AI to do it manually
+				if={			#I guess I could do a hidden event but this is easier lol
+					limit = { is_ai = yes }
+					remove_ideas = SOV_dmitry_medvedev_rework
+					add_ideas = SOV_mikhail_mishustin_rework
+				}
+			}
 		}
 	}
 	
@@ -1490,6 +1600,11 @@ focus_tree = {
 				uses = 2
 				category = electronics
 			}
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_1 = yes
+			}
 		}
 	}
 	
@@ -1549,6 +1664,11 @@ focus_tree = {
 			swap_ideas={
 				remove_idea = SOV_banking_sector_reforms_2
 				add_idea = SOV_russia_of_a_new_age
+			}
+			
+			every_state={
+				limit={ is_controlled_by = ROOT }
+				increase_state_gdp_growth_by_2_5 = yes
 			}
 		}
 	}
@@ -3008,7 +3128,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_offensives_in_donbass
+		id = SOV_offensives_in_donbass_2
 		icon = GFX_focus_
 		x = -1
 		y = 2
@@ -3088,7 +3208,7 @@ focus_tree = {
 			
 		}
 
-		prerequisite = { focus = SOV_offensives_in_donbass focus = SOV_the_push_to_odessa }
+		prerequisite = { focus = SOV_offensives_in_donbass_2 focus = SOV_the_push_to_odessa }
 		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_fix_our_logistics
 
@@ -4459,7 +4579,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		army_experience = 50
+		army_experience = 80
 		
 		subtract_from_variable = { SOV_army_conscription_factor = 0.1 }
 		custom_effect_tooltip = SOV_move_to_a_professional_military_tt
@@ -4469,7 +4589,7 @@ shared_focus = {
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
 			cost_reduction = 0.8
-			uses = 2
+			uses = 3
 			category = land_doctrine
 		}
 	}
@@ -4654,7 +4774,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_defensive_drills }
@@ -4698,7 +4818,7 @@ shared_focus = {
 	x = -2
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 		factor = 0
 	}
@@ -4743,7 +4863,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_bureaucratic_oversight }
@@ -4802,7 +4922,7 @@ shared_focus = {
 	x = 2
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_bureaucratic_oversight }
@@ -4842,7 +4962,7 @@ shared_focus = {
 	x = -1
 	y = 2
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_bureaucratic_oversight }
@@ -4881,7 +5001,7 @@ shared_focus = {
 	x = 1
 	y = 2
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_bureaucratic_oversight }
@@ -5239,11 +5359,12 @@ shared_focus = {
 		custom_effect_tooltip = SOV_perfect_the_soviet_doctrine_tt
 		
 		add_political_power = 50
+		army_experience = 50
 		
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
 			cost_reduction = 0.8
-			uses = 2
+			uses = 3
 			category = land_doctrine
 		}
 	}
@@ -5434,7 +5555,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_the_endless_wall_of_steel }
@@ -5482,7 +5603,7 @@ shared_focus = {
 	x = 2
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_strike_deep_and_hard }
@@ -5518,7 +5639,7 @@ shared_focus = {
 	x = -1
 	y = 2
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_strike_deep_and_hard }
@@ -5569,7 +5690,7 @@ shared_focus = {
 	x = 1
 	y = 2
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_strike_deep_and_hard }
@@ -5625,7 +5746,7 @@ shared_focus = {
 	x = -2
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_strike_deep_and_hard }
@@ -5677,7 +5798,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	
-	cost = 80
+	cost = 70
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_strike_deep_and_hard }

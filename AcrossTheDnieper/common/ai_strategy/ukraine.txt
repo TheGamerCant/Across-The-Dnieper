@@ -299,7 +299,7 @@ UKR_secure_kyiv = {
 	
 }
 
-UKR_ignore_the_south = {
+UKR_ignore_the_south_initially = {
 	allowed = {
 		tag = UKR
 	}
@@ -313,13 +313,13 @@ UKR_ignore_the_south = {
 	ai_strategy = {
 		type = front_control
 		state_trigger = {
-			is_demilitarized_zone = no
 			OR={
 				has_state_flag = kherson_oblast_flag
 				has_state_flag = zaporizhia_oblast_flag
+				has_state_flag = crimea_oblast_flag
 			}
 		}
-		priority = -60
+		priority = -600
 	}
 }
 

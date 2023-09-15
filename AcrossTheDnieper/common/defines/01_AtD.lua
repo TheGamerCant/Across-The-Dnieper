@@ -49,9 +49,9 @@ NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 2				--base is 5
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 2			--base is 5
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 4				--base is 10
 NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.4				--base is -0.3
-NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.85				--base is -0.6
+NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.7				--base is -0.6
 NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY = -0.35				--base is -0.25
-NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY_LARGE = -0.75			--base is -0.5
+NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY_LARGE = -0.6			--base is -0.5
 
 NDefines.NFocus.FOCUS_POINT_DAYS = 1			--base is 7
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30   --10 (lets you not pick a focus for some time)

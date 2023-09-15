@@ -223,6 +223,7 @@ SOV_army_modernisation_plan = {
 	modifier_army_sub_unit_apc_attack_factor   = SOV_army_modifier_army_sub_unit_apc_attack_factor
 	modifier_army_sub_unit_apc_defence_factor  = SOV_army_modifier_army_sub_unit_apc_defence_factor
 	special_forces_cap = SOV_army_special_forces_cap
+	army_morale_factor = SOV_army_army_morale_factor
 }
 
 SOV_raspizdyaystvo = {
@@ -263,4 +264,43 @@ SOV_local_offensive_modifier  = {
 	ground_attack_factor = 0.25
 	local_org_regain = 0.1
 	supply_factor = 0.1
+}
+
+SOV_secret_ai_modifier_1  = {		#AI buff, 2014 start
+	enable = { always = yes }
+	
+	army_attack_factor = 0.3
+	army_defence_factor = 0.3
+	breakthrough_factor = 0.7
+	army_speed_factor = 0.2
+	army_org_factor = 0.15
+	dig_in_speed_factor = 0.3
+	max_dig_in = 6
+	supply_consumption_factor = -0.12
+	army_morale_factor = 0.08
+}
+
+SOV_secret_ai_modifier_2  = {		#AI vs player buff
+	enable = { always = yes }
+	
+	army_attack_factor = 0.1
+	army_defence_factor = 0.1
+	army_org_factor = 0.15
+	army_morale_factor = 0.2
+	dig_in_speed_factor = 2
+	max_dig_in = 18
+	supply_consumption_factor = -0.2
+}
+
+SOV_secret_ai_modifier_3  = {		#AI buff, 2022 start
+	enable = { always = yes }
+	
+	army_attack_factor = 0.12
+	army_defence_factor = 0.12
+	breakthrough_factor = 0.2
+	army_speed_factor = 0.2
+	army_org_factor = 0.15
+	dig_in_speed_factor = 0.3
+	max_dig_in = 8
+	supply_consumption_factor = -0.12
 }

@@ -159,6 +159,27 @@ russia_really_wants_a_large_army = {
 	    id = modern_armor
 	    value = 60
 	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 20
+	}
+}
+
+abkhazia_is_fren = {
+	enable = {
+		original_tag = SOV
+	}
+	abort = {
+		NOT = { original_tag = SOV }
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "ABK"
+		value = 80
+	}
 }
 
 russia_belarus_neutral_friend = {
@@ -426,10 +447,26 @@ SOV_try_to_take_southern_ukraine = {
 				has_state_flag = crimea_oblast_flag
 			}
 		}
-		priority = 300
+		priority = 700
 		ordertype = front
 		execution_type = rush
 		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		state = 299
+		value = 80
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 283
+		value = 80
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 242
+		value = 80
 	}
 }
 
