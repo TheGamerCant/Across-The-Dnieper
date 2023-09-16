@@ -130,13 +130,44 @@ focus_tree = {
 
 			hidden_effect = {
 				set_country_flag = DON_begin_referendum_mission
-				country_event = { id = donetsk.1 days = 19 }
+				country_event = { id = donetsk.1 days = 18 }
 			}
            
 		}
 	}
 
+    focus = {
+		id = DON_push_to_sloviansk
+		icon = GFX_focus_DON_push_to_sloviansk
+		x = 11
+		y = 3
+		cost = 15
+		search_filters = {
+			
+		}
 
+        available = {
+			has_war_with = UKR
+        }
+		prerequisite = { focus = DON_glory_to_the_republic }
+
+		completion_reward ={
+			135 = {
+				add_dynamic_modifier = {
+					modifier = DON_push_to_sloviansk_modifier
+					scope = DON
+					days = 84
+				}
+			}
+			146 = {
+				add_dynamic_modifier = {
+					modifier = DON_push_to_sloviansk_modifier
+					scope = DON
+					days = 84
+				}
+			}
+		}
+	}
 
 
 	focus = {
@@ -159,7 +190,7 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.03
+			add_stability = 0.2
 			add_political_power = 15
 		}
 	}
@@ -185,7 +216,10 @@ focus_tree = {
 					target = ROOT
 					modifier = BLR_small_positive
 				}
+				add_political_power = 1
 			}
+
+			add_stability = 0.02
 		}
 	}
 }
