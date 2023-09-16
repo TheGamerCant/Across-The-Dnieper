@@ -53,6 +53,8 @@ focus_tree = {
 			show_ideas_tooltip = DON_igor_khakimzyanov
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = DON_alexander_borodai
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DON_denis_pushilin
 		}
 	}
 
@@ -136,39 +138,53 @@ focus_tree = {
 		}
 	}
 
-    focus = {
-		id = DON_push_to_sloviansk
-		icon = GFX_focus_DON_push_to_sloviansk
-		x = 11
+	focus = {
+		id = DON_free_pavel_gubarev
+		icon = GFX_focus_DON_free_pavel_gubarev
+		x = 12
 		y = 3
-		cost = 15
+		cost = 20
 		search_filters = {
 			
 		}
 
         available = {
-			has_war_with = UKR
+
         }
+		mutually_exclusive = { focus = DON_let_competition_rot }
 		prerequisite = { focus = DON_glory_to_the_republic }
 
+
 		completion_reward ={
-			135 = {
-				add_dynamic_modifier = {
-					modifier = DON_push_to_sloviansk_modifier
-					scope = DON
-					days = 84
-				}
-			}
-			146 = {
-				add_dynamic_modifier = {
-					modifier = DON_push_to_sloviansk_modifier
-					scope = DON
-					days = 84
-				}
-			}
+			add_manpower = 2
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DON_pavel_gubarev
 		}
 	}
 
+	focus = {
+		id = DON_let_competition_rot
+		icon = GFX_focus_DON_let_competition_rot
+		x = 8
+		y = 3
+		cost = 20
+		search_filters = {
+			
+		}
+		ai_will_do = { factor = 0 }  #temp
+        available = {
+
+        }
+		mutually_exclusive = { focus = DON_free_pavel_gubarev }
+		prerequisite = { focus = DON_glory_to_the_republic }
+
+
+		completion_reward ={
+			custom_effect_tooltip = "DON_let_competition_rot_tt"
+			add_stability = -0.08
+			add_war_support = 0.03
+		}
+	}
 
 	focus = {
 		id = DON_independence_day

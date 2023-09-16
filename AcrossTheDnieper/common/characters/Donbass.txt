@@ -94,6 +94,21 @@ characters={
 			planning_skill = 1
 			logistics_skill = 1
 		}	
+
+		advisor={
+			slot = political_advisor
+			idea_token = DON_denis_pushilin
+			allowed = {
+				tag = DON
+			}
+			can_be_fired = yes
+			traits = {
+				DON_chairman_of_the_council
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
 	}
 	
 	DON_igor_girkin = {
@@ -152,7 +167,7 @@ characters={
 			}
 			can_be_fired = yes
 			traits = {
-				inexperienced_commander_in_chief
+				DON_commander_in_chief
 			}
 			ai_will_do = {
 				factor = 0
@@ -179,6 +194,7 @@ characters={
 			slot = political_advisor
 			idea_token = DON_alexander_borodai
 			allowed = {	
+				tag = DON
 			}
 			can_be_fired = no							
 			visible = {
@@ -187,6 +203,40 @@ characters={
 			}
 			traits = {
 				DON_prime_minister
+			}
+		}
+	}
+
+	DON_pavel_gubarev = {
+		name = DON_pavel_gubarev
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/DON/Advisors/DON_pavel_gubarev_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		available={
+			
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = DON_pavel_gubarev
+			allowed = {	
+				tag = DON
+			}
+			can_be_fired = yes							
+			visible = {
+				NOT = { has_completed_focus = DON_let_competition_rot }
+			}
+			available = {
+				has_completed_focus = DON_free_pavel_gubarev
+			}
+			traits = {
+				DON_the_peoples_governor
 			}
 		}
 	}
