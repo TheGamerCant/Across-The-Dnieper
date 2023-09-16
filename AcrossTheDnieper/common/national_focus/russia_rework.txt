@@ -648,9 +648,6 @@ focus_tree = {
 							has_state_flag = kherson_oblast_flag
 							has_state_flag = zaporizhia_oblast_flag
 							has_state_flag = crimea_oblast_flag
-							has_state_flag = donetsk_oblast_flag
-							has_state_flag = luhansk_oblast_flag
-							has_state_flag = kharkiv_oblast_flag
 						}
 					}
 					add_dynamic_modifier = {
@@ -660,6 +657,7 @@ focus_tree = {
 				}
 			
 				set_global_flag = { flag = russia_ukraine_war_started_recently value = 1 days = 45 }
+				set_global_flag = { flag = russia_ukraine_war_countdown_until_frontlines_solidify value = 1 days = 55 }
 				declare_war_on = {
 					target = UKR
 					type = take_state_focus
@@ -767,6 +765,59 @@ focus_tree = {
 								}
 							}
 						}
+						
+						92={
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+						}
+						72={
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+								owner = UKR
+							}
+						}
 					}
 				}
 				else_if={
@@ -808,17 +859,24 @@ focus_tree = {
 				
 				if={
 					limit = { is_ai = yes  has_start_date < 2022.01.01 }
-					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_1 days = 60 }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_1 days = 30 }
 				}
 				if={
 					limit = { is_ai = yes  has_start_date > 2022.01.01 }
-					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_3 days = 60 }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_3 days = 30 }
 				}
 				if={
 					limit = { is_ai = yes UKR = { is_ai = no } }
 					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_2 days = 365 }
 				}
-
+				
+				if={
+					limit = { is_ai = no }
+					country_event = { id = russia.1044 hours = 19 }
+				}
+				else={
+					country_event = { id = russia.1044 days = 3 }
+				}
 			}
 		}
 	}

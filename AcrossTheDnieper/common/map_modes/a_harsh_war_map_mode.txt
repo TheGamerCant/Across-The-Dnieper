@@ -1,0 +1,39 @@
+#scripted_map_modes = {				#Remove the hastag to see the magic, just don't forget to put it back before pushing!
+	a_harsh_war_map_mode = {
+		top = {
+			type = none
+		}
+		bottom = {
+			type = state
+			color = {
+				if = {
+					limit = {
+						FROM = {
+							has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = UKR }
+						}
+					}
+					set_temp_variable = { red = 0.62 }
+					set_temp_variable = { green = 0.3 }
+					set_temp_variable = { blue = 0.85 }
+					set_temp_variable = { alpha = 0.95 }
+
+
+				}			
+			}
+		}
+		far_text = none
+		near_text = state
+		update_daily = no
+	}
+}
+
+
+
+
+#Random Number Generator code for python
+#import random
+#for i in range (0,30):
+#    print("\t\t\t\t\tset_temp_variable = { red = 0." + str(random.randint(0,100)) +" }")
+#    print("\t\t\t\t\tset_temp_variable = { green = 0." + str(random.randint(0,100)) +" }")
+#    print("\t\t\t\t\tset_temp_variable = { blue = 0." + str(random.randint(0,100)) +" }")
+#    print("\n\n")

@@ -1460,6 +1460,206 @@ country_event = {
     }
 }
 
+#Frontlines Solidify
+country_event = {
+	id = russia.1043
+	hidden = yes
+	
+	fire_only_once = yes
+	trigger = {
+		SOV={ has_completed_focus = SOV_movements_on_the_border has_war_with = UKR }
+		NOT = { has_global_flag = russia_ukraine_war_countdown_until_frontlines_solidify }
+	}
+	
+	immediate={
+		every_country={
+			limit = { 
+				OR={
+					has_war_with = UKR
+					has_war_with = SOV
+				}
+			}
+			country_event  = { id = russia.1045 }
+		}
+		
+		set_global_flag = a_harsh_war_active_flag
+		load_russia_ukraine_war_state_modifiers = yes
+	}
+}
+
+#Northern offensive goes shite
+country_event = {
+    id = russia.1044
+    title = russia.1044.t
+    desc = russia.1044.desc
+    is_triggered_only = yes
+	picture = SOV_tank_gets_towed
+	
+	immediate={
+		hidden_effect={
+			every_state={
+				limit={
+					OR={
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = sumy_oblast_flag
+						has_state_flag = zhytomyr_oblast_flag
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_nothern_setback
+					scope = SOV
+					days = 90
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1044.a
+		ai_chance = {
+			base = 10
+		}
+		
+		effect_tooltip={
+			every_state={
+				limit={
+					OR={
+						has_state_flag = kyiv_oblast_flag
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = sumy_oblast_flag
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_nothern_setback
+					scope = SOV
+					days = 90
+				}
+			}
+		}
+    }
+}
+
+#A harsh war event
+country_event = {
+    id = russia.1045
+    title = russia.1045.t
+    desc = russia.1045.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_UKR_lessons_of_donetsk
+
+	immediate={
+		hidden_effect={
+			set_variable = { number_of_undertaken_offensives = 0 }
+			if={
+				limit={
+					OR={
+						tag = DON
+						tag = LHK
+						tag = KHK
+						tag = ODS
+					}
+				}
+				set_variable = { maximum_number_of_offensives = 1 }
+			}
+			else_if={
+				limit={
+					tag = UKR
+				}
+				set_variable = { maximum_number_of_offensives = 5 }
+			}
+			else_if={
+				limit={
+					OR={
+						tag = SOV
+						is_puppet_of = SOV
+						is_in_faction_with = SOV
+					}
+				}
+				set_variable = { maximum_number_of_offensives = 3 }
+			}
+			
+			if={
+				limit = { tag = SOV has_global_flag = smo_northern_front_open NOT = { 92 = { is_controlled_by = SOV } } }
+				country_event = { id = russia.1046 days = 2 }
+			}
+		}
+	}
+
+    option = {
+        name = russia.1045.a
+		ai_chance = {
+			base = 10
+		}
+    }
+}
+
+#Withdraw from northern front?
+country_event = {
+    id = russia.1046
+    title = russia.1046.t
+    desc = russia.1046.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_UKR_lessons_of_donetsk
+
+    option = {
+        name = russia.1046.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_command_power = 25
+		
+		if = {
+			limit = {
+				country_exists = BLR
+				OR={
+					is_in_faction_with = BLR
+					BLR={ is_puppet_of = ROOT }
+				}
+				434 = { is_owned_by = ROOT }
+			}
+			BLR = { transfer_state = 434 }
+			remove_state_claim = 434
+		}
+		if={
+			limit = { 
+				NOT = { has_global_flag = smo_western_front_open }
+				NOT = { has_global_flag = smo_eastern_front_open }
+				NOT = { has_global_flag = smo_donbass_front_open }
+				NOT = { has_global_flag = smo_southern_front_open }
+			}
+			russia_ukraine_peace = yes
+		}
+		hidden_effect = {
+			UKR={ country_event = { id = ukraine.93 hours = 2 } }
+			every_state={
+				limit={
+					OR={
+						has_state_flag = chernihiv_oblast_flag
+						has_state_flag = kyiv_oblast_flag
+					}
+				}
+				teleport_armies = {
+					limit = {
+						tag = PREV.PREV
+					}
+					to_state = 11
+				}
+			}
+		}
+    }
+	
+	option = {
+        name = russia.1046.a
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.04
+		add_political_power = -100
+		add_command_power = -100
+    }
+}
 
 country_event = {
     id = russia_propaganda.1

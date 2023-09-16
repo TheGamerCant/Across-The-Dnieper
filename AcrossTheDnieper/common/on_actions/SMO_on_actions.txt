@@ -1,5 +1,5 @@
 on_actions={	
-	on_daily_ZZZ={
+	on_weekly_ZZZ={
 		effect={
 			if={
 				limit = {
@@ -166,31 +166,33 @@ on_actions={
 				}
 			}
 
-			
+			load_russia_ukraine_war_state_modifiers = yes
 		}
 	}
-	
+
 	on_peace={
-		if={
-			limit={
-				OR={
-					tag = UKR
-					tag = SOV
+		effect={
+			if={
+				limit={
+					OR={
+						tag = UKR
+						tag = SOV
+					}
 				}
-			}
-			clr_global_flag = russia_ukraine_war
+				clr_global_flag = russia_ukraine_war
 
-			SOV = {
-				remove_state_core = 434
-				remove_state_core = 435
-			}
+				SOV = {
+					remove_state_core = 434
+					remove_state_core = 435
+				}
 
-			BLR = {
-				transfer_state = 434
-				add_state_core = 434
+				BLR = {
+					transfer_state = 434
+					add_state_core = 434
 
-				transfer_state = 435
-				add_state_core = 435
+					transfer_state = 435
+					add_state_core = 435
+				}
 			}
 		}
 	}

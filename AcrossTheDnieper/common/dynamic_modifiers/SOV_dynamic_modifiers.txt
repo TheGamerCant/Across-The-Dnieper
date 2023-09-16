@@ -283,24 +283,59 @@ SOV_secret_ai_modifier_1  = {		#AI buff, 2014 start
 SOV_secret_ai_modifier_2  = {		#AI vs player buff
 	enable = { always = yes }
 	
-	army_attack_factor = 0.1
-	army_defence_factor = 0.1
-	army_org_factor = 0.15
-	army_morale_factor = 0.2
+	army_org_factor = 0.1
+	army_morale_factor = 0.06
 	dig_in_speed_factor = 2
-	max_dig_in = 18
+	max_dig_in = 12
 	supply_consumption_factor = -0.2
 }
 
 SOV_secret_ai_modifier_3  = {		#AI buff, 2022 start
 	enable = { always = yes }
 	
-	army_attack_factor = 0.12
-	army_defence_factor = 0.12
-	breakthrough_factor = 0.2
+	army_attack_factor = 0.06
+	army_defence_factor = 0.06
+	breakthrough_factor = 0.1
 	army_speed_factor = 0.2
-	army_org_factor = 0.15
+	army_org_factor = 0.1
 	dig_in_speed_factor = 0.3
 	max_dig_in = 8
 	supply_consumption_factor = -0.12
+}
+
+SOV_nothern_setback  = {
+	enable = { always = yes }
+	icon = GFX_modifiers_generic_military_plans
+	
+	attrition = 0.3
+	supply_node_range = -0.2
+	army_attack_factor = -0.4
+	army_defence_factor = -0.4
+	army_speed_factor = -0.5
+	breakthrough_factor = -0.4
+	supply_factor = -0.35
+}
+
+SOV_a_harsh_war  = {
+	enable = { always = yes }
+	icon = GFX_modifiers_SOV_a_harsh_war
+	
+	air_cas_present_factor = -0.75
+	army_attack_factor = -0.8
+	breakthrough_factor = -0.8
+	army_speed_factor = -0.95
+	ground_attack_factor = -0.75
+	max_dig_in = 8
+}
+
+SOV_a_harsh_war_offensive  = {
+	enable = { always = yes }
+	icon = GFX_modifiers_SOV_a_harsh_war
+	
+	air_cas_present_factor = -0.5
+	army_attack_factor = -0.2
+	breakthrough_factor = -0.2
+	army_speed_factor = -0.75
+	ground_attack_factor = -0.75
+	max_dig_in = 8
 }
