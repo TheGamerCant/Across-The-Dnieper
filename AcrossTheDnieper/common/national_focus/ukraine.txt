@@ -7361,19 +7361,22 @@ focus_tree = {
 			}
 			hidden_effect={
 				if={
-					limit={
-						is_ai = no
-						SOV = { is_ai = yes }
+					limit = { NOT = { russia_rework_trigger = yes } }
+					if={
+						limit={
+							is_ai = no
+							SOV = { is_ai = yes }
+						}
+						SOV = { add_ideas = SOV_defensive_focus }
 					}
-					SOV = { add_ideas = SOV_defensive_focus }
-				}
-				
-				if={
-					limit={
-						is_ai = yes
-						SOV = { is_ai = no }
+					
+					if={
+						limit={
+							is_ai = yes
+							SOV = { is_ai = no }
+						}
+						add_ideas = SOV_defensive_focus
 					}
-					add_ideas = SOV_defensive_focus
 				}
 			}
 		}
