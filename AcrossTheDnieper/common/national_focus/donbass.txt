@@ -157,6 +157,12 @@ focus_tree = {
 
 		completion_reward ={
 			add_manpower = 2
+
+			add_popularity = {
+				ideology = ultranationalist
+				popularity = 0.03
+			}
+
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = DON_pavel_gubarev
 		}
@@ -183,6 +189,31 @@ focus_tree = {
 			custom_effect_tooltip = "DON_let_competition_rot_tt"
 			add_stability = -0.08
 			add_war_support = 0.03
+			add_popularity = {
+				ideology = ultranationalist
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DON_impose_martial_law
+		icon = GFX_focus_DON_impose_martial_law
+		x = 10
+		y = 4
+		cost = 30
+		search_filters = {
+			
+		}
+        available = {
+
+        }
+		
+		prerequisite = { focus = DON_let_competition_rot focus = DON_free_pavel_gubarev }
+
+
+		completion_reward ={
+			add_ideas = martial_law
 		}
 	}
 
@@ -208,6 +239,10 @@ focus_tree = {
 		completion_reward ={
 			add_stability = 0.2
 			add_political_power = 15
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.03
+			}
 		}
 	}
 
