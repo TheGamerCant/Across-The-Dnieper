@@ -730,7 +730,15 @@ focus_tree = {
 					}
 				}
 				
-				add_timed_idea = { idea = SOV_three_days_to_kiev days = 30 } 
+				if={
+					limit = { is_ai = yes }
+					add_timed_idea = { idea = SOV_three_days_to_kiev days = 30 } 
+				}
+				else={
+					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 25 } 
+				}
+				
+				
 				mark_focus_tree_layout_dirty = yes
 				
 				if={
@@ -3180,7 +3188,7 @@ focus_tree = {
 			
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = 50
+				amount = 2050
 			}
 		}
 	}
@@ -3232,7 +3240,7 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_the_quagmire }
 		relative_position_id = SOV_the_quagmire
-		mutually_exclusive = { focus = SOV_offensives_in_donbass }
+		mutually_exclusive = { focus = SOV_offensives_in_donbass_2 }
 		available={
 			has_war_with = UKR
 			has_global_flag = smo_southern_front_open
