@@ -592,7 +592,7 @@ focus_tree = {
 					}
 					
 					for_loop_effect = {
-						end = 120
+						end = 100
 						value = temp
 						random_owned_controlled_state = {
 							limit = { SOV = { has_full_control_of_state = PREV } }
@@ -609,7 +609,7 @@ focus_tree = {
 				limit = { has_start_date < 2022.01.01 is_ai = yes UKR = { is_ai = no } }
 				SOV={					
 					for_loop_effect = {
-						end = 120
+						end = 100
 						value = temp
 						random_owned_controlled_state = {
 							limit = { SOV = { has_full_control_of_state = PREV } }
@@ -763,7 +763,7 @@ focus_tree = {
 						}
 						
 						for_loop_effect = {
-							end = 80
+							end = 70
 							value = temp
 							random_owned_controlled_state = {
 								limit = { UKR = { has_full_control_of_state = PREV } }
@@ -850,7 +850,7 @@ focus_tree = {
 						}
 						
 						for_loop_effect = {
-							end = 50
+							end = 35
 							value = temp
 							random_owned_controlled_state = {
 								limit = { SOV = { has_full_control_of_state = PREV } }
@@ -871,11 +871,7 @@ focus_tree = {
 				}
 				if={
 					limit = { is_ai = yes  has_start_date > 2022.01.01 }
-					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_3 days = 30 }
-				}
-				if={
-					limit = { is_ai = yes UKR = { is_ai = no } }
-					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_2 days = 365 }
+					add_dynamic_modifier = { modifier = SOV_secret_ai_modifier_2 days = 30 }
 				}
 				
 				if={
