@@ -1,0 +1,65 @@
+scripted_map_modes = {
+    deepstate_map_mode = {
+		top = {
+			type = none
+		}
+		bottom = {
+			type = state
+			color = {
+				if = {
+					limit = {
+						AND = {
+							FROM = {
+								OR = {
+									is_controlled_by = SOV
+									is_controlled_by = LHK
+									is_controlled_by = DON
+								}
+								
+								is_core_of = UKR 
+							}
+						}
+						
+					}
+					set_temp_variable = { red = 1 }
+					set_temp_variable = { green = 0 }
+					set_temp_variable = { blue = 0 }
+					set_temp_variable = { alpha = 0.95 }
+
+
+				}			
+				else_if = {
+					limit = {
+						AND = {
+							FROM = {
+								is_controlled_by = UKR
+								is_core_of = UKR 
+							}
+						}
+					}
+					set_temp_variable = { red = 0 }
+					set_temp_variable = { green = 0 }
+					set_temp_variable = { blue = 1 }
+					set_temp_variable = { alpha = 0.95 }
+				}
+				else_if = {
+					limit = {
+						AND = {
+							FROM = {
+								is_controlled_by = SOV
+								is_core_of = SOV
+							}
+						}
+					}
+					set_temp_variable = { red = 0 }
+					set_temp_variable = { green = 1 }
+					set_temp_variable = { blue = 0 }
+					set_temp_variable = { alpha = 0.95 }
+				}
+			}
+		}
+		far_text = none
+		near_text = state
+		update_daily = yes
+	}
+}
