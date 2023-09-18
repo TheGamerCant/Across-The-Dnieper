@@ -607,55 +607,55 @@ on_actions={
 		effect={
 			add_to_variable = { global.days_since_start = 1 }
 			if={
-				limit = { SOV_can_fire_propaganda_events = yes }
-				if={
-					limit = { check_variable = { global.days_since_start = 48 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
-					country_event = { id = russia_propaganda.5 }						#You don't wanna know how much of a headache RT being banned was for me researching this shit
-				}
-				if={
-					limit = { check_variable = { global.days_since_start = 91 } }		#1 April 2014
-					country_event = { id = russia_propaganda.1 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 98 } }		#8 April 2014
-					country_event = { id = russia_propaganda.2 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 116 } }		#26 April 2014
-					country_event = { id = russia_propaganda.3 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 140 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }	#20 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
-					country_event = { id = russia_propaganda.4 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 146 } any_donbass_country_exists = yes }		#26 May 2014
-					country_event = { id = russia_propaganda.6 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 154 } any_donbass_country_exists = yes }		#3 June 2014
-					country_event = { id = russia_propaganda.7 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 163 } any_donbass_country_exists = yes }		#12 June 2014
-					country_event = { id = russia_propaganda.8 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 186 } any_donbass_country_exists = yes }		#5 July 2014
-					country_event = { id = russia_propaganda.10 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 191 } any_donbass_country_exists = yes }		#10 July 2014
-					country_event = { id = russia_propaganda.11 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 198 } any_donbass_country_exists = yes }		#17 July 2014
-					country_event = { id = russia_propaganda.9 }
-				}
-				else_if={
-					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }		#3 December 2014, SOTN speech
-					country_event = { id = russia.1011 }
-				}			
+				limit = { SOV_can_fire_propaganda_events = yes }	
+#				if={
+#					limit = { check_variable = { global.days_since_start = 48 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
+#					country_event = { id = russia_propaganda.5 }						#You don't wanna know how much of a headache RT being banned was for me researching this shit
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 91 } }		#1 April 2014
+#					country_event = { id = russia_propaganda.1 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 98 } }		#8 April 2014
+#					country_event = { id = russia_propaganda.2 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 116 } }		#26 April 2014
+#					country_event = { id = russia_propaganda.3 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 140 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }	#20 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
+#					country_event = { id = russia_propaganda.4 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 146 } any_donbass_country_exists = yes }		#26 May 2014
+#					country_event = { id = russia_propaganda.6 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 154 } any_donbass_country_exists = yes }		#3 June 2014
+#					country_event = { id = russia_propaganda.7 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 163 } any_donbass_country_exists = yes }		#12 June 2014
+#					country_event = { id = russia_propaganda.8 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 186 } any_donbass_country_exists = yes }		#5 July 2014
+#					country_event = { id = russia_propaganda.10 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 191 } any_donbass_country_exists = yes }		#10 July 2014
+#					country_event = { id = russia_propaganda.11 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 198 } any_donbass_country_exists = yes }		#17 July 2014
+#					country_event = { id = russia_propaganda.9 }
+#				}
+#				else_if={
+#					limit = { check_variable = { global.days_since_start = 263 } any_donbass_country_exists = yes }		#20 September 2014
+#					country_event = { id = russia_propaganda.12 }
+#				}		
 			}
 			
 			if={
@@ -663,12 +663,17 @@ on_actions={
 					russia_rework_trigger = yes
 					NOT = { has_western_government = yes }
 				}
+				
 				if={
-					limit = { check_variable = { global.days_since_start = 704 }  }			#Shoigu corruption 
+					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }	
+					country_event = { id = russia.1011 }										#SOTN speech
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 704 }  }				#Shoigu corruption 
 					country_event = { id = russia.1024 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 849 }  }			#Rise of Kiriyenko
+					limit = { check_variable = { global.days_since_start = 849 }  }				#Rise of Kiriyenko
 					country_event = { id = russia.1023 }
 				}
 				else_if={

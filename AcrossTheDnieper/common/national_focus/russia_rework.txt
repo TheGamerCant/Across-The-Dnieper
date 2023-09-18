@@ -1803,12 +1803,29 @@ focus_tree = {
 				}
 			}
 			hidden_effect={
-				create_country_leader = {
-					name = "Vladimir Putin"
-					desc = "vladimir_putin_desc"
-					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
-					ideology = united_russia_ultranat_subideology
-					traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework_2 }
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					create_country_leader = {
+						name = "Vladimir Putin"
+						desc = "vladimir_putin_desc"
+						picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+						ideology = united_russia_ultranat_subideology
+						traits = { SOV_retired_kgb_agent_lar SOV_the_great_helmsman_trait }
+					}
+				}
+				else={
+					create_country_leader = {
+						name = "Vladimir Putin"
+						desc = "vladimir_putin_desc"
+						picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+						ideology = united_russia_ultranat_subideology
+						traits = { SOV_retired_kgb_agent_no_lar SOV_the_great_helmsman_trait }
+					}
+				}
+
+				if={
+					limit = { has_start_date < 2022.01.01 }
+					country_event = { id = russia.1047 days = 35 }
 				}
 			}
 		}
@@ -3162,10 +3179,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_fix_our_logistics
-		icon = GFX_focus_
+		icon = GFX_focus_UKR_increase_logistical_personnel
 		x = 0
 		y = 1
-		cost = 50
+		cost = 30
 		search_filters = {
 			
 		}
@@ -3184,14 +3201,14 @@ focus_tree = {
 			
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = 2050
+				amount = 200
 			}
 		}
 	}
 	
 	focus = {
 		id = SOV_offensives_in_donbass_2
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_offensives_in_donbass_2
 		x = -1
 		y = 2
 		cost = 30
@@ -3226,7 +3243,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_push_to_odessa
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_the_push_to_odessa
 		x = 1
 		y = 2
 		cost = 30
@@ -3262,7 +3279,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_announce_the_draft
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_announce_the_draft
 		x = 0
 		y = 2
 		cost = 24
@@ -3293,6 +3310,189 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_novorossiya_at_hand_2
+		icon = GFX_focus_SOV_novorossiya_at_hand_2
+		x = 2
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			unlock_decision_category_tooltip = SOV_referendum_decisions_2
+		}
+	}
+	
+	focus = {
+		id = SOV_force_the_little_russians_into_service
+		icon = GFX_focus_LIT_conscription_reforms
+		x = -4
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+			any_state={
+				OR={
+					has_state_flag = donetsk_oblast_flag
+					has_state_flag = luhansk_oblast_flag
+					has_state_flag = zaporizhia_oblast_flag
+					has_state_flag = dnipro_oblast_flag
+					has_state_flag = kherson_oblast_flag
+					has_state_flag = mykolaiv_oblast_flag
+					has_state_flag = odessa_oblast_flag
+					has_state_flag = kharkiv_oblast_flag
+					has_state_flag = kirovohrad_oblast_flag
+				}
+				CONTROLLER={
+					tag = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		
+		completion_reward={
+			every_state={
+				limit={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+					}
+				}
+				add_dynamic_modifier = { modifier = SOV_forced_conscription scope = SOV }
+			}
+			
+			add_manpower = 100000
+		}
+	}
+	
+	focus = {
+		id = SOV_prison_recruitment
+		icon = GFX_focus_allow_prison_recruitment
+		x = 4
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_manpower = 120000
+		}
+	}
+	
+	focus = {
+		id = SOV_break_open_the_armouries
+		icon = GFX_focus_BLR_local_arms_manufacturing
+		x = 0
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_1
+				amount = 25000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment_1
+				amount = 1200
+				producer = SOV
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment_1
+				amount = 2000
+				producer = SOV
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_the_mobilisation
+		icon = GFX_focus_ready_electoral_draft
+		x = -2
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_manpower = 500000
+		}
+	}
+	
+	focus = {
+		id = SOV_no_option_but_victory
+		icon = GFX_goal_generic_secret_weapon
+		x = 0
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_break_open_the_armouries }
+		prerequisite = { focus = SOV_prison_recruitment }
+		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
+		prerequisite = { focus = SOV_expand_the_mobilisation }
+		prerequisite = { focus = SOV_force_the_little_russians_into_service }
+		relative_position_id = SOV_break_open_the_armouries
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_ideas = SOV_no_option_but_victory_idea
+		}
+	}
 	
 	
 	

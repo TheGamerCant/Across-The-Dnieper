@@ -380,3 +380,663 @@ SOV_balance_of_power_category = {
 		}
 	}
 }
+
+SOV_referendum_decisions_2={
+	SOV_referendum_in_novorossiya = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			NOV = { exists = yes is_puppet_of = ROOT }
+			any_state={
+				OR={
+					has_state_flag = donetsk_oblast_flag
+					has_state_flag = luhansk_oblast_flag
+					has_state_flag = zaporizhia_oblast_flag
+					has_state_flag = dnipro_oblast_flag
+					has_state_flag = kherson_oblast_flag
+					has_state_flag = mykolaiv_oblast_flag
+					has_state_flag = odessa_oblast_flag
+					has_state_flag = kharkiv_oblast_flag
+					has_state_flag = kirovohrad_oblast_flag
+				}
+				CONTROLLER={
+					OR={
+						tag = NOV
+						tag = SOV
+					}
+				}
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOV = { exists = yes is_puppet_of = ROOT }
+			any_state={
+				OR={
+					has_state_flag = donetsk_oblast_flag
+					has_state_flag = luhansk_oblast_flag
+					has_state_flag = zaporizhia_oblast_flag
+					has_state_flag = dnipro_oblast_flag
+					has_state_flag = kherson_oblast_flag
+					has_state_flag = mykolaiv_oblast_flag
+					has_state_flag = odessa_oblast_flag
+					has_state_flag = kharkiv_oblast_flag
+					has_state_flag = kirovohrad_oblast_flag
+				}
+				CONTROLLER={
+					tag = NOV
+				}
+			}
+		}
+		
+		cost = 100
+
+		remove_effect = {
+			every_state={
+				limit = {
+					is_owned_by = NOV
+				}
+				add_core_of = ROOT
+			}
+			every_state={
+				limit = {
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+					}
+				}
+				add_claim_by = ROOT
+			}
+			annex_country = { target = NOV transfer_troops = no }
+		}
+	}
+
+	SOV_referendum_in_donetsk = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 5
+				135 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				146 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				166 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				173 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				186 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				195 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				208 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				230 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = donetsk_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					is_owned_by = DON
+				}
+				add_core_of = ROOT
+			}
+			every_state={
+				limit = {
+					has_state_flag = donetsk_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+			if={
+				limit = { country_exists = DON }
+				annex_country = { target = DON transfer_troops = yes }
+			}
+		}
+	}
+	
+	SOV_referendum_in_luhansk = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 6
+				103 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				109 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				131 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				136 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				152 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				154 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				155 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				159 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				174 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = luhansk_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					is_owned_by = LHK
+				}
+				add_core_of = ROOT
+			}
+			every_state={
+				limit = {
+					has_state_flag = luhansk_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+			if={
+				limit = { country_exists = LHK }
+				annex_country = { target = LHK transfer_troops = yes }
+			}
+		}
+	}
+	
+	SOV_referendum_in_zaporizhzhia = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 4
+				196 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				214 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				223 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				243 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				250 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				300 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = zaporizhia_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					has_state_flag = zaporizhia_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+	
+	SOV_referendum_in_kherson = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 8
+				231 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				242 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				255 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				264 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				282 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				296 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				304 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				310 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				311 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				312 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				438 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				449 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = kherson_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					has_state_flag = kherson_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+	
+	SOV_referendum_in_kharkiv = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 5
+				89 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				93 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				94 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				95 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				122 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				123 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				126 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				128 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = kharkiv_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					is_owned_by = KHK
+				}
+				add_core_of = ROOT
+			}
+			every_state={
+				limit = {
+					has_state_flag = kharkiv_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+			if={
+				limit = { country_exists = KHK }
+				annex_country = { target = KHK transfer_troops = yes }
+			}
+		}
+	}
+	
+	SOV_referendum_in_dnipro = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 5
+				143 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				145 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				151 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				163 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				165 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				194 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				209 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = dnipro_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					has_state_flag = dnipro_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+	
+	SOV_referendum_in_kirovohrad = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 2
+				148 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				153 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				161 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				168 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = kirovohrad_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					has_state_flag = kirovohrad_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+	
+	SOV_referendum_in_mykolaiv = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 2
+				198 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				207 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				211 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				236 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = mykolaiv_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					has_state_flag = mykolaiv_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+	
+	SOV_referendum_in_odesa = { 
+		priority = 200
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			count_triggers = {		
+				amount > 7
+				199 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				229 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				238 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				269 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				287 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				291 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				320 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				322 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				332 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				444 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+			}
+		}
+		
+		days_remove = 5
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			NOT = { country_exists = NOV }
+			any_state={
+				has_state_flag = odessa_oblast_flag
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+		
+		cost = 25
+
+		remove_effect = {
+			every_state={
+				limit = {
+					is_owned_by = ODS
+				}
+				add_core_of = ROOT
+			}
+			every_state={
+				limit = {
+					has_state_flag = odessa_oblast_flag
+				}
+				add_claim_by = ROOT
+			}
+			if={
+				limit = { country_exists = ODS }
+				annex_country = { target = ODS transfer_troops = yes }
+			}
+		}
+	}
+}

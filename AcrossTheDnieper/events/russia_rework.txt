@@ -1435,6 +1435,12 @@ country_event = {
 		
 		add_stability = -0.05
 		
+		if={
+			limit = { has_completed_focus = SOV_move_to_a_progessional_military }
+			add_to_variable = { SOV_army_conscription_factor = 0.15 } 
+			custom_effect_tooltip = SOV_end_conscription_tt
+		}
+		add_manpower = 200000
 		hidden_effect = { country_event = { id = russia.1042 days = 7 } }
     }
 }
@@ -1587,7 +1593,7 @@ country_event = {
 	}
 
     option = {
-        name = russia.1045.a
+        name = russia.1045.b
 		ai_chance = {
 			base = 10
 		}
@@ -1651,7 +1657,7 @@ country_event = {
     }
 	
 	option = {
-        name = russia.1046.a
+        name = russia.1046.b
 		ai_chance = {
 			base = 0
 		}
@@ -1660,6 +1666,37 @@ country_event = {
 		add_command_power = -100
     }
 }
+
+
+#Putin's shitpost
+country_event = {
+    id = russia.1047
+    title = russia.1047.t
+    desc = russia.1047.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_putin_desk_2
+
+    option = {
+        name = russia.1047.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_political_power = 5
+		add_war_support = 0.002
+		add_opinion_modifier = {
+			target = UKR
+			modifier = BLR_small_negative
+		}
+		UKR={
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = BLR_small_negative
+			}
+		}
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1
@@ -1841,6 +1878,23 @@ country_event = {
 
     option = {
         name = russia_propaganda.11.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_propaganda_event_effect = yes
+    }
+}
+
+country_event = {
+    id = russia_propaganda.12
+    title = russia_propaganda.12.t
+    desc = russia_propaganda.12.desc
+    picture = SOV_cw_dugin
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.12.a
 		ai_chance = {
 			base = 10
 		}

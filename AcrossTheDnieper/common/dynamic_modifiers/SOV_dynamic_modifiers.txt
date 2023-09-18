@@ -367,3 +367,16 @@ SOV_a_harsh_war_offensive  = {
 	army_speed_factor = -0.75
 	ground_attack_factor = -0.75
 }
+
+SOV_forced_conscription = {
+	icon = GFX_modifiers_SOV_forced_conscription
+	enable = { tag = SOV }
+	remove_trigger = {
+		NOT = { is_controlled_by = SOV }
+	}
+	
+	recruitable_population_factor = 0.35
+	local_building_slots_factor = -0.25
+	state_resources_factor = -0.25
+	state_production_speed_buildings_factor = -0.25
+}

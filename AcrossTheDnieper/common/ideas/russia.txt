@@ -385,6 +385,8 @@ ideas = {
 				conscription = -0.004
 				research_speed_factor = -0.08
 				production_factory_max_efficiency_factor = -0.1
+				war_stability_factor = -0.1
+				war_support_factor = -0.1
 				custom_modifier_tooltip = SOV_unpopular_mobilisation_tt
 			}
 		}
@@ -689,6 +691,26 @@ ideas = {
 				required_garrison_factor = 0.5
 				resistance_target = 1
 				resistance_damage_to_garrison = 0.5
+			}
+		}
+		
+		SOV_no_option_but_victory_idea = {
+			removal_cost = -1
+			picture = children_of_future_russia
+			available = { has_war_with = UKR }
+			
+			modifier = {
+				experience_loss_factor = 0.2
+				conscription = 0.004
+				industrial_capacity_dockyard = 0.05
+				industrial_capacity_factory = 0.05
+				war_support_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = UKR
+				breakthrough_bonus_against = 0.1
+				defense_bonus_against = -0.05
+				attack_bonus_against = 0.05
 			}
 		}
 
