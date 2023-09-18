@@ -170,7 +170,34 @@ on_actions={
 	
 	on_weekly_ZZZ={
 		effect={
-			load_russia_ukraine_war_state_modifiers = yes
+			if={
+				limit = { SOV = { has_war_with = UKR } }
+				load_russia_ukraine_war_state_modifiers = yes
+				
+				every_country={
+					limit = { 
+						OR={
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+						}
+						exists = yes
+						is_puppet_of = SOV
+					}
+					every_state={
+						limit={
+							OR={
+								is_claimed_by = PREV
+								is_core_of = PREV
+							}
+							is_fully_controlled_by = SOV
+						}
+						set_state_controller_to = PREV
+					}
+				}
+			}
 		}
 	}
 

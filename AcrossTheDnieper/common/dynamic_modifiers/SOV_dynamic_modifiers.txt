@@ -1,5 +1,10 @@
 SOV_local_effensive_in_crimea_modifier  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_attack_factor = 0.1
 	breakthrough_factor = 0.5
@@ -7,14 +12,24 @@ SOV_local_effensive_in_crimea_modifier  = {
 }
 
 SOV_defenses_in_strategic_regions_modifier  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_defence_factor = 0.05
 	dig_in_speed_factor = 0.04
 }
 
 SOV_offensive_on_southern_front  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_attack_factor = 0.05
 	breakthrough_factor = 0.05
@@ -22,27 +37,47 @@ SOV_offensive_on_southern_front  = {
 
 
 SOV_offensive_into_kiev  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	breakthrough_factor = 0.15
 }
 
 
 SOV_defenses_in_donbass  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_defence_factor = 0.1
 
 }
 
 SOV_offensives_in_donbass  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_attack_factor = 0.05
 }
 
 SOV_wagner_offenses  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	army_attack_factor = 0.15
 	breakthrough_factor = 0.15
@@ -61,7 +96,7 @@ SOV_cleaning_up  = {
 
 
 SOV_local_effensive_in_ukraine_modifier  = {
-	enable = { always = yes }
+	enable = { original_tag = SOV }
 	icon = GFX_modifiers_generic_military_plans
 	army_attack_factor = 0.01
 	breakthrough_factor = 0.01
@@ -254,7 +289,12 @@ SOV_raspizdyaystvo = {
 }
 
 SOV_local_offensive_modifier  = {
-	enable = { always = yes }
+	enable = {
+		OR={
+			original_tag = SOV
+			original_tag = WAG
+		}
+	}
 	icon = GFX_modifiers_generic_military_plans
 	attacker_modifier = yes
 	
@@ -295,9 +335,8 @@ SOV_secret_ai_modifier_2  = {		#AI buff, 2022 start
 }
 
 SOV_nothern_setback  = {
-	enable = { always = yes }
-	icon = GFX_modifiers_generic_military_plans
-	attacker_modifier = yes
+	enable = { original_tag = SOV }					#If there are multiple of the same modifer in a state, they will apply to whichever country has them scoped.
+	icon = GFX_modifiers_generic_military_plans		#However, if there is one modifer in a state, it will apply to all units in the state, regardless of scope.
 	
 	supply_node_range = -0.2
 	army_attack_factor = -0.4
@@ -310,7 +349,6 @@ SOV_nothern_setback  = {
 SOV_a_harsh_war  = {
 	enable = { always = yes }
 	icon = GFX_modifiers_SOV_a_harsh_war
-	attacker_modifier = yes
 	
 	air_cas_present_factor = -0.75
 	army_attack_factor = -0.8
@@ -322,7 +360,6 @@ SOV_a_harsh_war  = {
 SOV_a_harsh_war_offensive  = {
 	enable = { always = yes }
 	icon = GFX_modifiers_SOV_a_harsh_war
-	attacker_modifier = yes
 	
 	air_cas_present_factor = -0.5
 	army_attack_factor = -0.2
