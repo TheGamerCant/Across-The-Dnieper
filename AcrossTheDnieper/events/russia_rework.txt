@@ -1697,6 +1697,66 @@ country_event = {
     }
 }
 
+#More western sanctions
+country_event = {
+    id = russia.1048
+    title = russia.1048.t
+    desc = russia.1048.desc
+    is_triggered_only = yes
+	picture = SOV_sanctions_event
+	
+	immediate={
+		add_to_variable = { SOV_sanctions_inflation_monthly = 0.1 }
+		add_to_variable = { SOV_sanctions_consumer_goods_factor = 0.07 }
+		subtract_from_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.35 }
+		subtract_from_variable = { SOV_sanctions_stability_weekly = 0.0018 }
+	}
+
+    option = {
+        name = russia.1048.a
+		ai_chance = {
+			base = 10
+		}
+		
+		custom_effect_tooltip = russia.1048.tt
+		
+		hidden_effect={
+			if={
+				limit = { has_completed_focus = SOV_strengthen_the_central_bank }
+				country_event = { id = russia.1049 days = 5 }
+			}
+		}
+    }
+}
+
+#More western sanctions
+country_event = {
+    id = russia.1049
+    title = russia.1049.t
+    desc = russia.1049.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_central_bank
+
+    option = {
+        name = russia.1049.a
+		ai_chance = {
+			base = 10
+		}
+		add_timed_idea={
+			idea = SOV_emergency_banking_actions
+			days = 400
+		}
+    }
+	
+	option = {
+        name = russia.1049.b
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -100
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1

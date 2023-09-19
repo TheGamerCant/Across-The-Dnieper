@@ -694,9 +694,22 @@ ideas = {
 			}
 		}
 		
+		SOV_emergency_banking_actions = {
+			removal_cost = -1
+
+			picture = SOV_ruble_stronk
+			
+			modifier = {
+				inflation_monthly = -0.14
+				consumer_goods_factor = 0.02
+				stability_weekly = 0.002
+				political_power_cost = 0.2
+			}
+		}
+		
 		SOV_no_option_but_victory_idea = {
 			removal_cost = -1
-			picture = children_of_future_russia
+			picture = SOV_the_great_patriotic_war_idea
 			available = { has_war_with = UKR }
 			
 			modifier = {
@@ -705,12 +718,13 @@ ideas = {
 				industrial_capacity_dockyard = 0.05
 				industrial_capacity_factory = 0.05
 				war_support_factor = 0.1
+				army_morale_factor = 0.03
 			}
 			targeted_modifier = {
 				tag = UKR
 				breakthrough_bonus_against = 0.1
 				defense_bonus_against = -0.05
-				attack_bonus_against = 0.05
+				attack_bonus_against = 0.1
 			}
 		}
 
