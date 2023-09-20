@@ -195,6 +195,7 @@ SOV_the_media = {
 	visible_when_empty = yes
 	visible = {
 		russia_rework_trigger = yes
+		has_dynamic_modifier = { modifier = SOV_effects_from_media }
 	}	
 	
 	scripted_gui = SOV_media_gui
@@ -207,6 +208,9 @@ SOV_referendum_decisions_2 = {
 	visible_when_empty = no
 	visible = {
 		russia_rework_trigger = yes
-		has_completed_focus = SOV_novorossiya_at_hand_2
+		OR={
+			has_completed_focus = SOV_great_victors_2
+			has_completed_focus = SOV_novorossiya_at_hand_2
+		}
 	}	
 }

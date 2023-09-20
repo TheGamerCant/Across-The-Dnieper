@@ -105,6 +105,119 @@ political_actions = {
 	}
 }
 
+SOV_the_media = {
+	SOV_increase_our_focus_on_putinist_programming = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = is_doing_a_media_decision }
+		}
+		
+		days_remove = 90
+		days_re_enable = 90
+		
+		modifier={
+			eastern_conservative_drift = 0.02
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = no
+		
+		cost = 25
+
+		remove_effect = {
+			increase_eastern_conservative_programming_by_4 = yes
+		}
+	}
+	
+	SOV_increase_our_focus_on_nationalist_programming = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = is_doing_a_media_decision }
+		}
+		
+		days_remove = 90
+		days_re_enable = 90
+		
+		modifier={
+			ultranationalist_drift = 0.02
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = no
+		
+		cost = 25
+
+		remove_effect = {
+			increase_ultranationalist_programming_by_4 = yes
+		}
+	}
+	
+	SOV_increase_our_focus_on_western_programming = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = is_doing_a_media_decision }
+		}
+		
+		days_remove = 90
+		days_re_enable = 90
+		
+		modifier={
+			eastern_liberal_drift = 0.02
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = no
+		
+		cost = 25
+
+		remove_effect = {
+			increase_eastern_liberal_programming_by_4 = yes
+		}
+	}
+}
+
 SOV_balance_of_power_category = {
 	SOV_siloviki_coup_decision = { 
 		priority = 200
@@ -469,6 +582,17 @@ SOV_referendum_decisions_2={
 				}
 				add_claim_by = ROOT
 			}
+			hidden_effect={
+				NOV={
+					every_state={
+						limit = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = PREV } }
+						remove_dynamic_modifier = {
+							modifier = SOV_a_harsh_war
+							scope = PREV
+						}
+					}
+				}
+			}
 			annex_country = { target = NOV transfer_troops = no }
 		}
 	}
@@ -534,6 +658,17 @@ SOV_referendum_decisions_2={
 					has_state_flag = donetsk_oblast_flag
 				}
 				add_claim_by = ROOT
+			}
+			hidden_effect={
+				DON={
+					every_state={
+						limit = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = PREV } }
+						remove_dynamic_modifier = {
+							modifier = SOV_a_harsh_war
+							scope = PREV
+						}
+					}
+				}
 			}
 			if={
 				limit = { country_exists = DON }
@@ -604,6 +739,17 @@ SOV_referendum_decisions_2={
 					has_state_flag = luhansk_oblast_flag
 				}
 				add_claim_by = ROOT
+			}
+			hidden_effect={
+				LHK={
+					every_state={
+						limit = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = PREV } }
+						remove_dynamic_modifier = {
+							modifier = SOV_a_harsh_war
+							scope = PREV
+						}
+					}
+				}
 			}
 			if={
 				limit = { country_exists = LHK }
@@ -793,6 +939,17 @@ SOV_referendum_decisions_2={
 					has_state_flag = kharkiv_oblast_flag
 				}
 				add_claim_by = ROOT
+			}
+			hidden_effect={
+				KHK={
+					every_state={
+						limit = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = PREV } }
+						remove_dynamic_modifier = {
+							modifier = SOV_a_harsh_war
+							scope = PREV
+						}
+					}
+				}
 			}
 			if={
 				limit = { country_exists = KHK }
@@ -1032,6 +1189,17 @@ SOV_referendum_decisions_2={
 					has_state_flag = odessa_oblast_flag
 				}
 				add_claim_by = ROOT
+			}
+			hidden_effect={
+				ODS={
+					every_state={
+						limit = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = PREV } }
+						remove_dynamic_modifier = {
+							modifier = SOV_a_harsh_war
+							scope = PREV
+						}
+					}
+				}
 			}
 			if={
 				limit = { country_exists = ODS }

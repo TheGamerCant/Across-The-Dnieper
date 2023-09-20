@@ -2641,8 +2641,14 @@ country_event = {
 
     option = {
         name = russia.59.a
-        add_stability = 0.02
-        add_war_support = -0.03
+		if={
+			limit = { russia_rework_trigger = yes }
+			add_political_power = 5
+		}
+		else={
+			add_stability = 0.02
+			add_war_support = -0.03
+		}
     }
 }
 

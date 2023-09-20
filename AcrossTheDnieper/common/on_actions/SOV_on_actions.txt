@@ -175,15 +175,18 @@ on_actions={
 						limit = { has_start_date < 2022.01.01 }
 						set_party_name = { ideology = ultranationalist long_name = SOV_populist_party_long name = SOV_populist_party }
 						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
-						country_event = { id = russia.1012 days = 421 }			#Nemtsov Dies
+						country_event = { id = russia.1050 days = 280 }			#Grand Prix
+						country_event = { id = russia.1012 days = 416 }			#Nemtsov Dies
+						country_event = { id = russia.59 days = 725 }			#Park Zaryadie
 						country_event = { id = russia.1029 days = 1626 }		#World Cup
 						
 						if={
 							limit = { is_ai = yes }
 							add_ideas = SOV_sergey_surovikin_air_force_rework
-							add_ideas = SOV_roman_vladimirovich_kutuzov_rework
+							add_ideas = SOV_roman_vladimirovich_kutuzov_rework		#AI is too stupid to do it themselves lol
 						}
 						remove_ideas = SOV_alexander_bortnikov_rework
+						SOV_increase_siloviki_faction_medium = yes
 					}
 					else={
 						puppet = BLR

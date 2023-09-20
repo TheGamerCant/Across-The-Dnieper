@@ -1758,6 +1758,135 @@ country_event = {
 }
 
 
+#Grand Prix event 2
+country_event = {
+    id = russia.1050
+    title = russia.1050.t
+    desc = russia.1050.desc
+    is_triggered_only = yes
+	picture = SOV_prix_event
+	
+	immediate={
+		hidden_effect={
+			if={
+				limit = { date < 2021.1.1 }
+				country_event = { id = russia.1050 days = 3 }
+			}
+		}
+	}
+
+    option = {
+        name = russia.1050.a
+		ai_chance = {
+			base = 10
+		}
+		increase_eastern_liberal_programming_by_1 = yes
+		add_political_power = 5
+    }
+}
+
+#Putin as the vozhd
+country_event = {
+    id = russia.1051
+    title = russia.1051.t
+    desc = russia.1051.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_duma
+
+    option = {
+        name = russia.1051.a
+		ai_chance = {
+			base = 10
+		}
+		
+		set_politics = {
+			ruling_party = ultranationalist
+			elections_allowed = no
+		}
+		add_stability = -0.1
+		
+		set_temp_variable = { east_con_support = party_popularity@eastern_conservative }
+		multiply_temp_variable = { east_con_support = -0.8 }
+		add_popularity = { ideology = eastern_conservative popularity = east_con_support }
+		multiply_temp_variable = { east_con_support = -1 }
+		add_popularity = { ideology = ultranationalist popularity = east_con_support }
+		
+		swap_ideas={
+			remove_idea = authoritarian_democracy
+			add_idea = fascist_regime
+		}
+		
+		remove_dynamic_modifier = { modifier = SOV_effects_from_media }
+		
+		hidden_effect={
+			kill_country_leader = yes
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				create_country_leader = {
+					name = "Vladimir Putin"
+					desc = "vladimir_putin_desc"
+					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+					ideology = united_russia_ultranat_subideology
+					traits = { SOV_retired_kgb_agent_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
+				}
+			}
+			else={
+				create_country_leader = {
+					name = "Vladimir Putin"
+					desc = "vladimir_putin_desc"
+					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+					ideology = united_russia_ultranat_subideology
+					traits = { SOV_retired_kgb_agent_no_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
+				}
+			}		
+			
+			remove_trait = {
+				character = SOV_sergey_lavrov_rework
+				slot = political_advisor
+				trait = sergey_lavrov_trait_2
+			}
+			add_trait = {
+				character = SOV_sergey_lavrov_rework
+				slot = political_advisor
+				trait = sergey_lavrov_trait_3
+			}
+			
+			remove_trait = {
+				character = SOV_dmitry_medvedev_rework
+				slot = political_advisor
+				trait = medvedev_pm_trait
+			}
+			add_trait = {
+				character = SOV_dmitry_medvedev_rework
+				slot = political_advisor
+				trait = medvedev_pm_trait_2
+			}
+			
+			remove_ideas = SOV_krym_nash_putin
+			remove_ideas = SOV_krym_nash_ultranat
+			add_ideas = SOV_krym_nash_ultranat_2
+		}
+    }
+}
+
+#Conversations about the important
+country_event = {
+    id = russia.1052
+    title = russia.1052.t
+    desc = russia.1052.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_students
+
+    option = {
+        name = russia.1052.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_political_power = 100
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t

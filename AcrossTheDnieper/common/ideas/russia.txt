@@ -453,6 +453,18 @@ ideas = {
 			}
 		}
 		
+		SOV_krym_nash_ultranat_2 = {
+			available = { NOT = { has_global_flag = russian_civil_war_begun } any_owned_state={ has_state_flag = crimea_oblast_flag } }
+
+			removal_cost = -1
+			picture = SOV_krym_nash
+			modifier = {
+				political_power_factor = 0.03
+				war_support_factor = 0.05
+				ultranationalist_drift = 0.2
+			}
+		}
+		
 		SOV_bloated_welfare_system = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }
 
@@ -516,6 +528,21 @@ ideas = {
 			}
 		}
 		
+		SOV_patriots_from_a_young_age_idea_3 = {
+			available = { NOT = { has_global_flag = russian_civil_war_begun } }
+
+			removal_cost = -1
+			picture = children_of_future_russia
+			modifier = {
+				political_power_gain = 0.3
+				war_support_factor = 0.05
+				war_stability_factor = 0.15
+				ultranationalist_drift = 0.2
+				conscription_factor = 0.06
+				experience_gain_army_factor = 0.05
+			}
+		}
+		
 		SOV_oil_revenues = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }
 
@@ -528,6 +555,7 @@ ideas = {
 				min_export = 0.2
 				local_resources_factor = 0.1
 				political_power_cost = -0.3
+				ruling_party_drift = 0.1
 			}
 		}
 		
@@ -543,6 +571,7 @@ ideas = {
 				min_export = 0.2
 				local_resources_factor = 0.2
 				political_power_cost = -0.35
+				ruling_party_drift = 0.1
 			}
 		}
 		
