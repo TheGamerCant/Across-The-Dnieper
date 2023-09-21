@@ -364,6 +364,9 @@ SOV_nothern_setback_player  = {
 
 SOV_a_harsh_war  = {
 	enable = { always = yes }
+	remove_trigger = {
+		NOT = { has_global_flag = russia_ukraine_war }
+	}
 	icon = GFX_modifiers_SOV_a_harsh_war
 	
 	air_cas_present_factor = -0.75
@@ -375,7 +378,9 @@ SOV_a_harsh_war  = {
 
 SOV_a_harsh_war_offensive  = {
 	enable = { always = yes }
-	icon = GFX_modifiers_SOV_a_harsh_war
+	remove_trigger = {
+		NOT = { has_global_flag = russia_ukraine_war }
+	}
 	
 	air_cas_present_factor = -0.5
 	army_attack_factor = -0.1
