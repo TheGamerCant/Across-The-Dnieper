@@ -432,7 +432,10 @@ SOV_try_to_take_southern_ukraine = {
 		original_tag = SOV
 	}
 	enable = {
-		has_war_with = UKR
+		OR={
+			has_war_with = UKR
+			has_global_flag = russia_ukraine_war
+		}
 	}
 	abort_when_not_enabled = yes
 	
@@ -455,18 +458,14 @@ SOV_try_to_take_southern_ukraine = {
 	
 	ai_strategy = {
 		type = front_unit_request
-		state = 299
-		value = 80
-	}
-	ai_strategy = {
-		type = front_unit_request
-		state = 283
-		value = 80
-	}
-	ai_strategy = {
-		type = front_unit_request
-		state = 242
-		value = 80
+		state_trigger = {
+			OR={
+				has_state_flag = kherson_oblast_flag
+				has_state_flag = zaporizhia_oblast_flag
+				has_state_flag = crimea_oblast_flag
+			}
+		}
+		value = 300
 	}
 }
 
@@ -481,7 +480,7 @@ SOV_ignore_western_front = {
 	abort_when_not_enabled = yes
 	
 	ai_strategy = {
-		type = front_control
+		type = front_unit_request
 		state_trigger = {
 			OR={
 				has_state_flag = volyn_oblast_flag
@@ -491,11 +490,20 @@ SOV_ignore_western_front = {
 		}
 		priority = -600
 	}
+	
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "BLR"
+		value = 500
+	}
 }
 
-SOV_focus_on_ukraine = {
+SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garrison duty
 	allowed = {
-		original_tag = SOV
+		OR={
+			has_war_with = UKR
+			has_global_flag = russia_ukraine_war
+		}
 	}
 	enable = {
 		has_war_with = UKR

@@ -278,13 +278,16 @@ UKR_secure_kyiv = {
 		tag = UKR
 	}
 	enable = {
-		any_country={ original_tag = SOV has_war_with = UKR }
+		OR={
+			any_country={ original_tag = SOV has_war_with = UKR }
+			has_global_flag = russia_ukraine_war
+		}
 		has_global_flag = smo_northern_front_open
 	}
 	abort_when_not_enabled = yes
 	
 	ai_strategy = {
-		type = front_control
+		type = front_unit_request
 		state_trigger = {
 			is_demilitarized_zone = no
 			OR={
@@ -304,14 +307,17 @@ UKR_ignore_the_south_initially = {
 		tag = UKR
 	}
 	enable = {
-		any_country={ original_tag = SOV has_war_with = UKR }
+		OR={
+			any_country={ original_tag = SOV has_war_with = UKR }
+			has_global_flag = russia_ukraine_war
+		}
 		has_global_flag = smo_southern_front_open
 		has_global_flag = russia_ukraine_war_started_recently
 	}
 	abort_when_not_enabled = yes
 	
 	ai_strategy = {
-		type = front_control
+		type = front_unit_request
 		state_trigger = {
 			OR={
 				has_state_flag = kherson_oblast_flag
@@ -319,7 +325,7 @@ UKR_ignore_the_south_initially = {
 				has_state_flag = crimea_oblast_flag
 			}
 		}
-		priority = -600
+		priority = -300
 	}
 }
 

@@ -191,6 +191,7 @@ SOV_stagnant_economy_rework = {
 	industrial_capacity_dockyard = SOV_sanctions_industrial_capacity_dockyard
 	production_speed_industrial_complex_factor = SOV_sanctions_production_speed_industrial_complex_factor
 	production_speed_arms_factory_factor = SOV_sanctions_production_speed_arms_factory_factor
+	local_resources_factor = SOV_sanctions_local_resources_factor
 }
 
 SOV_western_sanctions_rework = {
@@ -211,6 +212,7 @@ SOV_western_sanctions_rework = {
 	industrial_capacity_dockyard = SOV_sanctions_industrial_capacity_dockyard
 	production_speed_industrial_complex_factor = SOV_sanctions_production_speed_industrial_complex_factor
 	production_speed_arms_factory_factor = SOV_sanctions_production_speed_arms_factory_factor
+	local_resources_factor = SOV_sanctions_local_resources_factor
 }
 
 SOV_army_modernisation_plan = {
@@ -339,19 +341,33 @@ SOV_nothern_setback  = {
 	icon = GFX_modifiers_generic_military_plans		#However, if there is one modifer in a state, it will apply to all units in the state, regardless of scope.
 	
 	supply_node_range = -0.2
+	army_attack_factor = -0.25
+	army_defence_factor = -0.2
+	army_speed_factor = -0.25
+	breakthrough_factor = -0.2
+	supply_factor = -0.15
+}
+
+
+SOV_nothern_setback_player  = {
+	enable = { original_tag = SOV }	
+	icon = GFX_modifiers_generic_military_plans	
+	
+	supply_node_range = -0.2
 	army_attack_factor = -0.4
 	army_defence_factor = -0.4
-	army_speed_factor = -0.5
-	breakthrough_factor = -0.4
-	supply_factor = -0.35
+	army_speed_factor = -0.6
+	breakthrough_factor = -0.45
+	supply_factor = -0.4
 }
+
 
 SOV_a_harsh_war  = {
 	enable = { always = yes }
 	icon = GFX_modifiers_SOV_a_harsh_war
 	
 	air_cas_present_factor = -0.75
-	army_attack_factor = -0.8
+	army_attack_factor = -0.7
 	breakthrough_factor = -0.8
 	army_speed_factor = -0.95
 	ground_attack_factor = -0.75
@@ -362,7 +378,7 @@ SOV_a_harsh_war_offensive  = {
 	icon = GFX_modifiers_SOV_a_harsh_war
 	
 	air_cas_present_factor = -0.5
-	army_attack_factor = -0.2
+	army_attack_factor = -0.1
 	breakthrough_factor = -0.2
 	army_speed_factor = -0.75
 	ground_attack_factor = -0.75

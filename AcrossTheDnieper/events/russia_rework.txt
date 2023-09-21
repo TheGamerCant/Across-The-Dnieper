@@ -1503,19 +1503,39 @@ country_event = {
 	
 	immediate={
 		hidden_effect={
-			every_state={
-				limit={
-					OR={
-						has_state_flag = kyiv_oblast_flag
-						has_state_flag = chernihiv_oblast_flag
-						has_state_flag = sumy_oblast_flag
-						has_state_flag = zhytomyr_oblast_flag
+			if={
+				limit = { is_ai = no UKR = { is_ai = yes } }
+				every_state={
+					limit={
+						OR={
+							has_state_flag = kyiv_oblast_flag
+							has_state_flag = chernihiv_oblast_flag
+							has_state_flag = sumy_oblast_flag
+							has_state_flag = zhytomyr_oblast_flag
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SOV_nothern_setback_player
+						scope = SOV
+						days = 90
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = SOV_nothern_setback
-					scope = SOV
-					days = 90
+			}
+			else={
+				every_state={
+					limit={
+						OR={
+							has_state_flag = kyiv_oblast_flag
+							has_state_flag = chernihiv_oblast_flag
+							has_state_flag = sumy_oblast_flag
+							has_state_flag = zhytomyr_oblast_flag
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SOV_nothern_setback
+						scope = SOV
+						days = 90
+					}
 				}
 			}
 		}
@@ -1528,18 +1548,39 @@ country_event = {
 		}
 		
 		effect_tooltip={
-			every_state={
-				limit={
-					OR={
-						has_state_flag = kyiv_oblast_flag
-						has_state_flag = chernihiv_oblast_flag
-						has_state_flag = sumy_oblast_flag
+			if={
+				limit = { is_ai = no UKR = { is_ai = yes } }
+				every_state={
+					limit={
+						OR={
+							has_state_flag = kyiv_oblast_flag
+							has_state_flag = chernihiv_oblast_flag
+							has_state_flag = sumy_oblast_flag
+							has_state_flag = zhytomyr_oblast_flag
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SOV_nothern_setback_player
+						scope = SOV
+						days = 90
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = SOV_nothern_setback
-					scope = SOV
-					days = 90
+			}
+			else={
+				every_state={
+					limit={
+						OR={
+							has_state_flag = kyiv_oblast_flag
+							has_state_flag = chernihiv_oblast_flag
+							has_state_flag = sumy_oblast_flag
+							has_state_flag = zhytomyr_oblast_flag
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SOV_nothern_setback
+						scope = SOV
+						days = 90
+					}
 				}
 			}
 		}
@@ -1725,11 +1766,16 @@ country_event = {
 				limit = { has_completed_focus = SOV_strengthen_the_central_bank }
 				country_event = { id = russia.1049 days = 5 }
 			}
+			
+			if={
+				limit = { OR = { has_idea = SOV_oil_revenues has_idea = SOV_oil_revenues_2 } }
+				country_event = { id = russia.1054 days = 17 }
+			}
 		}
     }
 }
 
-#More western sanctions
+#More western sanctions response
 country_event = {
     id = russia.1049
     title = russia.1049.t
@@ -1806,7 +1852,7 @@ country_event = {
 		add_stability = -0.1
 		
 		set_temp_variable = { east_con_support = party_popularity@eastern_conservative }
-		multiply_temp_variable = { east_con_support = -0.8 }
+		multiply_temp_variable = { east_con_support = -0.6 }
 		add_popularity = { ideology = eastern_conservative popularity = east_con_support }
 		multiply_temp_variable = { east_con_support = -1 }
 		add_popularity = { ideology = ultranationalist popularity = east_con_support }
@@ -1884,6 +1930,66 @@ country_event = {
 		}
 		
 		add_political_power = 100
+    }
+}
+
+#Fate of the unions
+country_event = {
+    id = russia.1053
+    title = russia.1053.t
+    desc = russia.1053.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_cw_gennady
+
+    option = {
+        name = russia.1053.a
+		ai_chance = {
+			base = 10
+		}
+		
+		swap_ideas = {
+			remove_idea = unions_restricted
+			add_idea = government_trade_unions
+		}
+    }
+	
+	option = {
+        name = russia.1053.b
+		ai_chance = {
+			base = 10
+		}
+		
+		swap_ideas = {
+			remove_idea = unions_restricted
+			add_idea = law_unions_banned
+		}
+    }
+}
+
+#No oil money
+country_event = {
+    id = russia.1054
+    title = russia.1054.t
+    desc = russia.1054.desc
+    is_triggered_only = yes
+	picture = SOV_sanctions_event
+
+    option = {
+        name = russia.1054.a
+		ai_chance = {
+			base = 10
+		}
+		
+		if={
+			limit = { has_idea = SOV_oil_revenues }
+			remove_ideas = SOV_oil_revenues
+		}
+		else_if={
+			limit = { has_idea = SOV_oil_revenues_2 }
+			remove_ideas = SOV_oil_revenues_2
+		}
+		
+		SOV_decrease_oil_and_gas_faction_large = yes
     }
 }
 
