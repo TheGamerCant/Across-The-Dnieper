@@ -7102,6 +7102,60 @@ focus_tree = {
 						}
 					}
 				}
+				
+				
+				if={
+					limit={
+						UKR = { is_ai = yes }
+					}
+					UKR={
+						division_template = {
+							name = "AI Emergency National Guard"
+							division_names_group = UKR_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }	
+								infantry = { x = 1 y = 2 }
+								mechanized = { x = 2 y = 0 }
+								mechanized = { x = 2 y = 1 }
+							}
+						}
+						
+						for_loop_effect = {
+							end = 50
+							value = temp
+							random_owned_controlled_state = {
+								limit = { UKR = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									owner = UKR
+								}
+							}
+						}
+					}
+				}
+				if={
+					limit={
+						SOV = { is_ai = no }
+						UKR = { is_ai = yes }
+					}
+					UKR={		
+						for_loop_effect = {
+							end = 70
+							value = temp
+							random_owned_controlled_state = {
+								limit = { UKR = { has_full_control_of_state = PREV } }
+								create_unit = {
+									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									owner = UKR
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
