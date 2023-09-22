@@ -353,12 +353,13 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				OR={
-					has_completed_focus = SOV_putin_at_the_helm
-					has_completed_focus = SOV_russia_of_the_future
-					has_completed_focus = SOV_the_siloviki_state
-					has_completed_focus = SOV_a_strong_russia
-				}
+				always = yes
+#				OR={
+#					has_completed_focus = SOV_putin_at_the_helm
+#					has_completed_focus = SOV_russia_of_the_future
+#					has_completed_focus = SOV_the_siloviki_state
+#					has_completed_focus = SOV_a_strong_russia
+#				}
 			}
 		}
 		
@@ -560,7 +561,7 @@ focus_tree = {
 			set_global_flag = smo_eastern_front_open
 			set_global_flag = smo_donbass_front_open
 			set_global_flag = smo_southern_front_open
-
+			news_event = { id = atd_news.56 days = 17 }
 			if = {
 				limit = {
 					country_exists = BLR
@@ -732,10 +733,10 @@ focus_tree = {
 				
 				if={
 					limit = { is_ai = yes }
-					add_timed_idea = { idea = SOV_three_days_to_kiev days = 30 } 
+					add_timed_idea = { idea = SOV_three_days_to_kiev days = 45 } 
 				}
 				else={
-					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 25 } 
+					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 45 } 
 				}
 				
 				
@@ -828,6 +829,8 @@ focus_tree = {
 				}
 				
 				country_event = { id = russia.1048 days = 2 }
+				news_event = { id = atd_news.55 hours = 1 }
+				add_named_threat = { threat = 60 name = russian_invasion_of_ukraine }
 			}
 		}
 	}
@@ -1033,7 +1036,7 @@ focus_tree = {
 
 		
 		completion_reward={
-			add_political_power = 120
+			add_political_power = 200
 			add_stability = 0.05
 		}
 	}
@@ -1140,6 +1143,7 @@ focus_tree = {
 				remove_idea = SOV_oil_revenues
 				add_idea = SOV_oil_revenues_2
 			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -1332,6 +1336,7 @@ focus_tree = {
 		
 		completion_reward={
 			add_country_leader_trait = SOV_geopolitical_grandmaster_trait
+			add_stability = 0.05
 		}
 	}
 	
@@ -2072,8 +2077,9 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = SOV_putin_at_the_helm }
-				has_country_flag = russia_united_flag
+				always = no
+#				NOT = { has_completed_focus = SOV_putin_at_the_helm }
+#				has_country_flag = russia_united_flag
 			}
 		}
 		
@@ -2129,14 +2135,15 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT={
-					OR={
-						has_completed_focus = SOV_the_siloviki_state
-						has_completed_focus = SOV_a_strong_russia
-						has_completed_focus = SOV_putin_at_the_helm
-					}
-				}
-				has_country_flag = russia_united_flag
+				always = no
+#				NOT={
+#					OR={
+#						has_completed_focus = SOV_the_siloviki_state
+#						has_completed_focus = SOV_a_strong_russia
+#						has_completed_focus = SOV_putin_at_the_helm
+#					}
+#				}
+#				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -2172,14 +2179,15 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT={
-					OR={
-						has_completed_focus = SOV_russia_of_the_future
-						has_completed_focus = SOV_a_strong_russia
-						has_completed_focus = SOV_putin_at_the_helm
-					}
-				}
-				has_country_flag = russia_united_flag
+				always = no
+#				NOT={
+#					OR={
+#						has_completed_focus = SOV_russia_of_the_future
+#						has_completed_focus = SOV_a_strong_russia
+#						has_completed_focus = SOV_putin_at_the_helm
+#					}
+#				}
+#				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -2572,14 +2580,15 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT={
-					OR={
-						has_completed_focus = SOV_russia_of_the_future
-						has_completed_focus = SOV_the_siloviki_state
-						has_completed_focus = SOV_putin_at_the_helm
-					}
-				}
-				has_country_flag = russia_united_flag
+				always = no
+#				NOT={
+#					OR={
+#						has_completed_focus = SOV_russia_of_the_future
+#						has_completed_focus = SOV_the_siloviki_state
+#						has_completed_focus = SOV_putin_at_the_helm
+#					}
+#				}
+#				has_country_flag = russia_united_flag
 			}
 		}
 
@@ -3446,6 +3455,14 @@ focus_tree = {
 			has_completed_focus = SOV_victors_now_and_forever
 			has_completed_focus = SOV_great_helmsman
 			has_completed_focus = SOV_multipolarism
+			
+			custom_trigger_tooltip={
+				tooltip = SOV_do_away_with_democracy_tt
+				OR={
+					check_variable = { var = ROOT.SOV_media_leans_ultranationalist value = 45 compare = greater_than_or_equals }
+					is_ai = yes
+				}
+			}
 		}
 		
 		completion_reward={

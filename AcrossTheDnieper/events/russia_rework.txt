@@ -161,7 +161,7 @@ country_event = {
 		add_stability = -0.1
 		
 		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = SOV_viktor_yanukovych
+		show_ideas_tooltip = SOV_viktor_yanukovych_rework
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = SOV_ilya_kiva_rework
 		
@@ -1634,7 +1634,7 @@ country_event = {
 	}
 
     option = {
-        name = russia.1045.b
+        name = russia.1045.a
 		ai_chance = {
 			base = 10
 		}
@@ -1816,7 +1816,7 @@ country_event = {
 		hidden_effect={
 			if={
 				limit = { date < 2021.1.1 }
-				country_event = { id = russia.1050 days = 3 }
+				country_event = { id = russia.1050 days = 365 }
 			}
 		}
 	}
@@ -1982,14 +1982,82 @@ country_event = {
 		
 		if={
 			limit = { has_idea = SOV_oil_revenues }
-			remove_ideas = SOV_oil_revenues
+			swap_ideas={
+				remove_idea = SOV_oil_revenues
+				add_idea = SOV_oil_revenues_3
+			}
 		}
 		else_if={
 			limit = { has_idea = SOV_oil_revenues_2 }
-			remove_ideas = SOV_oil_revenues_2
+			swap_ideas={
+				remove_idea = SOV_oil_revenues_2
+				add_idea = SOV_oil_revenues_3
+			}
 		}
 		
 		SOV_decrease_oil_and_gas_faction_large = yes
+    }
+}
+
+#test
+country_event = {
+	id = russia.1055
+	hidden = yes
+	
+	fire_only_once = yes
+	trigger = {
+		SOV={
+			focus_progress = {
+				focus = SOV_movements_on_the_border
+				progress > 0.96
+			}
+		}
+		any_donbass_country_exists = yes
+	}
+	
+	immediate={
+		SOV={ country_event = { id = russia.1056 } }
+	}
+}
+
+#Recognise Donbass
+country_event = {
+    id = russia.1056
+    title = russia.1056.t
+    desc = russia.1056.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_putin_desk
+
+    option = {
+        name = russia.1056.a
+		ai_chance = {
+			base = 10
+		}
+		
+		every_country={
+			limit = { 
+				exists = yes
+				OR={
+					tag = DON
+					tag = LHK
+					tag = KHK
+					tag = ODS
+					tag = NOV
+				}
+			}
+			SOV = { give_guarantee = PREV }
+		}
+		
+		add_named_threat = { threat = 10 name = SOV_recognised_donbass }
+		every_country = {
+			limit = { has_western_government = yes }
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = SOV_recognised_donbass
+			}
+		}
+		
+		hidden_effect = { news_event = { id = atd_news.57 hours = 1 } }
     }
 }
 

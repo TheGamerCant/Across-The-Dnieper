@@ -2630,6 +2630,8 @@ country_event = {
 					}
 				}
 			}
+			
+			add_stability = 0.03
 		}
     }
 }
@@ -3939,16 +3941,16 @@ country_event = {
             transfer_state = 434
             add_state_claim = 434
         }
-
-        BLR = {
-            add_stability = -0.05
-            add_war_support = 0.01
-            add_political_power = -20
-            add_opinion_modifier = { target = ROOT modifier = small_increase }
-        }
-
-
-
+		
+		if={
+			limit = { NOT = { russia_rework_trigger = yes } }
+			BLR = {
+				add_stability = -0.05
+				add_war_support = 0.01
+				add_political_power = -20
+				add_opinion_modifier = { target = ROOT modifier = small_increase }
+			}
+		}
     }
 
     option = {
@@ -3956,12 +3958,16 @@ country_event = {
         ai_chance = {
 			base = 0
 		}
-
-        add_stability = 0.02
-        add_war_support = -0.005
-        BLR = {
-            add_political_power = 50
-        }
+		
+		if={
+			limit = { NOT = { russia_rework_trigger = yes } }
+			BLR = {
+				add_stability = -0.05
+				add_war_support = 0.01
+				add_political_power = -20
+				add_opinion_modifier = { target = ROOT modifier = small_increase }
+			}
+		}  
     }
 }
 

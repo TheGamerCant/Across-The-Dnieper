@@ -1379,3 +1379,128 @@ news_event = {	#Ukrainian victory
 		}
 	}
 }
+
+news_event = {	#Putin declares SMO
+	id = atd_news.55
+	title = atd_news.55.t
+	desc = atd_news.55.desc
+	picture = GFX_news_event_pootin
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			NOT = { 
+				OR={
+					tag = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+			NOT = { tag = UKR }
+		}
+		name = atd_news.55.a
+	}
+
+	option = {
+		trigger = {
+			OR={
+				tag = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+		}
+		name = atd_news.55.b
+	}
+	
+	option = {
+		trigger = {
+			tag = UKR
+		}
+		name = atd_news.55.c
+	}
+}
+
+
+news_event = {	#Sussy Baka (Russia) has too many troops on ukraines border
+	id = atd_news.56
+	title = atd_news.56.t
+	desc = atd_news.56.desc
+	picture = GFX_news_event_capitulation
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.56.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = UKR
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.56.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = {
+		name = atd_news.56.c
+		trigger = {
+			tag = UKR
+		}
+	}
+}
+
+
+news_event = {	#Russia recognises PRs
+	id = atd_news.57
+	title = atd_news.57.t
+	desc = atd_news.57.desc
+	picture = GFX_news_event_pootin
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.57.a
+		trigger = {
+			NOT = {
+				OR={
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+			
+			if={
+				limit = { has_western_government = yes }
+				effect_tooltip={		#Actual effect happens for Russia in russia.1056
+					add_opinion_modifier = {
+						target = SOV
+						modifier = SOV_recognised_donbass
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.56.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+
+}
