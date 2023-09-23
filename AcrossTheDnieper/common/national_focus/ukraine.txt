@@ -716,6 +716,66 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = UKR_fortify_the_border_with_luhansk
+		icon = GFX_focus_UKR_fortify_luhansk
+		x = 0
+		y = 3
+		prerequisite = { focus = UKR_fortify_severodonetsk }
+		relative_position_id = UKR_fortify_severodonetsk
+		
+		cost = 12
+		ai_will_do = {
+		}
+		available = {
+			NOT = { is_puppet_of = SOV }
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			any_state = {
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}	
+				any_neighbor_state = {
+					is_owned_by = LHK
+				}
+			}
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = UKR_fortify_the_border_with_luhansk_tt
+			hidden_effect={
+				every_country={
+					limit={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					every_owned_state = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border_country = LHK
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
 		id = UKR_fortify_slovyansk
 		icon = GFX_focus_UKR_fortify_donetsk
 		x = -2
@@ -760,6 +820,66 @@ focus_tree = {
 					level = 3
 					province = 8093
 					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = UKR_fortify_the_border_with_donetsk
+		icon = GFX_focus_UKR_fortify_donetsk
+		x = 0
+		y = 3
+		prerequisite = { focus = UKR_fortify_slovyansk }
+		relative_position_id = UKR_fortify_slovyansk
+		
+		cost = 12
+		ai_will_do = {
+		}
+		available = {
+			NOT = { is_puppet_of = SOV }
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			any_state = {
+				OWNER = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}	
+				any_neighbor_state = {
+					is_owned_by = DON
+				}
+			}
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = UKR_fortify_the_border_with_donetsk_tt
+			hidden_effect={
+				every_country={
+					limit={
+						OR={
+							tag = ROOT
+							is_in_faction_with = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+					every_owned_state = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border_country = DON
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1785,7 +1905,7 @@ focus_tree = {
 		relative_position_id = UKR_on_the_world_stage
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {
@@ -1834,7 +1954,7 @@ focus_tree = {
 		relative_position_id = UKR_on_the_world_stage
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {
@@ -1862,7 +1982,7 @@ focus_tree = {
 		relative_position_id = UKR_the_ukraine_eu_assossication_agreement
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {
@@ -1893,7 +2013,7 @@ focus_tree = {
 		relative_position_id = UKR_expand_the_partnership_for_peace
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {
@@ -1947,7 +2067,7 @@ focus_tree = {
 		relative_position_id = UKR_expansion_of_lgbt_rights
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {
@@ -1982,7 +2102,7 @@ focus_tree = {
 		relative_position_id = UKR_eastern_partnership_summit_riga
 		
 		
-		cost = 40
+		cost = 28
 		ai_will_do = {
 		}
 		available = {

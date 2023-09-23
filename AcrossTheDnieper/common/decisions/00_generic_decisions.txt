@@ -239,31 +239,27 @@ war_measures = {
 		}
 
 		complete_effect = {
-			if={
-				limit = { has_war = yes }
-			
-				IF = {
-					limit = {
-						has_idea = volunteer_only
-					}
-					swap_ideas = {
-						add_idea = limited_conscription
-						remove_idea = volunteer_only
-					}
-					add_war_support = -0.05
-					set_country_flag = original_army_law_was_volunteer_only
+			IF = {
+				limit = {
+					has_idea = volunteer_only
 				}
-				ELSE_IF = {
-					limit = {
-						has_idea = army_disbanded
-					}
-					swap_ideas = {
-						add_idea = limited_conscription
-						remove_idea = army_disbanded
-					}
-					add_war_support = -0.15
-					set_country_flag = original_army_law_was_army_disbanded
+				swap_ideas = {
+					add_idea = limited_conscription
+					remove_idea = volunteer_only
 				}
+				add_war_support = -0.05
+				set_country_flag = original_army_law_was_volunteer_only
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = army_disbanded
+				}
+				swap_ideas = {
+					add_idea = limited_conscription
+					remove_idea = army_disbanded
+				}
+				add_war_support = -0.15
+				set_country_flag = original_army_law_was_army_disbanded
 			}
 		}
 	}
