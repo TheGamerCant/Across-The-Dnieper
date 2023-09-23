@@ -2877,7 +2877,7 @@ focus_tree = {
 			custom_effect_tooltip = SOV_prison_recruitment_tt
 			hidden_effect={
 				division_template = {
-					name = "Emergency National Guard"
+					name = "Prison Infantry"
 					division_names_group = SOV_INF_01
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
@@ -2886,6 +2886,9 @@ focus_tree = {
 						irregular_infantry = { x = 1 y = 0 }
 						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 2 }
+						irregular_infantry = { x = 2 y = 0 }
+						irregular_infantry = { x = 2 y = 1 }
+						irregular_infantry = { x = 2 y = 2 }
 					}
 				}
 				
@@ -2895,8 +2898,8 @@ focus_tree = {
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
-							owner = UKR
+							division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+							owner = SOV
 						}
 					}
 				}
@@ -2909,8 +2912,8 @@ focus_tree = {
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
-								owner = UKR
+								division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+								owner = SOV
 							}
 						}
 					}
