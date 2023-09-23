@@ -124,7 +124,10 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		
+		if={
+			limit = { russia_rework_trigger = yes tag = SOV }
+			hidden_effect = { country_event = { id = generic.6 } }
+		}
 	}
 	
 	option = { 
@@ -133,6 +136,10 @@ country_event = {
 			base = 0
 		}
 		set_country_flag = opened_donate_gui
+		if={
+			limit = { russia_rework_trigger = yes tag = SOV }
+			hidden_effect = { country_event = { id = generic.6 } }
+		}
 	}
 }
 
@@ -173,6 +180,22 @@ country_event = {
 
 	option = { 
 		name = generic.5.a
+		ai_chance = {
+			base = 10
+		}
+		
+	}
+}
+
+country_event = {
+	id = generic.6
+	title = generic.6.t
+	desc = generic.6.desc
+	is_triggered_only = yes
+	
+
+	option = { 
+		name = generic.6.a
 		ai_chance = {
 			base = 10
 		}

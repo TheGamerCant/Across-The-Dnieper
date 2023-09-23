@@ -2873,7 +2873,49 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_manpower = 120000
+			add_manpower = 75000
+			custom_effect_tooltip = SOV_prison_recruitment_tt
+			hidden_effect={
+				division_template = {
+					name = "Emergency National Guard"
+					division_names_group = SOV_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 1 y = 2 }
+					}
+				}
+				
+				for_loop_effect = {
+					end = 30
+					value = temp
+					random_owned_controlled_state = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+							owner = UKR
+						}
+					}
+				}
+				
+				if={
+					limit = { is_ai = yes UKR= { is_ai = no } }
+					for_loop_effect = {
+						end = 18
+						value = temp
+						random_owned_controlled_state = {
+							limit = { ROOT = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+								owner = UKR
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	
@@ -2965,8 +3007,8 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_great_victors_2
-		icon = GFX_focus_SOV_great_victors_2
-		x = 52
+		icon = GFX_focus_SOV_great_victors_3
+		x = 47
 		y = 8
 		cost = 10
 		search_filters = {
@@ -3007,10 +3049,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_relocate_ukrainian_industry
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_relocate_ukrainian_industry
 		x = -3
 		y = 1
-		cost = 60
+		cost = 50
 		search_filters = {
 			
 		}
@@ -3281,10 +3323,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_second_special_military_operation
-		icon = GFX_focus_SOV_the_second_special_military_operation
+		icon = GFX_focus_SOV_the_second_special_military_operation_2
 		x = -1
 		y = 1
-		cost = 60
+		cost = 50
 		search_filters = {
 			
 		}
@@ -3330,10 +3372,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_increase_operations_in_ukraine
-		icon = GFX_focus_UKR_subordination_to_the_fsb
+		icon = GFX_focus_SOV_increase_operations_in_ukraine
 		x = 3
 		y = 1
-		cost = 60
+		cost = 50
 		search_filters = {
 			
 		}
@@ -3379,10 +3421,10 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_annex_abkhazia
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_annex_abkhazia
 		x = 1
 		y = 1
-		cost = 60
+		cost = 50
 		search_filters = {
 			
 		}
@@ -3402,7 +3444,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_annex_belarus
-		icon = GFX_focus_BLR_russofication_of_belarus
+		icon = GFX_focus_SOV_annex_belarus
 		x = 1
 		y = 1
 		cost = 60
@@ -3435,7 +3477,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_do_away_with_democracy
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_do_away_with_democracy
 		x = 0
 		y = 1
 		cost = 70
@@ -3472,7 +3514,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_one_and_indivisible
-		icon = GFX_focus_SOV_our_grander_borders
+		icon = GFX_focus_SOV_one_and_indivisible
 		x = 0
 		y = 1
 		cost = 42
@@ -3571,7 +3613,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_putin_youth
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_the_putin_youth
 		x = -2
 		y = 1
 		cost = 42
@@ -3595,7 +3637,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_a_portrait_on_every_wall
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_a_portrait_on_every_wall
 		x = -1
 		y = 1
 		cost = 42
@@ -3637,7 +3679,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_economic_self_sufficiency
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_economic_self_sufficiency
 		x = 2
 		y = 1
 		cost = 42
@@ -3652,34 +3694,17 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
 			
+			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.12 }
 			add_to_variable = { SOV_sanctions_local_resources_factor = 0.1 }
+			custom_effect_tooltip = SOV_economic_self_sufficiency_tt
 		}
 	}
 	
 	focus = {
 		id = SOV_sever_ties_with_the_west
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_sever_ties_with_the_west
 		x = 1
 		y = 1
 		cost = 42

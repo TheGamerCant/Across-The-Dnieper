@@ -7128,7 +7128,7 @@ focus_tree = {
 							end = 50
 							value = temp
 							random_owned_controlled_state = {
-								limit = { UKR = { has_full_control_of_state = PREV } }
+								limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } NOT = { state = 284 } }
 								create_unit = {
 									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
 									owner = UKR
@@ -7144,10 +7144,10 @@ focus_tree = {
 					}
 					UKR={		
 						for_loop_effect = {
-							end = 70
+							end = 30
 							value = temp
 							random_owned_controlled_state = {
-								limit = { UKR = { has_full_control_of_state = PREV } }
+								limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } NOT = { state = 284 } }
 								create_unit = {
 									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
 									owner = UKR
@@ -7215,7 +7215,7 @@ focus_tree = {
 						end = 130
 						value = temp
 						random_owned_controlled_state = {
-							limit = { ROOT = { has_full_control_of_state = PREV } }
+							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } NOT = { state = 284 } }
 							create_unit = {
 								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.2" 
 								owner = UKR
@@ -7250,7 +7250,7 @@ focus_tree = {
 						end = 105
 						value = temp
 						random_owned_controlled_state = {
-							limit = { ROOT = { has_full_control_of_state = PREV } }
+							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } NOT = { state = 284 } }
 							create_unit = {
 								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.16" 
 								owner = UKR
@@ -7274,7 +7274,7 @@ focus_tree = {
 						end = 80
 						value = temp
 						random_owned_controlled_state = {
-							limit = { ROOT = { has_full_control_of_state = PREV } }
+							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } NOT = { state = 284 } }
 							create_unit = {
 								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03" 
 								owner = UKR
@@ -7904,7 +7904,7 @@ focus_tree = {
 		completion_reward = {
 			add_equipment_to_stockpile = {
 				type = convoy_1
-				amount = 100
+				amount = 200
 			}
 			add_tech_bonus = {
 				name = UKR_across_the_dnieper
