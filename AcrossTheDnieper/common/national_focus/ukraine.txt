@@ -738,7 +738,10 @@ focus_tree = {
 					}
 				}	
 				any_neighbor_state = {
-					is_owned_by = LHK
+					OR={
+						is_owned_by = LHK
+						is_owned_by = NOV
+					}
 				}
 			}
 		}
@@ -749,24 +752,60 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = UKR_fortify_the_border_with_luhansk_tt
-			hidden_effect={
-				every_country={
-					limit={
-						OR={
-							tag = ROOT
-							is_in_faction_with = ROOT
-							is_puppet_of = ROOT
+			if={
+				limit = { country_exists = LHK }
+				custom_effect_tooltip = UKR_fortify_the_border_with_luhansk_tt
+				hidden_effect={
+					every_country={
+						limit={
+							OR={
+								tag = ROOT
+								is_in_faction_with = ROOT
+								is_puppet_of = ROOT
+							}
+						}
+						every_owned_state = {
+							add_building_construction = {
+								type = bunker
+								level = 2
+								instant_build = yes
+								province = {
+									all_provinces = yes
+									limit_to_border_country = LHK
+								}
+							}
 						}
 					}
-					every_owned_state = {
-						add_building_construction = {
-							type = bunker
-							level = 2
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border_country = LHK
+				}
+			}
+			else_if={
+				limit = { country_exists = NOV }
+				custom_effect_tooltip = UKR_fortify_the_border_with_luhansk_tt_2
+				hidden_effect={
+					every_country={
+						limit={
+							OR={
+								tag = ROOT
+								is_in_faction_with = ROOT
+								is_puppet_of = ROOT
+							}
+						}
+						every_owned_state = {
+							limit = { 
+								OR={
+									has_state_flag = luhansk_oblast_flag
+									state = 95
+									state = 126
+								}
+							}
+							add_building_construction = {
+								type = bunker
+								level = 2
+								instant_build = yes
+								province = {
+									all_provinces = yes
+									limit_to_border_country = NOV
+								}
 							}
 						}
 					}
@@ -848,7 +887,10 @@ focus_tree = {
 					}
 				}	
 				any_neighbor_state = {
-					is_owned_by = DON
+					OR={
+						is_owned_by = DON
+						is_owned_by = NOV
+					}
 				}
 			}
 		}
@@ -859,8 +901,9 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = UKR_fortify_the_border_with_donetsk_tt
-			hidden_effect={
+			if={
+				limit = { country_exists = DON }
+				custom_effect_tooltip = UKR_fortify_the_border_with_donetsk_tt
 				every_country={
 					limit={
 						OR={
@@ -877,6 +920,43 @@ focus_tree = {
 							province = {
 								all_provinces = yes
 								limit_to_border_country = DON
+							}
+						}
+					}
+				}
+			}
+			else_if={
+				limit = { country_exists = NOV }
+				custom_effect_tooltip = UKR_fortify_the_border_with_donetsk_tt_2
+				hidden_effect={
+					every_country={
+						limit={
+							OR={
+								tag = ROOT
+								is_in_faction_with = ROOT
+								is_puppet_of = ROOT
+							}
+						}
+						every_owned_state = {
+							limit = { 
+								OR={
+									has_state_flag = donetsk_oblast_flag
+									state = 122
+									state = 126
+									state = 128
+									state = 165
+									state = 214
+									state = 243
+								}
+							}
+							add_building_construction = {
+								type = bunker
+								level = 2
+								instant_build = yes
+								province = {
+									all_provinces = yes
+									limit_to_border_country = NOV
+								}
 							}
 						}
 					}
@@ -1544,7 +1624,7 @@ focus_tree = {
 		prerequisite = { focus = UKR_government_of_sluha_narodu }
 		relative_position_id = UKR_government_of_sluha_narodu
 		
-		cost = 35
+		cost = 48
 		ai_will_do = {
 		}
 		available = {
@@ -1560,8 +1640,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_political_power = 80
-			add_stability = -0.05
+			add_political_power = 100
 			SOV = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -1583,7 +1662,7 @@ focus_tree = {
 		prerequisite = { focus = UKR_government_of_sluha_narodu }
 		relative_position_id = UKR_government_of_sluha_narodu
 		
-		cost = 35
+		cost = 48
 		ai_will_do = {
 		}
 		available = {
@@ -1598,7 +1677,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.075
 			add_political_power = -100
 			add_popularity = {
 				ideology = eastern_liberal 
@@ -1617,7 +1696,7 @@ focus_tree = {
 		prerequisite = { focus = UKR_government_of_sluha_narodu }
 		relative_position_id = UKR_government_of_sluha_narodu
 		
-		cost = 70
+		cost = 85
 		ai_will_do = {
 		}
 		available = {
@@ -1743,7 +1822,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = UKR_president_poroshenko focus = UKR_president_tymoshenko focus = UKR_president_zelenskyy focus = UKR_president_yarosh }
 		
-		cost = 42
+		cost = 60
 		ai_will_do = {
 		}
 		available = {
@@ -1800,6 +1879,7 @@ focus_tree = {
 					popularity = 0.1
 				}
 			}
+			add_political_power = 100
 		}
 	}
 	
@@ -1905,7 +1985,7 @@ focus_tree = {
 		relative_position_id = UKR_on_the_world_stage
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
@@ -1954,7 +2034,7 @@ focus_tree = {
 		relative_position_id = UKR_on_the_world_stage
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
@@ -1982,7 +2062,7 @@ focus_tree = {
 		relative_position_id = UKR_the_ukraine_eu_assossication_agreement
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
@@ -2013,7 +2093,7 @@ focus_tree = {
 		relative_position_id = UKR_expand_the_partnership_for_peace
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
@@ -2067,7 +2147,7 @@ focus_tree = {
 		relative_position_id = UKR_expansion_of_lgbt_rights
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
@@ -2102,7 +2182,7 @@ focus_tree = {
 		relative_position_id = UKR_eastern_partnership_summit_riga
 		
 		
-		cost = 28
+		cost = 32
 		ai_will_do = {
 		}
 		available = {
