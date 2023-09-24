@@ -18,30 +18,30 @@ on_actions={
 					limit={ NOT={ state = 14 } }
 					set_variable = { ROOT.random_state_selected = THIS }	#For loc
 				}
-				random_list = {
+				random_list = {			#Some of these are cancelled out, caused your troops to be neutral
 					4 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
                     1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
 					4 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
-                    1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
+#                   1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
 					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
                     1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
 					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
-                    1 = { 
-						if={
-							limit = {
-								any_state = {
-									is_coastal = yes
-									is_controlled_by = ROOT
-									NOT = { state = 14 }
-								}
-							}
-							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
-						}
-					}
+#                   1 = { 
+#						if={
+#							limit = {
+#								any_state = {
+#									is_coastal = yes
+#									is_controlled_by = ROOT
+#									NOT = { state = 14 }
+#								}
+#							}
+#							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
+#						}
+#					}
 					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
-                    5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
-					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
-					45 = {} #You should get an event once every three weeks, given you have equipment
+#                   5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
+#					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
+					37 = {}
 				}
 			}
 			else_if={
@@ -61,26 +61,26 @@ on_actions={
 					4 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
                     1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
 					4 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
-                    1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
+#                   1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
 					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
                     1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
 					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
-                    1 = { 
-						if={
-							limit = {
-								any_state = {
-									is_coastal = yes
-									is_controlled_by = ROOT
-									NOT = { state = 14 }
-								}
-							}
-							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
-						}
-					}
+#                   1 = { 
+#						if={
+#							limit = {
+#								any_state = {
+#									is_coastal = yes
+#									is_controlled_by = ROOT
+#									NOT = { state = 14 }
+#								}
+#							}
+#							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
+#						}
+#					}
 					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
-                    5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
-					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
-					90 = {} #You should get an event once every five weeks, given you have equipment
+#                   5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
+#					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
+					78 = {} #You should get an event once every five weeks, given you have equipment
 				}
 			}
 		}

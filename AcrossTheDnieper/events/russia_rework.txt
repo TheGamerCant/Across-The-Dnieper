@@ -1460,7 +1460,6 @@ country_event = {
 		
 		add_ideas = SOV_unpopular_mobilisation
 		add_manpower = -150000
-		add_political_power = -100
 		add_stability = -0.1
 		add_war_support = -0.1
     }
@@ -2058,6 +2057,56 @@ country_event = {
 		}
 		
 		hidden_effect = { news_event = { id = atd_news.57 hours = 1 } }
+    }
+}
+
+#Lose Crimea - withdraw?
+country_event = {
+    id = russia.1057
+    title = russia.1057.t
+    desc = russia.1057.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_putin_desk_2
+
+    option = {
+        name = russia.1057.a
+		ai_chance = {
+			base = 10
+		}
+		add_stability = 0.2
+		russia_ukraine_peace = yes
+		if={
+			limit = { has_idea = SOV_krym_nash_putin }
+			remove_ideas = SOV_krym_nash_putin
+		}
+		if={
+			limit = { has_idea = SOV_krym_nash_ultranat }
+			remove_ideas = SOV_krym_nash_ultranat
+		}
+		if={
+			limit = { has_idea = SOV_krym_nash_ultranat_2 }
+			remove_ideas = SOV_krym_nash_ultranat_2
+		}
+    }
+	
+	option = {
+        name = russia.1057.b
+		ai_chance = {
+			base = 0
+		}
+		add_ideas = SOV_failure_in_crimea_2
+		if={
+			limit = { has_idea = SOV_krym_nash_putin }
+			remove_ideas = SOV_krym_nash_putin
+		}
+		if={
+			limit = { has_idea = SOV_krym_nash_ultranat }
+			remove_ideas = SOV_krym_nash_ultranat
+		}
+		if={
+			limit = { has_idea = SOV_krym_nash_ultranat_2 }
+			remove_ideas = SOV_krym_nash_ultranat_2
+		}
     }
 }
 

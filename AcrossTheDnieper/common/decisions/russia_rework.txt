@@ -504,8 +504,31 @@ SOV_referendum_decisions_2={
 			original_tag = SOV
 		}
 
-		ai_will_do = {
-			base = 100
+		ai_will_do = {			#AI will only save up pp for decisions if they can do them
+			base = 10
+			modifier = {
+				add = 1000
+				NOV = { exists = yes is_puppet_of = ROOT }
+				any_state={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = dnipro_oblast_flag
+						has_state_flag = kherson_oblast_flag
+						has_state_flag = mykolaiv_oblast_flag
+						has_state_flag = odessa_oblast_flag
+						has_state_flag = kharkiv_oblast_flag
+						has_state_flag = kirovohrad_oblast_flag
+					}
+					CONTROLLER={
+						OR={
+							tag = NOV
+							tag = SOV
+						}
+					}
+				}
+			}
 		}
 
 		available = {
@@ -607,7 +630,21 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 5
+					135 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					146 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					166 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					173 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					186 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					195 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					208 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					230 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -687,7 +724,22 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 6
+					103 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					109 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					131 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					136 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					152 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					154 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					155 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					159 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					174 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -768,9 +820,21 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 4
+					196 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					214 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					223 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					243 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					250 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					300 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
-
+		
 		available = {
 			count_triggers = {		
 				amount > 4
@@ -825,7 +889,25 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 8
+					231 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					242 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					255 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					264 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					282 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					296 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					304 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					310 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					311 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					312 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					438 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					449 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -888,7 +970,21 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 5
+					89 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					93 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					94 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					95 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					122 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					123 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					126 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					128 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -968,7 +1064,20 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 5
+					143 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					145 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					151 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					163 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					165 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					194 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					209 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -1026,7 +1135,17 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 2
+					148 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					153 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					161 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					168 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -1081,7 +1200,17 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 2
+					198 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					207 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					211 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					236 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
@@ -1136,7 +1265,23 @@ SOV_referendum_decisions_2={
 		}
 
 		ai_will_do = {
-			base = 100
+			base = 10
+			modifier = {
+				add = 1000
+				count_triggers = {		
+					amount > 7
+					199 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					229 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					238 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					269 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					287 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					291 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					320 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					322 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					332 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+					444 = { CONTROLLER = { OR = { tag = ROOT is_puppet_of = ROOT } } }
+				}
+			}
 		}
 
 		available = {
