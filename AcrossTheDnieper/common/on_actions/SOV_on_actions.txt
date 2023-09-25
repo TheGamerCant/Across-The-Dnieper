@@ -170,7 +170,7 @@ on_actions={
 					add_popularity = { ideology = ultranationalist popularity = 0.051 }
 					add_popularity = { ideology = populist popularity = -0.04 }
 					add_war_support = -0.3
-					add_stability = 0.12
+					add_stability = 0.15
 					add_ideas = unions_restricted
 					puppet = CHN
 
@@ -179,10 +179,8 @@ on_actions={
 						set_party_name = { ideology = ultranationalist long_name = SOV_populist_party_long name = SOV_populist_party }
 						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
 						country_event = { id = russia.1050 days = 270 }			#Grand Prix
-						country_event = { id = russia.1012 days = 416 }			#Nemtsov Dies
-						country_event = { id = russia.59 days = 725 }			#Park Zaryadie
-						country_event = { id = russia.1029 days = 1626 }		#World Cup
-						
+						country_event = { id = russia.1029 days = 1626 }		#World Cup						
+	
 						if={
 							limit = { is_ai = yes }
 							add_ideas = SOV_sergey_surovikin_air_force_rework
@@ -669,18 +667,31 @@ on_actions={
 			}
 			
 			if={
-				limit = {
+				limit = {													#These are here so they only fire if Putin is leader + any other triggers I want in the future
 					russia_rework_trigger = yes
 					NOT = { has_western_government = yes }
 				}
+				
 				
 				if={
 					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }	
 					country_event = { id = russia.1011 }										#SOTN speech
 				}
 				else_if={
+					limit = { check_variable = { global.days_since_start = 200 }  }				#Poverty event
+					country_event = { id = russia.1058 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 416 }  }				#Nemtsov dies
+					country_event = { id = russia.1012 }
+				}
+				else_if={
 					limit = { check_variable = { global.days_since_start = 704 }  }				#Shoigu corruption 
 					country_event = { id = russia.1024 }
+				}
+				else_if={
+					limit = { check_variable = { global.days_since_start = 778 }  }				#Park Zaryadie
+					country_event = { id = russia.59 }
 				}
 				else_if={
 					limit = { check_variable = { global.days_since_start = 849 }  }				#Rise of Kiriyenko
@@ -695,9 +706,14 @@ on_actions={
 					country_event = { id = russia.1033 }
 				}
 				else_if={
+					limit = { check_variable = { global.days_since_start = 1200 }  }			#Don't call him Dimon
+					country_event = { id = russia.1059 }
+				}
+				else_if={
 					limit = { check_variable = { global.days_since_start = 1645 }  }			#Oligarchy gets worse
 					country_event = { id = russia.1034 }
 				}
+
 			}
 		}
 	}

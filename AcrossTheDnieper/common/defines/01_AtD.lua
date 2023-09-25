@@ -24,7 +24,7 @@ NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 15		--base is 5
 NDefines.NProduction.RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 15		--base is 5
 
 --All of this AI stuff doesn't affect strategy, just used to increase performance
-NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_DOCTRINE = 30  --7 the ai will check what the best doctrine they can have is once every month
+NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_DOCTRINE = 90  --7 the ai will check what the best doctrine they can have is once every 3 months
 NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_TEMPLATE = 30  --7 the ai will check what the best division template they can have is once every month
 NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_EQUIPMENT = 30 --7 the ai will check what the best equipment they can have is once every month
 NDefines.NAI.RESEARCH_DAYS_BETWEEN_WEIGHT_UPDATE = 14 --7 the ai will refreshes need scores based on country situation
@@ -91,7 +91,7 @@ NDefines_Graphics.NGraphics.ADJACENCY_RULE_DISTANCE_CUTOFF = 1200
 NDefines_Graphics.NGraphics.LAND_COMBAT_DISTANCE_CUTOFF = 1200
 NDefines_Graphics.NGraphics.SUPPLY_ICON_CUTOFF = 1500
 NDefines_Graphics.NGraphics.MAPICON_GROUP_PASSES = 5
-NDefines_Graphics.NGraphics.ROOT_FRONT_OFFSET = 2						--base is 10000
+NDefines_Graphics.NGraphics.ROOT_FRONT_OFFSET = 2
 
 NDefines_Graphics.NMapMode.MAP_MODE_MANPOWER_RANGE_MAX = 5000000				--base is 20000000
 

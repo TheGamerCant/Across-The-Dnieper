@@ -872,6 +872,7 @@ country_event = {
 		if={
 			limit = {
 				has_any_power_balance = yes
+				has_country_flag = putin_siloviki_power_balance
 			}
 			add_power_balance_value = {
 				id = SOV_power_balance
@@ -2117,6 +2118,65 @@ country_event = {
 		}
     }
 }
+
+#Poverty
+country_event = {
+    id = russia.1058
+    title = russia.1058.t
+    desc = russia.1058.desc
+    is_triggered_only = yes
+	picture = GFX_report_event_SOV_poverty
+
+    option = {
+        name = russia.1058.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_stability = -0.01
+    }
+}
+
+#Don't call him Dimon
+country_event = {
+    id = russia.1059
+    title = russia.1059.t
+    desc = russia.1059.desc
+    picture = SOV_medvedev_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1059.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_increase_putinist_faction_small = yes
+		add_stability = -0.02
+		
+		if={
+			limit = {
+				has_any_power_balance = yes
+				has_country_flag = putin_siloviki_power_balance
+			}
+			add_power_balance_value = {
+				id = SOV_power_balance
+				value = 0.05
+			}
+		}
+    }
+	
+	option = {
+        name = russia.1059.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_decrease_putinist_faction_small = yes
+		add_popularity = { ideology = eastern_conservative popularity = -0.004 }
+		add_political_power = -50
+		add_stability = -0.01
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1
