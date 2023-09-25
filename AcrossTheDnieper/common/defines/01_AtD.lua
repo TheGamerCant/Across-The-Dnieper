@@ -52,12 +52,16 @@ NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.4				--base is -0.3
 NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.7				--base is -0.6
 NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY = -0.35				--base is -0.25
 NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY_LARGE = -0.6			--base is -0.5
+NDefines.NMilitary.INFRASTRUCTURE_MOVEMENT_SPEED_IMPACT = -0.1			--base is -0.05 (speed penalty per infrastucture below maximum)
+NDefines.NMilitary.BASE_FORT_PENALTY = -0.12					--base is -0.15, bunkers now give less defenceand have 5 levels max but are cheaper 
+NDefines.NMilitary.ENCIRCLED_PENALTY = -0.6					--base is -0.3, encirclements are now more punishing
 
 NDefines.NFocus.FOCUS_POINT_DAYS = 1			--base is 7
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30   --10 (lets you not pick a focus for some time)
 
 NDefines.NSupply.NODE_INITIAL_SUPPLY_FLOW = 5.6		--base is 2.8
 
+-- These make on-map GUIs and indicators show up when zoomed out further
 NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = {500, 1000, 2250}			--base is 150, 250, 500
 NDefines_Graphics.NGraphics.VICTORY_POINTS_DISTANCE_CUTOFF = {750, 1250, 2250}			--base is 250, 500, 1000
 NDefines_Graphics.NGraphics.AIRBASE_ICON_DISTANCE_CUTOFF = 1800						--base is 900
@@ -73,7 +77,6 @@ NDefines_Graphics.NGraphics.UNITS_ICONS_DISTANCE_CUTOFF = 2250						--base is 90
 NDefines_Graphics.NGraphics.UNIT_ARROW_DISTANCE_CUTOFF = 2250						--base is 875
 NDefines_Graphics.NGraphics.CAPITAL_ICON_CUTOFF = 2250							--base is 1100
 NDefines_Graphics.NGraphics.DECISION_MAP_ICON_DISTANCE_CUTOFF = 2500					--base is 1000
-
 NDefines_Graphics.NGraphics.RESISTANCE_MAP_ICON_MODIFIERS_DISTANCE_CUTOFF = 1800			--base is 500
 NDefines_Graphics.NGraphics.RESISTANCE_MAP_ICON_DISTANCE_CUTOFF = 2500					--base is 1200	
 
