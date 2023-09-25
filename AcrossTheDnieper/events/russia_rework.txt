@@ -2177,6 +2177,47 @@ country_event = {
     }
 }
 
+#Rewriting the anthem
+country_event = {
+    id = russia.1060
+    title = russia.1060.t
+    desc = russia.1060.desc
+    picture = GFX_report_event_SOV_putin_at_sochi
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1060.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 100
+    }
+}
+
+#Raspizdyaystvo event
+country_event = {
+    id = russia.1061
+    title = russia.1061.t
+    desc = russia.1061.desc
+    picture = GFX_report_event_SOV_poverty
+    is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			add_to_variable = { SOV_raspizdyaystvo_political_power_cost = 0.3 }
+		}
+	}
+
+    option = {
+        name = russia.1061.a
+		ai_chance = {
+			base = 10
+		}
+		add_stability = -0.03
+		custom_effect_tooltip = russia.1061.tt
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1

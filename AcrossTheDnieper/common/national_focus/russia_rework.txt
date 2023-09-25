@@ -2608,7 +2608,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_quagmire
 		icon = GFX_focus_SOV_the_quagmire
-		x = 31
+		x = 29
 		y = 8
 		cost = 10
 		search_filters = {
@@ -3065,7 +3065,7 @@ focus_tree = {
 	focus = {
 		id = SOV_great_victors_2
 		icon = GFX_focus_SOV_great_victors_3
-		x = 47
+		x = 44
 		y = 8
 		cost = 10
 		search_filters = {
@@ -3566,6 +3566,7 @@ focus_tree = {
 		
 		completion_reward={
 			country_event = { id = russia.1051 hours = 3 }
+			hidden_effect = { country_event = { id = russia.1061 days = 200 } }
 		}
 	}
 	
@@ -3630,7 +3631,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_teaching_the_correct_history
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_teaching_the_correct_history
 		x = 0
 		y = 1
 		cost = 42
@@ -3715,7 +3716,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_rewrite_the_anthem
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_rewrite_the_anthem
 		x = 0
 		y = 2
 		cost = 42
@@ -3730,7 +3731,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_political_power = 100
+			country_event = { id = russia.1060 hours = 2 }
 		}
 	}
 	
@@ -3796,7 +3797,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_death_to_western_sodomites
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_death_to_western_sodomites
 		x = 0
 		y = 2
 		cost = 42
@@ -3820,7 +3821,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_crack_down_on_unions
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_crack_down_on_unions
 		x = -1
 		y = 2
 		cost = 42
@@ -3842,7 +3843,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_jail_opposition_leaders
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_jail_opposition_leaders
 		x = 1
 		y = 2
 		cost = 42
@@ -3879,7 +3880,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_one_country_one_people_one_leader
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_one_country_one_people_one_leader
 		x = 1
 		y = 2
 		cost = 60
@@ -4776,7 +4777,10 @@ shared_focus = {
 		decrease_eastern_liberal_programming_by_4 = yes
 		if={
 			limit = { has_start_date < 2022.01.01 }
-			hidden_effect = { country_event = { id = russia.1010 days = 28 } }
+			country_event = { id = russia.1010 days = 16 }
+		}
+		else={
+			effect_tooltip = { country_event = { id = russia.1010 days = 16 } }
 		}
 	}
 }
