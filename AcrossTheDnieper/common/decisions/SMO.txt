@@ -871,6 +871,51 @@ SOV_smo={
 		}
 	}
 	
+	SOV_withdraw_from_ukraine = { 
+		priority = 10
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			has_war_with = UKR
+			has_completed_focus = SOV_the_quagmire
+		}
+		
+		days_remove = 5
+		
+		modifier={
+
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		remove_effect = {
+			russia_ukraine_peace = yes
+			add_stability = 0.05
+			if={
+				limit = { has_idea = extensive_conscription }
+				swap_ideas={
+					remove_idea = extensive_conscription
+					add_idea = limited_conscription
+				}
+			}
+		}
+	}
+	
 	
 	SMO_offensive_in_state = { 
 
