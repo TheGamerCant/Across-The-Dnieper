@@ -250,14 +250,14 @@ focus_tree = {
 	focus = {
 		id = DON_closer_to_russia
 		icon = GFX_focus_DON_closer_to_russia
-		x = 20
+		x = 21
 		y = 1
 		cost = 40
 		search_filters = {
 			
 		}
 
-		prerequisite = {focus = DON_independence_day }
+		prerequisite = {focus = DON_alexander_zakharchenko }
 
         available = {
         }
@@ -271,6 +271,85 @@ focus_tree = {
 			}
 
 			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = DON_alexander_zakharchenko
+		icon = GFX_focus_DON_alexander_zakharchenko
+		x = 21
+		y = 0
+		cost = 10
+		search_filters = {
+			
+		}
+
+		allow_branch = {
+			has_country_flag = DON_independence_day_flag
+		}
+
+        available = {
+			hidden_trigger = {
+                always = no
+            }
+        }
+		completion_reward ={
+			effect_tooltip = {
+
+			}
+		}
+	}
+
+
+	focus = {
+		id = DON_friends_in_the_north
+		icon = GFX_focus_DON_friends_in_the_north
+		x = 19
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = {focus = DON_independence_day }
+
+		bypass = {
+			NOT = { country_exists = LHK }
+		}
+
+        available = {
+
+        }
+		completion_reward ={
+			every_country = {
+				limit = { OR = { original_tag = DON original_tag = LHK } }
+				add_timed_idea = {
+					idea = DON_LHK_united_by_cause
+					days = 90
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DON_lessons_of_donetsk_airport
+		icon = GFX_focus_DON_lessons_of_donetsk_airport
+		x = 10
+		y = 8
+		cost = 40
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+        available = {
+			has_completed_focus = DON_alexander_zakharchenko
+        }
+		completion_reward ={
+			country_event = { id = donetsk.6 }
 		}
 	}
 }
