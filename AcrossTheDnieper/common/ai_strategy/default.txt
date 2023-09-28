@@ -1,3 +1,80 @@
+#Stop AI making a morbillion divisions
+division_limiter = {
+	enable = {
+		dont_build_divisions_trigger = yes
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = anti_tank
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marine
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mobile
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineer
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = bicycle
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = militia
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -1000
+	}
+}
+
+
+
 default_unit_production = { #If adding country-unique ones, bear in mind that they STACK
 	enable = {
 		NOT = { original_tag = SOV }
@@ -211,6 +288,7 @@ default_small_army_production = {
 			NOT = { original_tag = SOV }
 			has_war = yes
 		}
+		NOT = { dont_build_divisions_trigger = yes }
 	}
 	abort = {
 		num_divisions > 10
@@ -242,6 +320,8 @@ DEFAULT_early_template_design = {
 			NOT = { original_tag = BLR }
 			has_war = no
 		}
+		
+		NOT = { dont_build_divisions_trigger = yes }
 	}
 	abort = {
 		OR = {
@@ -273,6 +353,7 @@ DEFAULT_midlate_template_design = {
 			date > 2016.1.1
 			NOT = { original_tag = SOV }
 		}
+		NOT = { dont_build_divisions_trigger = yes }
 	}
 
 	ai_strategy = {

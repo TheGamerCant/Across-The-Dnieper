@@ -1,3 +1,29 @@
+dont_build_divisions_trigger={
+	is_ai = yes
+	has_war = no
+	has_game_rule = {
+		rule = allow_wargoals
+		option = BLOCKED
+	}
+	NOT = {
+		OR={
+			original_tag = UKR		#Only these countries will make divisions
+			original_tag = SOV
+			original_tag = BLR
+			original_tag = MOL
+			original_tag = TRZ
+			original_tag = DON
+			original_tag = LHK
+			original_tag = KHK
+			original_tag = ODS
+			original_tag = NOV
+			original_tag = UGE
+		}
+	}
+}
+
+
+
 has_far_right_government={
 	custom_trigger_tooltip={
 		tooltip = has_far_right_government_tt
