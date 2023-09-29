@@ -839,6 +839,7 @@ NATO_invest_decisions = {
         }
         
         visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -925,6 +926,7 @@ NATO_invest_decisions = {
         }
         
         visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -986,6 +988,7 @@ NATO_invest_decisions = {
         }
         
         visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -1086,6 +1089,7 @@ NATO_invest_decisions = {
         }
         
         visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -1203,6 +1207,7 @@ NATO_invest_decisions = {
         }
         
         visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -1292,12 +1297,13 @@ NATO_invest_decisions = {
 			}
 
 			modifier={
-				factor = 15
+				factor = 3
 				date > 2017.01.01
 			}
         }
         
-        visible = { 
+       visible = { 
+			UKR = { is_ai = yes }
         }
         
         available = {
@@ -1310,6 +1316,563 @@ NATO_invest_decisions = {
 
         days_remove = 70
         days_re_enable = 150
+        
+        
+        fire_only_once = no
+
+        cost = 65
+
+        modifier = {
+			production_speed_buildings_factor = -0.05
+			political_power_cost = 0.25
+
+			civilian_factory_use = 4
+			
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+			add_to_variable = { var = ROOT.mils_investment_ukr value = 1 }
+			add_to_variable = { var = global.mils_investment_ukr value = 1 }
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = arms_factory
+				    level = 1
+				    instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = arms_factory
+				    level = 1
+				    instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+			UKR = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.69
+			}
+			
+			add_political_power = 175
+		}
+	}
+	
+	
+	NATO_send_light_equipment_to_ukraine_player = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 1
+			modifier={
+				add = 40
+				has_political_power > 150
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+        }
+        
+        visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			has_equipment = {
+				infantry_equipment > 1999
+			}
+			has_equipment = {
+				support_equipment > 119
+			}
+			has_equipment = {
+				infantry_anti_tank_equipment > 95
+			}
+			has_equipment = {
+				infantry_anti_air_equipment > 95
+			}
+			political_power_daily > 0.15
+        }
+
+        days_remove = 70
+        days_re_enable = 200
+        
+        
+        fire_only_once = no
+
+        cost = 30
+
+        modifier = {
+			industrial_capacity_factory = -0.02
+			political_power_cost = 0.15
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+			send_equipment = { 
+				type = infantry_equipment
+				amount = 2000
+				target = UKR
+			}
+			send_equipment = { 
+				type = support_equipment
+				amount = 120
+				target = UKR
+			}
+        	send_equipment = { 
+				type = infantry_anti_tank_equipment
+				amount = 96
+				target = UKR
+			}
+        	send_equipment = { 
+				type = infantry_anti_air_equipment
+				amount = 96
+				target = UKR
+			}
+
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.66
+			}
+			
+			add_political_power = 100
+		}
+	}
+	
+	NATO_send_heavy_equipment_to_ukraine_player = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 1
+			modifier={
+				add = 40
+				has_political_power > 150
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+        }
+        
+        visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			has_equipment = {
+				artillery_equipment > 349
+			}
+			political_power_daily > 0.15
+        }
+
+        days_remove = 70
+        days_re_enable = 200
+        
+        
+        fire_only_once = no
+
+        cost = 30
+
+        modifier = {
+			industrial_capacity_factory = -0.02
+			political_power_cost = 0.15
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+			send_equipment = { 
+				type = artillery_equipment
+				amount = 350
+				target = UKR
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.75
+			}
+			
+			add_political_power = 100
+		}
+	}
+	
+	NATO_send_motorized_equipment_to_ukraine_player = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 1
+			modifier={
+				add = 40
+				has_political_power > 150
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+        }
+        
+        visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			has_equipment = {
+				mechanized_equipment > 51
+			}
+			has_equipment = {
+				apc_equipment > 51
+			}
+			has_equipment = {
+				motorized_equipment > 51
+			}
+			political_power_daily > 0.15
+        }
+
+        days_remove = 70
+        days_re_enable = 200
+        
+        
+        fire_only_once = no
+
+        cost = 30
+
+        modifier = {
+			industrial_capacity_factory = -0.02
+			political_power_cost = 0.15
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+        	send_equipment = { 
+				type = mechanized_equipment
+				amount = 52
+				target = UKR
+			}
+        	send_equipment = { 
+				type = apc_equipment
+				amount = 52
+				target = UKR
+			}
+        	send_equipment = { 
+				type = motorized_equipment
+				amount = 52
+				target = UKR
+			}
+
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.76
+			}
+			
+			add_political_power = 100
+		}
+	}
+
+	
+	NATO_invest_ukraine_infra_player = {
+		priority = 1
+
+		icon = GFX_decision_gre_investment_decisions
+
+		ai_will_do = {
+            base = 1
+			modifier={
+				add = 40
+				has_political_power > 150
+			}
+			modifier={
+				add = 5
+				num_of_factories > 20
+			}
+			modifier={
+				add = 5
+				num_of_factories > 40
+			}
+			modifier={
+				add = 15
+				num_of_factories > 80
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+
+			modifier={
+				factor = 10
+				date < 2016.01.01
+			}
+			modifier={
+				factor = 0
+				date > 2017.01.01
+			}
+        }
+        
+        visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			political_power_daily > 0.25
+            num_of_civilian_factories_available_for_projects > 3
+
+			NOT = { has_active_mission = NATO_invest_ukraine_civ }
+			NOT = { has_active_mission = NATO_invest_ukraine_mil }
+        }
+
+        days_remove = 70
+        days_re_enable = 250
+        
+        
+        fire_only_once = no
+
+        cost = 65
+
+        modifier = {
+			production_speed_buildings_factor = -0.05
+			political_power_cost = 0.25
+
+			civilian_factory_use = 4
+			
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+			add_to_variable = { var = ROOT.infr_investment_ukr value = 1 }
+			add_to_variable = { var = global.infr_investment_ukr value = 1 }
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = infrastructure
+				    level = 1
+				    instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = infrastructure
+				    level = 1
+				    instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = infrastructure
+				    level = 1
+				    instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = infrastructure
+				    level = 1
+				    instant_build = yes
+				}
+			}
+
+			UKR = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.67
+			}
+			
+			add_political_power = 175
+		}
+	}
+	NATO_invest_ukraine_civ_player = {
+		priority = 1
+
+		icon = GFX_decision_gre_investment_decisions
+
+		ai_will_do = {
+            base = 1
+			modifier={
+				add = 40
+				has_political_power > 150
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+
+			modifier={
+				factor = 10
+				date > 2016.01.01
+			}
+			modifier={
+				factor = 0
+				date > 2018.01.01
+			}
+        }
+        
+        visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			political_power_daily > 0.25
+            num_of_civilian_factories_available_for_projects > 3
+
+			NOT = { has_active_mission = NATO_invest_ukraine_mil }
+			NOT = { has_active_mission = NATO_invest_ukraine_infra }
+        }
+
+        days_remove = 70
+        days_re_enable = 250
+        
+        
+        fire_only_once = no
+
+        cost = 65
+
+        modifier = {
+			production_speed_buildings_factor = -0.05
+			political_power_cost = 0.25
+
+			civilian_factory_use = 4
+			
+			ruling_party_drift = 0.1
+        }
+
+        remove_effect = {
+			add_to_variable = { var = ROOT.civs_investment_ukr value = 1 }
+			add_to_variable = { var = global.civs_investment_ukr value = 1 }
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = industrial_complex
+				    level = 1
+				    instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = UKR
+				}
+				add_building_construction = {
+				    type = industrial_complex
+				    level = 1
+				    instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+			UKR = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = BLR_small_positive
+			}
+
+			UKR = {
+				country_event = ukraine.68
+			}
+			
+			add_political_power = 175
+		}
+	}
+	NATO_invest_ukraine_mil_player = {
+		priority = 1
+
+		icon = GFX_decision_gre_investment_decisions
+
+		ai_will_do = {
+            base = 5
+			modifier={
+				add = 21
+				has_political_power > 150
+			}
+
+			modifier={
+				factor = 0
+				has_war_with = UKR
+			}
+
+			modifier={
+				factor = 3
+				date > 2017.01.01
+			}
+        }
+        
+       visible = { 
+			UKR = { is_ai = no }
+        }
+        
+        available = {
+			political_power_daily > 0.25
+            num_of_civilian_factories_available_for_projects > 3
+
+			NOT = { has_active_mission = NATO_invest_ukraine_civ }
+			NOT = { has_active_mission = NATO_invest_ukraine_infra }
+        }
+
+        days_remove = 70
+        days_re_enable = 250
         
         
         fire_only_once = no
