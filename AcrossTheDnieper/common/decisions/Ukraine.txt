@@ -335,10 +335,12 @@ UKR_state_of_the_nation_decisions={
 					}
 					
 					if={
-						limit = { NOT = { has_country_flag = UKR_block_the_north_crimean_canal_flag } }
+						limit = { NOT = { has_global_flag = north_crimean_canal_blocked } }
 						country_event = { id = ukraine.101 days = 12 }
 					}
-					else={
+					
+					if={
+						limit = { NOT = { country_exists = ODS } }
 						country_event = { id = ukraine.103 days = 18 }
 					}
 				}
