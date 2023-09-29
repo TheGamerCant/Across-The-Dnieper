@@ -133,6 +133,7 @@ focus_tree = {
 			hidden_effect = {
 				set_country_flag = DON_begin_referendum_mission
 				country_event = { id = donetsk.1 days = 18 }
+				country_event = { id = donetsk.7 days = 201 }
 			}
            
 		}
@@ -237,7 +238,7 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.2
+			add_stability = 0.3
 			add_political_power = 15
 			add_popularity = {
 				ideology = eastern_conservative
@@ -247,32 +248,7 @@ focus_tree = {
 	}
 
 	
-	focus = {
-		id = DON_closer_to_russia
-		icon = GFX_focus_DON_closer_to_russia
-		x = 21
-		y = 1
-		cost = 40
-		search_filters = {
-			
-		}
 
-		prerequisite = {focus = DON_alexander_zakharchenko }
-
-        available = {
-        }
-		completion_reward ={
-			SOV = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = BLR_small_positive
-				}
-				add_political_power = 1
-			}
-
-			add_stability = 0.02
-		}
-	}
 
 	focus = {
 		id = DON_alexander_zakharchenko
@@ -294,9 +270,108 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			effect_tooltip = {
+			add_stability = 0.1
+		}
+	}
 
+	focus = {
+		id = DON_closer_to_russia
+		icon = GFX_focus_DON_closer_to_russia
+		x = 21
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = {focus = DON_alexander_zakharchenko }
+
+        available = {
+        }
+		completion_reward ={
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+				add_political_power = 1
 			}
+
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = DON_adopt_memorandum
+		icon = GFX_focus_DON_adopt_memorandum
+		x = 25
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = {focus = DON_alexander_zakharchenko }
+
+        available = {
+			has_stability > 0.5
+        }
+		completion_reward ={
+			country_event = { id = donetsk.8 }
+		}
+	}
+
+	focus = {
+		id = DON_remind_them_of_comrade_artyom
+		icon = GFX_focus_DON_remind_them_of_comrade_artyom
+		x = 24
+		y = 2
+		cost = 30
+		search_filters = {
+			
+		}
+
+		mutually_exclusive = { focus = DON_gubarevs_dream }
+
+		prerequisite = {focus = DON_adopt_memorandum }
+
+        available = {
+			hidden_trigger = {
+				has_country_flag = memorandum_1
+			}
+			
+        }
+		completion_reward ={
+			add_ideas = DON_comrade_artyom
+		}
+	}
+
+
+
+	focus = {
+		id = DON_gubarevs_dream
+		icon = GFX_focus_DON_free_pavel_gubarev
+		x = 26
+		y = 2
+		cost = 30
+		search_filters = {
+			
+		}
+
+		mutually_exclusive = { focus = DON_remind_them_of_comrade_artyom }
+
+		prerequisite = {focus = DON_adopt_memorandum }
+
+        available = {
+			hidden_trigger  ={
+				has_country_flag = memorandum_3
+			}
+			
+			date < 2018.11.11
+        }
+		completion_reward ={
+			custom_effect_tooltip = "DON_gubarevs_dream_tt"
+			add_ideas = DON_new_russia
 		}
 	}
 
@@ -306,19 +381,19 @@ focus_tree = {
 		icon = GFX_focus_DON_friends_in_the_north
 		x = 19
 		y = 1
-		cost = 35
+		cost = 60
 		search_filters = {
 			
 		}
 
-		prerequisite = {focus = DON_independence_day }
+		prerequisite = {focus = DON_independence_day focus = DON_alexander_zakharchenko }
 
 		bypass = {
 			NOT = { country_exists = LHK }
 		}
 
         available = {
-
+			country_exists = LHK
         }
 		completion_reward ={
 			every_country = {
@@ -346,10 +421,51 @@ focus_tree = {
 		}
 
         available = {
-			has_completed_focus = DON_alexander_zakharchenko
+			AND = {
+				NOT = { has_global_flag = donbass_war_is_ongoing }
+				has_completed_focus = DON_alexander_zakharchenko
+			}
+			
         }
 		completion_reward ={
 			country_event = { id = donetsk.6 }
+		}
+	}
+
+	focus = {
+		id = DON_shelling_from_residential_areas
+		icon = GFX_focus_DON_shelling_from_residential_areas
+		x = 9
+		y = 9
+		cost = 50
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+			NOT = { has_global_flag = donbass_war_is_ongoing }	
+        }
+		completion_reward ={
+			if = {
+				limit = { has_idea = impromptu_militias }
+				swap_ideas = {
+					remove_idea = impromptu_militias
+					add_idea = impromptu_militias_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_2 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_2
+					add_idea = impromptu_militias_3
+				}
+			}
 		}
 	}
 }

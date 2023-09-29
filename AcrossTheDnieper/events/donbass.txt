@@ -34,6 +34,8 @@ country_event = {
 
         add_war_support = 0.05
 
+		set_country_flag = DON_postponed_referendum_for_putin
+
         add_days_mission_timeout = {
             mission = DON_referendum_mission
             days = 100
@@ -132,7 +134,7 @@ country_event = {
 		}
 
 		add_stability = -0.05
-		add_political_power = -25
+		add_political_power = -50
 	}
 
 	option = { 
@@ -181,3 +183,72 @@ country_event = {
 	}
 }
 
+#Donetsk 2014 elections
+country_event = {
+	id = donetsk.7
+	title = donetsk.7.t
+	desc = donetsk.7.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_me_at_the_function
+
+	option = { 
+		name = donetsk.7.a
+		ai_chance = {
+			base = 70
+		}
+
+		complete_national_focus = DON_alexander_zakharchenko
+		swap_ruler_traits = { remove = DON_resolute_leader add = DON_resolute_leader_2 }
+	}
+}
+
+#Donetsk memerandum
+country_event = {
+	id = donetsk.8
+	title = donetsk.8.t
+	desc = donetsk.8.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_me_at_the_function
+
+	option = { 
+		name = donetsk.8.a
+		ai_chance = {
+			base = 80
+		}
+
+		custom_effect_tooltip = "donetsk.8.a_tt"
+		set_country_flag = memorandum_1
+	}
+
+	option = { 
+		name = donetsk.8.b
+		ai_chance = {
+			base = 0
+		}
+
+		trigger = {
+			NOT = { has_country_flag = DON_postponed_referendum_for_putin }
+		}
+		custom_effect_tooltip = "donetsk.8.b_tt"
+		add_stability = -0.05
+		add_political_power = 5
+		
+		SOV = {
+            add_opinion_modifier = {
+				target = ROOT
+				modifier = BLR_small_negative
+			}
+        }
+	}
+
+	option = { 
+		name = donetsk.8.c
+		ai_chance = {
+			base = 0
+		}
+		trigger = { has_completed_focus = DON_free_pavel_gubarev }
+
+		custom_effect_tooltip = "donetsk.8.c_tt"
+		set_country_flag = memorandum_3
+	}
+}
