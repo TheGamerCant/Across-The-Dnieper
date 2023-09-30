@@ -964,7 +964,14 @@ derussify_city_names={
 			limit = { controls_province = 1081 } 
 			set_province_name = { id = 1081 name = "Mahdalynivka" }
 		}
-		
+		if={
+			limit = { controls_province = 21956 }
+			set_province_name = { id = 21956 name = "Antonivka" }
+			
+		if={
+			limit = { controls_province = 14760 }
+			set_province_name = { id = 14760 name = "Miroshnykivka" }
+			
 		if ={ 
 			limit = { 195 = { is_controlled_by = ROOT } } 
 			195 = { set_state_name = "Vuhledar" }
@@ -1015,19 +1022,17 @@ derussify_city_names={
 			limit = { controls_province = 21877 } 
 			set_province_name = { id = 21877 name = "Haharinskyy District" }
 		}
-		
+		if={
+			limit = { controls_province = 21958 }
+			set_province_name = { id = 21958 name = "Stepanivka" }
+			}
+			if={
+			limit = { controls_province = 21951 }
+			set_province_name = { id = 21951 name = "Suvorovs'kyy district" }
+			}
 		if ={ 
 			limit = { controls_province = 19710 } 
 			set_province_name = { id = 19710 name = "Hresivs'kyi" }
-		}
-		
-		if ={ 
-			limit = { 236 = { is_controlled_by = ROOT } } 
-			236 = { set_state_name = "Mykolaiv" }
-		}
-		if ={ 
-			limit = { controls_province = 9991 } 
-			set_province_name = { id = 9991 name = "Mykolaiv" }
 		}
 	}
 }
@@ -1044,9 +1049,17 @@ russify_city_names={
 			set_province_name = { id = 21930 name = "Kazatskoye" }	
 		}
 		if={
+			limit = { controls_province = 21956 }
+			set_province_name = { id = 21956 name = "Antonovka" }	
+		}
+		if={
 			limit = { controls_province = 8800 }
 			set_province_name = { id = 8800 name = "Kiev" }	
 		}
+			if={
+			limit = { controls_province = 21951 }
+			set_province_name = { id = 21951 name = "Suvorovskiy district" }
+			}
 		if={
 			limit = { controls_province = 8013 }
 			set_province_name = { id = 8013 name = "Kholosiyeskyi District" }	
@@ -1078,6 +1091,13 @@ russify_city_names={
 			limit = { controls_province = 2118 }
 			set_province_name = { id = 2118 name = "Kryvyi Rog" }
 		}
+		if={
+			limit = { controls_province = 14760 }
+			set_province_name = { id = 14760 name = "Mel'nikovka" }
+		if={
+			limit = { controls_province = 21958 }
+			set_province_name = { id = 21958 name = "Stepanovka" }
+			}
 		if={
 			limit = { controls_province = 5519 }
 			set_province_name = { id = 5519 name = "Metalurgiynyy disctrict" }
@@ -1624,15 +1644,6 @@ russify_city_names={
 			limit = { controls_province = 19710 } 
 			set_province_name = { id = 19710 name = "Gresivskyi" }
 		}
-		
-		if ={ 
-			limit = { 236 = { is_controlled_by = ROOT } } 
-			236 = { set_state_name = "Nikolayev" }
-		}
-		if ={ 
-			limit = { controls_province = 9991 } 
-			set_province_name = { id = 9991 name = "Nikolayev" }
-		}
 	}
 }
 
@@ -1810,8 +1821,6 @@ remove_cores={
 
 russia_ukraine_peace={		#This is total Ukrainian victory
 	SOV = { white_peace = UKR }
-	clear_russia_ukraine_war_state_modifiers = yes
-	clr_global_flag = russia_ukraine_war
 	every_state={
 		limit={
 			OWNER={
@@ -1852,5 +1861,4 @@ russia_ukraine_peace={		#This is total Ukrainian victory
 		UKR = { transfer_state = PREV }
 	}
 	country_event = { id = super.2 }
-	news_event = { id = atd_news.54 days = 2 }
 }
