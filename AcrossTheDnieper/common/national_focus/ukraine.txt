@@ -40,7 +40,7 @@ focus_tree = {
 		y = 1
 		cost = 7
 		search_filters = {
-			
+			FOCUS_FILTER_HISTORICAL
 		}
 		completion_reward = {
 			custom_effect_tooltip = UKR_toe_putins_line_tt
@@ -113,7 +113,7 @@ focus_tree = {
 		y = 1
 		cost = 35
 		search_filters = {
-			
+			FOCUS_FILTER_HISTORICAL
 		}
 		completion_reward = {
 			custom_effect_tooltip = UKR_an_oligarchic_cabinet_tt
@@ -415,7 +415,6 @@ focus_tree = {
 	focus = {
 		id = UKR_the_revolution_of_dignity
 		icon = GFX_focus_UKR_revolution_of_dignity
-		mutually_exclusive = { focus = UKR_send_in_the_tanks }
 		available = {
 			NOT = { is_puppet_of = SOV }
 			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
@@ -2670,7 +2669,9 @@ focus_tree = {
 		relative_position_id = UKR_decommunisation
 		mutually_exclusive = { focus = UKR_distance_from_the_far_right }
 		
-		
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
 		cost = 28
 		ai_will_do = {
 		}
@@ -2803,7 +2804,9 @@ focus_tree = {
 		relative_position_id = UKR_the_heroes_of_today
 		mutually_exclusive = { focus = UKR_never_forgive focus = UKR_never_again }
 
-		
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
 		cost = 54
 		ai_will_do = {
 		}
@@ -3067,7 +3070,11 @@ focus_tree = {
 		prerequisite = { focus = UKR_the_orthodox_church_of_ukraine }
 		relative_position_id = UKR_ukrainianisation
 		mutually_exclusive = { focus = UKR_reconcilliation focus = UKR_ban_the_russian_language }
-		
+
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+
 		cost = 60
 		ai_will_do = {
 		}
@@ -7152,6 +7159,10 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = UKR_dishonour_before_death }
 		
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+
 		bypass = {
 		}
 		cancel_if_invalid = yes
