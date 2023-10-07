@@ -238,7 +238,7 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.3
+			add_stability = 0.35
 			add_political_power = 15
 			add_popularity = {
 				ideology = eastern_conservative
@@ -270,7 +270,8 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.1
+			add_stability = 0.15
+			set_country_flag = { flag = DON_alexander_zakharchenko_flag value = 1 days = 81 }
 		}
 	}
 
@@ -314,7 +315,7 @@ focus_tree = {
 		prerequisite = {focus = DON_alexander_zakharchenko }
 
         available = {
-			has_stability > 0.5
+			has_stability > 0.50
         }
 		completion_reward ={
 			country_event = { id = donetsk.8 }
@@ -409,8 +410,8 @@ focus_tree = {
 	focus = {
 		id = DON_lessons_of_donetsk_airport
 		icon = GFX_focus_UKR_lessons_of_donetsk
-		x = 10
-		y = 8
+		x = 11
+		y = 9
 		cost = 40
 		search_filters = {
 			
@@ -422,8 +423,9 @@ focus_tree = {
 
         available = {
 			AND = {
-				NOT = { has_global_flag = donbass_war_is_ongoing }
 				has_completed_focus = DON_alexander_zakharchenko
+				NOT = { has_global_flag = donbass_war_is_ongoing }
+				NOT = { has_country_flag = DON_alexander_zakharchenko_flag }
 			}
 			
         }
@@ -437,7 +439,109 @@ focus_tree = {
 		icon = GFX_focus_DON_shelling_from_residential_areas
 		x = 9
 		y = 9
-		cost = 50
+		cost = 45
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+        available = {
+			has_war_with = UKR
+			has_completed_focus = DON_impose_martial_law
+        }
+		completion_reward ={
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = impromptu_militias_2
+					add_idea = impromptu_militias_3
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = impromptu_militias }
+					swap_ideas = {
+						remove_idea = impromptu_militias
+						add_idea = impromptu_militias_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_2 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_2
+						add_idea = impromptu_militias_3
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_3 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_3
+						add_idea = impromptu_militias_4
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DON_restructure_the_militias
+		icon = GFX_focus_DON_restructure_the_militias
+		x = 10
+		y = 11
+		cost = 40
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_shelling_from_residential_areas focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+        }
+		completion_reward ={
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = impromptu_militias_3
+					add_idea = impromptu_militias_4
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = impromptu_militias }
+					swap_ideas = {
+						remove_idea = impromptu_militias
+						add_idea = impromptu_militias_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_2 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_2
+						add_idea = impromptu_militias_3
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_3 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_3
+						add_idea = impromptu_militias_4
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DON_form_the_diesel_battalion
+		icon = GFX_focus_DON_form_the_diesel_battalion
+		x = 12
+		y = 11
+		cost = 35
 		search_filters = {
 			
 		}
@@ -449,21 +553,68 @@ focus_tree = {
 		prerequisite = { focus = DON_lessons_of_donetsk_airport }
 
         available = {
-			NOT = { has_global_flag = donbass_war_is_ongoing }	
+			date > 2015.3.31
         }
 		completion_reward ={
-			if = {
-				limit = { has_idea = impromptu_militias }
-				swap_ideas = {
-					remove_idea = impromptu_militias
-					add_idea = impromptu_militias_2
+			division_template = {
+				name = "Diesel Battalion"
+				division_names_group = DON_INF_01
+				regiments = {
+					modern_armor = { x = 0 y = 0 }
+					modern_armor = { x = 0 y = 1 }
+					modern_armor = { x = 0 y = 2 }
+					mechanized = { x = 1 y = 0 }
+					apc = { x = 1 y = 1 }
+					apc = { x = 1 y = 2 }
+					mot_rocket_artillery_brigade = { x = 1 y = 3 }
+					
+				}
+				support = {
+					maintenance_company = { x = 0 y = 0 }   
+					logistics_company = { x = 0 y = 1 }  
+					signal_company = { x = 0 y = 2 }  
+					mot_recon = { x = 0 y = 3 }  
 				}
 			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_2 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_2
-					add_idea = impromptu_militias_3
+
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Diesel Battalion\" division_template = \"Diesel Battalion\" start_experience_factor = 0.25" 
+					owner = DON
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DON_form_the_oplot_brigade
+		icon = GFX_focus_DON_form_the_oplot_brigade
+		x = 8
+		y = 11
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_shelling_from_residential_areas }
+
+        available = {
+			has_completed_focus = DON_restructure_the_militias
+        }
+		completion_reward ={
+
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+					owner = DON
+				}
+				create_unit = {
+					division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+					owner = DON
 				}
 			}
 		}
