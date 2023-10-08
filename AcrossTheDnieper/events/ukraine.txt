@@ -1294,6 +1294,11 @@ country_event = {
 					}
 				}
 			}
+
+			set_division_template_lock = {
+				division_template = "Little Green Men"
+				is_locked = yes
+			}
 		}
 	}
 }
@@ -1874,6 +1879,20 @@ country_event = {
 				limit = { tag = ODS has_global_flag = ukraine_controls_odesa }
 				UKR = { transfer_state = 269 }
 				clr_global_flag = ukraine_controls_odesa
+			}
+
+			if={
+				limit = {
+					AND = {
+						tag = DON
+						OR = {
+							has_completed_focus = DON_cooperations_with_foreign_far_left_groups
+							has_completed_focus = DON_cooperations_with_foreign_far_right_groups
+						}
+					}
+				}
+
+				DON={ country_event = { id = donetsk.9 days = 2 } }
 			}
 		}
 	}

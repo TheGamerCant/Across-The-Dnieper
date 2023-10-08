@@ -1,6 +1,6 @@
 focus_tree = {
     id = donetsk
-	continuous_focus_position = { x = -40 y = 1300 } 
+	continuous_focus_position = { x = -40 y = 1900 } 
 	country = {
 		factor = 0
 #		modifier = {
@@ -53,7 +53,7 @@ focus_tree = {
 			show_ideas_tooltip = DON_igor_khakimzyanov
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = DON_alexander_borodai
-			custom_effect_tooltip = available_political_advisor
+			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = DON_denis_pushilin
 		}
 	}
@@ -78,7 +78,7 @@ focus_tree = {
 		completion_reward ={
 			effect_tooltip = {
 				add_war_support = 0.1
-				add_stability = 0.02
+				add_stability = 0.05
 			}
 		}
 	}
@@ -238,7 +238,7 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.35
+			add_stability = 0.4
 			add_political_power = 15
 			add_popularity = {
 				ideology = eastern_conservative
@@ -270,7 +270,7 @@ focus_tree = {
             }
         }
 		completion_reward ={
-			add_stability = 0.15
+			add_stability = 0.18
 			set_country_flag = { flag = DON_alexander_zakharchenko_flag value = 1 days = 81 }
 		}
 	}
@@ -298,7 +298,26 @@ focus_tree = {
 				add_political_power = 1
 			}
 
-			add_stability = 0.05
+			add_stability = 0.08
+		}
+	}
+
+	focus = {
+		id = DON_introduce_the_death_penalty
+		icon = GFX_focus_DON_introduce_the_death_penalty
+		x = 20
+		y = 2
+		cost = 40
+		search_filters = {
+			
+		}
+
+		prerequisite = {focus = DON_closer_to_russia focus = DON_independence_day }
+
+        available = {
+        }
+		completion_reward ={
+			add_ideas = DON_death_penalty
 		}
 	}
 
@@ -315,7 +334,7 @@ focus_tree = {
 		prerequisite = {focus = DON_alexander_zakharchenko }
 
         available = {
-			has_stability > 0.50
+			has_stability > 0.45
         }
 		completion_reward ={
 			country_event = { id = donetsk.8 }
@@ -327,7 +346,7 @@ focus_tree = {
 		icon = GFX_focus_DON_remind_them_of_comrade_artyom
 		x = 24
 		y = 2
-		cost = 30
+		cost = 35
 		search_filters = {
 			
 		}
@@ -354,7 +373,7 @@ focus_tree = {
 		icon = GFX_focus_DON_free_pavel_gubarev
 		x = 26
 		y = 2
-		cost = 30
+		cost = 35
 		search_filters = {
 			
 		}
@@ -375,6 +394,8 @@ focus_tree = {
 			add_ideas = DON_new_russia
 		}
 	}
+
+
 
 
 	focus = {
@@ -481,6 +502,13 @@ focus_tree = {
 						add_idea = impromptu_militias_4
 					}
 				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_4 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_4
+						add_idea = impromptu_militias_5
+					}
+				}
 			}
 		}
 	}
@@ -490,7 +518,7 @@ focus_tree = {
 		icon = GFX_focus_DON_restructure_the_militias
 		x = 10
 		y = 11
-		cost = 40
+		cost = 20
 		search_filters = {
 			
 		}
@@ -532,6 +560,13 @@ focus_tree = {
 						add_idea = impromptu_militias_4
 					}
 				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_4 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_4
+						add_idea = impromptu_militias_5
+					}
+				}
 			}
 		}
 	}
@@ -553,6 +588,7 @@ focus_tree = {
 		prerequisite = { focus = DON_lessons_of_donetsk_airport }
 
         available = {
+			has_completed_focus = DON_restructure_the_militias
 			date > 2015.3.31
         }
 		completion_reward ={
@@ -587,11 +623,76 @@ focus_tree = {
 	}
 
 	focus = {
+		id = DON_youth_patriotism
+		icon = GFX_focus_SOV_modernise_conscription_practices
+		x = 11
+		y = 10
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+
+        }
+		completion_reward ={
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = impromptu_militias_4
+					add_idea = impromptu_militias_5
+				}
+			}
+			add_timed_idea = {
+				idea = DON_promoting_patriotism_for_the_youth
+				days = 180
+			}
+
+
+			hidden_effect = {
+				if = {
+					limit = { has_idea = impromptu_militias }
+					swap_ideas = {
+						remove_idea = impromptu_militias
+						add_idea = impromptu_militias_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_2 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_2
+						add_idea = impromptu_militias_3
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_3 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_3
+						add_idea = impromptu_militias_4
+					}
+				}
+				else_if = {
+					limit = { has_idea = impromptu_militias_4 }
+					swap_ideas = {
+						remove_idea = impromptu_militias_4
+						add_idea = impromptu_militias_5
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = DON_form_the_oplot_brigade
 		icon = GFX_focus_DON_form_the_oplot_brigade
 		x = 8
 		y = 11
-		cost = 35
+		cost = 15
 		search_filters = {
 			
 		}
@@ -607,7 +708,7 @@ focus_tree = {
         }
 		completion_reward ={
 
-			capital_scope = {
+			random_owned_controlled_state = {
 				create_unit = {
 					division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
 					owner = DON
@@ -615,6 +716,334 @@ focus_tree = {
 				create_unit = {
 					division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
 					owner = DON
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DON_form_the_sparta_battalion
+		icon = GFX_focus_DON_form_the_sparta_battalion
+		x = 6
+		y = 11
+		cost = 15
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_shelling_from_residential_areas }
+
+        available = {
+			has_completed_focus = DON_restructure_the_militias
+        }
+		completion_reward ={
+
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Sparta Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+					owner = DON
+				}
+			}
+
+			add_popularity = {
+				ideology = fascist
+				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = DON_cooperations_with_foreign_far_right_groups
+		icon = GFX_focus_DON_cooperations_with_foreign_far_right_groups
+		x = 9
+		y = 10
+		cost = 20
+		search_filters = {
+			
+		}
+
+		
+
+		prerequisite = {focus = DON_shelling_from_residential_areas }
+
+        available = {
+			has_war_with = UKR
+        }
+		completion_reward ={
+			custom_effect_tooltip = "DON_cooperations_with_foreign_far_right_groups_tt"
+
+
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_template = "Foreign Volunteers" } }
+
+					division_template = {
+						name = "Foreign Volunteers"
+						division_names_group = DON_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							
+						}
+						support = {
+							artillery = { x = 0 y = 0 } 
+						}
+					}
+				}
+
+
+				random = {
+					chance = 70
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Atomwaffen Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = ultranationalist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 50
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Der Dritte Weg Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = ultranationalist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 30
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Falanga Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = fascist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 30
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Millennium Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = fascist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 30
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Serbian Action Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = ultranationalist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 20
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Legion of Saint Stephen Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = ultranationalist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 20
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Orthodox Dawn Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = ultranationalist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 20
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Continental Unity Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = fascist
+						popularity = 0.02
+					}
+				}
+
+				random = {
+					chance = 10
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Jovan Sevic Detachment Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = fascist
+						popularity = 0.02
+					}
+				}
+
+				set_division_template_lock = {
+					division_template = "Foreign Volunteers"
+					is_locked = yes
+				}
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = DON_cooperations_with_foreign_far_left_groups
+		icon = GFX_focus_DON_cooperations_with_foreign_far_right_groups
+		x = 7
+		y = 10
+		cost = 20
+		search_filters = {
+			
+		}
+
+		
+
+		prerequisite = {focus = DON_shelling_from_residential_areas }
+
+        available = {
+			has_war_with = UKR
+        }
+		completion_reward ={
+			custom_effect_tooltip = "DON_cooperations_with_foreign_far_left_groups_tt"
+
+
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_template = "Foreign Volunteers" } }
+
+					division_template = {
+						name = "Foreign Volunteers"
+						division_names_group = DON_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							
+						}
+						support = {
+							artillery = { x = 0 y = 0 } 
+						}
+					}
+				}
+
+
+
+				random = {
+					chance = 70
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Carlos Palomino Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = moderate_communist
+						popularity = 0.03
+					}
+				}
+
+				random = {
+					chance = 40
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"DKO Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = moderate_communist
+						popularity = 0.03
+					}
+				}
+
+				random = {
+					chance = 40
+
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Interunit Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							owner = DON
+						}
+					}
+
+					add_popularity = {
+						ideology = moderate_communist
+						popularity = 0.03
+					}
+				}
+
+				set_division_template_lock = {
+					division_template = "Foreign Volunteers"
+					is_locked = yes
 				}
 			}
 		}

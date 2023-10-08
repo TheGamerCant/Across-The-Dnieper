@@ -252,3 +252,26 @@ country_event = {
 		set_country_flag = memorandum_3
 	}
 }
+
+
+#Donetsk foreign volunteers return home
+country_event = {
+	id = donetsk.9
+	title = donetsk.9.t
+	desc = donetsk.9.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_foreign_volunteers
+
+	option = { 
+		name = donetsk.9.a
+		ai_chance = {
+			base = 90
+		}
+
+		delete_unit_template_and_units = {
+			division_template = "Foreign Volunteers"
+			disband = no
+		}
+	}
+
+}
