@@ -1,0 +1,3179 @@
+focus_tree = {
+	id = lithuania
+	continuous_focus_position = { x = 3100 y = 1000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = LIT
+		}
+	}
+	
+	focus = {
+		id = LIT_road_renovation
+		icon = GFX_focus_UKR_smart_urban_planning
+		x = 2
+		y = 0
+		
+		cost = 50
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			OR = {
+				has_completed_focus = LIT_2014_elections
+
+
+				has_completed_focus = LIT_embrace_the_crown
+
+				has_completed_focus = LIT_recognize_baltic_paganism
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.02
+			every_state = {
+				limit = { is_owned_by = LIT }
+
+				increase_state_gdp_growth_by_0_5 = yes
+
+			}
+		}
+	}
+	focus = {
+		id = LIT_repaint_khrushchevka
+		icon = GFX_focus_LIT_repaint_khrushchevka
+		x = 2
+		y = 1
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_road_renovation }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.02
+			6 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			33 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			23 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			4 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_increase_production_of_domestic_products
+		icon = GFX_focus_BLR_consumer_industries_programme
+		x = 0
+		y = 1
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_road_renovation }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_promoting_domestic_industries
+				days = 100
+			}
+
+		}
+	}
+	focus = {
+		id = LIT_establish_increased_trade_with_taiwan
+		icon = GFX_focus_LIT_establish_increased_trade_with_taiwan
+		x = 4
+		y = 1
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_road_renovation }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			has_government = fascist 
+		}
+
+		completion_reward = {
+			add_political_power = 5
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+
+	focus = {
+		id = LIT_lithuanian_autobahns
+		icon = GFX_focus_LIT_lithuanian_autobahns
+		x = 2
+		y = 2
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_repaint_khrushchevka }
+		prerequisite = { focus = LIT_increase_production_of_domestic_products }
+		prerequisite = { focus = LIT_establish_increased_trade_with_taiwan }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+		
+			every_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		
+		
+			add_dynamic_modifier = { modifier = LIT_autobahns }
+		}
+	}
+	
+
+	focus = {
+		id = LIT_2014_elections
+		icon = GFX_focus_LIT_2014_elections
+		x = 10
+		y = 0
+		
+		cost = 30
+
+		mutually_exclusive = { focus = LIT_embrace_the_crown focus = LIT_recognize_baltic_paganism }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = LIT_recognize_baltic_paganism }
+				NOT = { has_completed_focus = LIT_embrace_the_crown }
+			}
+		}
+		cancelable = no
+		completion_reward = {
+			add_political_power = 50
+			mark_focus_tree_layout_dirty = yes
+			
+			hidden_effect = {
+				country_event = { id = lithuania.27 days = 99 }
+			}
+		}
+	}
+	focus = {
+		id = LIT_election_day
+		icon = GFX_focus_LIT_2014_elections
+		x = 10
+		y = 3
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_2014_elections }
+
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_political_power = 1
+		}
+	}
+
+	focus = {
+		id = LIT_lithuanian_national_union_victory
+		icon = GFX_focus_LIT_lithuanian_national_union_victory
+		x = 17
+		y = 4
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_election_day }
+		mutually_exclusive = { focus = LIT_dalia_grybauskaite_wins }
+		mutually_exclusive = { focus = LIT_lsdp_victory }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.17 }
+		}
+	}
+	focus = {
+		id = LIT_restoration_of_national_pride
+		icon = GFX_focus_LIT_restoration_of_national_pride
+		x = 17
+		y = 5
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_lithuanian_national_union_victory }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		select_effect = {
+			hidden_effect = {
+				country_event = { id = lithuania.8 days = 24 }
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = fascist
+				popularity = 0.05
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+
+
+		}
+	}
+	focus = {
+		id = LIT_suppress_opposition
+		icon = GFX_focus_LIT_suppress_opposition
+		x = 17
+		y = 6
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_restoration_of_national_pride }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_destroying_the_ops
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = LIT_national_economic_rejuvenation
+		icon = GFX_focus_UKR_guns_of_the_defenders
+		x = 15
+		y = 7
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_suppress_opposition }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = western_economy
+				add_idea = centrally_planned_economy
+			}
+		}
+	}
+	focus = {
+		id = LIT_conscription_reforms
+		icon = GFX_focus_LIT_conscription_reforms
+		x = 19
+		y = 7
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_suppress_opposition }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+
+			swap_ideas = {
+				remove_idea = volunteer_only
+				add_idea = limited_conscription
+			}
+		}
+	}
+	focus = {
+		id = LIT_establish_greater_lithuania
+		icon = GFX_focus_LIT_establish_greater_lithuania
+		x = 17
+		y = 7
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_suppress_opposition }
+
+		
+		ai_will_do = {
+
+		}
+		available = {
+			AND = {
+				has_completed_focus = LIT_conscription_reforms
+				has_completed_focus = LIT_national_economic_rejuvenation
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_country_leader_trait = LIT_nazi_visionary
+
+			hidden_effect = {
+				set_country_leader_portrait = {
+					ideology = fascist
+					portrait = gfx/leaders/LIT/Portrait_Mindaugas_gervaldas_murza_2.png
+				}
+			}
+
+			add_state_claim = 27
+			add_state_claim = 34
+
+			23 = {
+				add_building_construction = {
+					type = bunker
+					province = 5371
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 15137
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 1951
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 15256
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 15199
+					level = 1
+				}
+			}
+
+			33 = {
+				add_building_construction = {
+					type = bunker
+					province = 9593
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 5126
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 7453
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 14440
+					level = 1
+				}
+
+				
+			}
+		}
+	}
+	focus = {
+		id = LIT_foreign_policy_realignment
+		icon = GFX_focus_UKR_burn_agreement_with_eu
+		x = 17
+		y = 8
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_establish_greater_lithuania }
+		prerequisite = { focus = LIT_conscription_reforms }
+		prerequisite = { focus = LIT_national_economic_rejuvenation }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			hidden_effect = {
+				add_popularity = {
+					ideology = fascist
+					popularity = 0.05
+				}
+	
+			}
+			country_event = { id = lithuania.12 }
+		}
+	}
+	focus = {
+		id = LIT_start_an_ethnic_cleansing
+		icon = GFX_focus_LIT_start_an_ethnic_cleansing
+		x = 18
+		y = 9
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_foreign_policy_realignment }
+		
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_ethnic_cleansing
+				days = 31
+			}
+		}
+	}
+	focus = {
+		id = LIT_forced_labour
+		icon = GFX_focus_LIT_forced_labour
+		x = 16
+		y = 9
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_foreign_policy_realignment }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_forced_labour
+		}
+	}
+	focus = {
+		id = LIT_lithuanian_supremacy
+		icon = GFX_focus_LIT_restoration_of_national_pride
+		x = 17
+		y = 10
+		
+		cost = 70
+
+		cancelable = no
+
+		prerequisite = { focus = LIT_start_an_ethnic_cleansing }
+		prerequisite = { focus = LIT_forced_labour }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+
+		}
+
+		select_effect = {
+			country_event = { id = lithuania.18 days = 65 }
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = minority_rights_separate_but_equal
+				add_idea = minority_rights_ethnic_servitude
+			}
+
+			hidden_effect = {
+				country_event = { id = lithuania.16 days = 9 }
+			}
+		}
+	}
+	focus = {
+		id = LIT_hang_waldemar
+		icon = GFX_focus_LIT_hang_waldemar
+		x = 15
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_lithuanian_supremacy }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+
+			add_stability = 0.06
+			6 = {
+				add_manpower = -1
+				damage_building = {
+					type = infrastructure
+					damage = 0.1
+				}
+				add_dynamic_modifier = {
+					modifier = LIT_heavy_protests
+					days = 21
+					scope = LIT
+				}
+
+			}
+
+
+		}
+	}
+	focus = {
+		id = LIT_exile_sergej_dmitrijev_to_kaliningrad
+		icon = GFX_focus_LIT_exile_sergej_dmitrijev_to_kaliningrad
+		x = 19
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_lithuanian_supremacy }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			remove_ideas = LIT_idea_russian_minority
+
+			add_stability = 0.04
+			2 = {
+				add_manpower = -1
+			}
+
+			1 = {
+				add_manpower = 1
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_finish_off_the_protestors
+		icon = GFX_focus_LIT_finish_off_the_protestors
+		x = 17
+		y = 12
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_exile_sergej_dmitrijev_to_kaliningrad }
+		prerequisite = { focus = LIT_hang_waldemar }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			remove_ideas = LIT_idea_minority_protests
+		}
+	}
+	
+	focus = {
+		id = LIT_build_a_memorial_for_kazys_skirpa
+		icon = GFX_focus_LIT_build_a_memorial_for_kazys_skirpa
+		x = 17
+		y = 13
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_finish_off_the_protestors }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = fascist
+				popularity = 0.02
+			}
+			6 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = LIT_memorial_for_kazys_skirpa
+					scope = LIT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_form_the_gelezinis_vilkas_paramilitary
+		icon = GFX_focus_LIT_form_the_gelezinis_vilkas_paramilitary
+		x = 17
+		y = 14
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_build_a_memorial_for_kazys_skirpa }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_gelezinis_vilkas_paramilitary
+			custom_effect_tooltip = "LIT_form_the_gelezinis_vilkas_paramilitary_tt"
+		}
+	}
+	focus = {
+		id = LIT_organize_the_iron_wolf
+		icon = GFX_focus_LIT_organize_the_iron_wolf
+		x = 16
+		y = 15
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_form_the_gelezinis_vilkas_paramilitary }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = LIT_idea_gelezinis_vilkas_paramilitary
+				}
+
+				swap_ideas = {
+					remove_idea = LIT_idea_gelezinis_vilkas_paramilitary
+					add_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+				}
+
+				swap_ideas = {
+					remove_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+					add_idea = LIT_idea_gelezinis_vilkas_paramilitary_3
+				}
+			}
+			else = {
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = LIT_idea_gelezinis_vilkas_paramilitary
+						add_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_iron_wolf_youth
+		icon = GFX_focus_LIT_iron_wolf_youth
+		x = 18
+		y = 15
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_form_the_gelezinis_vilkas_paramilitary }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = LIT_idea_gelezinis_vilkas_paramilitary
+				}
+
+				swap_ideas = {
+					remove_idea = LIT_idea_gelezinis_vilkas_paramilitary
+					add_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+				}
+
+				swap_ideas = {
+					remove_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+					add_idea = LIT_idea_gelezinis_vilkas_paramilitary_3
+				}
+			}
+			else = {
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = LIT_idea_gelezinis_vilkas_paramilitary
+						add_idea = LIT_idea_gelezinis_vilkas_paramilitary_2
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	focus = {
+		id = LIT_lsdp_victory
+		icon = GFX_focus_LIT_lsdp_victory
+		x = 10
+		y = 4
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_election_day }
+		mutually_exclusive = { focus = LIT_lithuanian_national_union_victory }
+		mutually_exclusive = { focus = LIT_dalia_grybauskaite_wins }
+
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.26 }
+		}
+	}
+	focus = {
+		id = LIT_free_healthcare_for_everyone
+		icon = GFX_focus_LIT_free_healthcare_for_everyone
+		x = 8
+		y = 5
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_lsdp_victory }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.03
+			}
+			add_ideas = LIT_idea_universal_healthcare
+		}
+	}
+	focus = {
+		id = LIT_women_equality
+		icon = GFX_focus_generic_woman_work
+		x = 10
+		y = 5
+		
+		cost = 10
+
+		prerequisite = { focus = LIT_lsdp_victory }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = womens_rights_traditional_values
+				add_idea = womens_rights_equality
+			}
+		}
+	}
+	focus = {
+		id = LIT_benefits_for_the_poor
+		icon = GFX_focus_LIT_benefits_for_the_poor
+		x = 12
+		y = 5
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_lsdp_victory }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.03
+			}
+			add_ideas = LIT_idea_benefits_for_the_poor
+		}
+	}
+	focus = {
+		id = LIT_block_the_conscription_ammendment
+		icon = GFX_focus_LIT_block_the_conscription_ammendment
+		x = 11
+		y = 6
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_benefits_for_the_poor }
+		prerequisite = { focus = LIT_women_equality }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_stability = 0.03
+			add_war_support = -0.05
+		}
+	}
+	focus = {
+		id = LIT_open_up_to_the_eu
+		icon = GFX_focus_LIT_generic_eu
+		x = 9
+		y = 6
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_free_healthcare_for_everyone }
+		prerequisite = { focus = LIT_women_equality }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_political_power = 15
+			every_country = {
+				limit = { has_country_flag = is_in_european_union }
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_welfare_state
+		icon = GFX_focus_LIT_welfare_state
+		x = 10
+		y = 7
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_open_up_to_the_eu }
+		prerequisite = { focus = LIT_block_the_conscription_ammendment }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "LIT_welfare_state_tt"
+			show_ideas_tooltip = LIT_idea_welfare_state
+			hidden_effect = {
+				remove_ideas =  LIT_idea_benefits_for_the_poor 
+				remove_ideas = LIT_idea_universal_healthcare 
+
+				add_ideas = LIT_idea_welfare_state
+			}
+		}
+	}
+	focus = {
+		id = LIT_adopt_the_euro
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 10
+		y = 8
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_welfare_state }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_euro_integration
+				days = 100
+			}
+
+			every_country = {
+				limit = { has_country_flag = is_in_european_union }
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+
+
+	focus = {
+		id = LIT_dalia_grybauskaite_wins
+		icon = GFX_focus_LIT_dalia_grybauskaite_wins
+		x = 3
+		y = 4
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_election_day }
+		mutually_exclusive = { focus = LIT_lithuanian_national_union_victory }
+		mutually_exclusive = { focus = LIT_lsdp_victory }
+
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.22 }
+		}
+	}
+	focus = {
+		id = LIT_consolidate_presidency
+		icon = GFX_focus_UKR_federalisation_2
+		x = 3
+		y = 5
+		
+		cost = 20
+
+		prerequisite = { focus = LIT_dalia_grybauskaite_wins }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.03
+			add_popularity = {
+				ideology = neoconservative
+				popularity = 0.04
+			}
+		}
+	}
+	focus = {
+		id = LIT_eu_values
+		icon = GFX_focus_UKR_the_ukraine_eu_assossication_agreement
+		x = 1
+		y = 6
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_consolidate_presidency }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			every_country = {
+				limit = {
+					OR = {
+						has_country_flag = is_in_european_union
+						has_idea = eu_member
+					}
+
+					NOT = { tag = LIT }
+				}
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_eu_integration
+		icon = GFX_focus_LIT_generic_eu
+		x = 0
+		y = 7
+		
+		cost = 25
+
+		prerequisite = { focus = LIT_eu_values }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 5
+			every_country = {
+				limit = {
+					OR = {
+						has_country_flag = is_in_european_union
+						has_idea = eu_member
+					}
+
+					NOT = { tag = LIT }
+				}
+				add_opinion_modifier = { target = LIT modifier = small_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_eu_funded_projects
+		icon = GFX_focus_LIT_eu_funded_projects
+		x = 2
+		y = 7
+		
+		cost = 25
+
+		prerequisite = { focus = LIT_eu_values }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_investments_from_west
+				days = 365 
+			}
+
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_nato_values
+		icon = GFX_focus_LIT_nato_values
+		x = 5
+		y = 6
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_consolidate_presidency }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			every_country = {
+				limit = {
+					is_in_faction_with = LIT
+					
+					NOT = { tag = LIT }
+				}
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_nato_military_standarts
+		icon = GFX_focus_UKR_decentralised_command_structure
+		x = 4
+		y = 7
+		
+		cost = 25
+
+		prerequisite = { focus = LIT_nato_values }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			army_experience = 100
+			air_experience = 100
+			
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+
+			increase_military_spending = yes
+		}
+	}
+	focus = {
+		id = LIT_nato_equipment
+		icon = GFX_focus_generic_abrams
+		x = 6
+		y = 7
+		
+		cost = 25
+
+		prerequisite = { focus = LIT_nato_values }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_3
+				amount = 2000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1 
+				amount = 500
+				producer = GER
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_enter_the_eurozone
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 3
+		y = 8
+		
+		cost = 1
+
+		prerequisite = { focus = LIT_nato_equipment }
+		prerequisite = { focus = LIT_nato_military_standarts }
+		prerequisite = { focus = LIT_eu_funded_projects }
+		prerequisite = { focus = LIT_eu_integration }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_euro_integration
+				days = 100
+			}
+			every_country = {
+				limit = { has_country_flag = is_in_european_union }
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_establish_the_polish_lithuanian_chamber_of_commerce #HOW DO I SHORTEN THIS 
+		icon = GFX_focus_LIT_establish_the_polish_lithuanian_chamber_of_commerce
+		x = 2
+		y = 9
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_enter_the_eurozone }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_opinion_modifier = { target = POL modifier = medium_increase }
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_political_power = 20
+			POL = {
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+				add_offsite_building = { type = industrial_complex level = 2 }
+				add_political_power = 20
+			}
+
+		}
+	}
+	focus = {
+		id = LIT_introduce_conscription
+		icon = GFX_focus_LIT_introduce_conscription
+		x = 4
+		y = 9
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_enter_the_eurozone }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = volunteer_only
+				add_idea = limited_conscription
+			}
+		}
+	}
+	focus = {
+		id = LIT_privatize_companies
+		icon = GFX_focus_BLR_industrial_3
+		x = 5
+		y = 10
+		
+		cost = 65
+
+		prerequisite = { focus = LIT_introduce_conscription }
+		prerequisite = { focus = LIT_establish_the_polish_lithuanian_chamber_of_commerce }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_companies_privatized
+		}
+	}
+	focus = {
+		id = LIT_sell_the_zalgiris_stadium
+		icon = GFX_focus_LIT_sell_the_zalgiris_stadium
+		x = 4
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_privatize_companies }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			6 = {
+				remove_building = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			add_political_power = 10
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = LIT_flourish_basketball_culture
+		icon = GFX_focus_LIT_flourish_basketball_culture
+		x = 6
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_privatize_companies }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_nation_of_basketball
+		}
+	}
+	focus = {
+		id = LIT_root_out_corruption_in_the_justice_system
+		icon = GFX_focus_UKR_end_the_immunity
+		x = 1
+		y = 10
+		
+		cost = 65
+
+		prerequisite = { focus = LIT_introduce_conscription }
+		prerequisite = { focus = LIT_establish_the_polish_lithuanian_chamber_of_commerce }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.21 }
+		}
+	}
+	focus = {
+		id = LIT_fire_corrupt_advisors
+		icon = GFX_focus_UKR_end_the_immunity
+		x = 2
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_root_out_corruption_in_the_justice_system }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.02
+			add_popularity = {
+				ideology = neoconservative
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = LIT_purging_corruption_in_the_police
+		icon = GFX_focus_LIT_purging_corruption_in_the_police
+		x = 0
+		y = 11
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_root_out_corruption_in_the_justice_system }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_purging_the_police
+				days = 80
+			}
+		}
+	}
+	focus = {
+		id = LIT_cauliflower_revolution
+		icon = GFX_focus_LIT_cauliflower_revolution
+		x = 1
+		y = 12
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_purging_corruption_in_the_police }
+		prerequisite = { focus = LIT_fire_corrupt_advisors }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.30 }
+		}
+	}
+	focus = {
+		id = LIT_deal_with_inflation
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 5
+		y = 12
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_flourish_basketball_culture }
+		prerequisite = { focus = LIT_sell_the_zalgiris_stadium }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.01
+			decrease_inflation_rate_by_0_5 = yes
+			every_state = {
+				limit = { is_owned_by = LIT }
+				increase_state_gdp_growth_by_1= yes
+			}
+		}
+	}
+	focus = {
+		id = LIT_2016_parliamentary_elections
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 13
+		
+		cost = 55
+
+		prerequisite = { focus = LIT_deal_with_inflation }
+		prerequisite = { focus = LIT_cauliflower_revolution }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+
+
+			country_event = { id = lithuania.33 }
+		}
+	}
+
+
+
+
+
+
+
+
+	
+
+	focus = {
+		id = LIT_assessing_the_donbass_situation
+		icon = GFX_focus_generic_donbass
+		x = 16
+		y = 1
+		
+		cost = 10
+
+		prerequisite = { focus = LIT_embrace_the_crown focus = LIT_2014_elections focus = LIT_recognize_baltic_paganism }
+
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+			has_global_flag = donbass_war_started
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "LIT_assessing_the_donbass_situation_tt"
+		}
+	}
+	focus = {
+		id = LIT_humanitarian_assistance
+		icon = GFX_focus_generic_population_growth
+		x = 16
+		y = 2
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_assessing_the_donbass_situation }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			NOT = { has_government = fascist }
+			
+			OR = {
+				has_completed_focus = LIT_dalia_grybauskaite_wins
+				has_completed_focus = LIT_lsdp_victory
+				has_completed_focus = LIT_lithuanian_national_union_victory
+
+				has_completed_focus = LIT_embrace_the_crown
+
+				has_completed_focus = LIT_recognize_baltic_paganism
+			}
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			add_political_power = 75
+			UKR = {
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_refugee_resettlement
+		icon = GFX_focus_generic_population_growth
+		x = 14
+		y = 2
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_assessing_the_donbass_situation }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			NOT = { has_government = fascist }
+
+			OR = {
+				has_completed_focus = LIT_dalia_grybauskaite_wins
+				has_completed_focus = LIT_lsdp_victory
+				has_completed_focus = LIT_lithuanian_national_union_victory
+
+				has_completed_focus = LIT_embrace_the_crown
+
+				has_completed_focus = LIT_recognize_baltic_paganism
+			}
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			6 = {
+				add_manpower = 200
+			}
+			4 = {
+				add_manpower = 120
+			}
+			33 = {
+				add_manpower = 60
+			}
+			UKR = {
+				add_opinion_modifier = { target = LIT modifier = small_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_donate_50k_to_unhcr
+		icon = GFX_focus_LIT_donate_50k_to_unhcr
+		x = 18
+		y = 2
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_assessing_the_donbass_situation }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			NOT = { has_government = fascist }
+
+			OR = {
+				has_completed_focus = LIT_dalia_grybauskaite_wins
+				has_completed_focus = LIT_lsdp_victory
+				has_completed_focus = LIT_lithuanian_national_union_victory
+
+				has_completed_focus = LIT_embrace_the_crown
+
+				has_completed_focus = LIT_recognize_baltic_paganism
+			}
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			add_political_power = 20
+			add_stability = 0.02
+			UKR = {
+				add_opinion_modifier = { target = LIT modifier = small_increase }
+			}
+		}
+	}
+	focus = {
+		id = LIT_recognize_baltic_paganism
+		icon = GFX_focus_LIT_recognize_baltic_paganism
+		x = 33
+		y = 0
+		
+		cost = 50
+
+		mutually_exclusive = { focus = LIT_2014_elections focus = LIT_embrace_the_crown }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		offset = {
+			x = -23
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = LIT_recognize_baltic_paganism
+				
+			}
+		}
+		bypass = {
+
+		}
+		cancelable = no
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = LIT_2014_elections }
+				NOT = { has_completed_focus = LIT_embrace_the_crown }
+			}
+		}
+		completion_reward = {
+			add_ideas = LIT_idea_paganism_on_the_rise
+			add_popularity = {
+				ideology = theocracy_ideology
+				popularity = 0.1
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = LIT_spread_support_for_paganism
+		icon = GFX_focus_LIT_spread_support_for_paganism
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = -1
+		y = 1
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_recognize_baltic_paganism }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = theocracy_ideology
+				popularity = 0.1
+			}
+			add_stability = -0.02
+		}
+	}
+	focus = {
+		id = LIT_allow_pagan_gatherings_and_festivities
+		icon = GFX_focus_LIT_allow_pagan_gatherings_and_festivities
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = 1
+		y = 1
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_recognize_baltic_paganism }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = theocracy_ideology
+				popularity = 0.1
+			}
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = LIT_establish_the_romuva_party
+		icon = GFX_focus_LIT_establish_the_romuva_party
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = 0
+		y = 2
+		
+		cost = 55
+
+		prerequisite = { focus = LIT_allow_pagan_gatherings_and_festivities }
+		prerequisite = { focus = LIT_spread_support_for_paganism }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			set_party_name = {
+				ideology = theocracy_ideology
+				long_name = LIT_romuva_party_long
+				name = LIT_romuva_party
+			}
+
+			create_country_leader = {
+				name = "Иния Тринкуниене"
+				desc = ""
+				picture = gfx/leaders/LIT/Portrait_Inija_Trinkuniene.png
+				ideology = generic_theocracy
+			}
+		}
+	}
+	focus = {
+		id = LIT_the_romuva_triumphant
+		icon = GFX_focus_LIT_the_romuva_triumphant
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = 0
+		y = 3
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_establish_the_romuva_party }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			theocracy_ideology > 0.4
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = theocracy_ideology
+				elections_allowed = no
+			}
+		}
+	}
+	focus = {
+		id = LIT_the_kriwe
+		icon = GFX_focus_LIT_the_kriwe
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = -1
+		y = 4
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_the_romuva_triumphant }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = liberal_democracy
+				add_idea = theocracy
+			}
+			swap_ideas = {
+				remove_idea = religion_law_secular
+				add_idea = religion_law_fundamentalist
+			}
+		}
+	}
+	focus = {
+		id = LIT_make_paganism_the_official_religios
+		icon = GFX_focus_LIT_recognize_baltic_paganism
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = 1
+		y = 4
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_the_romuva_triumphant }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_every_party_banned
+			hidden_effect = {
+				set_party_name = { ideology = fascist long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = ultranationalist long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = military_junta long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = eastern_conservative long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = populist long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = neoconservative long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = neoliberal long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = eastern_liberal long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = libertarian long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = social_democracy long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = socialist long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = anarchism_ideology long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+				set_party_name = { ideology = absolute_monarchy_ideology long_name = LIT_moderate_communist_party_long name = LIT_moderate_communist_party }
+			}
+
+			
+		}
+	}
+	focus = {
+		id = LIT_the_eternal_fire_of_the_old_gods
+		icon = GFX_focus_LIT_the_eternal_fire_of_the_old_gods
+		relative_position_id = LIT_recognize_baltic_paganism
+		x = 0
+		y = 5
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_the_kriwe }
+		prerequisite = { focus = LIT_make_paganism_the_official_religios }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			has_war_support  > 0.8
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = religion_law_fundamentalist
+				add_idea = religion_law_holy_war
+			}
+
+			custom_effect_tooltip = "LIT_the_eternal_fire_of_the_old_gods_tt"
+			hidden_effect = {
+				remove_ideas = eu_member 
+				clr_country_flag = is_in_european_union
+				leave_faction = yes
+
+				every_country = {
+					limit = { NOT = { is_in_faction_with = LIT } NOT = { tag = LIT } }
+	
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = take_state_focus
+						}
+					}
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = LIT_embrace_the_crown
+		icon = GFX_focus_LIT_embrace_the_crown
+		x = 25
+		y = 0
+		
+		cost = 50
+
+		mutually_exclusive = { focus = LIT_2014_elections focus = LIT_recognize_baltic_paganism }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+
+		offset = {
+			x = -15
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = LIT_embrace_the_crown
+				
+			}
+		}
+		
+		bypass = {
+
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = LIT_recognize_baltic_paganism }
+				NOT = { has_completed_focus = LIT_2014_elections }
+			}
+		}
+		cancelable = no
+		completion_reward = {
+			add_stability = -0.1
+			add_political_power = 5
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 0.05
+			}
+			mark_focus_tree_layout_dirty = yes
+			add_popularity = {
+				ideology = neoconservative
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = neoliberal
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = eastern_liberal
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = libertarian
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = -0.03
+			}
+
+		}
+	}
+	focus = {
+		id = LIT_establish_a_noble_council
+		icon = GFX_focus_LIT_establish_a_noble_council
+		relative_position_id = LIT_embrace_the_crown
+		x = -1
+		y = 1
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_embrace_the_crown }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_noble_council
+		}
+	}
+	focus = {
+		id = LIT_the_urach_connections
+		icon = GFX_focus_LIT_the_urach_connections
+		relative_position_id = LIT_embrace_the_crown
+		x = 1
+		y = 1
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_embrace_the_crown }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_urach_connections
+				days = 200
+			}
+		}
+	}
+	focus = {
+		id = LIT_royal_preperations
+		icon = GFX_focus_LIT_the_urach_connections
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 2
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_the_urach_connections }
+		prerequisite = { focus = LIT_establish_a_noble_council }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.1 }
+		}
+	}
+	focus = {
+		id = LIT_return_of_the_monarchy
+		icon = GFX_focus_LIT_return_of_the_monarchy
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 3
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_royal_preperations }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			has_country_flag = LIT_prince_inigo_arrived
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = absolute_monarchy_ideology
+				elections_allowed = no
+			}
+
+			hidden_effect = {
+				set_cosmetic_tag = KOL
+
+				swap_ideas = {
+					remove_idea = western_economy
+					add_idea = centrally_planned_economy
+				}
+				swap_ideas = {
+					remove_idea = religion_law_secular
+					add_idea = religion_law_religious
+				}
+				swap_ideas = {
+					remove_idea = lgbtq_rights_behind_closed_doors
+					add_idea = lgbtq_rights_banned
+				}
+				swap_ideas = {
+					remove_idea = nationalism_laws_interventionist
+					add_idea = nationalism_laws_armed_neutrality
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_enshrine_monarchy
+		icon = GFX_focus_LIT_enshrine_monarchy
+		relative_position_id = LIT_embrace_the_crown
+		x = -2
+		y = 4
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_return_of_the_monarchy }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_constitutional_monarchy
+		}
+	}
+	focus = {
+		id = LIT_establish_royal_orders
+		icon = GFX_focus_LIT_establish_a_noble_council
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 4
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_return_of_the_monarchy }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = LIT_idea_noble_council
+				add_idea = LIT_idea_royal_orders_from_the_noble_council
+			}
+		}
+	}
+	focus = {
+		id = LIT_royal_guard
+		icon = GFX_focus_LIT_royal_lithuanian_army
+		relative_position_id = LIT_embrace_the_crown
+		x = -1
+		y = 5
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_establish_royal_orders }
+		prerequisite = { focus = LIT_enshrine_monarchy }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_royal_guard
+			capital_scope = {
+				create_unit = {
+					division = "name = \"The Royal Guard\" division_template = \"Lithuanian Infantry Battalion\" start_experience_factor = 0.2"
+					owner = LIT
+					count = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_teaching_inigo_english
+		icon = GFX_focus_LIT_teach_inigo_lithuanian
+		relative_position_id = LIT_embrace_the_crown
+		x = 1
+		y = 5
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_establish_royal_orders }
+		prerequisite = { focus = LIT_regal_education }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_prince_inigo_busy_learning_lithuanian
+				days = 90
+			}
+		}
+	}
+	focus = {
+		id = LIT_regal_education
+		icon = GFX_focus_LIT_regal_education
+		relative_position_id = LIT_embrace_the_crown
+		x = 2
+		y = 4
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_return_of_the_monarchy }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = LIT_idea_regal_education
+		}
+	}
+	focus = {
+		id = LIT_dynastic_marriage
+		icon = GFX_focus_LIT_dynastic_marriage
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 6
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_teaching_inigo_english }
+		prerequisite = { focus = LIT_royal_guard }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			NOT = { has_war = yes }
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.6 }
+		}
+	}
+	focus = {
+		id = LIT_monarchist_propaganda
+		icon = GFX_focus_LIT_embrace_the_crown
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 7
+		
+		cost = 45
+
+		prerequisite = { focus = LIT_dynastic_marriage }
+
+		ai_will_do = {
+
+		}
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 0.06
+			}
+			add_political_power = 5
+		}
+	}
+	focus = {
+		id = LIT_coronation_ceremony
+		icon = GFX_focus_LIT_coronation_ceremony
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 8
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_monarchist_propaganda }
+
+		ai_will_do = {
+
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+
+				
+            swap_ruler_traits = { remove = SOV_royal_heir add = LIT_a_royal_stature }
+
+
+			custom_effect_tooltip = "LIT_prince_inigo_crowned_name_tt"
+
+
+			hidden_effect = {
+				set_country_leader_name = {
+					ideology = absolute_monarchy_ideology
+					name = LIT_prince_inigo_crowned_name
+				}
+
+				set_country_leader_portrait = {
+					ideology = absolute_monarchy_ideology
+					portrait = gfx/leaders/LIT/Portrait_Prince_Inigo_silly_hat.png
+				}
+
+				country_event = { id = lithuania.11 days = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_demand_grodno
+		icon = GFX_focus_LIT_demand_grodno
+		relative_position_id = LIT_embrace_the_crown
+		x = -2
+		y = 9
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_coronation_ceremony }
+
+		ai_will_do = {
+
+		}
+
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			27 = { is_owned_by = LIT } 
+		}
+
+		completion_reward = {
+
+			27 = { owner = { country_event = { id = lithuania.9 days = 2 } } }
+
+		}
+	}
+
+	focus = {
+		id = LIT_demand_podlaskie
+		icon = GFX_focus_LIT_demand_podlaskie
+		relative_position_id = LIT_embrace_the_crown
+		x = 2
+		y = 9
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_coronation_ceremony }
+
+		ai_will_do = {
+
+		}
+
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			34 = { is_owned_by = LIT } 
+		}
+
+		completion_reward = {
+
+			34 = { owner = { country_event = { id = lithuania.10 days = 2 } } }
+
+		}
+	}
+	focus = {
+		id = LIT_demand_full_control_of_the_curonian_spit
+		icon = GFX_focus_LIT_demand_full_control_of_the_curonian_spit
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 9
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_coronation_ceremony }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_war = no
+		}
+		
+		bypass = {
+			437 = { is_owned_by = LIT } 
+		}
+
+		completion_reward = {
+			437 = { owner = { country_event = { id = lithuania.19 days = 2 } } }
+		}
+	}
+	focus = {
+		id = LIT_lithuanize_city_names
+		icon = GFX_focus_LIT_lithuanize_city_names
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 10
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_demand_podlaskie }
+		prerequisite = { focus = LIT_demand_grodno }
+		prerequisite = { focus = LIT_demand_full_control_of_the_curonian_spit }
+
+		ai_will_do = {
+
+		}
+
+		available = {
+			OR = {
+				34 = { is_owned_by = LIT } 
+				27 = { is_owned_by = LIT } 
+			}
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "LIT_lithuanize_city_names_tt"
+			effect_tooltip = {
+				27 = { add_core_of = LIT  }
+				34 = { add_core_of = LIT  }
+				437 = { add_core_of = LIT  }
+			}
+
+			hidden_effect = {
+				if = {
+					limit = { 27 = { is_owned_by = LIT }  }
+	
+	
+					27 = {
+						set_state_name = "Gardinas"	
+					}
+					
+					27 = {
+						add_core_of = LIT
+						set_province_name = { id = 5989 name = "Gardinas" }	
+						set_province_name = { id = 12722 name = "Valkaviskas" }	
+						set_province_name = { id = 11370 name = "Slanimas" }	
+						set_province_name = { id = 7872 name = "Naugardukas" }	
+						set_province_name = { id = 15210 name = "Smurgainys" }	
+					}
+	
+				}
+				if = {
+					limit = { 34 = { is_owned_by = LIT }  }
+	
+					34 = {
+						set_state_name = "Palenke"
+					}
+					
+	
+					34 = {
+						add_core_of = LIT
+						set_province_name = { id = 14562 name = "Seinai" }	
+						set_province_name = { id = 678 name = "Suvalkija" }	
+						set_province_name = { id = 12559 name = "Augustavas" }	
+						set_province_name = { id = 46 name = "Grajevas" }	
+						set_province_name = { id = 7532 name = "Sokulka" }	
+						set_province_name = { id = 5752 name = "Lomža" }	
+						set_province_name = { id = 11118 name = "Horozas" }
+						set_province_name = { id = 9218 name = "Balstogė" }
+						set_province_name = { id = 11373 name = "Hainuvka" }
+						set_province_name = { id = 15960 name = "Palenkės Belskas" }
+					}
+	
+				}
+	
+				if = {
+					limit = { 437 = { is_owned_by = LIT }  }
+	
+					437 = {
+						add_core_of = LIT
+	
+					}
+	
+				}
+			}
+
+
+
+			
+		}
+	}
+	focus = {
+		id = LIT_blackmail_belarus
+		icon = GFX_focus_LIT_blackmail_belarus
+		relative_position_id = LIT_embrace_the_crown
+		x = 0
+		y = 11
+		
+		cost = 60
+
+		prerequisite = { focus = LIT_lithuanize_city_names }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			NOT = { country_exists = BLR }
+		}
+
+		completion_reward = {
+			BLR = { country_event = { id = lithuania.23 days = 2 } }
+		}
+	}
+
+
+
+
+
+
+
+	focus = {
+		id = LIT_royal_lithuanian_army
+		icon = GFX_focus_LIT_royal_lithuanian_army
+		x = 21
+		y = 1
+		
+		cost = 15
+
+		prerequisite = { focus = LIT_embrace_the_crown }
+
+		ai_will_do = {
+
+		}
+		available = {
+			has_completed_focus = LIT_return_of_the_monarchy
+		}
+		
+		bypass = {
+			
+		}
+
+		offset = {
+			x = -15
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = LIT_embrace_the_crown
+				
+			}
+		}
+
+		completion_reward = {
+			army_experience = 50
+
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Royal Infantry Battalion\" division_template = \"Lithuanian Infantry Battalion\" start_experience_factor = 0.1"
+					owner = LIT
+					count = 5
+				}
+
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = LIT_air_royalists
+		icon = GFX_focus_LIT_air_royalists
+		relative_position_id = LIT_royal_lithuanian_army
+		x = 0
+		y = 1
+		
+		cost = 10
+
+		prerequisite = { focus = LIT_royal_lithuanian_army }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			air_experience = 75
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = air_doctrine
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+		
+	focus = {
+		id = LIT_royal_artillery_battalion
+		icon = GFX_focus_LIT_royal_artillery_battalion
+		relative_position_id = LIT_royal_lithuanian_army
+		x = 0
+		y = 2
+		
+		cost = 10
+
+		prerequisite = { focus = LIT_air_royalists }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Royal Artillery Battalion\" division_template = \"Lithuanian Artillery Battalion\" start_experience_factor = 0.1"
+					owner = LIT
+					count = 5
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+focus_tree = {
+	id = lithuania_2022
+	continuous_focus_position = { x = 3100 y = 1000 } 
+	country = {
+		factor = 0
+	}
+
+	focus = {
+		id = LIT_the_unexpected
+		icon = gfxxx
+		x = 5
+		y = 0
+		
+		cost = 1
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			always = no
+		}
+		
+		bypass = {
+			hidden_trigger = {
+				UKR = {
+					has_war_with = SOV
+				}
+			}
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = LIT_has_happened
+		icon = gfxxx
+		x = 5
+		y = 1
+		
+		cost = 5
+
+		prerequisite = { focus = LIT_the_unexpected }
+
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.31 days = 2 }
+        }
+		
+	}
+}

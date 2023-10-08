@@ -1,0 +1,600 @@
+﻿capital = 424
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "BLR_2014_nsb"
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_oob = "BLR_2014"
+}
+
+create_country_leader = {
+	name = "Александр Лукашенко"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Alexander_Lukashenko.dds
+	ideology = belarussian_belaya_rus_subideology
+	traits = { BLR_eternal_president BLR_potato_farmer }
+}
+create_country_leader = {
+	name = "Николай Улахович"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Nikolai_Ulakhovich.dds
+	ideology = belarussian_patriotic_party_subideology
+}
+create_country_leader = {
+	name = "Василий Задняпрани"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Vasil_Zadnyaprany.dds
+	ideology = belarussian_republican_party_subideology
+}
+create_country_leader = {
+	name = "Игорь Борисов"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Ihar_Barysau.dds
+	ideology = belarussian_social_democrat_subideology
+}
+create_country_leader = {
+	name = "Зианон Пазняк"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Zianon_Pazniak.dds
+	ideology = belarussian_conservative_christian_party_subideology
+}
+create_country_leader = {
+	name = "Станислав Антонович Богданкиевич"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Stanislau_Antonavic_Bahdankievic.dds
+	ideology = belarussian_united_civic_party_subideology
+}
+create_country_leader = {
+	name = "Олег Гайдукевич"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Oleg_Gaidukevich.dds
+	ideology = belarussian_liberal_democratic_subideology
+}
+create_country_leader = {
+	name = "Сергей Калякин"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Sergey_Kalyakin.dds
+	ideology = belarussian_left_party_subideology
+}
+create_country_leader = {
+	name = "Алексей Сокаль"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Aliaksiej_Sokal.dds
+	ideology = belarussian_communist_party_subideology
+}
+create_country_leader = {
+	name = "Вадзим Саранчукой"
+	desc = ""
+	picture = gfx/leaders/BLR/Portrait_Vadzim_Sarančukoŭ.dds
+	ideology = belarussian_bpf_party_subideology
+}
+
+#Prime Ministers
+recruit_character = BLR_mikhail_myasnikovich
+recruit_character = BLR_andrei_kobyakov
+recruit_character = BLR_syarhey_rumas
+recruit_character = BLR_roman_golovchenko
+
+activate_advisor = BLR_mikhail_myasnikovich			#Starting PM
+
+#Advisors
+recruit_character = BLR_viktor_khrenin
+recruit_character = BLR_aleksandr_chervyakov
+recruit_character = BLR_yury_seliverstov
+recruit_character = BLR_vladimir_makei
+recruit_character = BLR_ivan_kubrakov
+recruit_character = BLR_igor_karpenko
+recruit_character = BLR_anatoly_markevich
+recruit_character = BLR_aleksei_avramenko
+recruit_character = BLR_ivan_krupko
+#Generals
+
+recruit_character = BLR_oleg_belokonev
+recruit_character = BLR_alexander_volfovich
+recruit_character = BLR_viktor_gulevich
+recruit_character = BLR_leonid_maltsev
+recruit_character = BLR_aleksandr_chumakov
+recruit_character = BLR_igor_golub
+
+#Variables
+#GDP
+set_variable = { gdp = 75.572 }
+
+#BLR_russian_influence_idea
+set_variable = { BLR_russian_influence_pp_gain = 0.10 }
+set_variable = { BLR_russian_influence_consumer_goods = 0.10 }
+set_variable = { BLR_russian_influence_construction_speed = -0.15 }
+set_variable = { BLR_russian_influence_factory_output = -0.15 }
+set_variable = { BLR_russian_influence_efficiency_cap = -0.1 }
+set_variable = { BLR_russian_influence_party_stability = 0.1 }
+set_variable = { BLR_russian_influence_weekly_stability = -0.001 }
+set_variable = { BLR_russian_influence_research_speed_factor = -0.1 }
+
+#BLR_grimacing_economy_idea
+set_variable = { BLR_grimacing_economy_consumer_goods = 0.04 }
+set_variable = { BLR_grimacing_economy_construction_speed = -0.05 }
+set_variable = { BLR_grimacing_economy_factory_output = -0.05 }
+set_variable = { BLR_grimacing_economy_efficiency_cap = 0.0 }
+set_variable = { BLR_grimacing_economy_inflation_monthly = 0.2 }
+
+#BLR_public_support
+set_variable = { BLR_public_support_var = 70 }
+set_variable = { BLR_military_support_var = 75 }
+
+clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+
+2022.01.01 = {
+	set_politics = {
+		ruling_party = eastern_conservative
+		last_election = "2020.8.9"
+		election_frequency = 60
+	}
+	set_popularities = {
+		eastern_conservative = 100
+	}
+
+	set_stability = 0.35
+	set_war_support = 0.55
+
+	deactivate_advisor = BLR_mikhail_myasnikovich
+	deactivate_advisor = BLR_andrei_kobyakov
+	deactivate_advisor = BLR_syarhey_rumas
+	deactivate_advisor = BLR_roman_golovchenko
+
+	activate_advisor = BLR_roman_golovchenko
+
+	complete_national_focus = BLR_economic_revision
+	complete_national_focus = BLR_consumer_industries_programe
+	complete_national_focus = BLR_purchase_russian_arms
+	complete_national_focus = BLR_purchase_russian_tanks
+	complete_national_focus = BLR_farming_industries
+	complete_national_focus = BLR_infrastructure_projects
+	complete_national_focus = BLR_mining_industries
+	complete_national_focus = BLR_belaruskali
+	complete_national_focus = BLR_cope_with_sanctions
+	complete_national_focus = BLR_military_science
+	complete_national_focus = BLR_ground_forces
+	complete_national_focus = BLR_air_forces
+	complete_national_focus = BLR_the_last_dictator_of_europe
+	complete_national_focus = BLR_inflation_reduction_act
+	complete_national_focus = BLR_ban_inflation
+	complete_national_focus = BLR_eea_treaty
+	complete_national_focus = BLR_strengthen_security_forces
+	complete_national_focus = BLR_crackdown_of_other_political_parties
+	complete_national_focus = BLR_CSTO_exercise_2015
+	complete_national_focus = BLR_reafirm_mutual_defence
+	complete_national_focus = BLR_CSTO_exercise_2016
+	complete_national_focus = BLR_CSTO_exercise_2017
+	complete_national_focus = BLR_involvement_in_donbas
+	complete_national_focus = BLR_russofication_of_belarus
+
+	add_ideas = BLR_eea_idea
+
+	add_to_variable = { BLR_grimacing_economy_consumer_goods = 0.08 }
+	add_to_variable = { BLR_grimacing_economy_construction_speed = -0.1 }
+
+	every_state={
+		limit={
+			is_controlled_by = BLR
+		}
+		subtract_from_variable = { THIS.state_gdp_per_capita_growth = 0.6 }	
+	}
+
+	
+	#BLR_public_support
+	set_variable = { BLR_public_support_var = 62.5 }
+	set_variable = { BLR_military_support_var = 72.5 }
+
+	clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+	clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+
+	
+	set_technology = {		
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		infantry_anti_tank_2 = 1
+		infantry_anti_tank_upgrade = 1
+		marines = 1
+		elite_special_forces_tech = 1
+		tech_special_forces = 1
+
+		tech_engineers2 = 1
+		tech_logistics_company2 = 1
+		tech_maintenance_company2 = 1
+		tech_signal_company = 1
+		tech_military_police = 1
+		tech_field_hospital = 1
+		basic_train = 1
+
+		gw_artillery = 1
+		interwar_artillery = 1
+		artillery1 = 1
+		rocket_artillery = 1
+
+		four_g_satellite = 1
+		radio = 1
+		radio_detection = 1
+		increase_in_ram_capabilities = 1
+		
+		fuel_silos = 1
+		synth_oil_experiments = 1
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		construction1 = 1
+	}
+
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_technology = {
+			armor_tech_2 = 1
+			engine_tech_2 = 1
+			gun_tech_2 = 1
+			tank_module_tech_2 = 1
+		}
+	}
+}
+
+set_research_slots = 3
+set_stability = 0.40
+set_war_support = 0.55
+
+add_ideas = {
+	centrally_planned_economy			#70% of Belarus' industry is state-owned
+	authoritarian_democracy
+	limited_conscription
+	state_controlled_press
+	government_trade_unions
+	bipolarist
+	reliogion_law_religious
+	womens_rights_traditional_values
+	lgbtq_rights_banned
+	minority_rights_minor_inequality
+	nationalism_laws_interventionalist
+	firearms_laws_restricted
+	alcohol_narotics_laws_largely_regulated
+
+	BLR_soviet_legacy	# Can't be removed without civil war
+}
+
+add_dynamic_modifier = { modifier = BLR_russian_influence_idea }
+add_dynamic_modifier = { modifier = BLR_grimacing_economy_idea }
+
+# Starting tech
+set_technology = {
+	is_post_soviet_technology = 1
+
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		modern_tank_doctrine = 1
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_politics = {
+	ruling_party = eastern_conservative
+	last_election = "2010.10.19"
+	election_frequency = 60
+	elections_allowed = no
+}
+
+set_popularities = {
+	eastern_conservative = 77
+	socialist = 8
+	eastern_liberal = 2
+	moderate_communist = 2
+	populist = 2
+	social_democracy = 2
+	neoliberal = 2
+	hardline_communist = 1
+	neoconservative = 1
+	ultranationalist = 1
+	anarchism_ideology = 1
+	fascist = 1
+}
+
+set_convoys = 10
+
+add_equipment_production = {
+	equipment = {
+		type = infantry_equipment_0
+		creator = BLR
+	}
+	requested_factories = 2
+	progress = 0.21
+	efficiency = 50
+}
+add_equipment_production = {
+	equipment = {
+		type = support_equipment_1
+		creator = BLR
+	}
+	requested_factories = 1
+	progress = 0.42
+	efficiency = 50
+}
+add_equipment_production = {
+	equipment = {
+		type = infantry_anti_tank_equipment_1
+		creator = BLR
+	}
+	requested_factories = 1
+	progress = 0.42
+	efficiency = 50
+}
+add_equipment_production = {
+	equipment = {
+		type = infantry_anti_air_equipment_1
+		creator = BLR
+	}
+	requested_factories = 1
+	progress = 0.42
+	efficiency = 50
+}
+add_equipment_production = {
+	equipment = {
+		type = t_72b_equipment
+		creator = BLR
+	}
+	requested_factories = 1
+	progress = 0.69
+	efficiency = 30
+}
+
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+
+
+#PLANES
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Су-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		version_name = "Су-27SM"
+		amount = 46
+		producer = SOV
+	}
+}
+
+#Adding equipment
+
+
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 160 }
+add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 220 }
+add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 84 }
+add_equipment_to_stockpile = { type = support_equipment_1 amount = 126 }
+add_equipment_to_stockpile = { type = infantry_anti_tank_equipment amount = 72 }
+add_equipment_to_stockpile = { type = infantry_anti_air_equipment amount = 72 }
+add_equipment_to_stockpile = { type = train_equipment_1 amount = 16 }
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" } 
+	}
+	add_equipment_to_stockpile = { type = t_64av_equipment amount = 296 }
+	add_equipment_to_stockpile = { type = t_72b_equipment amount = 128 }
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	add_equipment_to_stockpile = { type = t64_chasis amount = 296 variant_name = "T-64av" }
+	add_equipment_to_stockpile = { type = t72_chasis amount = 128 variant_name = "T-72b" }
+}

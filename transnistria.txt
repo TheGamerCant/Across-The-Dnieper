@@ -1,0 +1,894 @@
+focus_tree = {
+	id = transnistrian_focus
+	continuous_focus_position = { x = 150 y = 2480 } 
+	country = {
+		factor = 0
+#		modifier = {
+#			add = 10
+#			tag = TRZ
+#		}
+	}
+	#Devalue Transnistrian Rouble
+	focus = {
+		id = TRZ_devalue_transnistrian_rouble
+		icon = GFX_TRZ_devalue_transnistrian_rouble-386381
+		x = 2
+		y = 5
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_volunteers_to_russia  }
+		completion_reward = {
+			add_timed_idea = { idea = TRZ_currency_devaluation  days = 31 }
+		}
+	}
+
+	#Spread Propaganda
+	focus = {
+		id = TRZ_spread_propaganda
+		icon = GFX_TRZ_spread_propaganda-385976
+		x = 15
+		y = 8
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_declare_the_moldovan_ssr  }
+		completion_reward = {
+			add_war_support = 0.025
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.01
+			}
+			add_stability = -0.03
+			add_dynamic_modifier = {
+				modifier = TRZ_prop_campaigns
+			}
+		}
+	}
+
+	#Make it Official
+	focus = {
+		id = TRZ_make_it_official
+		icon = GFX_TRZ_make_it_official-386013
+		x = 14
+		y = 13
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_moldovan_citizenship  } prerequisite = { focus = TRZ_moldovan_workers_in_ukraine  }
+	}
+
+	#Claim Odessa
+	focus = {
+		id = TRZ_claim_odessa
+		icon = GFX_TRZ_claim_odessa-386410
+		x = 7
+		y = 12
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			TRZ = {
+				add_state_claim = 320
+				add_state_claim = 287
+				add_state_claim = 291
+				add_state_claim = 322
+				add_state_claim = 332
+				add_state_claim = 369
+				add_state_claim = 238
+				add_state_claim = 199
+				add_state_claim = 229
+			}
+
+		}
+		prerequisite = { focus = TRZ_war_plan_ukraine  }
+	}
+
+	#Rally in Tiraspol
+	focus = {
+		id = TRZ_rally_in_tiraspol
+		icon = GFX_TRZ_rally_in_tiraspol-385845
+		x = 9
+		y = 1
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.01
+			268 = {
+				add_state_modifier = {
+					modifier = {
+						state_production_speed_industrial_complex_factor = 0.03
+					}
+				}
+			}
+		}
+	}
+
+	#Militarization
+	focus = {
+		id = TRZ_militarization
+		icon = GFX_TRZ_militarization-385866
+		x = 14
+		y = 2
+		cost = 70
+		ai_will_do = { factor = 0 }
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_resistance = 20
+			}
+			add_stability = -0.015
+
+			army_experience = 50
+		}
+		prerequisite = { focus = TRZ_rally_in_tiraspol  }
+	}
+
+	#Increase Army Size
+	focus = {
+		id = TRZ_increase_army_size
+		icon = GFX_TRZ_increase_army_size-385867
+		x = 13
+		y = 3
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_militarization  }
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.05
+			add_manpower = 5000
+		}
+	}
+
+	#Ask for Russian Jets
+	focus = {
+		id = TRZ_ask_for_russian_jets
+		icon = GFX_TRZ_ask_for_russian_jets-385873
+		x = 15
+		y = 3
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		bypass = {
+			NOT = {
+				SOV = {
+					has_government = eastern_conservative
+				}
+			}
+
+		}
+		completion_reward = {
+			SOV = {
+				country_event = {
+					id = transnistria.1
+				}
+			}
+
+		}
+		prerequisite = { focus = TRZ_militarization  }
+	}
+
+	#Air Recruitment Adverts
+	focus = {
+		id = TRZ_air_recruitment_adverts
+		icon = GFX_TRZ_air_recruitment_adverts-385874
+		x = 15
+		y = 4
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_ask_for_russian_jets  }
+		completion_reward = {
+			air_experience = 40
+			268 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#Appoint Igor Gorgan
+	focus = {
+		id = TRZ_appoint_igor_gorgan
+		icon = GFX_TRZ_appoint_igor_gorgan-385966
+		x = 13
+		y = 4
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_increase_army_size  }
+	}
+
+	#Join the CSTO
+	focus = {
+		id = TRZ_join_the_csto
+		icon = GFX_TRZ_join_the_csto-386029
+		x = 16
+		y = 16
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_join_the_russians  }
+	}
+
+	#Consruct Ukrainian Forts
+	focus = {
+		id = TRZ_consruct_ukrainian_forts
+		icon = GFX_TRZ_consruct_ukrainian_forts-385969
+		x = 14
+		y = 5
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_appoint_igor_gorgan  } prerequisite = { focus = TRZ_air_recruitment_adverts  }
+		completion_reward = {
+			268 = {
+				add_building_construction = {
+					type = bunker
+					province = 10804
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 2889
+					level = 1
+				}
+			} 
+			247 = {
+				add_building_construction = {
+					type = bunker
+					province = 18715
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6906
+					level = 1
+				}
+			}
+			215 = {
+				add_building_construction = {
+					type = bunker
+					province = 9141
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 18795
+					level = 1
+				}
+			}  
+		}
+	}
+
+	#Blackmail Moldova
+	focus = {
+		id = TRZ_blackmail_moldova
+		icon = GFX_TRZ_blackmail_moldova-385971
+		x = 14
+		y = 6
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		bypass = {
+			NOT = { country_exists = MOL }
+		}
+		prerequisite = { focus = TRZ_consruct_ukrainian_forts  }
+		completion_reward = {
+			MOL = {
+				country_event = {
+					id = transnistria.2
+				}
+			}
+		}
+	}
+
+	#Declare the Moldovan SSR
+	focus = {
+		id = TRZ_declare_the_moldovan_ssr
+		icon = GFX_TRZ_declare_the_moldovan_ssr-385972
+		x = 14
+		y = 7
+		cost = 80
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		available = {
+			NOT = { country_exists = MOL }
+		}
+		prerequisite = { focus = TRZ_blackmail_moldova  }
+		completion_reward = {
+			add_war_support = 0.02
+			add_political_power = 100
+			add_stability = -0.01
+
+		}
+	}
+
+	#Suppress Moldovans
+	focus = {
+		id = TRZ_suppress_moldovans
+		icon = GFX_TRZ_suppress_moldovans-385974
+		x = 13
+		y = 8
+		cost = 110
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_declare_the_moldovan_ssr  }
+		completion_reward = {
+			274 = {
+				add_core_of = TRZ
+			}
+			262 = {
+				add_core_of = TRZ
+			}
+			252 = {
+				add_core_of = TRZ
+			}
+			249 = {
+				add_core_of = TRZ
+			}
+			248 = {
+				add_core_of = TRZ
+			}
+			245 = {
+				add_core_of = TRZ
+			}
+			222 = {
+				add_core_of = TRZ
+			}
+			218 = {
+				add_core_of = TRZ
+			}
+			217 = {
+				add_core_of = TRZ
+			}
+			216 = {
+				add_core_of = TRZ
+			}
+			213 = {
+				add_core_of = TRZ
+			}
+			224 = {
+				add_core_of = TRZ
+			}
+			290 = {
+				add_core_of = TRZ
+			}
+			268 = {
+				add_core_of = TRZ
+			}
+			202 = {
+				add_core_of = TRZ
+			}
+			182 = {
+				add_core_of = TRZ
+			}
+			189 = {
+				add_core_of = TRZ
+			}
+			197 = {
+				add_core_of = TRZ
+			}
+			220 = {
+				add_core_of = TRZ
+			}
+			234 = {
+				add_core_of = TRZ
+			}
+			259 = {
+				add_core_of = TRZ
+			}
+			260 = {
+				add_core_of = TRZ
+			}
+			316 = {
+				add_core_of = TRZ
+			}
+			307 = {
+				add_core_of = TRZ
+			}
+			293 = {
+				add_core_of = TRZ
+			}
+			286 = {
+				add_core_of = TRZ
+			}
+			206 = {
+				add_core_of = TRZ
+			}
+			258 = {
+				add_core_of = TRZ
+			}
+			206 = {
+				add_core_of = TRZ
+			}
+			272 = {
+				add_core_of = TRZ
+			}
+			278 = {
+				add_core_of = TRZ
+			}
+			215 = {
+				add_core_of = TRZ
+			}
+			241 = {
+				add_core_of = TRZ
+			}
+			247 = {
+				add_core_of = TRZ
+			}
+			277 = {
+				add_core_of = TRZ
+			}
+			240 = {
+				add_core_of = TRZ
+			}
+			193 = {
+				add_core_of = TRZ
+			}
+			188 = {
+				add_core_of = TRZ
+			}
+			210 = {
+				add_core_of = TRZ
+			}
+			
+		}
+	}
+
+	#Clashes in Southern Bessarabia
+	focus = {
+		id = TRZ_clashes_in_southern_bessarabia
+		icon = GFX_TRZ_clashes_in_southern_bessarabia-385990
+		x = 14
+		y = 9
+		cost = 120
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		available = {
+			has_manpower > 30000
+			278 = {
+				is_owned_by = TRZ
+			}
+			272 = {
+				is_owned_by = TRZ
+			}
+			274 = {
+				is_owned_by = TRZ
+			}
+			286 = {
+				is_owned_by = TRZ
+			}
+			316 = {
+				is_owned_by = TRZ
+			}
+			307 = {
+				is_owned_by = TRZ
+			}
+			
+		}
+
+		bypass = {
+			NOT = {
+				320 = {
+					is_core_of = UKR
+				}
+
+				287 = {
+					is_core_of = UKR
+				}
+
+				291 = {
+					is_core_of = UKR
+				}
+				322 = {
+					is_core_of = UKR
+				}
+				332 = {
+					is_core_of = UKR
+				}
+			}
+		}
+		prerequisite = { focus = TRZ_spread_propaganda  } prerequisite = { focus = TRZ_suppress_moldovans  }
+		completion_reward = {
+			320 = {
+				remove_core_of = UKR
+			}
+
+			287 = {
+				remove_core_of = UKR
+			}
+
+			291 = {
+				remove_core_of = UKR
+			}
+			322 = {
+				remove_core_of = UKR
+			}
+			332 = {
+				remove_core_of = UKR
+			}
+
+			start_border_war = {
+				change_state_after_war = yes
+				attacker = {
+					state = 286
+					num_provinces = 4
+					#on_win = 
+					#on_lose = 
+				}	
+				defender = {
+					state = 287
+					num_provinces = 4
+					#on_win = 
+					#on_lose = 
+				}
+			}
+		}
+	}
+
+	#Agreement with Ukraine
+	focus = {
+		id = TRZ_agreement_with_ukraine
+		icon = GFX_TRZ_agreement_with_ukraine-385991
+		x = 14
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_clashes_in_southern_bessarabia  }
+	}
+
+	#Crush Azov Rebels
+	focus = {
+		id = TRZ_crush_azov_rebels
+		icon = GFX_TRZ_crush_azov_rebels-385999
+		x = 13
+		y = 11
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_agreement_with_ukraine  }
+	}
+
+	#Moldovan Citizenship
+	focus = {
+		id = TRZ_moldovan_citizenship
+		icon = GFX_TRZ_moldovan_citizenship-386007
+		x = 15
+		y = 12
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			add_manpower = 30000
+			add_political_power = 50
+		}
+		prerequisite = { focus = TRZ_concessions_to_bulgarian_workes  }
+	}
+
+	#Moldovan Workers in Ukraine
+	focus = {
+		id = TRZ_moldovan_workers_in_ukraine
+		icon = GFX_TRZ_moldovan_workers_in_ukraine-386000
+		x = 13
+		y = 12
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_crush_azov_rebels  }
+	}
+
+	#Concessions to Bulgarian Workes
+	focus = {
+		id = TRZ_concessions_to_bulgarian_workes
+		icon = GFX_TRZ_concessions_to_bulgarian_workes-386003
+		x = 15
+		y = 11
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_agreement_with_ukraine  }
+	}
+
+	#Romanian Forts
+	focus = {
+		id = TRZ_romanian_forts
+		icon = GFX_TRZ_romanian_forts-386023
+		x = 12
+		y = 15
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_make_it_official  }
+		mutually_exclusive = { focus = TRZ_join_the_russians  }
+	}
+
+	#Declare Neutrality
+	focus = {
+		id = TRZ_declare_neutrality
+		icon = GFX_TRZ_declare_neutrality-386025
+		x = 12
+		y = 16
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_romanian_forts  }
+	}
+
+	#Join the Russians
+	focus = {
+		id = TRZ_join_the_russians
+		icon = GFX_TRZ_join_the_russians-386028
+		x = 16
+		y = 15
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_make_it_official  }
+		mutually_exclusive = { focus = TRZ_romanian_forts  }
+	}
+
+	#Status Quo
+	focus = {
+		id = TRZ_status_quo
+		icon = GFX_TRZ_status_quo-386367
+		x = 4
+		y = 2
+		cost = 70
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_rally_in_tiraspol  }
+		mutually_exclusive = { focus = TRZ_militarization  }
+		completion_reward = {
+			add_political_power = 30
+			add_stability = 0.01
+		}
+	}
+
+	#Volunteers to Russia
+	focus = {
+		id = TRZ_volunteers_to_russia
+		icon = GFX_TRZ_volunteers_to_russia-386374
+		x = 3
+		y = 3
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_status_quo  }
+	}
+
+	#Pro-Russian Industry
+	focus = {
+		id = TRZ_prorussian_industry
+		icon = GFX_TRZ_prorussian_industry-386375
+		x = 5
+		y = 3
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_status_quo  }
+	}
+
+	#Construct Russian Guns
+	focus = {
+		id = TRZ_construct_russian_guns
+		icon = GFX_TRZ_construct_russian_guns-386376
+		x = 6
+		y = 4
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_prorussian_industry  }
+	}
+
+	#Crimea-Triaspol Railway
+	focus = {
+		id = TRZ_crimeatriaspol_railway
+		icon = GFX_TRZ_crimeatriaspol_railway-386379
+		x = 6
+		y = 5
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_construct_russian_guns  }
+	}
+
+	#Empower Krasnoselsky
+	focus = {
+		id = TRZ_empower_krasnoselsky
+		icon = GFX_TRZ_empower_krasnoselsky-386382
+		x = 4
+		y = 7
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_devalue_transnistrian_rouble  } prerequisite = { focus = TRZ_crimeatriaspol_railway  }
+	}
+
+	#Stop Russian Gun Exports
+	focus = {
+		id = TRZ_stop_russian_gun_exports
+		icon = GFX_TRZ_stop_russian_gun_exports-386383
+		x = 2
+		y = 8
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_empower_krasnoselsky  }
+		mutually_exclusive = { focus = TRZ_continue_russian_gun_exports  }
+	}
+
+	#Concessions to West
+	focus = {
+		id = TRZ_concessions_to_west
+		icon = GFX_TRZ_concessions_to_west-386384
+		x = 2
+		y = 9
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_stop_russian_gun_exports  }
+	}
+
+	#Return Volunteers
+	focus = {
+		id = TRZ_return_volunteers
+		icon = GFX_TRZ_return_volunteers-386385
+		x = 1
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_concessions_to_west  }
+		mutually_exclusive = { focus = TRZ_keep_volunteers_in_ukraine  }
+	}
+
+	#Declare Neutrality
+	focus = {
+		id = TRZ_declare_neutrality
+		icon = GFX_TRZ_declare_neutrality-386390
+		x = 1
+		y = 11
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_return_volunteers  }
+	}
+
+	#Keep Volunteers in Ukraine
+	focus = {
+		id = TRZ_keep_volunteers_in_ukraine
+		icon = GFX_TRZ_keep_volunteers_in_ukraine-386401
+		x = 3
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_concessions_to_west  }
+		mutually_exclusive = { focus = TRZ_return_volunteers  }
+	}
+
+	#Secretely Supply Russia
+	focus = {
+		id = TRZ_secretely_supply_russia
+		icon = GFX_TRZ_secretely_supply_russia-386403
+		x = 3
+		y = 11
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_keep_volunteers_in_ukraine  }
+	}
+
+	#Continue Russian Gun Exports
+	focus = {
+		id = TRZ_continue_russian_gun_exports
+		icon = GFX_TRZ_continue_russian_gun_exports-386404
+		x = 6
+		y = 8
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_empower_krasnoselsky  }
+		mutually_exclusive = { focus = TRZ_stop_russian_gun_exports  }
+	}
+
+	#Become Putin´s Puppet
+	focus = {
+		id = TRZ_becomeputinspuppet
+		icon = GFX_TRZ_becomeputinspuppet-386406
+		x = 5
+		y = 9
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_continue_russian_gun_exports  }
+	}
+
+	#Russian Economic Treaty
+	focus = {
+		id = TRZ_russian_economic_treaty
+		icon = GFX_TRZ_russian_economic_treaty-386407
+		x = 7
+		y = 9
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_continue_russian_gun_exports  }
+	}
+
+	#Join CSTO
+	focus = {
+		id = TRZ_join_csto
+		icon = GFX_TRZ_join_csto-386409
+		x = 7
+		y = 10
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_russian_economic_treaty  }
+	}
+
+	#War Plan Ukraine
+	focus = {
+		id = TRZ_war_plan_ukraine
+		icon = GFX_TRZ_war_plan_ukraine-386412
+		x = 7
+		y = 11
+		cost = 70
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TRZ_join_csto  }
+	}
+
+}
