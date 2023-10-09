@@ -129,13 +129,16 @@ focus_tree = {
 
 		completion_reward ={
             add_political_power = 50
+			add_stability = 0.03
 
 			hidden_effect = {
 				set_country_flag = DON_begin_referendum_mission
 				country_event = { id = donetsk.1 days = 18 }
 				country_event = { id = donetsk.7 days = 201 }
+				country_event = { id = donetsk.10 days = 914 }
+				country_event = { id = donetsk.11 days = 1061 }
+				country_event = { id = donetsk.12 days = 1064 }
 			}
-           
 		}
 	}
 
@@ -466,7 +469,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			
+			has_global_flag = minsk_ii_has_been_signed
 		}
 
         available = {
@@ -474,40 +477,32 @@ focus_tree = {
 			has_completed_focus = DON_impose_martial_law
         }
 		completion_reward ={
-			effect_tooltip = {
+			if = {
+				limit = { has_idea = impromptu_militias }
+				swap_ideas = {
+					remove_idea = impromptu_militias
+					add_idea = impromptu_militias_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_2 }
 				swap_ideas = {
 					remove_idea = impromptu_militias_2
 					add_idea = impromptu_militias_3
 				}
 			}
-			hidden_effect = {
-				if = {
-					limit = { has_idea = impromptu_militias }
-					swap_ideas = {
-						remove_idea = impromptu_militias
-						add_idea = impromptu_militias_2
-					}
+			else_if = {
+				limit = { has_idea = impromptu_militias_3 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_3
+					add_idea = impromptu_militias_4
 				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_2 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_2
-						add_idea = impromptu_militias_3
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_3 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_3
-						add_idea = impromptu_militias_4
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_4 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_4
-						add_idea = impromptu_militias_5
-					}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_4 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_4
+					add_idea = impromptu_militias_5
 				}
 			}
 		}
@@ -532,40 +527,32 @@ focus_tree = {
         available = {
         }
 		completion_reward ={
-			effect_tooltip = {
+			if = {
+				limit = { has_idea = impromptu_militias }
+				swap_ideas = {
+					remove_idea = impromptu_militias
+					add_idea = impromptu_militias_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_2 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_2
+					add_idea = impromptu_militias_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_3 }
 				swap_ideas = {
 					remove_idea = impromptu_militias_3
 					add_idea = impromptu_militias_4
 				}
 			}
-			hidden_effect = {
-				if = {
-					limit = { has_idea = impromptu_militias }
-					swap_ideas = {
-						remove_idea = impromptu_militias
-						add_idea = impromptu_militias_2
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_2 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_2
-						add_idea = impromptu_militias_3
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_3 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_3
-						add_idea = impromptu_militias_4
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_4 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_4
-						add_idea = impromptu_militias_5
-					}
+			else_if = {
+				limit = { has_idea = impromptu_militias_4 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_4
+					add_idea = impromptu_militias_5
 				}
 			}
 		}
@@ -642,47 +629,38 @@ focus_tree = {
 
         }
 		completion_reward ={
-			effect_tooltip = {
+			if = {
+				limit = { has_idea = impromptu_militias }
+				swap_ideas = {
+					remove_idea = impromptu_militias
+					add_idea = impromptu_militias_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_2 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_2
+					add_idea = impromptu_militias_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_3 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_3
+					add_idea = impromptu_militias_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_4 }
 				swap_ideas = {
 					remove_idea = impromptu_militias_4
 					add_idea = impromptu_militias_5
 				}
 			}
+
 			add_timed_idea = {
 				idea = DON_promoting_patriotism_for_the_youth
 				days = 180
-			}
-
-
-			hidden_effect = {
-				if = {
-					limit = { has_idea = impromptu_militias }
-					swap_ideas = {
-						remove_idea = impromptu_militias
-						add_idea = impromptu_militias_2
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_2 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_2
-						add_idea = impromptu_militias_3
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_3 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_3
-						add_idea = impromptu_militias_4
-					}
-				}
-				else_if = {
-					limit = { has_idea = impromptu_militias_4 }
-					swap_ideas = {
-						remove_idea = impromptu_militias_4
-						add_idea = impromptu_militias_5
-					}
-				}
 			}
 		}
 	}
@@ -748,10 +726,43 @@ focus_tree = {
 					owner = DON
 				}
 			}
+			DON_arsen_pavlov = {
+				add_unit_leader_trait = war_hero
+			}
 
 			add_popularity = {
 				ideology = fascist
 				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = DON_form_the_somalia_battalion
+		icon = GFX_focus_DON_form_the_somalia_battalion
+		x = 4
+		y = 11
+		cost = 15
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_shelling_from_residential_areas }
+
+        available = {
+			has_completed_focus = DON_restructure_the_militias
+        }
+		completion_reward ={
+
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Somalia Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.25" 
+					owner = DON
+				}
 			}
 		}
 	}

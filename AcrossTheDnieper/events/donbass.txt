@@ -1,6 +1,5 @@
 add_namespace = donetsk
 add_namespace = luhansk
-add_namespace = donbass
 
 #Putin postpones proposed referendum
 country_event = {
@@ -272,6 +271,76 @@ country_event = {
 			division_template = "Foreign Volunteers"
 			disband = no
 		}
+	}
+
+}
+
+#Arsen Pavlov Assasinated
+country_event = {
+	id = donetsk.10
+	title = donetsk.10.t
+	desc = donetsk.10.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_dead
+
+	option = { 
+		name = donetsk.10.a
+		ai_chance = {
+			base = 100
+		}
+
+		DON_arsen_pavlov = {
+			retire = yes
+		}
+	}
+
+}
+
+#Passing of Vladimir Makovych
+country_event = {
+	id = donetsk.11
+	title = donetsk.11.t
+	desc = donetsk.11.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_dead_2
+
+	option = { 
+		name = donetsk.11.a
+		ai_chance = {
+			base = 110
+		}
+
+		add_political_power = -5
+	}
+
+}
+
+#Mysterious deaths of chieftains
+country_event = {
+	id = donetsk.12
+	title = donetsk.12.t
+	desc = donetsk.12.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_dead_3
+
+	option = { 
+		name = donetsk.12.a
+		ai_chance = {
+			base = 120
+		}
+
+		add_political_power = 5
+		add_war_support = 0.05
+	}
+
+	option = { 
+		name = donetsk.12.b
+		ai_chance = {
+			base = 120
+		}
+
+		add_political_power = -5
+		add_stability = 0.05
 	}
 
 }
