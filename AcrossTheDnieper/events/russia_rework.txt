@@ -2380,11 +2380,111 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		
+		add_stability = -0.05
+		hidden_effect={
+			country_event = { russia.1067 hours = 5 }
+			WAG = { 
+				transfer_state = 450 
+				add_state_core = 450
+				set_capital = { state = 450 }
+				
+				
+				remove_ideas = WAG_recruitment_programs
+				remove_ideas = WAG_internet_propaganda_2
+				remove_ideas = WAG_the_hammering_power
+				remove_ideas = WAG_the_russian_orchestra
+			}
+		}
     }
-
 }
 
+#Putin speech
+country_event = {
+    id = russia.1067
+    title = russia.1067.t
+    desc = russia.1067.desc
+    picture = GFX_report_event_SOV_putin_angy
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1067.a
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -50
+		hidden_effect={ country_event = { russia.1070 hours = 10 } }
+    }
+	
+	option = {
+        name = russia.1067.b
+		ai_chance = {
+			base = 10
+		}
+		add_stability = -0.05
+		add_political_power = 25
+		hidden_effect={ country_event = { russia.1068 hours = 10 } }
+    }
+}
+
+#Mutiny over
+country_event = {
+    id = russia.1068
+    title = russia.1068.t
+    desc = russia.1068.desc
+    picture = GFX_report_event_SOV_mutiny_over
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1068.a
+		ai_chance = {
+			base = 0
+		}
+		SOV = { annex_country = { target = ABK transfer_troops = yes } }
+		hidden_effect={ country_event = { russia.1069 days = 61 } 450 = { remove_core_of = WAG }}
+    }
+}
+
+#Mutiny over
+country_event = {
+    id = russia.1069
+    title = russia.1069.t
+    desc = russia.1069.desc
+    picture = GFX_report_event_SOV_prigozhin_dead
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1069.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 100
+		hidden_effect={
+			SOV_reset_nationalist_faction_flags = yes
+			set_country_flag = yevgeny_prigozhin_not_active_flag
+			set_country_flag = dmitry_utkin_not_active_flag
+			get_faction_positions = yes
+			retire_character = SOV_yevgeny_prigozhin_rework
+			retire_character = SOV_dmitry_utkin
+		}
+	}
+}
+
+#Putin dies
+country_event = {
+    id = russia.1070
+    title = russia.1070.t
+    desc = russia.1070.desc
+    picture = GFX_report_event_SOV_wagner_mutiny
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1070.a
+		ai_chance = {
+			base = 10
+		}
+
+	}
+}
 
 
 country_event = {
