@@ -1712,7 +1712,7 @@ focus_tree = {
 				add_ideas = UKR_local_planning_2
 			}
 			
-			every_state = {
+			every_controlled_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
 					infrastructure < 4
@@ -1722,6 +1722,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+				random_select_amount = 15
 			}
 		}
 	}
@@ -2424,7 +2425,7 @@ focus_tree = {
 					add_idea = UKR_decentralisation_efforts_4
 				}
 			}
-			random_owned_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
@@ -2437,34 +2438,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
+				random_select_amount = 3
 			}
 			every_state={
 				limit = { is_owned_and_controlled_by = UKR }
@@ -2549,63 +2523,16 @@ focus_tree = {
 				add_ideas = UKR_local_planning
 			}
 			
-			random_owned_controlled_state = {
+			every_controlled_state = {
 				limit = {
-					infrastructure < 5
+					infrastructure < 5=4
 				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
+				random_select_amount = 6
 			}
 		}
 	}
@@ -3406,7 +3333,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = -150
-			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.03 } 
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_expected_value = 0.03 } 
 			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 } 
 			custom_effect_tooltip = UKR_elections_to_the_rada_tt
 			set_country_flag = { flag = UKR_done_an_oligarchy_focus_recently value = 1 days = 199 }
@@ -3446,7 +3373,7 @@ focus_tree = {
 				}
 				increase_state_gdp_growth_by_3 = yes
 			}
-			random_owned_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
@@ -3454,15 +3381,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_4 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
+				random_select_amount = 2
 			}
 			set_country_flag = { flag = UKR_done_an_oligarchy_focus_recently value = 1 days = 199 }
 		}
@@ -3494,7 +3413,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = -100
-			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.03 } 
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_expected_value = 0.03 } 
 			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 } 
 			custom_effect_tooltip = UKR_elections_to_the_rada_tt
 			random_owned_controlled_state = { 
@@ -3602,7 +3521,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = -200
-			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.15 } 
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_expected_value = 0.15 } 
 			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.1 } 
 			custom_effect_tooltip = UKR_increase_taxes_on_the_1_percent_tt
 			set_variable = { UKR_sotn_oligarchs_loyalty = -4 }	
@@ -3660,7 +3579,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.03 } 
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_expected_value = 0.03 } 
 			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 } 
 			custom_effect_tooltip = UKR_elections_to_the_rada_tt
 			custom_effect_tooltip = UKR_change_the_rada_tt
@@ -3989,7 +3908,7 @@ focus_tree = {
 				remove_idea = UKR_federalisation_efforts_3
 				add_idea = UKR_federalisation_efforts_4
 			}
-			random_owned_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
@@ -3997,15 +3916,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
+				random_select_amount = 2
 			}
 			random_owned_controlled_state={
 				add_extra_state_shared_building_slots = 3
@@ -4055,7 +3966,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = -100
-			random_owned_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = synthetic_refinery
@@ -4063,15 +3974,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_2 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
+				random_select_amount = 2
 			}
 
 			random_owned_controlled_state={
@@ -4603,7 +4506,7 @@ focus_tree = {
 				}
 				increase_state_gdp_growth_by_4 = yes
 			}
-			random_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -4611,24 +4514,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_4 = yes
-			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
-			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
+				random_select_amount = 3
 			}
 			every_state={
 				limit = { is_controlled_by = ROOT }
@@ -4875,25 +4761,19 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			random_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
-				increase_state_gdp_growth_by_4 = yes
+				increase_state_gdp_growth_by_3 = yes
+				random_select_amount = 2
 			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
-			}
-			random_controlled_state={
+
+
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = synthetic_refinery
@@ -4901,15 +4781,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_1 = yes
-			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_1 = yes
+				random_select_amount = 2
 			}
 			every_state={
 				limit = { is_controlled_by = ROOT }
@@ -4942,7 +4814,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			random_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
@@ -4950,24 +4822,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_4 = yes
-			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
-			}
-			random_controlled_state={
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_4 = yes
+				random_select_amount = 3
 			}
 		}
 	}
@@ -5177,7 +5032,7 @@ focus_tree = {
 			
 			set_variable = { UKR_sotn_oligarchs_loyalty = -2 }	
 			subtract_from_variable = { UKR_sotn_oligarchs_political_power_factor = 0.25 }
-			add_to_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.05 }	
+			add_to_variable = { UKR_sotn_oligarchs_consumer_goods_expected_value = 0.05 }	
 			custom_effect_tooltip = UKR_off_with_the_eastern_yoke_tt
 			set_variable = { UKR_kolomoyskyi_o_meter = 0 }
 			set_variable = { UKR_medvedchuk_o_meter = 0 }
@@ -5476,7 +5331,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_ideas = UKR_the_all_ukrainian_worker
-			random_owned_controlled_state={
+			every_controlled_state={
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
@@ -5484,24 +5339,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-			}
-			random_owned_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
+				random_select_amount = 3
 			}
 		}
 	}

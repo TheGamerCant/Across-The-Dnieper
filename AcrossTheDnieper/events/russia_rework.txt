@@ -408,7 +408,7 @@ country_event = {
 			base = 10
 		}
         add_to_variable = { SOV_sanctions_research_speed_factor = 0.04 }
-		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+		subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.02 }
 		custom_effect_tooltip = SOV_learn_from_iran_tt_2
     }
 }
@@ -1162,7 +1162,7 @@ country_event = {
 
 	immediate={
 		hidden_effect={
-			add_to_variable = { SOV_sanctions_consumer_goods_factor = 0.05 }
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.05 }
 			add_to_variable = { SOV_sanctions_research_speed_factor = -0.12 }
 			add_to_variable = { SOV_sanctions_political_power_cost = 0.1 }
 		}
@@ -1770,7 +1770,7 @@ country_event = {
 	
 	immediate={
 		add_to_variable = { SOV_sanctions_inflation_monthly = 0.1 }
-		add_to_variable = { SOV_sanctions_consumer_goods_factor = 0.07 }
+		add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.07 }
 		subtract_from_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.35 }
 		subtract_from_variable = { SOV_sanctions_stability_weekly = 0.001 }
 	}
@@ -2382,12 +2382,11 @@ country_event = {
 		}
 		add_stability = -0.05
 		hidden_effect={
-			country_event = { russia.1067 hours = 5 }
+			country_event = { id = russia.1067 hours = 5 }
 			WAG = { 
 				transfer_state = 450 
 				add_state_core = 450
 				set_capital = { state = 450 }
-				
 				
 				remove_ideas = WAG_recruitment_programs
 				remove_ideas = WAG_internet_propaganda_2
@@ -2403,7 +2402,7 @@ country_event = {
     id = russia.1067
     title = russia.1067.t
     desc = russia.1067.desc
-    picture = GFX_report_event_SOV_putin_angy
+    picture = GFX_report_event_SOV_putin_angry
     is_triggered_only = yes
 
     option = {
@@ -2411,8 +2410,8 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		add_political_power = -50
-		hidden_effect={ country_event = { russia.1070 hours = 10 } }
+		add_political_power = -25
+		hidden_effect={ country_event = { id = russia.1070 hours = 10 } }
     }
 	
 	option = {
@@ -2422,7 +2421,7 @@ country_event = {
 		}
 		add_stability = -0.05
 		add_political_power = 25
-		hidden_effect={ country_event = { russia.1068 hours = 10 } }
+		hidden_effect={ country_event = { id = russia.1068 hours = 10 } }
     }
 }
 
@@ -2439,12 +2438,12 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		SOV = { annex_country = { target = ABK transfer_troops = yes } }
-		hidden_effect={ country_event = { russia.1069 days = 61 } 450 = { remove_core_of = WAG }}
+		SOV = { annex_country = { target = WAG transfer_troops = yes } }
+		hidden_effect={ country_event = { id = russia.1069 days = 61 } 450 = { remove_core_of = WAG }}
     }
 }
 
-#Mutiny over
+#Prigozhin ded
 country_event = {
     id = russia.1069
     title = russia.1069.t
@@ -2458,6 +2457,7 @@ country_event = {
 			base = 10
 		}
 		add_political_power = 100
+		add_stability = 0.03
 		hidden_effect={
 			SOV_reset_nationalist_faction_flags = yes
 			set_country_flag = yevgeny_prigozhin_not_active_flag
@@ -2469,12 +2469,12 @@ country_event = {
 	}
 }
 
-#Putin dies
+#Battle of Moscow
 country_event = {
     id = russia.1070
     title = russia.1070.t
     desc = russia.1070.desc
-    picture = GFX_report_event_SOV_wagner_mutiny
+    picture = SOV_event_massacre
     is_triggered_only = yes
 
     option = {
@@ -2482,7 +2482,20 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-
+		hidden_effect={
+			retire_character = SOV_yevgeny_prigozhin_rework
+			retire_character = SOV_dmitry_utkin
+			SOV_reset_nationalist_faction_flags = yes
+			set_country_flag = yevgeny_prigozhin_not_active_flag
+			set_country_flag = dmitry_utkin_not_active_flag
+			get_faction_positions = yes
+			
+			WAG = { load_oob = "WAG_mutiny" }
+		}
+		add_stability = -0.1
+		add_political_power = -50
+		add_manpower = -15000
+		declare_war_on = { target = WAG type = take_state_focus }
 	}
 }
 

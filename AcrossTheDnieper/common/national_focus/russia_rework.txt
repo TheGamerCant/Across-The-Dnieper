@@ -945,7 +945,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+			subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.02 }
 			
 			custom_effect_tooltip = SOV_closer_ties_with_china_tt
 			
@@ -1599,7 +1599,7 @@ focus_tree = {
 		}
 
 		completion_reward={
-			random_state = {
+			every_controlled_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
 					infrastructure < 4
@@ -1610,42 +1610,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_2 = yes
-			}
-			random_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					infrastructure < 4
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			random_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					infrastructure < 4
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			random_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					infrastructure < 4
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
+				random_select_amount = 5
 			}
 			
 			add_tech_bonus = {
@@ -2027,7 +1992,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			random_owned_controlled_state={
+			every_controlled_state={
 				limit = { is_core_of = ROOT }
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -2036,26 +2001,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				increase_state_gdp_growth_by_2 = yes
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
+				random_select_amount = 3
 			}
 			
 			add_political_power = -100
@@ -3199,7 +3145,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			random_state={
+			every_controlled_state={
 				limit={
 					OR={
 						has_state_flag = akarpatskia_oblast_flag
@@ -3234,6 +3180,7 @@ focus_tree = {
 					}
 					industrial_complex_level > 0
 				}
+				random_select_amount = 4
 				remove_building = {
 					type = industrial_complex
 					level = 1
@@ -3241,7 +3188,7 @@ focus_tree = {
 				add_resistance = 5
 				add_compliance = -5
 			}
-			random_owned_controlled_state={
+			every_controlled_state={
 				limit = { is_core_of = ROOT }
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -3249,165 +3196,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			
-			random_state={
-				limit={
-					OR={
-						has_state_flag = akarpatskia_oblast_flag
-						has_state_flag = cherkasy_oblast_flag
-						has_state_flag = chernihiv_oblast_flag
-						has_state_flag = chernivtsi_oblast_flag
-						has_state_flag = dnipro_oblast_flag
-						has_state_flag = ivano_frankivsk_oblast_flag
-						has_state_flag = kharkiv_oblast_flag
-						has_state_flag = kherson_oblast_flag
-						has_state_flag = khmelnytskyi_oblast_flag
-						has_state_flag = kirovohrad_oblast_flag
-						has_state_flag = kyiv_oblast_flag
-						has_state_flag = lviv_oblast_flag
-						has_state_flag = mykolaiv_oblast_flag
-						has_state_flag = odessa_oblast_flag
-						has_state_flag = poltava_oblast_flag
-						has_state_flag = rivne_oblast_flag
-						has_state_flag = sumy_oblast_flag
-						has_state_flag = ternopil_oblast_flag
-						has_state_flag = vinnytsia_oblast_flag
-						has_state_flag = volyn_oblast_flag
-						has_state_flag = zaporizhia_oblast_flag
-						has_state_flag = zhytomyr_oblast_flag
-					}
-					CONTROLLER={
-						OR={
-							tag = ROOT
-							is_in_faction_with = ROOT
-							is_puppet_of = ROOT
-						}
-					}
-					industrial_complex_level > 0
-				}
-				remove_building = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resistance = 5
-				add_compliance = -5
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			
-			random_state={
-				limit={
-					OR={
-						has_state_flag = akarpatskia_oblast_flag
-						has_state_flag = cherkasy_oblast_flag
-						has_state_flag = chernihiv_oblast_flag
-						has_state_flag = chernivtsi_oblast_flag
-						has_state_flag = dnipro_oblast_flag
-						has_state_flag = ivano_frankivsk_oblast_flag
-						has_state_flag = kharkiv_oblast_flag
-						has_state_flag = kherson_oblast_flag
-						has_state_flag = khmelnytskyi_oblast_flag
-						has_state_flag = kirovohrad_oblast_flag
-						has_state_flag = kyiv_oblast_flag
-						has_state_flag = lviv_oblast_flag
-						has_state_flag = mykolaiv_oblast_flag
-						has_state_flag = odessa_oblast_flag
-						has_state_flag = poltava_oblast_flag
-						has_state_flag = rivne_oblast_flag
-						has_state_flag = sumy_oblast_flag
-						has_state_flag = ternopil_oblast_flag
-						has_state_flag = vinnytsia_oblast_flag
-						has_state_flag = volyn_oblast_flag
-						has_state_flag = zaporizhia_oblast_flag
-						has_state_flag = zhytomyr_oblast_flag
-					}
-					CONTROLLER={
-						OR={
-							tag = ROOT
-							is_in_faction_with = ROOT
-							is_puppet_of = ROOT
-						}
-					}
-					arms_factory_level > 0
-				}
-				remove_building = {
-					type = arms_factory
-					level = 1
-				}
-				add_resistance = 5
-				add_compliance = -5
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_2 = yes
-			}
-			
-			random_state={
-				limit={
-					OR={
-						has_state_flag = akarpatskia_oblast_flag
-						has_state_flag = cherkasy_oblast_flag
-						has_state_flag = chernihiv_oblast_flag
-						has_state_flag = chernivtsi_oblast_flag
-						has_state_flag = dnipro_oblast_flag
-						has_state_flag = ivano_frankivsk_oblast_flag
-						has_state_flag = kharkiv_oblast_flag
-						has_state_flag = kherson_oblast_flag
-						has_state_flag = khmelnytskyi_oblast_flag
-						has_state_flag = kirovohrad_oblast_flag
-						has_state_flag = kyiv_oblast_flag
-						has_state_flag = lviv_oblast_flag
-						has_state_flag = mykolaiv_oblast_flag
-						has_state_flag = odessa_oblast_flag
-						has_state_flag = poltava_oblast_flag
-						has_state_flag = rivne_oblast_flag
-						has_state_flag = sumy_oblast_flag
-						has_state_flag = ternopil_oblast_flag
-						has_state_flag = vinnytsia_oblast_flag
-						has_state_flag = volyn_oblast_flag
-						has_state_flag = zaporizhia_oblast_flag
-						has_state_flag = zhytomyr_oblast_flag
-					}
-					CONTROLLER={
-						OR={
-							tag = ROOT
-							is_in_faction_with = ROOT
-							is_puppet_of = ROOT
-						}
-					}
-					arms_factory_level > 0
-				}
-				remove_building = {
-					type = arms_factory
-					level = 1
-				}
-				add_resistance = 5
-				add_compliance = -5
-			}
-			random_owned_controlled_state={
-				limit = { is_core_of = ROOT }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+				random_select_amount = 4
 				increase_state_gdp_growth_by_2 = yes
 			}
 		}
@@ -3788,7 +3577,7 @@ focus_tree = {
 		
 		completion_reward={
 			
-			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+			subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.03 }
 			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.12 }
 			add_to_variable = { SOV_sanctions_local_resources_factor = 0.1 }
 			custom_effect_tooltip = SOV_economic_self_sufficiency_tt
@@ -4810,7 +4599,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+		subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.03 }
 		custom_effect_tooltip = SOV_no_need_for_western_food_tt
 		decrease_eastern_liberal_programming_by_4 = yes
 		if={
@@ -4852,7 +4641,7 @@ shared_focus = {
 		add_to_variable = { SOV_sanctions_research_speed_factor = 0.1 }
 		add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0.15 }
 		custom_effect_tooltip = SOV_BRICS_investments_tt
-		random_owned_controlled_state={
+		every_controlled_state={
 			limit = { is_core_of = ROOT }
 			add_extra_state_shared_building_slots = 4
 			add_building_construction = {
@@ -4861,16 +4650,7 @@ shared_focus = {
 				instant_build = yes
 			}
 			increase_state_gdp_growth_by_5 = yes
-		}
-		random_owned_controlled_state={
-			limit = { is_core_of = ROOT }
-			add_extra_state_shared_building_slots = 4
-			add_building_construction = {
-				type = industrial_complex
-				level = 3
-				instant_build = yes
-			}
-			increase_state_gdp_growth_by_5 = yes
+			random_select_amount = 2
 		}
 	}
 }
@@ -5059,7 +4839,7 @@ shared_focus = {
 		add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
 		custom_effect_tooltip = SOV_bring_the_factories_back_online_tt
 		
-		random_owned_controlled_state={
+		every_controlled_state={
 			limit = { is_core_of = ROOT }
 			add_extra_state_shared_building_slots = 3
 			add_building_construction = {
@@ -5073,21 +4853,7 @@ shared_focus = {
 				instant_build = yes
 			}
 			increase_state_gdp_growth_by_5 = yes
-		}
-		random_owned_controlled_state={
-			limit = { is_core_of = ROOT }
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = arms_factory
-				level = 2
-				instant_build = yes
-			}
-			increase_state_gdp_growth_by_5 = yes
+			random_select_amount = 2
 		}
 	}
 }
@@ -5120,7 +4886,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+		subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.02 }
 		add_to_variable = { SOV_sanctions_stability_weekly = 0.003 }
 		
 		custom_effect_tooltip = SOV_economic_corridors_tt
@@ -5165,7 +4931,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+		subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.03 }
 		custom_effect_tooltip = SOV_no_need_for_western_food_tt
 		
 		add_political_power = 100
@@ -5340,7 +5106,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		add_to_variable = { SOV_army_consumer_goods_factor = 0.01 }
+		add_to_variable = { SOV_army_consumer_goods_expected_value = 0.01 }
 		add_to_variable = { SOV_army_army_org_factor = 0.08 }
 		custom_effect_tooltip = SOV_increase_satellite_capabilities_tt
 		add_tech_bonus = {
@@ -5530,7 +5296,7 @@ shared_focus = {
 		add_to_variable = { SOV_army_army_defence_factor = 0.06 }
 		subtract_from_variable = { SOV_army_attrition = 0.04 }
 		subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.1 }
-		subtract_from_variable = { SOV_army_consumer_goods_factor = 0.01 }
+		subtract_from_variable = { SOV_army_consumer_goods_expected_value = 0.01 }
 		custom_effect_tooltip = SOV_bureaucratic_oversight_tt
 		add_political_power = -100
 	}
@@ -5650,7 +5416,7 @@ shared_focus = {
 		add_to_variable = { SOV_army_coordination_bonus = 0.05 }
 		subtract_from_variable = { SOV_army_enemy_army_bonus_air_superiority_factor = 0.25 }
 		add_to_variable = { SOV_army_army_speed_factor = 0.1 }
-		add_to_variable = { SOV_army_consumer_goods_factor = 0.02 }
+		add_to_variable = { SOV_army_consumer_goods_expected_value = 0.02 }
 		custom_effect_tooltip = SOV_integrated_command_structure_tt
 	}
 }
@@ -6117,7 +5883,7 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_to_variable = { SOV_army_mobilization_speed = 1 }
-		add_to_variable = { SOV_army_consumer_goods_factor = 0.01 }
+		add_to_variable = { SOV_army_consumer_goods_expected_value = 0.01 }
 		add_to_variable = { SOV_army_conscription = 0.003 }
 		subtract_from_variable = { SOV_army_training_time_factor = 0.4 }
 		custom_effect_tooltip = SOV_modernise_conscription_practices_tt
