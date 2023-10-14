@@ -366,3 +366,43 @@ country_event = {
 		add_war_support = -0.03
 	}
 }
+
+
+#denis appointed chairman of the council
+country_event = {
+	id = donetsk.14
+	title = donetsk.14.t
+	desc = donetsk.14.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_purgin
+
+	option = { 
+		name = donetsk.14.a
+		ai_chance = {
+			base = 140
+		}
+		set_country_flag = DON_denis_pushilin_chairman
+		
+		deactivate_advisor = DON_andrei_purgin
+		activate_advisor = DON_denis_pushilin
+	}
+}
+
+#normandy four meeting
+country_event = {
+	id = donetsk.15
+	title = donetsk.15.t
+	desc = donetsk.15.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_normandy
+
+	option = { 
+		name = donetsk.15.a
+		ai_chance = {
+			base = 150
+		}
+
+		add_stability = 0.05
+		add_political_power = -2
+	}
+}
