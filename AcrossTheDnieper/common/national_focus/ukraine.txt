@@ -2383,71 +2383,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = UKR_ukraine_a_home_to_all
-		icon = GFX_focus_UKR_a_home_to_all
-		x = 0
-		y = 1
-		prerequisite = { focus = UKR_the_transfer_of_federal_powers }
-		prerequisite = { focus = UKR_allow_local_tax_laws }
-		prerequisite = { focus = UKR_encourage_smart_regional_planning }
-		relative_position_id = UKR_encourage_smart_regional_planning
-		
-		cost = 75
-		ai_will_do = {
-		}
-		available = {
-			NOT = { is_puppet_of = SOV }
-			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
-			OR={
-				petro_poroshenko_is_leader = yes
-				AND={
-					volodymyr_zelenskyy_is_leader = yes
-					has_country_flag = zelenskyy_has_chosen_to_continue_policy
-				}
-			}
-		}
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			swap_ideas={
-				remove_idea = UKR_decentralisation_efforts_2
-				add_idea = UKR_decentralisation_efforts_3
-			}
-			custom_effect_tooltip = UKR_ukraine_a_home_to_all_tt
-			hidden_effect={
-				remove_ideas = UKR_local_taxation_idea
-				swap_ideas={
-					remove_idea = UKR_decentralisation_efforts_3
-					add_idea = UKR_decentralisation_efforts_4
-				}
-			}
-			every_controlled_state={
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				increase_state_gdp_growth_by_5 = yes
-				random_select_amount = 3
-			}
-			every_state={
-				limit = { is_owned_and_controlled_by = UKR }
-				increase_state_gdp_growth_by_1 = yes
-			}
-		}
-	}
-	
-	focus = {
 		id = UKR_the_hromadas_system
 		icon = GFX_focus_UKR_map_sign
 		x = 0
@@ -2533,6 +2468,71 @@ focus_tree = {
 					instant_build = yes
 				}
 				random_select_amount = 6
+			}
+		}
+	}
+	
+	focus = {
+		id = UKR_ukraine_a_home_to_all
+		icon = GFX_focus_UKR_a_home_to_all
+		x = 0
+		y = 1
+		prerequisite = { focus = UKR_the_transfer_of_federal_powers }
+		prerequisite = { focus = UKR_allow_local_tax_laws }
+		prerequisite = { focus = UKR_encourage_smart_regional_planning }
+		relative_position_id = UKR_encourage_smart_regional_planning
+		
+		cost = 75
+		ai_will_do = {
+		}
+		available = {
+			NOT = { is_puppet_of = SOV }
+			NOT={ any_country={ original_tag = SOV has_war_with = ROOT } }
+			OR={
+				petro_poroshenko_is_leader = yes
+				AND={
+					volodymyr_zelenskyy_is_leader = yes
+					has_country_flag = zelenskyy_has_chosen_to_continue_policy
+				}
+			}
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			swap_ideas={
+				remove_idea = UKR_decentralisation_efforts_2
+				add_idea = UKR_decentralisation_efforts_3
+			}
+			custom_effect_tooltip = UKR_ukraine_a_home_to_all_tt
+			hidden_effect={
+				remove_ideas = UKR_local_taxation_idea
+				swap_ideas={
+					remove_idea = UKR_decentralisation_efforts_3
+					add_idea = UKR_decentralisation_efforts_4
+				}
+			}
+			every_controlled_state={
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+				random_select_amount = 3
+			}
+			every_state={
+				limit = { is_owned_and_controlled_by = UKR }
+				increase_state_gdp_growth_by_1 = yes
 			}
 		}
 	}
