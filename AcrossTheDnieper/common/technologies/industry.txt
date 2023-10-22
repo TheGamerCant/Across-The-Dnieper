@@ -239,7 +239,13 @@ technologies = {
 
 			modifier = {
 				factor = 0
-				NOT = { has_government = fascism }
+				NOT = {
+					OR = {
+						has_government = fascist
+						has_government  = ultranationalist
+						has_government = military_junta
+					}
+				}
 			}
 		}
 		

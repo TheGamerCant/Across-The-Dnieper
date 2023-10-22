@@ -186,7 +186,11 @@ BUL_INF_03 =
 	for_countries = { BUL }
 
 	can_use = { 
-		has_government = communism
+		OR = {
+			has_government = moderate_communist
+			has_government = hardline_communist
+			has_government = socialist
+		}
 	}
 
 	division_types = { "infantry" }
@@ -485,7 +489,7 @@ BUL_ARM_01 =
 
 	can_use = { always = yes }
 
-	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+	division_types = { "medium_armor" "heavy_armor" "modern_armor" }
 
 	# Number reservation system will tie to another group.
 	#link_numbering_with = { BUL_ARM_01 }
@@ -559,7 +563,7 @@ BUL_ARM_02 =
 
 	can_use = { always = yes }
 
-	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+	division_types = { "medium_armor" "heavy_armor" "modern_armor" }
 
 	# Number reservation system will tie to another group.
 	#link_numbering_with = { BUL_ARM_02 }
