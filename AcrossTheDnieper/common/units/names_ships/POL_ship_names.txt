@@ -134,7 +134,13 @@ POL_THEME_KINGS = {
 	for_countries = { POL }
 
 	can_use = { 
-		not = { has_government = communism }
+		NOT = {
+			OR = {
+				has_government = moderate_communist
+				has_government = hardline_communist
+				has_government = socialist
+			}
+		}
 	}
 
 	type = ship
@@ -165,7 +171,13 @@ POL_THEME_HISTORICAL_FIGURES = {
 	for_countries = { POL }
 
 	can_use = { 
-		not = { has_government = communism }
+		NOT = {
+			OR = {
+				has_government = moderate_communist
+				has_government = hardline_communist
+				has_government = socialist
+			}
+		}
 	}
 
 	type = ship
