@@ -60,9 +60,8 @@ SOV_supplying_donbass = {
 		OR = {
 			has_start_date > 2022.1.1
 			has_country_flag = SOV_supplying_donbass_unlocked
-			NOT = { russia_rework_trigger = yes }
 		}
-		
+		NOT = { russia_rework_trigger = yes }
 	}
 		
 }
@@ -211,6 +210,21 @@ SOV_referendum_decisions_2 = {
 		OR={
 			has_completed_focus = SOV_great_victors_2
 			has_completed_focus = SOV_novorossiya_at_hand_2
+		}
+	}	
+}
+
+SOV_army_reform_decisions = {
+	allowed = {
+		tag = SOV
+		has_start_date < 2022.1.1
+	}
+	visible_when_empty = no
+	visible = {
+		russia_rework_trigger = yes
+		OR={
+			has_completed_focus = SOV_army_modernisation
+			has_country_flag = SOV_army_reform_decisions_flag
 		}
 	}	
 }

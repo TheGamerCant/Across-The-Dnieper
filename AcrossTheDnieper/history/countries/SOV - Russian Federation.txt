@@ -500,6 +500,106 @@ set_variable = { global.days_since_start = 0 }
 		concentrated_industry3 = 1
 		construction1 = 1
 	}
+	
+	for_loop_effect = {
+		end = 9
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 17
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 12
+		value = temp
+		random_owned_controlled_state = {
+			limit = { infrastructure < 4 }
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 6
+		value = temp
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	#ARMY REFORM DECISIONS
+	army_experience = 50
+	navy_experience = 50
+	air_experience = 50
+	random_state={
+		limit = { is_controlled_by = ROOT is_coastal = yes }
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = dockyard
+			level = 2
+			instant_build = yes
+		}
+	}
+	add_manpower = 50000
+	random_state={
+		limit = { is_controlled_by = ROOT }
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_factory
+			level = 2
+			instant_build = yes
+		}
+		increase_state_gdp_growth_by_5 = yes
+	}
+	
+	add_equipment_to_stockpile = { 
+		type = infantry_equipment_2
+		amount = 4000
+		producer = SOV
+	}
+	army_experience = -30
+	air_experience = -30
+	air_experience = -50
+	army_experience = -40
+	
+	subtract_from_variable = { SOV_army_attrition = 0.09 }
+	add_to_variable = { SOV_army_army_attack_factor = 0.02 }
+	add_to_variable = { SOV_army_army_defence_factor = 0.02 }
+	add_to_variable = { SOV_army_army_morale_factor = 0.01 }
+	add_to_variable = { SOV_army_army_org_factor = 0.07 }
+	add_to_variable = { SOV_army_army_bonus_air_superiority_factor = 0.1 }
+	subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.15 }
+	add_to_variable = { SOV_army_army_morale_factor = 0.04 }
+	add_to_variable = { SOV_army_breakthrough_factor = 0.08 }
+	add_to_variable = { SOV_army_army_attack_factor = 0.03 }
+	add_to_variable = { SOV_army_army_defence_factor = 0.03 }
+	add_to_variable = { SOV_sanctions_industrial_capacity_dockyard = 0.05 }
+	add_to_variable = { SOV_army_max_command_power = 25 }
 }
 
 
@@ -870,6 +970,7 @@ set_variable = { SOV_army_modifier_army_sub_unit_apc_defence_factor = 0 }
 set_variable = { SOV_army_army_bonus_air_superiority_factor = 0 }
 set_variable = { SOV_army_special_forces_cap = 0 }
 set_variable = { SOV_army_army_morale_factor = 0.04 }
+set_variable = { SOV_army_max_command_power = 0 }
 
 set_variable = { liberal_faction_strength = 10 }
 set_variable = { technocrat_faction_strength = 10 }

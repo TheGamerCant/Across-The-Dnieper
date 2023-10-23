@@ -57,6 +57,31 @@ debug_decisions = {
 					set_value = 0.8
 				}
 			}
+			set_country_flag = putin_siloviki_power_balance
+		}
+	}
+	
+	SOV_show_army_reform_decisions = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = SOV_army_reform_decisions_flag
 		}
 	}
 }
@@ -109,7 +134,7 @@ SOV_the_media = {
 	SOV_increase_our_focus_on_putinist_programming = { 
 		priority = 200
 
-		icon = generic_decision
+		icon = eng_propaganda_campaigns
 
 		allowed = {
 			original_tag = SOV
@@ -146,7 +171,7 @@ SOV_the_media = {
 	SOV_increase_our_focus_on_nationalist_programming = { 
 		priority = 200
 
-		icon = generic_decision
+		icon = eng_propaganda_campaigns
 
 		allowed = {
 			original_tag = SOV
@@ -183,7 +208,7 @@ SOV_the_media = {
 	SOV_increase_our_focus_on_western_programming = { 
 		priority = 200
 
-		icon = generic_decision
+		icon = eng_propaganda_campaigns
 
 		allowed = {
 			original_tag = SOV
@@ -1350,6 +1375,368 @@ SOV_referendum_decisions_2={
 				limit = { country_exists = ODS }
 				annex_country = { target = ODS transfer_troops = yes }
 			}
+		}
+	}
+}
+
+
+
+SOV_army_reform_decisions={
+	SOV_increase_cooperation_between_branches = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			political_power_cost = 0.1
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			army_experience = 50
+			navy_experience = 50
+			air_experience = 50
+			
+			add_to_variable = { SOV_army_max_command_power = 25 }
+			custom_effect_tooltip = SOV_increase_cooperation_between_branches_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_construct_new_dockyards = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			random_state={
+				limit = { is_controlled_by = ROOT is_coastal = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			add_to_variable = { SOV_sanctions_industrial_capacity_dockyard = 0.05 }
+			custom_effect_tooltip = SOV_construct_new_dockyards_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_hire_contract_soldiers = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			add_manpower = 50000
+			
+			add_to_variable = { SOV_army_army_attack_factor = 0.03 }
+			add_to_variable = { SOV_army_army_defence_factor = 0.03 }
+			custom_effect_tooltip = SOV_hire_contract_soldiers_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_procure_new_equipment = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_tech = improved_infantry_weapons
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			industrial_capacity_factory = 0.1
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			random_state={
+				limit = { is_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+			
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_2
+				amount = 4000
+				producer = SOV
+			}
+		}
+	}
+	
+	SOV_conduct_military_exercises = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_army_experience > 30
+			has_air_experience > 30
+			has_navy_experience > 30
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.05
+			experience_gain_army_factor = 0.2
+			experience_gain_navy_factor = 0.2
+			experience_gain_air_factor = 0.2
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			army_experience = -30
+			air_experience = -30
+			navy_experience = -30
+			
+			subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.15 }
+			add_to_variable = { SOV_army_army_morale_factor = 0.04 }
+			add_to_variable = { SOV_army_breakthrough_factor = 0.08 }
+			custom_effect_tooltip = SOV_conduct_military_exercises_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_invest_in_stealth_technology = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_air_experience > 50
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			air_experience = -50
+			
+			add_to_variable = { SOV_army_army_bonus_air_superiority_factor = 0.1 }
+			custom_effect_tooltip = SOV_invest_in_stealth_technology_tt
+			
+			add_tech_bonus = {
+				name = SOV_invest_in_stealth_technology
+				bonus = 1
+				uses = 2
+				category = air_equipment
+			}
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_military_parades = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_army_experience > 40
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+			political_power_gain = 0.05
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			army_experience = -40
+			
+			add_to_variable = { SOV_army_army_org_factor = 0.07 }
+			custom_effect_tooltip = SOV_military_parades_tt
+			
+			add_war_support = 0.04
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+	
+	SOV_clamp_down_on_corruption = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_army_experience > 40
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.08
+			political_power_cost = 0.015
+		}
+
+		visible = {
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {	
+			subtract_from_variable = { SOV_army_attrition = 0.09 }
+			add_to_variable = { SOV_army_army_attack_factor = 0.02 }
+			add_to_variable = { SOV_army_army_defence_factor = 0.02 }
+			add_to_variable = { SOV_army_army_morale_factor = 0.01 }
+			custom_effect_tooltip = SOV_clamp_down_on_corruption_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
 		}
 	}
 }
