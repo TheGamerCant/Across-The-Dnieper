@@ -508,6 +508,13 @@ focus_tree = {
 					add_idea = impromptu_militias_5
 				}
 			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_5 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_5
+					add_idea = impromptu_militias_6
+				}
+			}
 		}
 	}
 
@@ -558,13 +565,20 @@ focus_tree = {
 					add_idea = impromptu_militias_5
 				}
 			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_5 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_5
+					add_idea = impromptu_militias_6
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = DON_form_the_diesel_battalion
 		icon = GFX_focus_DON_form_the_diesel_battalion
-		x = 12
+		x = 16
 		y = 11
 		cost = 35
 		search_filters = {
@@ -579,7 +593,7 @@ focus_tree = {
 
         available = {
 			has_completed_focus = DON_restructure_the_militias
-			date > 2015.3.31
+			has_global_flag = minsk_ii_has_been_signed
         }
 		completion_reward ={
 			division_template = {
@@ -602,13 +616,135 @@ focus_tree = {
 					mot_recon = { x = 0 y = 3 }  
 				}
 			}
-
+			army_experience = 10
 			random_owned_controlled_state = {
 				create_unit = {
 					division = "name = \"Diesel Battalion\" division_template = \"Diesel Battalion\" start_experience_factor = 0.25" 
 					owner = DON
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = DON_form_the_vikings_battalion
+		icon = GFX_focus_DON_form_the_vikings_battalion
+		x = 14
+		y = 11
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+			has_completed_focus = DON_restructure_the_militias
+			has_global_flag = minsk_ii_has_been_signed
+        }
+		completion_reward ={
+			army_experience = 10
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Vikings Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.25" 
+					owner = DON
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = DON_form_the_republican_guard_battalion
+		icon = GFX_focus_DON_form_the_republican_guard_battalion
+		x = 12
+		y = 11
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+			has_completed_focus = DON_restructure_the_militias
+			has_global_flag = minsk_ii_has_been_signed
+        }
+		completion_reward ={
+			army_experience = 10
+			division_template = {
+				name = "Republican Guard Battalion"
+				division_names_group = DON_INF_01
+				regiments = {
+					motorized = { x = 0 y = 0 }
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					irregular_infantry = { x = 1 y = 2 }
+					irregular_infantry = { x = 1 y = 3 }
+					irregular_infantry = { x = 2 y = 0 }
+					irregular_infantry = { x = 2 y = 1 }
+					artillery_brigade = { x = 2 y = 2 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }   
+					logistics_company = { x = 0 y = 1 }  
+					signal_company = { x = 0 y = 2 } 
+					artillery = { x = 0 y = 3 } 
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"100th Separate Guards Motorized Rifle Battalion\" division_template = \"Republican Guard Battalion\" start_experience_factor = 0.05" 
+					owner = DON
+				}
+				create_unit = {
+					division = "name = \"100th Separate Guards Motorized Rifle Battalion\" division_template = \"Republican Guard Battalion\" start_experience_factor = 0.05" 
+					owner = DON
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = DON_slightly_modernized_military
+		icon = GFX_focus_SOV_little_green_men
+		x = 14
+		y = 12
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_youth_patriotism focus = DON_cooperations_with_luhanks_militias focus = DON_training_with_russian_commanders focus = DON_look_to_the_sea focus = DON_form_the_republican_guard_battalion focus = DON_form_the_vikings_battalion focus = DON_form_the_diesel_battalion }
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+			hidden_trigger = {
+				has_idea = impromptu_militias_6
+			}
+        }
+		completion_reward ={
+			swap_ideas = {
+				remove_idea = impromptu_militias_6
+				add_idea = mediocre_militias
+			}
+
+			
 		}
 	}
 
@@ -660,10 +796,142 @@ focus_tree = {
 					add_idea = impromptu_militias_5
 				}
 			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_5 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_5
+					add_idea = impromptu_militias_6
+				}
+			}
 
 			add_timed_idea = {
 				idea = DON_promoting_patriotism_for_the_youth
 				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = DON_cooperations_with_luhanks_militias
+		icon = GFX_focus_SOV_vdv
+		x = 13
+		y = 10
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+			country_exists = LHK
+        }
+		completion_reward ={
+			LHK = {
+				army_experience = 40
+				add_war_support = 0.05
+				add_command_power = 10
+			}
+			army_experience = 40
+			add_war_support = 0.05
+			add_command_power = 10
+		}
+	}
+
+	focus = {
+		id = DON_training_with_russian_commanders
+		icon = GFX_focus_SOV_offensives_in_donbass_2
+		x = 15
+		y = 10
+		cost = 35
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+        }
+		completion_reward ={
+			if = {
+				limit = { has_idea = impromptu_militias }
+				swap_ideas = {
+					remove_idea = impromptu_militias
+					add_idea = impromptu_militias_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_2 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_2
+					add_idea = impromptu_militias_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_3 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_3
+					add_idea = impromptu_militias_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_4 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_4
+					add_idea = impromptu_militias_5
+				}
+			}
+			else_if = {
+				limit = { has_idea = impromptu_militias_5 }
+				swap_ideas = {
+					remove_idea = impromptu_militias_5
+					add_idea = impromptu_militias_6
+				}
+			}
+
+			army_experience = 10
+			air_experience = 10
+			add_command_power = 2
+
+			add_opinion_modifier = {
+				target = SOV
+				modifier = medium_increase
+			}
+		}
+	}
+
+	focus = {
+		id = DON_look_to_the_sea
+		icon = GFX_focus_DON_look_to_the_sea
+		x = 17
+		y = 10
+		cost = 20
+		search_filters = {
+			
+		}
+
+		bypass = {
+			
+		}
+
+		prerequisite = { focus = DON_lessons_of_donetsk_airport }
+
+        available = {
+        }
+		completion_reward ={
+			navy_experience = 5
+			add_equipment_to_stockpile = {
+				type = light_cruiser
+				amount = 5
+				producer = SOV
 			}
 		}
 	}
@@ -699,6 +967,7 @@ focus_tree = {
 					owner = DON
 				}
 			}
+			add_command_power = 1.5
 		}
 	}
 
@@ -737,6 +1006,7 @@ focus_tree = {
 				ideology = fascist
 				popularity = 0.03
 			}
+			add_command_power = 1.5
 		}
 	}
 
@@ -767,6 +1037,7 @@ focus_tree = {
 					owner = DON
 				}
 			}
+			add_command_power = 1.5
 		}
 	}
 
