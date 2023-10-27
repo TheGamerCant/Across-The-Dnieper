@@ -408,6 +408,55 @@ country_event = {
 	}
 }
 
+#protests against shelling from residential areas
+country_event = {
+	id = donetsk.16
+	title = donetsk.16.t
+	desc = donetsk.16.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_shelling
+
+	option = { 
+		name = donetsk.16.a
+		ai_chance = {
+			base = 160
+		}
+
+		add_stability = -0.05
+	}
+}
+
+#death of Alexander Zakharchenko
+country_event = {
+	id = donetsk.17
+	title = donetsk.17.t
+	desc = donetsk.17.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_leader_dead
+
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Dmitry Trapeznikov"
+				desc = ""
+				picture = gfx/leaders/DON/Portrait_Dmitry_Trapeznikov.png
+				ideology = donetsk_party
+				traits = { interrim_president }
+			}
+		}
+	}
+
+	option = { 
+		name = donetsk.17.a
+		ai_chance = {
+			base = 170
+		}
+
+		add_stability = -0.02
+		add_war_support = 0.05
+	}
+}
+
 #manpower from the republics to russia (2022)
 country_event = {
 	id = donbass_mutual.1

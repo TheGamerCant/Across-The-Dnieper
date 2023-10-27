@@ -140,7 +140,15 @@ focus_tree = {
 				country_event = { id = donetsk.12 days = 1064 }
 				country_event = { id = donetsk.13 days = 1041 }
 				country_event = { id = donetsk.14 days = 507 }
-				country_event = { id = donetsk.15 days = 357  }
+				country_event = { id = donetsk.17 days = 1599 }
+
+				every_country = { #temp
+					limit = {
+						OR = { original_tag = DON original_tag = LHK original_tag = UKR original_tag = SOV }
+					}
+
+					country_event = { id = donetsk.15 days = 357  }
+				}
 			}
 		}
 	}
@@ -515,6 +523,10 @@ focus_tree = {
 					add_idea = impromptu_militias_6
 				}
 			}
+
+			hidden_effect = {
+				country_event = { id = donetsk.16 days = 12  }
+			}
 		}
 	}
 
@@ -721,7 +733,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_little_green_men
 		x = 14
 		y = 12
-		cost = 35
+		cost = 55
 		search_filters = {
 			
 		}
@@ -816,7 +828,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_vdv
 		x = 13
 		y = 10
-		cost = 35
+		cost = 40
 		search_filters = {
 			
 		}
@@ -847,7 +859,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_offensives_in_donbass_2
 		x = 15
 		y = 10
-		cost = 35
+		cost = 40
 		search_filters = {
 			
 		}
@@ -913,7 +925,7 @@ focus_tree = {
 		icon = GFX_focus_DON_look_to_the_sea
 		x = 17
 		y = 10
-		cost = 20
+		cost = 50
 		search_filters = {
 			
 		}
@@ -925,6 +937,10 @@ focus_tree = {
 		prerequisite = { focus = DON_lessons_of_donetsk_airport }
 
         available = {
+			any_state = {
+				is_owned_by = DON
+				is_coastal = yes
+			}
         }
 		completion_reward ={
 			navy_experience = 5
