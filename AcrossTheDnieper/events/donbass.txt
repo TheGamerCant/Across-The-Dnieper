@@ -1,5 +1,6 @@
 add_namespace = donetsk
 add_namespace = luhansk
+add_namespace = donbass_mutual
 
 #Putin postpones proposed referendum
 country_event = {
@@ -404,5 +405,23 @@ country_event = {
 
 		add_stability = 0.05
 		add_political_power = -2
+	}
+}
+
+#manpower from the republics to russia (2022)
+country_event = {
+	id = donbass_mutual.1
+	title = donbass_mutual.1.t
+	desc = donbass_mutual.1.desc
+	is_triggered_only = yes
+	picture = SOV_high_command_event
+
+	option = { 
+		name = donbass_mutual.1.a
+		ai_chance = {
+			base = 150
+		}
+
+		add_ideas = assisting_russia
 	}
 }

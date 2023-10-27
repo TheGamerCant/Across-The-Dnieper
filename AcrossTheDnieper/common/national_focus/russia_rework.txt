@@ -600,6 +600,23 @@ focus_tree = {
 				
 				country_event = { id = russia.88 days = 56 }
 			}
+
+			every_country = {
+				limit = {
+					has_start_date < 2022.01.01
+					country_exists = ROOT
+					is_puppet_of = SOV
+					OR = {
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = NOV
+						original_tag = ODS
+					}
+				}
+
+				country_event = { id = donbass_mutual.1 days = 25 }
+			}
 			
 			if={
 				limit = { has_start_date < 2022.01.01 is_ai = yes }
