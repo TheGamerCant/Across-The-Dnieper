@@ -402,9 +402,7 @@ country_event = {
 		ai_chance = {
 			base = 150
 		}
-
-		add_stability = 0.05
-		add_political_power = -2
+		add_political_power = 1
 	}
 }
 
@@ -443,6 +441,8 @@ country_event = {
 				ideology = donetsk_party
 				traits = { interrim_president }
 			}
+
+			set_country_flag = DON_begin_elections_mission
 		}
 	}
 
@@ -454,6 +454,61 @@ country_event = {
 
 		add_stability = -0.02
 		add_war_support = 0.05
+
+		activate_mission_tooltip = DON_2018_elections_mission
+	}
+}
+
+#corruption protests
+country_event = {
+	id = donetsk.18
+	title = donetsk.18.t
+	desc = donetsk.18.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_leader_dead
+
+	option = { 
+		name = donetsk.18.a
+		ai_chance = {
+			base = 180
+		}
+	}
+}
+
+#2018 elections
+country_event = {
+	id = donetsk.19
+	title = donetsk.19.t
+	desc = donetsk.19.desc
+	is_triggered_only = yes
+	picture = GFX_event_DON_elections
+
+	option = { 
+		name = donetsk.19.a
+		ai_chance = {
+			base = 190
+		}
+
+		add_stability = 0.15
+		create_country_leader = {
+			name = "Denis Pushilin"
+			desc = ""
+			picture = gfx/leaders/DON/Portrait_Denis_Pushilin.png
+			ideology = donetsk_party
+		}
+	}
+
+	option = { 
+		name = donetsk.19.b
+		ai_chance = {
+			base = 190
+		}
+
+		add_stability = 0.15
+		set_politics = {
+			ruling_party = ultranationalist
+			elections_allowed = yes
+		}
 	}
 }
 

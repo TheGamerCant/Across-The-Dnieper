@@ -1895,6 +1895,26 @@ country_event = {
 
 				DON={ country_event = { id = donetsk.9 days = 2 } }
 			}
+
+			if = {
+				limit = {
+					OR = {
+						country_exists = DON
+						country_exists = LHK
+						country_exists = KHK
+						country_exists = NOV
+						country_exists = ODS
+					}
+				}
+
+				every_country = {
+				    limit = {
+				    	OR = { original_tag = DON original_tag = LHK original_tag = KHK original_tag = NOV original_tag = ODS original_tag = UKR original_tag = SOV }
+				    }
+    
+				    ROOT = {country_event = { id = donetsk.15 days = 21  }}
+			    }
+			}
 		}
 	}
 	

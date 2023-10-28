@@ -20,4 +20,25 @@ DON_referendum_decisions = {
             clr_country_flag = DON_begin_referendum_mission
         }
     }
+
+    DON_2018_elections_mission = {
+        activation = {
+            has_country_flag = DON_begin_elections_mission
+        }
+        available = {
+            NOT = {
+                original_tag = DON
+                country_exists  = DON
+            }
+        }
+        icon = mission_icon
+        is_good = yes
+        days_mission_timeout = 73
+        selectable_mission = no
+
+        timeout_effect = {
+            country_event = { id = donetsk.19 days = 3}
+            clr_country_flag = DON_begin_elections_mission
+        }
+    }
 }
