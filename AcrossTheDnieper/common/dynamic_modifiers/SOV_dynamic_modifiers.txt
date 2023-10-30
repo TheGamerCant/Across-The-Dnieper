@@ -417,11 +417,23 @@ SOV_forced_conscription = {
 	icon = GFX_modifiers_SOV_forced_conscription
 	enable = { tag = SOV }
 	remove_trigger = {
-		 ROOT = { NOT = { is_controlled_by = SOV } }
+		ROOT = { NOT = { is_controlled_by = SOV } }
 	}
 	
 	recruitable_population_factor = 0.35
 	local_building_slots_factor = -0.25
 	state_resources_factor = -0.25
 	state_production_speed_buildings_factor = -0.25
+}
+
+SOV_defend_novorossia = {
+	icon = GFX_modifiers_SOV_a_harsh_war
+	enable = { tag = SOV }
+	remove_trigger = {
+		NOT = { has_global_flag = russia_ukraine_war }
+	}
+	
+	army_defence_factor = 0.15
+	army_org_factor = 0.08
+	army_morale_factor = 0.05
 }

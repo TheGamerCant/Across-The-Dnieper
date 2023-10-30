@@ -874,14 +874,14 @@ focus_tree = {
 				
 				if={
 					limit = { is_ai = no UKR = { is_ai = yes } }
-					country_event = { id = russia.1044 hours = 19 }
+					country_event = { id = russia.1044 hours = 80 }
 				}
 				else_if={
 					limit = { is_ai = yes UKR = { is_ai = no } }
 					country_event = { id = russia.1044 days = 12 }
 				}
 				else={
-					country_event = { id = russia.1044 days = 5 }
+					country_event = { id = russia.1044 days = 8 }
 				}
 				
 				country_event = { id = russia.1048 days = 2 }
@@ -3067,6 +3067,67 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_secure_our_new_territories
+		icon = GFX_focus_SOV_mandatory_conscription
+		x = 1
+		y = 1
+		cost = 30
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		
+		mutually_exclusive = { focus = SOV_expanding_the_nation }
+
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_no_option_but_victory
+
+		available={
+			has_war_with = UKR
+			has_completed_focus = SOV_novorossiya_at_hand_2
+			
+			has_global_flag = NOVOROSSIA_REFERENDUM_FLAG
+		}
+		
+		completion_reward={
+			every_state={
+				limit = { is_core_of = UKR OR={ is_claimed_by = ROOT is_core_of = ROOT } }
+				add_dynamic_modifier = { modifier = SOV_defend_novorossia scope = SOV }
+			}
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = SOV_expanding_the_nation
+		icon = GFX_focus_SOV_our_grander_borders
+		x = -1
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+
+		mutually_exclusive = { focus = SOV_secure_our_new_territories }
+		
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_no_option_but_victory
+
+		available={
+			has_war_with = UKR
+			has_completed_focus = SOV_novorossiya_at_hand_2
+			
+			has_completed_focus = SOV_no_option_but_victory
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_those_we_protect_3
+				add_idea = SOV_those_we_protect_4
+			}
+			add_war_support = 0.03
+		}
+	}
 	
 	
 	focus = {
