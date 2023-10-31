@@ -368,3 +368,32 @@ UKR_ignore_transnistria = {
 		value = -500
 	}	
 }
+
+
+UKR_dont_ignore_donbass = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		AND = {
+			OR = {
+				has_war_with = SOV
+				has_war_with = LHK
+				has_war_with = DON
+			}
+			has_global_flag = russia_ukraine_war
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR={
+				has_state_flag = donetsk_oblast_flag
+				has_state_flag = luhansk_oblast_flag
+			}
+		}
+		priority = 450
+	}
+}

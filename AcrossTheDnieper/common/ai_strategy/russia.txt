@@ -443,7 +443,10 @@ SOV_try_to_take_southern_ukraine = {
 		type = front_control
 		state_trigger = {
 			OR={
-				has_state_flag = donetsk_oblast_flag
+				#has_state_flag = donetsk_oblast_flag
+				state = 230
+				state = 195
+
 				has_state_flag = luhansk_oblast_flag
 				has_state_flag = zaporizhia_oblast_flag
 				has_state_flag = kherson_oblast_flag
@@ -460,6 +463,9 @@ SOV_try_to_take_southern_ukraine = {
 		type = front_unit_request
 		state_trigger = {
 			OR={
+				state = 230
+				state = 195
+
 				has_state_flag = kherson_oblast_flag
 				has_state_flag = zaporizhia_oblast_flag
 				has_state_flag = crimea_oblast_flag
@@ -522,5 +528,28 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 		type = dont_defend_ally_borders
 		id = "TRZ"
 		value = 1000
+	}
+}
+
+SOV_try_to_take_dnipro_islands = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR={
+			has_war_with = UKR
+			has_global_flag = russia_ukraine_war
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			state = 449
+		}
+		priority = 800
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
 	}
 }

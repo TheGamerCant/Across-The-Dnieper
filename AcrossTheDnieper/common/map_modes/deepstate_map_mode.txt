@@ -1,4 +1,4 @@
-#scripted_map_modes = {
+scripted_map_modes = {
     deepstate_map_mode = {
 		top = {
 			type = none
@@ -8,16 +8,18 @@
 			color = {
 				if = {
 					limit = {
-						AND = {
-							FROM = {
+						FROM = {
+							AND = {
 								OR = {
 									is_controlled_by = SOV
 									is_controlled_by = LHK
 									is_controlled_by = DON
+									is_controlled_by = ODS
+									is_controlled_by = NOV
+									is_controlled_by = KHK
 								}
-								
-								is_core_of = UKR 
 							}
+							is_core_of = UKR 
 						}
 						
 					}
@@ -30,8 +32,8 @@
 				}			
 				else_if = {
 					limit = {
-						AND = {
-							FROM = {
+						FROM = {
+							AND = {
 								is_controlled_by = UKR
 								is_core_of = UKR 
 							}
@@ -44,8 +46,8 @@
 				}
 				else_if = {
 					limit = {
-						AND = {
-							FROM = {
+						FROM = {
+							AND = {
 								is_controlled_by = SOV
 								is_core_of = SOV
 							}
