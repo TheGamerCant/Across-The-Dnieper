@@ -228,7 +228,7 @@ UKR_SOV_ignore_demilitarised_zones = {
 		state_trigger = {
 			is_demilitarized_zone = yes
 		}
-		priority = -500
+		priority = -1000
 	}
 	
 }
@@ -394,6 +394,63 @@ UKR_dont_ignore_donbass = {
 				has_state_flag = luhansk_oblast_flag
 			}
 		}
-		priority = 450
+		priority = 600
+	}
+}
+
+UKR_less_garrison_troops = {
+	allowed = {
+		OR={
+			has_war_with = SOV
+			has_global_flag = russia_ukraine_war
+		}
+	}
+	enable = {
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			tag = SOV
+		}
+		value = 400
+	}
+
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = -200
+	}
+}
+
+UKR_sussy_russia = {
+	allowed = {
+		tag = UKR
+	}
+	enable = {
+		AND = {
+			has_global_flag = russia_ukraine_war
+			NOT = {
+				has_war_with = SOV
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 80
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = DON
+		value = 70
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = LHK
+		value = 70
 	}
 }
