@@ -2407,7 +2407,11 @@ country_event = {
     option = {
         name = russia.1067.a
 		ai_chance = {
-			base = 0
+			base = 10
+			modifier = {
+				factor = 0
+				WAG_reach_compromise_ai = yes
+			}
 		}
 		add_political_power = -25
 		hidden_effect={ country_event = { id = russia.1070 hours = 10 } }
@@ -2417,7 +2421,12 @@ country_event = {
         name = russia.1067.b
 		ai_chance = {
 			base = 10
+			modifier = {
+				factor = 0
+				WAG_continue_march_ai = yes
+			}
 		}
+		custom_effect_tooltip = "event_tt_historical"
 		add_stability = -0.05
 		add_political_power = 25
 		hidden_effect={ country_event = { id = russia.1068 hours = 10 } }
@@ -2489,15 +2498,275 @@ country_event = {
 			set_country_flag = dmitry_utkin_not_active_flag
 			get_faction_positions = yes
 			
-			WAG = { load_oob = "WAG_mutiny" }
+			WAG = { load_oob = "WAG_mutiny" army_experience = 350 country_event = { id = russia.1071 days = 1 } }
+			country_event = { id = russia.1071 days = 1 }
 		}
 		add_stability = -0.1
 		add_political_power = -50
 		add_manpower = -15000
 		declare_war_on = { target = WAG type = take_state_focus }
 	}
+
+	option = {
+		name = russia.1070.b
+		ai_chance = {
+			base = 0
+		}
+		
+		SOV = {
+			add_stability = -0.1
+			add_political_power = -50
+			add_manpower = -15000
+			declare_war_on = { target = WAG type = take_state_focus }
+
+			hidden_effect={
+				retire_character = SOV_yevgeny_prigozhin_rework
+				retire_character = SOV_dmitry_utkin
+				SOV_reset_nationalist_faction_flags = yes
+				set_country_flag = yevgeny_prigozhin_not_active_flag
+				set_country_flag = dmitry_utkin_not_active_flag
+				get_faction_positions = yes
+				
+				WAG = { army_experience = 350 load_oob = "WAG_mutiny" country_event = { id = russia.1071 days = 1 } }
+				country_event = { id = russia.1071 days = 1 }
+			}
+		}
+
+		WAG = { change_tag_from  = SOV }
+	}
 }
 
+#Russian Military Deserts To Wagner
+country_event = {
+    id = russia.1071
+    title = russia.1071.t
+    desc = russia.1071.desc
+    picture = SOV_event_massacre
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1071.a
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			original_tag = SOV
+		}
+
+		add_ideas = WAG_saboteurs_in_military
+
+		transfer_units_fraction= {
+			target = WAG
+			size = 0.11
+			stockpile_ratio = 0.01
+			army_ratio = 0.11
+			navy_ratio = 0
+			air_ratio = 0.01
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+
+		hidden_effect = {
+			country_event = { id = russia.1072 hours = 26 }
+			WAG = { country_event = { id = russia.1075 days = 2 } }
+			SOV = { country_event = { id = russia.1075 days = 2 } }
+		}
+	}
+
+	option = {
+        name = russia.1071.b
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			original_tag = WAG
+		}
+
+		effect_tooltip = {
+			SOV = {
+				add_ideas = WAG_saboteurs_in_military
+
+				transfer_units_fraction= {
+					target = WAG
+					size = 0.12
+					stockpile_ratio = 0.01
+					army_ratio = 0.12
+					navy_ratio = 0
+					air_ratio = 0.01
+					keep_unit_leaders_trigger = {
+						always = yes
+					}
+				}
+			}
+		}
+
+	}
+}
+
+#Question of Putin
+country_event = {
+    id = russia.1072
+    title = russia.1072.t
+    desc = russia.1072.desc
+    picture = SOV_putins_next_move
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1072.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.15
+		add_political_power = -80
+
+		hidden_effect={
+			if = {
+				limit = {
+					11 = { is_controlled_by = WAG } 
+				}
+	
+				country_event = { id = russia.1073 hours = 2 }
+			}
+			else = {
+				country_event = { id = russia.1074 hours = 2 }
+			}
+		}
+
+	}
+
+	option = {
+        name = russia.1072.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.05
+		add_war_support = 0.2
+	}
+}
+
+#Putin fails to escape moscow
+country_event = {
+    id = russia.1073
+    title = russia.1073.t
+    desc = russia.1073.desc
+    picture = SOV_wagner_gang
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			kill_country_leader = yes
+            create_country_leader = {
+                name = "The Security Council"
+                desc = ""
+                picture = gfx/leaders/SOV/Portrait_Security_Council.png
+                ideology = united_russia_subideology
+                traits = { }
+            }
+
+            set_party_name = { ideology = eastern_conservative long_name = SOV_temp_party_long name = SOV_temp_party }
+		}
+	}
+
+    option = {
+        name = russia.1073.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.15
+		add_political_power = -80
+
+		if = {
+			limit = { has_idea = WAG_saboteurs_in_military }
+
+			swap_ideas = {
+				remove_idea = WAG_saboteurs_in_military
+				add_idea = WAG_saboteurs_in_military_2
+			}
+		}
+	}
+}
+
+#Putin escapes moscow
+country_event = {
+    id = russia.1074
+    title = russia.1074.t
+    desc = russia.1074.desc
+    picture = SOV_putin_escapes
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1074.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.1
+		add_war_support = -0.2
+	}
+}
+
+#second round of desertions
+country_event = {
+    id = russia.1075
+    title = russia.1075.t
+    desc = russia.1075.desc
+    picture = SOV_event_massacre
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1075.a
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			original_tag = SOV
+		}
+
+		transfer_units_fraction= {
+			target = WAG
+			size = 0.08
+			stockpile_ratio = 0.1
+			army_ratio = 0.085
+			navy_ratio = 0
+			air_ratio = 0
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+	}
+
+	option = {
+        name = russia.1075.b
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			original_tag = WAG
+		}
+
+		effect_tooltip = {
+			transfer_units_fraction= {
+				target = WAG
+				size = 0.12
+				stockpile_ratio = 0.012
+				army_ratio = 0.1
+				navy_ratio = 0
+				air_ratio = 0
+				keep_unit_leaders_trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+}
 
 country_event = {
     id = russia_propaganda.1

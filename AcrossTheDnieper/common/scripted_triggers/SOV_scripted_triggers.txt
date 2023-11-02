@@ -60,6 +60,33 @@ SOV_can_fire_propaganda_events={
 	vladimir_putin_is_leader = yes
 }
 
+WAG_reach_compromise_ai={
+	OR={
+		has_country_flag = WAG_REACH_A_COMPROMISE_AI_FLAG
+		has_game_rule = {
+			rule = WAG_ai_mutiny_behavior
+			option = REACH_A_COMPROMISE
+		}
+		AND={
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = WAG_ai_mutiny_behavior
+				option = DEFAULT
+			}
+		}
+	}
+}
+
+WAG_continue_march_ai={
+	OR={
+		has_country_flag = WAG_CONTINUE_TO_MARCH_TO_MOSCOW_AI_FLAG
+		has_game_rule = {
+			rule = WAG_ai_mutiny_behavior
+			option = CONTINUE_TO_MARCH_TO_MOSCOW
+		}
+	}
+}
+
 liberal_slot_1_is_available={ 
 	NOT = { has_country_flag = liberal_slot_1_taken }
 }

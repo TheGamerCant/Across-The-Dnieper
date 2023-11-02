@@ -1,0 +1,35 @@
+on_actions={
+	on_startup = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						is_historical_focus_on = no
+						has_game_rule = {
+							rule = WAG_ai_mutiny_behavior
+							option = DEFAULT
+						}
+					}
+					has_game_rule = {
+						rule = WAG_ai_mutiny_behavior
+						option = RANDOM
+					}
+				}
+			}
+
+			random_list = {		
+				20 = {
+					WAG = {
+						set_country_flag = WAG_REACH_A_COMPROMISE_AI_FLAG
+					}
+				}
+
+				5 = {
+					WAG = {
+						set_country_flag = WAG_CONTINUE_TO_MARCH_TO_MOSCOW_AI_FLAG
+					}
+				}
+			}
+		}
+	}
+}
