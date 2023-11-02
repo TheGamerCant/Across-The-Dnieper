@@ -95,7 +95,11 @@ on_actions={
 			else_if = {	#Fall of Mariupol
                 limit = {
 					SOV={ has_war_with = UKR } 
-					tag = SOV
+					OR = {
+						tag = SOV
+						tag = DON
+						tag = LHK
+					}
 					FROM.FROM = { state = 230 }
 					NOT={ has_global_flag = mariupol_fell }
                 }

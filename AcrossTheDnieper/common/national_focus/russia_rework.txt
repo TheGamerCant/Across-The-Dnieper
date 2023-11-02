@@ -687,8 +687,24 @@ focus_tree = {
 					}
 				}
 
+				every_state = {
+					limit ={
+						OR = {
+							is_controlled_by = DON
+							is_controlled_by = LHK
+						}
+					}
+					
+					add_dynamic_modifier = {
+						modifier = UKR_heavily_defended_area
+						scope = UKR
+					}
+				}
+
 				every_state={ #can be moved to an event if you want
 					limit = {
+						is_controlled_by = UKR
+
 						OR = {
 							state = 166
 							state = 135
@@ -762,6 +778,7 @@ focus_tree = {
 							state = 230
 							state = 195
 						}
+						NOT = { state = 196 }
 					}
 					add_dynamic_modifier = {
 						modifier = UKR_collaborators
@@ -2767,11 +2784,51 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			hidden_effect = {
+				every_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = UKR_heavily_defended_area
+							scope = UKR
+						}
+					}
+	
+					remove_dynamic_modifier = { modifier = UKR_heavily_defended_area }
+				}
+			}
+
 			every_state={
 				limit={
-					OR={
-						has_state_flag = donetsk_oblast_flag
-						has_state_flag = luhansk_oblast_flag
+					AND = {
+						OR={
+							has_state_flag = donetsk_oblast_flag
+							has_state_flag = luhansk_oblast_flag
+						}
+						OR = {
+							is_controlled_by = SOV
+							is_controlled_by = DON
+							is_controlled_by = LHK
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = UKR_heavily_entrenched_russians
+					scope = UKR
+				}
+			}
+
+			every_state={
+				limit={
+					AND = {
+						OR={
+							has_state_flag = donetsk_oblast_flag
+							has_state_flag = luhansk_oblast_flag
+						}
+						NOT = {
+							is_controlled_by = SOV
+							is_controlled_by = DON
+							is_controlled_by = LHK
+						}
 					}
 				}
 				add_dynamic_modifier = {
@@ -3159,7 +3216,7 @@ focus_tree = {
 		
 		completion_reward={
 			every_state={
-				limit = { is_core_of = UKR OR={ is_claimed_by = ROOT is_core_of = ROOT } }
+				limit = { is_core_of = UKR OR={ is_claimed_by = ROOT is_core_of = ROOT } NOT = { has_state_flag = donetsk_oblast_flag has_state_flag = luhansk_oblast_flag }  }
 				add_dynamic_modifier = { modifier = SOV_defend_novorossia scope = SOV }
 			}
 			add_stability = 0.03

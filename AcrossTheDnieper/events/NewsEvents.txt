@@ -1504,3 +1504,68 @@ news_event = {	#Russia recognises PRs
 	}
 
 }
+
+news_event = {	#Wagner Rebellion
+	id = atd_news.58
+	title = atd_news.58.t
+	desc = atd_news.58.desc
+	picture = GFX_news_event_wagner
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.58.a
+		trigger = {
+			NOT = {
+				OR={
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.58.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+
+}
+news_event = {	#Wagner Halts March
+	id = atd_news.59
+	title = atd_news.59.t
+	desc = atd_news.59.desc
+	picture = GFX_news_event_prigozhin
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.59.a
+		trigger = {
+			NOT = {
+				OR={
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.59.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+
+}

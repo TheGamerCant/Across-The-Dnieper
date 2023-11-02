@@ -112,7 +112,7 @@ UKR_collaborators = {
 	enable = { original_tag = SOV }
 
 	army_attack_factor = 0.35
-	army_defence_factor = 0.45
+	army_defence_factor = 0.5
 	breakthrough_factor = 0.55
 	army_speed_factor = 0.35
 	supply_factor = 0.5
@@ -123,13 +123,38 @@ UKR_collaborators = {
 
 UKR_heavily_entrenched = {
 	icon = GFX_idea_generic_fortify_the_borders
-	enable = { original_tag = SOV }
+	remove_trigger = { NOT = { has_war = yes } }
 
-	army_attack_factor = -0.7
-	army_defence_factor = -0.05
+	army_attack_factor = -0.75
+	army_defence_factor = -0.04
 	dig_in_speed_factor = -0.3
-	breakthrough_factor = -0.4
+	breakthrough_factor = -0.3
 	army_speed_factor = -0.1
+}
+
+UKR_heavily_entrenched_russians = {
+	icon = GFX_idea_generic_fortify_the_borders
+	remove_trigger = { NOT = { has_war = yes } }
+
+	army_attack_factor = -0.75
+	army_defence_factor = -0.04
+	dig_in_speed_factor = -0.3
+	breakthrough_factor = -0.3
+	army_speed_factor = -0.1
+}
+
+UKR_wagner_withdrawing = {
+	icon = GFX_modifiers_wagner_withdrawing
+
+	army_defence_factor = -0.15
+	army_org_factor = -0.05
+}
+
+UKR_heavily_defended_area = {
+	icon = GFX_idea_donbass_war
+
+	army_attack_factor = -0.3
+	army_defence_factor = -0.3
 }
 
 
