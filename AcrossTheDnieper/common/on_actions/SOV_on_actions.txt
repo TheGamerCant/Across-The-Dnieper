@@ -2,13 +2,15 @@ on_actions={
 	on_weekly={
 		effect={
 			if={
-				limit = { 
+				limit = {
+
 					OR={
 						has_idea = SOV_the_eastern_yoke 
 						has_idea = SOV_the_eastern_yoke_monarch
 						has_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
 					}
 					has_war = yes
+					NOT = { has_war_with = WAG }
 					OR={
 						is_ai = no
 						NOT = { any_enemy_country = { is_ai = no is_major = yes } }

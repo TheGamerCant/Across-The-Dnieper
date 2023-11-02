@@ -18,11 +18,57 @@ focus_tree = {
 		search_filters = {
 			
 		}
+		allow_branch = {
+			tag = WAG
+		}
 		available = {
 			has_war_with = SOV
 		}
 		completion_reward={
 			add_ideas = WAG_hammering_power
+		}
+	}
+
+	focus = {
+		id = WAG_begin_the_purge
+		icon = GFX_focus_begin_purge
+		x = 10
+		y = 0
+		cost = 25
+		search_filters = {
+			
+		}
+		allow_branch = {
+			tag = SOV
+		}
+
+		select_effect = {
+			random = {
+				chance = 45
+
+				country_event = { id = wagner.2 days = 6 }
+			}
+		}
+
+		available = {
+			hidden_trigger = {
+				NOT = { has_country_flag = shoigu_angred }
+			}
+		}
+
+		cancel_if_invalid = yes
+
+		completion_reward={
+			add_timed_idea = {
+				idea = SOV_undergoing_reforms
+				days = 50
+			}
+	
+			custom_effect_tooltip = "full_high_command_reforms_tt"
+	
+			hidden_effect = {
+				country_event = { id = russia.1077 days = 50 }
+			}
 		}
 	}
 }

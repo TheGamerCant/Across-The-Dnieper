@@ -1,68 +1,72 @@
 ﻿add_namespace = wagner
 
+ #got putin
 country_event = {
     id = wagner.1
     title = wagner.1.t
     desc = wagner.1.d
-    #picture = 
+    picture = SOV_high_command_event
     is_triggered_only = yes
 
 
     option = {
         name = wagner.1.a
-        add_manpower = -50
-        SOV = {
-            send_equipment = {
-                equipment = infantry_equipment_1
-                amount = 250
-                target = WAG
-            }
-
-            send_equipment = {
-                equipment = artillery_equipment_1
-                amount = 100
-                target = WAG
-            }
-
-            add_opinion_modifier = { target = WAG modifier = SOV_accepted_contract_mod }
-        }
-
+		ai_chance = {
+			base = 10
+		}
+        custom_effect_tooltip = "wagner.1.a_tt"
+        SOV = { country_event = { id = russia.1076 days = 1 }}
     }
 
     option = {
         name = wagner.1.b
+		ai_chance = {
+			base = 0
+		}
 
-        SOV = {
-            add_opinion_modifier = { target = WAG modifier = SOV_no_accepted_contract_mod } 
+        add_stability = 0.1
+        add_political_power = 5
+
+        hidden_effect = {
+            SOV = { change_tag_from  = WAG }
+
+            SOV = {
+                annex_country = { target = WAG transfer_troops = yes }
+
+                create_country_leader = {
+                    name = "Yevgeny Prigozhin"
+                    desc = ""
+                    picture = gfx/leaders/WAG/Portrait_dmitry_utkin.dds
+                    ideology = united_russia_subideology
+                    traits = {  }
+                }
+
+                set_party_name = { ideology = eastern_conservative long_name = SOV_wagnerites_long name = SOV_wagnerites }
+
+                load_focus_tree = wagner
+            }
         }
     }
 }
 
-country_event = {
+ #shoigu angry
+ country_event = {
     id = wagner.2
     title = wagner.2.t
     desc = wagner.2.d
-    picture = SOV_wagner_syria_event
+    picture = SOV_shoigu_angry
     is_triggered_only = yes
-
 
     option = {
         name = wagner.2.a
-        effect_tooltip  = {
-			WAG = {
-				add_manpower = -2500
-				army_experience = 200
-
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.5
-					uses = 3
-					category = land_doctrine
-				}
-
-				add_war_support = 0.15
-
-				add_offsite_building = { type = arms_factory level = 2 }
-			}
+		ai_chance = {
+			base = 10
+		}
+        hidden_effect = {
+            retire_character = SOV_sergey_shoygu_rework
+            set_country_flag = shoigu_angred
         }
+
+        #TODO: some shit, another war? BOP? idk idk
     }
 }

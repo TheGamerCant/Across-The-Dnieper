@@ -2572,11 +2572,15 @@ country_event = {
 				WAG = { army_experience = 350 load_oob = "WAG_mutiny" country_event = { id = russia.1071 days = 1 } }
 				country_event = { id = russia.1071 days = 1 }
 
-				country_event = { id = super.4 }
+				
 			}
 		}
 
-		WAG = { change_tag_from  = SOV }
+		hidden_effect = {
+			country_event = { id = super.4 }
+		}
+
+		WAG = { change_tag_from  = SOV  }
 	}
 }
 
@@ -2602,11 +2606,11 @@ country_event = {
 
 		transfer_units_fraction= {
 			target = WAG
-			size = 0.11
+			size = 0.035
 			stockpile_ratio = 0.01
-			army_ratio = 0.11
+			army_ratio = 0.035
 			navy_ratio = 0
-			air_ratio = 0.01
+			air_ratio = 0
 			keep_unit_leaders_trigger = {
 				always = yes
 			}
@@ -2635,11 +2639,11 @@ country_event = {
 
 				transfer_units_fraction= {
 					target = WAG
-					size = 0.12
+					size = 0.05
 					stockpile_ratio = 0.01
-					army_ratio = 0.12
+					army_ratio = 0.05
 					navy_ratio = 0
-					air_ratio = 0.01
+					air_ratio = 0
 					keep_unit_leaders_trigger = {
 						always = yes
 					}
@@ -2685,7 +2689,7 @@ country_event = {
 	option = {
         name = russia.1072.b
 		ai_chance = {
-			base = 10
+			base = 0
 		}
 
 		add_stability = 0.05
@@ -2720,6 +2724,8 @@ country_event = {
 		}
 
 		hidden_effect = {
+			WAG = { country_event = { id = wagner.1 days = 1 } }
+
 			kill_country_leader = yes
             create_country_leader = {
                 name = "The Security Council"
@@ -2750,6 +2756,19 @@ country_event = {
 
 		add_stability = -0.1
 		add_war_support = -0.2
+
+		hidden_effect = {
+			kill_country_leader = yes
+            create_country_leader = {
+                name = "The Security Council"
+                desc = ""
+                picture = gfx/leaders/SOV/Portrait_Security_Council.png
+                ideology = united_russia_subideology
+                traits = { }
+            }
+
+            set_party_name = { ideology = eastern_conservative long_name = SOV_temp_party_long name = SOV_temp_party }
+		}
 	}
 }
 
@@ -2773,9 +2792,9 @@ country_event = {
 
 		transfer_units_fraction= {
 			target = WAG
-			size = 0.08
-			stockpile_ratio = 0.1
-			army_ratio = 0.085
+			size = 0.025
+			stockpile_ratio = 0.01
+			army_ratio = 0.025
 			navy_ratio = 0
 			air_ratio = 0
 			keep_unit_leaders_trigger = {
@@ -2797,9 +2816,9 @@ country_event = {
 		effect_tooltip = {
 			transfer_units_fraction= {
 				target = WAG
-				size = 0.12
-				stockpile_ratio = 0.012
-				army_ratio = 0.1
+				size = 0.06
+				stockpile_ratio = 0.006
+				army_ratio = 0.06
 				navy_ratio = 0
 				air_ratio = 0
 				keep_unit_leaders_trigger = {
@@ -2809,6 +2828,108 @@ country_event = {
 		}
 	}
 }
+
+#putin pressured to reform the MoD
+country_event = {
+    id = russia.1076
+    title = russia.1076.t
+    desc = russia.1076.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Vladimir Putin"
+				desc = "vladimir_putin_desc"
+				picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+				ideology = united_russia_subideology
+				traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework_2 }
+			}
+	
+			set_party_name = { ideology = eastern_conservative long_name = SOV_eastern_conservative_party_long name = SOV_eastern_conservative_party }
+
+			white_peace = WAG
+
+			annex_country = { target = WAG transfer_troops = yes } 
+
+			delete_unit_template_and_units = {
+			    division_template = "Musicians"
+			    disband = yes
+		    }
+		}
+
+	}
+
+    option = {
+        name = russia.1076.a
+		ai_chance = {
+			base = 10
+		}
+
+		swap_country_leader_traits = {
+			remove = SOV_king_of_the_castle_rework_2
+			add = SOV_king_of_the_castle_rework_3
+		}
+
+		add_timed_idea = {
+			idea = SOV_undergoing_reforms
+			days = 50
+		}
+
+		custom_effect_tooltip = "full_high_command_reforms_tt"
+
+		hidden_effect = {
+			country_event = { id = russia.1077 days = 50 }
+		}
+	}
+}
+
+#high command reformed
+country_event = {
+    id = russia.1077
+    title = russia.1077.t
+    desc = russia.1077.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1077.a
+		ai_chance = {
+			base = 10
+		}
+
+
+		custom_effect_tooltip = "full_high_command_reforms_tt"
+
+		hidden_effect = {
+			add_to_variable = { SOV_raspizdyaystvo_political_advisor_cost_factor = -0.1 }
+            add_to_variable = { SOV_raspizdyaystvo_consumer_goods_expected_value = -0.1 }
+            add_to_variable = { SOV_raspizdyaystvo_research_speed_factor = 0.15 }
+            add_to_variable = { SOV_raspizdyaystvo_political_power_cost = -0.8 }
+            add_to_variable = { SOV_raspizdyaystvo_supply_node_range = 0.12 }
+            add_to_variable = { SOV_raspizdyaystvo_land_doctrine_cost_factor = -0.35 }
+            add_to_variable = { SOV_raspizdyaystvo_naval_doctrine_cost_factor = -0.35 }
+            add_to_variable = { SOV_raspizdyaystvo_air_doctrine_cost_factor = -0.35 }
+            add_to_variable = { SOV_raspizdyaystvo_army_morale_factor = 0.06 }
+            add_to_variable = { SOV_raspizdyaystvo_stability_factor = 0.03 }
+            add_to_variable = { SOV_raspizdyaystvo_air_accidents_factor = -0.06 }
+            add_to_variable = { SOV_raspizdyaystvo_attrition = -0.02 }
+            add_to_variable = { SOV_raspizdyaystvo_army_attack_factor = 0.05 }
+            add_to_variable = { SOV_raspizdyaystvo_army_defence_factor = 0.05 }
+            add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.1 }
+            add_to_variable = { SOV_raspizdyaystvo_agency_upgrade_time = -0.8 }
+
+			retire_character = SOV_sergey_shoygu_rework
+			retire_character = SOV_valery_gerasimov_rework
+			retire_character = SOV_yevgeny_valeryevich_nikiforov_rework
+			retire_character = SOV_sergey_yurvevich_kuzovlev_rework
+			retire_character = SOV_rustam_usmanovich_muradov_rework
+		}
+	}
+}
+
 
 country_event = {
     id = russia_propaganda.1
