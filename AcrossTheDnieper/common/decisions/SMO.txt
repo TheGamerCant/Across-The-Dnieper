@@ -1,5 +1,62 @@
 
 SOV_smo={
+	UKR_summer_offensive = {
+
+		icon = generic_form_nation
+
+		available = {
+			OR = {
+				250 = { 
+					is_controlled_by = UKR
+				}
+				243 = { 
+					is_controlled_by = UKR
+				}
+				282 = { 
+					is_controlled_by = UKR
+				}
+			}
+
+		}
+		
+		days_mission_timeout = 104 
+		activation = {
+			has_war_with = SOV
+			has_country_flag = UKR_summer_offensive_active
+			NOT={
+				OR = {
+					250 = { 
+						is_controlled_by = UKR
+					}
+					243 = { 
+						is_controlled_by = UKR
+					}
+					282 = { 
+						is_controlled_by = UKR
+					}
+				}
+			}
+		}
+
+		allowed = {
+			original_tag = UKR
+		}		
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			clr_country_flag = UKR_summer_offensive_active
+			country_event = { id = ukraine.108 days = 1 }
+		}
+		
+		complete_effect={
+			clr_country_flag = UKR_summer_offensive_active
+			country_event = { id = ukraine.110 days = 1 }
+		}
+	}
+
 	SOV_take_kyiv = {
 
 		icon = generic_form_nation

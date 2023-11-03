@@ -3894,3 +3894,153 @@ country_event = {
 		add_stability = -0.02
 	}
 }
+
+#Assessing the situation (2023)
+country_event = {
+	id = ukraine.107
+	title = ukraine.107.t
+	desc = ukraine.107.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+
+	option = { 
+		name = ukraine.107.a
+		ai_chance = {
+			base = 10
+		}
+
+		custom_effect_tooltip = ukraine.107_tt
+		add_war_support = 0.05
+		hidden_effect = {
+			country_event = { id = ukraine.111 days = 96 }
+		}
+	}
+}
+
+#Failed counteroffensive
+country_event = {
+	id = ukraine.108
+	title = ukraine.108.t
+	desc = ukraine.108.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+
+	option = { 
+		name = ukraine.108.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = UKR_zaluzhnyi_debuff_tt
+		hidden_effect = {
+			country_event = { id = ukraine.109 days = 45 }
+
+			if = {
+				limit = { has_character = UKR_valerii_zaluzhnui }
+	
+	
+				UKR_valerii_zaluzhnui = {
+					remove_trait = {
+						slot = army_chief
+						trait = army_chief_reform_3
+					}
+					add_trait = {
+						slot = army_chief
+						trait = army_chief_reform_1
+					}
+				}
+
+	
+			}
+		}
+
+
+
+		add_stability = -0.05
+		add_war_support = -0.08
+	}
+}
+
+#Zaluzhnyi apologizes
+country_event = {
+	id = ukraine.109
+	title = ukraine.109.t
+	desc = ukraine.109.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_zaluzhnyi
+
+
+	option = { 
+		name = ukraine.109.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = UKR_zaluzhnyi_buff_tt
+		hidden_effect = {
+
+			if = {
+				limit = { has_character = UKR_valerii_zaluzhnui }
+	
+	
+				UKR_valerii_zaluzhnui = {
+					remove_trait = {
+						slot = army_chief
+						trait = army_chief_reform_1
+					}
+					add_trait = {
+						slot = army_chief
+						trait = army_chief_reform_2
+					}
+				}
+	
+			}
+		}
+
+		add_stability = 0.02
+		add_war_support = 0.04
+	}
+}
+
+#Counteroffensive Success
+country_event = {
+	id = ukraine.110
+	title = ukraine.110.t
+	desc = ukraine.110.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+
+	option = { 
+		name = ukraine.110.a
+		ai_chance = {
+			base = 10
+		}
+
+		
+		add_timed_idea = {
+			idea = UKR_morale_boost
+			days = 50
+		}
+	}
+}
+
+#Summer offensive begins
+country_event = {
+	id = ukraine.111
+	title = ukraine.111.t
+	desc = ukraine.111.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+
+	option = { 
+		name = ukraine.111.a
+		ai_chance = {
+			base = 10
+		}
+
+		activate_mission_tooltip = "UKR_summer_offensive"
+		set_country_flag = UKR_summer_offensive_active
+	}
+}
