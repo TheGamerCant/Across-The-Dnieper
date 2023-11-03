@@ -57,16 +57,45 @@ country_event = {
     picture = SOV_shoigu_angry
     is_triggered_only = yes
 
+    immediate = {
+        set_country_flag = shoigu_angred
+    }
+
     option = {
         name = wagner.2.a
 		ai_chance = {
 			base = 10
 		}
-        hidden_effect = {
-            retire_character = SOV_sergey_shoygu_rework
-            set_country_flag = shoigu_angred
-        }
 
-        #TODO: some shit, another war? BOP? idk idk
+        add_stability = 0.05
+        
+        hidden_effect = {
+            country_event = { id = wagner.3 days = 8 }
+        }
+    }
+}
+
+
+ #shoigu ded
+ country_event = {
+    id = wagner.3
+    title = wagner.3.t
+    desc = wagner.3.d
+    picture = SOV_shoigu_angry
+    is_triggered_only = yes
+
+    immediate = {
+        clr_country_flag = shoigu_angred
+    }
+
+    option = {
+        name = wagner.3.a
+		ai_chance = {
+			base = 10
+		}
+        
+        add_war_support = -0.02
+        add_political_power = 5
+        retire_character = SOV_sergey_shoygu_rework
     }
 }

@@ -44,7 +44,7 @@ focus_tree = {
 
 		select_effect = {
 			random = {
-				chance = 45
+				chance = 50
 
 				country_event = { id = wagner.2 days = 6 }
 			}
@@ -63,11 +63,67 @@ focus_tree = {
 				idea = SOV_undergoing_reforms
 				days = 50
 			}
-	
+
+			custom_effect_tooltip = "full_high_command_reforms_tt_2"
 			custom_effect_tooltip = "full_high_command_reforms_tt"
 	
 			hidden_effect = {
 				country_event = { id = russia.1077 days = 50 }
+			}
+		}
+	}
+
+	focus = {
+		id = WAG_continue_operations_in_ukraine
+		icon = GFX_focus_continue_operations_ukraine
+		x = 8
+		y = 1
+		cost = 40
+		search_filters = {
+			
+		}
+		allow_branch = {
+			tag = SOV
+		}
+
+		prerequisite = { focus = WAG_begin_the_purge }
+		available = {
+			hidden_trigger = {
+				NOT = { has_country_flag = shoigu_angred }
+			}
+		}
+
+		bypass = {
+			NOT = { has_war_with = UKR }
+		}
+
+		cancel_if_invalid = yes
+
+		completion_reward={
+			every_state = {
+				limit = {
+					AND = {
+						any_neighbor_state = {
+							OR = {
+								is_controlled_by = SOV
+								is_controlled_by = DON
+								is_controlled_by = LHK
+								is_controlled_by = ODS
+								is_controlled_by = KHK
+								is_controlled_by = NOV
+							}
+						}
+
+						is_controlled_by = UKR
+					}
+				}
+
+
+				add_dynamic_modifier = {
+					modifier = UKR_minor_wagner_offensive
+					scope = SOV
+					days = 80
+				}
 			}
 		}
 	}

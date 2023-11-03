@@ -2513,6 +2513,8 @@ country_event = {
 			get_faction_positions = yes
 			retire_character = SOV_yevgeny_prigozhin_rework
 			retire_character = SOV_dmitry_utkin
+
+			country_event = { id = russia.1078 days = 3 }
 		}
 	}
 }
@@ -2878,6 +2880,7 @@ country_event = {
 			days = 50
 		}
 
+		custom_effect_tooltip = "full_high_command_reforms_tt_2"
 		custom_effect_tooltip = "full_high_command_reforms_tt"
 
 		hidden_effect = {
@@ -2921,12 +2924,34 @@ country_event = {
             add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.1 }
             add_to_variable = { SOV_raspizdyaystvo_agency_upgrade_time = -0.8 }
 
-			retire_character = SOV_sergey_shoygu_rework
+			if = {
+				limit = { has_character = SOV_sergey_shoygu_rework }
+				retire_character = SOV_sergey_shoygu_rework
+			}
+			
 			retire_character = SOV_valery_gerasimov_rework
 			retire_character = SOV_yevgeny_valeryevich_nikiforov_rework
 			retire_character = SOV_sergey_yurvevich_kuzovlev_rework
 			retire_character = SOV_rustam_usmanovich_muradov_rework
 		}
+	}
+}
+
+#wagner units forced to sign oath of allegiance
+country_event = {
+    id = russia.1078
+    title = russia.1078.t
+    desc = russia.1078.desc
+    picture = SOV_musicians
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1078.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ideas = SOV_wagner_forces_integrated
 	}
 }
 
