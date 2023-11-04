@@ -3904,13 +3904,39 @@ country_event = {
 	picture = GFX_report_event_UKR_assessing_the_situation
 
 
-	option = { 
+	option = { 				#Attitional war (hist)
 		name = ukraine.107.a
 		ai_chance = {
 			base = 10
 		}
 
 		custom_effect_tooltip = ukraine.107_tt
+		set_country_flag = UKR_attitional_war_flag
+		effect_tooltip={
+			add_timed_idea={
+				idea = UKR_attitional_war_idea
+				days = 104
+			}
+		}
+		add_war_support = 0.05
+		hidden_effect = {
+			country_event = { id = ukraine.111 days = 96 }
+		}
+	}
+	
+	option = { 				#Breakthrough
+		name = ukraine.107.b
+		ai_chance = {
+			base = 0
+		}
+
+		custom_effect_tooltip = ukraine.107_tt
+		effect_tooltip={
+			add_timed_idea={
+				idea = UKR_breakthrough_idea
+				days = 104
+			}
+		}
 		add_war_support = 0.05
 		hidden_effect = {
 			country_event = { id = ukraine.111 days = 96 }
@@ -3932,33 +3958,13 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		custom_effect_tooltip = UKR_zaluzhnyi_debuff_tt
+
 		hidden_effect = {
 			country_event = { id = ukraine.109 days = 45 }
-
-			if = {
-				limit = { has_character = UKR_valerii_zaluzhnui }
-	
-	
-				UKR_valerii_zaluzhnui = {
-					remove_trait = {
-						slot = army_chief
-						trait = army_chief_reform_3
-					}
-					add_trait = {
-						slot = army_chief
-						trait = army_chief_reform_1
-					}
-				}
-
-	
-			}
 		}
 
-
-
 		add_stability = -0.05
-		add_war_support = -0.08
+		add_war_support = -0.05
 	}
 }
 
@@ -3975,26 +3981,6 @@ country_event = {
 		name = ukraine.109.a
 		ai_chance = {
 			base = 10
-		}
-		custom_effect_tooltip = UKR_zaluzhnyi_buff_tt
-		hidden_effect = {
-
-			if = {
-				limit = { has_character = UKR_valerii_zaluzhnui }
-	
-	
-				UKR_valerii_zaluzhnui = {
-					remove_trait = {
-						slot = army_chief
-						trait = army_chief_reform_1
-					}
-					add_trait = {
-						slot = army_chief
-						trait = army_chief_reform_2
-					}
-				}
-	
-			}
 		}
 
 		add_stability = 0.02
@@ -4042,6 +4028,21 @@ country_event = {
 
 		activate_mission_tooltip = "UKR_summer_offensive"
 		set_country_flag = UKR_summer_offensive_active
+		
+		if={
+			limit = { has_country_flag = UKR_attitional_war_flag }
+			add_timed_idea = {  
+				idea = UKR_attitional_war_idea
+				days = 104
+			}
+		}
+		else={
+			add_timed_idea={
+				idea = UKR_breakthrough_idea
+				days = 104
+			}
+		}
+		
 		add_command_power = 20
 		add_political_power = 25
 	}
