@@ -699,9 +699,9 @@ country_event = {
     }
 	
 #	option = {
-#       name = russia.1019.b
+#		name = russia.1019.b
 #		ai_chance = {
-#			base = 10#
+#			base = 0
 #		}
 #		add_political_power = 100
 #		hidden_effect = { country_event = { id = russia.1021 days = 1 } }
@@ -744,7 +744,7 @@ country_event = {
                 traits = { }
             }
 
-            set_party_name = { ideology = eastern_conservative long_name = SOV_temp_party_long name = SOV_temp_party }
+            set_party_name = { ideology = eastern_conservative long_name = SOV_security_council name = SOV_security_council }
 			if={
 				limit = { country_exists = CRI }
 				white_peace = CRI
@@ -753,7 +753,7 @@ country_event = {
         }
     }
 
-    option = {
+    option = { 
         name = russia.1021.a
 		ai_chance = {
 			base = 10
@@ -788,7 +788,7 @@ country_event = {
     is_triggered_only = yes
 
     option = {
-        name = russia.1022.a
+        name = russia.1022.a			#Civil war baby!
 		ai_chance = {
 			base = 10
 		}
@@ -796,12 +796,47 @@ country_event = {
     }
 	
 	option = {
-        name = russia.1022.b
+        name = russia.1022.b			#Fake elections, United Russia wins
 		ai_chance = {
 			base = 10
 		}
-		add_stability = 0.1
+		
+		add_stability = 0.06
+		
+		set_party_name = { ideology = eastern_conservative long_name = SOV_temp_party_long name = SOV_temp_party }
+		create_country_leader = {
+			name = "The Federation Council"
+			desc = ""
+			picture = gfx/leaders/SOV/Portait_The_Federation_Council.png
+			ideology = united_russia_subideology
+			traits = { }
+		}
+		
+		custom_effect_tooltip = russia.1022.tt_1
+    }
+	
+	option = {
+        name = russia.1022.c		#Real elections
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect={
+			SOV_load_parliament_mechanics = yes	#Done here instead of in the history file to reduce lag from variables
+		}
+		
+		add_stability = 0.12
 		activate_mission = SOV_snap_elections
+		
+		set_party_name = { ideology = eastern_conservative long_name = SOV_duma_party name = SOV_duma_party }
+		create_country_leader = {
+			name = "The State Duma"
+			desc = ""
+			picture = gfx/leaders/SOV/Portrait_Duma.png
+			ideology = united_russia_subideology
+			traits = { }
+		}
+		
+		custom_effect_tooltip = russia.1022.tt_2
     }
 }
 

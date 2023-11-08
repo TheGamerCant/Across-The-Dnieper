@@ -1,0 +1,1033 @@
+defined_text = {
+	name = get_duma_seat_party
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 1 }
+			}
+		}
+		localization_key = SOV_seat_is_KPRF
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 2 }
+			}
+		}
+		localization_key = SOV_seat_is_SRZP
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 3 }
+			}
+		}
+		localization_key = SOV_seat_is_YABLOKO
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 4 }
+			}
+		}
+		localization_key = SOV_seat_isNL
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 5 }
+			}
+		}
+		localization_key = SOV_seat_is_PP
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 6 }
+			}
+		}
+		localization_key = SOV_seat_is_YER
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 7 }
+			}
+		}
+		localization_key = SOV_seat_is_LDPR
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 8 }
+			}
+		}
+		localization_key = SOV_seat_is_RODINA
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { duma_seat_frame^seat_idx = 9 }
+			}
+		}
+		localization_key = SOV_seat_is_PE
+	}
+	
+	text = {
+		localization_key = SOV_seat_is_other
+	}
+}
+
+defined_text = {
+	name = get_federation_council_seat_party
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 1 }
+			}
+		}
+		localization_key = SOV_seat_is_KPRF
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 2 }
+			}
+		}
+		localization_key = SOV_seat_is_SRZP
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 3 }
+			}
+		}
+		localization_key = SOV_seat_is_YABLOKO
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 4 }
+			}
+		}
+		localization_key = SOV_seat_is_NL
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 5 }
+			}
+		}
+		localization_key = SOV_seat_is_PP
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 6 }
+			}
+		}
+		localization_key = SOV_seat_is_YER
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 7 }
+			}
+		}
+		localization_key = SOV_seat_is_LDPR
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 8 }
+			}
+		}
+		localization_key = SOV_seat_is_RODINA
+	}
+	
+	text = {
+		trigger = {
+			OR={
+				check_variable = { federation_council_seat_frame^seat_idx = 9 }
+			}
+		}
+		localization_key = SOV_seat_is_PE
+	}
+	
+	text = {
+		localization_key = SOV_seat_is_other
+	}
+}
+
+defined_text = {
+	name = check_KPRF_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_KPRF_seats value = 0 compare = greater_than }
+			has_country_flag = KPRF_in_power
+		}
+		localization_key = SOV_KPRF_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_KPRF_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_KPRF_seats value = 0 compare = greater_than }
+			has_country_flag = KPRF_in_opposition
+		}
+		localization_key = SOV_KPRF_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_KPRF_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_KPRF_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = KPRF_in_power }
+			NOT = { has_country_flag = KPRF_in_opposition }
+		}
+		localization_key = SOV_KPRF_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_SRZP_seats value = 0 compare = greater_than }
+			has_country_flag = SRZP_in_power
+		}
+		localization_key = SOV_SRZP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_SRZP_seats value = 0 compare = greater_than }
+			has_country_flag = SRZP_in_opposition
+		}
+		localization_key = SOV_SRZP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_SRZP_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = SRZP_in_power }
+			NOT = { has_country_flag = SRZP_in_opposition }
+		}
+		localization_key = SOV_SRZP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_YABLOKO_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YABLOKO_seats value = 0 compare = greater_than }
+			has_country_flag = YABLOKO_in_power
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YABLOKO_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YABLOKO_seats value = 0 compare = greater_than }
+			has_country_flag = YABLOKO_in_opposition
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YABLOKO_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YABLOKO_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = YABLOKO_in_power }
+			NOT = { has_country_flag = YABLOKO_in_opposition }
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_NL_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_NL_seats value = 0 compare = greater_than }
+			has_country_flag = NL_in_power
+		}
+		localization_key = SOV_NL_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_NL_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_NL_seats value = 0 compare = greater_than }
+			has_country_flag = NL_in_opposition
+		}
+		localization_key = SOV_NL_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_NL_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_NL_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = NL_in_power }
+			NOT = { has_country_flag = NL_in_opposition }
+		}
+		localization_key = SOV_NL_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_PP_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PP_seats value = 0 compare = greater_than }
+			has_country_flag = PP_in_power
+		}
+		localization_key = SOV_PP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PP_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PP_seats value = 0 compare = greater_than }
+			has_country_flag = PP_in_opposition
+		}
+		localization_key = SOV_PP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PP_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PP_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = PP_in_power }
+			NOT = { has_country_flag = PP_in_opposition }
+		}
+		localization_key = SOV_PP_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_YER_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YER_seats value = 0 compare = greater_than }
+			has_country_flag = YER_in_power
+		}
+		localization_key = SOV_YER_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YER_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YER_seats value = 0 compare = greater_than }
+			has_country_flag = YER_in_opposition
+		}
+		localization_key = SOV_YER_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YER_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_YER_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = YER_in_power }
+			NOT = { has_country_flag = YER_in_opposition }
+		}
+		localization_key = SOV_YER_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_LDPR_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_LDPR_seats value = 0 compare = greater_than }
+			has_country_flag = LDPR_in_power
+		}
+		localization_key = SOV_LDPR_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_LDPR_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_LDPR_seats value = 0 compare = greater_than }
+			has_country_flag = LDPR_in_opposition
+		}
+		localization_key = SOV_LDPR_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_LDPR_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_LDPR_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = LDPR_in_power }
+			NOT = { has_country_flag = LDPR_in_opposition }
+		}
+		localization_key = SOV_LDPR_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_RODINA_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_RODINA_seats value = 0 compare = greater_than }
+			has_country_flag = RODINA_in_power
+		}
+		localization_key = SOV_RODINA_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_RODINA_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_RODINA_seats value = 0 compare = greater_than }
+			has_country_flag = RODINA_in_opposition
+		}
+		localization_key = SOV_RODINA_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_RODINA_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_RODINA_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = RODINA_in_power }
+			NOT = { has_country_flag = RODINA_in_opposition }
+		}
+		localization_key = SOV_RODINA_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_PE_in_power_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PE_seats value = 0 compare = greater_than }
+			has_country_flag = PE_in_power
+		}
+		localization_key = SOV_PE_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PE_in_opposition_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PE_seats value = 0 compare = greater_than }
+			has_country_flag = PE_in_opposition
+		}
+		localization_key = SOV_PE_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PE_neutral_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_PE_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = PE_in_power }
+			NOT = { has_country_flag = PE_in_opposition }
+		}
+		localization_key = SOV_PE_seat_count_tt_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_KPRF_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_KPRF_seats value = 0 compare = greater_than }
+			has_country_flag = KPRF_in_power
+		}
+		localization_key = SOV_KPRF_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_KPRF_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_KPRF_seats value = 0 compare = greater_than }
+			has_country_flag = KPRF_in_opposition
+		}
+		localization_key = SOV_KPRF_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_KPRF_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_KPRF_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = KPRF_in_power }
+			NOT = { has_country_flag = KPRF_in_opposition }
+		}
+		localization_key = SOV_KPRF_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_SRZP_seats value = 0 compare = greater_than }
+			has_country_flag = SRZP_in_power
+		}
+		localization_key = SOV_SRZP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_SRZP_seats value = 0 compare = greater_than }
+			has_country_flag = SRZP_in_opposition
+		}
+		localization_key = SOV_SRZP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_SRZP_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_SRZP_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = SRZP_in_power }
+			NOT = { has_country_flag = SRZP_in_opposition }
+		}
+		localization_key = SOV_SRZP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_YABLOKO_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YABLOKO_seats value = 0 compare = greater_than }
+			has_country_flag = YABLOKO_in_power
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YABLOKO_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YABLOKO_seats value = 0 compare = greater_than }
+			has_country_flag = YABLOKO_in_opposition
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YABLOKO_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YABLOKO_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = YABLOKO_in_power }
+			NOT = { has_country_flag = YABLOKO_in_opposition }
+		}
+		localization_key = SOV_YABLOKO_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_NL_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_NL_seats value = 0 compare = greater_than }
+			has_country_flag = NL_in_power
+		}
+		localization_key = SOV_NL_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_NL_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_NL_seats value = 0 compare = greater_than }
+			has_country_flag = NL_in_opposition
+		}
+		localization_key = SOV_NL_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_NL_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_NL_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = NL_in_power }
+			NOT = { has_country_flag = NL_in_opposition }
+		}
+		localization_key = SOV_NL_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_PP_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PP_seats value = 0 compare = greater_than }
+			has_country_flag = PP_in_power
+		}
+		localization_key = SOV_PP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PP_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PP_seats value = 0 compare = greater_than }
+			has_country_flag = PP_in_opposition
+		}
+		localization_key = SOV_PP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PP_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PP_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = PP_in_power }
+			NOT = { has_country_flag = PP_in_opposition }
+		}
+		localization_key = SOV_PP_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_YER_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YER_seats value = 0 compare = greater_than }
+			has_country_flag = YER_in_power
+		}
+		localization_key = SOV_YER_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YER_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YER_seats value = 0 compare = greater_than }
+			has_country_flag = YER_in_opposition
+		}
+		localization_key = SOV_YER_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_YER_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_YER_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = YER_in_power }
+			NOT = { has_country_flag = YER_in_opposition }
+		}
+		localization_key = SOV_YER_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_LDPR_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_LDPR_seats value = 0 compare = greater_than }
+			has_country_flag = LDPR_in_power
+		}
+		localization_key = SOV_LDPR_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_LDPR_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_LDPR_seats value = 0 compare = greater_than }
+			has_country_flag = LDPR_in_opposition
+		}
+		localization_key = SOV_LDPR_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_LDPR_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_LDPR_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = LDPR_in_power }
+			NOT = { has_country_flag = LDPR_in_opposition }
+		}
+		localization_key = SOV_LDPR_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_RODINA_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_RODINA_seats value = 0 compare = greater_than }
+			has_country_flag = RODINA_in_power
+		}
+		localization_key = SOV_RODINA_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_RODINA_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_RODINA_seats value = 0 compare = greater_than }
+			has_country_flag = RODINA_in_opposition
+		}
+		localization_key = SOV_RODINA_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_RODINA_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_RODINA_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = RODINA_in_power }
+			NOT = { has_country_flag = RODINA_in_opposition }
+		}
+		localization_key = SOV_RODINA_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+	name = check_PE_in_power_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PE_seats value = 0 compare = greater_than }
+			has_country_flag = PE_in_power
+		}
+		localization_key = SOV_PE_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PE_in_opposition_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PE_seats value = 0 compare = greater_than }
+			has_country_flag = PE_in_opposition
+		}
+		localization_key = SOV_PE_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = check_PE_neutral_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_PE_seats value = 0 compare = greater_than }
+			NOT = { has_country_flag = PE_in_power }
+			NOT = { has_country_flag = PE_in_opposition }
+		}
+		localization_key = SOV_PE_seat_count_tt_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = are_there_any_non_aligned_seats_duma
+	text = {
+		trigger = {
+			check_variable = { var = SOV_duma_non_aligned_seats value = 0 compare = greater_than }
+		}
+		localization_key = SOV_there_are_non_aligned_seats_in_duma
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = are_there_any_non_aligned_seats_federation_council
+	text = {
+		trigger = {
+			check_variable = { var = SOV_federation_council_non_aligned_seats value = 0 compare = greater_than }
+		}
+		localization_key = SOV_there_are_non_aligned_seats_in_federation_council
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = get_government_status
+	text = {
+		trigger = {
+			check_variable = { var = government_seats_duma value = 226 compare = greater_than_or_equals }
+			check_variable = { var = government_seats_federation_council value = 85 compare = less_than }
+		}
+		localization_key = SOV_duma_majority_only
+	}
+	text = {
+		trigger = {
+			check_variable = { var = government_seats_duma value = 226 compare = less_than }
+			check_variable = { var = government_seats_federation_council value = 85 compare = greater_than_or_equals }
+		}
+		localization_key = SOV_federation_council_majority_only
+	}
+	text = {
+		trigger = {
+			check_variable = { var = government_seats_duma value = 226 compare = greater_than_or_equals }
+			check_variable = { var = government_seats_federation_council value = 85 compare = greater_than_or_equals }
+		}
+		localization_key = SOV_total_majority_government
+	}
+	text = {
+        localization_key = SOV_total_minority_government
+    }
+}
+
+defined_text = {
+	name = get_head_of_duma
+
+	text = {
+        localization_key = naryshkin_is_head_of_duma
+    }
+}
+
+defined_text = {
+	name = get_head_of_federation_council
+
+	text = {
+        localization_key = matviyenko_is_head_of_federation_council
+    }
+}

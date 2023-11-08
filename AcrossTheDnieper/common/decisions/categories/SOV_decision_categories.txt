@@ -228,3 +228,16 @@ SOV_army_reform_decisions = {
 		}
 	}	
 }
+
+SOV_parliament_gui_decision_category = {
+	icon = generic_political_actions
+	priority = 99
+	allowed = {
+		original_tag = SOV
+	}
+	visible_when_empty = yes
+	visible = {
+		has_global_flag = SOV_parliament_gui_active_flag
+	}
+	scripted_gui = russia_parliament_gui
+}

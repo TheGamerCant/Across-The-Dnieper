@@ -1,0 +1,77 @@
+scripted_gui = {
+	russia_parliament_gui = {
+		context_type = decision_category
+		window_name = "russia_parliament_gui"
+		
+		dynamic_lists = {
+			duma_diagram = {
+				array = duma_seat_x
+				change_scope = no
+				entry_container = duma_seat
+				index = seat_idx
+			}
+			federation_council_diagram = {
+				array = federation_council_seat_x
+				change_scope = no
+				entry_container = federation_council_seat
+				index = seat_idx
+			}
+		}
+		triggers={
+			duma_voting_text_box_visible={
+				has_country_flag = there_is_legislation_in_the_parliament
+				has_country_flag = there_is_legislation_in_the_duma
+				has_country_flag = SOV_on_duma_view
+			}
+			federation_council_voting_text_box_visible={
+				has_country_flag = there_is_legislation_in_the_parliament
+				has_country_flag = there_is_legislation_in_the_federation_council
+				NOT = { has_country_flag = SOV_on_duma_view }
+			}
+			
+			duma_dot_icon_visible={
+				has_country_flag = SOV_on_duma_view
+			}
+			federation_council_dot_icon_visible={
+				NOT = { has_country_flag = SOV_on_duma_view }
+			}
+			
+			duma_status_text_box_visible={
+				has_country_flag = SOV_on_duma_view
+			}
+			federation_council_status_text_box_visible={
+				NOT = { has_country_flag = SOV_on_duma_view }
+			}
+			
+			duma_icon_button_visible={
+				has_country_flag = SOV_on_duma_view
+			}
+			federation_council_icon_button_visible={
+				NOT = { has_country_flag = SOV_on_duma_view }
+			}
+		}
+		properties = {
+			duma_dot_icon = {
+				x = duma_seat_x^seat_idx
+				y = duma_seat_y^seat_idx
+				frame = duma_seat_frame^seat_idx
+			}
+			federation_council_dot_icon = {
+				x = federation_council_seat_x^seat_idx
+				y = federation_council_seat_y^seat_idx
+				frame = federation_council_seat_frame^seat_idx
+			}
+		}
+		ai_enabled = {
+			always = no
+		}
+		effects={
+			duma_icon_button_click = {
+				clr_country_flag = SOV_on_duma_view
+			}
+			federation_council_icon_button_click = {
+				set_country_flag = SOV_on_duma_view
+			}
+		}
+	}
+}
