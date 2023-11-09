@@ -1331,7 +1331,7 @@ country_event = {
 		}
 		clr_country_flag = putin_siloviki_power_balance
 		
-		hidden_effect = { news_event = { id = atd_news.52 hours = 3 } }
+		hidden_effect = { news_event = { id = atd_news.52 hours = 3 } load_focus_tree = siloviki_tree complete_national_focus = SOV_the_coup }
     }
 }
 
@@ -2988,6 +2988,26 @@ country_event = {
 		}
 
 		add_ideas = SOV_wagner_forces_integrated
+	}
+}
+
+#The purge
+country_event = {
+    id = russia.1079
+    title = russia.1079.t
+    desc = russia.1079.desc
+    picture = SOV_cw_kolokoltsev
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1079.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_manpower = -12000
+		add_stability = -0.025
+		add_political_power = 50
 	}
 }
 

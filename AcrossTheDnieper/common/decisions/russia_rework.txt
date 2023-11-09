@@ -61,6 +61,37 @@ debug_decisions = {
 		}
 	}
 	
+	SOV_load_siloviki_tree = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_politics = {
+				ruling_party = military_junta
+				elections_allowed = no
+			}
+			country_event = { id = russia.1035 }
+			news_event = { id = atd_news.52 hours = 3 } 
+			load_focus_tree = siloviki_tree 
+			complete_national_focus = SOV_the_coup 
+		}
+	}
+	
 	SOV_show_army_reform_decisions = { 
 		priority = 200
 
