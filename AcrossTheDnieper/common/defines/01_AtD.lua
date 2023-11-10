@@ -9,7 +9,7 @@ NDefines.NDiplomacy.REVOKE_EMBARGO_COST = 50		--base is 0
 NDefines.NBuildings.RADAR_RANGE_BASE = 160		--base is 20
 NDefines.NBuildings.RADAR_RANGE_MIN = 160			--base is 20
 NDefines.NBuildings.RADAR_RANGE_MAX = 1300		--base is 200
-NDefines.NRailwayGun.RAILWAY_GUN_RANGE = 300		--base is 30
+NDefines.NRailwayGun.RAILWAY_GUN_RANGE = 160		--base is 30
 
 NDefines.NCountry.MIN_STABILITY = -1.0
 NDefines.NCountry.MIN_WAR_SUPPORT = -1.0
