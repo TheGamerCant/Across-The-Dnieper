@@ -7020,7 +7020,13 @@ focus_tree = {
 			else={
 				add_ideas = UKR_the_defence_of_ukraine_1
 			}
-			hidden_effect = { country_event = { id = ukraine.104 days = 72 } country_event = { id = ukraine.107 days = 365 } }
+			hidden_effect = { 
+				if={
+					limit ={ NOT = { has_global_flag = medvedchuck_is_dead } }
+					country_event = { id = ukraine.104 days = 72 } 
+				}
+				country_event = { id = ukraine.107 days = 365 } 
+			}
 		}
 	}
 	
