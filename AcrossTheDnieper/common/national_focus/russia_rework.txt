@@ -3951,6 +3951,49 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_recruit_new_fsb_personnel
+		icon = GFX_focus_
+		x = -3
+		y = 1
+		cost = 40
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_secure_our_control }
+		relative_position_id = SOV_secure_our_control
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={
+			increase_intelligence_spending = yes
+			add_manpower = 50000
+		}
+	}
+	
+	focus = {
+		id = SOV_crack_down_on_dissent
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_secure_our_control }
+		relative_position_id = SOV_secure_our_control
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={		
+			add_dynamic_modifier = { modifier = SOV_the_siloviki_state_modifier }
+		}
+	}
+	
 	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation
 }
