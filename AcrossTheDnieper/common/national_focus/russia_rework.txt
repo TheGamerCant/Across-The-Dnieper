@@ -785,6 +785,53 @@ focus_tree = {
 						scope = SOV
 					}
 				}
+
+				if = {
+					limit = { NOT = { country_exists = DON } }
+
+					every_state = {
+						limit = {
+							AND = {
+								is_owned_by = UKR
+								
+								OR = {
+									state = 208
+									state = 186
+									state = 173
+								}
+							}
+						}
+
+						add_dynamic_modifier = {
+						    modifier = UKR_collaborators
+						    scope = SOV
+					    }
+					}
+				}
+
+				if = {
+					limit = { NOT = { country_exists = LHK } }
+
+					every_state = {
+						limit = {
+							AND = {
+								is_owned_by = UKR
+								
+								OR = {
+									state = 174
+									state = 159
+									state = 152
+									state = 155
+								}
+							}
+						}
+
+						add_dynamic_modifier = {
+						    modifier = UKR_collaborators
+						    scope = SOV
+					    }
+					}
+				}
 			
 				set_global_flag = { flag = russia_ukraine_war_started_recently value = 1 days = 45 }
 				set_global_flag = { flag = russia_ukraine_war_countdown_until_frontlines_solidify value = 1 days = 55 }
