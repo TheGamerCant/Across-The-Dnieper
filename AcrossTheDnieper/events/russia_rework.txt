@@ -3009,6 +3009,110 @@ country_event = {
 	}
 }
 
+#Girkin returns from Donbass
+country_event = {
+    id = russia.1080
+    title = russia.1080.t
+    desc = russia.1080.desc
+    picture = GFX_report_event_SOV_strelkov
+    is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			DON = { retire_character = DON_igor_girkin }
+			NOV = { retire_character = DON_igor_girkin }
+		}
+	}
+
+    option = {
+        name = russia.1080.a
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = 0.002
+	}
+	
+	option = {
+        name = russia.1080.b
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 5
+	}
+}
+
+#Purge General
+country_event = {
+    id = russia.1081
+    title = russia.1081.t
+    desc = russia.1081.desc
+    picture = GFX_report_event_SOV_strelkov
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1081.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = SOV_characters_will_be_purged_tt
+		character_list_tooltip = {
+			limit = {
+				has_character_flag = SOV_literally_nikolai_yezhovs_1938
+			}
+		}
+		var:SOV_general_to_be_purged = { clr_character_flag = SOV_literally_nikolai_yezhovs_1938 }
+		retire_character = var:SOV_general_to_be_purged
+		if={
+			limit = { has_idea = SOV_purges_in_the_army }
+			modify_timed_idea = { idea = SOV_purges_in_the_army days = 45 }
+		}
+		else={
+			add_timed_idea = { idea = SOV_purges_in_the_army days = 60 }
+		}
+
+		add_to_variable = { SOV_general_purge_events_fired = 1 }
+		hidden_effect={
+			if={
+				limit = { check_variable = { SOV_general_purge_events_fired < SOV_general_purge_events_to_fire } }
+				random_army_leader = { 
+					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
+					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
+					set_character_flag = SOV_literally_nikolai_yezhovs_1938
+				}
+				var:SOV_general_to_be_purged = { unit_leader_event = { id = russia.1081 days = 3 random_days = 22 } }
+			}
+		}
+	}
+	
+	
+	option = {
+        name = russia.1081.b
+		ai_chance = {
+			base = 10
+		}
+		var:SOV_general_to_be_purged = { set_character_flag = SOV_safe_from_purge_flag }
+		var:SOV_general_to_be_purged = { clr_character_flag = SOV_literally_nikolai_yezhovs_1938 }
+		add_command_power -10
+		add_political_power = -50
+		add_stability = -0.002
+		
+		add_to_variable = { SOV_general_purge_events_fired = 1 }
+		hidden_effect={
+			if={
+				limit = { check_variable = { SOV_general_purge_events_fired < SOV_general_purge_events_to_fire } }
+				random_army_leader = { 
+					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
+					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
+					set_character_flag = SOV_literally_nikolai_yezhovs_1938
+				}
+				var:SOV_general_to_be_purged = { unit_leader_event = { id = russia.1081 days = 3 random_days = 22 } }
+			}
+		}
+	}
+}
+
+
 
 country_event = {
     id = russia_propaganda.1

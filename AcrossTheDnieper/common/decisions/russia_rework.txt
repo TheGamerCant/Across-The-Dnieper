@@ -115,6 +115,50 @@ debug_decisions = {
 			set_country_flag = SOV_army_reform_decisions_flag
 		}
 	}
+	
+	SOV_purge_general = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			retire_character = SOV_ramzan_kadyrov_rework
+			custom_effect_tooltip = SOV_purge_disloyal_generals_tt
+			
+			hidden_effect={
+				set_variable_to_random = {
+					var = SOV_general_purge_events_to_fire
+					min = 2
+					max = 5	
+					integer = yes
+				}
+				set_variable = { SOV_general_purge_events_fired = 0 }
+			
+				SOV_sergey_shoygu_rework = { set_character_flag = SOV_safe_from_purge_flag }
+				SOV_alexander_bortnikov_rework = { set_character_flag = SOV_safe_from_purge_flag }
+				random_army_leader = { 
+					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
+					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
+					set_character_flag = SOV_literally_nikolai_yezhovs_1938
+				}
+				var:SOV_general_to_be_purged = { unit_leader_event = { id = russia.1081 days = 3 random_days = 4 } }
+			}
+		}
+	}
 }
 
 SOV_russian_ambitions = {
