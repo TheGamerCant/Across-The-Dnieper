@@ -45,9 +45,12 @@ focus_tree = {
 		select_effect = {
 			random = {
 				chance = 50
-
-				country_event = { id = wagner.2 days = 6 }
+				if={
+					limit = { NOT = { has_country_flag = selected_purge_focus_already } }
+					country_event = { id = wagner.2 days = 6 }
+				}
 			}
+			set_country_flag = selected_purge_focus_already
 		}
 
 		available = {
