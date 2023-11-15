@@ -143,13 +143,14 @@ debug_decisions = {
 				set_variable_to_random = {
 					var = SOV_general_purge_events_to_fire
 					min = 2
-					max = 5	
+					max = 6
 					integer = yes
 				}
 				set_variable = { SOV_general_purge_events_fired = 0 }
 			
 				SOV_sergey_shoygu_rework = { set_character_flag = SOV_safe_from_purge_flag }
 				SOV_alexander_bortnikov_rework = { set_character_flag = SOV_safe_from_purge_flag }
+				SOV_viktor_zolotov = { set_character_flag = SOV_safe_from_purge_flag }
 				random_army_leader = { 
 					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
 					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
