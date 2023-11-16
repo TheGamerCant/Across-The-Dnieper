@@ -140,11 +140,11 @@ debug_decisions = {
 			custom_effect_tooltip = SOV_purge_disloyal_generals_tt
 			
 			hidden_effect={
-				set_variable_to_random = {
-					var = SOV_general_purge_events_to_fire
-					min = 2
-					max = 6
-					integer = yes
+				random_list = {
+					25 = { set_variable = { SOV_general_purge_events_to_fire = 2 } }
+					25 = { set_variable = { SOV_general_purge_events_to_fire = 3 } }
+					25 = { set_variable = { SOV_general_purge_events_to_fire = 4 } }
+					25 = { set_variable = { SOV_general_purge_events_to_fire = 5 } }
 				}
 				set_variable = { SOV_general_purge_events_fired = 0 }
 			
