@@ -1458,7 +1458,12 @@ focus_tree = {
 		
 		available={
 			vladimir_putin_is_leader = yes
-			372 = { is_controlled_by = ROOT }
+			OR={
+				372 = { is_controlled_by = ROOT }
+				372 = { OWNER = { is_puppet_of = ROOT } }
+				371 = { is_controlled_by = ROOT }
+				371 = { OWNER = { is_puppet_of = ROOT } }
+			}
 		}
 		bypass={
 			NOT = { 372 = { is_controlled_by = ROOT } }
@@ -4064,14 +4069,17 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			retire_character = SOV_ramzan_kadyrov_rework
+			if={
+				limit = { has_character = SOV_ramzan_kadyrov_rework }
+				retire_character = SOV_ramzan_kadyrov_rework
+			}
 			custom_effect_tooltip = SOV_purge_disloyal_generals_tt
 			
 			hidden_effect={
 #				set_variable_to_random = {					#This doesn't work properly for some reason so I had to use a random list instead
 #					var = SOV_general_purge_events_to_fire
 #					min = 2
-#					max = 6	
+#					max = 6	#Max value is hard-coded as less than not less than or equal to, so true range is 2-5
 #					integer = yes
 #				}
 				random_list = {
@@ -4082,17 +4090,45 @@ focus_tree = {
 				}
 				set_variable = { SOV_general_purge_events_fired = 0 }
 			
-				SOV_sergey_shoygu_rework = { set_character_flag = SOV_safe_from_purge_flag }
+				SOV_sergey_shoygu_rework = { set_character_flag = SOV_safe_from_purge_flag }		#Don't purge the guys who just did the coup obviously
 				SOV_alexander_bortnikov_rework = { set_character_flag = SOV_safe_from_purge_flag }
+				SOV_viktor_zolotov = { set_character_flag = SOV_safe_from_purge_flag }
+				
 				random_army_leader = { 
 					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
 					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
-					set_character_flag = SOV_literally_nikolai_yezhovs_1938
+					set_character_flag = SOV_literally_nikolai_yezhovs_1938		#This is used in the event tooltip (character_list_tooltip)
 				}
 				var:SOV_general_to_be_purged = { unit_leader_event = { id = russia.1081 days = 3 random_days = 4 } }		#First event fires sooner than rest, the others are 3-25 days apart
 			}
 		}
 	}
+	
+	focus = {
+		id = SOV_secure_the_media
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_crack_down_on_dissent }
+		relative_position_id = SOV_crack_down_on_dissent
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={		
+			add_to_variable = { SOV_siloviki_military_junta_drift = 0.08 }
+			add_to_variable = { SOV_siloviki_stability_weekly = 0.001 }
+			add_to_variable = { SOV_siloviki_political_power_factor = 0.05 }
+			
+			custom_effect_tooltip = SOV_secure_the_media_tt
+		}
+	}
+	
 	
 	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation

@@ -3006,6 +3006,17 @@ country_event = {
 		add_manpower = -12000
 		add_stability = -0.025
 		add_political_power = 50
+		
+		if={
+			limit = { has_idea = authoritarian_democracy }
+			swap_ideas={
+				remove_idea = authoritarian_democracy
+				add_idea = martial_law
+			}
+		}
+		else={
+			add_ideas = martial_law
+		}
 	}
 }
 

@@ -136,7 +136,10 @@ debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			retire_character = SOV_ramzan_kadyrov_rework
+			if={
+				limit = { has_character = SOV_ramzan_kadyrov_rework }
+				retire_character = SOV_ramzan_kadyrov_rework
+			}
 			custom_effect_tooltip = SOV_purge_disloyal_generals_tt
 			
 			hidden_effect={
@@ -151,6 +154,7 @@ debug_decisions = {
 				SOV_sergey_shoygu_rework = { set_character_flag = SOV_safe_from_purge_flag }
 				SOV_alexander_bortnikov_rework = { set_character_flag = SOV_safe_from_purge_flag }
 				SOV_viktor_zolotov = { set_character_flag = SOV_safe_from_purge_flag }
+				
 				random_army_leader = { 
 					limit = { NOT = { has_character_flag = SOV_safe_from_purge_flag } }
 					ROOT = { set_variable = { SOV_general_to_be_purged = PREV } } 
