@@ -43,7 +43,7 @@ on_actions={
 					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
 #                   5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
 #					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
-					45 = {}
+					50 = {}
 				}
 			}
 			else_if={
@@ -715,7 +715,7 @@ on_actions={
 					country_event = { id = russia.1059 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1645 }  }			#Oligarchy gets worse
+					limit = { check_variable = { global.days_since_start = 1645 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
 					country_event = { id = russia.1034 }
 				}
 

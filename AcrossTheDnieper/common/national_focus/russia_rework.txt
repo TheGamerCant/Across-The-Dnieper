@@ -380,12 +380,12 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				always = yes
-#				OR={
-#					has_completed_focus = SOV_putin_at_the_helm
-#					has_completed_focus = SOV_the_siloviki_state
-#					has_completed_focus = SOV_the_angry_patriots
-#				}
+#				always = yes
+				OR={
+					has_completed_focus = SOV_putin_at_the_helm
+					has_completed_focus = SOV_the_siloviki_state
+					has_completed_focus = SOV_the_angry_patriots
+				}
 			}
 		}
 		
@@ -2223,9 +2223,9 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				always = no
-#				NOT = { has_completed_focus = SOV_putin_at_the_helm }
-#				has_country_flag = russia_united_flag
+#				always = no
+				NOT = { has_completed_focus = SOV_putin_at_the_helm }
+				has_country_flag = russia_united_flag
 			}
 		}
 		
@@ -2270,13 +2270,13 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				always = no
-#				NOT={
-#					OR={
-#						has_completed_focus = SOV_the_angry_patriots
-#						has_completed_focus = SOV_putin_at_the_helm
-#					}
-#				}
+#				always = no
+				NOT={
+					OR={
+						has_completed_focus = SOV_the_angry_patriots
+						has_completed_focus = SOV_putin_at_the_helm
+					}
+				}
 				has_country_flag = russia_united_flag
 			}
 		}
@@ -2351,6 +2351,8 @@ focus_tree = {
 			show_ideas_tooltip = SOV_viktor_zolotov
 			add_political_power = 100
 			SOV_increase_siloviki_faction_medium = yes
+			
+			set_country_flag = zolotov_active_flag
 			
 			hidden_effect={
 				if={
@@ -2687,13 +2689,13 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				always = no
-#				NOT={
-#					OR={
-#						has_completed_focus = SOV_the_siloviki_state
-#						has_completed_focus = SOV_putin_at_the_helm
-#					}
-#				}
+#				always = no
+				NOT={
+					OR={
+						has_completed_focus = SOV_the_siloviki_state
+						has_completed_focus = SOV_putin_at_the_helm
+					}
+				}
 				has_country_flag = russia_united_flag
 			}
 		}
@@ -4012,7 +4014,7 @@ focus_tree = {
 	focus = {
 		id = SOV_recruit_new_fsb_personnel
 		icon = GFX_focus_
-		x = -3
+		x = -2
 		y = 1
 		cost = 40
 		search_filters = {
@@ -4055,7 +4057,7 @@ focus_tree = {
 	focus = {
 		id = SOV_purge_disloyal_generals
 		icon = GFX_focus_
-		x = 3
+		x = 2
 		y = 1
 		cost = 40
 		search_filters = {
@@ -4153,7 +4155,7 @@ focus_tree = {
 	focus = {
 		id = SOV_enemies_abroad
 		icon = GFX_focus_
-		x = 1
+		x = -1
 		y = 2
 		cost = 48
 		search_filters = {
@@ -4200,7 +4202,7 @@ focus_tree = {
 			value = GFX_focus_
 		}
 		
-		x = -1
+		x = 1
 		y = 2
 		cost = 48
 		search_filters = {
@@ -4220,6 +4222,51 @@ focus_tree = {
 			custom_effect_tooltip = SOV_leaders_portraits_tt
 			add_to_variable = { SOV_siloviki_stability_weekly = 0.001 }
 			add_to_variable = { SOV_siloviki_military_junta_drift = 0.08 }
+		}
+	}
+	
+	focus = {
+		id = SOV_destroy_the_oligarchy
+		icon = GFX_focus_
+		x = 3
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_leaders_portraits }
+		prerequisite = { focus = SOV_enemies_abroad }
+		relative_position_id = SOV_enemies_abroad
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = oligarchy
+				add_idea = centrally_planned_economy
+			}
+			
+			if={
+				limit = { has_idea = SOV_rampant_oligarchy }
+				swap_ideas={
+					remove_idea = SOV_rampant_oligarchy
+					add_idea = SOV_controlled_oligarchy
+				}
+				add_political_power = -50
+			}
+			else_if={
+				limit = { has_idea = SOV_rampant_oligarchy_2 }
+				swap_ideas={
+					remove_idea = SOV_rampant_oligarchy_2
+					add_idea = SOV_controlled_oligarchy
+				}
+				add_political_power = -120
+			}
+			
+			add_to_variable = { SOV_siloviki_production_speed_buildings_factor = 0.15 }
+			custom_effect_tooltip = SOV_destroy_the_oligarchy_tt
 		}
 	}
 	
