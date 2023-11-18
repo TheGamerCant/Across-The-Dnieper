@@ -419,6 +419,7 @@ on_actions={
 					retire_character = SOV_ivan_popov
 					retire_character = SOV_lukashenko
 					retire_character = SOV_viktor_zolotov
+					retire_character = SOV_nikolai_patrushev
 				
 					
 					add_ideas = {
@@ -678,15 +679,15 @@ on_actions={
 				
 				
 				if={
-					limit = { check_variable = { global.days_since_start = 337 } has_completed_focus = SOV_welcome_home_2 }	
-					country_event = { id = russia.1011 }										#SOTN speech
+					limit = { check_variable = { global.days_since_start = 337 } vladimir_putin_is_leader = yes }				#SOTN speech
+					country_event = { id = russia.1011 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 200 }  }				#Poverty event
+					limit = { check_variable = { global.days_since_start = 200 } vladimir_putin_is_leader = yes }				#Poverty event
 					country_event = { id = russia.1058 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 416 }  }				#Nemtsov dies
+					limit = { check_variable = { global.days_since_start = 416 }  }												#Nemtsov dies
 					country_event = { id = russia.1012 }
 				}
 				else_if={
@@ -710,7 +711,7 @@ on_actions={
 					country_event = { id = russia.1033 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1200 }  }			#Don't call him Dimon
+					limit = { check_variable = { global.days_since_start = 1200 } vladimir_putin_is_leader = yes }				#Don't call him Dimon
 					country_event = { id = russia.1059 }
 				}
 				else_if={

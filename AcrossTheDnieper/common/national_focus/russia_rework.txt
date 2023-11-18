@@ -4107,7 +4107,7 @@ focus_tree = {
 	focus = {
 		id = SOV_secure_the_media
 		icon = GFX_focus_
-		x = 1
+		x = -1
 		y = 1
 		cost = 60
 		search_filters = {
@@ -4126,6 +4126,100 @@ focus_tree = {
 			add_to_variable = { SOV_siloviki_political_power_factor = 0.05 }
 			
 			custom_effect_tooltip = SOV_secure_the_media_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_arrests_in_yedinaya_rossiya
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_crack_down_on_dissent }
+		relative_position_id = SOV_crack_down_on_dissent
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={				
+			country_event = { id = russia.1082 hours = 4 }
+		}
+	}
+	
+	focus = {
+		id = SOV_enemies_abroad
+		icon = GFX_focus_
+		x = 1
+		y = 2
+		cost = 48
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_recruit_new_fsb_personnel }
+		prerequisite = { focus = SOV_secure_the_media }
+		relative_position_id = SOV_recruit_new_fsb_personnel
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1083 hours = 2 }
+		}
+	}
+	
+	focus = {
+		id = SOV_leaders_portraits
+		
+		dynamic = yes 
+	
+		icon = {
+			trigger = {
+				has_country_leader = { name = "Alexander Bortnikov" ruling_only = yes }
+			}
+			value = GFX_focus_
+		}
+		icon = {
+			trigger = {
+				has_country_leader = { name = "Sergey Shoigu" ruling_only = yes }
+			}
+			value = GFX_focus_
+		}
+		icon = {
+			trigger = {
+				has_country_leader = { name = "Nikolai Patrushev" ruling_only = yes }
+			}
+			value = GFX_focus_
+		}
+		
+		icon = {
+			value = GFX_focus_
+		}
+		
+		x = -1
+		y = 2
+		cost = 48
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_purge_disloyal_generals }
+		prerequisite = { focus = SOV_arrests_in_yedinaya_rossiya }
+		relative_position_id = SOV_purge_disloyal_generals
+		available={
+			has_government = military_junta
+		}
+		
+		completion_reward={
+			add_political_power = 150
+			
+			custom_effect_tooltip = SOV_leaders_portraits_tt
+			add_to_variable = { SOV_siloviki_stability_weekly = 0.001 }
+			add_to_variable = { SOV_siloviki_military_junta_drift = 0.08 }
 		}
 	}
 	

@@ -3124,6 +3124,66 @@ unit_leader_event = {
 	}
 }
 
+#Arrests in the party
+country_event = {
+    id = russia.1082
+    title = russia.1082.t
+    desc = russia.1082.desc
+    picture = SOV_medvedev_event
+    is_triggered_only = yes
+
+
+    option = {				#Small purge
+        name = russia.1082.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -80
+		
+		retire_character = SOV_valentina_matviyenko_rework
+		retire_character = SOV_dmitry_medvedev_rework
+		retire_character = SOV_sergey_lavrov_rework
+	}
+	
+	option = {				#Big purge
+        name = russia.1082.b
+		ai_chance = {
+			base = 10
+		}
+		add_stability = -0.05
+		add_political_power = 50
+		
+		retire_character = SOV_valentina_matviyenko_rework
+		retire_character = SOV_dmitry_medvedev_rework
+		retire_character = SOV_mikhail_mishustin_rework
+		retire_character = SOV_kokoltsev_vladimir_rework
+		retire_character = SOV_sergey_lavrov_rework
+		retire_character = SOV_sergey_kiriyenko
+		retire_character = SOV_alexei_miller
+	}
+}
+
+#Enemies Abroad
+country_event = {
+    id = russia.1083
+    title = russia.1083.t
+    desc = russia.1083.desc
+    picture = GFX_report_event_SOV_rossiya_24
+    is_triggered_only = yes
+
+
+    option = {				#Small purge
+        name = russia.1083.a
+		ai_chance = {
+			base = 10
+		}
+		add_stability = 0.075
+		add_war_support = 0.075
+		add_political_power = 50
+	}
+
+}
+
 
 
 country_event = {
