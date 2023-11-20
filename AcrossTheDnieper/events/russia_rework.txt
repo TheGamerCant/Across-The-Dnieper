@@ -3171,7 +3171,7 @@ country_event = {
     is_triggered_only = yes
 
 
-    option = {				#Small purge
+    option = {
         name = russia.1083.a
 		ai_chance = {
 			base = 10
@@ -3180,7 +3180,33 @@ country_event = {
 		add_war_support = 0.075
 		add_political_power = 50
 	}
+}
 
+#Fate of the Siloviki
+country_event = {
+    id = russia.1084
+    title = russia.1084.t
+    desc = russia.1084.desc
+    picture = [SOV_get_leader_event_picture]
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1084.a
+		ai_chance = {
+			base = 10
+		}
+		add_country_leader_trait = SOV_first_among_equals
+	}
+	
+	option = {
+        name = russia.1084.b
+		ai_chance = {
+			base = 10
+		}
+		add_country_leader_trait = SOV_head_of_the_siloviks
+		add_political_power = -75
+	}
 }
 
 
