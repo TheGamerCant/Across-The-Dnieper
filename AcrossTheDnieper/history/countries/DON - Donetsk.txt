@@ -87,11 +87,24 @@ set_research_slots = 2
 set_stability = 0.40
 set_war_support = 0.80
 
-add_ideas = impromptu_militias
+set_variable = { DON_impromptu_militias_war_support_factor = -0.1 }
+set_variable = { DON_impromptu_militias_stability_factor = -0.1 }
+set_variable = { DON_impromptu_militias_conscription = 0.04 }
+set_variable = { DON_impromptu_militias_army_morale_factor = -0.08 }
+set_variable = { DON_impromptu_militias_army_attack_factor = -0.22 }
+set_variable = { DON_impromptu_militias_army_core_defence_factor = 0.02 }
+set_variable = { DON_impromptu_militias_army_speed_factor = -0.35 }
+set_variable = { DON_impromptu_militias_army_org_factor = -0.1 }
+set_variable = { DON_impromptu_militias_surrender_limit = 0.35 }
+set_variable = { DON_impromptu_militias_ai_focus_defense_factor = 0.6 }
+set_variable = { DON_impromptu_militias_org_loss_when_moving = -0.15 }
+set_variable = { DON_impromptu_militias_command_power_gain_mult = -0.40 }
+
+add_dynamic_modifier = { modifier = DON_impromptu_militias }
+
 add_ideas = oligarchy
 add_ideas = authoritarian_democracy
 add_ideas = extensive_conscription
-add_ideas = impromptu_militias
 add_ideas = state_controlled_press
 add_ideas = bipolarist
 add_ideas = womens_rights_traditional_values

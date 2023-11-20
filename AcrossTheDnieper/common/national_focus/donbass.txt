@@ -480,43 +480,14 @@ focus_tree = {
 			has_completed_focus = DON_impose_martial_law
         }
 		completion_reward ={
-			if = {
-				limit = { has_idea = impromptu_militias }
-				swap_ideas = {
-					remove_idea = impromptu_militias
-					add_idea = impromptu_militias_2
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_2 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_2
-					add_idea = impromptu_militias_3
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_3 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_3
-					add_idea = impromptu_militias_4
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_4 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_4
-					add_idea = impromptu_militias_5
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_5 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_5
-					add_idea = impromptu_militias_6
-				}
-			}
+			custom_effect_tooltip = "DON_shelling_from_residential_areas_tt"
 
 			hidden_effect = {
+				add_to_variable = { DON_impromptu_militias_army_morale_factor = 0.02 }
+				add_to_variable = { DON_impromptu_militias_war_support_factor = 0.05 }
+				add_to_variable = { DON_impromptu_militias_stability_factor = -0.03 }
+				add_to_variable = { DON_impromptu_militias_army_attack_factor = 0.02 }
+
 				country_event = { id = donetsk.16 days = 12  }
 			}
 		}
@@ -541,40 +512,13 @@ focus_tree = {
         available = {
         }
 		completion_reward ={
-			if = {
-				limit = { has_idea = impromptu_militias }
-				swap_ideas = {
-					remove_idea = impromptu_militias
-					add_idea = impromptu_militias_2
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_2 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_2
-					add_idea = impromptu_militias_3
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_3 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_3
-					add_idea = impromptu_militias_4
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_4 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_4
-					add_idea = impromptu_militias_5
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_5 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_5
-					add_idea = impromptu_militias_6
-				}
+			custom_effect_tooltip = "DON_restructure_the_militias_tt"
+			hidden_effect = {
+				add_to_variable = { DON_impromptu_militias_army_core_defence_factor = 0.01 }
+				add_to_variable = { DON_impromptu_militias_army_org_factor = 0.05 }
+				add_to_variable = { DON_impromptu_militias_org_loss_when_moving = -0.03 }
+				add_to_variable = { DON_impromptu_militias_command_power_gain_mult = 0.1 }
+				add_to_variable = { DON_impromptu_militias_conscription = -0.02 }
 			}
 		}
 	}
@@ -738,16 +682,26 @@ focus_tree = {
 		prerequisite = { focus = DON_lessons_of_donetsk_airport }
 
         available = {
-			hidden_trigger = {
-				has_idea = impromptu_militias_6
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			has_war_support > 0.65
+
+
+			custom_trigger_tooltip = {
+				tooltip = DON_slightly_modernized_military_tt2		
+				has_completed_focus = DON_shelling_from_residential_areas
+				has_completed_focus = DON_youth_patriotism
+				has_completed_focus = DON_training_with_russian_commanders
+				has_completed_focus = DON_restructure_the_militias
 			}
         }
 		completion_reward ={
-			swap_ideas = {
-				remove_idea = impromptu_militias_6
-				add_idea = mediocre_militias
-			}
+			custom_effect_tooltip = "DON_slightly_modernized_military_tt"
+			show_ideas_tooltip = mediocre_militias
 
+			hidden_effect = {
+				add_ideas = mediocre_militias
+				remove_dynamic_modifier = { modifier = DON_impromptu_militias }
+			}
 			
 		}
 	}
@@ -772,45 +726,16 @@ focus_tree = {
 
         }
 		completion_reward ={
-			if = {
-				limit = { has_idea = impromptu_militias }
-				swap_ideas = {
-					remove_idea = impromptu_militias
-					add_idea = impromptu_militias_2
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_2 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_2
-					add_idea = impromptu_militias_3
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_3 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_3
-					add_idea = impromptu_militias_4
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_4 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_4
-					add_idea = impromptu_militias_5
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_5 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_5
-					add_idea = impromptu_militias_6
-				}
-			}
+			custom_effect_tooltip = "DON_youth_patriotism_tt"
 
 			add_timed_idea = {
 				idea = DON_promoting_patriotism_for_the_youth
-				days = 180
+				days = 150
+			}
+
+			hidden_effect = {
+				add_to_variable = { DON_impromptu_militias_conscription = 0.06 }
+				add_to_variable = { DON_impromptu_militias_war_support_factor = 0.05 }
 			}
 		}
 	}
@@ -865,41 +790,7 @@ focus_tree = {
         available = {
         }
 		completion_reward ={
-			if = {
-				limit = { has_idea = impromptu_militias }
-				swap_ideas = {
-					remove_idea = impromptu_militias
-					add_idea = impromptu_militias_2
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_2 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_2
-					add_idea = impromptu_militias_3
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_3 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_3
-					add_idea = impromptu_militias_4
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_4 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_4
-					add_idea = impromptu_militias_5
-				}
-			}
-			else_if = {
-				limit = { has_idea = impromptu_militias_5 }
-				swap_ideas = {
-					remove_idea = impromptu_militias_5
-					add_idea = impromptu_militias_6
-				}
-			}
+			custom_effect_tooltip = "DON_training_with_russian_commanders_tt"
 
 			army_experience = 10
 			air_experience = 10
@@ -908,6 +799,12 @@ focus_tree = {
 			add_opinion_modifier = {
 				target = SOV
 				modifier = medium_increase
+			}
+
+			hidden_effect = {
+				add_to_variable = { DON_impromptu_militias_army_attack_factor = 0.05 }
+				add_to_variable = { DON_impromptu_militias_command_power_gain_mult = 0.05 }
+				add_to_variable = { DON_impromptu_militias_army_speed_factor = 0.08 }
 			}
 		}
 	}
