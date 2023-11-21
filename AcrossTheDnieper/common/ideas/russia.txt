@@ -315,12 +315,35 @@ ideas = {
 	}
 	
 	country = {
+		SOV_UKR_winter_wartime = {
+			removal_cost = -1
+			picture = winter_war
+			available = { has_war = yes }
+			modifier = {
+				ai_focus_defense_factor = 0.6
+				ai_focus_aggressive_factor = -0.45
+
+				supply_consumption_factor = 0.05
+				army_speed_factor = -0.15
+				army_attack_factor = -0.1
+				army_org_factor = -0.03
+				army_morale_factor = -0.05
+				breakthrough_factor = -0.04
+				planning_speed = -0.04
+
+				dig_in_speed_factor = 0.05
+
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.1
+
+			}
+		}
 		SOV_wagner_forces_integrated = {
 			removal_cost = -1
 			picture = SOV_wagner_integrated
 			modifier = {
 				experience_loss_factor = -0.05
-				planning_speed = 0.15
+				planning_speed = 0.1
 				army_strength_factor = 0.05
 				army_org_regain = 0.1
 				special_forces_attack_factor = 0.05

@@ -4049,3 +4049,44 @@ country_event = {
 		add_political_power = 25
 	}
 }
+
+#Winter season
+country_event = {
+	id = ukraine.112
+	title = ukraine.112.t
+	desc = ukraine.112.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_winter
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_war = yes }
+				country_event = { id = ukraine.112 days = 365 } 
+			}
+		}
+	}
+
+	option = { 
+		name = ukraine.112.a
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = { has_war = yes }
+
+		    add_timed_idea = {
+                idea = SOV_UKR_winter_wartime
+                days = 60
+            }
+
+
+		}
+
+		else = {
+			add_war_support = -0.03
+		}
+
+	}
+}
