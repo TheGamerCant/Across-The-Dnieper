@@ -1,0 +1,178 @@
+focus_tree = {
+    id = donbass_shared
+	continuous_focus_position = { x = -40 y = 1900 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = LHK
+		}
+		modifier = {
+			add = 10
+			tag = KHK
+		}
+		modifier = {
+			add = 10
+			tag = ODS
+		}
+		modifier = {
+			add = 10
+			tag = NOV
+		}
+	}
+	
+	shared_focus = DONBASS_the_fight_against_nazism
+	shared_focus = DONBASS_the_novorossiya_project
+}
+
+shared_focus = {
+	id = DONBASS_the_novorossiya_project		#This is gonna be a joint focus like the nordic tree
+	icon = GFX_focus_
+	x = 10
+	y = 0
+	
+	cost = 30
+	ai_will_do = {
+	}
+	offset = {
+		x = 17
+		y = 8
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			tag = DON
+		}
+	}
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+
+	}
+}
+
+shared_focus = {
+	id = DONBASS_the_fight_against_nazism
+	icon = GFX_focus_
+	x = 20
+	y = 0
+	
+	cost = 30
+	ai_will_do = {
+	}
+	offset = {
+		x = 17
+		y = 8
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			tag = DON
+		}
+	}
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_war_support = 0.05
+	}
+}
+
+shared_focus = {
+	id = DONBASS_urban_warfare
+	icon = GFX_focus_
+	x = -2
+	y = 1
+	
+	cost = 28
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		custom_effect_tooltip = DONBASS_urban_warfare_tt
+		hidden_effect = { set_technology = { DONBASS_urban_warfare_tech = 1 popup = no } }
+	}
+}
+
+shared_focus = {
+	id = DONBASS_lessons_of_war
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	
+	cost = 40
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { impromptu_militias_army_org_factor = 0.04 }
+		add_to_variable = { impromptu_militias_army_morale_factor = 0.04 }
+		custom_effect_tooltip = DONBASS_lessons_of_war_tt
+	}
+}
+
+shared_focus = {
+	id = DONBASS_central_command
+	icon = GFX_focus_
+	x = 2
+	y = 1
+	
+	cost = 28
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_political_power = 25
+		add_command_power = 50
+	}
+}
