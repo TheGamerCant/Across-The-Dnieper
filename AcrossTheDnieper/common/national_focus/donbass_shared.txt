@@ -19,23 +19,27 @@ focus_tree = {
 			add = 10
 			tag = NOV
 		}
+#		modifier = {
+#			add = 10
+#			tag = DON
+#		}
 	}
 	
 	shared_focus = DONBASS_the_fight_against_nazism
-	shared_focus = DONBASS_the_novorossiya_project
+#	shared_focus = DONBASS_the_novorossiya_project
 }
 
 shared_focus = {
 	id = DONBASS_the_novorossiya_project		#This is gonna be a joint focus like the nordic tree
 	icon = GFX_focus_
-	x = 10
+	x = 7
 	y = 0
 	
 	cost = 30
 	ai_will_do = {
 	}
 	offset = {
-		x = 17
+		x = 21
 		y = 8
 		trigger = {
 			has_game_rule = {
@@ -43,6 +47,7 @@ shared_focus = {
 				option = HIDE
 			}
 			tag = DON
+			has_focus_tree = donetsk
 		}
 	}
 	available = {
@@ -66,7 +71,7 @@ shared_focus = {
 	x = 20
 	y = 0
 	
-	cost = 30
+	cost = 24
 	ai_will_do = {
 	}
 	offset = {
@@ -78,6 +83,7 @@ shared_focus = {
 				option = HIDE
 			}
 			tag = DON
+			has_focus_tree = donetsk
 		}
 	}
 	available = {
@@ -92,16 +98,17 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_war_support = 0.05
+		add_manpower = 12000
 	}
 }
 
 shared_focus = {
 	id = DONBASS_urban_warfare
 	icon = GFX_focus_
-	x = -2
+	x = -3
 	y = 1
 	
-	cost = 28
+	cost = 30
 	ai_will_do = {
 	}
 	prerequisite = { focus = DONBASS_the_fight_against_nazism }
@@ -123,16 +130,248 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = DONBASS_seize_ukrainian_equipment
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	
+	cost = 48
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_urban_warfare }
+	relative_position_id = DONBASS_urban_warfare
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 680
+			producer = UKR
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment_1
+			amount = 220
+			producer = UKR
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment_1
+			amount = 200
+			producer = UKR
+		}
+		add_equipment_to_stockpile = {
+			type = mechanized_equipment_1
+			amount = 50
+			producer = UKR
+		}
+		add_equipment_to_stockpile = {
+			type = apc_equipment_1
+			amount = 50
+			producer = UKR
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_anti_tank_equipment_1
+			amount = 20
+			producer = UKR
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_anti_air_equipment_1
+			amount = 20
+			producer = UKR
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_mandatory_conscription
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 30
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { impromptu_militias_conscription = 0.06 }
+		custom_effect_tooltip = DONBASS_mandatory_conscription_tt
+		
+		add_timed_idea = { idea = DONBASS_mobilisation days = 120 }
+	}
+}
+
+shared_focus = {
+	id = DONBASS_grab_whatever_we_can
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	
+	cost = 45
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_mandatory_conscription }
+	relative_position_id = DONBASS_mandatory_conscription
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 2200
+			producer = ROOT
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_russian_training
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 30
+	ai_will_do = {
+		factor = 0		#AI will never choose this option
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	mutually_exclusive = { focus = DONBASS_mandatory_conscription }
+	available = {
+		OR={
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			is_puppet_of = SOV
+			is_in_faction_with = SOV
+			SOV = { has_war_with = UKR }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = DONBASS_russian_training_idea
+		
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = -0.1
+				localization = DONBASS_russian_training
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_russian_officers
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	
+	cost = 45
+	ai_will_do = {
+
+	}
+	prerequisite = { focus = DONBASS_russian_training }
+	relative_position_id = DONBASS_russian_training
+	available = {
+		OR={
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			is_puppet_of = SOV
+			is_in_faction_with = SOV
+			SOV = { has_war_with = UKR }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_to_variable = { impromptu_militias_experience_gain_army_factor = 0.2 }
+		add_to_variable = { impromptu_militias_command_power_gain_mult = 0.2 }
+		custom_effect_tooltip = DONBASS_russian_officers_tt
+		
+		army_experience = 50
+		
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = -0.2
+				localization = DONBASS_russian_officers
+			}
+		}
+	}
+}
+
+
+shared_focus = {
+	id = DONBASS_central_command
+	icon = GFX_focus_
+	x = 3
+	y = 1
+	
+	cost = 14
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	relative_position_id = DONBASS_the_fight_against_nazism
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_political_power = 25
+		add_command_power = 50
+	}
+}
+
+shared_focus = {
 	id = DONBASS_lessons_of_war
 	icon = GFX_focus_
 	x = 0
 	y = 1
 	
-	cost = 40
+	cost = 32
 	ai_will_do = {
 	}
-	prerequisite = { focus = DONBASS_the_fight_against_nazism }
-	relative_position_id = DONBASS_the_fight_against_nazism
+	prerequisite = { focus = DONBASS_central_command }
+	relative_position_id = DONBASS_central_command
 	available = {
 
 	}
@@ -151,15 +390,17 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = DONBASS_central_command
+	id = DONBASS_to_fight_a_modern_war
 	icon = GFX_focus_
-	x = 2
-	y = 1
+	x = 0
+	y = 3
 	
-	cost = 28
+	cost = 80
 	ai_will_do = {
 	}
-	prerequisite = { focus = DONBASS_the_fight_against_nazism }
+	prerequisite = { focus = DONBASS_lessons_of_war }
+	prerequisite = { focus = DONBASS_seize_ukrainian_equipment }
+	prerequisite = { focus = DONBASS_grab_whatever_we_can focus = DONBASS_russian_officers }
 	relative_position_id = DONBASS_the_fight_against_nazism
 	available = {
 
@@ -172,7 +413,138 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		add_political_power = 25
-		add_command_power = 50
+		add_to_variable = { impromptu_militias_army_attack_factor = 0.12 }
+		add_to_variable = { impromptu_militias_army_speed_factor = 0.2 }
+		add_to_variable = { impromptu_militias_army_core_defence_factor = 0.03 }
+		subtract_from_variable = { impromptu_militias_ai_focus_defense_factor = 0.3 }
+		custom_effect_tooltip = DONBASS_to_fight_a_modern_war_tt
+	}
+}
+
+shared_focus = {
+	id = DONBASS_russian_military_bases
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_russian_officers }
+	prerequisite = { focus = DONBASS_seize_ukrainian_equipment }
+	relative_position_id = DONBASS_russian_officers
+	available = {
+		OR={
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			is_puppet_of = SOV
+			is_in_faction_with = SOV
+			SOV = { has_war_with = UKR }
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }
+			random_select_amount = 2
+			
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 5
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_2 = yes
+		}
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = -0.2
+				localization = DONBASS_russian_military_bases
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_domestic_arms
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+	}
+	prerequisite = { focus = DONBASS_grab_whatever_we_can }
+	prerequisite = { focus = DONBASS_lessons_of_war }
+	relative_position_id = DONBASS_grab_whatever_we_can
+	available = {
+		OR={
+			has_war = no
+			custom_trigger_tooltip={
+				tooltip = DONBASS_domestic_arms_tt
+				NOT={
+					any_state={
+						NOT = { is_owned_by = ROOT }
+						OR={
+							is_core_of = ROOT
+							is_claimed_by = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		random_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }
+			
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		random_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }
+			
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			
+			increase_state_gdp_growth_by_1 = yes
+		}
 	}
 }
