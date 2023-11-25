@@ -546,6 +546,42 @@ characters={
 			}
 		}
 	}
+	
+	SOV_nikolai_patrushev = {
+		name = SOV_nikolai_patrushev
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Nikolai_Patrushev_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Nikolai_Patrushev.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_nikolai_patrushev
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_head_of_the_security_council
+			}
+			
+			on_add = {
+				owner = {
+					get_patrushev_hire_effect = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					get_patrushev_fire_effect = yes
+				}
+			}
+		}
+	}
 
 	SOV_sergey_lavrov_rework = {
 		name = SOV_sergey_lavrov
@@ -1787,12 +1823,11 @@ characters={
 		}	
 	}
 	
-	SOV_nikolai_patrushev = {
-		name = SOV_nikolai_patrushev
+	SOV_dmitry_patrushev = {
+		name = SOV_dmitry_patrushev
 		portraits = {
 			civilian = {
-				small = "gfx/leaders/SOV/advisors/Portrait_Nikolai_Patrushev_Advisor.png"
-				large = "gfx/leaders/SOV/Portrait_Nikolai_Patrushev.png"
+				small = "gfx/leaders/SOV/advisors/Portrait_Dmitry_Patrushev_Advisor.png"
 			}
 		}
 		allowed_civil_war = {
@@ -1801,26 +1836,18 @@ characters={
 
 		advisor = {
 			slot = political_advisor
-			idea_token = SOV_nikolai_patrushev
+			idea_token = SOV_dmitry_patrushev
 			allowed = {
 				original_tag = SOV
 			}
 
 			traits = {
-				SOV_head_of_the_security_council
+				SOV_minister_of_agriculture
 			}
 			
-			on_add = {
-				owner = {
-					get_patrushev_hire_effect = yes
-				}
-			}
-			on_remove = {
-				owner = {
-					get_patrushev_fire_effect = yes
-				}
+			available={
+				has_completed_focus = SOV_the_new_nobility_siloviki
 			}
 		}
 	}
-	
 }

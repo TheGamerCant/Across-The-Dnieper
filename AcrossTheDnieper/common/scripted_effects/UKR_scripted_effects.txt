@@ -374,7 +374,9 @@ make_borders_look_nice={
 		UKR = { transfer_state = 208 }
 		NOV = { transfer_state = 155 }
 	}
-	if={#Keep this at bottom
+	
+	
+	if={
 		limit = { 
 			154 = { is_controlled_by = NOV }
 			155 = { is_controlled_by = UKR }
@@ -382,6 +384,51 @@ make_borders_look_nice={
 			131 = { is_controlled_by = UKR }
 		}
 		UKR = { transfer_state = 154 }
+	}
+	
+	if={
+		limit = { 
+			255 = { is_controlled_by = NOV }
+			304 = { is_controlled_by = UKR }
+		}
+		NOV = { transfer_state = 304 }
+	}
+	else_if={
+		limit = { 
+			255 = { is_controlled_by = UKR }
+			304 = { is_controlled_by = NOV }
+		}
+		UKR = { transfer_state = 304 }
+	}
+	
+	if={
+		limit = { 
+			255 = { is_controlled_by = NOV }
+			447 = { is_controlled_by = UKR }
+		}
+		NOV = { transfer_state = 447 }
+	}
+	else_if={
+		limit = { 
+			255 = { is_controlled_by = UKR }
+			447 = { is_controlled_by = NOV }
+		}
+		UKR = { transfer_state = 447 }
+	}
+	
+	if={
+		limit = { 
+			250 = { is_controlled_by = NOV }
+			300 = { is_controlled_by = UKR }
+		}
+		NOV = { transfer_state = 300 }
+	}
+	else_if={
+		limit = { 
+			250 = { is_controlled_by = UKR }
+			300 = { is_controlled_by = NOV }
+		}
+		UKR = { transfer_state = 300 }
 	}
 	
 	

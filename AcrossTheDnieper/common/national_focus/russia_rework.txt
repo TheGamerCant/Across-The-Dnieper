@@ -4442,6 +4442,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			add_political_power = 25
 			add_to_variable = { SOV_siloviki_political_power_factor = 0.05 }
 			add_to_variable = { SOV_siloviki_root_out_resistance_effectiveness_factor = 0.3 }
 			custom_effect_tooltip = SOV_the_watchful_eye_of_leader_tt
@@ -4450,7 +4451,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_patriotic_youth
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_patriotic_youth
 		x = 0
 		y = 1
 		cost = 48
@@ -4493,7 +4494,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_facial_recognition
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_facial_recognition
 		x = 0
 		y = 1
 		cost = 48
@@ -4521,7 +4522,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_a_camera_on_every_wall
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_invest_in_surveilance_technology
 		x = 1
 		y = 1
 		cost = 48
@@ -4566,7 +4567,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_and_agent_behind_every_camera
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_and_agent_behind_every_camera
 		x = 1
 		y = 1
 		cost = 48
@@ -4587,6 +4588,100 @@ focus_tree = {
 		}
 	}
 	
+	
+	focus = {
+		id = SOV_all_power_to_the_army
+		icon = GFX_focus_
+		x = 5
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_destroy_the_oligarchy }
+		relative_position_id = SOV_destroy_the_oligarchy
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+		}
+		
+		completion_reward={
+			
+		}
+	}
+	
+	focus = {
+		id = SOV_all_power_to_the_fsb
+		icon = GFX_focus_
+		x = 15
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_destroy_the_oligarchy }
+		relative_position_id = SOV_destroy_the_oligarchy
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+		
+		completion_reward={
+			
+		}
+	}
+	
+	focus = {
+		id = SOV_all_power_to_the_state
+		icon = GFX_focus_
+		x = 25
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_destroy_the_oligarchy }
+		relative_position_id = SOV_destroy_the_oligarchy
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			
+		}
+	}
+	
+	focus = {
+		id = SOV_the_new_nobility_siloviki
+		icon = GFX_focus_
+		x = -1
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state }
+		relative_position_id = SOV_all_power_to_the_state
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			swap_ideas={
+				remove_idea = SOV_controlled_oligarchy
+				add_idea = SOV_the_new_nobility_siloviki_idea
+			}
+			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_dmitry_patrushev
+		}
+	}
 	
 	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation
