@@ -7373,10 +7373,18 @@ focus_tree = {
 						scope = SOV
 					}
 
-					add_dynamic_modifier = {
-						modifier = UKR_heavily_defended_area
-						scope = UKR
+					if = {
+						limit = {
+							NOT = { has_dynamic_modifier = { modifier = UKR_heavily_defended_area scope = UKR } }
+							NOT = { has_dynamic_modifier = { modifier = UKR_heavily_entrenched_russians scope = UKR } }
+						}
+
+						add_dynamic_modifier = {
+						    modifier = UKR_heavily_defended_area
+						    scope = UKR
+					    }
 					}
+
 				}
 			}
 		}
