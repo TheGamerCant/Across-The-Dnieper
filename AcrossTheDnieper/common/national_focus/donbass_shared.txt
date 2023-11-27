@@ -26,28 +26,21 @@ focus_tree = {
 	}
 	
 	shared_focus = DONBASS_the_fight_against_nazism
-#	shared_focus = DONBASS_the_novorossiya_project
+	shared_focus = DONBASS_glory_to_the_republic
 }
 
 shared_focus = {
-	id = DONBASS_the_novorossiya_project		#This is gonna be a joint focus like the nordic tree
+	id = DONBASS_glory_to_the_republic
 	icon = GFX_focus_
-	x = 7
+	x = 6
 	y = 0
 	
-	cost = 30
+	cost = 60
 	ai_will_do = {
-	}
-	offset = {
-		x = 21
-		y = 8
-		trigger = {
-			has_game_rule = {
-				rule = obsolete_focus_branches_visibility
-				option = HIDE
-			}
-			tag = DON
-			has_focus_tree = donetsk
+		base = 1
+		modifier = {
+			factor = 0
+			has_war = yes
 		}
 	}
 	available = {
@@ -61,7 +54,168 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
+		add_stability = 0.1
+		add_political_power = 100
+	}
+}
 
+shared_focus = {
+	id = DONBASS_ukrainian_collaborators
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_glory_to_the_republic }
+	relative_position_id = DONBASS_glory_to_the_republic
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = DONBASS_ukrainian_collaborators_idea
+	}
+}
+
+shared_focus = {
+	id = DONBASS_our_own_administration
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		base = 0
+	}
+	prerequisite = { focus = DONBASS_ukrainian_collaborators }
+	relative_position_id = DONBASS_ukrainian_collaborators
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas={
+			remove_idea = DONBASS_ukrainian_collaborators_idea
+			add_idea = DONBASS_ukrainian_collaborators_idea_2
+		}
+		
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = 0.2
+				localization = DONBASS_our_own_administration
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_rely_on_russia
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_ukrainian_collaborators }
+	relative_position_id = DONBASS_ukrainian_collaborators
+	available = {
+	
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas={
+			remove_idea = DONBASS_ukrainian_collaborators_idea
+			add_idea = DONBASS_reliance_on_russia
+		}
+		
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = -0.15
+				localization = DONBASS_rely_on_russia
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_destroy_all_opposition
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 24
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_glory_to_the_republic }
+	relative_position_id = DONBASS_glory_to_the_republic
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_popularity = { ideology = eastern_conservative popularity = 0.15 }
+	}
+}
+
+shared_focus = {
+	id = DONBASS_work_for_the_republic
+	icon = GFX_focus_
+	x = -5
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_glory_to_the_republic }
+	relative_position_id = DONBASS_glory_to_the_republic
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas={
+			remove_idea = free_trade_unions
+			add_idea = unions_banned
+		}
 	}
 }
 
@@ -73,6 +227,7 @@ shared_focus = {
 	
 	cost = 24
 	ai_will_do = {
+		base = 1
 	}
 	offset = {
 		x = 17
@@ -110,6 +265,7 @@ shared_focus = {
 	
 	cost = 30
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_the_fight_against_nazism }
 	relative_position_id = DONBASS_the_fight_against_nazism
@@ -137,6 +293,7 @@ shared_focus = {
 	
 	cost = 48
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_urban_warfare }
 	relative_position_id = DONBASS_urban_warfare
@@ -197,6 +354,7 @@ shared_focus = {
 	
 	cost = 30
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_the_fight_against_nazism }
 	relative_position_id = DONBASS_the_fight_against_nazism
@@ -226,6 +384,7 @@ shared_focus = {
 	
 	cost = 45
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_mandatory_conscription }
 	relative_position_id = DONBASS_mandatory_conscription
@@ -342,6 +501,7 @@ shared_focus = {
 	
 	cost = 14
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_the_fight_against_nazism }
 	relative_position_id = DONBASS_the_fight_against_nazism
@@ -369,6 +529,7 @@ shared_focus = {
 	
 	cost = 32
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_central_command }
 	relative_position_id = DONBASS_central_command
@@ -397,6 +558,7 @@ shared_focus = {
 	
 	cost = 80
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_lessons_of_war }
 	prerequisite = { focus = DONBASS_seize_ukrainian_equipment }
@@ -429,6 +591,7 @@ shared_focus = {
 	
 	cost = 60
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_russian_officers }
 	prerequisite = { focus = DONBASS_seize_ukrainian_equipment }
@@ -492,6 +655,7 @@ shared_focus = {
 	
 	cost = 60
 	ai_will_do = {
+		base = 1
 	}
 	prerequisite = { focus = DONBASS_grab_whatever_we_can }
 	prerequisite = { focus = DONBASS_lessons_of_war }
