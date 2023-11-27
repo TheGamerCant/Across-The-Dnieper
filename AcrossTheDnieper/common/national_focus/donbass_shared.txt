@@ -89,7 +89,7 @@ shared_focus = {
 shared_focus = {
 	id = DONBASS_our_own_administration
 	icon = GFX_focus_
-	x = 1
+	x = -1
 	y = 1
 	
 	cost = 60
@@ -98,6 +98,7 @@ shared_focus = {
 	}
 	prerequisite = { focus = DONBASS_ukrainian_collaborators }
 	relative_position_id = DONBASS_ukrainian_collaborators
+	mutually_exclusive = { focus = DONBASS_rely_on_russia }
 	available = {
 
 	}
@@ -136,6 +137,7 @@ shared_focus = {
 	}
 	prerequisite = { focus = DONBASS_ukrainian_collaborators }
 	relative_position_id = DONBASS_ukrainian_collaborators
+	mutually_exclusive = { focus = DONBASS_our_own_administration }
 	available = {
 	
 	}
@@ -186,6 +188,33 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_popularity = { ideology = eastern_conservative popularity = 0.15 }
+	}
+}
+
+shared_focus = {
+	id = DONBASS_all_power_to_the_party
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 48
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_destroy_all_opposition }
+	relative_position_id = DONBASS_destroy_all_opposition
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = DONBASS_total_control_of_the_republic
 	}
 }
 
