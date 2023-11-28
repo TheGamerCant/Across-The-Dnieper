@@ -60,6 +60,7 @@ ideas ={
 			modifier = {
 				stability_factor = -0.1
 				political_power_cost = 1
+				inflation_monthly = 0.03
 			}
 		}
 
@@ -270,7 +271,7 @@ ideas ={
 			
 			modifier = {
 				political_power_gain = 0.25
-				war_support_factor = 0.1
+				stability_weekly = 0.001
 			}
 			
 			targeted_modifier = {
@@ -292,8 +293,29 @@ ideas ={
 			modifier = {
 				political_power_gain = -0.1
 				stability_factor = 0.05
-				consumer_goods_expected_value = -0.04
+				consumer_goods_expected_value = -0.03
 				political_advisor_cost_factor = -0.33
+			}
+		}
+		
+		DONBASS_reliance_on_russia_2 = {
+			picture = LIT_Russian_Minority
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = 0.05
+				consumer_goods_expected_value = -0.06
+				political_advisor_cost_factor = -0.33
+				weekly_manpower = 200
+				
+				resistance_growth = -0.15
 			}
 		}
 		
@@ -310,7 +332,7 @@ ideas ={
 			modifier = {
 				political_power_gain = 0.1
 				stability_weekly = 0.002
-
+				ruling_party_drift = 0.1
 			}
 		}
 
@@ -330,6 +352,23 @@ ideas ={
 				industrial_capacity_dockyard = 0.05
 				consumer_goods_factor = -0.05
 				stability_factor = -0.05
+			}
+		}
+		
+		DONBASS_price_caps = {
+			picture = BLR_consumer_industries_idea
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				inflation_monthly = -0.06
+				consumer_goods_factor = 0.03
+				political_power_cost = 0.05
 			}
 		}
 

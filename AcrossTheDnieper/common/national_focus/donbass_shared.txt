@@ -87,9 +87,37 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = DONBASS_independence_day_parades
+	icon = GFX_focus_
+	x = 3
+	y = 1
+	
+	cost = 48
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_glory_to_the_republic }
+	relative_position_id = DONBASS_glory_to_the_republic
+	available = {
+		date > 2015.4.1
+		has_war = no
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		country_event = { id = donbass_mutual.2 hours = 3 }
+	}
+}
+
+shared_focus = {
 	id = DONBASS_our_own_administration
 	icon = GFX_focus_
-	x = -1
+	x = 1
 	y = 1
 	
 	cost = 60
@@ -97,6 +125,7 @@ shared_focus = {
 		base = 0
 	}
 	prerequisite = { focus = DONBASS_ukrainian_collaborators }
+	prerequisite = { focus = DONBASS_independence_day_parades }
 	relative_position_id = DONBASS_ukrainian_collaborators
 	mutually_exclusive = { focus = DONBASS_rely_on_russia }
 	available = {
@@ -128,7 +157,7 @@ shared_focus = {
 shared_focus = {
 	id = DONBASS_rely_on_russia
 	icon = GFX_focus_
-	x = 1
+	x = -1
 	y = 1
 	
 	cost = 60
@@ -160,6 +189,37 @@ shared_focus = {
 				value = -0.15
 				localization = DONBASS_rely_on_russia
 			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_little_green_men
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_rely_on_russia }
+	prerequisite = { focus = DONBASS_all_power_to_the_party }
+	relative_position_id = DONBASS_rely_on_russia
+	available = {
+	
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas={
+			remove_idea = DONBASS_reliance_on_russia
+			add_idea = DONBASS_reliance_on_russia_2
 		}
 	}
 }
@@ -197,7 +257,7 @@ shared_focus = {
 	x = 0
 	y = 2
 	
-	cost = 48
+	cost = 70
 	ai_will_do = {
 		base = 1
 	}
@@ -241,12 +301,230 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		swap_ideas={
-			remove_idea = free_trade_unions
-			add_idea = unions_banned
+		if={
+			limit={
+				has_idea = free_trade_unions
+			}
+			swap_ideas={
+				remove_idea = free_trade_unions
+				add_idea = unions_banned
+			}
+		}
+		else_if={
+			limit={
+				has_idea = government_trade_unions
+			}
+			swap_ideas={
+				remove_idea = government_trade_unions
+				add_idea = unions_banned
+			}
+		}
+		else={
+			add_ideas = unions_banned
 		}
 	}
 }
+
+shared_focus = {
+	id = DONBASS_old_soviet_factories
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_work_for_the_republic }
+	relative_position_id = DONBASS_work_for_the_republic
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }
+			random_select_amount = 2
+			
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_3 = yes
+		}
+		
+		every_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }
+			random_select_amount = 1
+			
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_introduce_price_caps
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_old_soviet_factories }
+	relative_position_id = DONBASS_old_soviet_factories
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		decrease_inflation_rate_by_4 = yes
+		add_ideas = DONBASS_price_caps
+		add_stability = -0.05
+	}
+}
+
+shared_focus = {
+	id = DONBASS_dig_deeper
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 45
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_work_for_the_republic }
+	relative_position_id = DONBASS_work_for_the_republic
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = DONBASS_dig_deeper
+			bonus = 1
+			uses = 2
+			category = excavation_tech
+		}
+		add_tech_bonus = {
+			name = DONBASS_dig_deeper
+			bonus = 0.6
+			uses = 1
+			category = construction_tech
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_fertile_soil
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 28
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_dig_deeper }
+	relative_position_id = DONBASS_dig_deeper
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_controlled_state={
+			limit = { OR = { is_core_of = ROOT is_claimed_by = ROOT } }	
+			add_extra_state_shared_building_slots = 2
+			increase_state_gdp_growth_by_1 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_russian_resource_companies
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_dig_deeper }
+	prerequisite = { focus = DONBASS_rely_on_russia }
+	relative_position_id = DONBASS_dig_deeper
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		random_owned_controlled_state={
+			prioritize = { 195 145 155 94 320 291 152 173 }
+			add_resource = { 
+				type = oil
+				amount = 18
+			}
+			increase_state_gdp_growth_by_2 = yes
+		}
+		
+		random_owned_controlled_state={
+			prioritize = { 186 166 94 89 159 214 }
+			add_resource = { 
+				type = steel
+				amount = 30
+			}
+			increase_state_gdp_growth_by_2 = yes
+		}
+		
+		random_owned_controlled_state={
+			add_resource = { 
+				type = aluminium
+				amount = 7
+			}
+		}
+	}
+}
+
 
 shared_focus = {
 	id = DONBASS_the_fight_against_nazism
@@ -609,6 +887,13 @@ shared_focus = {
 		add_to_variable = { impromptu_militias_army_core_defence_factor = 0.03 }
 		subtract_from_variable = { impromptu_militias_ai_focus_defense_factor = 0.3 }
 		custom_effect_tooltip = DONBASS_to_fight_a_modern_war_tt
+		
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
 	}
 }
 
