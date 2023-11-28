@@ -1,0 +1,86 @@
+nuclear_war={
+	set_global_flag = nuclear_war_flag
+	every_country={
+		scoped_sound_effect = "super_event_nuclear_war"		
+		scoped_play_song = "Nuclear War"
+	}
+}
+
+load_ww3={
+	hidden_effect={	
+		every_state={
+			limit={
+				OR={
+					state = 24
+					state = 212
+					state = 319
+					state = 422
+					state = 419
+					state = 48
+					state = 367
+				}
+				OWNER = { is_in_faction_with = USA }
+			}
+			NAT={ transfer_state = PREV }
+			add_core_of = NAT
+		}
+		
+		if={
+			limit = { 24 = { is_owned_by = NAT } }
+			24={
+				add_building_construction = {
+					type = naval_base
+					level = 5
+					instant_build = yes
+					province = 20305
+				}
+			}
+			
+			build_railway = {
+				level = 3
+				start_state = 24
+				target_state = 427
+			}
+		}
+		
+		USA = { add_to_faction = NAT }
+		NAT = { 
+			set_faction_leader = yes 
+			
+			division_template = {
+				name = "NATO Infantry Batallion"
+				division_names_group = NAT_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }	
+					mechanized = { x = 2 y = 0 }
+					mechanized = { x = 2 y = 1 }
+					mechanized = { x = 2 y = 2 }
+					apc = { x = 2 y = 3 }
+				}
+				support = {
+					maintenance_company = { x = 0 y = 0 }   
+					logistics_company = { x = 0 y = 1 }  
+					signal_company = { x = 0 y = 2 }  
+					mot_recon = { x = 0 y = 3 } 
+				}
+			}
+			
+			for_loop_effect = {
+				end = 80				#Remember, NATO doctrine was basically hold the Vistula until the yanks get here... at least until we discovered Russia was lacking in the 'competent army' department. lol. Anyways, these are spawned in because AI is hard-coded to not make divisions, so these are just to hold Russia until NATO completes their focuses
+				value = temp																		#Across the Vistula when?
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Batallion\" start_experience_factor = 0.2" 
+						owner = NAT
+					}
+				}
+			}
+		}
+	}
+}

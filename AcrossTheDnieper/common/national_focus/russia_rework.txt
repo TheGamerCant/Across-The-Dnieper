@@ -4674,7 +4674,7 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_army
 		icon = GFX_focus_SOV_all_power_to_the_army
-		x = 5
+		x = 7
 		y = 1
 		cost = 35
 		search_filters = {
@@ -4693,39 +4693,16 @@ focus_tree = {
 #				character = SOV_sergey_shoygu_rework 
 #				value = yes
 #			}
+			add_to_variable = { SOV_siloviki_experience_gain_army_factor = 0.18 }
+			custom_effect_tooltip = SOV_all_power_to_the_army_tt
 			army_experience = 100
-		}
-	}
-	
-	focus = {
-		id = SOV_all_power_to_the_fsb
-		icon = GFX_focus_SOV_all_power_to_the_fsb
-		x = 15
-		y = 1
-		cost = 35
-		search_filters = {
-			
-		}
-
-		prerequisite = { focus = SOV_destroy_the_oligarchy }
-		relative_position_id = SOV_destroy_the_oligarchy
-		available={
-			has_government = military_junta
-			alexander_bortnikov_is_leader = yes
-		}
-		
-		completion_reward={
-			add_to_variable = { SOV_siloviki_operation_risk = -0.25 }
-			add_to_variable = { SOV_siloviki_subversive_activites_upkeep = -0.1 }
-			add_to_variable = { SOV_siloviki_operative_slot = 1 }
-			custom_effect_tooltip = SOV_all_power_to_the_fsb_tt
 		}
 	}
 	
 	focus = {
 		id = SOV_all_power_to_the_state
 		icon = GFX_focus_
-		x = 25
+		x = 21
 		y = 1
 		cost = 35
 		search_filters = {
@@ -4770,6 +4747,121 @@ focus_tree = {
 			
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SOV_dmitry_patrushev
+		}
+	}
+	
+	focus = {
+		id = SOV_secure_our_western_frontiers
+		icon = GFX_focus_
+		x = -7
+		y = 1
+		cost = 25
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state focus = SOV_all_power_to_the_army }
+		relative_position_id = SOV_all_power_to_the_state
+		available={
+			has_government = military_junta
+			
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1086 hours = 2 }
+		}
+	}
+	
+	focus = {
+		id = SOV_no_more_waiting
+		icon = GFX_focus_
+		x = -1
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_secure_our_western_frontiers }
+		relative_position_id = SOV_secure_our_western_frontiers
+		mutually_exclusive = { focus = SOV_maintain_the_status_quo }
+		available={
+			has_government = military_junta
+			country_exists = BLR
+		}
+		bypass={
+			NOT = { country_exists = BLR }
+		}
+		
+		completion_reward={
+			if={
+				limit = { 
+					OR={
+						BLR = { is_puppet_of = ROOT }
+						is_in_faction_with = BLR
+						BLR = { has_government = eastern_conservative }
+					}
+				}
+				BLR = { country_event = { id = russia.1025 hours = 2 } }
+			}
+			else={
+				declare_war_on = { target = BLR type = annex_everything  }
+			}
+			
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = SOV_maintain_the_status_quo
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 24
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_secure_our_western_frontiers }
+		relative_position_id = SOV_secure_our_western_frontiers
+		mutually_exclusive = { focus = SOV_no_more_waiting }
+		available={
+			has_government = military_junta
+			country_exists = BLR
+		}
+		bypass={
+			NOT = { country_exists = BLR }
+		}
+		
+		completion_reward={
+			add_political_power = 50 add_stability = 0.05
+			BLR = { add_political_power = 50 add_stability = 0.05 }
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_all_power_to_the_fsb
+		icon = GFX_focus_SOV_all_power_to_the_fsb
+		x = 35
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_destroy_the_oligarchy }
+		relative_position_id = SOV_destroy_the_oligarchy
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+		
+		completion_reward={
+			add_to_variable = { SOV_siloviki_operation_risk = -0.25 }
+			add_to_variable = { SOV_siloviki_subversive_activites_upkeep = -0.1 }
+			add_to_variable = { SOV_siloviki_operative_slot = 1 }
+			custom_effect_tooltip = SOV_all_power_to_the_fsb_tt
 		}
 	}
 	

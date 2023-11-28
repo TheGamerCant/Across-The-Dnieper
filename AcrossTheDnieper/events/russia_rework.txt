@@ -940,7 +940,7 @@ country_event = {
 			base = 6
 			modifier = {
 				factor = 0
-				is_historical_focus_on = yes
+				AND={ is_historical_focus_on = yes SOV = { has_government = eastern_conservative } }
 				NOT = { is_puppet_of = SOV }
 			}
 		}
@@ -976,9 +976,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR={
-					is_historical_focus_on = yes
+					AND={ is_historical_focus_on = yes SOV = { has_government = eastern_conservative } }
 					is_puppet_of = SOV
 				}
+			}
+			
+			modifier = {
+				factor = 3
+				SOV = { has_government = military_junta }
 			}
 		}
 		leave_faction = yes
@@ -1048,7 +1053,7 @@ country_event = {
     option = {				
         name = russia.1028.a
 		ai_chance = {
-			base = 10
+			base = 40		#80% chance to invade
 		}
 		declare_war_on = { target = BLR type = annex_everything  }
     }
@@ -1056,10 +1061,11 @@ country_event = {
 	option = {				
         name = russia.1028.a
 		ai_chance = {
-			base = 0
+			base = 10
 		}
 		add_political_power = -50
 		add_war_support = -0.02
+		send_embargo = BLR
     }
 }
 
@@ -3229,6 +3235,25 @@ country_event = {
 			base = 10
 		}
 		add_ideas = SOV_patriotic_youth_idea
+	}
+}
+
+#Enemies Abroad 2
+country_event = {
+    id = russia.1086
+    title = russia.1086.t
+    desc = russia.1086.desc
+    picture = GFX_report_event_SOV_novosti_2
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1086.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 25
+		add_war_support = 0.05
 	}
 }
 

@@ -1,125 +1,59 @@
-﻿capital = 204
+﻿capital = 75
+add_offsite_building = { type = industrial_complex level = 80 }
+add_offsite_building = { type = arms_factory level = 67 }
+add_offsite_building = { type = dockyard level = 40 }
 
-load_nato_doctrine = yes
-
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_oob = "HUN_2014_nsb"
-}
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_oob = "HUN_2014"
-}
-
-create_country_leader = {
-	name = "Viktor Orbán"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = fidesz_subideology
-}
-
-create_country_leader = {
-	name = "István Györkős"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = mna_subideology
-}
-
-create_country_leader = {
-	name = "László Toroczkai"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = mihazank_subideology
-}
-
-create_country_leader = {
-	name = "Tibor Benkő"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = honvedseg_subideology
-}
-
-create_country_leader = {
-	name = "Gábor Vona"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = jobbik_subideology
-}
-
-create_country_leader = {
-	name = "Péter Márki-Zay"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = mmn_subideology
-}
-
-create_country_leader = {
-	name = "András Fekete-Győr"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = momentum_subideology
-}
-
-create_country_leader = {
-	name = "András Schiffer"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = lmp_subideology
-}
-
-create_country_leader = {
-	name = "Gergely Kovács"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = mkkp_subideology
-}
-
-create_country_leader = {
-	name = "Ferenc Gyurcsány"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = dk_subideology
-}
-
-create_country_leader = {
-	name = "Attila Mesterházy"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = mszp_subideology
-}
-
-create_country_leader = {
-	name = "Tibor Szanyi"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = iszomm_subideology
-}
-
-create_country_leader = {
-	name = "Gyula Thürmer"
-	picture = gfx/leaders/HUN/Portrait_Victor_Orban.dds
-	ideology = munkaspart_subideology
-}
-
-set_research_slots = 3
-set_stability = 0.74
-set_war_support = 0.33
-
-# Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	infantry_weapons2 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	advanced_infantry_weapons = 1
 	support_weapons = 1
 	motorised_infantry = 1
 	infantry_anti_tank = 1
+	infantry_anti_tank_2 = 1
+	infantry_anti_tank_3 = 1
+	infantry_anti_tank_upgrade = 1
+	infantry_anti_tank_upgrade_2 = 1
+	infantry_anti_tank_4 = 1
+	infantry_anti_air_upgrade = 1
 	infantry_anti_air = 1
-        apc_equipment_1 = 1
+	infantry_anti_air_2 = 1
 
 	tech_support = 1
 	tech_engineers = 1
-	tech_recon = 1
-	basic_train = 1
 
-	modern_tank_doctrine = 1
 	ifv = 1
 
 	gw_artillery = 1
 	rocket_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	rocket_artillery2 = 1
+	motorized_rocket_unit = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	mot_rocket_artillery_brigade_2 = 1
 
-	fuel_silos = 1
-	synth_oil_experiments = 1
+	f_35 = 1
+
+	early_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+
+    ship_hull_light_1 = 1
 }
 
 if = {
@@ -149,66 +83,33 @@ if = {
 	}
 }
 
-add_ideas = { eu_member }
-
-
 add_ideas = {
-	SLO_visegrad_member
-
-	authoritarian_democracy
-	neutral
-	religion_law_religious
-	womens_rights_traditional_values
-	lgbtq_rights_behind_closed_doors
-	nationalism_laws_armed_neutrality
-	firearm_laws_restricted
-	alcohol_narcotics_laws_largely_regulated
-	unions_restricted
-}
-
-
-set_convoys = 0
-
-#DONT REMOVE
-set_country_flag = is_in_european_union
-set_variable = { pro_eu = 56 }
-set_variable = { sce_eu =  26 }
-set_variable = { neu_eu =  18 }
-clamp_variable = { var = pro_eu min = 0 max = 100 }
-clamp_variable = { var = sce_eu min = 0 max = 100 }
-clamp_variable = { var = neu_eu min = 0 max = 100 }
-set_variable = {
-	gdp = 135.684
-}
-add_ai_strategy = {
-    type = alliance
-    id = "USA"
-    value = 200
+	religion_law_secular
+    womens_rights_equality
+    lgbtq_rights_full_equality
+    minority_rights_societal_discrimination
+    nationalism_laws_interventionist
+    alcohol_narotics_laws_highly_regulated
+    firearms_laws_restricted
 }
 
 set_politics = {
-	ruling_party = populist
-	last_election = "2010.4.11"
-	election_frequency = 60
+	ruling_party = neoliberal
+	last_election = "2013.10.26"
+	election_frequency = 48
 	elections_allowed = yes
 }
 
-2022.1.1 = {
-	set_politics = {
-		ruling_party = populist
-		last_election = "2018.4.8"
-		election_frequency = 60
-		elections_allowed = yes
-	}
+set_popularities = {
+	neoliberal = 100
 }
 
-set_popularities = {
-	populist = 44.8
-	socialist = 14.5
-	eastern_liberal = 7.3
-	social_democracy = 11.2
-	libertarian = 2
-	eastern_conservative = 20.2
+create_country_leader = {
+	name = "Jens Stoltenberg"		#He wasn't gensec until october 2014 but you can't spawn NATO before that
+	desc = ""						#Even then i don't care
+	ideology = generic_neoliberal
+	picture = gfx/leaders/NAT/Portrait_Jens_Stoltenberg.png
+	traits = { NATO_sec_gen }
 }
 
 if = {
