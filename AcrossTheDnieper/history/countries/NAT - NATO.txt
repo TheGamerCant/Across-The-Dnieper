@@ -1,7 +1,9 @@
-﻿capital = 75
+﻿capital = 48
 add_offsite_building = { type = industrial_complex level = 80 }
 add_offsite_building = { type = arms_factory level = 67 }
 add_offsite_building = { type = dockyard level = 40 }
+set_research_slots = 4
+load_nato_doctrine = yes
 
 set_technology = {
 	infantry_weapons = 1
@@ -11,6 +13,8 @@ set_technology = {
 	improved_infantry_weapons_2 = 1
 	advanced_infantry_weapons = 1
 	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
 	motorised_infantry = 1
 	infantry_anti_tank = 1
 	infantry_anti_tank_2 = 1
@@ -21,11 +25,45 @@ set_technology = {
 	infantry_anti_air_upgrade = 1
 	infantry_anti_air = 1
 	infantry_anti_air_2 = 1
+	
+	ifv = 1
+	ifv_upgrade = 1
+	better_ifvs_1 = 1
+	ifv_2 = 1
+	ifv_upgrade_2 = 1
+	apc = 1
+	apc_2 = 1
+	apc_3 = 1
+	
+	elite_special_forces_tech = 1
+	elite_special_forces_tech_2 = 1
+	marines = 1
+	marines2 = 1
+	tech_special_forces = 1
+	advanced_special_forces = 1
 
 	tech_support = 1
 	tech_engineers = 1
-
-	ifv = 1
+	tech_engineers2 = 1
+	tech_engineers3 = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	tech_recon3 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_field_hospital3 = 1
+	tech_logistics_company = 1
+	tech_logistics_company2 = 1
+	tech_logistics_company3 = 1
+	tech_military_police = 1
+	tech_military_police2 = 1
+	tech_military_police3 = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+	tech_signal_company3 = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_maintenance_company3 = 1
 
 	gw_artillery = 1
 	rocket_artillery = 1
@@ -46,14 +84,16 @@ set_technology = {
 	rocket_artillery4 = 1
 	mot_rocket_artillery_brigade_2 = 1
 
-	f_35 = 1
-
 	early_coastal_patrol_ship = 1
 	basic_battery = 1
 	basic_torpedo = 1
 	mtg_transport = 1
 
     ship_hull_light_1 = 1
+	
+	combined_arms = 1
+	intergrated_command = 1
+	hybrid_warfare = 1
 }
 
 if = {
@@ -77,13 +117,66 @@ if = {
 		t72_chasis_tech = 1
 		t80_chasis_tech = 1
 		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
 		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
 		gun_tech_1 = 1
+		gun_tech_2 = 1
+		gun_tech_3 = 1
+		gun_tech_4 = 1
+		at_tech_1 = 1
+		aa_tech_1 = 1
+		aa_tech_2 = 1
 		tank_module_tech_1 = 1
+		
+		abrams_chasis_tech = 1
+		leopard2_chasis_tech = 1
+		challenger2_chasis_tech = 1
 	}
 }
 
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+	set_technology = {
+		f_35 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_technology = {
+		iw_small_airframe = 1
+		basic_small_airframe = 1
+		improved_small_airframe = 1
+		iw_large_airframe = 1
+		basic_large_airframe = 1
+		
+		bombs1 = 1
+		bombs2 = 1
+		aa_lmg = 1
+		aa_am1 = 1
+		aa_am2 = 1
+		aa_am3 = 1
+		aa_mmg = 1
+		aa_hmg = 1
+		range_improvements = 1
+		aircraft_construction = 1
+		survivability_studies = 1
+	}
+}
+
+set_stability = 0.8
+set_war_support = 0.8
+
 add_ideas = {
+	NATO_global_logistics_network
+
 	religion_law_secular
     womens_rights_equality
     lgbtq_rights_full_equality
@@ -231,6 +324,72 @@ if = {
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
 			tank_nsb_armor_upgrade = 5
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Challenger 2"
+		type = challenger2_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon4
+			turret_type_slot = tank_modern_tank_turret3
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = additional_machine_guns
+			special_type_slot_3 = smoke_launchers
+			special_type_slot_4 = easy_maintenance
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 9
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "M1 Abrams"
+		type = abrams_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon4
+			turret_type_slot = tank_modern_tank_turret3
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = additional_machine_guns
+			special_type_slot_3 = smoke_launchers
+			special_type_slot_4 = easy_maintenance
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 11
+			tank_nsb_armor_upgrade = 9
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Leopard 2"
+		type = leopard2_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon4
+			turret_type_slot = tank_modern_tank_turret3
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = additional_machine_guns
+			special_type_slot_3 = smoke_launchers
+			special_type_slot_4 = easy_maintenance
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 11
+			tank_nsb_armor_upgrade = 8
 		}
 	}
 }
