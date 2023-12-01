@@ -103,3 +103,36 @@ any_donbass_country_exists={
 		country_exists = NOV
 	}
 }
+
+ROOT_has_same_government_type_as_FROM={
+	OR={
+		AND={
+			ROOT = { has_far_right_government = yes }
+			FROM = { has_far_right_government = yes }
+		}
+		AND={
+			ROOT = { has_illiberal_government = yes }
+			FROM = { has_illiberal_government = yes }
+		}
+		AND={
+			ROOT = { has_western_government = yes }
+			FROM = { has_western_government = yes }
+		}
+		AND={
+			ROOT = { has_far_left_government = yes }
+			FROM = { has_far_left_government = yes }
+		}
+		AND={
+			ROOT = { has_government = anarchism_ideology }
+			FROM = { has_government = anarchism_ideology }
+		}
+		AND={
+			ROOT = { has_government = absolute_monarchy_ideology }
+			FROM = { has_government = absolute_monarchy_ideology }
+		}
+		AND={
+			ROOT = { has_government = theocracy_ideology }
+			FROM = { has_government = theocracy_ideology }
+		}
+	}
+}

@@ -329,7 +329,7 @@ country_event = {
 	option = {
         name = russia.1007.b
 		ai_chance = {
-			base = 0
+			base = 7
 		}
         set_global_flag = crimea_cap_event_flag
 		increase_ultranationalist_programming_by_2 = yes
@@ -3238,7 +3238,7 @@ country_event = {
 	}
 }
 
-#Enemies Abroad 2
+#Enemies abroad 2
 country_event = {
     id = russia.1086
     title = russia.1086.t
@@ -3254,6 +3254,189 @@ country_event = {
 		}
 		add_political_power = 25
 		add_war_support = 0.05
+	}
+}
+
+#Russia demands annexation (Made generic so can be used in future ig)
+country_event = {
+    id = russia.1087
+    title = russia.1087.t
+    desc = russia.1087.desc
+    picture = SOV_event_csto_excercise
+    is_triggered_only = yes
+
+
+     option = {				#Be annexed by Russia
+        name = russia.1087.a
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 0.4
+				ROOT = { has_western_government = yes }
+				SOV = { OR = { has_far_right_government = yes has_illiberal_government = yes } }
+			}
+			modifier = {
+				factor = 2.5
+				ROOT_has_same_government_type_as_FROM = yes
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		
+		effect_tooltip={
+			SOV = { annex_country = { target = ROOT transfer_troops = no } }
+		}
+		
+		hidden_effect = { FROM = { country_event = { id = russia.1088 hours = 2 } } }
+    }
+	
+	option = {				#Be puppeted by Russia
+        name = russia.1087.b
+		ai_chance = {
+			base = 11
+			modifier = {
+				factor = 0
+				is_puppet_of = SOV
+			}
+		}
+		trigger={
+			is_puppet = no
+		}
+		
+		effect_tooltip={
+			SOV = { puppet = ROOT }
+		}
+		
+		hidden_effect = { FROM = { country_event = { id = russia.1089 hours = 2 } } }
+    }
+	
+	option = {				#Tell the Ruskis to piss off
+        name = russia.1087.c
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 0
+				is_puppet_of = SOV
+			}
+			modifier = {
+				factor = 2
+				ROOT = { has_western_government = yes }
+				SOV = { OR = { has_far_right_government = yes has_illiberal_government = yes } }
+			}
+		}
+		if={
+			limit = { is_puppet = yes }
+			OVERLORD = { end_puppet = ROOT }
+			add_political_power = -100
+		}
+		
+		hidden_effect = { FROM = { country_event = { id = russia.1090 hours = 2 } } }
+    }
+}
+
+#FROM gets annexed
+country_event = {
+    id = russia.1088
+    title = russia.1088.t
+    desc = russia.1088.desc
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1088.a
+		ai_chance = {
+			base = 10
+		}
+		every_state={
+			limit = { is_owned_by = FROM }
+			add_claim_by = ROOT
+		}
+		annex_country = { target = FROM transfer_troops = no }
+	}
+}
+
+#FROM gets puppeted
+country_event = {
+    id = russia.1089
+    title = russia.1089.t
+    desc = russia.1089.desc
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1088.a
+		ai_chance = {
+			base = 10
+		}
+		puppet = FROM
+	}
+}
+
+#FROM refused!
+country_event = {
+    id = russia.1090
+    title = russia.1090.t
+    desc = russia.1090.desc
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1090.a
+		ai_chance = {
+			base = 10
+		}
+		create_wargoal = {
+			type = puppet
+			target = FROM
+			expire = 0
+		}
+	}
+	
+	option = {
+        name = russia.1090.b
+		ai_chance = {
+			base = 2
+		}
+		add_political_power = -50
+		add_war_support = -0.05
+	}
+}
+
+#Test the waters - successful
+country_event = {
+    id = russia.1091
+    title = russia.1091.t
+    desc = russia.1091.desc
+    picture = GFX_report_event_SOV_test_the_waters_successful
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1091.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 10
+		air_experience = 25
+		army_experience = 25
+		add_war_support = 0.03
+	}
+}
+
+#Test the waters - failed
+country_event = {
+    id = russia.1092
+    title = russia.1092.t
+    desc = russia.1091.desc
+    picture = GFX_report_event_SOV_test_the_waters_failure
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1091.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
 	}
 }
 

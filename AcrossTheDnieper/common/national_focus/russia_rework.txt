@@ -4775,7 +4775,7 @@ focus_tree = {
 	focus = {
 		id = SOV_no_more_waiting
 		icon = GFX_focus_
-		x = -1
+		x = -2
 		y = 1
 		cost = 48
 		search_filters = {
@@ -4815,7 +4815,7 @@ focus_tree = {
 	focus = {
 		id = SOV_maintain_the_status_quo
 		icon = GFX_focus_
-		x = 1
+		x = 0
 		y = 1
 		cost = 24
 		search_filters = {
@@ -4828,6 +4828,13 @@ focus_tree = {
 		available={
 			has_government = military_junta
 			country_exists = BLR
+			BLR={
+				OR={
+					has_government = military_junta
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
 		}
 		bypass={
 			NOT = { country_exists = BLR }
@@ -4839,6 +4846,204 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_the_southern_thrust_2		#has to be _2 because SOV_the_southern_thrust is a base game focus
+		icon = GFX_focus_
+		x = 2
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_secure_our_western_frontiers }
+		relative_position_id = SOV_secure_our_western_frontiers
+		available={
+			has_government = military_junta
+			OR={
+				country_exists = GEO
+				country_exists = ABK
+			}
+		}
+		bypass={
+			NOT = { country_exists = GEO }
+			NOT = { country_exists = ABK }
+		}
+		
+		completion_reward={
+			annex_country = { target = ABK transfer_troops = yes }
+			387 = { add_core_of = ROOT }
+			
+			GEO = { country_event = { id = russia.1087 hours = 3 } }
+		}
+	}
+	
+	focus = {
+		id = SOV_test_the_waters
+		icon = GFX_focus_
+		x = -2
+		y = 1
+		cost = 38
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_maintain_the_status_quo focus = SOV_no_more_waiting }
+		relative_position_id = SOV_maintain_the_status_quo
+		available={
+			has_government = military_junta
+		}
+		bypass={
+		}
+		
+		completion_reward={
+			random_list={
+				75={ country_event={ id = russia.1091 hours = 4 } }
+				25={ country_event={ id = russia.1092 hours = 6 } }
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_annex_donbass
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 48
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_maintain_the_status_quo focus = SOV_no_more_waiting }
+		prerequisite = { focus = SOV_the_southern_thrust_2 }
+		relative_position_id = SOV_maintain_the_status_quo
+		mutually_exclusive = { focus = SOV_destroy_ukraine }
+		available={
+			has_government = military_junta
+			has_completed_focus = SOV_economic_integration
+			any_country={
+				OR={
+					tag = DON
+					tag = LHK
+					tag = KHK
+					tag = ODS
+					tag = NOV
+				}
+				exists = yes
+				is_puppet_of = ROOT
+			}
+		}
+		bypass={
+			NOT = { any_donbass_country_exists = yes }
+			NOT = { country_exists = UKR }
+		}
+		
+		completion_reward={
+			every_country={
+				limit={ OR = { tag = DON tag = LHK tag= KHK tag = ODS tag = NOV } exists = yes }
+				every_state={
+					limit={ is_core_of = PREV is_owned_by = PREV }
+					add_core_of = SOV
+				}
+				every_state={
+					limit={ OR = { is_core_of = PREV is_claimed_by = PREV } }
+					add_claim_by = SOV
+				}
+				SOV = { annex_country = { target = PREV transfer_troops = yes } }
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_destroy_ukraine
+		icon = GFX_focus_
+		x = 2
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_maintain_the_status_quo focus = SOV_no_more_waiting }
+		prerequisite = { focus = SOV_the_southern_thrust_2 }
+		relative_position_id = SOV_maintain_the_status_quo
+		mutually_exclusive = { focus = SOV_annex_donbass }
+		available={
+			has_government = military_junta
+			country_exists = UKR
+			NOT={
+				OR={
+					UKR = { is_puppet_of = ROOT }
+					UKR = { is_in_faction_with = ROOT }
+				}
+			}
+		}
+		bypass={
+			OR={
+				NOT = { country_exists = UKR }
+				UKR = { is_puppet_of = ROOT }
+				UKR = { is_in_faction_with = ROOT }
+			}
+		}
+		
+		completion_reward={
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+			unlock_decision_category_tooltip = SOV_referendum_decisions_2
+		}
+	}
+	
+	focus = {
+		id = SOV_war_with_nato
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 70
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_annex_donbass focus = SOV_destroy_ukraine }
+		prerequisite = { focus = SOV_test_the_waters }
+		relative_position_id = SOV_annex_donbass
+		available={
+			has_government = military_junta
+			
+		}
+		bypass={
+		
+		}
+		
+		completion_reward={
+			if={
+				limit = { any_country = { exists = yes is_in_faction_with = USA } }
+				every_country={
+					limit={ exists = yes is_in_faction_with = USA }
+					SOV={
+						declare_war_on = {
+							target = PREV
+							type = take_state_focus
+						}
+					}
+				}
+				
+				hidden_effect = { load_ww3 = yes }
+			}
+			else={
+				every_country={
+					limit = { has_western_government= yes NOT = { tag = KOS } }
+					SOV={
+						declare_war_on = {
+							target = PREV
+							type = take_state_focus
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	focus = {
 		id = SOV_all_power_to_the_fsb
