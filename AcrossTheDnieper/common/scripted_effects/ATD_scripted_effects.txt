@@ -18,6 +18,7 @@ load_ww3={
 					state = 419
 					state = 48
 					state = 367
+					state = 5
 				}
 				OWNER = { is_in_faction_with = USA }
 			}
@@ -82,6 +83,115 @@ load_ww3={
 						owner = NAT
 					}
 				}
+			}
+			
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_3
+				amount = 60000
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment_2
+				amount = 12000
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment_2
+				amount = 4500
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment_3
+				amount = 10000
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment_3
+				amount = 7200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment_1
+				amount = 10400
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment_2
+				amount = 4200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment_3
+				amount = 2200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment_3
+				amount = 2200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment_3
+				amount = 2200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 430
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment_3
+				amount = 2200
+				producer = NAT
+			}
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 5800
+				producer = NAT
+			}
+			
+			if={
+				limit={
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { type = leopard2_chassis amount = 620 variant_name = "Leopard 2" }
+				add_equipment_to_stockpile = { type = challenger2_chassis amount = 90 variant_name = "Challenger 2" }
+				add_equipment_to_stockpile = { type = abrams_chasis amount = 180 variant_name = "M1 Abrams" }
+				
+				add_equipment_to_stockpile = { type = t72_chasis amount = 220 variant_name = "T-72b" }
+				add_equipment_to_stockpile = { type = t80_chasis amount = 100 variant_name = "T-80bv" }
+			}	
+			else={
+				add_equipment_to_stockpile = {
+					type = t_72_equipment
+					amount = 320
+				}
+				
+				add_equipment_to_stockpile = {
+					type = m1_abrams_equipment
+					amount = 180
+				}
+				add_equipment_to_stockpile = {
+					type = challenger_2_equipment
+					amount = 90
+				}
+				add_equipment_to_stockpile = {
+					type = leopard_2_equipment
+					amount = 620
+				}
+			}
+			
+#			country_event = { id = nato.1 hours = 1 }
+			if={
+				limit = { has_dlc = "No Step Back" }
+				set_technology = { railway_gun = 1 }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 1" }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 2" }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 3" }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 4" }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 5" }
+				create_railway_gun = { equipment = railway_gun_equipment_1 name = "HIMARS 6" }
 			}
 		}
 	}

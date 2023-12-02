@@ -300,7 +300,18 @@ on_actions={
 						has_country_flag = original_army_law_was_limited_conscription
 					}
 				}
-				country_event = { id = generic.2 days = 14 }
+				country_event = { id = generic.2 days = 14 random_days = 31 }
+			}
+		}
+	}
+	on_declare_war={
+		effect={
+			if = {
+				limit = {
+					tag = SOV
+					FROM = { tag = GEO }
+				}
+				news_event = { id = atd_news.60 hours = 2 }
 			}
 		}
 	}

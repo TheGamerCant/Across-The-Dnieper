@@ -34,3 +34,39 @@ entity = {
 	}
 	scale = 1.1
 }
+
+entity = {
+	name = "NAT_railway_gun_entity"
+	pdxmesh = "Himars_mesh"
+
+	default_state = "idle"
+	
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.3 
+	}
+	state = { name = "move" animation = "move" animation_blend_time = 0.3 
+		event = { time = 0 node="Tyres_left_node" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
+		event = { time = 0 node="Tyres_right_node" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
+		event = { time = 0 node="Exhaust" particle = "tank_exhaust_particle"  keep_particle = no trigger_once = yes }
+		event = { trigger_once = yes sound = { soundeffect = "tank_engine_medium_move" } }
+	}
+	state = { name = "attack" animation = "attack" animation_blend_time = 0.3 
+
+			event = { time = 2.44 node = "Missile_1_node"		particle = "Himars_launch_effect"	keep_particle = yes }
+			event = { time = 3.04 node = "Missile_2_node"	particle = "Himars_launch_effect"	keep_particle = yes }
+			event = { time = 3.56 node = "Missile_3_node"	particle = "Himars_launch_effect"	keep_particle = yes }
+			event = { time = 4.08 node = "Missile_4_node"		particle = "Himars_launch_effect"	keep_particle = yes }
+			event = { time = 4.64 node = "Missile_5_node"	particle = "Himars_launch_effect"	keep_particle = yes }
+			event = { time = 5.12 node = "Missile_6_node"	particle = "Himars_launch_effect"	keep_particle = yes }
+
+#			event = { time = 2.44 node = "Launcher_rear_node"		particle = "explosion_particle"	keep_particle = yes }
+#			event = { time = 3.04 node = "Launcher_rear_node"	particle = "vehicle_explode_effect"	keep_particle = yes }
+#			event = { time = 3.56 node = "Launcher_rear_node"	particle = "explosion_particle"	keep_particle = yes }
+#			event = { time = 4.08 node = "Launcher_rear_node"		particle = "explosion_particle"	keep_particle = yes }
+#			event = { time = 4.64 node = "Launcher_rear_node"	particle = "vehicle_explode_effect"	keep_particle = yes }
+#			event = { time = 5.12 node = "Launcher_rear_node"	particle = "explosion_particle"	keep_particle = yes }
+
+
+		event = { time = 2.44 sound = { soundeffect = "Himars_unit_attack" } }
+	}
+	scale = 1.1
+}

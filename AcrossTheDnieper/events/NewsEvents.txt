@@ -1569,3 +1569,57 @@ news_event = {	#Wagner Halts March
 	}
 
 }
+
+news_event = {	#Second Russo-Georgian war
+	id = atd_news.60
+	title = atd_news.60.t
+	desc = atd_news.60.desc
+	picture = GFX_news_event_second_russo_georgian_war
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.60.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = GEO
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+			NOT = { has_western_government = yes }
+		}
+	}
+	option = {
+		name = atd_news.60.b
+		trigger = {
+			NOT = {
+				OR={
+					tag = GEO
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+			has_western_government = yes
+		}
+	}
+	option = {
+		name = atd_news.60.c
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = {
+		name = atd_news.60.d
+		trigger = {
+			tag = GEO
+		}
+	}
+}
