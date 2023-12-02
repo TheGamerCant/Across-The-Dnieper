@@ -49,7 +49,7 @@ load_ww3={
 			set_faction_leader = yes 
 			
 			division_template = {
-				name = "NATO Infantry Batallion"
+				name = "NATO Infantry Battalion"
 				division_names_group = NAT_INF_01
 				regiments = {
 					infantry = { x = 0 y = 0 }
@@ -64,6 +64,10 @@ load_ww3={
 					mechanized = { x = 2 y = 1 }
 					mechanized = { x = 2 y = 2 }
 					apc = { x = 2 y = 3 }
+					mechanized = { x = 3 y = 0 }
+					mechanized = { x = 3 y = 1 }
+					apc = { x = 3 y = 2 }
+					apc = { x = 3 y = 3 }
 				}
 				support = {
 					maintenance_company = { x = 0 y = 0 }   
@@ -71,6 +75,7 @@ load_ww3={
 					signal_company = { x = 0 y = 2 }  
 					mot_recon = { x = 0 y = 3 } 
 				}
+				is_locked = yes
 			}
 			
 			for_loop_effect = {
@@ -79,7 +84,7 @@ load_ww3={
 				random_state = {
 					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
 					create_unit = {
-						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Batallion\" start_experience_factor = 0.2" 
+						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Battalion\" start_experience_factor = 0.2" 
 						owner = NAT
 					}
 				}
@@ -182,7 +187,7 @@ load_ww3={
 				}
 			}
 			
-#			country_event = { id = nato.1 hours = 1 }
+			country_event = { id = nato.1 days = 14 }
 			if={
 				limit = { has_dlc = "No Step Back" }
 				set_technology = { railway_gun = 1 }

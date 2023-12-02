@@ -12,6 +12,205 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+		hidden_effect = { country_event = { id = nato.2 days = 28 } }
 		
+		hidden_effect={
+			if={
+				limit = { has_dlc = "No Step Back" }
+				division_template = {
+					name = "NATO Armor Battalion"
+					division_names_group = USA_INF_01
+					regiments = {
+						modern_armor_nsb = { x = 0 y = 0 }
+						modern_armor_nsb = { x = 0 y = 1 }
+						modern_armor_nsb = { x = 0 y = 2 }
+						modern_armor_nsb = { x = 1 y = 0 }
+						modern_armor_nsb = { x = 1 y = 1 }
+						modern_armor_nsb = { x = 1 y = 2 }
+						mechanized = { x = 2 y = 0 }
+						mechanized = { x = 2 y = 1 }
+						mechanized = { x = 2 y = 2 }
+						mechanized = { x = 2 y = 3 }
+						mechanized = { x = 3 y = 0 }
+						mechanized = { x = 3 y = 1 }
+						apc = { x = 3 y = 2 }
+						apc = { x = 3 y = 3 }
+					}
+					support = {
+						maintenance_company = { x = 0 y = 0 }   
+						logistics_company = { x = 0 y = 1 }  
+						signal_company = { x = 0 y = 2 }  
+						mot_recon = { x = 0 y = 3 }  
+					}
+					is_locked = yes
+				}
+			}
+			else={
+				division_template = {
+					name = "NATO Armor Battalion"
+					division_names_group = USA_INF_01
+					regiments = {
+						modern_armor = { x = 0 y = 0 }
+						modern_armor = { x = 0 y = 1 }
+						modern_armor = { x = 0 y = 2 }
+						modern_armor = { x = 1 y = 0 }
+						modern_armor = { x = 1 y = 1 }
+						modern_armor = { x = 1 y = 2 }
+						mechanized = { x = 2 y = 0 }
+						mechanized = { x = 2 y = 1 }
+						mechanized = { x = 2 y = 2 }
+						mechanized = { x = 2 y = 3 }
+						mechanized = { x = 3 y = 0 }
+						mechanized = { x = 3 y = 1 }
+						apc = { x = 3 y = 2 }
+						apc = { x = 3 y = 3 }
+					}
+					support = {
+						maintenance_company = { x = 0 y = 0 }   
+						logistics_company = { x = 0 y = 1 }  
+						signal_company = { x = 0 y = 2 }  
+						mot_recon = { x = 0 y = 3 }  
+					}
+					is_locked = yes
+				}
+			}
+			for_loop_effect = {
+				end = 16
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Armor\" division_template = \"NATO Armor Battalion\" start_experience_factor = 0.5" 
+						owner = NAT
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 44
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Battalion\" start_experience_factor = 0.2" 
+						owner = NAT
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nato.2
+	title = nato.2.t
+	desc = nato.2.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = nato.2.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = { country_event = { id = nato.3 days = 28} }
+		
+		hidden_effect={
+			division_template = {
+				name = "Special Forces Group"
+				division_names_group = USA_INF_01
+				regiments = {
+					elite_special_forces = { x = 0 y = 0 }
+					elite_special_forces = { x = 0 y = 1 }
+					elite_special_forces = { x = 0 y = 2 }
+					elite_special_forces = { x = 0 y = 3 }
+					elite_special_forces = { x = 1 y = 0 }
+					elite_special_forces = { x = 1 y = 1 }
+					elite_special_forces = { x = 1 y = 2 }
+					elite_special_forces = { x = 1 y = 3 }
+					artillery_brigade = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+				}
+				support = {
+					maintenance_company = { x = 0 y = 0 }   
+					logistics_company = { x = 0 y = 1 }  
+					signal_company = { x = 0 y = 2 }  
+					mot_recon = { x = 0 y = 3 }  
+					artillery = { x = 0 y = 4 }
+				}
+				is_locked = yes
+			}
+			
+			for_loop_effect = {
+				end = 20
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Spec Ops\" division_template = \"Special Forces Group\" start_experience_factor = 0.5" 
+						owner = NAT
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 65
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Battalion\" start_experience_factor = 0.2" 
+						owner = NAT
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nato.3
+	title = nato.3.t
+	desc = nato.3.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = nato.3.a
+		ai_chance = {
+			base = 10
+		}
+		
+	
+			for_loop_effect = {
+				end = 10
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Spec Ops\" division_template = \"Special Forces Group\" start_experience_factor = 0.5" 
+						owner = NAT
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 25
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Armor\" division_template = \"NATO Armor Battalion\" start_experience_factor = 0.5" 
+						owner = NAT
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 80
+				value = temp
+				random_state = {
+					limit = { OWNER = { has_full_control_of_state = PREV is_in_faction_with = NAT } }
+					create_unit = {
+						division = "name = \"NATO Infantry\" division_template = \"NATO Infantry Battalion\" start_experience_factor = 0.2" 
+						owner = NAT
+					}
+				}
+			}
+		}
 	}
 }
