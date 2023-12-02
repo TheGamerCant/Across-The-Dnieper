@@ -137,3 +137,47 @@ ROOT_has_same_government_type_as_FROM={
 		}
 	}
 }
+
+ROOT_is_singleplayer={
+	ROOT ={ is_ai = no }
+	NOT = { any_other_country={ is_ai = no } }
+}
+
+is_on_easy_mode={
+	any_country={
+		OR={
+			has_dynamic_modifier = { modifier = EASY_2014_start_ai }
+			has_dynamic_modifier = { modifier = EASY_2022_start_ai }
+		}
+	}
+}
+is_on_normal_mode={
+	NOT={
+		any_country={
+			OR={
+				has_dynamic_modifier = { modifier = EASY_2014_start_ai }
+				has_dynamic_modifier = { modifier = EASY_2022_start_ai }
+				has_dynamic_modifier = { modifier = HARD_2014_start_ai }
+				has_dynamic_modifier = { modifier = HARD_2022_start_ai }
+				has_dynamic_modifier = { modifier = IMPOSSIBLE_2014_start_ai }
+				has_dynamic_modifier = { modifier = IMPOSSIBLE_2022_start_ai }
+			}
+		}
+	}
+}
+is_on_hard_mode={
+	any_country={
+		OR={
+			has_dynamic_modifier = { modifier = HARD_2014_start_ai }
+			has_dynamic_modifier = { modifier = HARD_2022_start_ai }
+		}
+	}
+}
+is_on_impossible_mode={
+	any_country={
+		OR={
+			has_dynamic_modifier = { modifier = IMPOSSIBLE_2014_start_ai }
+			has_dynamic_modifier = { modifier = IMPOSSIBLE_2022_start_ai }
+		}
+	}
+}
