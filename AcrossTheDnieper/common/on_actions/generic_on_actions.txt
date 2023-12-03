@@ -80,6 +80,61 @@ on_actions={
 				}
 				load_soviet_doctrine = yes
 			}
+			
+			if={
+				limit={ 
+					is_on_easy_mode = yes 
+					NOT={
+						OR={
+							has_dynamic_modifier = { modifier = EASY_2014_start_ai }
+							has_dynamic_modifier = { modifier = EASY_2022_start_ai }
+						}
+					}
+				}
+				if={
+					limit = { has_start_date = 2014.1.1.1 }
+					add_dynamic_modifier = { modifier = EASY_2014_start_ai }
+				}
+				else={ 
+					add_dynamic_modifier = { modifier = EASY_2022_start_ai } 
+				}
+			}
+			else_if={
+				limit={ 
+					is_on_hard_mode = yes 
+					NOT={
+						OR={
+							has_dynamic_modifier = { modifier = HARD_2014_start_ai }
+							has_dynamic_modifier = { modifier = HARD_2022_start_ai }
+						}
+					}
+				}
+				if={
+					limit = { has_start_date = 2014.1.1.1 }
+					add_dynamic_modifier = { modifier = HARD_2014_start_ai }
+				}
+				else={ 
+					add_dynamic_modifier = { modifier = HARD_2022_start_ai } 
+				}
+			}
+			else_if={
+				limit={ 
+					is_on_impossible_mode = yes 
+					NOT={
+						OR={
+							has_dynamic_modifier = { modifier = IMPOSSIBLE_2014_start_ai }
+							has_dynamic_modifier = { modifier = IMPOSSIBLE_2022_start_ai }
+						}
+					}
+				}
+				if={
+					limit = { has_start_date = 2014.1.1.1 }
+					add_dynamic_modifier = { modifier = IMPOSSIBLE_2014_start_ai }
+				}
+				else={ 
+					add_dynamic_modifier = { modifier = IMPOSSIBLE_2022_start_ai } 
+				}
+			}
 		}
 	}
 	on_state_control_changed={
