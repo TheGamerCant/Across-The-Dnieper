@@ -986,7 +986,10 @@ country_event = {
 				SOV = { has_government = military_junta }
 			}
 		}
-		leave_faction = yes
+		if={
+			limit = { is_in_faction_with = SOV }
+			leave_faction = yes
+		}
 		SOV = { country_event = { id = russia.1028 } }
     }
 }

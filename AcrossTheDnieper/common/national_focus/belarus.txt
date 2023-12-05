@@ -2341,6 +2341,15 @@ focus_tree = {
 			add_stability = 0.1
 			add_political_power = 120
 			set_cosmetic_tag = BLR_free
+			
+			hidden_effect={
+				SOV={
+					if={ 
+						limit = { has_completed_focus = SOV_the_coup }
+						mark_focus_tree_layout_dirty = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -2407,6 +2416,13 @@ focus_tree = {
 				clear_variable = BLR_civil_war_army_size
 				
 				set_cosmetic_tag = BLR_free 
+
+				SOV={
+					if={ 
+						limit = { has_completed_focus = SOV_the_coup }
+						mark_focus_tree_layout_dirty = yes
+					}
+				}
 				
 				country_event = {
 				    id = blr_event.5
