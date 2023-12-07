@@ -4705,7 +4705,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_nationalisation_of_key_industries
 		x = -1
 		y = 1
-		cost = 58
+		cost = 54
 		search_filters = {
 			
 		}
@@ -4731,6 +4731,134 @@ focus_tree = {
 			}
 		
 			add_ideas = SOV_heavy_industry_focus
+		}
+	}
+	
+	focus = {
+		id = SOV_new_promotions
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_army }
+		relative_position_id = SOV_all_power_to_the_army
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+		}
+		
+		completion_reward={
+			add_to_variable = { SOV_army_max_command_power = 50 }
+			subtract_from_variable = { SOV_army_army_leader_cost_factor = 0.4 }
+			
+			custom_effect_tooltip = SOV_new_promotions_tt
+			
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_military_spending
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_new_promotions }
+		prerequisite = { focus = SOV_prioritise_heavy_industry }
+		relative_position_id = SOV_prioritise_heavy_industry
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+		}
+		
+		completion_reward={
+			increase_military_spending = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_start_them_young
+		icon = GFX_focus_SOV_patriotic_youth
+		x = 2
+		y = 1
+		cost = 42
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_increase_military_spending }
+		relative_position_id = SOV_increase_military_spending
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+			has_completed_focus = SOV_patriotic_youth
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_patriotic_youth_idea
+				add_idea = SOV_patriotic_youth_idea_2
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_military_r_d
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_increase_military_spending }
+		relative_position_id = SOV_increase_military_spending
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+		}
+		
+		completion_reward={
+			add_tech_bonus = {
+				name = SOV_military_r_d
+				bonus = 1
+				uses = 4
+				category = infantry_weapons
+				category = armor
+				category = support_tech
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_every_soldier_a_patriot
+		icon = GFX_focus_
+		x = -2
+		y = 1
+		cost = 56
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_increase_military_spending }
+		relative_position_id = SOV_increase_military_spending
+		available={
+			has_government = military_junta
+			sergey_shoigu_is_leader = yes
+		}
+		
+		completion_reward={
+			add_ideas = SOV_hatred_for_the_west_rework
 		}
 	}
 	
@@ -4806,6 +4934,32 @@ focus_tree = {
 			country_event = { id = russia.1086 hours = 2 }
 		}
 	}
+	
+	focus = {
+		id = SOV_expand_the_draft
+		icon = GFX_focus_
+		x = -2
+		y = 0
+		cost = 42
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_army focus = SOV_all_power_to_the_fsb focus = SOV_all_power_to_the_state }
+		relative_position_id = SOV_secure_our_western_frontiers
+		available={
+			has_government = military_junta
+			NOT = { has_completed_focus = SOV_end_conscription }
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_expand_the_draft_tt
+			add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.22 }
+			
+			add_political_power = -45
+		}
+	}
+	
 	
 	focus = {
 		id = SOV_no_more_waiting
@@ -6715,7 +6869,7 @@ shared_focus = {
 
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-
+		NOT = { has_completed_focus = SOV_expand_the_draft }
 		has_idea = limited_conscription
 	}
 	
