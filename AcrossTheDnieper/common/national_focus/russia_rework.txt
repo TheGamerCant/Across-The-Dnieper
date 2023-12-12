@@ -2463,6 +2463,35 @@ focus_tree = {
 			}
 			
 			army_experience = 50
+			
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Wagner PMC\" division_template = \"Infantry Division\" start_experience_factor = 0.2" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Wagner PMC\" division_template = \"Infantry Division\" start_experience_factor = 0.2" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Wagner PMC\" division_template = \"Infantry Division\" start_experience_factor = 0.2" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Wagner PMC\" division_template = \"Airborne Brigade\" start_experience_factor = 0.2" 
+					owner = ROOT
+				}
+			}
 		}
 	}
 	
@@ -2946,6 +2975,8 @@ focus_tree = {
 			else={
 				add_ideas = SOV_those_we_protect
 			}
+			
+			increase_military_spending = yes
 		}
 	}
 	
@@ -4526,7 +4557,7 @@ focus_tree = {
 		
 		completion_reward={
 			add_political_power = 25
-			add_to_variable = { SOV_siloviki_political_power_factor = 0.1 }
+			add_to_variable = { SOV_siloviki_political_power_factor = 0.5 }
 			add_to_variable = { SOV_siloviki_root_out_resistance_effectiveness_factor = 0.3 }
 			custom_effect_tooltip = SOV_the_watchful_eye_of_leader_tt
 		}
@@ -4887,8 +4918,8 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_new_nobility_siloviki
-		icon = GFX_focus_
-		x = -1
+		icon = GFX_focus_SOV_the_new_nobility_siloviki
+		x = -2
 		y = 1
 		cost = 35
 		search_filters = {
@@ -4910,6 +4941,28 @@ focus_tree = {
 			
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SOV_dmitry_patrushev
+		}
+	}
+	
+	focus = {
+		id = SOV_centralisation_of_power
+		icon = GFX_focus_SOV_centralisation_of_power
+		x = 0
+		y = 1
+		cost = 54
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state }
+		relative_position_id = SOV_all_power_to_the_state
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			add_political_power = 120
 		}
 	}
 	
@@ -4937,7 +4990,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_expand_the_draft
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_expand_the_draft_siloviki
 		x = -2
 		y = 0
 		cost = 42
@@ -5153,6 +5206,8 @@ focus_tree = {
 				}
 				SOV = { annex_country = { target = PREV transfer_troops = yes } }
 			}
+			
+			hidden_effect = { news_event = { id = atd_news.61 hours = 5 } }
 		}
 	}
 	
@@ -5198,6 +5253,8 @@ focus_tree = {
 				add_idea = SOV_memories_of_1991_siloviki
 			}
 			unlock_decision_category_tooltip = SOV_referendum_decisions_2
+			
+			hidden_effect = { news_event = { id = atd_news.62 hours = 3 } }
 		}
 	}
 	

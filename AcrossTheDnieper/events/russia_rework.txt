@@ -1900,7 +1900,13 @@ country_event = {
 	immediate={
 		hidden_effect={
 			if={
-				limit = { date < 2021.1.1 }
+				limit = { 
+					date < 2021.1.1 
+					NOT={ focus_progress = { focus = SOV_movements_on_the_border progress > 0 } }
+					NOT={ has_war_with = UKR }
+					NOT={ has_war_with = NAT }
+					NOT={ has_completed_focus = SOV_movements_on_the_border }
+				}
 				country_event = { id = russia.1050 days = 365 }
 			}
 		}

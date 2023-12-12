@@ -1567,7 +1567,6 @@ news_event = {	#Wagner Halts March
 			}
 		}
 	}
-
 }
 
 news_event = {	#Second Russo-Georgian war
@@ -1620,6 +1619,84 @@ news_event = {	#Second Russo-Georgian war
 		name = atd_news.60.d
 		trigger = {
 			tag = GEO
+		}
+	}
+}
+
+news_event = {	#Siloviki russia annexes donbass
+	id = atd_news.61
+	title = atd_news.61.t
+	desc = atd_news.61.desc
+	picture = GFX_news_event_russia_invasion
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.61.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = UKR
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.61.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = {
+		name = atd_news.61.c
+		trigger = {
+			tag = UKR
+		}
+	}
+}
+
+news_event = {	#Siloviki russia invades ukraine
+	id = atd_news.62
+	title = atd_news.62.t
+	desc = atd_news.62.desc
+	picture = GFX_news_event_russia_invasion
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.62.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = UKR
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.62.b
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_puppet_of = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = {
+		name = atd_news.62.c
+		trigger = {
+			tag = UKR
 		}
 	}
 }
