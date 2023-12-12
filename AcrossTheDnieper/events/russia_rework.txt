@@ -1062,7 +1062,7 @@ country_event = {
     }
 	
 	option = {				
-        name = russia.1028.a
+        name = russia.1028.b
 		ai_chance = {
 			base = 10
 		}
@@ -3501,6 +3501,63 @@ country_event = {
 		custom_effect_tooltip = russia.1094.tt
 	}
 }
+
+#Invade Ukraine?
+country_event = {
+    id = russia.1095
+    title = russia.1095.t
+    desc = russia.1095.desc
+    picture = SOV_event_bogdanov_mobilizes
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1095.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = russia_invade_ukraine_when_focus_done_tt
+		set_country_flag = siloviki_invade_ukraine_flag
+	}
+	
+	option = {
+        name = russia.1095.b
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 25
+	}
+}
+
+#Invade Moldova?
+country_event = {
+    id = russia.1096
+    title = russia.1096.t
+    desc = russia.1096.desc
+    picture = SOV_event_bogdanov_mobilizes
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1096.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = russia_invade_moldova_when_focus_done_tt
+		set_country_flag = siloviki_invade_moldova_flag
+		
+		puppet = TRZ
+	}
+	
+	option = {
+        name = russia.1096.b
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = 25
+	}
+}
+
 
 
 
