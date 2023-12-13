@@ -3323,6 +3323,15 @@ political_actions={
 				UKR_andrey_biletsky = {
 					set_nationality = AZV
 				}
+				UKR_oleh_tyahnybok={
+					set_nationality = SVO
+				}
+				UKR_dmytro_yarosh={
+					set_nationality = SVO
+				}
+				UKR_oleksandr_sych={
+					set_nationality = SVO
+				}
 				every_character = {
 					limit={
 						NOT={
@@ -3343,6 +3352,7 @@ political_actions={
 						OR={
 							state = 196
 							state = 214
+							state = 455
 						}
 					}
 					FTU = { transfer_state = PREV }
@@ -3351,7 +3361,21 @@ political_actions={
 				every_state={
 					limit ={
 						is_controlled_by = ROOT
+						OR={
+							state = 96
+							state = 101
+						}
+					}
+					SVO = { transfer_state = PREV }
+				}
+				
+				every_state={
+					limit ={
+						is_controlled_by = ROOT
 						has_state_flag = odessa_oblast_flag
+						NOT = { state = 199 }
+						NOt = { state = 229 }
+						NOT = { state = 238 }
 					}
 					AZV = { transfer_state = PREV }
 				}
@@ -3367,10 +3391,13 @@ political_actions={
 				declare_war_on = { target = UGE type = annex_everything  }
 				declare_war_on = { target = AZV type = annex_everything  }
 				declare_war_on = { target = FTU type = annex_everything  }
+				declare_war_on = { target = AZV type = annex_everything  }
+				declare_war_on = { target = SVO type = annex_everything  }
 				
 				UGE = {
 					declare_war_on = { target = FTU type = annex_everything  }
 					declare_war_on = { target = AZV type = annex_everything  }
+					declare_war_on = { target = SVO type = annex_everything  }
 					
 					add_ideas = martial_law
 					
@@ -3388,22 +3415,6 @@ political_actions={
 						ideology = european_solidarity_subideology
 						picture = gfx/leaders/UKR/Portrait_Petro_Poroshenko.png
 						traits = { anti_russian_oligarch }
-					}
-
-					create_country_leader = {
-						name = "Dmytro Yarosh"
-						desc = "dmytro_yarosh_leader_desc"
-						ideology = right_sector_subideology
-						picture = gfx/leaders/UKR/Portrait_Dmytro_Yarosh.png
-						traits = { }
-					}
-
-					create_country_leader = {
-						name = "Oleh Tyahnybok"
-						desc = ""
-						ideology = svoboda_subideology
-						picture = gfx/leaders/UKR/Portrait_Oleh_Tyahnybok.png
-						traits = {  }
 					}
 
 					create_country_leader = {
@@ -3492,7 +3503,7 @@ political_actions={
 						source_organization = 0.9
 						size = 0
 						stockpile_ratio = 0
-						army_ratio = 0.03
+						army_ratio = 0.05
 						navy_ratio = 0
 						air_ratio = 0
 						keep_unit_leaders_trigger = {
@@ -3509,7 +3520,24 @@ political_actions={
 						source_organization = 0.9
 						size = 0
 						stockpile_ratio = 0
-						army_ratio = 0.03
+						army_ratio = 0.05
+						navy_ratio = 0
+						air_ratio = 0
+						keep_unit_leaders_trigger = {
+							always = yes 
+						}
+					}
+				}
+				
+				if={
+					limit = { SVO = { exists = yes } }
+					transfer_units_fraction= {
+						target = SVO
+						target_organization = 1
+						source_organization = 0.9
+						size = 0
+						stockpile_ratio = 0
+						army_ratio = 0.05
 						navy_ratio = 0
 						air_ratio = 0
 						keep_unit_leaders_trigger = {
@@ -3534,6 +3562,7 @@ political_actions={
 				
 				FTU = {
 					declare_war_on = { target = AZV type = annex_everything  }
+					declare_war_on = { target = SVO type = annex_everything  }
 					create_country_leader = {
 						name = "Sergey Movchan"
 						picture = gfx/leaders/UKR/Portrait_Sergey_Movchan.png
@@ -3555,7 +3584,7 @@ political_actions={
 					}
 					
 					for_loop_effect = {
-						end = 15
+						end = 17
 						value = temp
 						random_owned_controlled_state = {
 							create_unit = {
@@ -3598,6 +3627,52 @@ political_actions={
 						}
 					}
 				}
+				
+				SVO = {
+					declare_war_on = { target = AZV type = annex_everything  }
+					
+					create_country_leader = {
+						name = "Dmytro Yarosh"
+						desc = "dmytro_yarosh_leader_desc"
+						ideology = right_sector_subideology
+						picture = gfx/leaders/UKR/Portrait_Dmytro_Yarosh.png
+						traits = { }
+					}
+
+					create_country_leader = {
+						name = "Oleh Tyahnybok"
+						desc = ""
+						ideology = svoboda_subideology
+						picture = gfx/leaders/UKR/Portrait_Oleh_Tyahnybok.png
+						traits = {  }
+					}
+					
+					division_template = {
+						name = "Nationalist Militia"
+						division_names_group = UKR_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							irregular_infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							
+						}
+					}
+					
+					for_loop_effect = {
+						end = 24
+						value = temp
+						random_owned_controlled_state = {
+							create_unit = {
+								division = "name = \"Nationalist Militia\" division_template = \"Nationalist Militia\" start_experience_factor = 0.03" 
+								owner = SVO
+							}
+						}
+					}
+				}
+				
 				
 				division_template = {
 					name = "Government Loyalists"
@@ -3659,11 +3734,13 @@ political_actions={
 					add_core_of = UGE
 					add_core_of = FTU
 					add_core_of = AZV
+					add_core_of = SVO
 				}
 				
 				UGE = { inherit_technology = PREV }
 				AZV = { inherit_technology = PREV }
 				FTU = { inherit_technology = PREV }
+				SVO = { inherit_technology = PREV }
 				
 				SOV = {
 					end_puppet = ROOT
@@ -3680,6 +3757,7 @@ political_actions={
 							tag = UGE
 							tag = AZV
 							tag = FTU
+							tag = SVO
 						}
 					}
 					spawn_new_country_economy = yes

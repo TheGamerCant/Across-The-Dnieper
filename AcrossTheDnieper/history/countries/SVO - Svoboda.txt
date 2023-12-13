@@ -1,0 +1,374 @@
+﻿capital = 96
+
+load_ukraine_doctrine = yes
+
+set_politics = {
+	ruling_party = fascist
+	elections_allowed = no
+}
+
+2019.5.29 = {
+	set_stability = 0.45
+	set_war_support = 0.74
+	set_party_name = { ideology = fascist long_name = UKR_fascist_party_long name = UKR_fascist_party }
+	
+	set_technology = {
+		is_post_soviet_technology = 1
+		is_ukraine_technology = 1
+
+		infantry_weapons = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		improved_infantry_weapons = 1
+		support_weapons = 1
+		motorised_infantry = 1
+		infantry_anti_tank = 1
+		infantry_anti_tank_upgrade = 1
+		infantry_anti_air = 1
+		marines = 1
+		elite_special_forces_tech = 1
+		elite_special_forces_tech_2 = 1
+		tech_special_forces = 1
+		
+		
+		tech_support = 1
+		tech_engineers = 1
+		tech_engineers2 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital2 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_signal_company = 1
+		basic_train = 1
+		
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+		t_90 = 1
+		t_84 = 1
+		modern_tank_doctrine = 1
+		upgrade_old_models = 1
+		increase_infantry_support = 1
+		ifv = 1
+		ifv_upgrade = 1
+		apc = 1
+		
+		gw_artillery = 1
+		interwar_artillery = 1
+		artillery1 = 1
+		interwar_antiair = 1
+		antiair1 = 1
+		antiair2 = 1
+		antiair3 = 1
+		rocket_artillery = 1
+		
+		early_destroyer = 1
+		early_coastal_patrol_ship = 1
+		basic_coastal_patrol_ship = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		mtg_transport = 1
+		basic_naval_mines = 1
+		
+		early_fighter = 1
+		
+		4g_satellite = 1
+		radio = 1
+		radio_detection = 1
+		increase_in_ram_capabilities = 1
+		quad_processors = 1
+		
+		fuel_silos = 1
+		synth_oil_experiments = 1
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		construction1 = 1
+	}
+}
+
+set_research_slots = 4
+set_stability = 0.4
+set_war_support = 0.24
+
+# Starting tech
+set_technology = {
+	is_post_soviet_technology = 1
+    is_ukraine_technology = 1
+
+	infantry_weapons = 1
+	support_weapons = 1
+	motorised_infantry = 1
+	infantry_anti_tank = 1
+	infantry_anti_air = 1
+	elite_special_forces_tech = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_logistics_company = 1
+	tech_maintenance_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	modern_tank_doctrine = 1
+	ifv = 1
+	apc = 1
+	
+	gw_artillery = 1
+	rocket_artillery = 1
+	interwar_antiair = 1
+	
+	early_destroyer = 1
+	early_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+	
+	fuel_silos = 1
+	synth_oil_experiments = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		t_64 = 1
+		t_64av = 1
+		t_72 = 1
+		t_72b = 1
+		t_80 = 1
+		t_90 = 1
+		t_84 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		t64_chasis_tech = 1
+		t72_chasis_tech = 1
+		t80_chasis_tech = 1
+		t90_chasis_tech = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		gun_tech_1 = 1
+		tank_module_tech_1 = 1
+	}
+}
+
+set_convoys = 57
+
+set_popularities = {
+	fascist = 100
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "T-64"
+		type = t64_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-64av"
+		type = t64_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72"
+		type = t72_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 7
+			tank_nsb_armor_upgrade = 0
+		}
+	}
+	create_equipment_variant = {
+		name = "T-72b"
+		type = t72_chasis
+		obsolete = no
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80"
+		type = t80_chasis
+		obsolete = yes
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon
+			turret_type_slot = tank_modern_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = armor_era
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-80bv"
+		type = t80_chasis
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+	create_equipment_variant = {
+		name = "T-84"
+		type = t90_chasis
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_modern_cannon2
+			turret_type_slot = tank_modern_tank_turret2
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = armor_era
+			special_type_slot_3 = smoke_launchers
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 9
+			tank_nsb_armor_upgrade = 5
+		}
+	}
+}
+#PLANES
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+
+	set_technology = {	
+		early_fighter = 1
+	}
+
+	add_equipment_to_stockpile = {
+		type = fighter_equipment_0
+		amount = 96
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	set_technology = {	
+		iw_small_airframe = 1
+		iw_large_airframe = 1
+		bombs1 = 1
+		aa_lmg = 1
+		aa_mmg = 1
+		aa_am1 = 1
+		range_improvements = 1
+	}
+}
+
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	
+	create_equipment_variant = {
+		name = "Su-27SM" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
+	add_equipment_to_stockpile = { 
+		type = small_plane_airframe_0
+		variant_name = "Su-27SM"
+		amount = 96
+		producer = UKR
+	}
+}

@@ -5018,7 +5018,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_new_nobility_siloviki
 		x = -2
 		y = 1
-		cost = 35
+		cost = 42
 		search_filters = {
 			
 		}
@@ -5042,6 +5042,70 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SOV_local_industries
+		icon = GFX_focus_SOV_nationalisation_of_key_industries
+		x = 0
+		y = 3
+		cost = 60
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_the_new_nobility_siloviki }
+		relative_position_id = SOV_the_new_nobility_siloviki
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			every_controlled_state={
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+				random_select_amount = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_ban_western_degeneracy
+		icon = GFX_focus_SOV_ban_western_degeneracy
+		x = 2
+		y = 1
+		cost = 42
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state }
+		relative_position_id = SOV_all_power_to_the_state
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			swap_ideas={
+				remove_idea = lgbtq_rights_behind_closed_doors
+				add_idea = lgbtq_rights_banned
+			}
+			
+			add_stability = 0.1
+		}
+	}
+	
+	focus = {
 		id = SOV_centralisation_of_power
 		icon = GFX_focus_SOV_centralisation_of_power
 		x = 0
@@ -5060,6 +5124,137 @@ focus_tree = {
 		
 		completion_reward={
 			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = SOV_militaristic_culture
+		icon = GFX_focus_SOV_every_soldier_a_patriot
+		x = 0
+		y = 3
+		cost = 30
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_centralisation_of_power }
+		prerequisite = { focus = SOV_united_in_cause focus = SOV_foster_russian_nationalism }
+		relative_position_id = SOV_centralisation_of_power
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			army_experience = 50
+			add_manpower = 140000
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = SOV_united_in_cause
+		icon = GFX_focus_SOV_enemies_abroad
+		x = -1
+		y = 2
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state }
+		prerequisite = { focus = SOV_centralisation_of_power }
+		relative_position_id = SOV_all_power_to_the_state
+		
+		mutually_exclusive = { focus = SOV_foster_russian_nationalism }
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			add_ideas = SOV_hatred_for_the_west_rework
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = SOV_friends_in_europe
+		icon = GFX_focus_SOV_friends_in_europe
+		x = 0
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_united_in_cause }
+		relative_position_id = SOV_united_in_cause
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			subtract_from_variable = { SOV_siloviki_required_garrison_factor = 0.15 }
+			add_to_variable = { SOV_siloviki_compliance_growth = 0.12 }
+			custom_effect_tooltip = SOV_friends_in_europe_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_foster_russian_nationalism
+		icon = GFX_focus_SOV_foster_russian_nationalism
+		x = 1
+		y = 2
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_state }
+		prerequisite = { focus = SOV_centralisation_of_power }
+		relative_position_id = SOV_all_power_to_the_state
+		
+		mutually_exclusive = { focus = SOV_united_in_cause }
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			swap_ideas={
+				remove_idea = minority_rights_societal_discrimination
+				add_idea = minority_rights_separate_but_equal
+			}
+			
+			add_ideas = SOV_legacy_of_ancient_rus
+		}
+	}
+	
+	focus = {
+		id = SOV_the_motherland_belongs_to_the_strong
+		icon = GFX_focus_SOV_all_power_to_the_state
+		x = 1
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_foster_russian_nationalism }
+		prerequisite = { focus = SOV_ban_western_degeneracy }
+		relative_position_id = SOV_foster_russian_nationalism
+		available={
+			has_government = military_junta
+			nikolai_patrushev_is_leader = yes
+		}
+		
+		completion_reward={
+			swap_ideas ={
+				remove_idea = SOV_legacy_of_ancient_rus
+				add_idea = SOV_cuture_of_strength
+			}
 		}
 	}
 	
