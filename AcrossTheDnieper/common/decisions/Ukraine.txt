@@ -62,6 +62,8 @@ UKR_state_of_the_nation_decisions={
 				add_to_variable = { UKR_sotn_pro_russians_conscription = -0.002 }
 				add_to_variable = { UKR_sotn_pro_russians_political_power_factor = -0.03 }
 				add_to_variable = { UKR_sotn_pro_russians_stability_factor = -0.1 }
+				
+				UKR = {country_event = { id = ukraine.113 hours = 1 } }
 				if={
 					limit = {
 						OR={
@@ -82,14 +84,16 @@ UKR_state_of_the_nation_decisions={
 					every_state={
 						limit = { has_state_flag = donetsk_oblast_flag }
 						add_core_of = DON
+						
+						DON = { transfer_state = PREV }
 					}
 					every_state={
 						limit = { has_state_flag = luhansk_oblast_flag }
 						add_core_of = LHK
+						
+						LHK = { transfer_state = PREV }
 					}
 					DON = { 
-						transfer_state = 186
-						transfer_state = 173
 						load_oob = DON_moderate
 
 #						unlock_national_focus = DON_storm_the_rsa
@@ -99,34 +103,12 @@ UKR_state_of_the_nation_decisions={
 #						complete_national_focus = DON_glory_to_the_republic
 					}
 					LHK = { 
-						transfer_state = 152
-						transfer_state = 174
-						transfer_state = 159
 						load_oob = LHK_moderate
 					}
 					every_country={
 						limit = { OR = { original_tag = DON original_tag = SOV original_tag = UKR } }
 						country_event = { id = donetsk.5 days = 22 }
 					}
-					UKR={
-						set_province_controller = 18302
-						set_province_controller = 1166
-						set_province_controller = 4771
-						set_province_controller = 13399
-						set_province_controller = 11188
-						set_province_controller = 200
-						set_province_controller = 7395
-						
-						set_province_controller = 12187
-						set_province_controller = 13190
-						set_province_controller = 4359
-						set_province_controller = 2851
-						set_province_controller = 6231
-						set_province_controller = 5649
-					}
-					174 = { set_state_controller_to = UKR }
-					159 = { set_state_controller_to = UKR }
-					173 = { set_state_controller_to = UKR }
 					if={
 						limit = { 
 							army_manpower_in_state = { state = 89 amount < 7500 } 
@@ -136,12 +118,12 @@ UKR_state_of_the_nation_decisions={
 						every_state={
 							limit = { has_state_flag = kharkiv_oblast_flag }
 							add_core_of = KHK
+							
+							KHK = { transfer_state = PREV }
 						}
 						KHK = { 
-							transfer_state = 94
 							load_oob = KHK_moderate
 						}
-						94 = { set_state_controller_to = UKR }	
 					}
 					if={
 						limit = { 
@@ -174,6 +156,8 @@ UKR_state_of_the_nation_decisions={
 							}	
 						}
 						add_core_of = NOV
+						
+						NOV = { transfer_state = PREV }
 					}
 					
 					NOV = {
@@ -182,7 +166,7 @@ UKR_state_of_the_nation_decisions={
 						transfer_state = 159
 						transfer_state = 186
 						transfer_state = 173
-						load_oob = DON_moderate
+						load_donetsk_oob = yes
 						load_oob = LHK_moderate
 						load_oob = NOV_rebel
 					}

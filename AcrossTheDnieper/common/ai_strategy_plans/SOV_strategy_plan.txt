@@ -113,10 +113,10 @@ SOV_russia_historical_rework = {
 		original_tag = SOV
 	}
 	enable = {
-		russia_rework_trigger = yes
+		SOV_REWORK_is_putin_ai = yes
 	}
 	abort = {
-		NOT = { russia_rework_trigger = yes }
+		NOT = { SOV_REWORK_is_putin_ai = yes }
 	}
 
 	ai_national_focuses = {
@@ -175,7 +175,6 @@ SOV_russia_historical_rework = {
 		SOV_expand_vk_group
 		SOV_internet_infastructure
 		SOV_huawei_contrats
-
 		
 		SOV_strengthen_the_union_state
 		SOV_strengthen_the_government_in_transnistria
@@ -221,5 +220,103 @@ SOV_russia_historical_rework = {
 	focus_factors = {
 		military_theorist = 10
 	}
+}
 
+SOV_russia_rework_siloviki = {
+	name = "Russian Siloviki Path"
+	desc = ""
+
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR={
+			SOV_REWORK_is_shoigu_ai = yes
+			SOV_REWORK_is_patrushev_ai = yes
+			SOV_REWORK_is_bortnikov_ai = yes
+		}
+	}
+	abort = {
+		NOT={
+			OR={
+				SOV_REWORK_is_shoigu_ai = yes
+				SOV_REWORK_is_patrushev_ai = yes
+				SOV_REWORK_is_bortnikov_ai = yes
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		SOV_the_second_great_patriotic_war_2
+		SOV_modern_blitz
+		SOV_overwhelming_firepower
+		SOV_ever_adapting
+		SOV_total_mobilisation
+		SOV_across_the_vistula
+		SOV_wartime_economy
+		
+		SOV_welcome_home_2
+		SOV_build_the_crimean_bridge
+		SOV_encourage_crimean_settlement
+		SOV_fight_western_sanctions
+		SOV_no_need_for_western_food
+		SOV_BRICS_investments
+		SOV_nationalise_western_assets
+		SOV_hike_interest_rates
+		SOV_increase_economic_bureaucracy
+		SOV_economic_corridors
+		SOV_boost_domestic_production
+	
+		SOV_movement_in_the_shadows
+		SOV_the_siloviki_state
+		SOV_approach_zolotov
+		SOV_social_media_bots
+		SOV_limit_funding_to_traditional_media
+		SOV_supply_tanks_to_rosgvardiya
+		SOV_increase_fsb_funding
+		SOV_destroy_wagner
+		SOV_reshuffle_the_security_council
+		SOV_get_naryshkin_on_side
+		SOV_sway_lower_bureaucrats
+		
+		SOV_secure_our_control
+		SOV_crack_down_on_dissent
+		SOV_secure_the_media
+		SOV_arrests_in_yedinaya_rossiya
+		SOV_purge_disloyal_generals
+		SOV_leaders_portraits
+		SOV_recruit_new_fsb_personnel
+		SOV_enemies_abroad
+		SOV_rally_our_base
+		SOV_destroy_the_oligarchy
+		SOV_the_watchful_eye_of_leader
+		SOV_army_modernisation
+		SOV_black_gold
+		
+		
+		#From this point on the AI will randomly choose between the donbass tree, military tree, shared siloviki tree and individual siloviki tree
+		#tbh I don't really care what order they do the focuses in, it matters very little
+	}
+
+	research = {
+		
+	}
+
+	ideas = {
+	}
+
+	traits = {
+		
+	}
+
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		military_theorist = 10
+	}
 }

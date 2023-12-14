@@ -1,4 +1,5 @@
 SOV_is_putin_ai={
+	NOT = { russia_rework_trigger = yes }
 	OR={
 		has_country_flag = SOV_PUTIN_AI_FLAG
 		has_game_rule = {
@@ -16,6 +17,7 @@ SOV_is_putin_ai={
 }
 
 SOV_is_putin_dead_ai={
+	NOT = { russia_rework_trigger = yes }
 	OR={
 		has_country_flag = SOV_PUTIN_DEAD_AI_FLAG
 		has_game_rule = {
@@ -26,6 +28,7 @@ SOV_is_putin_dead_ai={
 }
 
 SOV_is_sobchak_ai={
+	NOT = { russia_rework_trigger = yes }
 	OR={
 		has_country_flag = SOV_SOBCHAK_AI_FLAG
 		has_game_rule = {
@@ -36,6 +39,7 @@ SOV_is_sobchak_ai={
 }
 
 SOV_is_yavlinski_ai={
+	NOT = { russia_rework_trigger = yes }
 	OR={
 		has_country_flag = SOV_is_yavlinski_ai
 		has_game_rule = {
@@ -44,6 +48,60 @@ SOV_is_yavlinski_ai={
 		}
 	}
 }
+
+
+
+
+
+
+SOV_REWORK_is_putin_ai={
+	russia_rework_trigger = yes
+	OR={
+		has_country_flag = SOV_REWORK_PUTIN_AI_FLAG
+		has_game_rule = {
+			rule = SOV_ai_behavior
+			option = REWORK_PUTIN
+		}
+		AND={
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = DEFAULT
+			}
+		}
+	}
+}
+SOV_REWORK_is_shoigu_ai={
+	russia_rework_trigger = yes
+	OR={
+		has_country_flag = SOV_REWORK_SHOIGU_AI_FLAG
+		has_game_rule = {
+			rule = SOV_ai_behavior
+			option = REWORK_SHOIGU
+		}
+	}
+}
+SOV_REWORK_is_patrushev_ai={
+	russia_rework_trigger = yes
+	OR={
+		has_country_flag = SOV_REWORK_PATRUSHEV_AI_FLAG
+		has_game_rule = {
+			rule = SOV_ai_behavior
+			option = REWORK_PATRUSHEV
+		}
+	}
+}
+SOV_REWORK_is_bortnikov_ai={
+	russia_rework_trigger = yes
+	OR={
+		has_country_flag = SOV_REWORK_BORTNIKOV_AI_FLAG
+		has_game_rule = {
+			rule = SOV_ai_behavior
+			option = REWORK_BORTNIKOV
+		}
+	}
+}
+
 
 russia_rework_trigger={
 	has_game_rule = {

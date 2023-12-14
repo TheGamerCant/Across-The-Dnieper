@@ -1790,6 +1790,10 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_global_flag = minsk_ii_has_been_signed
+			every_state={
+				limit = { is_controlled_by = UKR NOT = { is_owned_by = UKR } }
+				set_state_flag = STATE_CONTROLLED_BY_UKRAINE
+			}
 			if={
 				limit = { 186 = { is_controlled_by = UKR } }
 				set_global_flag = ukraine_controls_donetsk		#To make sure that capitulated countries get annexed
@@ -1806,7 +1810,7 @@ country_event = {
 				limit = { 269 = { is_controlled_by = UKR } }
 				set_global_flag = ukraine_controls_odesa
 			}
-			DON = { dismantle_faction = yes }
+			DON = { dismantle_faction = yes } 
 			NOV = { dismantle_faction = yes }
 			every_state={
 				limit = { 
@@ -1853,7 +1857,7 @@ country_event = {
 			}
 
 			clr_global_flag = donbass_war_is_ongoing
-			UKR={ country_event = { id = ukraine.48 hours = 3 } }
+			UKR={ country_event = { id = ukraine.48 hours = 1 } }
 			SOV = { clr_country_flag = chosen_to_send_volunteers_to_donbass }
 			
 			if={
@@ -4108,5 +4112,94 @@ country_event = {
 			add_war_support = -0.03
 		}
 
+	}
+}
+
+country_event = {
+	id = ukraine.113
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { country_exists = DON }
+			174 = { set_state_controller_to = UKR }
+			159 = { set_state_controller_to = UKR }
+			173 = { set_state_controller_to = UKR }
+			136 = { set_state_controller_to = UKR }
+			131 = { set_state_controller_to = UKR }
+			155 = { set_state_controller_to = UKR }
+			154 = { set_state_controller_to = UKR }
+			109 = { set_state_controller_to = UKR }
+			103 = { set_state_controller_to = UKR }
+			173 = { set_state_controller_to = UKR }
+			195 = { set_state_controller_to = UKR }
+			230 = { set_state_controller_to = UKR }
+			166 = { set_state_controller_to = UKR }
+			146 = { set_state_controller_to = UKR }
+			135 = { set_state_controller_to = UKR }
+			208 = { set_state_controller_to = UKR }
+			
+			set_province_controller = 18302
+			set_province_controller = 1166
+			set_province_controller = 4771
+			set_province_controller = 13399
+			set_province_controller = 11188
+			set_province_controller = 200
+			set_province_controller = 7395
+			
+			set_province_controller = 12187
+			set_province_controller = 13190
+			set_province_controller = 4359
+			set_province_controller = 2851
+			set_province_controller = 6231
+			set_province_controller = 5649
+		}
+		else={
+			174 = { set_state_controller_to = UKR }
+			159 = { set_state_controller_to = UKR }
+			173 = { set_state_controller_to = UKR }
+			136 = { set_state_controller_to = UKR }
+			131 = { set_state_controller_to = UKR }
+			155 = { set_state_controller_to = UKR }
+			154 = { set_state_controller_to = UKR }
+			109 = { set_state_controller_to = UKR }
+			103 = { set_state_controller_to = UKR }
+			173 = { set_state_controller_to = UKR }
+			195 = { set_state_controller_to = UKR }
+			230 = { set_state_controller_to = UKR }
+			166 = { set_state_controller_to = UKR }
+			146 = { set_state_controller_to = UKR }
+			135 = { set_state_controller_to = UKR }
+			208 = { set_state_controller_to = UKR }
+			
+			set_province_controller = 18302
+			set_province_controller = 1166
+			set_province_controller = 4771
+			set_province_controller = 13399
+			set_province_controller = 11188
+			set_province_controller = 200
+			set_province_controller = 7395
+			
+			set_province_controller = 12187
+			set_province_controller = 13190
+			set_province_controller = 4359
+			set_province_controller = 2851
+			set_province_controller = 6231
+			set_province_controller = 5649
+			
+			every_state={
+				limit = { OR={ has_state_flag = zaporizhia_oblast_flag has_state_flag = kharkiv_oblast_flag } }
+				set_state_controller_to = UKR
+			}
+		}
+		
+		if={
+			limit = { country_exists = KHK }
+			every_state={
+				limit = { has_state_flag = kharkiv_oblast_flag }
+				set_state_controller_to = UKR
+			}
+		}
 	}
 }

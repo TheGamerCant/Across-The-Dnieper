@@ -561,6 +561,34 @@ shared_focus = {
 	completion_reward = {
 		add_war_support = 0.05
 		add_manpower = 12000
+		hidden_effect={
+			division_template = {
+				name = "Donbass Militia"
+				division_names_group = DON_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }	
+					irregular_infantry = { x = 1 y = 2 }
+					artillery = { x = 2 y = 0 }
+				}
+			}
+			for_loop_effect = {
+				end = 6
+				value = temp
+				random_state = {
+					limit={ OR={ is_claimed_by = ROOT is_core_of = ROOT } }
+					create_unit = {
+						division = "name = \"People's Militia\" division_template = \"Donbass Militia\" start_experience_factor = 0.07" 
+						owner = ROOT
+					}
+				}
+			}
+
+		}
+		custom_effect_tooltip = DONBASS_the_fight_against_nazism_tt
 	}
 }
 

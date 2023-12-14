@@ -1268,6 +1268,13 @@ country_event = {
         name = russia.1035.a
 		ai_chance = {
 			base = 10
+			modifier = {
+				factor = 0
+				OR={
+					SOV_REWORK_is_patrushev_ai = yes
+					SOV_REWORK_is_bortnikov_ai = yes
+				}
+			}
 		}
 		SOV_make_sergei_shoigu_siloviki_leader = yes
 		custom_effect_tooltip = make_shoigu_siloviki_leader_tt
@@ -1290,7 +1297,14 @@ country_event = {
 	option = {				
         name = russia.1035.b
 		ai_chance = {
-			base = 0
+			base = 10
+			modifier = {
+				factor = 0
+				OR={
+					SOV_REWORK_is_shoigu_ai = yes
+					SOV_REWORK_is_bortnikov_ai = yes
+				}
+			}
 		}
 		SOV_make_nikolai_patrushev_siloviki_leader = yes
 		custom_effect_tooltip = make_patrushev_siloviki_leader_tt
@@ -1313,7 +1327,14 @@ country_event = {
 	option = {				
         name = russia.1035.c
 		ai_chance = {
-			base = 0
+			base = 10
+			modifier = {
+				factor = 0
+				OR={
+					SOV_REWORK_is_shoigu_ai = yes
+					SOV_REWORK_is_patrushev_ai = yes
+				}
+			}
 		}
 		SOV_make_alexander_bortnikov_siloviki_leader = yes
 		custom_effect_tooltip = make_bortnikov_siloviki_leader_tt
@@ -3100,6 +3121,14 @@ unit_leader_event = {
         name = russia.1081.a
 		ai_chance = {
 			base = 10
+			modifier = {
+				factor = 0		#Put any characters you don't want purged here. Otherwise it's a 50/50 tossup as to whether they get purged or not.
+				OR={
+					SOV_sergey_surovikin_rework = { has_character_flag = SOV_literally_nikolai_yezhovs_1938 }
+					SOV_aleksandr_pavlovich_lapin_rework = { has_character_flag = SOV_literally_nikolai_yezhovs_1938 }
+					SOV_roman_vladimirovich_kutuzov_rework = { has_character_flag = SOV_literally_nikolai_yezhovs_1938 }
+				}
+			}
 		}
 		custom_effect_tooltip = SOV_characters_will_be_purged_tt
 		character_list_tooltip = {
