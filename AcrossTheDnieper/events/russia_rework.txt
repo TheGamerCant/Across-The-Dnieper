@@ -3977,3 +3977,70 @@ country_event = {
 		SOV_propaganda_event_effect = yes
     }
 }
+
+# "Results of the Year with Vladimir Putin"
+country_event = {
+    id = russia_propaganda.13
+    title = russia_propaganda.13.t
+    desc = russia_propaganda.13.desc
+    picture = GFX_report_event_SOV_results_of_the_year
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.13.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_stability = 0.005
+
+		hidden_effect = { 
+			if = {
+				limit = {
+					has_war_with = UKR
+				}
+				country_event = { id = russia_propaganda.14 }  
+			}
+		}
+    }
+}
+
+# "Results of the Year with Vladimir Putin: Conflict In Ukraine"
+country_event = {
+    id = russia_propaganda.14
+    title = russia_propaganda.14.t
+    desc = russia_propaganda.14.desc
+    picture = GFX_report_event_SOV_results_of_the_year
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.14.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_stability = 0.02
+		add_political_power = -5
+
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.02
+        }
+    }
+
+	option = {
+        name = russia_propaganda.14.b
+		ai_chance = {
+			base = 0
+		}
+		
+		add_war_support = 0.03
+
+		add_popularity = {
+            ideology = ultranationalist
+            popularity = 0.02
+        }
+    }
+}
