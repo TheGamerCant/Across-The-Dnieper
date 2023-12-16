@@ -384,7 +384,6 @@ focus_tree = {
 				OR={
 					has_completed_focus = SOV_putin_at_the_helm
 					has_completed_focus = SOV_the_siloviki_state
-					has_completed_focus = SOV_the_angry_patriots
 				}
 			}
 		}
@@ -404,7 +403,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = SOV_russia_united }
 
-		mutually_exclusive = { focus = SOV_movement_in_the_shadows }
+		mutually_exclusive = { focus = SOV_the_siloviki_state }
 		allow_branch = {
 			if = {
 				limit = {
@@ -413,7 +412,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+				NOT = { has_completed_focus = SOV_the_siloviki_state }
 				has_country_flag = russia_united_flag
 			}
 		}
@@ -674,7 +673,7 @@ focus_tree = {
 			hidden_effect={
 
 				UKR = { country_event = { id = ukraine.112 days = 275 } }
-				SOV = { country_event = { id = ukraine.112 days = 275 } }
+				SOV = { country_event = { id = ukraine.112 days = 275 } country_event = { id= russia.1097 days = 200 random_days = 220 } }
 
 				every_state={
 					limit={
@@ -1190,7 +1189,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = russia_united_flag
 				}
-				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+				NOT = { has_completed_focus = SOV_the_siloviki_state }
 			}
 		}
 		
@@ -1582,7 +1581,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = russia_united_flag
 				}
-				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+				NOT = { has_completed_focus = SOV_the_siloviki_state }
 			}
 		}
 		completion_reward={
@@ -1900,7 +1899,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = russia_united_flag
 				}
-				NOT = { has_completed_focus = SOV_movement_in_the_shadows }
+				NOT = { has_completed_focus = SOV_the_siloviki_state }
 			}
 		}
 		
@@ -2204,19 +2203,17 @@ focus_tree = {
 		}
 	}
 	
-	
 	focus = {
-		id = SOV_movement_in_the_shadows
-		icon = GFX_focus_
+		id = SOV_the_siloviki_state
+		icon = GFX_focus_SOV_the_siloviki_state
 		x = 25
 		y = 1
 		cost = 30
 		search_filters = {
 			
 		}
-		ai_will_do={
-			factor = 0					############################################CHANGE WHEN DONE
-		}
+		
+		
 		prerequisite = { focus = SOV_russia_united }
 		relative_position_id = SOV_russia_united
 		mutually_exclusive = { focus = SOV_putin_at_the_helm }
@@ -2242,64 +2239,9 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_movement_in_the_shadows
-			}
-		}
-		available={
-			vladimir_putin_is_leader = yes
-		}
-		
-		completion_reward={
-			mark_focus_tree_layout_dirty = yes
-			
-			add_political_power = 100
-		}
-	}
-	
-	focus = {
-		id = SOV_the_siloviki_state
-		icon = GFX_focus_SOV_the_siloviki_state
-		x = -5
-		y = 1
-		cost = 30
-		search_filters = {
-			
-		}
-		
-		
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-#				always = no
-				NOT={
-					OR={
-						has_completed_focus = SOV_the_angry_patriots
-						has_completed_focus = SOV_putin_at_the_helm
-					}
-				}
-				has_country_flag = russia_united_flag
-			}
-		}
-		offset = {
-			x = 5
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
 				has_completed_focus = SOV_the_siloviki_state
 			}
 		}
-
-		prerequisite = { focus = SOV_movement_in_the_shadows }
-		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_the_angry_patriots }
 
 		available={
 			vladimir_putin_is_leader = yes
@@ -2324,11 +2266,16 @@ focus_tree = {
 			
 			country_event = { id = russia.1035 hours = 3 }
 			set_country_flag = putin_siloviki_power_balance
-			add_political_power = 200
+			add_political_power = 250
 			
 			hidden_effect={
 				country_event = { id = russia.1037 days = 100 random_days = 50 }
 				country_event = { id = russia.1038 days = 172 random_days = 80 }
+				
+				if={
+					limit = { is_ai = yes }
+					add_political_power = 75
+				}
 			}
 		}
 	}
@@ -2696,26 +2643,14 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_angry_patriots
-		icon = GFX_focus_
-		x = 5
-		y = 1
-		cost = 30
+		icon = GFX_focus_SOV_the_angry_patriots
+		x = 37
+		y = 11
+		cost = 14
 		search_filters = {
 			
 		}
-
-		offset = {
-			x = -5
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = SOV_the_angry_patriots
-			}
-		}
-		
+		mutually_exclusive = { focus = SOV_announce_the_draft }
 		allow_branch = {
 			if = {
 				limit = {
@@ -2724,32 +2659,106 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-#				always = no
-				NOT={
-					OR={
-						has_completed_focus = SOV_the_siloviki_state
-						has_completed_focus = SOV_putin_at_the_helm
-					}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_completed_focus = SOV_movements_on_the_border
 				}
-				has_country_flag = russia_united_flag
 			}
 		}
-
-		prerequisite = { focus = SOV_movement_in_the_shadows }
-		relative_position_id = SOV_movement_in_the_shadows
-		mutually_exclusive = { focus = SOV_the_siloviki_state }
-
 		available={
 			vladimir_putin_is_leader = yes
+			has_war_with = UKR
+			has_country_flag = SOV_club_of_angry_patriots_has_been_formed
+			has_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
+			custom_trigger_tooltip={
+				check_variable = { var = nationalist_faction_strength value = 15 compare = greater_than_or_equals }
+				tooltip = SOV_the_angry_patriots_trigger_tt
+			}
 		}
 		
 		completion_reward={
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SOV_igor_vsevolodovich_girkin_rework
-		
-			mark_focus_tree_layout_dirty = yes
+			
+			SOV_make_igor_girkin_nationalist_leader = yes
+			custom_effect_tooltip = SOV_the_angry_patriots_tt
+			
+			set_country_flag = girkin_is_available_flag
 		}
 	}
+	
+	focus = {
+		id = SOV_sow_discontent_at_the_front
+		icon = GFX_focus_SOV_sow_discontent_at_the_front
+		x = -1
+		y = 1
+		cost = 14
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_the_angry_patriots }
+		relative_position_id = SOV_the_angry_patriots
+		available={
+			vladimir_putin_is_leader = yes
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			SOV_increase_nationalist_faction_medium = yes
+			
+			add_popularity = { ideology = fascist popularity = 0.04 }
+		}
+	}
+	
+	focus = {
+		id = SOV_social_media_channels
+		icon = GFX_focus_SOV_social_media_channels
+		x = 1
+		y = 1
+		cost = 14
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_the_angry_patriots }
+		relative_position_id = SOV_the_angry_patriots
+		available={
+			vladimir_putin_is_leader = yes
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_political_power = 40
+			
+			add_popularity = { ideology = fascist popularity = 0.04 }
+		}
+	}
+	
+	focus = {
+		id = SOV_the_patriots_march
+		icon = GFX_focus_
+		x = 0
+		y = 2
+		cost = 14
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_social_media_channels }
+		prerequisite = { focus = SOV_sow_discontent_at_the_front }
+		relative_position_id = SOV_the_angry_patriots
+		available={
+			vladimir_putin_is_leader = yes
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1100 hours = 1 }
+			add_stability = -0.2
+		}
+	}
+	
 	
 	focus = {
 		id = SOV_the_quagmire
@@ -2943,7 +2952,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_offensives_in_donbass_2 focus = SOV_the_push_to_odessa }
 		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_fix_our_logistics
-
+		mutually_exclusive = { focus = SOV_the_angry_patriots }
 		available={
 			has_war_with = UKR
 			OR={
@@ -3266,7 +3275,6 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			has_completed_focus = SOV_novorossiya_at_hand_2
-			
 			has_global_flag = NOVOROSSIA_REFERENDUM_FLAG
 		}
 		
@@ -3295,9 +3303,7 @@ focus_tree = {
 		relative_position_id = SOV_no_option_but_victory
 
 		available={
-			has_war_with = UKR
-			has_completed_focus = SOV_novorossiya_at_hand_2
-			
+			has_war_with = UKR			
 			has_completed_focus = SOV_no_option_but_victory
 		}
 		
@@ -3314,7 +3320,7 @@ focus_tree = {
 	focus = {
 		id = SOV_great_victors_2
 		icon = GFX_focus_SOV_great_victors_3
-		x = 44
+		x = 46
 		y = 8
 		cost = 10
 		search_filters = {
@@ -6204,7 +6210,14 @@ shared_focus = {
 		}
 		
 		add_political_power = 50
-		add_popularity = { ideology = eastern_conservative popularity = 0.05 }
+		if={
+			limit = { has_government = eastern_conservative }
+			add_popularity = { ideology = eastern_conservative popularity = 0.05 }
+		}
+		else_if={
+			limit = { has_government = military_junta }
+			add_popularity = { ideology = military_junta popularity = 0.05 }
+		}
 	}
 }
 

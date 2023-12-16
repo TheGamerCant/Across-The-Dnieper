@@ -1700,3 +1700,36 @@ news_event = {	#Siloviki russia invades ukraine
 		}
 	}
 }
+
+news_event = {	#Patriot's march
+	id = atd_news.63
+	title = atd_news.63.t
+	desc = atd_news.63.desc
+	picture = GFX_news_event_capitulation
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.63.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = UKR
+					tag = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.63.b
+		trigger = {
+			tag = SOV
+		}
+	}
+	option = {
+		name = atd_news.63.c
+		trigger = {
+			tag = UKR
+		}
+	}
+}

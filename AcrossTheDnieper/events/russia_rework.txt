@@ -2347,7 +2347,7 @@ country_event = {
 		add_manpower = 60000
 		hidden_effect={
 			if={
-				limit = { has_war_with = UKR }
+				limit = { has_war_with = UKR vladimir_putin_is_leader = yes }
 				country_event = { id = russia.1063 days = 132 }
 			}
 		}
@@ -2380,7 +2380,7 @@ country_event = {
 		SOV_increase_oil_and_gas_faction_small = yes
 		hidden_effect={
 			if={
-				limit = { has_war_with = UKR }
+				limit = { has_war_with = UKR vladimir_putin_is_leader = yes }
 				country_event = { id = russia.1064 days = 60 }
 			}
 		}
@@ -2415,7 +2415,7 @@ country_event = {
 		
 		hidden_effect={
 			if={
-				limit = { has_war_with = UKR }
+				limit = { has_war_with = UKR vladimir_putin_is_leader = yes }
 				country_event = { id = russia.1065 days = 54 }
 			}
 		}
@@ -2449,7 +2449,7 @@ country_event = {
 		SOV_increase_siloviki_faction_small = yes
 		hidden_effect={
 			if={
-				limit = { has_war_with = UKR }
+				limit = { has_war_with = UKR vladimir_putin_is_leader = yes }
 				country_event = { id = russia.1066 days = 27 }
 			}
 		}
@@ -3097,6 +3097,8 @@ country_event = {
 		}
 		add_war_support = 0.002
 		SOV_increase_nationalist_faction_small = yes
+		
+		hidden_effect = { country_event = { id = russia.1098 days = 400 random_days = 300 } }
 	}
 	
 	option = {
@@ -3552,7 +3554,7 @@ country_event = {
 	option = {
         name = russia.1095.b
 		ai_chance = {
-			base = 10
+			base = 0
 		}
 		add_political_power = 25
 	}
@@ -3581,14 +3583,291 @@ country_event = {
 	option = {
         name = russia.1096.b
 		ai_chance = {
-			base = 10
+			base = 0
 		}
 		add_political_power = 25
 	}
 }
 
+country_event = {
+	id = russia.1097
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { 
+				NOT = { 92 = { is_controlled_by = ROOT } }
+				has_war_with = UKR
+			}
+			
+			country_event = { id = russia.1099 random_hours = 12 }
+		}
+	}
+}
+
+#Girkin's influence in the fsb grows
+country_event = {
+    id = russia.1098
+    title = russia.1098.t
+    desc = russia.1098.desc
+    picture = GFX_report_event_SOV_strelkov
+    is_triggered_only = yes
 
 
+    option = {
+        name = russia.1098.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_increase_nationalist_faction_small = yes
+		
+		set_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
+	}
+	
+	option = {
+        name = russia.1098.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_decrease_nationalist_faction_small = yes
+		add_political_power = -5
+	}
+}
+
+#The Club of Angry Patriots
+country_event = {
+    id = russia.1099
+    title = russia.1099.t
+    desc = russia.1099.desc
+    picture = GFX_report_event_SOV_strelkov
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1099.a
+		ai_chance = {
+			base = 10
+		}
+		SOV_decrease_nationalist_faction_medium = yes
+		
+		add_war_support = -0.05
+	}
+	
+	option = {
+        name = russia.1099.b
+		ai_chance = {
+			base = 0
+		}
+		SOV_increase_nationalist_faction_small = yes
+		set_country_flag = SOV_club_of_angry_patriots_has_been_formed
+		
+		set_party_name = { ideology = fascist long_name = club_of_angry_patriots_subideology_party_long name = club_of_angry_patriots_subideology_party }
+		create_country_leader = {
+			name = "Igor Girkin"
+			picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
+			ideology = club_of_angry_patriots_subideology
+		}
+		
+	}
+}
+
+#The Patriot's March
+country_event = {
+    id = russia.1100
+    title = russia.1100.t
+    desc = russia.1100.desc
+    picture = SOV_coup_start_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1100.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = { 
+			news_event = { id = atd_news.63 hours = 2 } 
+			
+			create_dynamic_country = {
+				original_tag = SOV
+
+				spawn_new_country_economy = yes
+				set_variable = { THIS.inflation_rate = SOV.inflation_rate }
+
+				set_politics = {
+					ruling_party = fascist
+				}
+				add_popularity = {
+					ideology = fascist
+					popularity = 1
+				}
+				set_cosmetic_tag = KRP
+				set_research_slots = 4
+
+				set_party_name = { ideology = fascist long_name = club_of_angry_patriots_subideology_party_long name = club_of_angry_patriots_subideology_party }
+				create_country_leader = {
+					name = "Igor Girkin"
+					picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
+					ideology = club_of_angry_patriots_subideology
+				}
+
+				add_ideas = {
+					limited_conscription
+					authoritarian_democracy
+					war_economy
+					state_controlled_press
+					bipolarist
+					womens_rights_traditional_values
+					lgbtq_rights_banned
+					minority_rights_societal_discrimination
+					religion_law_religious
+					nationalism_laws_jingoistic
+				}
+
+				transfer_state = 430
+				transfer_state = 450
+				transfer_state = 88
+				
+				every_state={
+					limit = {
+						is_core_of = UKR
+						NOT = { is_owned_by = SOV }
+						is_fully_controlled_by = SOV
+					}
+					
+					set_state_controller_to = KRP
+				}
+
+#				every_state={
+#					limit={ is_controlled_by = KRP }
+#					teleport_armies = {
+#						limit = { NOT = { tag = KRP } }
+#						to_state_array = owned_controlled_states
+#					}
+#				}
+
+
+				declare_war_on = {
+					target = SOV
+					type = civil_war
+				}
+
+				add_civil_war_target = SOV
+			}
+			
+			SOV = {
+				transfer_units_fraction = {
+					target = KRP
+					size = 0.2
+					stockpile_ratio = 0.1
+					army_ratio = 0.2
+					navy_ratio = 0.1
+					air_ratio = 0.1
+
+					keep_unit_leaders_trigger = {
+						NOT = {
+							OR = {
+								is_character = SOV_sergey_shoygu 
+								is_character = SOV_sergey_shoygu_rework 
+
+								is_character = SOV_valery_gerasimov_rework 
+								is_character = SOV_valery_gerasimov
+								
+								is_character = SOV_alexander_bortnikov_rework 
+								is_character = SOV_alexander_bortnikov
+							}
+						}
+
+					}
+				}
+			}
+			
+			KRP = { change_tag_from  = SOV }
+			KRP = { country_event = { id = russia.1101 hours = 8 } }
+		}
+	}
+}
+
+#Unit defections for KRP
+country_event = {
+    id = russia.1101
+    title = russia.1101.t
+    desc = russia.1101.desc
+    picture = GFX_report_event_SOV_wagner_mutiny
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1101.a
+		ai_chance = {
+			base = 10
+		}
+		
+		hidden_effect={
+			transfer_state = 52
+			transfer_state = 41
+			
+			country_event = { id = russia.1102 hours = 5 }
+		
+			SOV = {
+				transfer_units_fraction = {
+					target = KRP
+					size = 0.2
+					stockpile_ratio = 0.1
+					army_ratio = 0.2
+					navy_ratio = 0.1
+					air_ratio = 0.1
+
+					keep_unit_leaders_trigger = {
+						NOT = {
+							OR = {
+								is_character = SOV_sergey_shoygu 
+								is_character = SOV_sergey_shoygu_rework 
+
+								is_character = SOV_valery_gerasimov_rework 
+								is_character = SOV_valery_gerasimov
+								
+								is_character = SOV_alexander_bortnikov_rework 
+								is_character = SOV_alexander_bortnikov
+							}
+						}
+
+					}
+				}
+			}
+		}
+	}
+}
+
+#Putin killed
+country_event = {
+    id = russia.1102
+    title = russia.1102.t
+    desc = russia.1102.desc
+    picture = GFX_report_event_SOV_prigozhin_dead
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1102.a
+		ai_chance = {
+			base = 10
+		}
+		
+		hidden_effect={
+			SOV = { change_tag_from  = KRP }
+			SOV = { 
+				annex_country = { target = KRP transfer_troops = yes }
+				kill_country_leader = yes
+				set_politics = {
+					ruling_party = fascist
+					elections_allowed = no
+				}
+			}
+		}
+	}
+}
 
 country_event = {
     id = russia_propaganda.1
