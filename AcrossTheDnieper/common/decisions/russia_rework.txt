@@ -26,6 +26,51 @@ debug_decisions = {
 		}
 	}
 	
+	SOV_load_girkin_russia = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			load_focus_tree = post_crimea_tree
+			set_country_flag = russia_united_flag
+			set_country_flag = view_all_russia_trees
+			
+			complete_national_focus = SOV_russia_united
+			complete_national_focus = SOV_putin_at_the_helm
+			
+			set_party_name = { ideology = fascist long_name = club_of_angry_patriots_subideology_party_long name = club_of_angry_patriots_subideology_party }
+			create_country_leader = {
+				name = "Igor Girkin"
+				picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
+				ideology = club_of_angry_patriots_subideology
+			}
+
+			kill_country_leader = yes
+			set_politics = {
+				ruling_party = fascist
+				elections_allowed = no
+			}
+			
+			mark_focus_tree_layout_dirty = yes
+			complete_national_focus = SOV_russia_united_QM
+		}
+	}
+	
 	SOV_start_putin_siloviki_bop = { 
 		priority = 200
 
@@ -1780,10 +1825,10 @@ SOV_army_reform_decisions={
 		remove_effect = {
 			army_experience = -40
 			
-			add_to_variable = { SOV_army_army_org_factor = 0.07 }
+			add_to_variable = { SOV_army_army_org_factor = 0.03 }
 			custom_effect_tooltip = SOV_military_parades_tt
 			
-			add_war_support = 0.04
+			add_war_support = 0.05
 			
 			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
 		}
@@ -1826,6 +1871,65 @@ SOV_army_reform_decisions={
 			custom_effect_tooltip = SOV_clamp_down_on_corruption_tt
 			
 			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+}
+
+SOV_securing_the_federation={
+	SOV_track_down_shoigu = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			political_power_cost = 0.2
+		}
+
+		visible = {
+		}
+		
+		days_remove = 30
+		cost = 25
+
+		remove_effect = {	
+			hidden_effect={
+				if={
+					limit = { is_ai = yes }
+					add_political_power = 40
+				}
+			}
+		}
+	}
+	
+	SOV_counter_coup_mission = {
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 90
+		selectable_mission = no
+		complete_effect = {
+			country_lock_all_division_template = no
+		}
+		timeout_effect = {
+			
 		}
 	}
 }

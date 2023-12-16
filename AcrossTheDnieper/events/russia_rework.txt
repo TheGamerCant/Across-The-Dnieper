@@ -3659,7 +3659,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		SOV_increase_nationalist_faction_small = yes
+		SOV_increase_nationalist_faction_medium = yes
 		set_country_flag = SOV_club_of_angry_patriots_has_been_formed
 		
 		set_party_name = { ideology = fascist long_name = club_of_angry_patriots_subideology_party_long name = club_of_angry_patriots_subideology_party }
@@ -3686,106 +3686,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		hidden_effect = { 
-			news_event = { id = atd_news.63 hours = 2 } 
-			
-			create_dynamic_country = {
-				original_tag = SOV
-
-				spawn_new_country_economy = yes
-				set_variable = { THIS.inflation_rate = SOV.inflation_rate }
-
-				set_politics = {
-					ruling_party = fascist
-				}
-				add_popularity = {
-					ideology = fascist
-					popularity = 1
-				}
-				set_cosmetic_tag = KRP
-				set_research_slots = 4
-
-				set_party_name = { ideology = fascist long_name = club_of_angry_patriots_subideology_party_long name = club_of_angry_patriots_subideology_party }
-				create_country_leader = {
-					name = "Igor Girkin"
-					picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
-					ideology = club_of_angry_patriots_subideology
-				}
-
-				add_ideas = {
-					limited_conscription
-					authoritarian_democracy
-					war_economy
-					state_controlled_press
-					bipolarist
-					womens_rights_traditional_values
-					lgbtq_rights_banned
-					minority_rights_societal_discrimination
-					religion_law_religious
-					nationalism_laws_jingoistic
-				}
-
-				transfer_state = 430
-				transfer_state = 450
-				transfer_state = 88
-				
-				every_state={
-					limit = {
-						is_core_of = UKR
-						NOT = { is_owned_by = SOV }
-						is_fully_controlled_by = SOV
-					}
-					
-					set_state_controller_to = KRP
-				}
-
-#				every_state={
-#					limit={ is_controlled_by = KRP }
-#					teleport_armies = {
-#						limit = { NOT = { tag = KRP } }
-#						to_state_array = owned_controlled_states
-#					}
-#				}
-
-
-				declare_war_on = {
-					target = SOV
-					type = civil_war
-				}
-
-				add_civil_war_target = SOV
-			}
-			
-			SOV = {
-				transfer_units_fraction = {
-					target = KRP
-					size = 0.2
-					stockpile_ratio = 0.1
-					army_ratio = 0.2
-					navy_ratio = 0.1
-					air_ratio = 0.1
-
-					keep_unit_leaders_trigger = {
-						NOT = {
-							OR = {
-								is_character = SOV_sergey_shoygu 
-								is_character = SOV_sergey_shoygu_rework 
-
-								is_character = SOV_valery_gerasimov_rework 
-								is_character = SOV_valery_gerasimov
-								
-								is_character = SOV_alexander_bortnikov_rework 
-								is_character = SOV_alexander_bortnikov
-							}
-						}
-
-					}
-				}
-			}
-			
-			KRP = { change_tag_from  = SOV }
-			KRP = { country_event = { id = russia.1101 hours = 8 } }
-		}
+		SOV_load_KRP_mutiny = yes
 	}
 }
 
@@ -3864,6 +3765,10 @@ country_event = {
 					ruling_party = fascist
 					elections_allowed = no
 				}
+				
+				mark_focus_tree_layout_dirty = yes
+				
+				complete_national_focus = SOV_russia_united_QM
 			}
 		}
 	}

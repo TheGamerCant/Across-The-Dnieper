@@ -1427,6 +1427,7 @@ focus_tree = {
 			if={
 				limit={ has_completed_focus = SOV_holy_russia }
 				custom_effect_tooltip = SOV_promote_orthodoxy_tt
+				SOV_increase_putinist_faction_medium = yes
 				hidden_effect={
 					remove_trait = {
 						character = SOV_kirill_rework
@@ -2068,12 +2069,14 @@ focus_tree = {
 						trait = patriarch_of_moscow_2
 					}
 				}
+				SOV_increase_nationalist_faction_medium = yes
 			}
 			else={
 				custom_effect_tooltip = available_political_advisor
 				show_ideas_tooltip = SOV_kirill_rework
 				custom_effect_tooltip = kirill_tt
 			}
+			
 		}
 	}
 	
@@ -2208,7 +2211,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_siloviki_state
 		x = 25
 		y = 1
-		cost = 30
+		cost = 48
 		search_filters = {
 			
 		}
@@ -2666,12 +2669,12 @@ focus_tree = {
 			}
 		}
 		available={
-			vladimir_putin_is_leader = yes
+			igor_girkin_is_not_leader = yes
 			has_war_with = UKR
 			has_country_flag = SOV_club_of_angry_patriots_has_been_formed
 			has_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
 			custom_trigger_tooltip={
-				check_variable = { var = nationalist_faction_strength value = 15 compare = greater_than_or_equals }
+				check_variable = { var = nationalist_faction_strength value = 14 compare = greater_than_or_equals }
 				tooltip = SOV_the_angry_patriots_trigger_tt
 			}
 		}
@@ -2700,7 +2703,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_the_angry_patriots }
 		relative_position_id = SOV_the_angry_patriots
 		available={
-			vladimir_putin_is_leader = yes
+			igor_girkin_is_not_leader = yes
 			has_war_with = UKR
 		}
 		
@@ -2724,7 +2727,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_the_angry_patriots }
 		relative_position_id = SOV_the_angry_patriots
 		available={
-			vladimir_putin_is_leader = yes
+			igor_girkin_is_not_leader = yes
 			has_war_with = UKR
 		}
 		
@@ -2737,7 +2740,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_the_patriots_march
-		icon = GFX_focus_
+		icon = GFX_focus_SOV_the_patriots_march
 		x = 0
 		y = 2
 		cost = 14
@@ -2749,7 +2752,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_sow_discontent_at_the_front }
 		relative_position_id = SOV_the_angry_patriots
 		available={
-			vladimir_putin_is_leader = yes
+			igor_girkin_is_not_leader = yes
 			has_war_with = UKR
 		}
 		
@@ -3350,6 +3353,8 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_completed_focus = SOV_movements_on_the_border
 				}
+				
+				vladimir_putin_is_leader = yes
 			}
 		}
 		
@@ -4008,6 +4013,7 @@ focus_tree = {
 	
 	shared_focus = SOV_welcome_home_2
 	shared_focus = SOV_army_modernisation
+	shared_focus = SOV_russia_united_QM
 }
 
 
@@ -6079,6 +6085,14 @@ shared_focus = {
 				is_owned_and_controlled_by = ROOT
 			}
 		}
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	completion_reward={
 		
@@ -6144,6 +6158,14 @@ shared_focus = {
 		331 = { is_controlled_by = ROOT }
 		445 = { is_controlled_by = ROOT }
 		256 = { is_controlled_by = ROOT }
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6185,6 +6207,14 @@ shared_focus = {
 		299 = { is_controlled_by = ROOT }
 		448 = { is_controlled_by = ROOT }
 		NOT = { has_idea = SOV_crimean_bridge_under_construction }
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6261,6 +6291,13 @@ shared_focus = {
 	available = {
 		any_donbass_country_exists = yes
 		has_equipment = { infantry_anti_air_equipment > 249 }
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6321,6 +6358,13 @@ shared_focus = {
 		any_donbass_country_exists = yes
 		has_equipment = { infantry_equipment > 1999 }
 		has_equipment = { support_equipment > 399 }
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6439,6 +6483,13 @@ shared_focus = {
 		any_donbass_country_exists = yes
 		has_equipment = { artillery_equipment > 599 }
 		has_equipment = { rocket_artillery_equipment > 599 }
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6564,6 +6615,13 @@ shared_focus = {
 	available = {
 		any_donbass_country_exists = yes
 		OR={ has_equipment = { modern_tank_chassis > 249 } has_equipment = { modern_tank_archetype > 249 } }
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6660,6 +6718,13 @@ shared_focus = {
 		any_donbass_country_exists = yes
 		has_equipment = { apc_equipment > 499 } 
 		has_equipment = { mechanized_equipment > 299 }
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6804,6 +6869,14 @@ shared_focus = {
 			has_completed_focus = SOV_send_them_tanks
 			has_completed_focus = SOV_send_them_armour
 		}
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6863,6 +6936,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6894,6 +6974,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -6923,6 +7010,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -6962,6 +7056,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7005,6 +7106,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7050,6 +7158,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7088,6 +7203,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7129,6 +7251,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7158,6 +7287,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7211,6 +7347,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7256,6 +7399,13 @@ shared_focus = {
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
 		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7295,6 +7445,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_has_western_sanctions_tt
 			has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7365,6 +7522,13 @@ shared_focus = {
 
 	available = {
 		has_completed_focus = SOV_welcome_home_2
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7399,7 +7563,13 @@ shared_focus = {
 	prerequisite = { focus = SOV_army_modernisation }
 	relative_position_id = SOV_army_modernisation
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7439,7 +7609,13 @@ shared_focus = {
 	relative_position_id = SOV_move_to_a_professional_military
 	mutually_exclusive = { focus = SOV_drone_infantry_integration }
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7478,7 +7654,13 @@ shared_focus = {
 	relative_position_id = SOV_move_to_a_professional_military
 	mutually_exclusive = { focus = SOV_increase_satellite_capabilities }
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7507,7 +7689,13 @@ shared_focus = {
 
 	relative_position_id = SOV_drone_infantry_integration
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7540,7 +7728,13 @@ shared_focus = {
 
 	relative_position_id = SOV_drone_infantry_integration
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7583,7 +7777,13 @@ shared_focus = {
 
 	relative_position_id = SOV_drone_infantry_integration
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7626,6 +7826,14 @@ shared_focus = {
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 			}
 		}
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7661,6 +7869,14 @@ shared_focus = {
 	available = {
 		NOT = { has_completed_focus = SOV_expand_the_draft }
 		has_idea = limited_conscription
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7696,7 +7912,13 @@ shared_focus = {
 
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7746,7 +7968,13 @@ shared_focus = {
 
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7777,7 +8005,13 @@ shared_focus = {
 
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7807,7 +8041,13 @@ shared_focus = {
 
 	relative_position_id = SOV_bureaucratic_oversight
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7844,6 +8084,13 @@ shared_focus = {
 		OR={
 			has_idea = SOV_sergey_surovikin_rework
 			has_idea = SOV_sergey_surovikin_air_force_rework
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7886,6 +8133,13 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_send_surovikin_to_syria }
 	available = {
 		has_idea = SOV_valery_gerasimov_rework
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -7932,6 +8186,13 @@ shared_focus = {
 		custom_trigger_tooltip={
 			tooltip = SOV_utilise_wagner_trigger_tt
 			NOT = { has_country_flag = SOV_destroyed_wagner_flag }
+		}
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
 		}
 	}
 	
@@ -7991,6 +8252,13 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_utilise_patriot focus = SOV_utilise_wagner }
 	available = {
 		has_completed_focus = SOV_raise_akhmat_battallions
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8042,6 +8310,13 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_utilise_wagner focus = SOV_the_kadyrovites }
 	available = {
 		has_country_flag = SOV_patriot_pmc_formed
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8087,7 +8362,13 @@ shared_focus = {
 	relative_position_id = SOV_send_surovikin_to_syria
 
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8116,6 +8397,13 @@ shared_focus = {
 
 	available = {
 		date > 2019.1.1
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8147,7 +8435,13 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_move_to_a_professional_military }
 	relative_position_id = SOV_army_modernisation
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8190,7 +8484,13 @@ shared_focus = {
 	relative_position_id = SOV_perfect_the_soviet_doctrine
 	mutually_exclusive = { focus = SOV_modernise_conscription_practices }
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8220,7 +8520,13 @@ shared_focus = {
 	relative_position_id = SOV_perfect_the_soviet_doctrine
 	mutually_exclusive = { focus = SOV_continue_to_conscript_from_the_republics }
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8258,7 +8564,13 @@ shared_focus = {
 
 	relative_position_id = SOV_modernise_conscription_practices
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8309,7 +8621,13 @@ shared_focus = {
 
 	relative_position_id = SOV_modernise_conscription_practices
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8345,7 +8663,13 @@ shared_focus = {
 
 	relative_position_id = SOV_modernise_conscription_practices
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8390,6 +8714,14 @@ shared_focus = {
 				NOT = { has_dynamic_modifier = { modifier = SOV_raspizdyaystvo } }
 			}
 		}
+		
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8426,7 +8758,13 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8453,7 +8791,13 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8495,7 +8839,13 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8542,7 +8892,13 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8585,7 +8941,13 @@ shared_focus = {
 
 	relative_position_id = SOV_strike_deep_and_hard
 	available = {
-
+		hidden_trigger={
+			OR={
+				has_completed_focus = SOV_the_war_effort
+				is_ai = no
+				igor_girkin_is_not_leader = yes
+			}
+		}
 	}
 	
 	
@@ -8599,5 +8961,102 @@ shared_focus = {
 			remove_idea = limited_conscription
 			add_idea = extensive_conscription
 		}
+	}
+}
+
+shared_focus = {
+	id = SOV_russia_united_QM
+	icon = GFX_focus_
+	x = 60		#48
+	y = 8
+	
+	cost = 35
+	ai_will_do = {
+	}
+
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			OR={
+				igor_girkin_is_leader = yes
+				has_country_flag = view_all_russia_trees
+			}
+		}
+	}
+	
+	offset = {
+		x = -12
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			igor_girkin_is_leader = yes
+		}
+	}
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		unlock_decision_category_tooltip = SOV_securing_the_federation
+		country_lock_all_division_template = yes
+		hidden_effect={
+			retire_character = SOV_sergey_shoygu_rework
+			retire_character = SOV_valery_gerasimov_rework
+			retire_character = SOV_yevgeny_valeryevich_nikiforov_rework
+			retire_character = SOV_sergey_yurvevich_kuzovlev_rework
+			retire_character = SOV_rustam_usmanovich_muradov_rework
+			
+			retire_character = SOV_valentina_matviyenko_rework
+			retire_character = SOV_dmitry_medvedev_rework
+			retire_character = SOV_mikhail_mishustin_rework
+			retire_character = SOV_kokoltsev_vladimir_rework
+			retire_character = SOV_sergey_lavrov_rework
+			retire_character = SOV_sergey_kiriyenko
+			retire_character = SOV_alexei_miller
+			
+			activate_mission = SOV_counter_coup_mission
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_the_war_effort
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_russia_united_QM }
+
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+		has_war_with = UKR
+	}
+	
+	
+	bypass = {
+#		NOT = { has_war_with = UKR }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		increase_military_spending = yes
 	}
 }

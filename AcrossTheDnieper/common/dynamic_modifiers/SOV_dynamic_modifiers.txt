@@ -421,7 +421,7 @@ SOV_forced_conscription = {
 	icon = GFX_modifiers_SOV_forced_conscription
 	enable = { tag = SOV }
 	remove_trigger = {
-		ROOT = { NOT = { is_controlled_by = SOV } }
+		NOT = { SOV = { has_war_with = UKR } }
 	}
 	
 	recruitable_population_factor = 0.35
