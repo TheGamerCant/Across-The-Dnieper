@@ -16,9 +16,7 @@ characters={
 		advisor = {
 			slot = theorist
 			idea_token = SOV_ramzan_kadyrov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
 				vladimir_putin_is_leader = yes
 				has_completed_focus = SOV_raise_akhmat_battallions
@@ -60,9 +58,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_yevgeny_prigozhin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				SOV_prigozhin_trait
 			}
@@ -129,9 +125,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_viktor_yanukovych_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
 				
             }
@@ -162,9 +156,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_ilya_kiva_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			visible={
 				date > 2014.2.24
 			}
@@ -219,11 +211,11 @@ characters={
 		}
 
 		advisor = {
+			visible = { igor_girkin_is_not_leader = yes }
+		
 			slot = political_advisor
 			idea_token = SOV_valentina_matviyenko_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			traits = {
 				linchpin_of_infrastructure
@@ -245,9 +237,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_vladlen_tatarsky_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available={
 				OR={
 					has_far_right_government = yes
@@ -278,9 +268,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_sergey_kiriyenko
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				SOV_kiriyenko_trait
 			}
@@ -289,7 +277,7 @@ characters={
 			available={
 				has_completed_focus = SOV_ambitious_new_faces_2
 			}
-			
+			visible = { igor_girkin_is_not_leader = yes }
 			on_add = {
 				owner = {
 					get_kiriyenko_hire_effect = yes
@@ -318,16 +306,14 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_alexei_miller
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				SOV_ceo_of_gazprom
 			}
 			ai_will_do = {
 				factor = 0
 			}
-			
+			visible = { igor_girkin_is_not_leader = yes }
 			on_add = {
 				owner = {
 					get_miller_hire_effect = yes
@@ -359,9 +345,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_igor_vsevolodovich_girkin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available={
 				has_country_flag = girkin_is_available_flag
 			}
@@ -398,12 +382,12 @@ characters={
 		}
 
 		advisor = {
+			visible = { igor_girkin_is_not_leader = yes }
+		
 			slot = political_advisor
 			idea_token = SOV_dmitry_medvedev_rework
 			can_be_fired = no
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			available = {
 				NOT = {
@@ -443,9 +427,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_mikhail_mishustin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			available = {
 				NOT = {
@@ -456,6 +438,8 @@ characters={
 				has_completed_focus = SOV_ambitious_new_faces_2
 			
             }
+			
+			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				mishustin_pm_trait
 			}
@@ -488,9 +472,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_aleksandr_dugin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available={
 				OR={
 					has_far_right_government = yes
@@ -537,10 +519,8 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_kokoltsev_vladimir_rework
-			allowed = {
-				original_tag = SOV
-			}
-
+			
+			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				SOV_minister_of_inner_affairs
 			}
@@ -562,9 +542,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_nikolai_patrushev
-			allowed = {
-				original_tag = SOV
-			}
+			
 			
 			available={ NOT = { nikolai_patrushev_is_leader = yes } }
 
@@ -599,13 +577,11 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_sergey_lavrov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				sergey_lavrov_trait
 			}
-			
+			visible = { igor_girkin_is_not_leader = yes }
 			on_add = {
 				owner = {
 					SOV_increase_putinist_faction_small = yes
@@ -636,9 +612,7 @@ characters={
 		advisor = {
 			slot = high_command
 			idea_token = SOV_valery_gerasimov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				army_infantry_2
 			}
@@ -646,9 +620,13 @@ characters={
 			ai_will_do = {
 				factor = 0
 			}
+			
+			visible = { igor_girkin_is_not_leader = yes }
 		}
 
 		field_marshal = {
+		
+			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				offensive_doctrine
 			}
@@ -676,9 +654,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_alexei_navalny_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
                 has_western_government = yes
             }
@@ -702,9 +678,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_garry_kasparov
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
                 has_western_government = yes
             }
@@ -730,9 +704,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_kirill_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				patriarch_of_moscow
 			}
@@ -774,9 +746,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_alexander_bastrykin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			traits = {
 				SOV_head_of_skrf_rework
@@ -799,9 +769,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_vladimir_zhirinovsky_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			
 			available={
 				OR={
@@ -830,9 +798,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_vladimir_solovyov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			
 			available={
 				has_illiberal_government = yes
@@ -860,11 +826,11 @@ characters={
 		}
 
 		advisor={
+			visible = { igor_girkin_is_not_leader = yes }
+		
 			slot = army_chief
 			idea_token = SOV_sergey_shoygu_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			can_be_fired = no
 			traits = {
 				shoigu_army_trait
@@ -875,6 +841,7 @@ characters={
 		}
 		
 		field_marshal = {
+			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				politically_connected
 			}
@@ -904,9 +871,7 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = SOV_alexander_bortnikov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			traits = {
 				SOV_head_of_fsb_rework
@@ -982,9 +947,7 @@ characters={
 		advisor={
 			slot = army_chief
 			idea_token = SOV_oleg_leonidovich_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			traits = {
 				army_chief_reform_2
 			}
@@ -1023,9 +986,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = SOV_dmitry_bulgakov_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			traits = {
 				army_entrenchment_1
 			}
@@ -1091,9 +1052,7 @@ characters={
 		advisor = {
 			slot = theorist
 			idea_token = SOV_viktor_viktorovich_chirkov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
             }
 			traits = {
@@ -1186,9 +1145,7 @@ characters={
 		advisor={
 			slot = army_chief
 			idea_token = SOV_sergey_surovikin_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			available={
 				NOT = { has_idea = SOV_sergey_surovikin_air_force_rework }
 			}
@@ -1204,9 +1161,7 @@ characters={
 		advisor={
 			slot = air_chief
 			idea_token = SOV_sergey_surovikin_air_force_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			available={
 				NOT = { has_idea = SOV_sergey_surovikin_rework }
 			}
@@ -1330,9 +1285,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = SOV_nikolai_anatolyevich_yevmenov_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			traits = {
 				navy_screen_3
 			}
@@ -1372,9 +1325,7 @@ characters={
 		advisor={
 			slot = navy_chief
 			idea_token = SOV_viktor_nikolayevich_sokolov_rework
-			allowed = {
-				tag = SOV
-			}
+			
 			traits = {
 				navy_chief_reform_2
 			}
@@ -1444,9 +1395,7 @@ characters={
 		advisor = {
 			slot = high_command
 			idea_token = SOV_andrey_nikolaevich_serdyukov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				army_commando_3
 			}
@@ -1484,14 +1433,15 @@ characters={
 
 		
 		corps_commander = {
+			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				
 			}
-			skill = 2
+			skill = 1
 			attack_skill = 1
-			defense_skill = 3
+			defense_skill = 2
 			planning_skill = 2
-			logistics_skill = 3
+			logistics_skill = 1
 		}	
 	}
 		
@@ -1511,6 +1461,8 @@ characters={
 
 		
 		corps_commander = {
+			visible = { igor_girkin_is_not_leader = yes }
+		
 			traits = {
 				
 			}
@@ -1538,15 +1490,17 @@ characters={
 
 		
 		corps_commander = {
+			visible = { igor_girkin_is_not_leader = yes }
+		
 			traits = {
 				
 			}
 
-			skill = 2
+			skill = 1
 			attack_skill = 1
-			defense_skill = 3
-			planning_skill = 2
-			logistics_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
 		}	
 	}
 
@@ -1567,9 +1521,7 @@ characters={
 		advisor = {
 			slot = high_command
 			idea_token = SOV_roman_vladimirovich_kutuzov_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			traits = {
 				army_chief_organizational_2
 			}
@@ -1665,9 +1617,7 @@ characters={
 		advisor = {
 			slot = theorist
 			idea_token = SOV_aleksandr_pavlovich_lapin_rework
-			allowed = {
-				original_tag = SOV
-			}
+			
 			available = {
             }
 			traits = {
@@ -1790,9 +1740,7 @@ characters={
 		advisor = {
 			slot = high_command
 			idea_token = SOV_viktor_zolotov
-			allowed = {
-				original_tag = SOV
-			}
+			
 			cost = 150
 			traits = {
 				SOV_head_of_rosgvardiya
@@ -1839,9 +1787,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_dmitry_patrushev
-			allowed = {
-				original_tag = SOV
-			}
+			
 
 			traits = {
 				SOV_minister_of_agriculture
@@ -1867,9 +1813,7 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_vladimir_lisin
-			allowed = {
-				original_tag = SOV
-			}
+			
 			cost = 50
 			traits = {
 				SOV_resource_tycoon

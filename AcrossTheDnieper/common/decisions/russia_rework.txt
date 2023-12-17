@@ -1879,7 +1879,7 @@ SOV_securing_the_federation={
 	SOV_track_down_shoigu = { 
 		priority = 200
 
-		icon = generic_decision
+		icon = generic_arrest
 
 		allowed = {
 			original_tag = SOV
@@ -1890,6 +1890,7 @@ SOV_securing_the_federation={
 		}
 
 		available = {
+			has_character = SOV_sergey_shoygu_rework
 		}
 		
 		fire_only_once = yes
@@ -1907,23 +1908,81 @@ SOV_securing_the_federation={
 		remove_effect = {	
 			hidden_effect={
 				if={
-					limit = { is_ai = yes }
+					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
 					add_political_power = 40
+				}
+				
+				SOV_sergey_shoygu_rework={
+					random_list={
+						25={ unit_leader_event = { id = russia.1103 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1104 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1105 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1106 hours = 4 } }
+					}
 				}
 			}
 		}
 	}
+	
+	SOV_track_down_gerasimov = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_character = SOV_valery_gerasimov_rework
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			political_power_cost = 0.2
+		}
+
+		visible = {
+		}
+		
+		days_remove = 30
+		cost = 25
+
+		remove_effect = {	
+			hidden_effect={
+				if={
+					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
+					add_political_power = 40
+				}
+				
+				SOV_valery_gerasimov_rework={
+					random_list={
+						25={ unit_leader_event = { id = russia.1103 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1104 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1105 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1106 hours = 4 } }
+					}
+				}
+			}
+		}
+	}
+	
 	
 	SOV_counter_coup_mission = {
 		activation = {
 			always = no
 		}
 		available = {
-			always = no
+			always = no		#this trigger is what completes it
 		}
 		icon = mission_icon
 		is_good = no
-		days_mission_timeout = 90
+		days_mission_timeout = 120
 		selectable_mission = no
 		complete_effect = {
 			country_lock_all_division_template = no
