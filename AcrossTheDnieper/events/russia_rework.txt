@@ -3648,6 +3648,10 @@ country_event = {
         name = russia.1099.a
 		ai_chance = {
 			base = 10
+			modifier = {
+				factor = 0
+				SOV_REWORK_is_krp_ai = yes
+			}
 		}
 		SOV_decrease_nationalist_faction_medium = yes
 		
@@ -3657,7 +3661,11 @@ country_event = {
 	option = {
         name = russia.1099.b
 		ai_chance = {
-			base = 0
+			base = 10
+			modifier = {
+				factor = 0
+				NOT = { SOV_REWORK_is_krp_ai = yes }
+			}
 		}
 		SOV_increase_nationalist_faction_medium = yes
 		set_country_flag = SOV_club_of_angry_patriots_has_been_formed
@@ -3667,6 +3675,7 @@ country_event = {
 			name = "Igor Girkin"
 			picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
 			ideology = club_of_angry_patriots_subideology
+			traits = { SOV_war_hero }
 		}
 		
 	}
@@ -3854,7 +3863,65 @@ unit_leader_event = {
 	}
 }
 
+#Send more men to transnistria?
+country_event = {
+    id = russia.1107
+    title = russia.1107.t
+    desc = russia.1107.desc
+    picture = SOV_trz_rus_troops_withdraws_event
+    is_triggered_only = yes
 
+
+    option = {
+        name = russia.1107.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect={
+			division_template = {
+				name = "Pridnestrovie Peacekeepers"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+				}
+				
+				priority = 0
+			}
+		}
+		random_state = {
+			limit = { TRZ = { has_full_control_of_state = PREV } }
+			create_unit = {
+				division = "name = \"22nd Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				owner = SOV
+			}
+			create_unit = {
+				division = "name = \"23rd Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				owner = SOV
+			}
+			create_unit = {
+				division = "name = \"24th Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				owner = SOV
+			}
+		}
+		
+		add_named_threat = { threat = 3 name = russia_increases_troops_in_transnistria }
+	}
+	
+	option = {
+        name = russia.1107.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = 0.025
+	}
+}
 
 
 country_event = {

@@ -198,6 +198,12 @@ on_actions={
 								set_country_flag = SOV_REWORK_BORTNIKOV_AI_FLAG
 							}
 						}
+						
+						10 = {
+							SOV = {
+								set_country_flag = SOV_REWORK_KRP_AI_FLAG
+							}
+						}
 					}
 				}
 				else_if = {
@@ -239,7 +245,22 @@ on_actions={
 			
 				if={
 					limit = { russia_rework_trigger = yes }
-					set_party_name = { ideology = populist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
+					set_party_name = { ideology = ultranationalist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
+					create_country_leader = {
+						name = "Aleksey Zhuravlyov"
+						desc = ""
+						picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
+						ideology = generic_ultranationalist
+					}
+
+					create_country_leader = {
+						name = "Vladimir Zhirinovsky"
+						desc = ""
+						picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
+						ideology = russia_liberal_democratic_party_subideology
+						traits = { SOV_aggressive_populist }
+					}
+					
 					set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
 					add_popularity = { ideology = neoconservative popularity = -0.06 }
 					add_popularity = { ideology = eastern_liberal popularity = 0.1 }
@@ -252,7 +273,6 @@ on_actions={
 
 					if={
 						limit = { has_start_date < 2022.01.01 }
-						set_party_name = { ideology = ultranationalist long_name = SOV_populist_party_long name = SOV_populist_party }
 						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
 						country_event = { id = russia.1050 days = 270 }			#Grand Prix
 						country_event = { id = russia.1029 days = 1626 }		#World Cup		
@@ -498,6 +518,9 @@ on_actions={
 					retire_character = SOV_dmitry_patrushev
 					retire_character = SOV_vladimir_lisin
 					retire_character = SOV_sergey_chemezov
+					retire_character = SOV_pavel_gubarev
+					retire_character = SOV_vladimir_kucherenko
+					retire_character = SOV_viktor_alksnis
 					
 					
 					add_ideas = {
@@ -753,6 +776,7 @@ on_actions={
 				limit = {													#These are here so they only fire if Putin is leader + any other triggers I want in the future
 					russia_rework_trigger = yes
 					NOT = { has_western_government = yes }
+					has_start_date = 2014.1.1.1
 				}
 				
 				
@@ -793,10 +817,13 @@ on_actions={
 					country_event = { id = russia.1059 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1645 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
+					limit = { check_variable = { global.days_since_start = 1583 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
 					country_event = { id = russia.1034 }
 				}
-
+				else_if={
+					limit = { check_variable = { global.days_since_start = 1798 } country_exists = TRZ }			#Send more men to Transnistria?
+					country_event = { id = russia.1107 }
+				}
 			}
 		}
 	}

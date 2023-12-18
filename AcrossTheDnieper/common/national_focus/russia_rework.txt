@@ -516,7 +516,7 @@ focus_tree = {
 				hidden_effect={
 					division_template = {
 						name = "Russian Infantry"
-						division_names_group = UKR_INF_01
+						division_names_group = SOV_INF_01
 						regiments = {
 							irregular_infantry = { x = 0 y = 0 }
 							irregular_infantry = { x = 0 y = 1 }
@@ -2674,7 +2674,10 @@ focus_tree = {
 			has_country_flag = SOV_club_of_angry_patriots_has_been_formed
 			has_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
 			custom_trigger_tooltip={
-				check_variable = { var = nationalist_faction_strength value = 14 compare = greater_than_or_equals }
+				OR={
+					check_variable = { var = nationalist_faction_strength value = 14 compare = greater_than_or_equals }
+					is_ai = yes
+				}
 				tooltip = SOV_the_angry_patriots_trigger_tt
 			}
 		}
@@ -2951,7 +2954,13 @@ focus_tree = {
 		search_filters = {
 			
 		}
-
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				SOV_REWORK_is_krp_ai = yes
+			}
+		}
 		prerequisite = { focus = SOV_offensives_in_donbass_2 focus = SOV_the_push_to_odessa }
 		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_fix_our_logistics
@@ -9039,7 +9048,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_war_effort
 	icon = GFX_focus_
-	x = 0
+	x = -1
 	y = 1
 	
 	cost = 35
@@ -9050,17 +9059,151 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
-#		has_war_with = UKR
+		has_war_with = UKR
 	}
 	
 	
 	bypass = {
-#		NOT = { has_war_with = UKR }
+		NOT = { has_war_with = UKR }
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
 		increase_military_spending = yes
+	}
+}
+
+shared_focus = {
+	id = SOV_the_pridnestrovie_gambit
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 42
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_the_war_effort }
+	mutually_exclusive = { focus = SOV_the_ever_present_threat }
+	relative_position_id = SOV_the_war_effort
+	available = {
+		igor_girkin_is_leader = yes
+		has_war_with = UKR
+		
+		TRZ={
+			exists = yes
+			OR={
+				is_in_faction_with = ROOT
+				is_puppet_of = SOV
+			}
+		}
+	}
+	
+	will_lead_to_war_with = UKR
+	bypass = {
+		OR={
+			NOT = { has_war_with = UKR }
+			NOT={
+				TRZ={
+					exists = yes
+					OR={
+						is_in_faction_with = ROOT
+						is_puppet_of = SOV
+					}
+				}
+			}
+		}
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		TRZ = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_the_ever_present_threat
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 14
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_the_war_effort }
+	mutually_exclusive = { focus = SOV_the_pridnestrovie_gambit }
+	relative_position_id = SOV_the_war_effort
+	available = {
+		igor_girkin_is_leader = yes
+		has_war_with = UKR
+		
+		TRZ={
+			exists = yes
+			OR={
+				is_in_faction_with = ROOT
+				is_puppet_of = SOV
+			}
+		}
+	}
+	
+	bypass = {
+		OR={
+			NOT = { has_war_with = UKR }
+			NOT={
+				TRZ={
+					exists = yes
+					OR={
+						is_in_faction_with = ROOT
+						is_puppet_of = SOV
+					}
+				}
+			}
+		}
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_manpower = -20000
+		TRZ = { add_manpower = 20000 }
+		UKR = { add_war_support = -0.05 }
+	}
+}
+
+
+shared_focus = {
+	id = SOV_a_new_cabinet
+	icon = GFX_focus_
+	x = 3
+	y = 1
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_russia_united_QM }
+
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_pavel_gubarev
+		show_ideas_tooltip =  SOV_vladimir_kucherenko
+		
+		add_political_power = 100
 	}
 }

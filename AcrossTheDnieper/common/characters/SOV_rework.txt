@@ -1183,7 +1183,6 @@ characters={
 			traits = {
 				general_armageddon
 			}
-			cost = 150
 			ai_will_do = {
 				factor = 0
 			}
@@ -1199,7 +1198,6 @@ characters={
 			traits = {
 				air_chief_ground_support_2
 			}
-			cost = 100
 			ai_will_do = {
 				factor = 0
 			}
@@ -1888,6 +1886,76 @@ characters={
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+	}
+	
+	SOV_pavel_gubarev = {
+		name = SOV_pavel_gubarev
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/DON/advisors/DON_pavel_gubarev_advisor.png"
+				large = "gfx/leaders/DON/Portrait_Pavel_Gubarev.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_pavel_gubarev
+			available = { has_completed_focus = SOV_a_new_cabinet }
+			traits = {
+				SOV_ukrainophobe
+			}
+		}
+	}
+	
+	SOV_vladimir_kucherenko = {
+		name = SOV_vladimir_kucherenko
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/SOV_vladimir_kucherenko_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_vladimir_kucherenko
+			available = { has_completed_focus = SOV_a_new_cabinet }
+			traits = {
+				SOV_jingoistic_writer
+			}
+		}
+	}
+	
+	SOV_viktor_alksnis = {
+		name = SOV_viktor_alksnis
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Viktor_Alksnis_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = air_chief
+			idea_token = SOV_viktor_alksnis
+			
+			available={
+				has_far_right_government = yes
+			}
+			traits = {
+				air_chief_safety_1
+			}
+			ai_will_do = {
+				factor = 0
+			}
 		}
 	}
 }
