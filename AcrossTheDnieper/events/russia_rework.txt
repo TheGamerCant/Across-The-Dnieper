@@ -1056,7 +1056,7 @@ country_event = {
     option = {				
         name = russia.1028.a
 		ai_chance = {
-			base = 40		#80% chance to invade
+			base = 40		#80% chance to invade, unless it's girkin's russia then they have a 33% chance
 		}
 		declare_war_on = { target = BLR type = annex_everything  }
     }
@@ -1065,6 +1065,10 @@ country_event = {
         name = russia.1028.b
 		ai_chance = {
 			base = 10
+			modifier={
+				factor = 8
+				SOV={ igor_girkin_is_leader = yes has_war_with = UKR }
+			}
 		}
 		add_political_power = -50
 		add_war_support = -0.02
@@ -3917,12 +3921,48 @@ country_event = {
 	option = {
         name = russia.1107.b
 		ai_chance = {
-			base = 0
+			base = 2
 		}
 		add_stability = 0.025
 	}
 }
 
+#Join the war? - For Belarus
+country_event = {
+    id = russia.1108
+    title = russia.1108.t
+    desc = russia.1108.desc
+    picture = SOV_event_war_ukraine
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1108.a
+		ai_chance = {
+			base = 10
+		}
+		declare_war_on = {
+			target = UKR
+			type = take_state_focus
+		}
+		add_ideas = BLR_unpopular_war
+		add_named_threat = { threat = 10 name = belarus_joined_smo }
+		
+		news_event = { id = atd_news.64 }
+	}
+	
+	option = {
+        name = russia.1108.b
+		ai_chance = {
+			base = 5
+		}
+		if={
+			limit = { is_in_faction_with = SOV }
+			leave_faction = yes
+		}
+		SOV = { country_event = { id = russia.1028 } }
+	}
+}
 
 country_event = {
     id = russia_propaganda.1

@@ -9047,7 +9047,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_the_war_effort
-	icon = GFX_focus_
+	icon = GFX_focus_SOV_the_patriots_march
 	x = -1
 	y = 1
 	
@@ -9076,7 +9076,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_the_pridnestrovie_gambit
-	icon = GFX_focus_
+	icon = GFX_focus_SOV_the_pridnestrovie_gambit
 	x = 1
 	y = 1
 	
@@ -9129,7 +9129,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_the_ever_present_threat
-	icon = GFX_focus_
+	icon = GFX_focus_SOV_the_ever_present_threat
 	x = -1
 	y = 1
 	
@@ -9176,10 +9176,55 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = SOV_ultimatum_to_belarus
+	icon = GFX_focus_SOV_ultimatum_to_belarus
+	x = 1
+	y = 1
+	
+	cost = 42
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_the_ever_present_threat focus = SOV_the_pridnestrovie_gambit }
+	relative_position_id = SOV_the_ever_present_threat
+	available = {
+		igor_girkin_is_leader = yes
+		has_war_with = UKR
+		
+		BLR={
+			exists = yes
+			OR={
+				is_in_faction_with = ROOT
+				is_puppet_of = SOV
+			}
+		}
+	}
+	
+	bypass = {
+		OR={
+			NOT = { has_war_with = UKR }
+			NOT={
+				BLR={
+					exists = yes
+					OR={
+						is_in_faction_with = ROOT
+						is_puppet_of = SOV
+					}
+				}
+			}
+		}
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		BLR = { country_event = { id = russia.1108 hours = 4 } }
+	}
+}
 
 shared_focus = {
 	id = SOV_a_new_cabinet
-	icon = GFX_focus_
+	icon = GFX_focus_SOV_the_angry_patriots
 	x = 3
 	y = 1
 	

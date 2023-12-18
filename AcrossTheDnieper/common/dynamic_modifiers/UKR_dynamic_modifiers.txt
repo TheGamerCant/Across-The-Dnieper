@@ -113,7 +113,7 @@ UKR_offensive = {
 
 UKR_collaborators = {
 	icon = GFX_modifiers_generic_military_plans
-	enable = { original_tag = SOV }
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
 
 	army_attack_factor = 0.35
 	army_defence_factor = 0.55
@@ -127,7 +127,7 @@ UKR_collaborators = {
 
 UKR_collaborators_small = {
 	icon = GFX_modifiers_generic_military_plans
-	enable = { original_tag = SOV }
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
 
 	army_attack_factor = 0.25
 	army_defence_factor = 0.4
@@ -138,7 +138,7 @@ UKR_collaborators_small = {
 
 UKR_heavily_entrenched = {
 	icon = GFX_idea_generic_fortify_the_borders
-	enable= { OR = { original_tag = SOV original_tag = DON original_tag = LHK original_tag = NOV original_tag = KHK original_tag = ODS }  }
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
 	remove_trigger = { NOT = { has_war = yes } }
 
 	army_attack_factor = -0.9

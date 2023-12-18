@@ -364,7 +364,7 @@ SOV_secret_ai_modifier_4  = {		#AI buff for a year with player UKR
 }
 
 SOV_nothern_setback  = {
-	enable = { original_tag = SOV }					#If there are multiple of the same modifer in a state, they will apply to whichever country has them scoped.
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }		#If there are multiple of the same modifer in a state, they will apply to whichever country has them scoped.
 	icon = GFX_modifiers_generic_military_plans		#However, if there is one modifer in a state, it will apply to all units in the state, regardless of scope.
 	
 	supply_node_range = -0.2
@@ -377,7 +377,7 @@ SOV_nothern_setback  = {
 
 
 SOV_nothern_setback_player  = {
-	enable = { original_tag = SOV }	
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
 	icon = GFX_modifiers_generic_military_plans	
 	
 	supply_node_range = -0.2
@@ -432,7 +432,7 @@ SOV_forced_conscription = {
 
 SOV_defend_novorossia = {
 	icon = GFX_modifiers_SOV_a_harsh_war
-	enable = { tag = SOV }
+	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
 	remove_trigger = {
 		NOT = { has_global_flag = russia_ukraine_war }
 	}
@@ -497,7 +497,7 @@ SOV_second_great_patriotic_war_modifier = {
 	
 	icon = GFX_idea_SOV_hatred_for_the_west
 	
-	custom_modifier_tooltip = SOV_second_great_patriotic_war_modifier_tt
+	custom_modifier_tooltip = SOV_second_great_patriotic_war_modifier_tt		#just tells the player this will be removed when not at war
 	
 	army_org_regain = SOV_SGPW_army_org_regain
 	army_speed_factor = SOV_SGPW_army_speed_factor

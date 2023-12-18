@@ -1733,3 +1733,36 @@ news_event = {	#Patriot's march
 		}
 	}
 }
+
+news_event = {	#Belarus joins SMO
+	id = atd_news.64
+	title = atd_news.64.t
+	desc = atd_news.64.desc
+	picture = GFX_news_event_BLR_news_csto_ex
+	major = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = atd_news.64.a
+		trigger = {
+			NOT = {
+				OR={
+					tag = UKR
+					tag = BLR
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.64.b
+		trigger = {
+			tag = UKR
+		}
+	}
+	option = {
+		name = atd_news.64.c
+		trigger = {
+			tag = BLR
+		}
+	}
+}
