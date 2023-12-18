@@ -209,6 +209,8 @@ characters={
 		allowed_civil_war = {
 			always = yes
 		}
+		
+		gender = female
 
 		advisor = {
 			visible = { igor_girkin_is_not_leader = yes }
@@ -374,6 +376,11 @@ characters={
 		name = SOV_dmitry_medvedev
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/SOV/Portrait_Dmitry_Medvedev.png"
+				small = "gfx/leaders/SOV/advisors/Portrait_Dmitry_Medvedev_Advisor.png"
+			}
+			army = {
+				large = "gfx/leaders/SOV/Portrait_Dmitry_Medvedev.png"
 				small = "gfx/leaders/SOV/advisors/Portrait_Dmitry_Medvedev_Advisor.png"
 			}
 		}
@@ -411,12 +418,26 @@ characters={
 				}
 			}
 		}
+		
+		corps_commander = {
+			visible = { always = no }			#needs to be here so he can have a unit leader event in the case of a KRP Russia
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
 	}
 
 	SOV_mikhail_mishustin_rework = {
 		name = SOV_mikhail_mishustin
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/SOV/Portrait_Mikhail_Mishustin.png"
+				small = "gfx/leaders/SOV/advisors/Portrait_Mikhail_Mishustin_Advisor.png"
+			}
+			army = {
+				large = "gfx/leaders/SOV/Portrait_Mikhail_Mishustin.png"
 				small = "gfx/leaders/SOV/advisors/Portrait_Mikhail_Mishustin_Advisor.png"
 			}
 		}
@@ -447,6 +468,7 @@ characters={
 			on_add = {
 				owner = {
 					get_mishustin_hire_effect = yes
+					set_country_flag = SOV_mishustin_has_been_pm_flag
 				}
 			}
 			on_remove = {
@@ -455,6 +477,15 @@ characters={
 				}
 			}
 		}
+		
+		corps_commander = {
+			visible = { always = no }			#needs to be here so he can have a unit leader event in the case of a KRP Russia
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}	
 	}
 
 	
@@ -1822,6 +1853,41 @@ characters={
 			available={
 				has_completed_focus = SOV_nationalisation_of_key_industries
 			}
+		}
+	}
+	
+	SOV_sergey_chemezov = {
+		name = SOV_sergey_chemezov
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Chemezov_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Sergey_Chemezov.png"
+			}
+			army = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Chemezov_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Sergey_Chemezov.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_sergey_chemezov
+			visible = { igor_girkin_is_not_leader = yes }
+			traits = {
+				SOV_ceo_of_rostec
+			}
+		}
+		
+		corps_commander = {
+			visible = { always = no }			#needs to be here so he can have a unit leader event in the case of a KRP Russia
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
 }

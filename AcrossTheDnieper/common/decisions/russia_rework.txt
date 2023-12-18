@@ -1890,14 +1890,10 @@ SOV_securing_the_federation={
 		}
 
 		available = {
-			has_character = SOV_sergey_shoygu_rework
+			hidden_trigger = {  has_character = SOV_sergey_shoygu_rework }
 		}
 		
 		fire_only_once = yes
-		
-		modifier={
-			political_power_cost = 0.2
-		}
 
 		visible = {
 		}
@@ -1911,6 +1907,7 @@ SOV_securing_the_federation={
 					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
 					add_political_power = 40
 				}
+				add_to_variable = { SOV_KRP_people_dealt_with = 1 }
 				
 				SOV_sergey_shoygu_rework={
 					random_list={
@@ -1938,14 +1935,11 @@ SOV_securing_the_federation={
 		}
 
 		available = {
-			has_character = SOV_valery_gerasimov_rework
+			hidden_trigger = { has_character = SOV_valery_gerasimov_rework }
 		}
 		
 		fire_only_once = yes
 		
-		modifier={
-			political_power_cost = 0.2
-		}
 
 		visible = {
 		}
@@ -1959,6 +1953,7 @@ SOV_securing_the_federation={
 					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
 					add_political_power = 40
 				}
+				add_to_variable = { SOV_KRP_people_dealt_with = 1 }
 				
 				SOV_valery_gerasimov_rework={
 					random_list={
@@ -1972,13 +1967,160 @@ SOV_securing_the_federation={
 		}
 	}
 	
+	SOV_track_down_medvedev = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			hidden_trigger = { has_character = SOV_dmitry_medvedev_rework }
+		}
+		
+		fire_only_once = yes
+		
+
+		visible = {
+		}
+		
+		days_remove = 30
+		cost = 25
+
+		remove_effect = {	
+			hidden_effect={
+				if={
+					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
+					add_political_power = 40
+				}
+				add_to_variable = { SOV_KRP_people_dealt_with = 1 }
+				
+				SOV_dmitry_medvedev_rework={
+					random_list={
+						25={ unit_leader_event = { id = russia.1103 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1104 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1105 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1106 hours = 4 } }
+					}
+				}
+			}
+		}
+	}
+	
+	SOV_track_down_mishustin = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			hidden_trigger = { has_character = SOV_mikhail_mishustin_rework }
+		}
+		
+		fire_only_once = yes
+		
+
+		visible = {
+			has_country_flag = SOV_mishustin_has_been_pm_flag
+		}
+		
+		days_remove = 30
+		cost = 25
+
+		remove_effect = {	
+			hidden_effect={
+				if={
+					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
+					add_political_power = 40
+				}
+				add_to_variable = { SOV_KRP_people_dealt_with = 1 }
+				
+				SOV_mikhail_mishustin_rework={
+					random_list={
+						25={ unit_leader_event = { id = russia.1103 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1104 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1105 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1106 hours = 4 } }
+					}
+				}
+			}
+		}
+	}
+	
+	SOV_track_down_chemezov = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			hidden_trigger = { has_character = SOV_sergey_chemezov }
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+		}
+		
+		days_remove = 30
+		cost = 25
+
+		remove_effect = {	
+			hidden_effect={
+				if={
+					limit = { is_ai = yes has_start_date = 2022.2.1.1 }
+					add_political_power = 40
+				}
+				add_to_variable = { SOV_KRP_people_dealt_with = 1 }
+				
+				SOV_sergey_chemezov={
+					random_list={
+						25={ unit_leader_event = { id = russia.1103 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1104 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1105 hours = 4 } }
+						25={ unit_leader_event = { id = russia.1106 hours = 4 } }
+					}
+				}
+			}
+		}
+	}
 	
 	SOV_counter_coup_mission = {
 		activation = {
 			always = no
 		}
 		available = {
-			always = no		#this trigger is what completes it
+			custom_trigger_tooltip={		
+				if={
+					limit = { has_country_flag = SOV_mishustin_has_been_pm_flag }
+					check_variable = { var = SOV_KRP_people_dealt_with value = 5 compare = greater_than_or_equals }
+				}
+				else={
+					check_variable = { var = SOV_KRP_people_dealt_with value = 4 compare = greater_than_or_equals }
+				}
+				
+				tooltip = SOV_counter_coup_mission_complete_tt
+			}
 		}
 		icon = mission_icon
 		is_good = no
@@ -1986,6 +2128,7 @@ SOV_securing_the_federation={
 		selectable_mission = no
 		complete_effect = {
 			country_lock_all_division_template = no
+			clear_variable = SOV_KRP_people_dealt_with
 		}
 		timeout_effect = {
 			
