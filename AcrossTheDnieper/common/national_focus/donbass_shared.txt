@@ -27,7 +27,261 @@ focus_tree = {
 	
 	shared_focus = DONBASS_the_fight_against_nazism
 	shared_focus = DONBASS_glory_to_the_republic
+	shared_focus = DONBASS_the_novorossiya_project
 }
+
+shared_focus = {
+	id = DONBASS_the_novorossiya_project
+	icon = GFX_focus_
+	x = 10
+	y = 6
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 0
+			has_global_flag = donbass_war_is_ongoing
+		}
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_the_novorossiya_project
+					progress > 0
+				}
+			}
+		}
+	}
+	
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_the_novorossiya_project }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		ROOT={
+			add_political_power = 100
+			add_popularity = {
+				ideology = eastern_conservative 
+				popularity = 0.1
+			}
+			if={
+				limit = { has_dynamic_modifier = { modifier = DONBASS_bastard_child_of_a_state } }
+				hidden_effect={
+					remove_dynamic_modifier = { modifier = DONBASS_bastard_child_of_a_state }
+					add_dynamic_modifier = { modifier = DONBASS_the_novorossiya_project_modifier }
+					
+					subtract_from_variable = { DONBASS_BCOAS_political_power_cost = 0.2 }
+				}
+				custom_effect_tooltip = DONBASS_the_novorossiya_project_tt
+			}
+		}
+		every_other_country={
+			limit = { is_donbass_country = yes }
+			add_political_power = 25
+			add_popularity = {
+				ideology = eastern_conservative 
+				popularity = 0.1
+			}
+			if={
+				limit = { has_dynamic_modifier = { modifier = DONBASS_bastard_child_of_a_state } }
+				hidden_effect={
+					remove_dynamic_modifier = { modifier = DONBASS_bastard_child_of_a_state }
+					add_dynamic_modifier = { modifier = DONBASS_the_novorossiya_project_modifier }
+					
+					subtract_from_variable = { DONBASS_BCOAS_political_power_cost = 0.2 }
+				}
+				custom_effect_tooltip = DONBASS_the_novorossiya_project_tt
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_shared_expertise
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	
+	cost = 100
+	ai_will_do = {
+		base = 1
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_shared_expertise
+					progress > 0
+				}
+			}
+		}
+	}
+	
+	prerequisite = { focus = DONBASS_the_novorossiya_project }
+	relative_position_id = DONBASS_the_novorossiya_project
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_shared_expertise }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit = { is_donbass_country = yes }
+			add_research_slot = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_look_to_the_sea
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_shared_expertise
+					progress > 0
+				}
+			}
+		}
+		
+		any_country={
+			is_donbass_country = yes
+			any_state = {
+				is_owned_by = PREV
+				is_coastal = yes
+			}
+		}
+	}
+	
+	prerequisite = { focus = DONBASS_the_novorossiya_project }
+	relative_position_id = DONBASS_the_novorossiya_project
+	
+	bypass = {
+		OR={
+			any_other_country = { has_completed_focus = DONBASS_shared_expertise }
+			NOT={
+				any_country={
+					is_donbass_country = yes
+					any_state = {
+						is_owned_and_controlled_by = PREV
+						is_coastal = yes
+					}
+				}
+			}
+		}
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		ROOT={
+			navy_experience = 100
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 75
+				producer = SOV
+			}
+			
+			add_to_variable = { DONBASS_BCOAS_industrial_capacity_dockyard = 0.1 }
+			custom_effect_tooltip = DONBASS_look_to_the_sea_tt
+		}
+	
+		every_other_country={
+			limit = { is_donbass_country = yes }
+			navy_experience = 50
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 75
+				producer = SOV
+			}
+			
+			add_to_variable = { DONBASS_BCOAS_industrial_capacity_dockyard = 0.1 }
+			custom_effect_tooltip = DONBASS_look_to_the_sea_tt
+		}
+		
+		every_country={
+			limit = { is_donbass_country = yes any_state = { is_owned_and_controlled_by = PREV is_coastal = yes } }
+			random_owned_controlled_state={
+				limit = { is_coastal = yes }
+			
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2_5 = yes
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_joint_administration
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_joint_administration
+					progress > 0
+				}
+			}
+		}
+	}
+	
+	prerequisite = { focus = DONBASS_the_novorossiya_project }
+	relative_position_id = DONBASS_the_novorossiya_project
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_joint_administration }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		ROOT={
+			add_political_power = 60
+			
+			subtract_from_variable = { DONBASS_BCOAS_political_power_cost = 0.3 }
+			custom_effect_tooltip = DONBASS_joint_administration_tt_1
+		}
+		
+		every_other_country={
+			limit = { is_donbass_country = yes }
+			add_political_power = 25
+			subtract_from_variable = { DONBASS_BCOAS_political_power_cost = 0.2 }
+			custom_effect_tooltip = DONBASS_joint_administration_tt_2
+		}
+	}
+}
+
 
 shared_focus = {
 	id = DONBASS_glory_to_the_republic
@@ -56,6 +310,11 @@ shared_focus = {
 	completion_reward = {
 		add_stability = 0.1
 		add_political_power = 100
+		
+		add_popularity = {
+			ideology = eastern_conservative 
+			popularity = 0.1
+		}
 	}
 }
 
@@ -83,6 +342,33 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_ideas = DONBASS_ukrainian_collaborators_idea
+	}
+}
+
+shared_focus = {
+	id = DONBASS_peace_and_bread
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 60
+	ai_will_do = {
+		base = 1
+	}
+	prerequisite = { focus = DONBASS_ukrainian_collaborators }
+	relative_position_id = DONBASS_ukrainian_collaborators
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = 0.15
 	}
 }
 
@@ -150,9 +436,82 @@ shared_focus = {
 				value = 0.2
 				localization = DONBASS_our_own_administration
 			}
+			
+			SOV={
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = DONBASS_seeking_autonomy
+				}
+			}
 		}
 	}
 }
+
+shared_focus = {
+	id = DONBASS_new_political_elite
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	
+	cost = 48
+	ai_will_do = {
+		base = 0
+	}
+	prerequisite = { focus = DONBASS_our_own_administration }
+	relative_position_id = DONBASS_our_own_administration
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas={
+			remove_idea = DONBASS_ukrainian_collaborators_idea_2
+			add_idea = DONBASS_ukrainian_collaborators_idea_3
+		}
+		
+		if={
+			limit = { is_puppet_of = SOV }
+			add_autonomy_ratio = {
+				value = 0.1
+				localization = DONBASS_new_political_elite
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = DONBASS_domestic_industries
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	
+	cost = 48
+	ai_will_do = {
+		base = 0
+	}
+	prerequisite = { focus = DONBASS_our_own_administration }
+	relative_position_id = DONBASS_our_own_administration
+	available = {
+
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = DONBASS_domestic_industries_idea
+	}
+}
+
 
 shared_focus = {
 	id = DONBASS_rely_on_russia
@@ -247,7 +606,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		add_popularity = { ideology = eastern_conservative popularity = 0.15 }
+		add_popularity = { ideology = eastern_conservative popularity = 0.2 }
 	}
 }
 
@@ -275,6 +634,10 @@ shared_focus = {
 	available_if_capitulated = yes
 	completion_reward = {
 		add_ideas = DONBASS_total_control_of_the_republic
+		add_popularity = {
+			ideology = eastern_conservative 
+			popularity = 0.05
+		}
 	}
 }
 

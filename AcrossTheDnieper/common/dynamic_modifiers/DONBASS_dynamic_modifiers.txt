@@ -1,0 +1,59 @@
+DONBASS_war_modifier = {
+	icon = GFX_modifiers_generic_military_plans
+	enable = { always = yes }
+	remove_trigger = { NOT = { has_global_flag = donbass_war_is_ongoing } }
+
+	attacker_modifier = yes
+	
+	air_cas_present_factor = -0.5
+	army_speed_factor = -0.7
+	ground_attack_factor = -0.5
+	local_org_regain = -0.2
+	supply_factor = 0.25
+	max_dig_in = 10
+}
+DONBASS_impromptu_militias = {
+	enable = { always = yes }
+	icon = GFX_idea_chi_army_corruption3
+
+	war_support_factor = impromptu_militias_war_support_factor
+	stability_factor = impromptu_militias_stability_factor
+	conscription = impromptu_militias_conscription
+	army_morale_factor = impromptu_militias_army_morale_factor
+	army_attack_factor = impromptu_militias_army_attack_factor
+	army_core_defence_factor = impromptu_militias_army_core_defence_factor
+	army_speed_factor = impromptu_militias_army_speed_factor
+	army_org_factor = impromptu_militias_army_org_factor
+	surrender_limit = impromptu_militias_surrender_limit
+	ai_focus_defense_factor = impromptu_militias_ai_focus_defense_factor
+	org_loss_when_moving = impromptu_militias_org_loss_when_moving
+	command_power_gain_mult = impromptu_militias_command_power_gain_mult
+	experience_gain_army_factor = impromptu_militias_experience_gain_army_factor
+}
+
+DONBASS_bastard_child_of_a_state={
+	enable = { always = yes }
+	icon = GFX_idea_DONBASS_bastard_child_of_a_state
+	
+	stability_factor = DONBASS_BCOAS_stability_factor
+	political_power_cost = DONBASS_BCOAS_political_power_cost
+	inflation_monthly = DONBASS_BCOAS_inflation_monthly
+	
+	research_speed_factor = DONBASS_BCOAS_research_speed_factor
+	industrial_capacity_dockyard = DONBASS_BCOAS_industrial_capacity_dockyard
+	industrial_capacity_factory = DONBASS_BCOAS_industrial_capacity_factory
+	ruling_party_drift = DONBASS_BCOAS_ruling_party_drift
+}
+DONBASS_the_novorossiya_project_modifier={
+	enable = { always = yes }
+	icon = GFX_idea_DON_new_russia
+	
+	stability_factor = DONBASS_BCOAS_stability_factor
+	political_power_cost = DONBASS_BCOAS_political_power_cost
+	inflation_monthly = DONBASS_BCOAS_inflation_monthly
+	
+	research_speed_factor = DONBASS_BCOAS_research_speed_factor
+	industrial_capacity_dockyard = DONBASS_BCOAS_industrial_capacity_dockyard
+	industrial_capacity_factory = DONBASS_BCOAS_industrial_capacity_factory
+	ruling_party_drift = DONBASS_BCOAS_ruling_party_drift
+}

@@ -365,3 +365,30 @@ country_can_be_reasonable_target_of_wargoal = { #Expected scopes: Target country
 		is_subject_of = PREV
 	}
 }
+
+is_donbass_country={
+	OR={
+		original_tag = DON
+		original_tag = LHK
+		original_tag = ODS
+		original_tag = KHK
+		original_tag = NOV
+	}
+}
+
+can_do_novorossiya_project_foci={
+	OR={
+		original_tag = NOV
+		AND={
+			any_other_country={
+				OR={
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = ODS
+				}
+				exists = yes
+			}
+		}
+	}
+}
