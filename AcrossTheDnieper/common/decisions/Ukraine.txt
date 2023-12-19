@@ -474,6 +474,39 @@ UKR_state_of_the_nation_decisions={
 					}
 				}
 				
+				if={
+					limit = { is_ai = yes }
+					for_loop_effect = {
+						end = 12
+						value = temp
+						random_owned_controlled_state = {
+							limit = { UKR = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Militia\" division_template = \"Militia\"" 
+								owner = UKR
+							}
+						}
+					}
+					
+					add_manpower = 60000
+				}
+				else_if={
+					limit = { is_ai = yes SOV = { is_ai = no }}
+					for_loop_effect = {
+						end = 24
+						value = temp
+						random_owned_controlled_state = {
+							limit = { UKR = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Militia\" division_template = \"Militia\"" 
+								owner = UKR
+							}
+						}
+					}
+					
+					add_manpower = 100000
+				}
+				
 				every_state={
 					limit = { 
 						is_controlled_by = UKR
