@@ -3964,6 +3964,48 @@ country_event = {
 	}
 }
 
+#Allies in Europe
+country_event = {
+    id = russia.1109
+    title = russia.1109.t
+    desc = russia.1109.desc
+    picture = SOV_document_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1109.a
+		ai_chance = {
+			base = 10
+		}
+		every_country={
+			limit = { 
+				OR={
+					is_in_faction_with = USA
+					tag = UKR
+					tag = POL
+					tag = LIT
+					tag = SLO
+					tag = CZE
+					tag = HUN
+					tag = CRO
+					tag = ROM
+					tag = MOL
+					tag = BUL
+				}
+			}
+			
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_popularity = { ideology = eastern_conservative popularity = 0.1 }
+		}
+		
+		add_to_variable = { SOV_siloviki_starting_compliance = 0.08 }
+		custom_effect_tooltip = SOV_european_allies_tt_2
+	}
+
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t

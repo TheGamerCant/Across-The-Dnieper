@@ -723,52 +723,6 @@ focus_tree = {
 						modifier = UKR_heavily_entrenched
 						scope = SOV
 					}
-					if = {
-						limit = {
-							country_exists = DON
-						}
-						add_dynamic_modifier = {
-							modifier = UKR_heavily_entrenched
-							scope = DON
-						}
-					}
-					if = {
-						limit = {
-							country_exists = NOV
-						}
-						add_dynamic_modifier = {
-							modifier = UKR_heavily_entrenched
-							scope = NOV
-						}
-					}
-					if = {
-						limit = {
-							country_exists = LHK
-						}
-						add_dynamic_modifier = {
-							modifier = UKR_heavily_entrenched
-							scope = LHK
-						}
-					}
-					if = {
-						limit = {
-							country_exists = KHK
-						}
-						add_dynamic_modifier = {
-							modifier = UKR_heavily_entrenched
-							scope = KHK
-						}
-					}
-					
-					if = {
-						limit = {
-							country_exists = ODS
-						}
-						add_dynamic_modifier = {
-							modifier = UKR_heavily_entrenched
-							scope = ODS
-						}
-					}
 				}
 				
 				every_state={
@@ -5170,7 +5124,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_centralisation_of_power
 		x = 0
 		y = 1
-		cost = 54
+		cost = 48
 		search_filters = {
 			
 		}
@@ -5260,6 +5214,8 @@ focus_tree = {
 			subtract_from_variable = { SOV_siloviki_required_garrison_factor = 0.15 }
 			add_to_variable = { SOV_siloviki_compliance_growth = 0.12 }
 			custom_effect_tooltip = SOV_friends_in_europe_tt
+			
+			add_political_power = 35
 		}
 	}
 	
@@ -5331,7 +5287,7 @@ focus_tree = {
 			
 		}
 
-		prerequisite = { focus = SOV_all_power_to_the_state focus = SOV_all_power_to_the_army }
+		prerequisite = { focus = SOV_all_power_to_the_state focus = SOV_all_power_to_the_army focus = SOV_all_power_to_the_fsb }
 		relative_position_id = SOV_all_power_to_the_state
 		available={
 			has_government = military_junta
@@ -5419,6 +5375,27 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_political_commissars
+		icon = GFX_focus_SOV_purge_disloyal_generals
+		x = -2
+		y = 0
+		cost = 70
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_army focus = SOV_all_power_to_the_fsb focus = SOV_all_power_to_the_state }
+		relative_position_id = SOV_secure_our_western_frontiers
+		available={
+			has_government = military_junta
+			NOT = { has_completed_focus = SOV_end_conscription }
+		}
+		
+		completion_reward={
+			add_ideas = SOV_political_commissars_idea
+		}
+	}
 	
 	focus = {
 		id = SOV_no_more_waiting
@@ -5831,10 +5808,6 @@ focus_tree = {
 			OR={
 				has_completed_focus = SOV_war_with_nato
 				has_war_with = NAT
-				AND={
-					has_completed_focus = SOV_all_power_to_the_fsb
-					has_war_with = NAT
-				}
 			}
 		}
 		
@@ -6071,6 +6044,57 @@ focus_tree = {
 			add_to_variable = { SOV_siloviki_subversive_activites_upkeep = -0.1 }
 			add_to_variable = { SOV_siloviki_operative_slot = 1 }
 			custom_effect_tooltip = SOV_all_power_to_the_fsb_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_a_worldwide_presence
+		icon = GFX_focus_
+		x = -2
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_fsb }
+		relative_position_id = SOV_all_power_to_the_fsb
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+		
+		completion_reward={
+			add_to_variable = { SOV_siloviki_operative_slot = 2 }
+			subtract_from_variable = { SOV_siloviki_agency_upgrade_time = 0.5 }
+			custom_effect_tooltip = SOV_a_worldwide_presence_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_european_allies
+		icon = GFX_focus_SOV_friends_in_europe
+		x = 0
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_a_worldwide_presence }
+		relative_position_id = SOV_a_worldwide_presence
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+
+		completion_reward={
+			add_timed_idea = { idea = SOV_funds_to_foreign_groups days = 70 }
+			custom_effect_tooltip = SOV_european_allies_tt
+			effect_tooltip={
+				country_event = russia.1109
+			}
+			hidden_effect = { country_event = { id = russia.1109 days = 71 } }
 		}
 	}
 	
@@ -8975,7 +8999,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_russia_united_QM
-	icon = GFX_focus_
+	icon = GFX_focus_SOV_russia_united_QM
 	x = 60		#48
 	y = 8
 	
@@ -9077,7 +9101,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_pridnestrovie_gambit
 	icon = GFX_focus_SOV_the_pridnestrovie_gambit
-	x = 1
+	x = 2
 	y = 1
 	
 	cost = 42
@@ -9130,7 +9154,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_ever_present_threat
 	icon = GFX_focus_SOV_the_ever_present_threat
-	x = -1
+	x = 0
 	y = 1
 	
 	cost = 14

@@ -318,6 +318,38 @@ UKR_state_of_the_nation_decisions={
 						}
 					}
 				}
+				
+				every_country={
+					limit={
+						OR={
+							tag = DON
+							tag = NOV
+							tag = LHK
+							tag = KHK
+						}
+					}
+					
+					add_ideas = DONBASS_donbass_war_idea
+				}
+				
+				UKR = { add_ideas = UKRAINE_donbass_war_idea }
+				
+				every_state={
+					limit={
+						OR={
+							is_core_of = DON
+							is_claimed_by = DON
+							is_core_of = LHK
+							is_claimed_by = LHK
+							is_core_of = KHK
+							is_claimed_by = KHK
+							is_core_of = NOV
+							is_claimed_by = NOV
+						}
+					}
+					add_dynamic_modifier = { modifier = DONBASS_war_modifier }
+				}
+				
 				SOV = { 
 					country_event = { id = ukraine.28 days = 15 } #Send Volunteers?
 #					country_event = { id = russia.52 days = 20} 
@@ -439,71 +471,6 @@ UKR_state_of_the_nation_decisions={
 					create_unit = {
 						division = "name = \"Cherkasy Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
 						owner = UKR
-					}
-				}
-				
-				every_state={
-					limit = { 
-						NOT = { has_state_flag = odessa_oblast_flag }
-						NOT = { has_state_flag = mykolaiv_oblast_flag }
-						OR={
-							is_core_of = DON
-							is_claimed_by = DON
-							is_core_of = LHK
-							is_claimed_by = LHK
-							is_core_of = KHK
-							is_claimed_by = KHK
-							is_core_of = NOV
-							is_claimed_by = NOV
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = UKR_war_in_donbass_modifier
-						scope = UKR
-					}
-				}
-				every_state={
-					limit = { 
-						NOT = { has_state_flag = odessa_oblast_flag }
-						NOT = { has_state_flag = mykolaiv_oblast_flag }
-						OR={
-							is_core_of = DON
-							is_claimed_by = DON
-							is_core_of = LHK
-							is_claimed_by = LHK
-							is_core_of = KHK
-							is_claimed_by = KHK
-							is_core_of = NOV
-							is_claimed_by = NOV
-						}
-					}
-					if={
-						limit = { DON = { exists = yes } }
-						add_dynamic_modifier = {
-							modifier = UKR_war_in_donbass_modifier
-							scope = DON
-						}
-					}
-					if={
-						limit = { LHK = { exists = yes } }
-						add_dynamic_modifier = {
-							modifier = UKR_war_in_donbass_modifier
-							scope = LHK
-						}
-					}
-					if={
-						limit = { KHK = { exists = yes } }
-						add_dynamic_modifier = {
-							modifier = UKR_war_in_donbass_modifier
-							scope = KHK
-						}
-					}
-					if={
-						limit = { NOV = { exists = yes } }
-						add_dynamic_modifier = {
-							modifier = UKR_war_in_donbass_modifier
-							scope = NOV
-						}
 					}
 				}
 				
@@ -2278,7 +2245,7 @@ UKR_war_in_donbass_decisions={
 		on_map_mode = map_only
 
 		allowed = {
-
+			original_tag = UKR
 		}
 		
 		ai_will_do = {
@@ -2383,6 +2350,154 @@ UKR_war_in_donbass_decisions={
 					add_dynamic_modifier = {
 						modifier = UKR_war_in_donbass_modifier
 						scope = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	DONBASS_offensive_in_state = { 
+
+		icon = decision_hol_draw_up_staff_plans
+		
+		target_trigger = {
+			FROM = { 
+				OR={
+					has_dynamic_modifier = { modifier = DONBASS_local_offensive_modifier }	#Stops it from cancelling out if the state comes under your control
+					AND={
+						NOT = { ROOT = { has_full_control_of_state = PREV } }
+						has_dynamic_modifier = { modifier = DONBASS_war_in_donbass_modifier }			
+						OR={
+							is_core_of = ROOT
+							is_claimed_by = ROOT
+						}
+						any_neighbor_state={
+							is_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		target_root_trigger = { 
+			OR={
+				tag = UKR
+				tag = DON
+				tag = LHK
+				tag = KHK
+				tag = ODS
+				tag = NOV
+			}
+		} 
+		state_target = yes
+		on_map_mode = map_only
+
+		allowed = {
+			OR={
+				original_tag = DON
+				original_tag = LHK
+				original_tag = KHK
+				original_tag = NOV
+			}
+		}
+		
+		ai_will_do = {
+			base = 0	#Try to launch offensives when possible, but only in states with fighting
+			modifier = {
+				add = 100
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 5000 }
+				}
+				NOT = { state = 154 }
+			}
+			modifier = {
+				add = 100
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 10000 }
+				}
+				NOT = { state = 154 }
+			}
+			modifier = {
+				add = 500
+				army_manpower_in_state = { state = FROM amount > 10000 }
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 10000 }
+				}
+				NOT = { state = 154 }
+			}
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			custom_trigger_tooltip = {
+			    tooltip = offensive_in_state_tt
+				check_variable = { ROOT.maximum_number_of_offensives > ROOT.number_of_undertaken_offensives }
+			}
+		}
+
+		visible = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+		
+		days_remove = 45
+		days_re_enable = 45
+		
+		
+		fire_only_once = no
+
+		custom_cost_trigger = {
+			command_power > 24
+			has_political_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+
+		complete_effect = {	
+			custom_effect_tooltip = donbass_offensive_tt
+			add_to_variable = { ROOT.number_of_undertaken_offensives = 1 }
+			set_variable = { global.state_selected_for_offensive = FROM }	#Used for loc
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+				every_country={
+					limit = { 
+						NOT = { tag = ROOT }
+						OR={
+							tag = UKR
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+							has_country_flag = chosen_to_send_volunteers_to_donbass		#Remind SOV and BLR if they're involved
+						}
+					}
+					country_event = { id = ukraine.38 }
+				}
+				if={
+					limit = { is_ai = yes }
+					log = "[GetDateText]: [Root.GetName] AI launched an offensive in [?global.state_selected_for_offensive.GetName]"
+				}
+				FROM={
+					remove_dynamic_modifier = {
+						modifier = DONBASS_war_in_donbass_modifier
+					}
+					add_dynamic_modifier = {
+						modifier = DONBASS_local_offensive_modifier
+					}
+				}
+			}
+			clear_variable = global.state_selected_for_offensive
+		}
+		
+		remove_effect={
+			custom_effect_tooltip = remove_donbass_offensive_tt
+			subtract_from_variable = { ROOT.number_of_undertaken_offensives = 1 }
+			hidden_effect={
+				FROM={
+					remove_dynamic_modifier = {
+						modifier = DONBASS_local_offensive_modifier
+					}
+					add_dynamic_modifier = {
+						modifier = DONBASS_war_in_donbass_modifier
 					}
 				}
 			}

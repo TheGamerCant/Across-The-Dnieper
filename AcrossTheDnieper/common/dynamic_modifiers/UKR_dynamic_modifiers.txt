@@ -60,42 +60,29 @@ drastic_water_shortage = {
 	compliance_growth = -0.05
 }
 
-UKR_war_in_donbass_modifier = {
-	icon = GFX_idea_donbass_war
-	attacker_modifier = yes
-	
-	air_cas_present_factor = -0.75
-	army_attack_factor = -0.8
-	army_defence_factor = 0.2
-	army_speed_factor = -0.925
-	ground_attack_factor = -0.75
-	local_org_regain = -0.5
-	supply_factor = 0.1
-	max_dig_in = 4
-}
-
-UKR_local_offensive_modifier = {
-	icon = GFX_idea_donbass_war
-	attacker_modifier = yes
-	
-	air_cas_present_factor = -0.5
-	army_attack_factor = -0.35
-	army_defence_factor = 0.2
-	army_speed_factor = -0.8
-	ground_attack_factor = -0.5
-	local_org_regain = -0.25
-	supply_factor = 0.25
-	max_dig_in = 4
-}
-
 not_allowed_to_attack_here = {
 	icon = GFX_unplanned_offensive
-	enable={  }
+	enable={ NOT = { OR={ ROOT = { is_claimed_by = ROOT.CONTROLLER } ROOT = { is_core_of = ROOT.CONTROLLER } } } }
 	
 	army_attack_factor = -10
 	army_defence_factor = -2
 	army_speed_factor = -2
 	breakthrough_factor = -5
+}
+
+DONBASS_war_modifier = {
+	icon = GFX_modifiers_generic_military_plans
+	enable = { always = yes }
+	remove_trigger = { NOT = { has_global_flag = donbass_war_is_ongoing } }
+
+	attacker_modifier = yes
+	
+	air_cas_present_factor = -0.5
+	army_speed_factor = -0.5
+	ground_attack_factor = -0.5
+	local_org_regain = -0.25
+	supply_factor = 0.25
+	max_dig_in = 10
 }
 
 UKR_offensive = {
@@ -139,7 +126,7 @@ UKR_collaborators_small = {
 UKR_heavily_entrenched = {
 	icon = GFX_idea_generic_fortify_the_borders
 	enable= { OR = { original_tag = SOV is_puppet_of = SOV is_in_faction_with = SOV }  }
-	remove_trigger = { NOT = { has_war = yes } }
+	remove_trigger = { NOT = { SOV = { has_war_with = UKR } } }
 
 	army_attack_factor = -0.9
 	army_defence_factor = -0.2
@@ -150,7 +137,7 @@ UKR_heavily_entrenched = {
 
 UKR_heavily_entrenched_russians = {
 	icon = GFX_idea_generic_fortify_the_borders
-	remove_trigger = { NOT = { has_war = yes } }
+	remove_trigger = { NOT = { SOV = { has_war_with = UKR } } }
 	enable= { original_tag = UKR }
 
 	army_attack_factor = -0.9

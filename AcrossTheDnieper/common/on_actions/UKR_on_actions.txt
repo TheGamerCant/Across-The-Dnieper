@@ -63,7 +63,17 @@ on_actions={
 			}
 			
 			
-			
+			UKR={
+				if={
+					limit = { UKR = { is_ai = no } has_start_date < 2022.01.01  }
+					add_to_variable = { UKR_afu_army_attack_factor = -0.08 }
+					add_to_variable = { UKR_afu_army_defence_factor = -0.08 }
+					add_to_variable = { UKR_afu_land_doctrine_cost_factor = 0.45 } 
+					add_to_variable = { UKR_afu_org_loss_when_moving = 0.03 }
+					
+					add_dynamic_modifier = { modifier = Ukraine_ai_boost_modifier }
+				}
+			}
 			
 			UKR = {
 				if = {
@@ -134,16 +144,6 @@ on_actions={
 								set_country_flag = UKR_DISHONOUR_BEFORE_DEATH_AI_FLAG
 							}
 						}
-					}
-				}
-				
-				UKR={
-					if={
-						limit = { UKR = { is_ai = no } has_start_date < 2022.01.01  }
-						add_to_variable = { UKR_afu_army_attack_factor = -0.08 }
-						add_to_variable = { UKR_afu_army_defence_factor = -0.08 }
-						add_to_variable = { UKR_afu_land_doctrine_cost_factor = 0.45 } 
-						add_to_variable = { UKR_afu_org_loss_when_moving = 0.03 }
 					}
 				}
 			}

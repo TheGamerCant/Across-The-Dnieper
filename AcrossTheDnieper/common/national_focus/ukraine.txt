@@ -1138,10 +1138,15 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = UKR_strengthen_government_control_tt
-			add_to_variable = { ROOT.maximum_number_of_offensives = 1 }
+#			custom_effect_tooltip = UKR_strengthen_government_control_tt
+#			add_to_variable = { ROOT.maximum_number_of_offensives = 1 }
 			add_political_power = 125
 			add_command_power = 60
+			
+			add_timed_idea={
+				idea = UKR_morale_boost
+				days = 60
+			}
 			
 			hidden_effect={
 				if={
@@ -1190,9 +1195,15 @@ focus_tree = {
 			add_to_variable = { UKR_sotn_pro_russians_political_power_factor = 0.08 }
 			add_to_variable = { UKR_sotn_pro_russians_stability_factor = 0.1 }
 			set_variable = { UKR_sotn_pro_russians_loyalty = 0 }
-			add_timed_idea={
-				idea = UKR_morale_boost
-				days = 180
+			if={  
+				limit = { has_idea = UKR_morale_boost }
+				modify_timed_idea = { idea = UKR_morale_boost days = 140 }
+			}
+			else={
+				add_timed_idea={
+					idea = UKR_morale_boost
+					days = 140
+				}
 			}
 			hidden_effect={
 				division_template = {
