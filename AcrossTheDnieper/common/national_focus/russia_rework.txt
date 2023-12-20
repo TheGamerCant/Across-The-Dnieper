@@ -3990,7 +3990,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_coup
 		icon = GFX_focus_SOV_the_coup
-		x = 34
+		x = 32
 		y = 0
 		cost = 24
 		search_filters = {
@@ -5007,7 +5007,7 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_state
 		icon = GFX_focus_SOV_all_power_to_the_state
-		x = 21
+		x = 20
 		y = 1
 		cost = 35
 		search_filters = {
@@ -5378,7 +5378,7 @@ focus_tree = {
 	focus = {
 		id = SOV_political_commissars
 		icon = GFX_focus_SOV_purge_disloyal_generals
-		x = -2
+		x = 2
 		y = 0
 		cost = 70
 		search_filters = {
@@ -5690,6 +5690,7 @@ focus_tree = {
 				has_completed_focus = SOV_every_soldier_a_patriot
 				has_completed_focus = SOV_united_in_cause
 				has_completed_focus = SOV_foster_russian_nationalism
+				has_completed_focus = SOV_european_allies
 			}
 			
 		}
@@ -5981,20 +5982,12 @@ focus_tree = {
 				uses = 2
 				category = cat_special_forces_generic
 			}
-			random_army_leader = {			
+			every_army_leader = {			
 				limit = { NOT = { has_trait = river_crossing_preparations } }
 				custom_effect_tooltip = UKR_across_the_dnieper_tt
 				hidden_effect = { add_trait = {trait = river_crossing_preparations} }
-			}
-			random_army_leader = {			
-				limit = { NOT = { has_trait = river_crossing_preparations } }
-				custom_effect_tooltip = UKR_across_the_dnieper_tt
-				hidden_effect = { add_trait = {trait = river_crossing_preparations} }
-			}
-			random_army_leader = {			
-				limit = { NOT = { has_trait = river_crossing_preparations } }
-				custom_effect_tooltip = UKR_across_the_dnieper_tt
-				hidden_effect = { add_trait = {trait = river_crossing_preparations} }
+				
+				random_select_amount = 3
 			}
 		}
 	}
@@ -6025,13 +6018,15 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_fsb
 		icon = GFX_focus_SOV_all_power_to_the_fsb
-		x = 35
+		x = 26
 		y = 1
 		cost = 35
 		search_filters = {
 			
 		}
-
+		allow_branch = {
+			has_dlc = "La Resistance"
+		}
 		prerequisite = { focus = SOV_destroy_the_oligarchy }
 		relative_position_id = SOV_destroy_the_oligarchy
 		available={
@@ -6042,15 +6037,14 @@ focus_tree = {
 		completion_reward={
 			add_to_variable = { SOV_siloviki_operation_risk = -0.25 }
 			add_to_variable = { SOV_siloviki_subversive_activites_upkeep = -0.1 }
-			add_to_variable = { SOV_siloviki_operative_slot = 1 }
 			custom_effect_tooltip = SOV_all_power_to_the_fsb_tt
 		}
 	}
 	
 	focus = {
 		id = SOV_a_worldwide_presence
-		icon = GFX_focus_
-		x = -2
+		icon = GFX_focus_SOV_a_worldwide_presence
+		x = -1
 		y = 1
 		cost = 50
 		search_filters = {
@@ -6095,6 +6089,128 @@ focus_tree = {
 				country_event = russia.1109
 			}
 			hidden_effect = { country_event = { id = russia.1109 days = 71 } }
+		}
+	}
+	
+	focus = {
+		id = SOV_domestic_propaganda
+		icon = GFX_focus_SOV_jorjorwell
+		x = 0
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_european_allies }
+		relative_position_id = SOV_european_allies
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+
+		completion_reward={
+			add_war_support = 0.1
+			add_to_variable = { SOV_siloviki_war_stability_factor = 0.3 }
+			custom_effect_tooltip = SOV_domestic_propaganda_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_always_watching
+		icon = GFX_focus_SOV_invest_in_surveilance_technology
+		x = 1
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_all_power_to_the_fsb }
+		relative_position_id = SOV_all_power_to_the_fsb
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+			has_completed_focus = SOV_a_camera_on_every_wall
+		}
+		
+		completion_reward={
+			add_to_variable = { SOV_siloviki_political_power_factor = 0.06 }
+			add_to_variable = { SOV_siloviki_military_junta_drift = 0.15 }
+			custom_effect_tooltip = SOV_always_watching_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_a_culture_of_paranoia
+		icon = GFX_focus_SOV_invest_in_surveilance_technology
+		x = 0
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_always_watching }
+		relative_position_id = SOV_always_watching
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+		
+		completion_reward={
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = SOV_integrate_the_fsb_into_the_army
+		icon = GFX_focus_SOV_military_policing
+		x = 0
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_a_culture_of_paranoia }
+		relative_position_id = SOV_a_culture_of_paranoia
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+			has_completed_focus = SOV_political_commissars
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_political_commissars_idea
+				add_idea = SOV_political_commissars_idea_2
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_just_like_the_good_ol_days
+		icon = GFX_focus_SOV_just_like_the_good_ol_days
+		x = 1
+		y = 1
+		cost = 50
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_integrate_the_fsb_into_the_army }
+		prerequisite = { focus = SOV_domestic_propaganda }
+		relative_position_id = SOV_domestic_propaganda
+		available={
+			has_government = military_junta
+			alexander_bortnikov_is_leader = yes
+		}
+		
+		completion_reward={
+			subtract_from_variable = { SOV_siloviki_operation_cost = 0.25 }
+			add_to_variable = { SOV_siloviki_operation_outcome = 0.25 }
+			custom_effect_tooltip = SOV_just_like_the_good_ol_days_tt
 		}
 	}
 	

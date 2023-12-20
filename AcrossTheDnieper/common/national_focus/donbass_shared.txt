@@ -396,7 +396,15 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		country_event = { id = donbass_mutual.2 hours = 3 }
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			country_event = { id = donbass_mutual.2 hours = 3 }
+		}
+		else={
+			effect_tooltip={
+				country_event = { id = donbass_mutual.2 hours = 3 }
+			}
+		}
 	}
 }
 
@@ -638,6 +646,8 @@ shared_focus = {
 			ideology = eastern_conservative 
 			popularity = 0.05
 		}
+		
+		add_stability = -0.1
 	}
 }
 
@@ -1086,8 +1096,15 @@ shared_focus = {
 	completion_reward = {
 		add_to_variable = { impromptu_militias_conscription = 0.06 }
 		custom_effect_tooltip = DONBASS_mandatory_conscription_tt
-		
-		add_timed_idea = { idea = DONBASS_mobilisation days = 120 }
+		if={
+			limit = { has_start_date < 2022.01.01 }
+			add_timed_idea = { idea = DONBASS_mobilisation days = 120 }
+		}
+		else={
+			effect_tooltip={
+				add_timed_idea = { idea = DONBASS_mobilisation days = 120 }
+			}
+		}
 	}
 }
 
