@@ -2116,14 +2116,33 @@ SOV_securing_the_federation={
 		}
 		icon = mission_icon
 		is_good = no
-		days_mission_timeout = 120
+		days_mission_timeout = 5
 		selectable_mission = no
 		complete_effect = {
 			country_lock_all_division_template = no
 			clear_variable = SOV_KRP_people_dealt_with
 		}
 		timeout_effect = {
-			
+			custom_effect_tooltip = GAME_OVER_TT
+			hidden_effect={
+				kill_country_leader = yes
+				KRP = { transfer_state = 450 }
+				KRP = { change_tag_from  = SOV }
+				SOV = { annex_country = { target = KRP transfer_troops = yes } }
+				SOV={
+					create_country_leader = {
+						name = "The Security Council"
+						desc = ""
+						picture = gfx/leaders/SOV/Portrait_Security_Council.png
+						ideology = united_russia_subideology
+						traits = { }
+					}
+					set_politics = {
+						ruling_party = eastern_conservative
+						elections_allowed = no
+					}
+				}
+			}
 		}
 	}
 }
