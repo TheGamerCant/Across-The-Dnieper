@@ -1341,7 +1341,7 @@ country_event = {
 			}
 		}
 		trigger={
-			has_dlc = "La Resistance"
+			has_dlc = "La Resistance"		#I can't be bothered to make two seperate trees for LaR and non LaR
 		}
 		
 		SOV_make_alexander_bortnikov_siloviki_leader = yes
@@ -3876,7 +3876,7 @@ country_event = {
     id = russia.1107
     title = russia.1107.t
     desc = russia.1107.desc
-    picture = SOV_trz_rus_troops_withdraws_event
+    picture = GFX_report_event_UKR_transnistria
     is_triggered_only = yes
 
 
@@ -3998,17 +3998,120 @@ country_event = {
 					tag = BUL
 				}
 			}
-			
-			add_stability = -0.05
-			add_war_support = -0.05
 			add_popularity = { ideology = eastern_conservative popularity = 0.1 }
 		}
 		
 		add_to_variable = { SOV_siloviki_starting_compliance = 0.08 }
 		custom_effect_tooltip = SOV_european_allies_tt_2
+		
+		SOV = { set_country_flag = SOV_can_do_foreign_subversive_activities_flag }
+		unlock_decision_category_tooltip = SOV_foreign_subversive_activities
+		set_variable = { SOV.SOV_cost_of_foreign_subversive_activities_decisions = 50 }
 	}
-
 }
+
+#Pro-Russian protests
+country_event = {
+    id = russia.1110
+    title = russia.1110.t
+    desc = russia.1110.desc
+    picture = GFX_report_event_UKR_pro_russian_protests
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1110.a
+		ai_chance = {
+			base = 10
+		}
+		random_list={
+			1={ add_political_power = -75 }
+			1={ add_popularity = { ideology = eastern_conservative popularity = 0.1 } }
+			1={ add_popularity = { ideology = populist popularity = 0.1 } }
+			1={ add_stability = -0.04 }
+			1={ add_war_support = -0.04 }
+		}
+		
+		add_timed_idea = { idea = SOV_pro_russian_sentiment days = 45 }
+	}
+}
+
+#Increase military spending?
+country_event = {
+    id = russia.1111
+    title = russia.1111.t
+    desc = russia.1111.desc
+    picture = SOV_mironov_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1111.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -100
+		
+		increase_military_spending = yes
+	}
+	
+	option = {
+        name = russia.1111.b
+		ai_chance = {
+			base = 0
+		}
+		
+		add_war_support = -0.001
+	}
+}
+
+#Battle of Khasham / Conoco Fields
+country_event = {
+    id = russia.1112
+    title = russia.1112.t
+    desc = russia.1112.desc
+    picture = GFX_report_event_SOV_wagner_in_syria
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1112.a
+		ai_chance = {
+			base = 10
+		}
+		
+		set_temp_variable_to_random = {
+			var = SOV_manpower_to_subtract
+			min = -120
+			max = -60
+			integer = yes
+		}
+		
+		add_political_power = -5
+		add_manpower = var:SOV_manpower_to_subtract
+	}
+}
+
+#Russia bribed our politicians :(
+country_event = {
+    id = russia.1113
+    title = russia.1113.t
+    desc = russia.1113.desc
+    picture = SOV_document_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1113.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_political_power = -120
+		clear_variable = FROM.random_state_selected
+	}
+}
+
 
 country_event = {
     id = russia_propaganda.1

@@ -4702,7 +4702,7 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_army
 		icon = GFX_focus_SOV_all_power_to_the_army
-		x = 7
+		x = 5
 		y = 1
 		cost = 35
 		search_filters = {
@@ -5007,7 +5007,7 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_state
 		icon = GFX_focus_SOV_all_power_to_the_state
-		x = 20
+		x = 18
 		y = 1
 		cost = 35
 		search_filters = {
@@ -5675,11 +5675,27 @@ focus_tree = {
 		icon = GFX_focus_SOV_war_with_nato
 		x = 0
 		y = 1
-		cost = 70
+		cost = 100
 		search_filters = {
 			
 		}
 		cancelable = no
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				NOT={
+					OR={
+						has_completed_focus = SOV_just_like_the_good_ol_days
+						has_completed_focus = SOV_military_policing
+						has_completed_focus = SOV_the_motherland_belongs_to_the_strong
+						has_completed_focus = SOV_friends_in_europe
+					}
+				}
+				NOT = { has_completed_focus = SOV_political_commissars }
+			}
+		}
 
 		prerequisite = { focus = SOV_annex_donbass focus = SOV_destroy_ukraine }
 		prerequisite = { focus = SOV_test_the_waters }
@@ -5712,7 +5728,7 @@ focus_tree = {
 						NOT = { has_war_with SOV }
 					}
 				}
-				SOV= { country_event = { id = russia.1095 days = 10 random_days = 20 } }
+				SOV= { country_event = { id = russia.1095 days = 10 random_days = 45 } }
 			}
 			
 			if={
@@ -5724,7 +5740,12 @@ focus_tree = {
 						NOT = { has_war_with SOV }
 					}
 				}
-				SOV= { country_event = { id = russia.1096 days = 10 random_days = 20 } }
+				SOV= { country_event = { id = russia.1096 days = 10 random_days = 45 } }
+			}
+			
+			if={
+				limit={ NOT = { has_completed_focus = SOV_increase_military_spending } }
+				SOV= { country_event = { id = russia.1111 random_days = 30 } }
 			}
 		}
 		
@@ -6018,7 +6039,7 @@ focus_tree = {
 	focus = {
 		id = SOV_all_power_to_the_fsb
 		icon = GFX_focus_SOV_all_power_to_the_fsb
-		x = 26
+		x = 24
 		y = 1
 		cost = 35
 		search_filters = {
@@ -6087,6 +6108,7 @@ focus_tree = {
 			custom_effect_tooltip = SOV_european_allies_tt
 			effect_tooltip={
 				country_event = russia.1109
+				unlock_decision_category_tooltip = SOV_foreign_subversive_activities
 			}
 			hidden_effect = { country_event = { id = russia.1109 days = 71 } }
 		}
@@ -6211,6 +6233,8 @@ focus_tree = {
 			subtract_from_variable = { SOV_siloviki_operation_cost = 0.25 }
 			add_to_variable = { SOV_siloviki_operation_outcome = 0.25 }
 			custom_effect_tooltip = SOV_just_like_the_good_ol_days_tt
+			
+			divide_variable = { SOV_cost_of_foreign_subversive_activities_decisions = 2 }
 		}
 	}
 	
@@ -6244,7 +6268,6 @@ shared_focus = {
 		}
 	}
 	completion_reward={
-		
 		if={
 			limit = { has_start_date < 2022.01.01 }
 			delete_unit_template_and_units = {
@@ -8264,6 +8287,8 @@ shared_focus = {
 		subtract_from_variable = { SOV_army_air_accidents_factor = 0.3 }
 		add_to_variable = { SOV_army_air_cas_present_factor = 0.05 }
 		custom_effect_tooltip = SOV_send_surovikin_to_syria_tt
+		
+		hidden_effect={ country_event = { id = russia.1112 days = 180 random_days = 600 } }
 	}
 }
 
@@ -8312,6 +8337,8 @@ shared_focus = {
 		add_to_variable = { SOV_army_army_infantry_defence_factor = 0.04 }
 		add_to_variable = { SOV_army_modifier_army_sub_unit_infantry_speed_factor = 0.04 }
 		custom_effect_tooltip = SOV_send_gerasimov_to_syria_tt
+		
+		hidden_effect={ country_event = { id = russia.1112 days = 180 random_days = 600 } }
 	}
 }
 

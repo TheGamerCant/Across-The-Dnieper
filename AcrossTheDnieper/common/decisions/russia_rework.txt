@@ -72,41 +72,6 @@ debug_decisions = {
 		}
 	}
 	
-	SOV_start_putin_siloviki_bop = { 
-		priority = 200
-
-		icon = eng_ally_imperialist_coup
-
-		allowed = {
-			original_tag = SOV
-		}
-
-		available = {
-			always = yes
-		}
-
-		visible = {
-			
-		}
-
-		cost = 0
-
-		complete_effect = {
-			if = {
-				limit = {
-					has_any_power_balance = no
-				}
-				set_power_balance = {
-					id = SOV_power_balance
-					left_side = SOV_siloviki_bop_side 
-					right_side = SOV_putin_bop_side 
-					set_value = 0.8
-				}
-			}
-			set_country_flag = putin_siloviki_power_balance
-		}
-	}
-	
 	SOV_load_siloviki_tree = { 
 		priority = 200
 
@@ -208,6 +173,32 @@ debug_decisions = {
 				}
 				var:SOV_general_to_be_purged = { unit_leader_event = { id = russia.1081 days = 3 random_days = 4 } }
 			}
+		}
+	}
+	
+	SOV_load_bortnikov_decisions = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			SOV = { set_country_flag = SOV_can_do_foreign_subversive_activities_flag }
+			unlock_decision_category_tooltip = SOV_foreign_subversive_activities
+			set_variable = { SOV.SOV_cost_of_foreign_subversive_activities_decisions = 50 }
 		}
 	}
 }
@@ -2133,6 +2124,172 @@ SOV_securing_the_federation={
 		}
 		timeout_effect = {
 			
+		}
+	}
+}
+
+SOV_foreign_subversive_activities={
+	SOV_pro_russian_rallies = {
+		priority = 50
+
+		icon = generic_political_discourse
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_political_power > 100
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_in_faction_with = USA }		#Focus on NATO countries
+			}
+			modifier = {
+				factor = 2.2
+				FROM = { tag = UKR }
+			}
+			modifier = { #Try not to spam, do other countries first
+				factor = 0.2
+				FROM = { has_country_flag = SOV_government_pressured_flag }
+			}
+		}
+
+		targets = { UKR LIT POL CZE SLO HUN CRO ROM BUL MOL MNT KOS SER BOS GEO }
+
+		target_trigger = {
+			country_exists = FROM
+			NOT = { FROM = { is_subject_of = ROOT } }
+			NOT = { is_in_faction_with = FROM }
+		}
+
+		target_root_trigger = {
+			is_subject = no
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			#FROM is country we are targeting, ROOT is Russia
+			NOT = { ROOT = { has_war_with = FROM } }
+			ROOT = { num_of_civilian_factories_available_for_projects > 1 }
+			NOT = { FROM = { has_illiberal_government = yes } }
+		}
+
+		visible = {
+		}
+
+		days_remove = 45			#These two can be made into variables
+
+		days_re_enable = 75
+
+		cost = var:SOV_cost_of_foreign_subversive_activities_decisions
+
+		modifier = {
+			political_power_cost = 0.1
+			civilian_factory_use = 2
+		}
+
+		complete_effect = {
+#			set_country_flag = SOV_pressure_government_active_flag
+		}
+
+		remove_effect = {
+			FROM = {
+				country_event = { id = russia.1110 random_hours = 12 }
+				set_country_flag = SOV_government_pressured_flag #For AI weights - don't spam
+				
+				effect_tooltip={
+					add_timed_idea = { idea = SOV_pro_russian_sentiment days = 45 }
+				}
+			}
+		}
+	}
+	
+	SOV_bribe_politicians = {
+		priority = 50
+
+		icon = generic_political_discourse
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_political_power > 100
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_in_faction_with = USA }		#Focus on NATO countries
+			}
+			modifier = {
+				factor = 2.2
+				FROM = { tag = UKR }
+			}
+			modifier = { #Try not to spam, do other countries first
+				factor = 0.2
+				FROM = { has_country_flag = SOV_government_pressured_flag_2 }
+			}
+		}
+
+		targets = { UKR LIT POL CZE SLO HUN CRO ROM BUL MOL MNT KOS SER BOS GEO }
+
+		target_trigger = {
+			country_exists = FROM
+			NOT = { FROM = { is_subject_of = ROOT } }
+			NOT = { is_in_faction_with = FROM }
+		}
+
+		target_root_trigger = {
+			is_subject = no
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			#FROM is country we are targeting, ROOT is Russia
+			NOT = { ROOT = { has_war_with = FROM } }
+			ROOT = { num_of_civilian_factories_available_for_projects > 1 }
+			NOT = { FROM = { has_illiberal_government = yes } }
+		}
+
+		visible = {
+		}
+
+		days_remove = 45			#These two can be made into variables
+
+		days_re_enable = 75
+
+		cost = var:SOV_cost_of_foreign_subversive_activities_decisions
+
+		modifier = {
+			political_power_cost = 0.1
+			civilian_factory_use = 2
+		}
+
+		complete_effect = {
+#			set_country_flag = SOV_pressure_government_active_flag
+		}
+
+		remove_effect = {
+			effect_tooltip={
+				FROM={
+					country_event = { id = russia.1113 random_hours = 12 }
+					add_political_power = -120
+				}
+			}
+			hidden_effect={
+				FROM = {
+					random_owned_controlled_state={
+						limit={ NOT={ state = 14 } }
+						set_variable = { PREV.random_state_selected = THIS }	#For loc
+					}
+					country_event = { id = russia.1113 random_hours = 12 }
+					set_country_flag = SOV_government_pressured_flag_2 #For AI weights - don't spam
+				}
+			}
 		}
 	}
 }

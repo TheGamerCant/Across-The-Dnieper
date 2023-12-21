@@ -246,10 +246,26 @@ SOV_parliament_gui_decision_category = {
 
 SOV_securing_the_federation = {
 	allowed = {
-		tag = SOV
+		original_tag = SOV
 	}
 	visible_when_empty = no
 	visible = {
 		has_completed_focus = SOV_russia_united_QM
 	}	
+}
+
+SOV_foreign_subversive_activities = {
+	priority = 99
+
+	icon = generic_foreign_policy
+
+	allowed = {
+		original_tag = SOV
+	}
+	visible_when_empty = no
+	visible = {
+#		alexander_bortnikov_is_leader = yes
+		is_subject = no
+		has_country_flag = SOV_can_do_foreign_subversive_activities_flag
+	}
 }
