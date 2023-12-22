@@ -698,14 +698,19 @@ country_event = {
 		hidden_effect = { country_event = { id = russia.1020 days = 1 } }
     }
 	
-#	option = {
-#		name = russia.1019.b
-#		ai_chance = {
-#			base = 0
-#		}
-#		add_political_power = 100
-#		hidden_effect = { country_event = { id = russia.1021 days = 1 } }
-#	}
+	option = {
+		name = russia.1019.b
+		ai_chance = {
+			base = 0
+		}
+		
+		trigger={##################################################################		remove when done
+			always = no
+		}
+		
+		add_political_power = 100
+		hidden_effect = { country_event = { id = russia.1021 days = 1 } }
+	}
 }
 
 #Protests end
@@ -735,6 +740,7 @@ country_event = {
 
 	immediate = {
         hidden_effect = {
+			set_country_flag = SOV_keep_faction_management_open_flag
 			kill_country_leader = yes
             create_country_leader = {
                 name = "The Security Council"
@@ -750,6 +756,35 @@ country_event = {
 				white_peace = CRI
 			}
 			UKR = { annex_country = { target = CRI transfer_troops = no } }
+			
+			clr_global_flag = north_crimean_canal_blocked
+			if={
+				limit = { has_idea = UKR_the_crimean_burden }
+				remove_ideas = UKR_the_crimean_burden
+			}
+			if={
+				limit = { has_idea = SOV_the_crimean_burden_better }
+				remove_ideas = SOV_the_crimean_burden_better
+			}
+			if={
+				limit = { has_idea = SOV_the_crimean_burden_rework }
+				remove_ideas = SOV_the_crimean_burden_rework
+			}
+			every_state = {
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					has_dynamic_modifier = { modifier = drastic_water_shortage }
+				}
+				remove_dynamic_modifier = { modifier = drastic_water_shortage }
+			}
+			every_state = {
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					has_dynamic_modifier = { modifier = water_shortage }
+				}
+				
+				remove_dynamic_modifier = { modifier = water_shortage }
+			}
         }
     }
 
@@ -761,7 +796,7 @@ country_event = {
 		add_stability = -0.2
 		add_political_power = -150
 		
-		custom_effect_tooltip = russia.1021.tt
+#		custom_effect_tooltip = russia.1021.tt
 		effect_tooltip={
 			create_country_leader = {
                 name = "The Security Council"
