@@ -9344,6 +9344,72 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_rewrite_the_conscription_law
+	icon = GFX_focus_
+	x = -2
+	y = 1
+	
+	cost = 32
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_the_war_effort }
+	relative_position_id = SOV_the_war_effort
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	bypass = {
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_stability = -0.1
+		add_war_support = -0.05
+		add_political_power = -100
+		
+		
+		custom_effect_tooltip = SOV_rewrite_the_conscription_law_tt
+		
+		hidden_effect={
+			SOV={
+				division_template = {
+					name = "Russian Conscripts"
+					division_names_group = SOV_INF_01
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }	
+						irregular_infantry = { x = 1 y = 2 }
+						irregular_infantry = { x = 1 y = 3 }
+						mechanized = { x = 2 y = 0 }
+						mechanized = { x = 2 y = 1 }
+						apc = { x = 2 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+				
+				for_loop_effect = {
+					end = 150
+					value = temp
+					random_owned_controlled_state = {
+						limit = { SOV = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Conscripts\" division_template = \"Russian Conscripts\"" 
+							owner = SOV
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
 	id = SOV_ultimatum_to_belarus
 	icon = GFX_focus_SOV_ultimatum_to_belarus
 	x = 1
