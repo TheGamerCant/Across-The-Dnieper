@@ -4388,6 +4388,8 @@ country_event = {
 				}
 				country_event = { id = russia_propaganda.14 }  
 			}
+
+			country_event = { id = russia_propaganda.15 hours = 1 }  
 		}
     }
 }
@@ -4427,6 +4429,44 @@ country_event = {
 		add_popularity = {
             ideology = ultranationalist
             popularity = 0.02
+        }
+    }
+}
+
+# "Results of the Year with Vladimir Putin: Relations With The West"
+country_event = {
+    id = russia_propaganda.15
+    title = russia_propaganda.15.t
+    desc = russia_propaganda.15.desc
+    picture = GFX_report_event_SOV_results_of_the_year
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.15.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_stability = 0.02
+		add_political_power = 50
+
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.03
+        }
+    }
+
+	option = {
+        name = russia_propaganda.15.b
+		ai_chance = {
+			base = 0
+		}
+
+        add_stability = -0.035
+		add_popularity = {
+            ideology = ultranationalist
+            popularity = 0.05
         }
     }
 }
