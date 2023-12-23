@@ -689,6 +689,26 @@ ideas = {
 			}
 		}
 		
+		SOV_the_great_patriotic_war_idea_girkin = {
+			removal_cost = -1
+			picture = GFX_idea_SOV_the_great_patriotic_war_idea
+			
+			available = { has_war = yes }
+			
+			modifier = {
+				custom_modifier_tooltip = SOV_second_great_patriotic_war_modifier_tt
+			
+				army_speed_factor = 0.1
+				army_strength_factor = 0.1
+				org_loss_when_moving = -0.15
+				army_morale_factor = 0.1
+				breakthrough_factor = 0.16
+				
+				war_support_factor = 0.1
+				weekly_casualties_war_support = 0.001
+			}
+		}
+		
 		SOV_those_we_protect = {
 			available = { has_war_with = UKR }
 
@@ -1212,6 +1232,15 @@ ideas = {
 			}	
 		}
 
+		SOV_improving_troop_conditions = {
+			removal_cost = -1
+			picture = SOV_military_doctrine
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+				political_power_cost = 0.2
+			}	
+		}
 	
 		SOV_stagnant_economy = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }

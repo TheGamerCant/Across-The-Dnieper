@@ -7,8 +7,13 @@ DON_pushilin = {
 	}
 	enable = {
 		DON_is_pushilin_ai = yes
+		DON = { has_focus_tree = donetsk }
 	}
 	abort = {
+		NOT={
+			DON_is_pushilin_ai = yes
+			DON = { has_focus_tree = donetsk }
+		}
 	}
 
 	ai_national_focuses = {
@@ -59,5 +64,67 @@ DON_pushilin = {
 	focus_factors = {
 		
 	}
+}
 
+DON_pushilin = {
+	name = "Donbass Tree"
+	desc = ""
+
+	allowed = {
+		OR={
+			original_tag = DON
+			original_tag = LHK
+			original_tag = KHK
+			original_tag = ODS
+			original_tag = NOV
+		}
+	}
+	enable = {
+		OR={
+			has_focus_tree = donetsk_temporary_tree
+			has_focus_tree = donbass_shared
+		}
+	}
+	abort = {
+		NOT={
+			OR={
+				has_focus_tree = donetsk_temporary_tree
+				has_focus_tree = donbass_shared
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		DONBASS_the_fight_against_nazism
+		DON_shelling_from_residential_areas
+		DONBASS_urban_warfare
+		DONBASS_mandatory_conscription
+		DON_cooperations_with_foreign_far_right_groups
+		DONBASS_grab_whatever_we_can
+		
+	}
+
+	research = {
+		
+	}
+
+	ideas = {
+
+	}
+
+	traits = {
+
+	}
+
+	
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
 }

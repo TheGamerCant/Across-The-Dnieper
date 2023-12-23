@@ -1622,7 +1622,6 @@ country_event = {
 		SOV={ has_completed_focus = SOV_movements_on_the_border has_war_with = UKR }
 		NOT = { has_global_flag = russia_ukraine_war_countdown_until_frontlines_solidify }
 		NOT = { UKR = { has_country_leader = { name = "Verkhovna Rada" ruling_only = yes } } }
-
 	}
 	
 	immediate={
@@ -1650,6 +1649,11 @@ country_event = {
 		if={
 			limit = { SOV = { has_completed_focus = SOV_utilise_wagner } }
 			SOV = { country_event = { id = russia.1062 days = 155 } }
+		}
+		
+		if={
+			limit = { has_global_flag = smo_northern_front_open NOT = { 92 = { is_controlled_by = SOV } } }
+			SOV = { country_event = { id = russia.1046 days = 2 } }
 		}
 	}
 }
@@ -1785,11 +1789,6 @@ country_event = {
 					}
 				}
 				set_variable = { maximum_number_of_offensives = 3 }
-			}
-			
-			if={
-				limit = { tag = SOV has_global_flag = smo_northern_front_open NOT = { 92 = { is_controlled_by = SOV } } }
-				country_event = { id = russia.1046 days = 2 }
 			}
 		}
 	}

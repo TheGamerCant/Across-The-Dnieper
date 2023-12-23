@@ -152,11 +152,21 @@ IMPOSSIBLE_russia_doctrine_boost = {
 	air_doctrine_cost_factor = -0.6
 }
 
-Ukraine_ai_boost_modifier = { 
-	enable = { UKR = { is_ai = yes } }
+Ukraine_ai_boost_modifier = { 				#Only gotten when you switch from UKR to another tag
+	enable = { UKR = { is_ai = yes } NOT = { country_exists = UGE } }
 
 	army_attack_factor = 0.1
 	army_defence_factor = 0.1
 	land_doctrine_cost_factor = -0.45
 	org_loss_when_moving = -0.05
+}
+
+Ukraine_ai_boost_modifier_2 = { 
+	enable = { UKR = { is_ai = yes } NOT = { country_exists = UGE } }
+
+	army_attack_factor = 0.075
+	army_defence_factor = 0.075
+	army_strength_factor = 0.1
+	army_morale_factor = 0.02
+	coordination_bonus = 0.01
 }
