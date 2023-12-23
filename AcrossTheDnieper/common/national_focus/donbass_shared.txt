@@ -50,7 +50,7 @@ focus_tree = {
 
 shared_focus = {
 	id = DONBASS_the_novorossiya_project
-	icon = GFX_focus_
+	icon = GFX_focus_DONBASS_the_novorossiya_project
 	x = 10
 	y = 6
 	
@@ -172,6 +172,46 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = DONBASS_pool_our_industries
+	icon = GFX_focus_DONBASS_pool_our_industries
+	x = 0
+	y = 2
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_pool_our_industries
+					progress > 0
+				}
+			}
+		}
+	}
+	
+	prerequisite = { focus = DONBASS_shared_expertise }
+	relative_position_id = DONBASS_shared_expertise
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_pool_our_industries }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		every_country={
+			limit = { is_donbass_country = yes }
+			add_to_variable = { DONBASS_BCOAS_industrial_capacity_factory = 0.12 }
+			custom_effect_tooltip = DONBASS_pool_our_industries_tt
+		}
+	}
+}
+
+shared_focus = {
 	id = DONBASS_look_to_the_sea
 	icon = GFX_focus_
 	x = 1
@@ -265,8 +305,57 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = DONBASS_unifying_propaganda
+	icon = GFX_focus_DONBASS_the_novorossiya_project
+	x = 0
+	y = 2
+	
+	cost = 70
+	ai_will_do = {
+		base = 1
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_unifying_propaganda
+					progress > 0
+				}
+			}
+		}
+	}
+	
+	prerequisite = { focus = DONBASS_look_to_the_sea }
+	relative_position_id = DONBASS_look_to_the_sea
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_unifying_propaganda }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		ROOT={
+			add_political_power = 60
+			
+			add_to_variable = { DONBASS_BCOAS_ruling_party_drift = 0.12 }
+			custom_effect_tooltip = DONBASS_unifying_propaganda_tt
+		}
+		
+		every_other_country={
+			limit = { is_donbass_country = yes }
+			add_political_power = 25
+			
+			add_to_variable = { DONBASS_BCOAS_ruling_party_drift = 0.1 }
+			custom_effect_tooltip = DONBASS_unifying_propaganda_tt_2
+		}
+	}
+}
+
+shared_focus = {
 	id = DONBASS_joint_administration
-	icon = GFX_focus_
+	icon = GFX_focus_DONBASS_joint_administration
 	x = 0
 	y = 2
 	
