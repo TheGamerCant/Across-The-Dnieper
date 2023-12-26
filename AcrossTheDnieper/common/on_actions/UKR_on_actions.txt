@@ -63,9 +63,11 @@ on_actions={
 			}
 			
 			UKR = { 
-				country_event = { id = ukraine.114 days = 27  } #Flavour event anti Dictatorial Laws protests
-				country_event = { id = ukraine.115 days = 52  } #Flavour event Yanukovych and opposition leaders sign a settlement document.
-				country_event = { id = ukraine.116 days = 237  } #Flavour event Ukrainian President annouces Russian troops in donbass
+				if ={ 
+					limit = { has_start_date < 2022.01.01 } 
+					country_event = { id = ukraine.114 days = 27  } #Flavour event anti Dictatorial Laws protests
+					country_event = { id = ukraine.116 days = 237  } #Flavour event Ukrainian President annouces Russian troops in donbass
+				}
 			}
 			
 			UKR={

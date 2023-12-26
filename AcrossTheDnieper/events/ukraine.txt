@@ -79,9 +79,9 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		add_stability = -0.25
+		add_stability = -0.20
 		hidden_effect={
-			country_event = { id = ukraine.4 days = 2 }
+			country_event = { id = ukraine.115 days = 1 }
 		}
 	}
 }
@@ -471,7 +471,7 @@ country_event = {
 	
 	fire_only_once = yes
 	trigger = {
-		date > 2014.1.24
+		date > 2014.1.18
 		has_start_date < 2022.01.01 
 		country_exists = UKR
 	}
@@ -480,18 +480,18 @@ country_event = {
 			limit = { has_global_flag = UKR_has_sided_with_protestors_flag }
 			UKR={
 				country_event = { id = ukraine.2 days = 0 }		#
-				country_event = { id = ukraine.3 days = 25 }	#Maidan Shit
-				country_event = { id = ukraine.42 days = 198 }	#The great raid
-				news_event = { id = atd_news.12 days = 173 }	#MH17
-				country_event = { id = ukraine.70 days = 167 }	#Russia fires artillery		
-				country_event = { id = ukraine.57 days = 661 }	#Zelenskyy lore
+				country_event = { id = ukraine.3 days = 31 }	#Maidan Shit
+				country_event = { id = ukraine.42 days = 204 }	#The great raid
+				news_event = { id = atd_news.12 days = 179 }	#MH17
+				country_event = { id = ukraine.70 days = 173 }	#Russia fires artillery		
+				country_event = { id = ukraine.57 days = 667 }	#Zelenskyy lore
 			}
 			SOV = { country_event = { id = ukraine.32 days = 74 } }
 		}
 		else={
 			UKR={
 				country_event = { id = ukraine.5 days = 0 }
-				country_event = { id = ukraine.6 days = 25 }
+				country_event = { id = ukraine.6 days = 31 }
 			}
 		}
 	}
@@ -4196,10 +4196,11 @@ country_event = { #Flavour event anti Dictatorial Laws protests
 	is_triggered_only = yes
 	picture = GFX_news_Protesters_seize_state_administrations
 	is_triggered_only = yes
+	
 	option = { 
 		name = ukraine.114.a
 		
-		
+		add_stability = -0.06
 	}
 }
 
@@ -4210,10 +4211,14 @@ country_event = { #Flavour event Yanukovych and opposition leaders sign a settle
 	is_triggered_only = yes
 	picture = GFX_Yanukovych_signs_settlment
 	is_triggered_only = yes
+	
 	option = { 
 		name = ukraine.115.a
 		
-		
+		add_political_power = 5
+		hidden_effect={
+			country_event = { id = ukraine.4 days = 1 }
+		}
 	}
 }
 
@@ -4222,12 +4227,65 @@ country_event = { #Flavour event Ukrainian President annouces Russian troops in 
 	title = ukraine.116.t
 	desc = ukraine.116.desc
 	is_triggered_only = yes
-	picture = GFX_news_choclateman_announces_donbass_russian_troops
+	picture = [UKR_get_event_34_event_picture]
 	is_triggered_only = yes
-	major = yes
 	option = { 
 		name = ukraine.116.a
 		
 		
+	}
+}
+
+#Ukraine flag choice
+country_event = {
+	id = ukraine.117
+	title = ukraine.117.t
+	desc = ukraine.117.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = ukraine.117.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_blue_yellow } }
+	}
+	option = { 
+		name = ukraine.117.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_small_tryzub } }
+	}
+	option = { 
+		name = ukraine.117.c
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_large_tryzub } }
+	}
+	option = { 
+		name = ukraine.117.d
+		ai_chance = {
+			base = 0
+		}
+		
+		trigger={
+			has_far_right_government = yes
+		}
+		
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_red_black } }
+	}
+	option = { 
+		name = ukraine.117.e
+		ai_chance = {
+			base = 0
+		}
+		
+		trigger={
+			has_far_right_government = yes
+		}
+		
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_red_black_tryzub } }
 	}
 }
