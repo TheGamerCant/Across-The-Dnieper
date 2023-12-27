@@ -152,3 +152,26 @@ country_event = {
 		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = ODS_tricolour } }
 	}
 }
+
+#Odesa
+country_event = {
+	id = flag_events.6
+	title = flag_events.6.t
+	desc = flag_events.6.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.6.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = NOV_eagle } }
+	}
+	option = { 
+		name = flag_events.6.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = NOV_saltire } }
+	}
+}

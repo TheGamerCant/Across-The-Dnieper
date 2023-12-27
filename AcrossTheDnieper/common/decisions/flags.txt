@@ -175,4 +175,40 @@ political_actions={
 			country_event = flag_events.5
 		}
 	}
+	
+	NOV_choose_our_flag = { 
+		priority = 999
+
+		icon = generic_form_nation
+
+		allowed = {
+			tag = NOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			OR={
+				has_government = eastern_conservative
+				is_puppet_of = SOV
+			}
+		}
+		
+		modifier={
+		}
+
+		visible = {
+			is_ai = no
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+
+		complete_effect={
+			country_event = flag_events.6
+		}
+	}
 }
