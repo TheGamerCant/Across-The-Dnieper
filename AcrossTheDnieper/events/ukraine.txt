@@ -4289,3 +4289,52 @@ country_event = {
 		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_red_black_tryzub } }
 	}
 }
+
+country_event = {			#Hidden event to remove donbass cores if countries don't exist
+	id = ukraine.118
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { country_exists = DON } }
+			every_state={
+				limit = { OR = { is_claimed_by = DON is_core_of = DON } }
+				remove_claim_by = DON
+				remove_core_of = DON
+			}
+		}
+		if={
+			limit = { NOT = { country_exists = LHK } }
+			every_state={
+				limit = { OR = { is_claimed_by = LHK is_core_of = LHK } }
+				remove_claim_by = LHK
+				remove_core_of = LHK
+			}
+		}
+		if={
+			limit = { NOT = { country_exists = KHK } }
+			every_state={
+				limit = { OR = { is_claimed_by = KHK is_core_of = KHK } }
+				remove_claim_by = KHK
+				remove_core_of = KHK
+			}
+		}
+		if={
+			limit = { NOT = { country_exists = ODS } }
+			every_state={
+				limit = { OR = { is_claimed_by = ODS is_core_of = ODS } }
+				remove_claim_by = ODS
+				remove_core_of = ODS
+			}
+		}
+		if={
+			limit = { NOT = { country_exists = NOV } }
+			every_state={
+				limit = { OR = { is_claimed_by = NOV is_core_of = NOV } }
+				remove_claim_by = NOV
+				remove_core_of = NOV
+			}
+		}
+	}
+}

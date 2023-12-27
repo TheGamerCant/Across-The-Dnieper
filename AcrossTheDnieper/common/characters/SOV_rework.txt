@@ -789,7 +789,7 @@ characters={
 		name = SOV_vladimir_zhirinovsky_rework
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png"
+				large = "gfx/leaders/SOV/Portrait_Vladimir_Zhirinovsky.png"
 				small = "gfx/leaders/SOV/advisors/Portait_Vladimir_Zhirinovsky_Advisor.png"
 			}
 		}
@@ -819,7 +819,8 @@ characters={
 		name = SOV_vladimir_solovyov_rework
 		portraits = {
 			civilian = {
-				small = "gfx/leaders/SOV/advisors/Portait_Vladimir_Solovyov_Advisor.png"
+				small = "gfx/leaders/SOV/advisors/Portrait_Vladimir_Solovyov_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Vladimir_Solovyov.png"
 			}
 		}
 		allowed_civil_war = {
@@ -830,9 +831,12 @@ characters={
 			slot = political_advisor
 			idea_token = SOV_vladimir_solovyov_rework
 			
+			visible={
+				has_country_flag = SOV_solovyov_available_as_advisor_flag
+			}
 			
 			available={
-				has_illiberal_government = yes
+				vladimir_putin_is_leader = yes
 			}
 
 			traits = {

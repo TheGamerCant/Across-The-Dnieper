@@ -4388,8 +4388,9 @@ country_event = {
 				}
 				country_event = { id = russia_propaganda.14 }  
 			}
-
-			country_event = { id = russia_propaganda.15 hours = 1 }  
+			else={
+				country_event = { id = russia_propaganda.15 }  
+			}
 		}
     }
 }
@@ -4410,12 +4411,13 @@ country_event = {
 		}
 		
 		add_stability = 0.02
-		add_political_power = -5
 
 		add_popularity = {
             ideology = eastern_conservative
             popularity = 0.02
         }
+		
+		hidden_effect = { country_event = { id = russia_propaganda.15 } }
     }
 
 	option = {
@@ -4428,8 +4430,10 @@ country_event = {
 
 		add_popularity = {
             ideology = ultranationalist
-            popularity = 0.02
+            popularity = 0.03
         }
+		add_political_power = -5
+		hidden_effect = { country_event = { id = russia_propaganda.15 } }
     }
 }
 
@@ -4449,12 +4453,11 @@ country_event = {
 		}
 		
 		add_stability = 0.02
-		add_political_power = 50
-
 		add_popularity = {
             ideology = eastern_conservative
             popularity = 0.03
         }
+		increase_eastern_liberal_programming_by_4 = yes
     }
 
 	option = {
@@ -4463,10 +4466,64 @@ country_event = {
 			base = 0
 		}
 
-        add_stability = -0.035
+		add_war_support = 0.02
 		add_popularity = {
             ideology = ultranationalist
             popularity = 0.05
         }
+		increase_ultranationalist_programming_by_4 = yes
+    }
+}
+
+country_event = {
+	id = russia_propaganda.16
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { SOV = { vladimir_putin_is_leader = yes has_war_with = UKR } }
+			SOV = { country_event = { id = russia_propaganda.13 } }
+		}
+	}
+}
+
+#World order 2018 - Solovyov + Putin
+country_event = {
+    id = russia_propaganda.17
+    title = russia_propaganda.17.t
+    desc = russia_propaganda.17.desc
+    picture = GFX_report_event_SOV_world_order_2018
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia_propaganda.17.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_political_power = 25
+		
+		set_country_flag = SOV_solovyov_available_as_advisor_flag
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_vladimir_solovyov_rework
+		
+		increase_eastern_conservative_programming_by_5 = yes
+    }
+	
+	option = {
+        name = russia_propaganda.17.b
+		ai_chance = {
+			base = 10
+		}
+		
+		add_political_power = 25
+		
+		set_country_flag = SOV_solovyov_available_as_advisor_flag
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_vladimir_solovyov_rework
+		
+		increase_ultranationalist_programming_by_5 = yes
     }
 }
