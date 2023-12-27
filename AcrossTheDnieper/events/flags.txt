@@ -1,0 +1,154 @@
+add_namespace = flag_events
+
+#Ukraine
+country_event = {
+	id = flag_events.1
+	title = flag_events.1.t
+	desc = flag_events.1.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.1.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_blue_yellow } }		#make sure the effect only applies if you want it to, or else the player could potentially change their cosmetic tag when we don't want them to
+	}
+	option = { 
+		name = flag_events.1.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_small_tryzub } }
+	}
+	option = { 
+		name = flag_events.1.c
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_large_tryzub } }
+	}
+	option = { 
+		name = flag_events.1.d
+		ai_chance = {
+			base = 0
+		}
+		
+		trigger={
+			has_far_right_government = yes
+		}
+		
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_red_black } }
+	}
+	option = { 
+		name = flag_events.1.e
+		ai_chance = {
+			base = 0
+		}
+		
+		trigger={
+			has_far_right_government = yes
+		}
+		
+		if = { limit = { is_subject = no NOT = { has_cosmetic_tag = UKR_russian_puppet } } hidden_effect = { set_cosmetic_tag = UKR_red_black_tryzub } }
+	}
+}
+
+#Donetsk
+country_event = {
+	id = flag_events.2
+	title = flag_events.2.t
+	desc = flag_events.2.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.2.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = DON_eagle } }
+	}
+	option = { 
+		name = flag_events.2.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = DON_tricolour } }
+	}
+}
+
+#Luhansk
+country_event = {
+	id = flag_events.3
+	title = flag_events.3.t
+	desc = flag_events.3.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.3.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = LHK_star } }
+	}
+	option = { 
+		name = flag_events.3.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = LHK_eagle } }
+	}
+	option = { 
+		name = flag_events.3.c
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = LHK_tricolour } }
+	}
+}
+
+#Kharkiv
+country_event = {
+	id = flag_events.4
+	title = flag_events.4.t
+	desc = flag_events.4.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.4.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = KHK_eagle } }
+	}
+	option = { 
+		name = flag_events.4.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = KHK_tricolour } }
+	}
+}
+
+#Odesa
+country_event = {
+	id = flag_events.5
+	title = flag_events.5.t
+	desc = flag_events.5.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.5.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = ODS_eagle } }
+	}
+	option = { 
+		name = flag_events.5.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } } hidden_effect = { set_cosmetic_tag = ODS_tricolour } }
+	}
+}
