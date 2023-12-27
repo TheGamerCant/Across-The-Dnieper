@@ -164,7 +164,11 @@ on_actions={
 			else_if = {	#Fall of Melitopol
                 limit = {
 					SOV={ has_war_with = UKR } 
-					tag = SOV
+					OR = {
+						tag = SOV
+						tag = DON
+						tag = LHK
+					}
 					FROM.FROM = { state = 250 }
 					NOT={ has_global_flag = melitopol_fell }
                 }
@@ -173,7 +177,11 @@ on_actions={
 			else_if = {	#Fall of Bakhmut
                 limit = {
 					SOV={ has_war_with = UKR } 
-					tag = SOV
+					OR = {
+						tag = SOV
+						tag = DON
+						tag = LHK
+					}
 					FROM.FROM = { state = 146 }
 					NOT={ has_global_flag = bachmut_fell }
                 }
