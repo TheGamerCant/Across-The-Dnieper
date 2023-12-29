@@ -315,6 +315,18 @@ characters={
 			ai_will_do = {
 				factor = 0
 			}
+			available={
+				NOT = {
+					AND={
+						SOV_kokoltsev_vladimir_rework = {
+							is_political_advisor = yes
+						}
+						SOV_dmitry_patrushev = {
+							is_political_advisor = yes
+						}
+					}
+				}
+			}
 			visible = { igor_girkin_is_not_leader = yes }
 			on_add = {
 				owner = {
@@ -550,7 +562,18 @@ characters={
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_kokoltsev_vladimir_rework
-			
+			available={
+				NOT = {
+					AND={
+						SOV_alexei_miller = {
+							is_political_advisor = yes
+						}
+						SOV_dmitry_patrushev = {
+							is_political_advisor = yes
+						}
+					}
+				}
+			}
 			visible = { igor_girkin_is_not_leader = yes }
 			traits = {
 				SOV_minister_of_inner_affairs
@@ -1828,6 +1851,16 @@ characters={
 			
 			available={
 				has_completed_focus = SOV_the_new_nobility_siloviki
+				NOT = {
+					AND={
+						SOV_kokoltsev_vladimir_rework = {
+							is_political_advisor = yes
+						}
+						SOV_alexei_miller = {
+							is_political_advisor = yes
+						}
+					}
+				}
 			}
 		}
 	}
