@@ -3,11 +3,76 @@ on_actions={
 		effect={
 			if={
 				limit = {
+					has_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
+					has_war = yes
+					OR={
+						is_ai = no
+						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
+					}
+				}
+				random_owned_controlled_state={
+					limit={ NOT={ state = 14 } }
+					set_variable = { ROOT.random_state_selected = THIS }	#For loc
+				}
+				if={
+					limit = { is_on_impossible_mode = yes }
+					random_list = {			#Some of these are cancelled out, caused your troops to be neutral
+						2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+						1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+						2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+						2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+						1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+						1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+						1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+						35 = {}
+					}
+				}
+				else_if={
+					limit = { is_on_hard_mode = yes }
+					random_list = {			#Some of these are cancelled out, caused your troops to be neutral
+						2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+						1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+						2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+						2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+						1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+						1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+						1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+						60 = {}
+					}
+				}
+				else_if={
+					limit = { is_on_easy_mode = yes }
+					random_list = {			#Some of these are cancelled out, caused your troops to be neutral
+						2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+						1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+						2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+						2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+						1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+						1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+						1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+						150 = {}
+					}
+				}
+				else={
+					limit = { is_on_normal_mode = yes }
+					random_list = {			#Some of these are cancelled out, caused your troops to be neutral
+						2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
+						1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
+						2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
+						2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
+						1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
+						1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
+						1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
+						90 = {}
+					}
+				}
+			}
+			else_if={
+				limit = {
 
 					OR={
 						has_idea = SOV_the_eastern_yoke 
 						has_idea = SOV_the_eastern_yoke_monarch
-						has_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
 					}
 					has_war = yes
 					NOT = { has_war_with = WAG }
