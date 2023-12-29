@@ -44,12 +44,17 @@ load_ww3={
 			}
 		}
 		
-		random_country={
-			limit = { is_in_faction_with = USA is_faction_leader = yes }
-			add_to_faction = NAT
-		}
 		NAT = { 
-			set_faction_leader = yes 
+			leave_faction = yes
+			create_faction = "North Atlantic Treaty Organisation"
+			
+			every_country={
+				limit = { OR = { is_in_faction_with = USA tag = USA } }
+				leave_faction = yes
+				NAT = {
+					add_to_faction = PREV
+				}
+			}
 			
 			division_template = {
 				name = "NATO Infantry Battalion"
