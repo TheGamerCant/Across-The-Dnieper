@@ -1487,6 +1487,27 @@ ideas ={
 				army_speed_factor = 0.1
 			}	
 		}
+
+		UKR_low_morale = {
+			removal_cost = -1
+
+			picture = SOV_state_of_emergency
+				
+			available = { NOT = { is_puppet_of = SOV } }
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				ai_focus_defense_factor = 0.1
+				army_org_factor = -0.05
+				command_power_gain_mult = -0.05
+				army_attack_factor = -0.12
+				army_defence_factor = -0.04
+				army_morale_factor = -0.05
+			}
+		}
 	}
 	
 	tank_manufacturer = {
@@ -1965,25 +1986,6 @@ ideas ={
 			}
 		}
 
-		UKR_low_morale = {
-			removal_cost = -1
 
-			picture = SOV_state_of_emergency
-				
-			available = { NOT = { is_puppet_of = SOV } }
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				ai_focus_defense_factor = 0.1
-				army_org_factor = -0.05
-				command_power_gain_mult = -0.05
-				army_attack_factor = -0.12
-				army_defence_factor = -0.04
-				army_morale_factor = -0.05
-			}
-		}
 	}
 }

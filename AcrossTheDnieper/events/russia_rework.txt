@@ -4159,6 +4159,69 @@ country_event = {
 	}
 }
 
+#Retreat from kherson?
+country_event = {
+    id = russia.1114
+    title = russia.1114.t
+    desc = russia.1114.desc
+    picture = GFX_report_event_UKR_ukraine_army
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1114.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.04
+
+		every_state = {
+			limit = {
+				AND = {
+					is_controlled_by = SOV
+					has_state_flag = kherson_oblast_flag
+				}
+			}
+
+			add_dynamic_modifier = {
+				modifier = SOV_withdrawing
+				scope = SOV
+			}
+		}
+		custom_effect_tooltip = "SOV_withdraw_tt"
+	}
+
+	option = {
+        name = russia.1114.b
+		ai_chance = {
+			base = 0
+		}
+
+		add_political_power = -25
+		add_war_support = -0.08
+		add_stability = -0.07
+	}
+}
+
+#drones are da future
+country_event = {
+    id = russia.1115
+    title = russia.1115.t
+    desc = russia.1115.desc
+    picture = GFX_report_event_drones
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1115.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ideas = SOV_drone_warfare
+	}
+}
 
 country_event = {
     id = russia_propaganda.1
