@@ -1665,6 +1665,10 @@ country_event = {
     desc = russia.1044.desc
     is_triggered_only = yes
 	picture = SOV_tank_gets_towed
+
+	trigger = {
+		has_war_with = UKR
+	}
 	
 	immediate={
 		hidden_effect={
@@ -3698,6 +3702,10 @@ country_event = {
     picture = GFX_report_event_SOV_strelkov
     is_triggered_only = yes
 
+	trigger = {
+		has_war_with = UKR
+	}
+
 
     option = {
         name = russia.1099.a
@@ -4167,6 +4175,11 @@ country_event = {
     picture = GFX_report_event_UKR_ukraine_army
     is_triggered_only = yes
 
+	trigger = {
+		has_war_with = UKR
+	}
+
+
 
     option = {
         name = russia.1114.a
@@ -4220,6 +4233,225 @@ country_event = {
 		}
 
 		add_ideas = SOV_drone_warfare
+	}
+}
+
+#kadyrov concerned
+country_event = {
+    id = russia.1116
+    title = russia.1116.t
+    desc = russia.1116.desc
+    picture = GFX_report_event_SOV_kadyrov
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+
+    option = {
+        name = russia.1116.a
+		ai_chance = {
+			base = 10
+		}
+
+		CHN = {
+			add_autonomy_score = {
+				value = 50
+			}
+			add_political_power = 25
+		}
+
+		add_stability = -0.01
+	}
+}
+
+
+#crack down on independent media
+country_event = {
+    id = russia.1117
+    title = russia.1117.t
+    desc = russia.1117.desc
+    picture = GFX_report_event_SOV_duma
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+
+    option = {
+        name = russia.1117.a
+		ai_chance = {
+			base = 10
+		}
+		add_stability = 0.05
+
+		swap_ideas = {
+			remove_idea = state_controlled_press
+			add_idea = wartime_censorship
+		}
+	}
+}
+
+#Russian Volunteer Corps and Freedom of Russia Legion in belgorod (war)
+country_event = {
+    id = russia.1118
+    title = russia.1118.t
+    desc = russia.1118.desc
+    picture = GFX_report_event_belgorod_raid 
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+    immediate = {
+        hidden_effect = {
+            create_dynamic_country = {
+                original_tag = SOV
+
+                create_country_leader = {
+                    name = "Denis Kapustin"
+                    picture = gfx/leaders/OTHER/Portrait_RVC_Denis_Kapustin.png
+                    ideology = generic_fascist
+                }
+
+                set_politics = {
+                    ruling_party = fascist
+                }
+
+                set_popularities = {
+                    fascist = 100
+                }
+    
+                set_cosmetic_tag = RVC
+    
+                add_ideas = ANY_paramilitary
+    
+                66 = { set_state_owner_to = RVC set_demilitarized_zone = no }
+
+                set_province_controller = 2264
+                set_province_controller = 10571
+				set_province_controller = 11638
+				set_province_controller = 3678
+
+
+                66 = {
+                    create_unit = {
+                        division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.01"
+                        owner = RVC
+                        count = 4
+                        allow_spawning_on_enemy_provs = no
+                    }
+                }
+
+                declare_war_on = {
+                    target = SOV
+                    type = annex_everything
+                }
+
+
+            }
+        }
+
+    }
+
+
+    option = {
+        name = russia.1118.a
+
+    }
+}
+
+#Russian Volunteer Corps and Freedom of Russia Legion in belgorod (first, 1 day raid)
+country_event = {
+    id = russia.1119
+    title = russia.1119.t
+    desc = russia.1119.desc
+    picture = GFX_report_event_belgorod_raid
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = russia.1118 days = 9 }
+		}
+	}
+
+    option = {
+        name = russia.1119.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = -0.04
+		add_stability = -0.01
+	}
+}
+
+#information warfare
+country_event = {
+    id = russia.1120
+    title = russia.1120.t
+    desc = russia.1120.desc
+    picture = GFX_report_event_information_warfare
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1120.a
+		ai_chance = {
+			base = 10
+		}
+		
+		custom_effect_tooltip = "russia.1120.tt"
+
+		hidden_effect = {
+			set_country_flag = SOV_media_information_warfare_enabled
+			SOV_media_leaning_calculate_XY = yes
+		}
+	}
+}
+
+#(FOR UKRAINE) russia begins shelling energy infrastructure
+country_event = {
+    id = russia.1121
+    title = russia.1121.t
+    desc = russia.1121.desc
+    picture = GFX_report_event_factory_fire
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1121.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ideas = UKR_intensified_shelling
+	}
+}
+
+#(FOR UKRAINE) russia begins shelling heritage sites
+country_event = {
+    id = russia.1122
+    title = russia.1122.t
+    desc = russia.1122.desc
+    picture = GFX_report_event_factory_fire
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1122.a
+		ai_chance = {
+			base = 10
+		}
+
+		swap_ideas = {
+			remove_idea = UKR_intensified_shelling
+			add_idea = UKR_intensified_shelling_2
+		}
 	}
 }
 

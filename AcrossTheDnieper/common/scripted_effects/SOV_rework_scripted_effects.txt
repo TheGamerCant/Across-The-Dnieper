@@ -34,6 +34,17 @@ SOV_media_leaning_calculate_XY = {
 		divide_variable = { eastern_liberal_drift_from_media = 250 }
 		set_variable = { ultranationalist_drift_from_media = SOV_media_leans_ultranationalist }
 		divide_variable = { ultranationalist_drift_from_media = 250 }
+
+		if = {
+			limit = { has_country_flag = SOV_media_information_warfare_enabled }
+
+			set_variable = { SOV_media_pp_gain = SOV_media_leans_eastern_conservative }
+			divide_variable = { SOV_media_pp_gain = 100 }
+			divide_variable = { SOV_media_pp_gain = 5 }
+
+			set_variable = { SOV_media_stability_factor = SOV_media_leans_eastern_conservative }
+			divide_variable = { SOV_media_stability_factor = 1100 }
+		}
 	}
 }
 
