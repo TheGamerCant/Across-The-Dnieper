@@ -4430,7 +4430,16 @@ country_event = {
 			base = 10
 		}
 
-		add_ideas = UKR_intensified_shelling
+		if={
+			limit = { has_idea = UKR_intensified_shelling }
+			swap_ideas = {
+				remove_idea = UKR_intensified_shelling
+				add_idea = UKR_intensified_shelling_2
+			}
+		}
+		else={
+			add_idea = UKR_intensified_shelling
+		}
 	}
 }
 
@@ -4448,9 +4457,15 @@ country_event = {
 			base = 10
 		}
 
-		swap_ideas = {
-			remove_idea = UKR_intensified_shelling
-			add_idea = UKR_intensified_shelling_2
+		if={
+			limit = { has_idea = UKR_intensified_shelling }
+			swap_ideas = {
+				remove_idea = UKR_intensified_shelling
+				add_idea = UKR_intensified_shelling_2
+			}
+		}
+		else={
+			add_idea = UKR_intensified_shelling
 		}
 	}
 }
