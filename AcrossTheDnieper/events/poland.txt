@@ -1,228 +1,25 @@
-add_namespace = pol_event
+add_namespace = poland
 
 # Crimean Crysis
 country_event = {
-	id = pol_event.1
-	title = pol_event.1.t
-	desc = pol_event.1.d
+	id = poland.1
+	title = poland.1.t
+	desc = poland.1.d
 
-	#picture = GFX_
+	picture = GFX_report_event_UKR_little_green_men
 	is_triggered_only = yes
 
 	option = {
-		name = pol_event.1.a
-		ai_chance = { base = 8 }
+		name = poland.1.a
+		ai_chance = { base = 1 }
 
 		add_opinion_modifier = {
 		    target = UKR
 		    modifier = BLR_medium_positive
 		}
 		add_opinion_modifier = {
-		    target = BLR
-		    modifier = BLR_medium_negative
-		}
-		add_opinion_modifier = {
 		    target = SOV
 		    modifier = BLR_medium_negative
 		}
 	}
-	option = {
-		name = pol_event.1.b
-		ai_chance = { base = 1 }
-
-		add_opinion_modifier = {
-		    target = SOV
-		    modifier = BLR_medium_positive
-		}
-		add_opinion_modifier = {
-		    target = BLR
-		    modifier = BLR_medium_positive
-		}
-		add_opinion_modifier = {
-		    target = UKR
-		    modifier = BLR_medium_negative
-		}
-	}
-	option = {
-		name = pol_event.1.c
-		ai_chance = { base = 1 }
-
-	}
-}
-
-# Elections of 2015
-country_event = {
-	id = pol_event.2
-	title = pol_event.2.t
-	desc = pol_event.2.d
-
-	#picture = GFX_
-	is_triggered_only = yes
-
-	option = {
-		name = pol_event.2.a
-		ai_chance = { base = 0 }
-
-		
-		add_popularity = {
-		    ideology = eastern_liberal
-		    popularity = 0.05
-		}
-
-		hidden_effect = {
-			complete_national_focus = POL_ellections_of_2015
-			
-			country_event = {
-				id = pol_event.3
-				days = 14
-				random_hours = 8
-			}
-
-			news_event = {
-				id = pol_news_event.1
-				random_hours = 12
-			}
-		}
-	}
-	option = {
-		name = pol_event.2.b
-		ai_chance = { base = 10 }
-
-		add_popularity = {
-		    ideology = neoconservative
-		    popularity = 0.05
-		}
-
-		hidden_effect = {
-			complete_national_focus = POL_ellections_of_2015
-			
-			country_event = {
-				id = pol_event.3
-				days = 14
-				random_hours = 8
-			}
-
-			news_event = {
-				id = pol_news_event.1
-				random_hours = 12
-			}
-		}
-	}
-	
-	#option = {
-	#	name = pol_event.2.c
-	#	ai_chance = { base = 0 }
-	#
-	#	add_political_power = 10
-	#}
-}
-
-# Round Two
-country_event = {
-	id = pol_event.3
-	title = pol_event.3.t
-	desc = pol_event.3.d
-
-	#picture = GFX_
-	is_triggered_only = yes
-
-	option = {
-		name = pol_event.3.a
-		ai_chance = { base = 0 }
-
-		
-		add_popularity = {
-		    ideology = eastern_liberal
-		    popularity = 0.08
-		}
-		
-		set_politics = {
-			ruling_party = eastern_liberal
-		    elections_allowed = yes
-		    election_frequency = 60
-		}
-
-		hidden_effect = {
-			complete_national_focus = POL_po_won
-			news_event = {
-				id = pol_news_event.3
-				random_hours = 12
-			}
-		}
-	}
-	option = {
-		name = pol_event.3.b
-		ai_chance = { base = 1000 }
-
-		add_popularity = {
-		    ideology = neoconservative
-		    popularity = 0.08
-		}
-
-		set_politics = {
-			ruling_party = neoconservative
-		    elections_allowed = yes
-		    election_frequency = 60
-		}
-
-		hidden_effect = {
-			complete_national_focus = POL_pis_won
-			news_event = {
-				id = pol_news_event.2
-				random_hours = 12
-			}
-		}
-	}
-}
-
-
-
-add_namespace = pol_news_event
-
-# Elections - No winner						#Changed to major = no so they won't appear for other players, change back when loc is done ~TGC
-news_event = {
-    id = pol_news_event.1
-    title = pol_news_event.1.t
-    desc = pol_news_event.1.d
-    
-    #picture = GFX_news_event_BLR_news_eeu
-    
-    is_triggered_only = yes
-    major = no
-    
-    option = {
-        name = pol_news_event.1.a
-    }
-}
-
-# Elections - PiS
-news_event = {
-    id = pol_news_event.2
-    title = pol_news_event.2.t
-    desc = pol_news_event.2.d
-    
-    #picture = GFX_news_event_BLR_news_eeu
-    
-    is_triggered_only = yes
-    major = no
-    
-    option = {
-        name = pol_news_event.2.a
-    }
-}
-
-# Elections - PO
-news_event = {
-    id = pol_news_event.3
-    title = pol_news_event.3.t
-    desc = pol_news_event.3.d
-    
-    #picture = GFX_news_event_BLR_news_eeu
-    
-    is_triggered_only = yes
-    major = no
-    
-    option = {
-        name = pol_news_event.3.a
-    }
 }

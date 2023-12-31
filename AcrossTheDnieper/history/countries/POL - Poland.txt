@@ -3,6 +3,8 @@
 load_nato_doctrine = yes
 
 set_country_flag = POL_tusk_is_current_pm_flag
+add_dynamic_modifier = { modifier = POL_donald_tusk_dynamic_modifier }
+add_dynamic_modifier = { modifier = POL_ewa_kopacz_dynamic_modifier }
 
 if = {
 	limit = {
@@ -21,6 +23,8 @@ create_country_leader = {
 	name = "Bronisław Komorowski"
 	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
 	ideology = civic_platform
+	
+	traits = { POL_former_minister_of_defence POL_liberal_reformer }
 }
 
 create_country_leader = {
@@ -51,11 +55,11 @@ create_country_leader = {
 }
 
 2015.8.6 = {
-	create_country_leader = {
-		name = "Andrzej Duda"
-		desc = "Test Poland"
-		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-		ideology = poland_pis_party
+	set_politics = {
+		ruling_party = neoconservative
+		last_election = "2019.10.13"
+		election_frequency = 48
+		elections_allowed = yes
 	}
 }
 
@@ -96,13 +100,6 @@ add_ideas = {
 	nationalism_laws_interventionist
 	firearm_laws_restricted
 	alchohol_narcotics_laws_largely_regulated
-}
-
-
-if={
-	limit = { has_start_date < 2022.01.01  }
-
-	country_event = { id = pol_event.2 days = 494 }
 }
 
 
@@ -169,19 +166,19 @@ if = {
 set_convoys = 342
 
 set_politics = {
-	ruling_party = eastern_liberal
-	last_election = "2012.3.4"
+	ruling_party = neoliberal
+	last_election = "2011.10.9"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
 	neoconservative = 35
-	eastern_liberal = 34
+	eastern_liberal = 1
 	populist = 21
 	libertarian = 3
 	social_democracy = 2
-	neoliberal = 1
+	neoliberal = 34
 	ultranationalist = 2
 	eastern_conservative = 2
 }
