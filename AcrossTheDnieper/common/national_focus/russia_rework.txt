@@ -2655,8 +2655,8 @@ focus_tree = {
 	focus = {
 		id = SOV_the_angry_patriots
 		icon = GFX_focus_SOV_the_angry_patriots
-		x = 37
-		y = 11
+		x = 7	8			#relative_position_id to SOV_announce_the_draft
+		y = 0
 		cost = 14
 		search_filters = {
 			
@@ -2676,6 +2676,7 @@ focus_tree = {
 				}
 			}
 		}
+		relative_position_id = SOV_announce_the_draft
 		available={
 			igor_girkin_is_not_leader = yes
 			has_war_with = UKR
@@ -3012,7 +3013,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			country_event = { id = russia.1115 }
+			country_event = { id = russia.1115 random_hours = 5 }
 		}
 	}
 	
@@ -7677,6 +7678,7 @@ shared_focus = {
 	completion_reward = {
 		subtract_from_variable = { SOV_sanctions_consumer_goods_expected_value = 0.02 }
 		add_to_variable = { SOV_sanctions_stability_weekly = 0.003 }
+		add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.12 }
 		
 		custom_effect_tooltip = SOV_economic_corridors_tt
 		

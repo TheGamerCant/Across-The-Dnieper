@@ -1,0 +1,48 @@
+scripted_gui = {
+	POLAND_president_prime_minister_switch_gui = {
+		window_name = "POLAND_president_prime_minister_switch_gui"
+		context_type = player_context
+		parent_window_token = politics_tab
+
+		visible = {
+			is_ai = no
+			tag = POL
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		triggers={
+			POLAND_prime_minister_image_visible={
+				has_country_flag = POL_is_on_prime_minister_view
+			}
+			POLAND_leader_frame_visible={
+				has_country_flag = POL_is_on_prime_minister_view
+			}
+			POLAND_prime_minister_bg_visible={
+				has_country_flag = POL_is_on_prime_minister_view
+			}
+			prime_minister_name_text_box_visible={
+				has_country_flag = POL_is_on_prime_minister_view
+			}
+		}
+		
+		effects = {
+			POLAND_president_prime_minister_switch_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = POL_is_on_prime_minister_view } }
+					set_country_flag = POL_is_on_prime_minister_view
+				}
+				else={
+					clr_country_flag = POL_is_on_prime_minister_view
+				}
+			}
+		}
+		
+		properties={
+		}
+
+	}
+}
+
