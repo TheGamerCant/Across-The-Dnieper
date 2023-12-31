@@ -4310,3 +4310,21 @@ country_event = {			#Hidden event to remove donbass cores if countries don't exi
 		}
 	}
 }
+
+
+country_event = {			#Hidden event to make sure winter fires December 1 every year
+	id = ukraine.119
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		UKR = { country_event = { id = ukraine.119 days = 365 } }
+	
+		if={
+			limit = { UKR = { has_war_with = SOV } }
+			
+			##Radvils put whatever you want to happen here
+			add_political_power = 69
+		}
+	}
+}
