@@ -2854,6 +2854,7 @@ focus_tree = {
 		relative_position_id = SOV_the_quagmire
 		available={
 			has_war_with = UKR
+			has_completed_focus = SOV_drone_infantry_integration
 		}
 		
 		completion_reward={
@@ -2882,17 +2883,17 @@ focus_tree = {
 			add_political_power = -5
 			add_stability = -0.005
 			effect_tooltip = {
-				UKR = {
-					if={
-						limit = { has_idea = UKR_intensified_shelling }
+				if = {
+					limit = { UKR = { has_idea = UKR_intensified_shelling } }
+					UKR = {
 						swap_ideas = {
 							remove_idea = UKR_intensified_shelling
 							add_idea = UKR_intensified_shelling_2
 						}
 					}
-					else={
-						add_idea = UKR_intensified_shelling
-					}
+				}
+				else={
+					UKR = { add_ideas = UKR_intensified_shelling } 
 				}
 			}
 
@@ -2923,17 +2924,17 @@ focus_tree = {
 			add_war_support = 0.03
 			add_stability = -0.04
 			effect_tooltip = {
-				UKR = {
-					if={
-						limit = { has_idea = UKR_intensified_shelling }
+				if = {
+					limit = { UKR = { has_idea = UKR_intensified_shelling } }
+					UKR = {
 						swap_ideas = {
 							remove_idea = UKR_intensified_shelling
 							add_idea = UKR_intensified_shelling_2
 						}
 					}
-					else={
-						add_idea = UKR_intensified_shelling
-					}
+				}
+				else={
+					UKR = { add_ideas = UKR_intensified_shelling } 
 				}
 			}
 
@@ -2945,7 +2946,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_information_warfare
-		icon = GFX_focus_SOV_Fix_Our_Logistics
+		icon = GFX_focus_SOV_Information_Warfare
 		x = 0
 		y = 3
 		cost = 25
@@ -3088,7 +3089,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_take_zap_powerplant
-		icon = GFX_focus_SOV_Secure_The_Land_Bridge
+		icon = GFX_focus_SOV_Take_The_Zaporizhzhia_Power_Plant
 		x = -2
 		y = 3
 		cost = 20
@@ -3166,7 +3167,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_expand_to_the_south
-		icon = GFX_focus_SOV_the_push_to_odessa
+		icon = GFX_focus_SOV_Expand_Into_The_South
 		x = -1
 		y = 1
 		cost = 20
@@ -3200,7 +3201,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_flank_kiev
-		icon = GFX_focus_SOV_the_push_to_odessa
+		icon = GFX_focus_SOV_Flank_Kiev
 		x = 1
 		y = 1
 		cost = 20
