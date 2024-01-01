@@ -38,12 +38,29 @@ SOV_media_leaning_calculate_XY = {
 		if = {
 			limit = { has_country_flag = SOV_media_information_warfare_enabled }
 
+			#Putinism - political shit
 			set_variable = { SOV_media_pp_gain = SOV_media_leans_eastern_conservative }
 			divide_variable = { SOV_media_pp_gain = 100 }
 			divide_variable = { SOV_media_pp_gain = 5 }
 
 			set_variable = { SOV_media_stability_factor = SOV_media_leans_eastern_conservative }
 			divide_variable = { SOV_media_stability_factor = 1100 }
+
+			#Nationalism - war support and army buffs
+
+			set_variable = { SOV_media_morale_factor = SOV_media_leans_ultranationalist }
+			divide_variable = { SOV_media_morale_factor = 600 }
+
+			set_variable = { SOV_media_war_support_casualties = SOV_media_leans_ultranationalist }
+			divide_variable = { SOV_media_war_support_casualties = 10000 }
+
+			#Westernization - trade opinion and advisor cost
+
+			set_variable = { SOV_media_trade_factor = SOV_media_leans_eastern_liberal }
+			divide_variable = { SOV_media_trade_factor = 150 }
+
+			set_variable = { SOV_media_advisor_cost_factor = SOV_media_leans_eastern_liberal }
+			divide_variable = { SOV_media_advisor_cost_factor = -160 }
 		}
 	}
 }
