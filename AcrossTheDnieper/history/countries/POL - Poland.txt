@@ -1,4 +1,6 @@
 ﻿capital = 427
+add_offsite_building = { type = industrial_complex level = 2 }
+add_offsite_building = { type = arms_factory level = 2 }
 
 load_nato_doctrine = yes
 
@@ -6,6 +8,7 @@ set_country_flag = POL_donald_tusk_is_current_pm_flag
 add_dynamic_modifier = { modifier = POL_donald_tusk_dynamic_modifier }
 add_dynamic_modifier = { modifier = POL_ewa_kopacz_dynamic_modifier }
 add_dynamic_modifier = { modifier = POL_beata_szydlo_dynamic_modifier }
+add_dynamic_modifier = { modifier = POL_mateusz_morawiecki_dynamic_modifier }
 
 if = {
 	limit = {
@@ -19,6 +22,15 @@ if = {
 	}
 	set_oob = "POL_2014"
 }
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "POL_2014_navy_mtg"
+	else = {
+		set_naval_oob = "POL_2014_navy"
+	}
+}
+
 
 create_country_leader = {
 	name = "Bronisław Komorowski"
@@ -104,15 +116,15 @@ add_ideas = {
 }
 
 
-set_research_slots = 4
-set_stability = 0.4
+set_research_slots = 3
+set_stability = 0.3
 set_war_support = 0.7
 
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-        apc_equipment_1 = 1
+    apc_equipment_1 = 1
 	support_weapons = 1
 	motorised_infantry = 1
 	infantry_anti_tank = 1
@@ -131,6 +143,21 @@ set_technology = {
 
 	fuel_silos = 1
 	synth_oil_experiments = 1
+	
+	early_destroyer = 1
+	early_coastal_patrol_ship = 1
+	basic_coastal_patrol_ship = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	mtg_transport = 1
+	basic_naval_mines = 1
+	early_submarine = 1
+	basic_submarine = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	early_heavy_cruiser = 1
+	early_battleship = 1
+	early_battlecruiser = 1
 }
 
 if = {
