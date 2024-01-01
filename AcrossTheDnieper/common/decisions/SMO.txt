@@ -5,25 +5,17 @@ SOV_smo={
 		icon = generic_form_nation
 
 		available = {
-			OR = {
-				250 = { 
-					is_controlled_by = UKR
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							250 = { is_controlled_by = UKR }
+							243 = { is_controlled_by = UKR }
+							282 = { is_controlled_by = UKR }
+						}
+					}
 				}
-				243 = { 
-					is_controlled_by = UKR
-				}
-				282 = { 
-					is_controlled_by = UKR
-				}
-			}
 
-		}
-		
-		days_mission_timeout = 104 
-		activation = {
-			has_war_with = SOV
-			has_country_flag = UKR_summer_offensive_active
-			NOT={
 				OR = {
 					250 = { 
 						is_controlled_by = UKR
@@ -36,6 +28,83 @@ SOV_smo={
 					}
 				}
 			}
+
+			else_if = {
+				limit = {
+					AND = {
+						250 = { is_controlled_by = UKR }
+						243 = { is_controlled_by = UKR }
+						282 = { is_controlled_by = UKR }
+
+						NOT = {
+							255 = { is_controlled_by = UKR }
+							242 = { is_controlled_by = UKR }
+							282 = { is_controlled_by = UKR }
+						}
+					}
+				}
+
+				OR = {
+					255 = { 
+						is_controlled_by = UKR
+					}
+					242 = { 
+						is_controlled_by = UKR
+					}
+					282 = { 
+						is_controlled_by = UKR
+					}
+				}
+			}
+
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							250 = { is_controlled_by = UKR }
+							243 = { is_controlled_by = UKR }
+							282 = { is_controlled_by = UKR }
+							255 = { is_controlled_by = UKR }
+							242 = { is_controlled_by = UKR }
+						}
+
+						AND = {
+							250 = { is_controlled_by = UKR }
+							243 = { is_controlled_by = UKR }
+							282 = { is_controlled_by = UKR }
+							255 = { is_controlled_by = UKR }
+						}
+
+						AND = {
+							282 = { is_controlled_by = UKR }
+							242 = { is_controlled_by = UKR }
+							255 = { is_controlled_by = UKR }
+						}
+
+						AND = {
+							282 = { is_controlled_by = UKR }
+							242 = { is_controlled_by = UKR }
+						}
+
+						242 = { is_controlled_by = UKR }
+					}
+				}
+
+				OR = {
+					299 = { 
+						is_controlled_by = UKR
+					}
+					308 = { 
+						is_controlled_by = UKR
+					}
+				}
+			}
+		}
+		
+		days_mission_timeout = 104 
+		activation = {
+			has_war_with = SOV
+			has_country_flag = UKR_summer_offensive_active
 		}
 
 		allowed = {
