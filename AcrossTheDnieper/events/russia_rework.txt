@@ -4438,7 +4438,7 @@ country_event = {
 			}
 		}
 		else={
-			add_idea = UKR_intensified_shelling
+			add_ideas = UKR_intensified_shelling
 		}
 	}
 }
@@ -4465,7 +4465,67 @@ country_event = {
 			}
 		}
 		else={
-			add_idea = UKR_intensified_shelling
+			add_ideas = UKR_intensified_shelling
+		}
+	}
+}
+
+#easing the manpower shortage
+country_event = {
+    id = russia.1123
+    title = russia.1123.t
+    desc = russia.1123.desc
+    picture = GFX_report_event_recruitment
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1123.a
+		ai_chance = {
+			base = 10
+		}
+		add_manpower = 25000
+		custom_effect_tooltip = "russia.1123.tt"
+		hidden_effect={
+			division_template = {
+				name = "Volunteer Battalion"
+				division_names_group = SOV_INF_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+				}
+			}
+			
+			for_loop_effect = {
+				end = 20
+				value = temp
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Battalion\" start_experience_factor = 0.035 start_equipment_factor = 0.7" 
+						owner = SOV
+					}
+				}
+			}
+			
+			if={
+				limit = { is_ai = yes UKR= { is_ai = no } }
+				for_loop_effect = {
+					end = 5
+					value = temp
+					random_owned_controlled_state = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Battalion\" start_experience_factor = 0.01 start_equipment_factor = 0.2" 
+							owner = SOV
+						}
+					}
+				}
+			}
 		}
 	}
 }
