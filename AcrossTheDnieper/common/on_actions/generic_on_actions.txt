@@ -347,6 +347,30 @@ on_actions={
                 }
 				news_event = { id = city_captures.20 }
 			}
+			else_if = {	#Fall of sloviansk
+			limit = {
+				OR = {
+					tag = SOV
+					tag = NOV
+					tag = DON
+					tag = LHK
+				}
+				
+				FROM.FROM = { state = 135 }
+				NOT={ has_global_flag = fall_sloviansk }
+			}
+			news_event = { id = city_captures.21 }
+		}
+		else_if = {	#Liberation of sloviansk
+			limit = {
+				SOV={ has_war_with = UKR } 
+				tag = UKR
+				FROM.FROM = { state = 135 }
+				NOT={ has_global_flag = lib_sloviansk }
+				has_global_flag = fall_sloviansk
+			}
+			news_event = { id = city_captures.22 }
+		}
 		}
 	}
 	on_peace={

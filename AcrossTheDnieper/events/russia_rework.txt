@@ -4530,6 +4530,33 @@ country_event = {
 	}
 }
 
+#western companies leave russia
+country_event = {
+    id = russia.1124
+    title = russia.1124.t
+    desc = russia.1124.desc
+    picture = GFX_report_event_mcdonalds
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1124.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1124.tt"
+
+		hidden_effect = {
+			add_to_variable = { SOV_sanctions_research_speed_factor = -0.03 }
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.03 }
+			add_to_variable = { SOV_sanctions_stability_weekly = -0.001 }
+		}
+	}
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
