@@ -2843,7 +2843,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_combat_drone_tech
-		icon = GFX_focus_SOV_Fix_Our_Logistics
+		icon = GFX_focus_SOV_Combat_Drone_Technology
 		x = 4
 		y = 5
 		cost = 35
@@ -2864,7 +2864,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_strike_energy_infrastructure
-		icon = GFX_focus_SOV_Fix_Our_Logistics
+		icon = GFX_focus_SOV_Strike_Energy_Infrastructure
 		x = 3
 		y = 6
 		cost = 30
@@ -2905,7 +2905,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_destroy_ukrainian_identity
-		icon = GFX_focus_SOV_Fix_Our_Logistics
+		icon = GFX_focus_SOV_Erase_Ukrainian_Identity
 		x = 5
 		y = 6
 		cost = 30
@@ -3105,12 +3105,12 @@ focus_tree = {
 			196 = {
 					any_neighbor_state = {
 						OR = {
-							is_controlled_by = SOV
-							is_controlled_by = DON
-							is_controlled_by = LHK
-							is_controlled_by = ODS
-							is_controlled_by = KHK
-							is_controlled_by = NOV
+							is_fully_controlled_by = SOV
+							is_fully_controlled_by = DON
+							is_fully_controlled_by = LHK
+							is_fully_controlled_by = ODS
+							is_fully_controlled_by = KHK
+							is_fully_controlled_by = NOV
 						}
 					}
 			}
@@ -3504,6 +3504,7 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
+		prerequisite = { focus = SOV_state_of_our_economy }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
@@ -3594,6 +3595,29 @@ focus_tree = {
 		
 		completion_reward={
 			add_ideas = SOV_no_option_but_victory_idea
+		}
+	}
+
+	focus = {
+		id = SOV_state_of_our_economy
+		icon = GFX_focus_BLR_local_arms_manufacturing
+		x = 2
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_announce_the_draft  }
+
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1125 }
 		}
 	}
 	
