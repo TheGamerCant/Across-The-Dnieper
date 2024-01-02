@@ -3334,8 +3334,8 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_force_the_little_russians_into_service
-		icon = GFX_focus_LIT_conscription_reforms
-		x = -5
+		icon = GFX_focus_SOV_Expand_Into_The_South
+		x = -4
 		y = 2
 		cost = 30
 		search_filters = {
@@ -3389,15 +3389,29 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_prison_recruitment
-		icon = GFX_focus_allow_prison_recruitment
-		x = -3
+		dynamic = yes 
+	
+		icon = {
+			trigger = {
+				OR={
+					NOT = { has_global_flag = Wagner_mutiny_happened_flag }
+					yevgeny_prigozhin_is_leader = yes
+				}
+			}
+			value = GFX_focus_SOV_prison_recruitment_pringles
+		}
+		icon = {
+			value = GFX_focus_SOV_prison_recruitment
+		}
+		
+		x = -2
 		y = 2
 		cost = 30
 		search_filters = {
 			
 		}
 		
-		prerequisite = { focus = SOV_expand_the_mobilisation }
+		prerequisite = { focus = SOV_announce_the_draft }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
@@ -3456,7 +3470,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_break_open_the_armouries
-		icon = GFX_focus_BLR_local_arms_manufacturing
+		icon = GFX_focus_SOV_allied_equipment_shipments
 		x = -1
 		y = 3
 		cost = 35
@@ -3508,7 +3522,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_strangle_europe
-		icon = GFX_focus_BLR_local_arms_manufacturing
+		icon = GFX_focus_SOV_strangle_europe
 		x = 1
 		y = 3
 		cost = 35
@@ -3537,7 +3551,7 @@ focus_tree = {
 				}
 				add_opinion_modifier = { target = SOV modifier = large_decrease }
 
-				add_ideas = SOV_cut_oil_exports
+				add_timed_idea = { idea = SOV_cut_oil_exports days = 365 }
 			}
 
 			hidden_effect = { news_event = { id = atd_news.65 hours = 5 } }
@@ -3546,7 +3560,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_expand_the_mobilisation
-		icon = GFX_focus_ready_electoral_draft
+		icon = GFX_focus_SOV_conscripts_from_the_far_east
 		x = -4
 		y = 1
 		cost = 45
@@ -3589,7 +3603,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_no_option_but_victory
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_focus_SOV_expanding_the_nation
 		x = 1
 		y = 1
 		cost = 30
@@ -3616,7 +3630,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_state_of_our_economy
-		icon = GFX_focus_BLR_local_arms_manufacturing
+		icon = GFX_focus_SOV_Combat_Drone_Technology
 		x = 2
 		y = 1
 		cost = 35
@@ -3639,7 +3653,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_secure_our_new_territories
-		icon = GFX_focus_SOV_mandatory_conscription
+		icon = GFX_focus_SOV_novorossiya_at_hand_2
 		x = 2
 		y = 2
 		cost = 30
@@ -3668,7 +3682,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_expanding_the_nation
-		icon = GFX_focus_SOV_our_grander_borders
+		icon = GFX_focus_SOV_expanding_the_nation
 		x = -2
 		y = 2
 		cost = 30
