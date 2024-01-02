@@ -1787,11 +1787,39 @@ news_event = {	#Russia cuts exports
 			}
 			
 		}
+
+		effect_tooltip = {
+			every_country = {
+				limit = { 
+					NOT = {
+						is_puppet_of = SOV
+						is_in_faction_with = SOV
+					}
+					has_country_flag = is_in_european_union
+				}
+
+				add_ideas = SOV_cut_oil_exports
+			}
+		}
 	}
 	option = {
 		name = atd_news.65.b
 		trigger = {
 			has_country_flag = is_in_european_union
+		}
+
+		effect_tooltip = {
+			every_country = {
+				limit = { 
+					NOT = {
+						is_puppet_of = SOV
+						is_in_faction_with = SOV
+					}
+					has_country_flag = is_in_european_union
+				}
+
+				add_ideas = SOV_cut_oil_exports
+			}
 		}
 	}
 	option = {
@@ -1804,6 +1832,20 @@ news_event = {	#Russia cuts exports
 					is_in_faction_with = SOV
 					is_puppet_of = SOV
 				}
+			}
+		}
+
+		effect_tooltip = {
+			every_country = {
+				limit = { 
+					NOT = {
+						is_puppet_of = SOV
+						is_in_faction_with = SOV
+					}
+					has_country_flag = is_in_european_union
+				}
+
+				add_ideas = SOV_cut_oil_exports
 			}
 		}
 	}

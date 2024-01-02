@@ -7,6 +7,7 @@ focus_tree = {
 			add  = 100
 			tag = SOV
 		}
+
 	}
 	
 	focus = {
@@ -3471,19 +3472,35 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			custom_effect_tooltip = SOV_break_open_the_armouries_tt
+
+			hidden_effect = {
+				random_list = {
+					40 = {
+						country_event = { id = russia.1126 days = 11 }
+					}
+					40 = {
+						country_event = { id = russia.1127 days = 11 }
+					}
+					2 = {
+						country_event = { id = russia.1128 days = 11 }
+					}
+				}
+			}
+
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment_1
-				amount = 25000
+				amount = 15000
 				producer = SOV
 			}
 			add_equipment_to_stockpile = { 
 				type = support_equipment_1
-				amount = 1200
+				amount = 500
 				producer = SOV
 			}
 			add_equipment_to_stockpile = { 
 				type = artillery_equipment_1
-				amount = 2000
+				amount = 1000
 				producer = SOV
 			}
 		}
@@ -3508,6 +3525,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			add_stability = 0.04
+
 			every_country = {
 				limit = { 
 					NOT = {
@@ -3516,6 +3535,7 @@ focus_tree = {
 					}
 					has_country_flag = is_in_european_union
 				}
+				add_opinion_modifier = { target = SOV modifier = large_decrease }
 
 				add_ideas = SOV_cut_oil_exports
 			}

@@ -4498,6 +4498,9 @@ country_event = {
 					irregular_infantry = { x = 0 y = 1 }
 					irregular_infantry = { x = 0 y = 2 }
 				}
+				support = {
+					logistics_company = { x = 0 y = 1 }  
+				}
 			}
 			
 			for_loop_effect = {
@@ -4588,6 +4591,157 @@ country_event = {
 			add_to_variable = { SOV_sanctions_inflation_monthly = -0.02 }
 			add_to_variable = { SOV_sanctions_political_power_cost = -0.2 }
 			add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0.07 }
+		}
+	}
+}
+
+#equipment from north korea
+country_event = {
+    id = russia.1126
+    title = russia.1126.t
+    desc = russia.1126.desc
+    picture = GFX_SOV_event_north_korea
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_war_with = UKR }
+
+				random_list = {
+					40 = {
+						country_event = { id = russia.1126 days = 31 }
+					}
+					40 = {
+						country_event = { id = russia.1127 days = 31 }
+					}
+					10 = {
+						country_event = { id = russia.1128 days = 31 }
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1126.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_2
+			amount = 320
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment
+			amount = 340
+		}
+	}
+}
+
+#equipment from iran
+country_event = {
+    id = russia.1127
+    title = russia.1127.t
+    desc = russia.1127.desc
+    picture = GFX_report_event_SOV_meet_with_iran
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_war_with = UKR }
+
+				random_list = {
+					40 = {
+						country_event = { id = russia.1126 days = 31 }
+					}
+					40 = {
+						country_event = { id = russia.1127 days = 31 }
+					}
+					10 = {
+						country_event = { id = russia.1128 days = 31 }
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1127.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_air_equipment
+			amount = 300
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment
+			amount = 100
+		}
+	}
+}
+
+#equipment from myanmar
+country_event = {
+    id = russia.1128
+    title = russia.1128.t
+    desc = russia.1128.desc
+    picture = GFX_report_event_myanmar
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_war_with = UKR }
+
+				random_list = {
+					40 = {
+						country_event = { id = russia.1126 days = 31 }
+					}
+					40 = {
+						country_event = { id = russia.1127 days = 31 }
+					}
+					10 = {
+						country_event = { id = russia.1128 days = 31 }
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1128.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_2
+			amount = 235
+		}
+		add_equipment_to_stockpile = { 
+			type = rocket_artillery_equipment
+			amount = 120
+		}
+		add_equipment_to_stockpile = { 
+			type = motorized_equipment
+			amount = 200
 		}
 	}
 }
