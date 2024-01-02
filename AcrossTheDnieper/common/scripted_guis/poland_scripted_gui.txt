@@ -45,7 +45,36 @@ scripted_gui = {
 				image = "[POLAND_get_pm_image]"
 			}
 		}
+	}
+	
+	poland_sejm_gui = {
+		context_type = decision_category
+		window_name = "poland_sejm_gui"
+		
+		dynamic_lists = {
+			sejm_diagram = {
+				array = sejm_seat_x
+				change_scope = no
+				entry_container = sejm_seat
+				index = seat_idx
+			}
+		}
+		triggers={
+			sejm_voting_text_box_visible={
+				has_country_flag = there_is_legislation_in_the_sejm
+			}
+		}
+		properties = {
+			sejm_dot_icon = {
+				x = sejm_seat_x^seat_idx
+				y = sejm_seat_y^seat_idx
+				frame = sejm_seat_frame^seat_idx
+			}
+		}
 
+		ai_enabled = {
+			always = no
+		}
 	}
 }
 

@@ -1,0 +1,79 @@
+POL_get_non_aligned_seats={
+	set_variable = { POL_sejm_non_aligned_seats = 460 }
+	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PO_seats }
+	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PiS_seats }
+	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_KON_seats }
+	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_LEFT_seats }
+	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PPL_seats }
+}
+
+POL_clr_party_flags={
+	clr_country_flag = PO_in_power
+	clr_country_flag = PO_in_opposition
+	clr_country_flag = PiS_in_power
+	clr_country_flag = PiS_in_opposition
+	clr_country_flag = KON_in_power
+	clr_country_flag = KON_in_opposition
+	clr_country_flag = LEFT_in_power
+	clr_country_flag = LEFT_in_opposition
+	clr_country_flag = PPL_in_power
+	clr_country_flag = PPL_in_opposition
+}
+
+POL_get_sejm_seats={
+	set_temp_variable = { t1 = POL_PO_seats }
+	set_temp_variable = { t2 = POL_PiS_seats }
+	set_temp_variable = { t3 = POL_KON_seats }
+	set_temp_variable = { t4 = POL_LEFT_seats }
+	set_temp_variable = { t5 = POL_PPL_seats }
+	set_temp_variable = { t6 = 450 }
+	
+	add_to_temp_variable = { t2 = t1 }
+	add_to_temp_variable = { t3 = t2 }
+	add_to_temp_variable = { t4 = t3 }
+	add_to_temp_variable = { t5 = t4 }
+	add_to_temp_variable = { t6 = t5 }
+
+
+	clear_array = sejm_seat_frame
+
+	resize_array = {
+		array = sejm_seat_frame
+		value = 1
+		size = t1
+	}
+	resize_array = {
+		array = sejm_seat_frame
+		value = 2
+		size = t2
+	}
+	resize_array = {
+		array = sejm_seat_frame
+		value = 3
+		size = t3
+	}
+	resize_array = {
+		array = sejm_seat_frame
+		value = 4
+		size = t4
+	}
+	resize_array = {
+		array = sejm_seat_frame
+		value = 5
+		size = t5
+	}
+	resize_array = {
+		array = sejm_seat_frame
+		value = 6
+		size = t6
+	}
+}
+
+POL_get_government_majority_status={
+	set_variable = { government_seats = 0 }
+	if={ limit = { has_country_flag = PO_in_power } add_to_variable = { government_seats = POL_PO_seats } }
+	if={ limit = { has_country_flag = PiS_in_power } add_to_variable = { government_seats = POL_PiS_seats } }
+	if={ limit = { has_country_flag = KON_in_power } add_to_variable = { government_seats = POL_KON_seats } }
+	if={ limit = { has_country_flag = LEFT_in_power } add_to_variable = { government_seats = POL_LEFT_seats } }
+	if={ limit = { has_country_flag = PPL_in_power } add_to_variable = { government_seats = POL_PPL_seats } }
+}
