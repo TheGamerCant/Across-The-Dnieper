@@ -4219,7 +4219,6 @@ country_event = { #Flavour event anti Dictatorial Laws protests
 	desc = ukraine.114.desc
 	is_triggered_only = yes
 	picture = GFX_news_Protesters_seize_state_administrations
-	is_triggered_only = yes
 	
 	option = { 
 		name = ukraine.114.a
@@ -4234,7 +4233,6 @@ country_event = { #Flavour event Yanukovych and opposition leaders sign a settle
 	desc = ukraine.115.desc
 	is_triggered_only = yes
 	picture = GFX_Yanukovych_signs_settlment
-	is_triggered_only = yes
 	
 	option = { 
 		name = ukraine.115.a
@@ -4252,7 +4250,6 @@ country_event = { #Flavour event Ukrainian President annouces Russian troops in 
 	desc = ukraine.116.desc
 	is_triggered_only = yes
 	picture = [UKR_get_event_34_event_picture]
-	is_triggered_only = yes
 	option = { 
 		name = ukraine.116.a
 		
@@ -4325,6 +4322,55 @@ country_event = {			#Hidden event to make sure winter fires December 1 every yea
 			
             UKR = { country_event = { id = ukraine.112 } }
 			SOV = { country_event = { id = ukraine.112 } }
+		}
+	}
+}
+
+country_event = { #Ghost of kyiv
+	id = ukraine.120
+	title = ukraine.120.t
+	desc = ukraine.120.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_ghost_of_kyiv
+
+	immediate = {
+		hidden_effect = {
+			news_event = { days = 2 id = atd_news.66 }
+
+			country_event = { id = ukraine.121 days = 65 }
+		}
+	}
+
+	option = { 
+		name = ukraine.120.a
+		custom_effect_tooltip = "ukraine.120.tt"
+
+		hidden_effect = {
+			add_to_variable = { UKR_afu_air_superiority_efficiency = 0.02 }
+			add_to_variable = { UKR_afu_air_intercept_efficiency = 0.04 }
+			add_to_variable = { UKR_afu_air_training_xp_gain_factor = 0.06 }
+		}
+	}
+}
+
+country_event = { #Ghost of kyiv proved to be a myth
+	id = ukraine.121
+	title = ukraine.121.t
+	desc = ukraine.121.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_ghost_of_kyiv
+
+	option = { 
+		name = ukraine.121.a
+
+		add_war_support = -0.005
+
+		custom_effect_tooltip = "ukraine.121.tt"
+
+		hidden_effect = {
+			add_to_variable = { UKR_afu_air_superiority_efficiency = -0.01 }
+			add_to_variable = { UKR_afu_air_intercept_efficiency = -0.03 }
+			add_to_variable = { UKR_afu_air_training_xp_gain_factor = -0.04 }
 		}
 	}
 }

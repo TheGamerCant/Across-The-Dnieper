@@ -1850,3 +1850,50 @@ news_event = {	#Russia cuts exports
 		}
 	}
 }
+
+
+news_event = {	#Ghost of kyiv
+	id = atd_news.66
+	title = atd_news.66.t
+	desc = atd_news.66.desc
+	picture = GFX_news_event_ghost_of_kyiv
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = atd_news.66.a
+		trigger = {
+			OR={
+				TAG = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+			
+		}
+
+
+	}
+	option = {
+		name = atd_news.66.b
+		trigger = {
+			has_country_flag = is_in_european_union
+		}
+
+	}
+	option = {
+		name = atd_news.66.c
+		trigger = {
+			NOT = {
+				OR={
+					has_country_flag = is_in_european_union
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+
+
+	}
+}
