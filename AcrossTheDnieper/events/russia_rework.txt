@@ -4232,7 +4232,13 @@ country_event = {
 			base = 10
 		}
 
-		add_ideas = SOV_drone_warfare
+		if={
+			limit = { OR = { tag = UKR has_completed_focus = SOV_drone_infantry_integration } }
+			add_ideas = SOV_drone_warfare_better
+		}
+		else={
+			add_ideas = SOV_drone_warfare
+		}
 	}
 }
 
@@ -4589,7 +4595,6 @@ country_event = {
 			add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0.05 }
 			add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.05 }
 			add_to_variable = { SOV_sanctions_inflation_monthly = -0.02 }
-			add_to_variable = { SOV_sanctions_political_power_cost = -0.2 }
 			add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0.07 }
 		}
 	}
@@ -4745,6 +4750,94 @@ country_event = {
 		}
 	}
 }
+
+#Fronts close events
+country_event = {
+    id = russia.1129
+    title = russia.1129.t
+    desc = russia.1129.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1129.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
+		add_war_support = -0.05
+    }
+}
+country_event = {
+    id = russia.1130
+    title = russia.1130.t
+    desc = russia.1130.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1130.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
+		add_war_support = -0.05
+    }
+}
+country_event = {
+    id = russia.1131
+    title = russia.1131.t
+    desc = russia.1131.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1131.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
+		add_war_support = -0.05
+    }
+}
+country_event = {
+    id = russia.1132
+    title = russia.1132.t
+    desc = russia.1132.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1132.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
+		add_war_support = -0.05
+    }
+}
+country_event = {
+    id = russia.1133
+    title = russia.1133.t
+    desc = russia.1133.desc
+    picture = SOV_high_command_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1133.a
+		ai_chance = {
+			base = 10
+		}
+		add_political_power = -25
+		add_war_support = -0.05
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1
