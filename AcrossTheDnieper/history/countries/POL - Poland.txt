@@ -1362,8 +1362,8 @@ add_to_array = { sejm_seat_y = 237 }
 set_variable = { POL_PO_seats = 207 }
 set_variable = { POL_PiS_seats = 157 }
 set_variable = { POL_KON_seats = 0 }
-set_variable = { POL_LEFT_seats = 28 }
-set_variable = { POL_PPL_seats = 0 }
+set_variable = { POL_LEFT_seats = 27 }
+set_variable = { POL_PPL_seats = 28 }
 set_variable = { POL_sejm_non_aligned_seats = 0 }
 
 set_country_flag = PO_in_power
@@ -1374,3 +1374,30 @@ set_country_flag = PPL_in_power
 POL_get_non_aligned_seats = yes
 POL_get_sejm_seats = yes
 POL_get_government_majority_status = yes
+
+set_country_flag = POL_rightist_party_is_kukiz
+set_country_flag = POL_leftist_party_is_democratic_left_alliance
+2015.1.1={
+	clr_country_flag = POL_leftist_party_is_democratic_left_alliance
+	set_country_flag = POL_leftist_party_is_united_left
+}
+2016.1.1={
+	clr_country_flag = POL_leftist_party_is_united_left
+	set_country_flag = POL_leftist_party_is_lewica
+}
+2018.10.1={
+	clr_country_flag = POL_rightist_party_is_kukiz
+	set_country_flag = POL_rightist_party_is_konfederacja
+	
+	set_variable = { POL_PO_seats = 134 }
+	set_variable = { POL_PiS_seats = 235 }
+	set_variable = { POL_KON_seats = 11 }
+	set_variable = { POL_LEFT_seats = 49 }
+	set_variable = { POL_PPL_seats = 30 }
+	set_variable = { POL_sejm_non_aligned_seats = 0 }
+
+	set_country_flag = PO_in_opposition
+	set_country_flag = PiS_in_opposition
+	set_country_flag = KON_in_opposition
+	set_country_flag = PPL_in_power	
+}

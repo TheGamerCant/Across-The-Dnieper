@@ -154,3 +154,64 @@ defined_text = {
         localization_key = ""
     }
 }
+
+defined_text = {
+	name = get_sejm_seat_party
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 1 }
+		}
+		localization_key = "POL_seat_is_PO"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 2 }
+		}
+		localization_key = "POL_seat_is_PiS"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 3 }
+			has_country_flag = POL_rightist_party_is_kukiz
+		}
+		localization_key = "POL_seat_is_kukiz"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 3 }
+			has_country_flag = POL_rightist_party_is_konfederacja
+		}
+		localization_key = "POL_seat_is_KON"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 4 }
+			has_country_flag = POL_leftist_party_is_democratic_left_alliance
+		}
+		localization_key = "POL_seat_is_SLD"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 4 }
+			has_country_flag = POL_leftist_party_is_united_left
+		}
+		localization_key = "POL_seat_is_ZL"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 4 }
+			has_country_flag = POL_leftist_party_is_lewica
+		}
+		localization_key = "POL_seat_is_lewica"
+	}
+	text = {
+		trigger = {
+			check_variable = { sejm_seat_frame^seat_idx = 5 }
+		}
+		localization_key = "POL_seat_is_PSL"
+	}
+	
+	text = {
+		localization_key = "POL_seat_is_other"
+	}
+}

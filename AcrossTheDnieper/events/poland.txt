@@ -1,25 +1,19 @@
 add_namespace = poland
 
-# Crimean Crysis
+# Create Konfederacjia
 country_event = {
 	id = poland.1
 	title = poland.1.t
-	desc = poland.1.d
-
-	picture = GFX_report_event_UKR_little_green_men
+	desc = poland.1.desc
+	picture = GFX_report_event_POL_konfederacja
 	is_triggered_only = yes
 
 	option = {
 		name = poland.1.a
 		ai_chance = { base = 1 }
 
-		add_opinion_modifier = {
-		    target = UKR
-		    modifier = BLR_medium_positive
-		}
-		add_opinion_modifier = {
-		    target = SOV
-		    modifier = BLR_medium_negative
-		}
+		add_popularity = { ideology = ultranationalist popularity = 0.02 }
+		clr_country_flag = POL_rightist_party_is_kukiz
+		set_country_flag = POL_rightist_party_is_konfederacja
 	}
 }
