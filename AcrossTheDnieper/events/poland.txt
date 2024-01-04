@@ -1,6 +1,7 @@
 add_namespace = poland
+add_namespace = poland_election
 
-# Create Konfederacjia
+#Create Konfederacjia
 country_event = {
 	id = poland.1
 	title = poland.1.t
@@ -15,5 +16,1049 @@ country_event = {
 		add_popularity = { ideology = ultranationalist popularity = 0.02 }
 		clr_country_flag = POL_rightist_party_is_kukiz
 		set_country_flag = POL_rightist_party_is_konfederacja
+	}
+}
+
+
+#Choose your party for election
+country_event = {
+	id = poland_election.1
+	title = poland_election.1.t
+	desc = poland_election.1.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+	
+	immediate={
+		set_country_flag = poland_election_campaigns_are_ongoing
+	}
+
+	option = {
+		name = poland_election.1.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = poland_campaign_as_PO_flag
+		custom_effect_tooltip = campaign_as_PO_tt
+		
+		hidden_effect={
+			country_event = { id = poland_election.33 random_hours = 72 }
+			country_event = { id = poland_election.34 random_hours = 72 }
+			country_event = { id = poland_election.35 random_hours = 72 }
+			country_event = { id = poland_election.36 random_hours = 72 }
+			country_event = { id = poland_election.37 random_hours = 72 }
+		}
+	}
+	
+	option = {
+		name = poland_election.1.b
+		ai_chance = { base = 1 }
+
+		set_country_flag = poland_campaign_as_PiS_flag
+		custom_effect_tooltip = campaign_as_PiS_tt
+		
+		hidden_effect={
+			country_event = { id = poland_election.32 random_hours = 72 }
+			country_event = { id = poland_election.34 random_hours = 72 }
+			country_event = { id = poland_election.35 random_hours = 72 }
+			country_event = { id = poland_election.36 random_hours = 72 }
+			country_event = { id = poland_election.37 random_hours = 72 }
+		}
+	}
+	
+	option = {
+		name = poland_election.1.c
+		ai_chance = { base = 1 }
+
+		set_country_flag = poland_campaign_as_RIGHT_flag
+		custom_effect_tooltip = campaign_as_RIGHT_tt
+		
+		hidden_effect={
+			country_event = { id = poland_election.32 random_hours = 72 }
+			country_event = { id = poland_election.33 random_hours = 72 }
+			country_event = { id = poland_election.35 random_hours = 72 }
+			country_event = { id = poland_election.36 random_hours = 72 }
+			country_event = { id = poland_election.37 random_hours = 72 }
+		}
+	}
+	
+	option = {
+		name = poland_election.1.d
+		ai_chance = { base = 1 }
+
+		set_country_flag = poland_campaign_as_LEFT_flag
+		custom_effect_tooltip = campaign_as_LEFT_tt
+		
+		hidden_effect={
+			country_event = { id = poland_election.32 random_hours = 72 }
+			country_event = { id = poland_election.33 random_hours = 72 }
+			country_event = { id = poland_election.34 random_hours = 72 }
+			country_event = { id = poland_election.36 random_hours = 72 }
+			country_event = { id = poland_election.37 random_hours = 72 }
+		}
+	}
+	
+	option = {
+		name = poland_election.1.e
+		ai_chance = { base = 1 }
+
+		set_country_flag = poland_campaign_as_PSL_flag
+		custom_effect_tooltip = campaign_as_PSL_tt
+		
+		hidden_effect={
+			country_event = { id = poland_election.32 random_hours = 72 }
+			country_event = { id = poland_election.33 random_hours = 72 }
+			country_event = { id = poland_election.34 random_hours = 72 }
+			country_event = { id = poland_election.35 random_hours = 72 }
+			country_event = { id = poland_election.37 random_hours = 72 }
+		}
+	}
+}
+
+#PO has great campaign in state
+country_event = {
+	id = poland_election.2
+	title = poland_election.2.t
+	desc = poland_election.2.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PO_campaign_state = { POL_great_PO_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.2.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PO_flag }
+	}
+
+	option = {
+		name = poland_election.2.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+	}
+}
+
+#PO has good campaign in state
+country_event = {
+	id = poland_election.3
+	title = poland_election.3.t
+	desc = poland_election.3.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PO_campaign_state = { POL_good_PO_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.3.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PO_flag }
+	}
+
+	option = {
+		name = poland_election.3.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+	}
+}
+
+#PO has alright campaign in state
+country_event = {
+	id = poland_election.4
+	title = poland_election.4.t
+	desc = poland_election.4.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PO_campaign_state = { POL_alright_PO_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.4.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PO_flag }
+	}
+
+	option = {
+		name = poland_election.4.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+	}
+}
+
+#PO has mediocre campaign in state
+country_event = {
+	id = poland_election.5
+	title = poland_election.5.t
+	desc = poland_election.5.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PO_campaign_state = { POL_mediocre_PO_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.5.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PO_flag }
+	}
+
+	option = {
+		name = poland_election.5.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+	}
+}
+
+#PO has awful campaign in state
+country_event = {
+	id = poland_election.6
+	title = poland_election.6.t
+	desc = poland_election.6.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PO_campaign_state = { POL_awful_PO_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.6.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PO_flag }
+	}
+
+	option = {
+		name = poland_election.6.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+	}
+}
+
+#PiS has great campaign in state
+country_event = {
+	id = poland_election.7
+	title = poland_election.7.t
+	desc = poland_election.7.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PiS_campaign_state = { POL_great_PiS_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.7.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PiS_flag }
+	}
+
+	option = {
+		name = poland_election.7.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PiS_flag } }
+	}
+}
+
+#PiS has good campaign in state
+country_event = {
+	id = poland_election.8
+	title = poland_election.8.t
+	desc = poland_election.8.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PiS_campaign_state = { POL_good_PiS_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.8.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PiS_flag }
+	}
+
+	option = {
+		name = poland_election.8.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PiS_flag } }
+	}
+}
+
+#PiS has alright campaign in state
+country_event = {
+	id = poland_election.9
+	title = poland_election.9.t
+	desc = poland_election.9.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PiS_campaign_state = { POL_alright_PiS_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.9.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PiS_flag }
+	}
+
+	option = {
+		name = poland_election.9.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PiS_flag } }
+	}
+}
+
+#PiS has mediocre campaign in state
+country_event = {
+	id = poland_election.10
+	title = poland_election.10.t
+	desc = poland_election.10.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PiS_campaign_state = { POL_mediocre_PiS_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.10.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PiS_flag }
+	}
+
+	option = {
+		name = poland_election.10.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PiS_flag } }
+	}
+}
+
+#PiS has awful campaign in state
+country_event = {
+	id = poland_election.11
+	title = poland_election.11.t
+	desc = poland_election.11.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PiS_campaign_state = { POL_awful_PiS_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.11.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PiS_flag }
+	}
+
+	option = {
+		name = poland_election.11.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PiS_flag } }
+	}
+}
+
+#RIGHT has great campaign in state
+country_event = {
+	id = poland_election.12
+	title = poland_election.12.t
+	desc = poland_election.12.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.RIGHT_campaign_state = { POL_great_RIGHT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.12.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_RIGHT_flag }
+	}
+
+	option = {
+		name = poland_election.12.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } }
+	}
+}
+
+#RIGHT has good campaign in state
+country_event = {
+	id = poland_election.13
+	title = poland_election.13.t
+	desc = poland_election.13.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.RIGHT_campaign_state = { POL_good_RIGHT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.13.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_RIGHT_flag }
+	}
+
+	option = {
+		name = poland_election.13.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } }
+	}
+}
+
+#RIGHT has alright campaign in state
+country_event = {
+	id = poland_election.14
+	title = poland_election.14.t
+	desc = poland_election.14.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.RIGHT_campaign_state = { POL_alright_RIGHT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.14.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_RIGHT_flag }
+	}
+
+	option = {
+		name = poland_election.14.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } }
+	}
+}
+
+#RIGHT has mediocre campaign in state
+country_event = {
+	id = poland_election.15
+	title = poland_election.15.t
+	desc = poland_election.15.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.RIGHT_campaign_state = { POL_mediocre_RIGHT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.15.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_RIGHT_flag }
+	}
+
+	option = {
+		name = poland_election.15.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } }
+	}
+}
+
+#RIGHT has awful campaign in state
+country_event = {
+	id = poland_election.16
+	title = poland_election.16.t
+	desc = poland_election.16.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.RIGHT_campaign_state = { POL_awful_RIGHT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.16.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_RIGHT_flag }
+	}
+
+	option = {
+		name = poland_election.16.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } }
+	}
+}
+
+#LEFT has great campaign in state
+country_event = {
+	id = poland_election.17
+	title = poland_election.17.t
+	desc = poland_election.17.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.LEFT_campaign_state = { POL_great_LEFT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.17.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_LEFT_flag }
+	}
+
+	option = {
+		name = poland_election.17.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+	}
+}
+
+#LEFT has good campaign in state
+country_event = {
+	id = poland_election.18
+	title = poland_election.18.t
+	desc = poland_election.18.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.LEFT_campaign_state = { POL_good_LEFT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.18.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_LEFT_flag }
+	}
+
+	option = {
+		name = poland_election.18.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+	}
+}
+
+#LEFT has alLEFT campaign in state
+country_event = {
+	id = poland_election.19
+	title = poland_election.19.t
+	desc = poland_election.19.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.LEFT_campaign_state = { POL_alLEFT_LEFT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.19.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_LEFT_flag }
+	}
+
+	option = {
+		name = poland_election.19.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+	}
+}
+
+#LEFT has mediocre campaign in state
+country_event = {
+	id = poland_election.20
+	title = poland_election.20.t
+	desc = poland_election.20.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.LEFT_campaign_state = { POL_mediocre_LEFT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.20.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_LEFT_flag }
+	}
+
+	option = {
+		name = poland_election.20.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+	}
+}
+
+#LEFT has awful campaign in state
+country_event = {
+	id = poland_election.21
+	title = poland_election.21.t
+	desc = poland_election.21.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.LEFT_campaign_state = { POL_awful_LEFT_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.21.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_LEFT_flag }
+	}
+
+	option = {
+		name = poland_election.21.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+	}
+}
+
+#PSL has great campaign in state
+country_event = {
+	id = poland_election.22
+	title = poland_election.22.t
+	desc = poland_election.22.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PSL_campaign_state = { POL_great_PSL_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.22.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PSL_flag }
+	}
+
+	option = {
+		name = poland_election.22.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PSL_flag } }
+	}
+}
+
+#PSL has good campaign in state
+country_event = {
+	id = poland_election.23
+	title = poland_election.23.t
+	desc = poland_election.23.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PSL_campaign_state = { POL_good_PSL_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.23.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PSL_flag }
+	}
+
+	option = {
+		name = poland_election.23.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PSL_flag } }
+	}
+}
+
+#PSL has alPSL campaign in state
+country_event = {
+	id = poland_election.24
+	title = poland_election.24.t
+	desc = poland_election.24.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PSL_campaign_state = { POL_alPSL_PSL_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.24.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PSL_flag }
+	}
+
+	option = {
+		name = poland_election.24.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PSL_flag } }
+	}
+}
+
+#PSL has mediocre campaign in state
+country_event = {
+	id = poland_election.25
+	title = poland_election.25.t
+	desc = poland_election.25.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PSL_campaign_state = { POL_mediocre_PSL_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.25.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PSL_flag }
+	}
+
+	option = {
+		name = poland_election.25.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PSL_flag } }
+	}
+}
+
+#PSL has awful campaign in state
+country_event = {
+	id = poland_election.26
+	title = poland_election.26.t
+	desc = poland_election.26.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.PSL_campaign_state = { POL_awful_PSL_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.26.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_PSL_flag }
+	}
+
+	option = {
+		name = poland_election.26.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_PSL_flag } }
+	}
+}
+
+#OTHER has great campaign in state
+country_event = {
+	id = poland_election.27
+	title = poland_election.27.t
+	desc = poland_election.27.desc
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.OTHER_campaign_state = { POL_great_OTHER_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.27.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_OTHER_flag }
+	}
+
+	option = {
+		name = poland_election.27.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_OTHER_flag } }
+	}
+}
+
+#OTHER has good campaign in state
+country_event = {
+	id = poland_election.28
+	title = poland_election.28.t
+	desc = poland_election.28.desc
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.OTHER_campaign_state = { POL_good_OTHER_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.28.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_OTHER_flag }
+	}
+
+	option = {
+		name = poland_election.28.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_OTHER_flag } }
+	}
+}
+
+#OTHER has alOTHER campaign in state
+country_event = {
+	id = poland_election.29
+	title = poland_election.29.t
+	desc = poland_election.29.desc
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.OTHER_campaign_state = { POL_alOTHER_OTHER_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.29.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_OTHER_flag }
+	}
+
+	option = {
+		name = poland_election.29.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_OTHER_flag } }
+	}
+}
+
+#OTHER has mediocre campaign in state
+country_event = {
+	id = poland_election.30
+	title = poland_election.30.t
+	desc = poland_election.30.desc
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.OTHER_campaign_state = { POL_mediocre_OTHER_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.30.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_OTHER_flag }
+	}
+
+	option = {
+		name = poland_election.30.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_OTHER_flag } }
+	}
+}
+
+#OTHER has awful campaign in state
+country_event = {
+	id = poland_election.31
+	title = poland_election.31.t
+	desc = poland_election.31.desc
+	is_triggered_only = yes
+
+	immediate={
+		hidden_effect={
+			var:POL.OTHER_campaign_state = { POL_awful_OTHER_campaign_effect = yes }
+		}
+	}
+
+	option = {
+		name = poland_election.31.a
+		ai_chance = { base = 1 }
+		
+		trigger={ has_country_flag = poland_campaign_as_OTHER_flag }
+	}
+
+	option = {
+		name = poland_election.31.b
+		ai_chance = { base = 1 }
+		
+		trigger={ NOT = { has_country_flag = poland_campaign_as_OTHER_flag } }
+	}
+}
+
+country_event = {			#Hidden event to trigger PO campaign
+	id = poland_election.32
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_PO_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_PO_campaign
+			
+			country_event = { id = poland_election.32 days = 32 random_days = 13 }
+		}
+	}
+}
+country_event = {			#Hidden event to trigger PiS campaign
+	id = poland_election.33
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_PiS_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_PiS_campaign
+			
+			country_event = { id = poland_election.33 days = 32 random_days = 13 }
+		}
+	}
+}
+country_event = {			#Hidden event to trigger RIGHT campaign
+	id = poland_election.34
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_RIGHT_campaign
+			
+			country_event = { id = poland_election.34 days = 35 random_days = 40 }
+		}
+	}
+}
+country_event = {			#Hidden event to trigger LEFT campaign
+	id = poland_election.35
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_LEFT_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_LEFT_campaign
+			
+			country_event = { id = poland_election.35 days = 35 random_days = 40 }
+		}
+	}
+}
+country_event = {			#Hidden event to trigger PSL campaign
+	id = poland_election.36
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_PSL_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_PSL_campaign
+			
+			country_event = { id = poland_election.36 days = 35 random_days = 32 }
+		}
+	}
+}
+country_event = {			#Hidden event to trigger OTHER campaign
+	id = poland_election.37
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if={
+			limit = { NOT = { has_country_flag = poland_campaign_as_OTHER_flag } has_country_flag = poland_election_campaigns_are_ongoing }
+			activate_mission = POL_OTHER_campaign
+			
+			country_event = { id = poland_election.37 days = 37 random_days = 46 }
+		}
 	}
 }

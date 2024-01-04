@@ -94,4 +94,1112 @@ debug_decisions = {
 			POL_make_mateusz_morawiecki_pm = yes
 		}
 	}
+	
+	POL_activate_election_missions = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			activate_mission = POL_PO_campaign
+			activate_mission = POL_PiS_campaign
+			activate_mission = POL_LEFT_campaign
+			activate_mission = POL_RIGHT_campaign
+			activate_mission = POL_PSL_campaign
+			activate_mission = POL_OTHER_campaign
+		}
+	}
+}
+
+POL_parliament_gui_decision_category={
+	POL_campaign_in_masovia = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 427 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR={
+					state = 427
+					state = 43
+				}
+			}
+		}
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_podlaskie = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 34 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 34
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_warmia_masuria = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 31 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 31
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_lublin = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 51 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 51
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_pomerania = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 19 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR={
+					state = 19
+					state = 24
+				}
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_kuyavia_pomerania = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 38 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 38
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_lodz = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 47 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 47
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_west_pomerania = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 22 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR={
+					state = 22
+					state = 25
+					state = 26
+				}
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_greater_poland = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 36 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 36
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_lubusz = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 40 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR={
+					state = 40
+					state = 48
+				}
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_holy_cross = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 64 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 64
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_lower_silesia = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 49 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 49
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_opole = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 62 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 62
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_silesia = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 67 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 67
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_lesser_poland = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 81 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 81
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	POL_campaign_in_subcarpathia = { 
+
+		icon = generic_political_rally
+
+		allowed = {
+			original_tag = POL
+		}
+		
+		days_remove = 30
+		days_re_enable = 90
+		
+		
+		fire_only_once = no
+		
+		target_trigger = {
+			FROM = { state = 76 }
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 76
+			}
+		}
+		
+		target_root_trigger = { 
+			tag = POL
+		} 
+		state_target = yes
+
+		available = {
+			NOT = { has_country_flag = poland_is_doing_campaign_flag }
+		}
+
+		visible = {
+			has_country_flag = poland_election_campaigns_are_ongoing
+		}
+
+		cost = 25
+
+		complete_effect = {	
+			set_country_flag = poland_is_doing_campaign_flag 
+		}
+		
+		remove_effect={
+			POL_campaign_in_state_scripted_effect = yes
+		}
+	}
+	
+	
+	
+	POL_PO_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				OR={
+					has_country_flag = poland_campaign_as_PO_flag
+					NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+				}
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.PO_campaign_state = THIS }
+				POL={
+					hidden_effect={
+						random_list={
+							1 = { country_event = poland_election.2 }
+							5 = { country_event = poland_election.3 }
+							7 = { country_event = poland_election.4 }
+							4 = { country_event = poland_election.5 }
+							1 = { country_event = poland_election.6 }
+						}
+					}
+					effect_tooltip={
+						random_list={
+							1 = { custom_effect_tooltip = PO_great_campaign_tt }
+							5 = { custom_effect_tooltip = PO_good_campaign_tt }
+							7 = { custom_effect_tooltip = PO_alright_campaign_tt }
+							4 = { custom_effect_tooltip = PO_mediocre_campaign_tt }
+							1 = { custom_effect_tooltip = PO_awful_campaign_tt}
+						}
+					}
+				}
+				clear_variable = POL.PO_campaign_state
+			}
+		}
+	}
+	
+	POL_PiS_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				OR={
+					has_country_flag = poland_campaign_as_PiS_flag
+					NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+				}
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.PiS_campaign_state = THIS }
+				POL={
+					hidden_effect={
+						random_list={
+							1 = { country_event = poland_election.7 }
+							5 = { country_event = poland_election.8 }
+							7 = { country_event = poland_election.9 }
+							4 = { country_event = poland_election.10 }
+							1 = { country_event = poland_election.11 }
+						}
+					}
+					effect_tooltip={
+						random_list={
+							1 = { custom_effect_tooltip = PiS_great_campaign_tt }
+							5 = { custom_effect_tooltip = PiS_good_campaign_tt }
+							7 = { custom_effect_tooltip = PiS_alright_campaign_tt }
+							4 = { custom_effect_tooltip = PiS_mediocre_campaign_tt }
+							1 = { custom_effect_tooltip = PiS_awful_campaign_tt}
+						}
+					}
+				}
+				clear_variable = POL.PiS_campaign_state
+			}
+		}
+	}
+	
+	POL_RIGHT_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				OR={
+					has_country_flag = poland_campaign_as_RIGHT_flag
+					NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+				}
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.RIGHT_campaign_state = THIS }
+				POL={
+					hidden_effect={
+						random_list={
+							1 = { country_event = poland_election.12 }
+							5 = { country_event = poland_election.13 }
+							7 = { country_event = poland_election.14 }
+							4 = { country_event = poland_election.15 }
+							1 = { country_event = poland_election.16 }
+						}
+					}
+					effect_tooltip={
+						random_list={
+							1 = { custom_effect_tooltip = RIGHT_great_campaign_tt }
+							5 = { custom_effect_tooltip = RIGHT_good_campaign_tt }
+							7 = { custom_effect_tooltip = RIGHT_alright_campaign_tt }
+							4 = { custom_effect_tooltip = RIGHT_mediocre_campaign_tt }
+							1 = { custom_effect_tooltip = RIGHT_awful_campaign_tt}
+						}
+					}
+				}
+				clear_variable = POL.RIGHT_campaign_state
+			}
+		}
+	}
+	
+	POL_LEFT_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				OR={
+					has_country_flag = poland_campaign_as_LEFT_flag
+					NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+				}
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.LEFT_campaign_state = THIS }
+				POL={
+					hidden_effect={
+						random_list={
+							1 = { country_event = poland_election.17 }
+							5 = { country_event = poland_election.18 }
+							7 = { country_event = poland_election.19 }
+							4 = { country_event = poland_election.20 }
+							1 = { country_event = poland_election.21 }
+						}
+					}
+					effect_tooltip={
+						random_list={
+							1 = { custom_effect_tooltip = LEFT_great_campaign_tt }
+							5 = { custom_effect_tooltip = LEFT_good_campaign_tt }
+							7 = { custom_effect_tooltip = LEFT_alright_campaign_tt }
+							4 = { custom_effect_tooltip = LEFT_mediocre_campaign_tt }
+							1 = { custom_effect_tooltip = LEFT_awful_campaign_tt}
+						}
+					}
+				}
+				clear_variable = POL.LEFT_campaign_state
+			}
+		}
+	}
+	
+	POL_PSL_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				OR={
+					has_country_flag = poland_campaign_as_PSL_flag
+					NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+				}
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.PSL_campaign_state = THIS }
+				POL={
+					hidden_effect={
+						random_list={
+							1 = { country_event = poland_election.22 }
+							5 = { country_event = poland_election.23 }
+							7 = { country_event = poland_election.24 }
+							4 = { country_event = poland_election.25 }
+							1 = { country_event = poland_election.26 }
+						}
+					}
+					effect_tooltip={
+						random_list={
+							1 = { custom_effect_tooltip = PSL_great_campaign_tt }
+							5 = { custom_effect_tooltip = PSL_good_campaign_tt }
+							7 = { custom_effect_tooltip = PSL_alright_campaign_tt }
+							4 = { custom_effect_tooltip = PSL_mediocre_campaign_tt }
+							1 = { custom_effect_tooltip = PSL_awful_campaign_tt}
+						}
+					}
+				}
+				clear_variable = POL.PSL_campaign_state
+			}
+		}
+	}
+	
+	POL_OTHER_campaign = {
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger={
+				NOT = { has_country_flag = poland_election_campaigns_are_ongoing }
+			}
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			random_state={
+				limit = { POL_is_election_state = yes }
+				set_variable = { POL.OTHER_campaign_state = THIS }
+				
+				if={
+					limit = { state = 62 }		#They have this one German minority party that does well
+					POL={
+						hidden_effect={
+							random_list={
+								1 = { country_event = poland_election.22 }
+								5 = { country_event = poland_election.23 }
+								7 = { country_event = poland_election.24 }
+								4 = { country_event = poland_election.25 }
+								1 = { country_event = poland_election.26 }
+							}
+						}
+						effect_tooltip={
+							random_list={
+								1 = { custom_effect_tooltip = PSL_great_campaign_tt }
+								5 = { custom_effect_tooltip = PSL_good_campaign_tt }
+								7 = { custom_effect_tooltip = PSL_alright_campaign_tt }
+								4 = { custom_effect_tooltip = PSL_mediocre_campaign_tt }
+								1 = { custom_effect_tooltip = PSL_awful_campaign_tt}
+							}
+						}
+					}
+				}
+				else={
+					POL={
+						hidden_effect={
+							random_list={
+								1 = { country_event = poland_election.27 }
+								3 = { country_event = poland_election.28 }
+								5 = { country_event = poland_election.29 }
+								5 = { country_event = poland_election.30 }
+								2 = { country_event = poland_election.31 }
+							}
+						}
+						effect_tooltip={
+							random_list={
+								1 = { custom_effect_tooltip = OTHER_great_campaign_tt }
+								3 = { custom_effect_tooltip = OTHER_good_campaign_tt }
+								5 = { custom_effect_tooltip = OTHER_alright_campaign_tt }
+								5 = { custom_effect_tooltip = OTHER_mediocre_campaign_tt }
+								2 = { custom_effect_tooltip = OTHER_awful_campaign_tt}
+							}
+						}
+					}
+				}
+				clear_variable = POL.OTHER_campaign_state
+			}
+		}
+	}
 }

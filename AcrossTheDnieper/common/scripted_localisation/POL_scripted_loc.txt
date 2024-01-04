@@ -255,6 +255,84 @@ defined_text = {
 	}
 }
 
+defined_text = {
+	name = get_rightist_party_no_colour
+	text = {
+		trigger = {
+			has_country_flag = POL_rightist_party_is_kukiz
+		}
+		localization_key = "POL_kukiz_no_colour"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_rightist_party_is_konfederacja
+		}
+		localization_key = "POL_KON_no_colour"
+	}
+}
+
+defined_text = {
+	name = get_leftist_party_no_colour
+
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_democratic_left_alliance
+		}
+		localization_key = "POL_SLD_no_colour"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_united_left
+		}
+		localization_key = "POL_ZL_no_colour"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_lewica
+		}
+		localization_key = "POL_lewica_no_colour"
+	}
+}
+
+defined_text = {
+	name = get_rightist_party_no_colour_shortened
+	text = {
+		trigger = {
+			has_country_flag = POL_rightist_party_is_kukiz
+		}
+		localization_key = "POL_kukiz_no_colour_shortened"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_rightist_party_is_konfederacja
+		}
+		localization_key = "POL_KON_no_colour_shortened"
+	}
+}
+
+defined_text = {
+	name = get_leftist_party_no_colour_shortened
+
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_democratic_left_alliance
+		}
+		localization_key = "POL_SLD_no_colour_shortened"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_united_left
+		}
+		localization_key = "POL_ZL_no_colour_shortened"
+	}
+	text = {
+		trigger = {
+			has_country_flag = POL_leftist_party_is_lewica
+		}
+		localization_key = "POL_lewica_no_colour_shortened"
+	}
+}
+
 
 
 defined_text = {
@@ -480,7 +558,9 @@ defined_text = {
 	name = is_there_a_government_majority_in_sejm
 	text = {
 		trigger = {
-			check_variable = { var = government_seats value = 230 compare = greater_than }
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = government_seats value = POL_seats_nedded_for_majority compare = greater_than }
 		}
 		localization_key = "UKR_rada_majority"
 	}
