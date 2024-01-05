@@ -1494,6 +1494,8 @@ POL_remove_government_ideas={
 	hidden_effect={
 		remove_idea = POL_PO_PSL_coalition
 		remove_idea = POL_PO_PSL_LEFT_coalition
+		remove_idea = POL_PiS_kukiz_coalition
+		remove_idea = POL_PiS_konfederacja_coalition
 	}
 }
 
@@ -1554,6 +1556,22 @@ POL_can_government_be_formed={
 			check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
 		}
 		country_event = poland_election.44
+	}
+	else_if={
+		limit={ 
+			check_variable = { POL.POL_PiS_seats > POL.POL_PO_seats }
+			check_variable = { POL.POL_PiS_seats > POL.POL_RIGHT_seats }
+			check_variable = { POL.POL_PiS_seats > POL.POL_LEFT_seats }
+			check_variable = { POL.POL_PiS_seats > POL.POL_PSL_seats }
+			
+			set_temp_variable = { POL.right_coalition = POL.POL_PiS_seats }
+			add_to_temp_variable = { POL.right_coalition = POL.POL_RIGHT_seats }
+			
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL.right_coalition value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.45
 	}
 }
 

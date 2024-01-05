@@ -49,9 +49,192 @@ country_event = {
 				long_name = POL_ZL_no_colour 
 				name =  POL_ZL_no_colour_shortened 
 			}
+			
+			if={
+				limit = { bronislaw_komorowski_is_leader = yes }
+				create_country_leader = {
+					name = "Bronisław Komorowski"
+					picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
+					ideology = poland_united_left
+					
+					traits = { POL_former_minister_of_defence POL_liberal_reformer }
+				}
+			}
+			else_if={
+				limit = { andrzej_duda_is_leader = yes }
+				create_country_leader = {
+					name = ""
+					picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+					ideology = poland_united_left
+					
+					traits = {  }
+				}
+			}
+			else_if={
+				limit = { jaroslaw_kaczynski_is_leader = yes }
+				create_country_leader = {
+					name = ""
+					picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+					ideology = poland_united_left
+					
+					traits = { POL_conservative_powerhouse }
+				}
+			}
 		}
 		
 		custom_effect_tooltip = make_united_left_alliance_tt
+	}
+}
+
+#A candidate from PiS for President
+country_event = {
+	id = poland.3
+	title = poland.3.t
+	desc = poland.3.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_PiS_candidate_2015
+
+	option = {			#Andrzej Duda
+		name = poland.3.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Duda_PiS_candidate_flag
+		
+		add_stability = 0.02
+	}
+	
+	option = {			#Jarosław Kaczyński
+		name = poland.3.b
+		ai_chance = { base = 0 }
+
+		set_country_flag = Kaczynski_PiS_candidate_flag
+	}
+}
+
+#2015 Election
+country_event = {
+	id = poland.4
+	title = poland.4.t
+	desc = poland.4.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	
+	timeout_days = 5
+
+	option = {			#Andrzej Duda
+		name = poland.4.a
+		ai_chance = { base = 1 }
+
+		trigger={
+			has_country_flag = Duda_PiS_candidate_flag
+		}
+		
+		hidden_effect={
+			create_country_leader = {
+				name = "Andrzej Duda"
+				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+				ideology = civic_platform
+				
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Andrzej Duda"
+				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+				ideology = poland_pis_party
+				
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Andrzej Duda"
+				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+				ideology = poland_kukiz_15
+				
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Andrzej Duda"
+				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+				ideology = poland_democratic_left_alliance
+				
+				traits = {  }
+			}
+			
+			clr_country_flag = Duda_PiS_candidate_flag
+			
+			if={
+				limit = { NOT = { has_government = neoconservative } }
+				add_ideas = POL_divided_executive
+			}
+		}
+		
+		custom_effect_tooltip = POL_duda_becomes_president_tt
+	}
+	
+	option = {			#Jarosław Kaczyński
+		name = poland.4.b
+		ai_chance = { base = 1 }
+
+		trigger={
+			has_country_flag = Kaczynski_PiS_candidate_flag
+		}
+		
+		hidden_effect={
+			create_country_leader = {
+				name = "Jarosław Kaczyński"
+				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+				ideology = civic_platform
+				
+				traits = { POL_conservative_powerhouse }
+			}
+			create_country_leader = {
+				name = "Jarosław Kaczyński"
+				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+				ideology = poland_pis_party
+				
+				traits = { POL_conservative_powerhouse }
+			}
+			create_country_leader = {
+				name = "Jarosław Kaczyński"
+				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+				ideology = poland_kukiz_15
+				
+				traits = { POL_conservative_powerhouse }
+			}
+			create_country_leader = {
+				name = "Jarosław Kaczyński"
+				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+				ideology = poland_democratic_left_alliance
+				
+				traits = { POL_conservative_powerhouse }
+			}
+			
+			clr_country_flag = Kaczynski_PiS_candidate_flag
+			
+			if={
+				limit = { NOT = { has_government = neoconservative } }
+				add_ideas = POL_divided_executive
+			}
+		}
+		
+		custom_effect_tooltip = POL_kaczynski_becomes_president_tt
+	}
+	
+	option = {			#Bronisław Komorowski
+		name = poland.4.c
+		ai_chance = { base = 1 }
+		
+		custom_effect_tooltip = POL_komorowski_stays_president_tt
+		
+		add_political_power = 5
+		
+		hidden_effect={
+			if={
+				limit = { NOT = { has_government = neoliberal } }
+				add_ideas = POL_divided_executive
+			}
+		}
 	}
 }
 
@@ -1137,6 +1320,20 @@ country_event = {
 		set_country_flag = RIGHT_in_opposition
 		
 		POL_get_government_majority_status = yes
+		
+		add_political_power = 25
+		
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 }
 
@@ -1166,6 +1363,20 @@ country_event = {
 				name =  POL_neoconservative_party 
 			}
 		}
+		
+		add_political_power = 25
+		
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 }
 
@@ -1187,6 +1398,20 @@ country_event = {
 		set_country_flag = PSL_in_opposition
 		
 		POL_get_government_majority_status = yes
+		
+		add_political_power = 25
+		
+		set_politics = {
+			ruling_party = ultranationalist
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 }
 
@@ -1207,6 +1432,20 @@ country_event = {
 		set_country_flag = RIGHT_in_opposition
 		
 		POL_get_government_majority_status = yes
+		
+		add_political_power = 25
+		
+		set_politics = {
+			ruling_party = social_democracy
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 }
 
@@ -1234,6 +1473,20 @@ country_event = {
 				long_name = poland_PSL 
 				name =  poland_PSL_short 
 			}
+		}
+		
+		add_political_power = 25
+		
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
 		}
 	}
 }
@@ -1266,6 +1519,18 @@ country_event = {
 		POL_get_government_majority_status = yes
 		
 		add_ideas = POL_PO_PSL_coalition
+		
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 	
 	option = {										#PO forms coalition with PSL and LEFT
@@ -1298,5 +1563,110 @@ country_event = {
 		POL_get_government_majority_status = yes
 		
 		add_ideas = POL_PO_PSL_LEFT_coalition
+		
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#Minority Gov
+		name = poland_election.44.c
+		ai_chance = { base = 0 }
+		
+		set_country_flag = PO_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+
+		add_stability = -0.08
+		
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+}
+
+#PiS forms a coalition
+country_event = {
+	id = poland_election.45
+	title = poland_election.45.t
+	desc = poland_election.45.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PiS forms a coalition with the rightist party
+		name = poland_election.45.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PiS_in_power
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		if={
+			limit = { has_country_flag = POL_rightist_party_is_kukiz }
+			add_ideas = POL_PiS_kukiz_coalition
+		}
+		else={
+			add_ideas = POL_PiS_konfederacja_coalition
+		}
+		
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+
+	option = {										#Minority Gov
+		name = poland_election.45.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = PiS_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+
+		add_stability = -0.08
+		
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
 	}
 }

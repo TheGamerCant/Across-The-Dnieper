@@ -18,3 +18,21 @@ POL_is_election_state={
 		state = 76
 	}
 }
+
+POL_are_president_and_pm_different_ideologies={
+	if={
+		limit = { bronislaw_komorowski_is_leader = yes }
+		NOT = { has_government = neoliberal }
+	}
+	else_if={
+		limit = { 
+			OR = {
+				andrzej_duda_is_leader = yes 
+				jaroslaw_kaczynski_is_leader = yes
+			} 
+		}
+		NOT = { has_government = neoconservative }
+	}
+	
+	#make the above an OR statement when I add the PSL
+}
