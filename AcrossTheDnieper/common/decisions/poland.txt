@@ -126,6 +126,34 @@ debug_decisions = {
 }
 
 POL_parliament_gui_decision_category={
+	POL_toggle_electoral_map_decision = {
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+		}
+
+		visible = {
+			has_country_flag = POL_an_election_has_been_held
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			if={
+				limit = { has_country_flag = POL_electoral_map_opened }
+				clr_country_flag = POL_electoral_map_opened
+			}
+			else={
+				set_country_flag = POL_electoral_map_opened
+			}
+		}
+	}
+
 	POL_campaign_in_masovia = { 
 
 		icon = generic_political_rally
@@ -918,7 +946,7 @@ POL_parliament_gui_decision_category={
 				POL={
 					hidden_effect={
 						random_list={
-							1 = { country_event = poland_election.2 }
+							3 = { country_event = poland_election.2 }
 							5 = { country_event = poland_election.3 }
 							7 = { country_event = poland_election.4 }
 							4 = { country_event = poland_election.5 }
@@ -927,7 +955,7 @@ POL_parliament_gui_decision_category={
 					}
 					effect_tooltip={
 						random_list={
-							1 = { custom_effect_tooltip = PO_great_campaign_tt }
+							3 = { custom_effect_tooltip = PO_great_campaign_tt }
 							5 = { custom_effect_tooltip = PO_good_campaign_tt }
 							7 = { custom_effect_tooltip = PO_alright_campaign_tt }
 							4 = { custom_effect_tooltip = PO_mediocre_campaign_tt }
@@ -966,7 +994,7 @@ POL_parliament_gui_decision_category={
 				POL={
 					hidden_effect={
 						random_list={
-							1 = { country_event = poland_election.7 }
+							3 = { country_event = poland_election.7 }
 							5 = { country_event = poland_election.8 }
 							7 = { country_event = poland_election.9 }
 							4 = { country_event = poland_election.10 }
@@ -975,7 +1003,7 @@ POL_parliament_gui_decision_category={
 					}
 					effect_tooltip={
 						random_list={
-							1 = { custom_effect_tooltip = PiS_great_campaign_tt }
+							3 = { custom_effect_tooltip = PiS_great_campaign_tt }
 							5 = { custom_effect_tooltip = PiS_good_campaign_tt }
 							7 = { custom_effect_tooltip = PiS_alright_campaign_tt }
 							4 = { custom_effect_tooltip = PiS_mediocre_campaign_tt }

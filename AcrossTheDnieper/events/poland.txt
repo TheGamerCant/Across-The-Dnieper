@@ -29,7 +29,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate={
-		set_country_flag = poland_election_campaigns_are_ongoing
+		hidden_effect={
+			set_country_flag = poland_election_campaigns_are_ongoing
+			country_event = { id = poland_election.38 days = 350 random_days = 15 }
+		}
 	}
 
 	option = {
@@ -1061,4 +1064,23 @@ country_event = {			#Hidden event to trigger OTHER campaign
 			country_event = { id = poland_election.37 days = 37 random_days = 46 }
 		}
 	}
+}
+
+#Election day
+country_event = {
+	id = poland_election.38
+	title = poland_election.38.t
+	desc = poland_election.38.desc
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	is_triggered_only = yes
+	
+	timeout_days = 2
+
+	option = {
+		name = poland_election.38.a
+		ai_chance = { base = 1 }
+		
+		hidden_effect = { POL_hold_election_effect = yes }
+	}
+
 }

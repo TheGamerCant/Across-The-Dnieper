@@ -569,3 +569,62 @@ defined_text = {
     }
 }
 
+
+defined_text = {
+	name = get_voivodeship_election_winner
+	text = {
+		trigger = {
+			check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+			check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+			check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+			check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+			check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+		}
+		localization_key = "POL_PO_long"
+	}
+	text = {
+		trigger = {
+			check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+			check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+			check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+			check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+			check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+		}
+		localization_key = "POL_PiS_long"
+	}
+	text = {
+		trigger = {
+			check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+			check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+			check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+			check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+			check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+		}
+		localization_key = "[POL.get_rightist_party]"
+	}
+	text = {
+		trigger = {
+			check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+			check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+			check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+			check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+			check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+		}
+		localization_key = "[POL.get_leftist_party]"
+	}
+	text = {
+		trigger = {
+			check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+			check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+			check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+			check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+			check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+		}
+		localization_key = "POL_PSL_long"
+	}
+	text = {
+        localization_key = "POL_minor_parties"
+    }
+}
+
+

@@ -835,11 +835,11 @@ get_var_between_minus_four_and_four={
 		16 = { set_variable = { THIS.random_num_between_minus_four_and_four = -1.0 } }
 		17 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.8 } }
 		18 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.6 } }
-		19 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.4 } }
-		20 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.2 } }
-		21 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.0 } }
-		20 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.2 } }
-		19 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.4 } }
+		25 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.4 } }
+		30 = { set_variable = { THIS.random_num_between_minus_four_and_four = -0.2 } }
+		42 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.0 } }
+		30 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.2 } }
+		25 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.4 } }
 		18 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.6 } }
 		17 = { set_variable = { THIS.random_num_between_minus_four_and_four = 0.8 } }
 		16 = { set_variable = { THIS.random_num_between_minus_four_and_four = 1.0 } }
@@ -875,6 +875,235 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	get_var_between_minus_four_and_four = yes
 	add_to_variable = { THIS.OTHER_popularity = THIS.random_num_between_minus_four_and_four }
 	POL_make_popularities_equal_100 = yes
+	clear_variable = THIS.random_num_between_minus_four_and_four
+	
+	
+	
+	#This stuff is used for the election GUI
+	set_variable_to_random = {
+		var = THIS.election_turnout
+		min = 40
+		max = 75
+	}
+	
+	set_variable = { THIS.state_PO_previous_election_popularity = THIS.PO_popularity }
+	set_variable = { THIS.state_PO_vote_count = THIS.PO_popularity }
+	multiply_variable = { THIS.state_PO_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_PO_vote_count = 10 }
+	multiply_variable = { THIS.state_PO_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_PO_vote_count
+	set_variable = { THIS.state_PO_vote_count_k = THIS.state_PO_vote_count }
+	divide_variable = { THIS.state_PO_vote_count_k = 1000 }
+	add_to_variable = { POL.national_PO_vote_count_k = THIS.state_PO_vote_count_k }
+	clear_variable = THIS.state_PO_vote_count_k
+	
+	set_variable = { THIS.state_PiS_previous_election_popularity = THIS.PiS_popularity }
+	set_variable = { THIS.state_PiS_vote_count = THIS.PiS_popularity }
+	multiply_variable = { THIS.state_PiS_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_PiS_vote_count = 10 }
+	multiply_variable = { THIS.state_PiS_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_PiS_vote_count
+	set_variable = { THIS.state_PiS_vote_count_k = THIS.state_PiS_vote_count }
+	divide_variable = { THIS.state_PiS_vote_count_k = 1000 }
+	add_to_variable = { POL.national_PiS_vote_count_k = THIS.state_PiS_vote_count_k }
+	clear_variable = THIS.state_PiS_vote_count_k
+
+	set_variable = { THIS.state_RIGHT_previous_election_popularity = THIS.RIGHT_popularity }
+	set_variable = { THIS.state_RIGHT_vote_count = THIS.RIGHT_popularity }
+	multiply_variable = { THIS.state_RIGHT_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_RIGHT_vote_count = 10 }
+	multiply_variable = { THIS.state_RIGHT_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_RIGHT_vote_count
+	set_variable = { THIS.state_RIGHT_vote_count_k = THIS.state_RIGHT_vote_count }
+	divide_variable = { THIS.state_RIGHT_vote_count_k = 1000 }
+	add_to_variable = { POL.national_RIGHT_vote_count_k = THIS.state_RIGHT_vote_count_k }
+	clear_variable = THIS.state_RIGHT_vote_count_k
+	
+	set_variable = { THIS.state_LEFT_previous_election_popularity = THIS.LEFT_popularity }
+	set_variable = { THIS.state_LEFT_vote_count = THIS.LEFT_popularity }
+	multiply_variable = { THIS.state_LEFT_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_LEFT_vote_count = 10 }
+	multiply_variable = { THIS.state_LEFT_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_LEFT_vote_count
+	set_variable = { THIS.state_LEFT_vote_count_k = THIS.state_LEFT_vote_count }
+	divide_variable = { THIS.state_LEFT_vote_count_k = 1000 }
+	add_to_variable = { POL.national_LEFT_vote_count_k = THIS.state_LEFT_vote_count_k }
+	clear_variable = THIS.state_LEFT_vote_count_k
+	
+	set_variable = { THIS.state_PSL_previous_election_popularity = THIS.PSL_popularity }
+	set_variable = { THIS.state_PSL_vote_count = THIS.PSL_popularity }
+	multiply_variable = { THIS.state_PSL_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_PSL_vote_count = 10 }
+	multiply_variable = { THIS.state_PSL_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_PSL_vote_count	
+	set_variable = { THIS.state_PSL_vote_count_k = THIS.state_PSL_vote_count }
+	divide_variable = { THIS.state_PSL_vote_count_k = 1000 }
+	add_to_variable = { POL.national_PSL_vote_count_k = THIS.state_PSL_vote_count_k }
+	clear_variable = THIS.state_PSL_vote_count_k
+	
+	set_variable = { THIS.state_OTHER_previous_election_popularity = THIS.OTHER_popularity }
+	set_variable = { THIS.state_OTHER_vote_count = THIS.OTHER_popularity }
+	multiply_variable = { THIS.state_OTHER_vote_count = THIS.state_population_k }
+	divide_variable = { THIS.state_OTHER_vote_count = 10 }
+	multiply_variable = { THIS.state_OTHER_vote_count = THIS.election_turnout }
+	round_variable = THIS.state_OTHER_vote_count
+	set_variable = { THIS.state_OTHER_vote_count_k = THIS.state_OTHER_vote_count }
+	divide_variable = { THIS.state_OTHER_vote_count_k = 1000 }
+	add_to_variable = { POL.national_OTHER_vote_count_k = THIS.state_OTHER_vote_count_k }
+	clear_variable = THIS.state_OTHER_vote_count_k
+	
+	if={
+		limit = { THIS = { state = 427 } }
+		
+		set_variable = { 43.state_PO_vote_count = 427.PO_popularity }
+		multiply_variable = { 43.state_PO_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_PO_vote_count = 10 }
+		multiply_variable = { 43.state_PO_vote_count = 427.election_turnout }
+		round_variable = 43.state_PO_vote_count
+		add_to_variable = { 427.state_PO_vote_count = 43.state_PO_vote_count }
+		set_variable = { 43.state_PO_vote_count_k = 43.state_PO_vote_count }
+		divide_variable = { 43.state_PO_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PO_vote_count_k = 43.state_PO_vote_count_k }
+		clear_variable = 43.state_PO_vote_count_k
+		clear_variable = 43.state_PO_vote_count
+		
+		set_variable = { 43.state_PiS_vote_count = 427.PiS_popularity }
+		multiply_variable = { 43.state_PiS_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_PiS_vote_count = 10 }
+		multiply_variable = { 43.state_PiS_vote_count = 427.election_turnout }
+		round_variable = 43.state_PiS_vote_count
+		add_to_variable = { 427.state_PiS_vote_count = 43.state_PiS_vote_count }
+		set_variable = { 43.state_PiS_vote_count_k = 43.state_PiS_vote_count }
+		divide_variable = { 43.state_PiS_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PiS_vote_count_k = 43.state_PiS_vote_count_k }
+		clear_variable = 43.state_PiS_vote_count_k
+		clear_variable = 43.state_PiS_vote_count
+		
+		set_variable = { 43.state_RIGHT_vote_count = 427.RIGHT_popularity }
+		multiply_variable = { 43.state_RIGHT_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_RIGHT_vote_count = 10 }
+		multiply_variable = { 43.state_RIGHT_vote_count = 427.election_turnout }
+		round_variable = 43.state_RIGHT_vote_count
+		add_to_variable = { 427.state_RIGHT_vote_count = 43.state_RIGHT_vote_count }
+		set_variable = { 43.state_RIGHT_vote_count_k = 43.state_RIGHT_vote_count }
+		divide_variable = { 43.state_RIGHT_vote_count_k = 1000 }
+		add_to_variable = { POL.national_RIGHT_vote_count_k = 43.state_RIGHT_vote_count_k }
+		clear_variable = 43.state_RIGHT_vote_count_k
+		clear_variable = 43.state_RIGHT_vote_count
+		
+		set_variable = { 43.state_LEFT_vote_count = 427.LEFT_popularity }
+		multiply_variable = { 43.state_LEFT_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_LEFT_vote_count = 10 }
+		multiply_variable = { 43.state_LEFT_vote_count = 427.election_turnout }
+		round_variable = 43.state_LEFT_vote_count
+		add_to_variable = { 427.state_LEFT_vote_count = 43.state_LEFT_vote_count }
+		set_variable = { 43.state_LEFT_vote_count_k = 43.state_LEFT_vote_count }
+		divide_variable = { 43.state_LEFT_vote_count_k = 1000 }
+		add_to_variable = { POL.national_LEFT_vote_count_k = 43.state_LEFT_vote_count_k }
+		clear_variable = 43.state_LEFT_vote_count_k
+		clear_variable = 43.state_LEFT_vote_count
+		
+		set_variable = { 43.state_PSL_vote_count = 427.PSL_popularity }
+		multiply_variable = { 43.state_PSL_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_PSL_vote_count = 10 }
+		multiply_variable = { 43.state_PSL_vote_count = 427.election_turnout }
+		round_variable = 43.state_PSL_vote_count
+		add_to_variable = { 427.state_PSL_vote_count = 43.state_PSL_vote_count }
+		set_variable = { 43.state_PSL_vote_count_k = 43.state_PSL_vote_count }
+		divide_variable = { 43.state_PSL_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PSL_vote_count_k = 43.state_PSL_vote_count_k }
+		clear_variable = 43.state_PSL_vote_count_k
+		clear_variable = 43.state_PSL_vote_count
+		
+		set_variable = { 43.state_OTHER_vote_count = 427.OTHER_popularity }
+		multiply_variable = { 43.state_OTHER_vote_count = 43.state_population_k }
+		divide_variable = { 43.state_OTHER_vote_count = 10 }
+		multiply_variable = { 43.state_OTHER_vote_count = 427.election_turnout }
+		round_variable = 43.state_OTHER_vote_count
+		add_to_variable = { 427.state_OTHER_vote_count = 43.state_OTHER_vote_count }
+		set_variable = { 43.state_OTHER_vote_count_k = 43.state_OTHER_vote_count }
+		divide_variable = { 43.state_OTHER_vote_count_k = 1000 }
+		add_to_variable = { POL.national_OTHER_vote_count_k = 43.state_OTHER_vote_count_k }
+		clear_variable = 43.state_OTHER_vote_count_k
+		clear_variable = 43.state_OTHER_vote_count
+	}
+	else_if={
+		limit = { THIS = { state = 40 } }
+		
+		set_variable = { 48.state_PO_vote_count = 40.PO_popularity }
+		multiply_variable = { 48.state_PO_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_PO_vote_count = 10 }
+		multiply_variable = { 48.state_PO_vote_count = 40.election_turnout }
+		round_variable = 48.state_PO_vote_count
+		add_to_variable = { 40.state_PO_vote_count = 48.state_PO_vote_count }
+		set_variable = { 48.state_PO_vote_count_k = 48.state_PO_vote_count }
+		divide_variable = { 48.state_PO_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PO_vote_count_k = 48.state_PO_vote_count_k }
+		clear_variable = 48.state_PO_vote_count_k
+		clear_variable = 48.state_PO_vote_count
+		
+		set_variable = { 48.state_PiS_vote_count = 40.PiS_popularity }
+		multiply_variable = { 48.state_PiS_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_PiS_vote_count = 10 }
+		multiply_variable = { 48.state_PiS_vote_count = 40.election_turnout }
+		round_variable = 48.state_PiS_vote_count
+		add_to_variable = { 40.state_PiS_vote_count = 48.state_PiS_vote_count }
+		set_variable = { 48.state_PiS_vote_count_k = 48.state_PiS_vote_count }
+		divide_variable = { 48.state_PiS_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PiS_vote_count_k = 48.state_PiS_vote_count_k }
+		clear_variable = 48.state_PiS_vote_count_k
+		clear_variable = 48.state_PiS_vote_count
+		
+		set_variable = { 48.state_RIGHT_vote_count = 40.RIGHT_popularity }
+		multiply_variable = { 48.state_RIGHT_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_RIGHT_vote_count = 10 }
+		multiply_variable = { 48.state_RIGHT_vote_count = 40.election_turnout }
+		round_variable = 48.state_RIGHT_vote_count
+		add_to_variable = { 40.state_RIGHT_vote_count = 48.state_RIGHT_vote_count }
+		set_variable = { 48.state_RIGHT_vote_count_k = 48.state_RIGHT_vote_count }
+		divide_variable = { 48.state_RIGHT_vote_count_k = 1000 }
+		add_to_variable = { POL.national_RIGHT_vote_count_k = 48.state_RIGHT_vote_count_k }
+		clear_variable = 48.state_RIGHT_vote_count_k
+		clear_variable = 48.state_RIGHT_vote_count
+		
+		set_variable = { 48.state_LEFT_vote_count = 40.LEFT_popularity }
+		multiply_variable = { 48.state_LEFT_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_LEFT_vote_count = 10 }
+		multiply_variable = { 48.state_LEFT_vote_count = 40.election_turnout }
+		round_variable = 48.state_LEFT_vote_count
+		add_to_variable = { 40.state_LEFT_vote_count = 48.state_LEFT_vote_count }
+		set_variable = { 48.state_LEFT_vote_count_k = 48.state_LEFT_vote_count }
+		divide_variable = { 48.state_LEFT_vote_count_k = 1000 }
+		add_to_variable = { POL.national_LEFT_vote_count_k = 48.state_LEFT_vote_count_k }
+		clear_variable = 48.state_LEFT_vote_count_k
+		clear_variable = 48.state_LEFT_vote_count
+		
+		set_variable = { 48.state_PSL_vote_count = 40.PSL_popularity }
+		multiply_variable = { 48.state_PSL_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_PSL_vote_count = 10 }
+		multiply_variable = { 48.state_PSL_vote_count = 40.election_turnout }
+		round_variable = 48.state_PSL_vote_count
+		add_to_variable = { 40.state_PSL_vote_count = 48.state_PSL_vote_count }
+		set_variable = { 48.state_PSL_vote_count_k = 48.state_PSL_vote_count }
+		divide_variable = { 48.state_PSL_vote_count_k = 1000 }
+		add_to_variable = { POL.national_PSL_vote_count_k = 48.state_PSL_vote_count_k }
+		clear_variable = 48.state_PSL_vote_count_k
+		clear_variable = 48.state_PSL_vote_count
+		
+		set_variable = { 48.state_OTHER_vote_count = 40.OTHER_popularity }
+		multiply_variable = { 48.state_OTHER_vote_count = 48.state_population_k }
+		divide_variable = { 48.state_OTHER_vote_count = 10 }
+		multiply_variable = { 48.state_OTHER_vote_count = 40.election_turnout }
+		round_variable = 48.state_OTHER_vote_count
+		add_to_variable = { 40.state_OTHER_vote_count = 48.state_OTHER_vote_count }
+		set_variable = { 48.state_OTHER_vote_count_k = 48.state_OTHER_vote_count }
+		divide_variable = { 48.state_OTHER_vote_count_k = 1000 }
+		add_to_variable = { POL.national_OTHER_vote_count_k = 48.state_OTHER_vote_count_k }
+		clear_variable = 48.state_OTHER_vote_count_k
+		clear_variable = 48.state_OTHER_vote_count
+	}
+	
+	
 	
 	if={
 		limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than_or_equals } }
@@ -1084,12 +1313,12 @@ POL_get_sejm_seats_per_voivodeship={
 	add_to_variable = { POL.POL_sejm_non_aligned_seats = THIS.OTHER_seat_count }
 	
 	
-	clear_variable = THIS.PO_seat_count
-	clear_variable = THIS.PiS_seat_count
-	clear_variable = THIS.LEFT_seat_count
-	clear_variable = THIS.RIGHT_seat_count
-	clear_variable = THIS.PSL_seat_count
-	clear_variable = THIS.OTHER_seat_count
+#	clear_variable = THIS.PO_seat_count
+#	clear_variable = THIS.PiS_seat_count
+#	clear_variable = THIS.LEFT_seat_count
+#	clear_variable = THIS.RIGHT_seat_count
+#	clear_variable = THIS.PSL_seat_count
+#	clear_variable = THIS.OTHER_seat_count
 	clear_variable = THIS.PO_seat_count_weighting
 	clear_variable = THIS.PiS_seat_count_weighting
 	clear_variable = THIS.LEFT_seat_count_weighting
@@ -1097,6 +1326,168 @@ POL_get_sejm_seats_per_voivodeship={
 	clear_variable = THIS.PSL_seat_count_weighting
 	clear_variable = THIS.OTHER_seat_count_weighting
 	clear_variable = THIS.seats_allocated
+}
+
+POL_update_election_map={
+	every_state={
+		limit = { POL_is_election_state = yes }
+		if={
+			limit = {  
+				check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+				check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+				check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+				check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+				check_variable = { THIS.state_PO_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+			}
+			set_variable = { THIS.electoral_map_frame = 2 } 
+		}
+		else_if={
+			limit = {  
+				check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+				check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+				check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+				check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+				check_variable = { THIS.state_PiS_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+			}
+			set_variable = { THIS.electoral_map_frame = 3 } 
+		}
+		else_if={
+			limit = {  
+				check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+				check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+				check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+				check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+				check_variable = { THIS.state_RIGHT_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+			}
+			set_variable = { THIS.electoral_map_frame = 4 } 
+		}
+		else_if={
+			limit = {  
+				check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+				check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+				check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+				check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_PSL_previous_election_popularity }
+				check_variable = { THIS.state_LEFT_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+			}
+			set_variable = { THIS.electoral_map_frame = 5 } 
+		}
+		else_if={
+			limit = {  
+				check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_PO_previous_election_popularity }
+				check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_PiS_previous_election_popularity }
+				check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_RIGHT_previous_election_popularity }
+				check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_LEFT_previous_election_popularity }
+				check_variable = { THIS.state_PSL_previous_election_popularity > THIS.state_OTHER_previous_election_popularity }
+			}
+			set_variable = { THIS.electoral_map_frame = 6 } 
+		}
+		else={
+			set_variable = { THIS.electoral_map_frame = 1 } 
+		}
+	}
+}
+
+POL_get_total_country_votes_effect={
+	#Normally the variables would integer clip, do this to avoid that
+	set_variable = { POL.national_PO_vote_count_small = POL.national_PO_vote_count_k }
+	set_variable = { POL.national_PO_vote_count_no_dp = POL.national_PO_vote_count_k }
+	round_variable = POL.national_PO_vote_count_no_dp
+	subtract_from_variable = { POL.national_PO_vote_count_small = POL.national_PO_vote_count_no_dp }
+	if={
+		limit = { POL.national_PO_vote_count_small < 0 }
+		add_to_variable = { POL.national_PO_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_PO_vote_count_no_dp
+	multiply_variable = { POL.national_PO_vote_count_small = 1000 }
+	
+	set_variable = { POL.national_PiS_vote_count_small = POL.national_PiS_vote_count_k }
+	set_variable = { POL.national_PiS_vote_count_no_dp = POL.national_PiS_vote_count_k }
+	round_variable = POL.national_PiS_vote_count_no_dp
+	subtract_from_variable = { POL.national_PiS_vote_count_small = POL.national_PiS_vote_count_no_dp }
+	if={
+		limit = { POL.national_PiS_vote_count_small < 0 }
+		add_to_variable = { POL.national_PiS_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_PiS_vote_count_no_dp
+	multiply_variable = { POL.national_PiS_vote_count_small = 1000 }
+	
+	set_variable = { POL.national_RIGHT_vote_count_small = POL.national_RIGHT_vote_count_k }
+	set_variable = { POL.national_RIGHT_vote_count_no_dp = POL.national_RIGHT_vote_count_k }
+	round_variable = POL.national_RIGHT_vote_count_no_dp
+	subtract_from_variable = { POL.national_RIGHT_vote_count_small = POL.national_RIGHT_vote_count_no_dp }
+	if={
+		limit = { POL.national_RIGHT_vote_count_small < 0 }
+		add_to_variable = { POL.national_RIGHT_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_RIGHT_vote_count_no_dp
+	multiply_variable = { POL.national_RIGHT_vote_count_small = 1000 }
+	
+	set_variable = { POL.national_LEFT_vote_count_small = POL.national_LEFT_vote_count_k }
+	set_variable = { POL.national_LEFT_vote_count_no_dp = POL.national_LEFT_vote_count_k }
+	round_variable = POL.national_LEFT_vote_count_no_dp
+	subtract_from_variable = { POL.national_LEFT_vote_count_small = POL.national_LEFT_vote_count_no_dp }
+	if={
+		limit = { POL.national_LEFT_vote_count_small < 0 }
+		add_to_variable = { POL.national_LEFT_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_LEFT_vote_count_no_dp
+	multiply_variable = { POL.national_LEFT_vote_count_small = 1000 }
+	
+	set_variable = { POL.national_PSL_vote_count_small = POL.national_PSL_vote_count_k }
+	set_variable = { POL.national_PSL_vote_count_no_dp = POL.national_PSL_vote_count_k }
+	round_variable = POL.national_PSL_vote_count_no_dp
+	subtract_from_variable = { POL.national_PSL_vote_count_small = POL.national_PSL_vote_count_no_dp }
+	if={
+		limit = { POL.national_PSL_vote_count_small < 0 }
+		add_to_variable = { POL.national_PSL_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_PSL_vote_count_no_dp
+	multiply_variable = { POL.national_PSL_vote_count_small = 1000 }
+	
+	set_variable = { POL.national_OTHER_vote_count_small = POL.national_OTHER_vote_count_k }
+	set_variable = { POL.national_OTHER_vote_count_no_dp = POL.national_OTHER_vote_count_k }
+	round_variable = POL.national_OTHER_vote_count_no_dp
+	subtract_from_variable = { POL.national_OTHER_vote_count_small = POL.national_OTHER_vote_count_no_dp }
+	if={
+		limit = { POL.national_OTHER_vote_count_small < 0 }
+		add_to_variable = { POL.national_OTHER_vote_count_small = 1 }
+	}
+	clear_variable = POL.national_OTHER_vote_count_no_dp
+	multiply_variable = { POL.national_OTHER_vote_count_small = 1000 }
+	
+	
+	
+	
+	if={
+		limit = { check_variable = { var = POL.national_PO_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_PO_vote_count_small = 1000 }
+		add_to_variable = { POL.national_PO_vote_count_k = 1 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_PiS_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_PiS_vote_count_small = 1000 }
+		add_to_variable = { POL.national_PiS_vote_count_k = 1 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_RIGHT_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_RIGHT_vote_count_small = 1000 }
+		add_to_variable = { POL.national_RIGHT_vote_count_k = 1 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_LEFT_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_LEFT_vote_count_small = 1000 }
+		add_to_variable = { POL.national_LEFT_vote_count_k = 1 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_PSL_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_PSL_vote_count_small = 1000 }
+		add_to_variable = { POL.national_PSL_vote_count_k = 1 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_OTHER_vote_count_small value = 1000 compare = greater_than_or_equals } }
+		subtract_from_variable = { POL.national_OTHER_vote_count_small = 1000 }
+		add_to_variable = { POL.national_OTHER_vote_count_k = 1 }
+	}
 }
 
 POL_hold_election_effect={
@@ -1114,137 +1505,24 @@ POL_hold_election_effect={
 	set_variable = { POL_PSL_seats = 0 }
 	set_variable = { POL_sejm_non_aligned_seats = 0 }
 	
-	#MASOVIA
-	427={
+	set_country_flag = POL_an_election_has_been_held
+	
+	set_variable = { POL.national_PO_vote_count_k = 0 }
+	set_variable = { POL.national_PiS_vote_count_k = 0 }
+	set_variable = { POL.national_RIGHT_vote_count_k = 0 }
+	set_variable = { POL.national_LEFT_vote_count_k = 0 }
+	set_variable = { POL.national_PSL_vote_count_k = 0 }
+	set_variable = { POL.national_OTHER_vote_count_k = 0 }
+
+	every_state={
+		limit = { POL_is_election_state = yes }
 		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		#Returns distributed seat counts that total 1
-		#Masovia has 63 seats in the Sejm
-		set_variable = { THIS.number_of_seats_in_sejm = 63 }
 		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
 	}
 	
-	#PODLASKIE
-	34={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 14 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
+	POL_get_total_country_votes_effect = yes
 	
-	#WARMIA-MASURIA
-	31={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 18 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#LUBLIN
-	51={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 27 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#POMERANIA
-	19={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 26 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#KUYAVIA-POMERANIA
-	38={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 25 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#LODZ
-	47={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 31 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#WEST POMERANIA
-	22={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 20 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#GREATER POLAND
-	36={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 40 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#LUBUSZ
-	40={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 12 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#HOLY CROSS
-	64={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 16 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#LOWER SILESIA
-	49={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 34 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#OPOLE
-	62={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 12 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#SILESIA
-	67={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 55 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#LESSER POLAND
-	81={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 41 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	#SUBCARPATHIA
-	76={
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
-		set_variable = { THIS.number_of_seats_in_sejm = 26 }
-		POL_get_sejm_seats_per_voivodeship = yes
-		clear_variable = THIS.number_of_seats_in_sejm
-	}
-	
-	
+	POL_update_election_map = yes
 	POL_clr_party_flags = yes
 	
 	POL_get_non_aligned_seats = yes
