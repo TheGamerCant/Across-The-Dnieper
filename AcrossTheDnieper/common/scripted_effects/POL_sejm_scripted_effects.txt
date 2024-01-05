@@ -1490,6 +1490,73 @@ POL_get_total_country_votes_effect={
 	}
 }
 
+POL_remove_government_ideas={
+	hidden_effect={
+		remove_idea = POL_PO_PSL_coalition
+		remove_idea = POL_PO_PSL_LEFT_coalition
+	}
+}
+
+POL_can_government_be_formed={
+	if={
+		limit={ 
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL_PO_seats value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.39
+	}
+	else_if={
+		limit={ 
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL_PiS_seats value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.40
+	}
+	else_if={
+		limit={ 
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL_RIGHT_seats value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.41
+	}
+	else_if={
+		limit={ 
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL_LEFT_seats value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.42
+	}
+	else_if={
+		limit={ 
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL_PSL_seats value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.43
+	}
+	else_if={
+		limit={ 
+			check_variable = { POL.POL_PO_seats > POL.POL_PiS_seats }
+			check_variable = { POL.POL_PO_seats > POL.POL_RIGHT_seats }
+			check_variable = { POL.POL_PO_seats > POL.POL_LEFT_seats }
+			check_variable = { POL.POL_PO_seats > POL.POL_PSL_seats }
+			
+			set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
+			add_to_temp_variable = { POL.center_coalition = POL.POL_LEFT_seats }
+			add_to_temp_variable = { POL.center_coalition = POL.POL_PSL_seats }
+			
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		country_event = poland_election.44
+	}
+}
+
 POL_hold_election_effect={
 	clr_country_flag = poland_election_campaigns_are_ongoing
 	clr_country_flag = poland_campaign_as_PO_flag
@@ -1524,10 +1591,14 @@ POL_hold_election_effect={
 	
 	POL_update_election_map = yes
 	POL_clr_party_flags = yes
-	
 	POL_get_non_aligned_seats = yes
 	POL_get_sejm_seats = yes
+	
+	POL_remove_government_ideas = yes
+	POL_can_government_be_formed = yes
 }
+
+
 
 
 

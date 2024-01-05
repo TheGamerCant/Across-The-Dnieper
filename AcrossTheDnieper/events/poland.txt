@@ -19,6 +19,41 @@ country_event = {
 	}
 }
 
+#Creation of the United Left
+country_event = {
+	id = poland.2
+	title = poland.2.t
+	desc = poland.2.desc
+	picture = GFX_report_event_POL_united_left
+	is_triggered_only = yes
+
+	option = {
+		name = poland.2.a
+		ai_chance = { base = 1 }
+
+		add_popularity = { ideology = social_democracy popularity = 0.02 }
+		add_popularity = { ideology = socialist popularity = 0.005 }
+		clr_country_flag = POL_leftist_party_is_democratic_left_alliance
+		set_country_flag = POL_leftist_party_is_united_left
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.OTHER_popularity = 0.6 }
+				multiply_variable = { THIS.LEFT_popularity = 1.08 }
+				POL_make_popularities_equal_100 = yes
+			}
+			
+			set_party_name = { 
+				ideology = social_democracy 
+				long_name = POL_ZL_no_colour 
+				name =  POL_ZL_no_colour_shortened 
+			}
+		}
+		
+		custom_effect_tooltip = make_united_left_alliance_tt
+	}
+}
 
 #Choose your party for election
 country_event = {
@@ -31,7 +66,8 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_country_flag = poland_election_campaigns_are_ongoing
-			country_event = { id = poland_election.38 days = 350 random_days = 15 }
+			country_event = { id = poland_election.38 days = 350 random_days = 15 }		#election event
+			country_event = { id = poland.2 days = 530 random_days = 30 }	#create united left
 		}
 	}
 
@@ -1082,5 +1118,185 @@ country_event = {
 		
 		hidden_effect = { POL_hold_election_effect = yes }
 	}
+}
 
+#PO has majority
+country_event = {
+	id = poland_election.39
+	title = poland_election.39.t
+	desc = poland_election.39.desc
+	picture = GFX_report_event_POL_tusk_rally
+	is_triggered_only = yes
+
+	option = {
+		name = poland_election.39.a
+		ai_chance = { base = 1 }
+		
+		set_country_flag = PO_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+	}
+}
+
+#PiS has majority
+country_event = {
+	id = poland_election.40
+	title = poland_election.40.t
+	desc = poland_election.40.desc
+	picture = GFX_report_event_POL_PiS_rally
+	is_triggered_only = yes
+
+	option = {
+		name = poland_election.40.a
+		ai_chance = { base = 1 }
+		
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = PiS_in_power
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		hidden_effect={
+			set_party_name = { 
+				ideology = neoconservative 
+				long_name = POL_neoconservative_party_long 
+				name =  POL_neoconservative_party 
+			}
+		}
+	}
+}
+
+#RIGHT has majority
+country_event = {
+	id = poland_election.41
+	title = poland_election.41.t
+	desc = poland_election.41.desc
+	picture = GFX_report_event_POL_konfederacja
+	is_triggered_only = yes
+
+	option = {
+		name = poland_election.41.a
+		ai_chance = { base = 1 }
+		
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = LEFT_in_opposition
+		set_country_flag = PSL_in_opposition
+		
+		POL_get_government_majority_status = yes
+	}
+}
+
+#LEFT has majority
+country_event = {
+	id = poland_election.42
+	title = poland_election.42.t
+	desc = poland_election.42.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+
+	option = {
+		name = poland_election.42.a
+		ai_chance = { base = 1 }
+		
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+	}
+}
+
+#PSL has majority
+country_event = {
+	id = poland_election.43
+	title = poland_election.43.t
+	desc = poland_election.43.desc
+	picture = GFX_report_event_POL_PSL_rally
+	is_triggered_only = yes
+
+	option = {
+		name = poland_election.43.a
+		ai_chance = { base = 1 }
+		
+		set_country_flag = PSL_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		hidden_effect={
+			set_party_name = { 
+				ideology = neoconservative 
+				long_name = poland_PSL 
+				name =  poland_PSL_short 
+			}
+		}
+	}
+}
+
+#PO forms a coalition
+country_event = {
+	id = poland_election.44
+	title = poland_election.44.t
+	desc = poland_election.44.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PO forms coalition with PSL
+		name = poland_election.44.a
+		ai_chance = { base = 1 }
+		trigger={
+			set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
+			add_to_temp_variable = { POL.center_coalition = POL.POL_PSL_seats }
+			
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_coalition
+	}
+	
+	option = {										#PO forms coalition with PSL and LEFT
+		name = poland_election.44.b
+		ai_chance = { base = 1 }
+		trigger={
+			NOT={
+				set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
+				add_to_temp_variable = { POL.center_coalition = POL.POL_PSL_seats }
+				
+				set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+				divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+				check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
+			}
+			set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
+			add_to_temp_variable = { POL.center_coalition = POL.POL_LEFT_seats }
+			add_to_temp_variable = { POL.center_coalition = POL.POL_PSL_seats }
+			
+			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
+			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
+			check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
+		}
+		
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_LEFT_coalition
+	}
 }
