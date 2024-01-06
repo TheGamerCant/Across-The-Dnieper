@@ -12,6 +12,97 @@ scripted_gui = {
 			close_click = {
 				clr_country_flag = LIT_has_opened_municipality_ideas_view_flag
 			}
+			company_bg_click = {
+				if = { 
+					limit = { has_political_power > 100 } 
+
+					add_political_power = -100
+					clr_country_flag = LIT_has_opened_municipality_ideas_view_flag
+
+					if = {
+						limit = {
+							check_variable = { company_idx = 0 }
+						}
+
+						LIT_kaunas_company_set_audimas = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx = 1 }
+						}
+
+						LIT_kaunas_company_set_sanitas = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx = 2 }
+						}
+
+						LIT_kaunas_company_set_silas = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx = 3 }
+						}
+
+						LIT_kaunas_company_set_stumbras = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx = 4 }
+						}
+
+						LIT_kaunas_company_set_volfas_engelman = yes
+						
+					}
+				}
+			}
+
+			company_bg_2_click = {
+				if = { 
+					limit = { has_political_power > 100 } 
+
+					add_political_power = -100
+					clr_country_flag = LIT_has_opened_municipality_ideas_view_flag
+					
+					if = {
+						limit = {
+							check_variable = { company_idx_2 = 0 }
+						}
+
+						LIT_vilnius_company_set_aibe = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx_2 = 1 }
+						}
+
+						LIT_vilnius_company_set_air_lituanica = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx_2 = 2 }
+						}
+
+						LIT_vilnius_company_set_iki = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx_2 = 3 }
+						}
+
+						LIT_vilnius_company_set_maxima = yes
+					}
+					else_if={
+						limit = {
+							check_variable = { company_idx_2 = 4 }
+						}
+
+						LIT_vilnius_company_set_telia = yes
+						
+					}
+				}
+			}
 		}
 
 		dynamic_lists = {
@@ -131,6 +222,14 @@ scripted_gui = {
 				image = "[LIT_get_vilnius_occupation]"
 			}
 
+			city_company_1_kaunas = {
+				image = "[LIT_get_kaunas_company_gfx_icon]"
+			}
+
+			city_company_1_vilnius = {
+				image = "[LIT_get_vilnius_company_gfx_icon]"
+			}
+
 			kaunas_council_seat = {
 				x = kaunas_council_x^seat_idx
 				y = kaunas_council_y^seat_idx
@@ -189,6 +288,8 @@ scripted_gui = {
 			city_company_1_vilnius_click = {
 				set_country_flag = LIT_has_opened_municipality_ideas_view_flag
 			}
+
+			
 		}
 
 		triggers={
@@ -218,6 +319,12 @@ scripted_gui = {
 			}
 			select_city_text_box_visible={
 				NOT = {
+					has_country_flag = LIT_kaunas_city_selected
+					has_country_flag = LIT_vilnius_city_selected
+				}
+			}
+			companies_text_box_visible={
+				OR = {
 					has_country_flag = LIT_kaunas_city_selected
 					has_country_flag = LIT_vilnius_city_selected
 				}
