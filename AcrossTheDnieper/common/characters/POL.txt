@@ -1,10 +1,68 @@
 characters={
+	POL_donald_tusk = {
+		name = POL_donald_tusk
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/Portrait_Donald_Tusk_advisor.png"
+				large = "gfx/leaders/POL/Portrait_Donald_Tusk.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_donald_tusk
+			
+			traits = {
+				POL_career_liberal
+			}
+			available={
+				has_country_flag = PO_in_power
+				NOT = { has_country_flag = POL_donald_tusk_is_current_pm_flag }
+				NOT = { has_country_flag = POL_donald_tusk_not_available_flag }
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
+	POL_radoslaw_sikorski = {
+		name = POL_radoslaw_sikorski
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/Portrait_Radosław_Sikorski_advisor.png"
+				large = "gfx/leaders/POL/Portrait_Radosław_Sikorski.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_radoslaw_sikorski
+			
+			cost = 120
+			
+			traits = {
+				POL_minister_of_foreign_affairs_PO
+			}
+			available={
+				has_country_flag = PO_in_power
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
 	POL_jaroslaw_kaczynski = {
 		name = POL_jaroslaw_kaczynski
 		portraits = {
 			civilian = {
 				small = "gfx/leaders/POL/advisors/Portrait_Jarosław_Kaczyński_advisor.png"
-				large = "gfx/leaders/POL/Portrait_Jarosław_Kaczyński.dds"
+				large = "gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png"
 			}
 		}
 		allowed_civil_war = {
@@ -21,6 +79,61 @@ characters={
 			available={
 				has_country_flag = PiS_in_power
 				jaroslaw_kaczynski_is_not_leader = yes
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
+	POL_mateusz_morawiecki = {
+		name = POL_mateusz_morawiecki
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/Portrait_Mateusz_Morawiecki_advisor.png"
+				large = "gfx/leaders/POL/Portrait_Mateusz_Morawiecki.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_mateusz_morawiecki
+			
+			traits = {
+				POL_minister_of_finance_PiS
+			}
+			available={
+				has_country_flag = PiS_in_power
+				NOT = { has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag }
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
+	POL_wladyslaw_kosiniak_kamysz = {
+		name = POL_wladyslaw_kosiniak_kamysz
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/Portrait_Władysław_Kosiniak_Kamysz_advisor.png"
+				large = "gfx/leaders/POL/Portrait_Władysław_Kosiniak_Kamysz.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_wladyslaw_kosiniak_kamysz
+			
+			traits = {
+				POL_jack_of_all_trades
+			}
+			available={
+				has_country_flag = PSL_in_power
 			}
 			ai_will_do = {
 			}

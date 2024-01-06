@@ -109,6 +109,16 @@ country_event = {
 		ai_chance = { base = 0 }
 
 		set_country_flag = Kaczynski_PiS_candidate_flag
+		
+		custom_effect_tooltip = kaczynski_not_very_popular_tt
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.PiS_popularity = 0.94 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
 	}
 }
 
@@ -163,13 +173,15 @@ country_event = {
 			
 			clr_country_flag = Duda_PiS_candidate_flag
 			
-			if={
-				limit = { NOT = { has_government = neoconservative } }
-				add_ideas = POL_divided_executive
-			}
+			country_event = { id = poland.7 days = 30 random_days = 30 }
 		}
 		
 		custom_effect_tooltip = POL_duda_becomes_president_tt
+		
+		if={
+			limit = { NOT = { has_government = neoconservative } }
+			add_ideas = POL_divided_executive
+		}
 	}
 	
 	option = {			#Jarosław Kaczyński
@@ -212,13 +224,15 @@ country_event = {
 			
 			clr_country_flag = Kaczynski_PiS_candidate_flag
 			
-			if={
-				limit = { NOT = { has_government = neoconservative } }
-				add_ideas = POL_divided_executive
-			}
+			country_event = { id = poland.7 days = 30 random_days = 30 }
 		}
 		
 		custom_effect_tooltip = POL_kaczynski_becomes_president_tt
+		
+		if={
+			limit = { NOT = { has_government = neoconservative } }
+			add_ideas = POL_divided_executive
+		}
 	}
 	
 	option = {			#Bronisław Komorowski
@@ -227,13 +241,16 @@ country_event = {
 		
 		custom_effect_tooltip = POL_komorowski_stays_president_tt
 		
-		add_political_power = 5
-		
 		hidden_effect={
 			if={
 				limit = { NOT = { has_government = neoliberal } }
 				add_ideas = POL_divided_executive
 			}
+		}
+		
+		if={
+			limit = { NOT = { has_government = neoliberal } }
+			add_ideas = POL_divided_executive
 		}
 	}
 }
@@ -284,6 +301,58 @@ country_event = {
 		ai_chance = { base = 1 }
 
 		clr_country_flag = POL_donald_tusk_not_available_flag
+	}
+}
+
+#Kopacz does some purgin'
+country_event = {
+	id = poland.7
+	title = poland.7.t
+	desc = poland.7.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_kopacz_press
+
+	option = {
+		name = poland.7.a
+		ai_chance = { base = 1 }
+		
+		trigger = { has_country_flag = poland_campaign_as_PO_flag }
+		
+		add_popularity = { ideology = neoliberal popularity = -0.025 }
+		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
+		set_variable = { ewa_kopacz_stability_weekly = 0 }
+		set_variable = { ewa_kopacz_political_power_gain = 0 }
+		custom_effect_tooltip = poland.7.tt
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.PO_popularity = 0.88 }
+				multiply_variable = { THIS.PiS_popularity = 1.02 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+	}
+	
+	option = {
+		name = poland.7.b
+		ai_chance = { base = 1 }
+		
+		trigger = { NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+		
+		add_popularity = { ideology = neoliberal popularity = -0.025 }
+		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
+		set_variable = { ewa_kopacz_stability_weekly = 0 }
+		set_variable = { ewa_kopacz_political_power_gain = 0 }
+		custom_effect_tooltip = poland.7.tt
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.PO_popularity = 0.88 }
+				multiply_variable = { THIS.PiS_popularity = 1.02 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
 	}
 }
 
@@ -1263,7 +1332,7 @@ country_event = {			#Hidden event to trigger PO campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_PO_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_PO_campaign
 			
-			country_event = { id = poland_election.32 days = 32 random_days = 13 }
+			country_event = { id = poland_election.32 days = 37 random_days = 12 }
 		}
 	}
 }
@@ -1277,7 +1346,7 @@ country_event = {			#Hidden event to trigger PiS campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_PiS_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_PiS_campaign
 			
-			country_event = { id = poland_election.33 days = 32 random_days = 13 }
+			country_event = { id = poland_election.33 days = 37 random_days = 12 }
 		}
 	}
 }
@@ -1291,7 +1360,7 @@ country_event = {			#Hidden event to trigger RIGHT campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_RIGHT_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_RIGHT_campaign
 			
-			country_event = { id = poland_election.34 days = 35 random_days = 40 }
+			country_event = { id = poland_election.34 days = 42 random_days = 40 }
 		}
 	}
 }
@@ -1305,7 +1374,7 @@ country_event = {			#Hidden event to trigger LEFT campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_LEFT_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_LEFT_campaign
 			
-			country_event = { id = poland_election.35 days = 35 random_days = 40 }
+			country_event = { id = poland_election.35 days = 42 random_days = 40 }
 		}
 	}
 }
@@ -1319,7 +1388,7 @@ country_event = {			#Hidden event to trigger PSL campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_PSL_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_PSL_campaign
 			
-			country_event = { id = poland_election.36 days = 35 random_days = 32 }
+			country_event = { id = poland_election.36 days = 42 random_days = 32 }
 		}
 	}
 }
@@ -1333,7 +1402,7 @@ country_event = {			#Hidden event to trigger OTHER campaign
 			limit = { NOT = { has_country_flag = poland_campaign_as_OTHER_flag } has_country_flag = poland_election_campaigns_are_ongoing }
 			activate_mission = POL_OTHER_campaign
 			
-			country_event = { id = poland_election.37 days = 37 random_days = 46 }
+			country_event = { id = poland_election.37 days = 46 random_days = 46 }
 		}
 	}
 }
@@ -1712,6 +1781,136 @@ country_event = {
 		
 		set_politics = {
 			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+}
+
+
+#RIGHT forms a coalition
+country_event = {
+	id = poland_election.46
+	title = poland_election.46.t
+	desc = poland_election.46.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#Rightoids make coalition with PiS
+		name = poland_election.46.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PiS_in_power
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		if={
+			limit = { has_country_flag = POL_rightist_party_is_kukiz }
+			add_ideas = POL_PiS_kukiz_coalition
+		}
+		else={
+			add_ideas = POL_PiS_konfederacja_coalition
+		}
+		
+		set_politics = {
+			ruling_party = ultranationalist
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+
+	option = {										#Minority Gov
+		name = poland_election.46.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+
+		add_stability = -0.08
+		
+		set_politics = {
+			ruling_party = ultranationalist
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+}
+
+#LEFT forms a coalition
+country_event = {
+	id = poland_election.47
+	title = poland_election.47.t
+	desc = poland_election.47.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#LEFT forms coalition with PSL and PO
+		name = poland_election.47.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_LEFT_coalition
+		
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#Minority Gov
+		name = poland_election.44.c
+		ai_chance = { base = 0 }
+		
+		set_country_flag = PO_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+
+		add_stability = -0.08
+		
+		set_politics = {
+			ruling_party = neoliberal
 			last_election = "2015.10.25"
 			election_frequency = 48
 			elections_allowed = yes
