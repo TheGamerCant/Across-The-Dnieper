@@ -122,6 +122,17 @@ guiTypes = {
 			format = center
 		}
 
+		instantTextboxType = {
+			name = "companies_text_box"
+			position = { x = -280 y = 500 }
+			font = "hoi_36header"
+			text = "companies_txt"
+			maxWidth = 1200
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
 		iconType = {
 			name = "seperator_frame"
 			spriteType = "GFX_LIT_seperator"
@@ -193,11 +204,23 @@ guiTypes = {
 
 
 		buttonType = {
-			name = "city_company_1"
-			position = { x = 540 y = 485 }
+			name = "city_company_1_kaunas"
+			position = { x = 50 y = 535 }
 			quadTextureSprite = "GFX_idea_slot_industrial_concern"
 			buttonFont = "hoi_16mbs"
 			Orientation = "UPPER_LEFT"
+
+			scale = 1
+		}
+
+		buttonType = {
+			name = "city_company_1_vilnius"
+			position = { x = 50 y = 535 }
+			quadTextureSprite = "GFX_idea_slot_industrial_concern"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+
+			scale = 1
 		}
 	}
 
@@ -231,9 +254,10 @@ guiTypes = {
 		name = "kaunas_company_container_frame"
 		position = { x = 0 y = 0 }
 	
-		iconType = { 
+		buttonType = { 
 			name = "company_bg"
 			quadTextureSprite = "GFX_idea_entry_bg_2"
+			pdx_tooltip = "LIT_kaunas_company_tooltip"
 		}
 
 		instantTextboxType = {
@@ -252,6 +276,7 @@ guiTypes = {
 			position = { x = 15 y = 0 }
 			name = "company_icon"
 			quadTextureSprite = "[LIT_get_kaunas_company_logo]"
+			alwaystransparent = yes
 		}
 	}
 
@@ -259,9 +284,10 @@ guiTypes = {
 		name = "vilnius_company_container_frame"
 		position = { x = 0 y = 0 }
 	
-		iconType = { 
+		buttonType = { 
 			name = "company_bg_2"
 			quadTextureSprite = "GFX_idea_entry_bg_2"
+			pdx_tooltip = "LIT_company_tooltip"
 		}
 
 		instantTextboxType = {
@@ -280,6 +306,7 @@ guiTypes = {
 			position = { x = 15 y = 0 }
 			name = "company_icon_2"
 			quadTextureSprite = "[LIT_get_vilnius_company_logo]"
+			alwaystransparent = yes
 		}
 	}
 
