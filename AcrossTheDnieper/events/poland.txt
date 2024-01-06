@@ -39,7 +39,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.OTHER_popularity = 0.6 }
+				multiply_variable = { THIS.OTHER_popularity = 0.5 }
 				multiply_variable = { THIS.LEFT_popularity = 1.08 }
 				POL_make_popularities_equal_100 = yes
 			}
@@ -237,6 +237,59 @@ country_event = {
 		}
 	}
 }
+
+#Donald Tusk becomes EC president
+country_event = {
+	id = poland.5
+	title = poland.5.t
+	desc = poland.5.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_donald_tusk_eu
+	
+	immediate={
+		hidden_effect={
+			set_country_flag = POL_donald_tusk_not_available_flag
+			country_event = { id = poland.6 days = 1825 }
+			
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.PO_popularity = 0.90 }
+				multiply_variable = { THIS.PiS_popularity = 1.03 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+	}
+
+	option = {
+		name = poland.5.a
+		ai_chance = { base = 1 }
+
+		POL_make_ewa_kopacz_pm = yes
+	}
+}
+
+
+#Donald Tusk returns to Poland
+country_event = {
+	id = poland.6
+	title = poland.6.t
+	desc = poland.6.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_donald_tusk_eu
+
+	option = {
+		name = poland.6.a
+		ai_chance = { base = 1 }
+
+		clr_country_flag = POL_donald_tusk_not_available_flag
+	}
+}
+
+
+
+
 
 #Choose your party for election
 country_event = {

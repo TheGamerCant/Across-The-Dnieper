@@ -1542,8 +1542,6 @@ POL_can_government_be_formed={
 	}
 	else_if={
 		limit={ 
-			check_variable = { POL.POL_PO_seats > POL.POL_PiS_seats }
-			check_variable = { POL.POL_PO_seats > POL.POL_RIGHT_seats }
 			check_variable = { POL.POL_PO_seats > POL.POL_LEFT_seats }
 			check_variable = { POL.POL_PO_seats > POL.POL_PSL_seats }
 			
@@ -1559,10 +1557,7 @@ POL_can_government_be_formed={
 	}
 	else_if={
 		limit={ 
-			check_variable = { POL.POL_PiS_seats > POL.POL_PO_seats }
 			check_variable = { POL.POL_PiS_seats > POL.POL_RIGHT_seats }
-			check_variable = { POL.POL_PiS_seats > POL.POL_LEFT_seats }
-			check_variable = { POL.POL_PiS_seats > POL.POL_PSL_seats }
 			
 			set_temp_variable = { POL.right_coalition = POL.POL_PiS_seats }
 			add_to_temp_variable = { POL.right_coalition = POL.POL_RIGHT_seats }

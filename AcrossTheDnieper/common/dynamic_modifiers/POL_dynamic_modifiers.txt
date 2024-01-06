@@ -1,3 +1,5 @@
+#Prime Ministers
+
 POL_donald_tusk_dynamic_modifier = { 
 	enable = { has_country_flag = POL_donald_tusk_is_current_pm_flag }
 
@@ -31,4 +33,59 @@ POL_mateusz_morawiecki_dynamic_modifier = {
 	consumer_goods_factor = -0.075
 	production_factory_max_efficiency_factor = 0.1
 	production_speed_buildings_factor = 0.1
+}
+
+
+
+
+#National Spirits
+
+POL_ineffective_public_institutions_modifier = { 
+	icon = GFX_idea_POL_Ineffective_Public_Insitutions
+	enable = { always = yes }
+
+	monthly_population = POL_public_institutions_monthly_population
+	political_power_cost = POL_public_institutions_political_power_cost
+	research_speed_factor = POL_public_institutions_research_speed_factor
+	supply_consumption_factor = POL_public_institutions_supply_consumption_factor
+	experience_loss_factor = POL_public_institutions_experience_loss_factor
+	production_speed_buildings_factor = POL_public_institutions_production_speed_buildings_factor
+	stability_factor = POL_public_institutions_stability_factor
+}
+
+POL_outdated_land_forces_modifier = { 
+	icon = GFX_idea_POL_Outdated_Land_Forces
+	enable = { always = yes }
+
+	promote_cost_factor = POL_land_forces_promote_cost_factor
+	land_doctrine_cost_factor = POL_land_forces_land_doctrine_cost_factor
+	conscription_factor = POL_land_forces_conscription_factor
+	supply_consumption_factor = POL_land_forces_supply_consumption_factor
+	industrial_capacity_factory = POL_land_forces_industrial_capacity_factory
+	army_morale_factor = POL_land_forces_army_morale_factor
+}
+
+POL_outdated_navy_modifier = { 
+	icon = GFX_idea_POL_Outdated_Navy
+	enable = { always = yes }
+
+	naval_doctrine_cost_factor = POL_navy_naval_doctrine_cost_factor
+	naval_coordination = POL_navy_naval_coordination
+	naval_detection = POL_navy_naval_detection
+	spotting_chance = POL_navy_spotting_chance
+	navy_intel_factor = POL_navy_navy_intel_factor
+	army_morale_factor = POL_navy_industrial_capacity_dockyard
+}
+
+POL_outdated_air_force_modifier = { 
+	icon = GFX_idea_POL_Outdated_Airforce
+	enable = { always = yes }
+
+	air_training_xp_gain_factor = POL_air_force_air_training_xp_gain_factor
+	air_range_factor = POL_air_force_air_range_factor
+	air_superiority_efficiency = POL_air_force_air_superiority_efficiency
+	air_interception_detect_factor = POL_air_force_air_interception_detect_factor
+	air_night_penalty = POL_air_force_air_night_penalty
+	air_doctrine_cost_factor = POL_air_force_air_doctrine_cost_factor
+	air_accidents_factor = POL_air_force_air_accidents_factor
 }

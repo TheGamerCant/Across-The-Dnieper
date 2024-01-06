@@ -31,6 +31,45 @@ if = {
 	}
 }
 
+set_variable = { POL_public_institutions_monthly_population = -0.2 }
+set_variable = { POL_public_institutions_political_power_cost = 0.2 }
+set_variable = { POL_public_institutions_research_speed_factor = -0.08 }
+set_variable = { POL_public_institutions_supply_consumption_factor = 0.04 }
+set_variable = { POL_public_institutions_experience_loss_factor = 0.2 }
+set_variable = { POL_public_institutions_production_speed_buildings_factor = -0.12 }
+set_variable = { POL_public_institutions_stability_factor = -0.2 }
+
+add_dynamic_modifier = { modifier = POL_ineffective_public_institutions_modifier }
+
+
+set_variable = { POL_land_forces_promote_cost_factor = 1 }
+set_variable = { POL_land_forces_land_doctrine_cost_factor = 0.5 }
+set_variable = { POL_land_forces_conscription_factor = -0.25 }
+set_variable = { POL_land_forces_supply_consumption_factor = 0.2 }
+set_variable = { POL_land_forces_industrial_capacity_factory = -0.2 }
+set_variable = { POL_land_forces_army_morale_factor = -0.08 }
+
+add_dynamic_modifier = { modifier = POL_outdated_land_forces_modifier }
+
+
+set_variable = { POL_navy_naval_doctrine_cost_factor = 0.50 }
+set_variable = { POL_navy_naval_coordination = -0.08 }
+set_variable = { POL_navy_naval_detection = -0.09 }
+set_variable = { POL_navy_spotting_chance = -0.05 }
+set_variable = { POL_navy_navy_intel_factor = -0.16 }
+set_variable = { POL_navy_industrial_capacity_dockyard = -0.32 }
+
+add_dynamic_modifier = { modifier = POL_outdated_navy_modifier }
+
+set_variable = { POL_air_force_air_training_xp_gain_factor = -0.2 }
+set_variable = { POL_air_force_air_range_factor = -0.15 }
+set_variable = { POL_air_force_air_superiority_efficiency = -0.08 }
+set_variable = { POL_air_force_air_interception_detect_factor = -0.08 }
+set_variable = { POL_air_force_air_night_penalty = 0.15 }
+set_variable = { POL_air_force_air_doctrine_cost_factor = 0.5 }
+set_variable = { POL_air_force_air_accidents_factor = 0.33 }
+
+add_dynamic_modifier = { modifier = POL_outdated_air_force_modifier }
 
 create_country_leader = {
 	name = "Bronisław Komorowski"
@@ -85,12 +124,8 @@ add_ai_strategy = {
 add_ideas = {
 	eu_member
 	SLO_visegrad_member
-
-	POL_ineffective_public_insitutions
-        POL_recovered_territories
-	POL_outdated_airforce
-	POL_outdated_navy
-	POL_outdated_land_forces
+	
+#	POL_recovered_territories			#missing GFX
 	
 	POL_PO_PSL_coalition
 	
@@ -104,7 +139,7 @@ add_ideas = {
 	religion_law_religious
 	womens_rights_traditional_values
 	lgbtq_rights_tolerated
-	minority_rights_legal_protections
+	minority_rights_full_equality
 	nationalism_laws_interventionist
 	firearm_laws_restricted
 	alchohol_narcotics_laws_largely_regulated
