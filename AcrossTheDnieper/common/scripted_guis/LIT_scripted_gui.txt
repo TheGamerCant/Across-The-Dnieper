@@ -1,4 +1,88 @@
 scripted_gui = {
+	LIT_municipality_idea_gui = {
+		window_name = "city_ideas_window"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = LIT_has_opened_municipality_ideas_view_flag
+			tag = LIT
+		}
+
+		effects={
+			close_click = {
+				clr_country_flag = LIT_has_opened_municipality_ideas_view_flag
+			}
+		}
+
+		dynamic_lists = {
+			kaunas_company_container_frame = {
+				array = kaunas_companies_array
+				change_scope = no
+				entry_container = kaunas_company_container_frame
+
+				index = company_idx
+			}
+
+			vilnius_company_container_frame = {
+				array = vilnius_companies_array
+				change_scope = no
+				entry_container = vilnius_company_container_frame
+
+				index = company_idx_2
+			}
+		}
+
+		properties = {
+			company_icon = {
+				image = "[LIT_get_kaunas_company_logo]"
+			}
+
+			company_icon_2 = {
+				image = "[LIT_get_vilnius_company_logo]"
+			}
+		}
+
+		triggers = {
+			company_bg_visible = {
+				AND = {
+					has_country_flag = LIT_kaunas_city_selected
+					NOT = { has_country_flag = LIT_vilnius_city_selected }
+				}
+			}
+			company_name_visible = {
+				AND = {
+					has_country_flag = LIT_kaunas_city_selected
+					NOT = { has_country_flag = LIT_vilnius_city_selected }
+				}
+			}
+			company_icon_visible = {
+				AND = {
+					has_country_flag = LIT_kaunas_city_selected
+					NOT = { has_country_flag = LIT_vilnius_city_selected }
+				}
+			}
+
+			company_bg_2_visible = {
+				AND = {
+					has_country_flag = LIT_vilnius_city_selected
+					NOT = { has_country_flag = LIT_kaunas_city_selected }
+				}
+			}
+			company_name_2_visible = {
+				AND = {
+					has_country_flag = LIT_vilnius_city_selected
+					NOT = { has_country_flag = LIT_kaunas_city_selected }
+				}
+			}
+			company_icon_2_visible = {
+				AND = {
+					has_country_flag = LIT_vilnius_city_selected
+					NOT = { has_country_flag = LIT_kaunas_city_selected }
+				}
+			}
+		}
+	}
+
 	LIT_municipality_button = {
 		window_name = "LIT_municipality_gui_button"
 		context_type = player_context
@@ -96,6 +180,10 @@ scripted_gui = {
 				clr_country_flag = LIT_vilnius_city_selected
 				clr_country_flag = LIT_kaunas_city_selected
 			}
+
+			city_company_1_click = {
+				set_country_flag = LIT_has_opened_municipality_ideas_view_flag
+			}
 		}
 
 		triggers={
@@ -125,6 +213,12 @@ scripted_gui = {
 			}
 			select_city_text_box_visible={
 				NOT = {
+					has_country_flag = LIT_kaunas_city_selected
+					has_country_flag = LIT_vilnius_city_selected
+				}
+			}
+			city_company_1_visible = {
+				OR = {
 					has_country_flag = LIT_kaunas_city_selected
 					has_country_flag = LIT_vilnius_city_selected
 				}

@@ -121,12 +121,25 @@ LIT_get_vilnius_seats={
 	set_temp_variable = { t4 = LIT_vilnius_darbo_partija_seats }
 	set_temp_variable = { t5 = LIT_vilnius_lenku_akcijos_seats }
 	set_temp_variable = { t6 = LIT_vilnius_tvarka_ir_teisingumas_seats }
+	set_temp_variable = { t7 = LIT_vilnius_laisves_partija_seats }
+	set_temp_variable = { t8 = 51 }
 	
 	add_to_temp_variable = { t2 = t1 }
 	add_to_temp_variable = { t3 = t2 }
 	add_to_temp_variable = { t4 = t3 }
 	add_to_temp_variable = { t5 = t4 }
 	add_to_temp_variable = { t6 = t5 }
+	add_to_temp_variable = { t7 = t6 }
+	add_to_temp_variable = { t8 = t7 }
+
+	set_variable = { LIT_vilnius_other_party_seats = 51 }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_tslkd_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_socialdemocrat_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_arturo_zuoko_koalicija_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_darbo_partija_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_lenku_akcijos_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_tvarka_ir_teisingumas_seats }
+	subtract_from_variable = { LIT_vilnius_other_party_seats = LIT_vilnius_laisves_partija_seats }
 
 	clear_array = city_council_array_2
 
@@ -160,4 +173,34 @@ LIT_get_vilnius_seats={
 		value = 5
 		size = t6
 	}
+	resize_array = {
+		array = city_council_array_2
+		value = 4
+		size = t7
+	}
+	resize_array = {
+		array = city_council_array_2
+		value = 7
+		size = t8
+	}
+
+	
+}
+
+LIT_setup_city_companies = {
+	clear_array = kaunas_companies_array
+
+	add_to_array = { kaunas_companies_array = "LIT_kaunas_company_audimas" }
+	add_to_array = { kaunas_companies_array = "LIT_kaunas_company_sanitas" }
+	add_to_array = { kaunas_companies_array = "LIT_kaunas_company_silas" }
+	add_to_array = { kaunas_companies_array = "LIT_kaunas_company_stumbras" }
+	add_to_array = { kaunas_companies_array = "LIT_kaunas_company_volfas_engelman" }
+
+	clear_array = vilnius_companies_array
+
+	add_to_array = { vilnius_companies_array = "LIT_vilnius_company_aibe" }
+	add_to_array = { vilnius_companies_array = "LIT_vilnius_company_air_lituanica" }
+	add_to_array = { vilnius_companies_array = "LIT_vilnius_company_iki" }
+	add_to_array = { vilnius_companies_array = "LIT_vilnius_company_maxima" }
+	add_to_array = { vilnius_companies_array = "LIT_vilnius_company_telia" }
 }

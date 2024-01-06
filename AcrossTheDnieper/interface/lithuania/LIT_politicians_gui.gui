@@ -113,7 +113,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "council_text_box"
-			position = { x = 210 y = 500 }
+			position = { x = 210 y = 550 }
 			font = "hoi_36header"
 			text = "municipal_council"
 			maxWidth = 1200
@@ -190,6 +190,15 @@ guiTypes = {
 			vertical_alignment = center
 			alwaystransparent = yes
 		}
+
+
+		buttonType = {
+			name = "city_company_1"
+			position = { x = 540 y = 485 }
+			quadTextureSprite = "GFX_idea_slot_industrial_concern"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+		}
 	}
 
 	containerWindowType = {
@@ -215,5 +224,157 @@ guiTypes = {
 
 			pdx_tooltip = "LIT_vilnius_seat_party_tt"
 		}
+	}
+
+
+	containerWindowType = {
+		name = "kaunas_company_container_frame"
+		position = { x = 0 y = 0 }
+	
+		iconType = { 
+			name = "company_bg"
+			quadTextureSprite = "GFX_idea_entry_bg_2"
+		}
+
+		instantTextboxType = {
+			name = "company_name"
+			position = { x = 50 y = 15 }
+			font = "hoi_20b"
+			text = "LIT_kaunas_get_company_tt"
+			maxWidth = 220
+			maxHeight = 36
+			format = center
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+
+		iconType = { 
+			position = { x = 15 y = 0 }
+			name = "company_icon"
+			quadTextureSprite = "[LIT_get_kaunas_company_logo]"
+		}
+	}
+
+	containerWindowType = {
+		name = "vilnius_company_container_frame"
+		position = { x = 0 y = 0 }
+	
+		iconType = { 
+			name = "company_bg_2"
+			quadTextureSprite = "GFX_idea_entry_bg_2"
+		}
+
+		instantTextboxType = {
+			name = "company_name_2"
+			position = { x = 50 y = 15 }
+			font = "hoi_20b"
+			text = "LIT_vilnius_get_company_tt"
+			maxWidth = 220
+			maxHeight = 36
+			format = center
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+
+		iconType = { 
+			position = { x = 15 y = 0 }
+			name = "company_icon_2"
+			quadTextureSprite = "[LIT_get_vilnius_company_logo]"
+		}
+	}
+
+
+	containerWindowType = {
+		name = "city_ideas_window"
+		position = { x = -356 y = 100 }	
+		show_position = { x = 540 y = 100 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		size = { width=500 height=590 }
+		show_sound = open_sub_window
+		moveable = yes
+		
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_plain_bg"
+		}
+		
+		instantTextboxType = {
+			name = "title"
+			position = { x = 0 y = 4 }
+			font = "hoi_20b"
+			text = ""
+			maxWidth = 450
+			maxHeight = 20
+			format = center
+		}
+		containerWindowType = {
+			name = "ideas"
+			position = { x = 0 y = 50 }
+			size = { width=500 height=100%% }	
+			
+			containerWindowType = {
+				name = "grid"
+				position = { x = 0 y = -8 }
+				size = { width=500 height=-4 }
+				verticalScrollbar = "right_vertical_slider"
+				scroll_wheel_factor = 37
+				smooth_scrolling = yes
+				margin = { top = 4 bottom = 12}	
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_1b_border"
+				}
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
+					position = { x = -1 y = 0 }					
+				}
+
+				gridBoxType = {
+					name = "kaunas_company_container_frame"
+					position = { x = 10 y = 10 }
+					size = { width = 500 height = 1 }
+					slotsize = { width = 231 height = 74 }
+					max_slots_horizontal = 2
+					add_horizontal = yes
+					format = "UPPER_LEFT"
+				}
+
+				gridBoxType = {
+					name = "vilnius_company_container_frame"
+					position = { x = 10 y = 10 }
+					size = { width = 500 height = 1 }
+					slotsize = { width = 231 height = 74 }
+					max_slots_horizontal = 2
+					add_horizontal = yes
+					format = "UPPER_LEFT"
+				}
+
+				gridBoxType = {
+					name = "box_list"
+					position = { x = 10 y = 10 }
+					size = { width = 500 height = 1 }
+					slotsize = { width = 462 height = 74 }
+					add_horizontal = no
+					format = "UPPER_LEFT"
+				}
+			}
+		}
+		
+		buttonType = {
+			name = "close"
+			position = { x = -50 y = 5 }
+			quadTextureSprite ="GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
 	}
 }
