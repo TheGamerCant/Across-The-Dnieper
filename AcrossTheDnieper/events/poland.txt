@@ -101,7 +101,14 @@ country_event = {
 
 		set_country_flag = Duda_PiS_candidate_flag
 		
-		add_stability = 0.02
+		custom_effect_tooltip = POL_increase_PiS_popularity_tt
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.PiS_popularity = 1.16 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
 	}
 	
 	option = {			#Jarosław Kaczyński
@@ -110,15 +117,15 @@ country_event = {
 
 		set_country_flag = Kaczynski_PiS_candidate_flag
 		
-		custom_effect_tooltip = kaczynski_not_very_popular_tt
-		
-		hidden_effect={
-			every_state={
-				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PiS_popularity = 0.94 }
-				POL_make_popularities_equal_100 = yes
-			}
-		}
+#		custom_effect_tooltip = kaczynski_not_very_popular_tt
+#		
+#		hidden_effect={
+#			every_state={
+#				limit = { POL_is_election_state = yes }
+#				multiply_variable = { THIS.PiS_popularity = 0.94 }
+#				POL_make_popularities_equal_100 = yes
+#			}
+#		}
 	}
 }
 
@@ -272,7 +279,11 @@ country_event = {
 			every_state={
 				limit = { POL_is_election_state = yes }
 				multiply_variable = { THIS.PO_popularity = 0.90 }
-				multiply_variable = { THIS.PiS_popularity = 1.03 }
+				multiply_variable = { THIS.PiS_popularity = 1.04 }
+				if={
+					limit = { NOT = { has_country_flag = poland_campaign_as_LEFT_flag } }
+					multiply_variable = { THIS.LEFT_popularity = 0.6 }		#hidden to make PiS more likely to win
+				}
 				POL_make_popularities_equal_100 = yes
 			}
 		}
