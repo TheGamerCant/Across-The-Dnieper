@@ -175,3 +175,33 @@ country_event = {
 		if = { limit = { OR={ has_government = eastern_conservative is_puppet_of = SOV } NOT = { has_cosmetic_tag = NOV_russian_puppet } } hidden_effect = { set_cosmetic_tag = NOV_saltire } }
 	}
 }
+
+#Poland
+country_event = {
+	id = flag_events.7
+	title = flag_events.7.t
+	desc = flag_events.7.desc
+	is_triggered_only = yes
+
+	option = { 
+		name = flag_events.7.a
+		ai_chance = {
+			base = 10
+		}
+		if = { limit = { is_subject = no } hidden_effect = { set_cosmetic_tag = POL_white_red } }
+	}
+	option = { 
+		name = flag_events.7.b
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no } hidden_effect = { set_cosmetic_tag = POL_eagle } }
+	}
+	option = { 
+		name = flag_events.7.c
+		ai_chance = {
+			base = 0
+		}
+		if = { limit = { is_subject = no } hidden_effect = { set_cosmetic_tag = POL_coa } }
+	}
+}
