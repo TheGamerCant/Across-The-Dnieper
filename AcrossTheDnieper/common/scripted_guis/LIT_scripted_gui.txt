@@ -261,16 +261,29 @@ scripted_gui = {
 
 		effects={
 			LIT_municipality_kaunas_click = {
-				clr_country_flag = LIT_vilnius_city_selected
-				set_country_flag = LIT_kaunas_city_selected
+				if = {
+					limit = { 4 = { is_controlled_by = LIT } }
 
-				LIT_get_kaunas_seats = yes
+					clr_country_flag = LIT_vilnius_city_selected
+					set_country_flag = LIT_kaunas_city_selected
+	
+					LIT_get_kaunas_seats = yes
+				}
+
 			}
 			LIT_municipality_vilnius_click = {
-				clr_country_flag = LIT_kaunas_city_selected
-				set_country_flag = LIT_vilnius_city_selected
+				if = {
+					limit = { 6 = { is_controlled_by = LIT } }
 
-				LIT_get_vilnius_seats = yes
+					clr_country_flag = LIT_kaunas_city_selected
+					set_country_flag = LIT_vilnius_city_selected
+	
+					LIT_get_vilnius_seats = yes
+				}
+			}
+
+			kaunas_promote_construction_button_click = {
+				LIT_add_funds_modifier = yes
 			}
 
 			close_button_click = {
@@ -324,6 +337,18 @@ scripted_gui = {
 				}
 			}
 			companies_text_box_visible={
+				OR = {
+					has_country_flag = LIT_kaunas_city_selected
+					has_country_flag = LIT_vilnius_city_selected
+				}
+			}
+			kaunas_promote_construction_button_visible={
+				OR = {
+					has_country_flag = LIT_kaunas_city_selected
+					has_country_flag = LIT_vilnius_city_selected
+				}
+			}
+			kaunas_promote_construction_txt_visible={
 				OR = {
 					has_country_flag = LIT_kaunas_city_selected
 					has_country_flag = LIT_vilnius_city_selected

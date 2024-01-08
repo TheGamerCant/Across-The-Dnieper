@@ -771,7 +771,7 @@ defined_text = {
             }
 			
         }
-        localization_key = ""
+        localization_key = "promote_company"
     }
 }
 
@@ -919,7 +919,7 @@ defined_text = {
             }
 			
         }
-        localization_key = ""
+        localization_key = "promote_company"
     }
 }
 
@@ -969,5 +969,40 @@ defined_text = {
 			
         }
         localization_key = ""
+    }
+}
+
+defined_text = {
+	name = LIT_get_selected_city_name
+
+	text = {
+        trigger = {
+			has_country_flag = LIT_vilnius_city_selected
+        }
+        localization_key = "vilnius_city_name"
+    }
+	text = {
+        trigger = {
+			has_country_flag = LIT_kaunas_city_selected
+        }
+        localization_key = "kaunas_city_name"
+    }
+}
+
+defined_text = {
+    name = LIT_has_recently_did_local_construction
+	
+    text = {
+        trigger = {
+			NOT = { has_country_flag = LIT_has_recently_did_local_construction_flag }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+        trigger = {
+			has_country_flag = LIT_has_recently_did_local_construction_flag 
+        }
+       localization_key = "texticon_cross"
     }
 }
