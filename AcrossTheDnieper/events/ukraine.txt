@@ -4339,7 +4339,7 @@ country_event = { #Ghost of kyiv
 
 	immediate = {
 		hidden_effect = {
-			news_event = { days = 2 id = atd_news.66 }
+			news_event = { hours = 2 id = atd_news.66 }
 
 			country_event = { id = ukraine.121 days = 65 }
 		}
@@ -4420,6 +4420,14 @@ country_event = { #Minor weapons shipment
 
 	option = { 
 		name = ukraine.122.a
+
+		hidden_effect = {
+			random = {
+                chance = 12
+
+                country_event = { id = ukraine.125 hours = 2 }
+            }
+		}
 		
 		set_temp_variable_to_random = {
 			var = UKR_nato_guns_gained
@@ -4528,7 +4536,15 @@ country_event = { #Good weapons shipment
 
 	option = { 
 		name = ukraine.123.a
-		
+
+		hidden_effect = {
+			random = {
+                chance = 12
+
+                country_event = { id = ukraine.125 hours = 2 }
+            }
+		}
+
 		set_temp_variable_to_random = {
 			var = UKR_nato_guns_gained
 			min = 1000
@@ -4678,6 +4694,14 @@ country_event = { #Substantial weapons shipment
 
 	option = { 
 		name = ukraine.124.a
+
+		hidden_effect = {
+			random = {
+                chance = 12
+
+                country_event = { id = ukraine.125 hours = 2 }
+            }
+		}
 		
 		set_temp_variable_to_random = {
 			var = UKR_nato_guns_gained
@@ -4798,6 +4822,86 @@ country_event = { #Substantial weapons shipment
 				type = t_72_equipment
 				amount = var:UKR_nato_T_72s_gained
 			}
+		}
+	}
+}
+
+country_event = { #Some western equipment stolen
+	id = ukraine.125
+	title = ukraine.125.t
+	desc = ukraine.125.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_weapons
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.125.a
+
+		set_temp_variable_to_random = {
+			var = UKR_nato_guns_lost
+			min = -200
+			max = -80
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_aa_lost
+			min = -50
+			max = -20
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_at_lost
+			min = -50
+			max = -10
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_support_equipment_lost
+			min = -150
+			max = -70
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_artillery_lost
+			min = -140
+			max = -50
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_trucks_lost
+			min = -100
+			max = -50
+			integer = yes
+		}
+
+
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_1
+			amount = var:UKR_nato_guns_lost
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_air_equipment_1
+			amount = var:UKR_nato_aa_lost
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_tank_equipment_1
+			amount = var:UKR_nato_at_lost
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment_1
+			amount = var:UKR_nato_support_equipment_lost
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment_2
+			amount = var:UKR_nato_artillery_lost
+
+		}
+		add_equipment_to_stockpile = { 
+			type = motorized_equipment_1
+			amount = var:UKR_nato_trucks_lost
 		}
 	}
 }
