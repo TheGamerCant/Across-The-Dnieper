@@ -4382,3 +4382,422 @@ country_event = { #Ghost of kyiv proved to be a myth
 		}
 	}
 }
+
+country_event = { #Minor weapons shipment
+	id = ukraine.122
+	title = ukraine.122.t
+	desc = ukraine.122.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_western_weapons
+
+	immediate={
+		hidden_effect={
+			if={
+				limit = { SOV = { has_war_with = UKR } }
+				if={
+					limit={
+						OR={
+							UKR = { is_ai = yes }
+							has_global_flag = russia_ukraine_war_less_than_one_year
+						}
+					}
+					random_list={
+						10 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						60 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						30 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+				else={
+					random_list={
+						40 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						40 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						20 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = ukraine.122.a
+		
+		set_temp_variable_to_random = {
+			var = UKR_nato_guns_gained
+			min = 400
+			max = 900
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_aa_gained
+			min = 50
+			max = 100
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_at_gained
+			min = 50
+			max = 100
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_support_equipment_gained
+			min = 150
+			max = 300
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_artillery_gained
+			min = 140
+			max = 275
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_trucks_gained
+			min = 100
+			max = 200
+			integer = yes
+		}
+		
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_1
+			amount = var:UKR_nato_guns_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_air_equipment_1
+			amount = var:UKR_nato_aa_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_tank_equipment_1
+			amount = var:UKR_nato_at_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment_1
+			amount = var:UKR_nato_support_equipment_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment_2
+			amount = var:UKR_nato_artillery_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = motorized_equipment_1
+			amount = var:UKR_nato_trucks_gained
+			producer = NAT
+		}
+	}
+}
+
+country_event = { #Good weapons shipment
+	id = ukraine.123
+	title = ukraine.123.t
+	desc = ukraine.123.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_western_weapons
+
+	immediate={
+		hidden_effect={
+			if={
+				limit = { SOV = { has_war_with = UKR } }
+				if={
+					limit={
+						OR={
+							UKR = { is_ai = yes }
+							has_global_flag = russia_ukraine_war_less_than_one_year
+						}
+					}
+					random_list={
+						10 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						60 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						30 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+				else={
+					random_list={
+						40 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						40 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						20 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = ukraine.123.a
+		
+		set_temp_variable_to_random = {
+			var = UKR_nato_guns_gained
+			min = 1000
+			max = 2300
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_aa_gained
+			min = 100
+			max = 210
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_at_gained
+			min = 100
+			max = 210
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_support_equipment_gained
+			min = 400
+			max = 800
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_artillery_gained
+			min = 140
+			max = 275
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_trucks_gained
+			min = 250
+			max = 500
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_mechanised_gained
+			min = 5
+			max = 10
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_apcs_gained
+			min = 10
+			max = 20
+			integer = yes
+		}
+		
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_2
+			amount = var:UKR_nato_guns_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_air_equipment_1
+			amount = var:UKR_nato_aa_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_tank_equipment_2
+			amount = var:UKR_nato_at_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment_1
+			amount = var:UKR_nato_support_equipment_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment_3
+			amount = var:UKR_nato_artillery_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = motorized_equipment_1
+			amount = var:UKR_nato_trucks_gained
+			producer = NAT
+		}
+		
+		add_equipment_to_stockpile = { 
+			type = mechanized_equipment_2
+			amount = var:UKR_nato_mechanised_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = apc_equipment_2
+			amount = var:UKR_nato_apcs_gained
+			producer = NAT
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_T_72s_gained
+			min = 20
+			max = 45
+			integer = yes
+		}
+		
+		if={
+			limit={
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = { type = t72_chasis amount = var:UKR_nato_T_72s_gained variant_name = "T-72b" }
+		}	
+		else={	
+			add_equipment_to_stockpile = {
+				type = t_72_equipment
+				amount = var:UKR_nato_T_72s_gained
+			}
+		}
+	}
+}
+
+country_event = { #Substantial weapons shipment
+	id = ukraine.124
+	title = ukraine.124.t
+	desc = ukraine.124.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_western_weapons
+
+	immediate={
+		hidden_effect={
+			if={
+				limit = { SOV = { has_war_with = UKR } }
+				if={
+					limit={
+						OR={
+							UKR = { is_ai = yes }
+							has_global_flag = russia_ukraine_war_less_than_one_year
+						}
+					}
+					random_list={
+						10 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						60 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						30 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+				else={
+					random_list={
+						40 = { country_event = { id = ukraine.122 days = 30 random_days = 30 } }
+						40 = { country_event = { id = ukraine.123 days = 30 random_days = 30 } }
+						20 = { country_event = { id = ukraine.124 days = 30 random_days = 30 } }
+					}
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = ukraine.124.a
+		
+		set_temp_variable_to_random = {
+			var = UKR_nato_guns_gained
+			min = 1800
+			max = 2500
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_aa_gained
+			min = 180
+			max = 300
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_at_gained
+			min = 180
+			max = 300
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_support_equipment_gained
+			min = 750
+			max = 1000
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_artillery_gained
+			min = 250
+			max = 450
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_trucks_gained
+			min = 400
+			max = 700
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_mechanised_gained
+			min = 10
+			max = 25
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_apcs_gained
+			min = 25
+			max = 45
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_leopards_gained
+			min = 20
+			max = 50
+			integer = yes
+		}
+		set_temp_variable_to_random = {
+			var = UKR_nato_T_72s_gained
+			min = 40
+			max = 100
+			integer = yes
+		}
+		
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_3
+			amount = var:UKR_nato_guns_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_air_equipment_2
+			amount = var:UKR_nato_aa_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_anti_tank_equipment_3
+			amount = var:UKR_nato_at_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = support_equipment_1
+			amount = var:UKR_nato_support_equipment_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = artillery_equipment_3
+			amount = var:UKR_nato_artillery_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = motorized_equipment_1
+			amount = var:UKR_nato_trucks_gained
+			producer = NAT
+		}
+		
+		add_equipment_to_stockpile = { 
+			type = mechanized_equipment_2
+			amount = var:UKR_nato_mechanised_gained
+			producer = NAT
+		}
+		add_equipment_to_stockpile = { 
+			type = apc_equipment_3
+			amount = var:UKR_nato_apcs_gained
+			producer = NAT
+		}
+		
+		if={
+			limit={
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = { type = leopard2_chassis amount = var:UKR_nato_leopards_gained variant_name = "Leopard 2" }
+			add_equipment_to_stockpile = { type = t72_chasis amount = var:UKR_nato_T_72s_gained variant_name = "T-72b" }
+		}	
+		else={	
+			add_equipment_to_stockpile = {
+				type = leopard_2_equipment
+				amount = var:UKR_nato_leopards_gained
+			}
+			add_equipment_to_stockpile = {
+				type = t_72_equipment
+				amount = var:UKR_nato_T_72s_gained
+			}
+		}
+	}
+}

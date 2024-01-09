@@ -163,6 +163,62 @@ on_actions={
 					}
 				}
 			}
+			
+			#EQUIPMENT STUFF
+			UKR={
+				if={
+					limit = { has_start_date < 2022.01.01 is_ai = no SOV = { is_ai = yes } } 
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = -2000
+					}
+					add_equipment_to_stockpile = { 
+						type = artillery_equipment_1
+						amount = -200
+					}
+					add_equipment_to_stockpile = { 
+						type = support_equipment_1
+						amount = -200
+					}
+				}
+				else_if={
+					limit = { has_start_date < 2022.01.01 is_ai = yes SOV = { is_ai = no } } 
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = -4200
+					}
+					add_equipment_to_stockpile = { 
+						type = artillery_equipment_1
+						amount = -400
+					}
+					add_equipment_to_stockpile = { 
+						type = support_equipment_1
+						amount = -400
+					}
+				}
+				else_if={
+					limit = { has_start_date > 2022.01.01 is_ai = no SOV = { is_ai = yes } } 
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = -1800
+					}
+				}
+				else_if={
+					limit = { has_start_date > 2022.01.01 is_ai = yes SOV = { is_ai = no } } 
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = -4500
+					}
+					add_equipment_to_stockpile = { 
+						type = artillery_equipment_1
+						amount = -800
+					}
+					add_equipment_to_stockpile = { 
+						type = support_equipment_1
+						amount = -800
+					}
+				}
+			}
 		}
 	}
 	
