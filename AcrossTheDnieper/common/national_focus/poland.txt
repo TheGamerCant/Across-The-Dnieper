@@ -1,24 +1,26 @@
 focus_tree = {
 	id = polish_focus
-	continuous_focus_position = { x = 1000 y = 25 }
+	continuous_focus_position = { x = 2000 y = 25 }
 
 	country = {
 		factor = 0
-#		modifier = {
-#			add = 10
-#			tag = POL
-#		}
+		modifier = {
+			add = 10
+			tag = POL
+		}
 	}
 
 	
 	focus = {
-		id = POL_crossroads_of_europe
-		icon = GFX_
-		x = 7
+		id = POL_seven_years_of_PO
+		icon = GFX_POL_
+		x = 5
 		y = 0
 		cost = 40
 
-		ai_will_do = { factor = 10 }
+		ai_will_do = { 
+			factor = 10 
+		}
 
 		available = {
 		}
@@ -26,8 +28,40 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = POL_crossroads_of_europe
+			country_event = { id = poland.10 hours = 3 }
 		}
 	}
+	
+	shared_focus = POL_the_need_for_NATO
+}
 
+shared_focus = {
+	id = POL_the_need_for_NATO
+	icon = GFX_POL_
+	x = 5
+	y = 7
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			NOT = { has_country_flag = POL_its_all_chill_in_da_hood }
+		}
+	}
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_war_support = 0.05
+	}
 }
