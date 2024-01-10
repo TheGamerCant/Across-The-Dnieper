@@ -32,3 +32,55 @@ POL_make_mateusz_morawiecki_pm={
 	
 	custom_effect_tooltip = POL_make_mateusz_morawiecki_pm_tt
 }
+
+POL_clear_PO_party_leader_flags={
+	clr_country_flag = POL_donald_tusk_is_PO_leader
+	clr_country_flag = POL_ewa_kopacz_is_PO_leader
+}
+POL_clear_PiS_party_leader_flags={
+	clr_country_flag = POL_beata_szydlo_is_PiS_leader
+	clr_country_flag = POL_mateusz_morawiecki_is_PiS_leader
+}
+POL_clear_RIGHT_party_leader_flags={
+	clr_country_flag = POL_pawel_kukiz_is_RIGHT_leader
+}
+POL_clear_LEFT_party_leader_flags={
+	clr_country_flag = POL_leszek_miller_is_LEFT_leader
+}
+POL_clear_PSL_party_leader_flags={
+	clr_country_flag = POL_janus_piechocinski_is_PSL_leader
+}
+
+POL_make_PO_government={
+	set_politics = {
+		ruling_party = neoliberal
+		last_election = "2015.10.25"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	
+	if={
+		limit = { has_country_flag = POL_donald_tusk_is_PO_leader }
+		POL_make_donald_tusk_pm = yes
+	}
+	else={
+		POL_make_ewa_kopacz_pm = yes
+	}
+}
+
+POL_make_PiS_government={
+	set_politics = {
+		ruling_party = neoconservative
+		last_election = "2015.10.25"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	
+	if={
+		limit = { has_country_flag = POL_beata_szydlo_is_PO_leader }
+		POL_make_beata_szydlo_pm = yes
+	}
+	else={
+		POL_make_mateusz_morawiecki_pm = yes
+	}
+}

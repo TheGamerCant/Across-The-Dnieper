@@ -1500,7 +1500,7 @@ POL_remove_government_ideas={
 }
 
 POL_can_government_be_formed={
-	if={
+	if={			#PO absolute majority
 		limit={ 
 			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
 			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
@@ -1508,7 +1508,7 @@ POL_can_government_be_formed={
 		}
 		country_event = poland_election.39
 	}
-	else_if={
+	else_if={		#PiS absolute majority
 		limit={ 
 			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
 			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
@@ -1516,7 +1516,7 @@ POL_can_government_be_formed={
 		}
 		country_event = poland_election.40
 	}
-	else_if={
+	else_if={		#RIGHT absolute majority
 		limit={ 
 			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
 			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
@@ -1524,7 +1524,7 @@ POL_can_government_be_formed={
 		}
 		country_event = poland_election.41
 	}
-	else_if={
+	else_if={		#LEFT absolute majority
 		limit={ 
 			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
 			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
@@ -1532,7 +1532,7 @@ POL_can_government_be_formed={
 		}
 		country_event = poland_election.42
 	}
-	else_if={
+	else_if={		#PSL absolute majority
 		limit={ 
 			set_temp_variable = { POL_seats_nedded_for_majority = POL_sejm_seat_count }
 			divide_temp_variable = { POL_seats_nedded_for_majority = 2 }
@@ -1540,7 +1540,7 @@ POL_can_government_be_formed={
 		}
 		country_event = poland_election.43
 	}
-	else_if={
+	else_if={		#PO, LEFT and PSL combined have a majority
 		limit={ 	
 			set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
 			add_to_temp_variable = { POL.center_coalition = POL.POL_LEFT_seats }
@@ -1551,25 +1551,25 @@ POL_can_government_be_formed={
 			check_variable = { var = POL.center_coalition value = POL_seats_nedded_for_majority compare = greater_than }
 		}
 		
-		if={
+		if={		#PO leads the coalition
 			limit = { 
 				check_variable = { var = POL.POL_PO_seats value = POL.POL_PSL_seats compare = greater_than_or_equals }
 				check_variable = { var = POL.POL_PO_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals }
 			}
 			country_event = poland_election.44
 		}
-		else_if={
+		else_if={	#PSL leads the coalition
 			limit = { 
 				check_variable = { var = POL.POL_PSL_seats value = POL.POL_PO_seats compare = greater_than_or_equals }
 				check_variable = { var = POL.POL_PSL_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals }
 			}
 			country_event = poland_election.48
 		}
-		else={
+		else={		#LEFT leads the coalition
 			country_event = poland_election.47
 		}
 	}
-	else_if={
+	else_if={		#PiS and RIGHT combined have a majority
 		limit={ 
 			set_temp_variable = { POL.right_coalition = POL.POL_PiS_seats }
 			add_to_temp_variable = { POL.right_coalition = POL.POL_RIGHT_seats }	
@@ -1578,12 +1578,55 @@ POL_can_government_be_formed={
 			check_variable = { var = POL.right_coalition value = POL_seats_nedded_for_majority compare = greater_than }
 		}
 		
-		if={
+		if={		#PiS leads the coalition
 			limit = { check_variable = { var = POL.POL_PiS_seats value = POL.POL_RIGHT_seats compare = greater_than_or_equals } }
 			country_event = poland_election.45
 		}
-		else={		
+		else={		#RIGHT leads the coalition
 			country_event = poland_election.46
+		}
+	}
+	else={			#Hung parliament
+		if={
+			limit={
+				set_temp_variable = { POL.center_coalition = POL.POL_PO_seats }
+				add_to_temp_variable = { POL.center_coalition = POL.POL_LEFT_seats }
+				add_to_temp_variable = { POL.center_coalition = POL.POL_PSL_seats }
+				
+				set_temp_variable = { POL.right_coalition = POL.POL_PiS_seats }
+				add_to_temp_variable = { POL.right_coalition = POL.POL_RIGHT_seats }
+				
+				check_variable = { var = POL.center_coalition value = POL.right_coalition compare = greater_than_or_equals }
+			}
+			
+			if={		#PO tries to form government
+				limit = { 
+					check_variable = { var = POL.POL_PO_seats value = POL.POL_PSL_seats compare = greater_than_or_equals }
+					check_variable = { var = POL.POL_PO_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals }
+				}
+				country_event = poland_election.49
+			}
+			else_if={	#PSL tries to form government
+				limit = { 
+					check_variable = { var = POL.POL_PSL_seats value = POL.POL_PO_seats compare = greater_than_or_equals }
+					check_variable = { var = POL.POL_PSL_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals }
+				}
+				country_event = poland_election.53
+			}
+			else={		#LEFT tries to form government
+				country_event = poland.52
+			}
+		}
+		else={
+			if={		#PiS tries to form government
+				limit = { 
+					check_variable = { var = POL.POL_PiS_seats value = POL.POL_RIGHT_seats compare = greater_than_or_equals }
+				}
+				country_event = poland_election.50
+			}
+			else={		#Right tries to form government
+				country_event = poland_election.51
+			}
 		}
 	}
 }

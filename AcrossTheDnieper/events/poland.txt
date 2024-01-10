@@ -189,6 +189,13 @@ country_event = {
 				
 				traits = {  }
 			}
+			create_country_leader = {
+				name = "Andrzej Duda"
+				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+				ideology = poland_PSL
+				
+				traits = {  }
+			}
 			
 			clr_country_flag = Duda_PiS_candidate_flag
 			
@@ -237,6 +244,13 @@ country_event = {
 				name = "Jarosław Kaczyński"
 				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
 				ideology = poland_democratic_left_alliance
+				
+				traits = { POL_conservative_powerhouse }
+			}
+			create_country_leader = {
+				name = "Jarosław Kaczyński"
+				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
+				ideology = poland_PSL
 				
 				traits = { POL_conservative_powerhouse }
 			}
@@ -298,6 +312,8 @@ country_event = {
 				}
 				POL_make_popularities_equal_100 = yes
 			}
+			POL_clear_PO_party_leader_flags = yes
+			set_country_flag = POL_ewa_kopacz_is_PO_leader
 		}
 	}
 
@@ -324,6 +340,8 @@ country_event = {
 		ai_chance = { base = 1 }
 
 		clr_country_flag = POL_donald_tusk_not_available_flag
+		POL_clear_PO_party_leader_flags = yes
+		set_country_flag = POL_donald_tusk_is_PO_leader
 	}
 }
 
@@ -1662,12 +1680,7 @@ country_event = {
 		
 		add_political_power = 25
 		
-		set_politics = {
-			ruling_party = neoliberal
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
+		POL_make_PO_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -1697,13 +1710,7 @@ country_event = {
 		
 		add_political_power = 25
 		
-		set_politics = {
-			ruling_party = neoconservative
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
-		POL_make_beata_szydlo_pm = yes
+		POL_make_PiS_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -1802,7 +1809,7 @@ country_event = {
 		add_political_power = 25
 		
 		set_politics = {
-			ruling_party = neoconservative
+			ruling_party = eastern_liberal
 			last_election = "2015.10.25"
 			election_frequency = 48
 			elections_allowed = yes
@@ -1844,12 +1851,7 @@ country_event = {
 		
 		add_ideas = POL_PO_PSL_coalition
 		
-		set_politics = {
-			ruling_party = neoliberal
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
+		POL_make_PO_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -1888,12 +1890,7 @@ country_event = {
 		
 		add_ideas = POL_PO_PSL_LEFT_coalition
 		
-		set_politics = {
-			ruling_party = neoliberal
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
+		POL_make_PO_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -1955,12 +1952,7 @@ country_event = {
 			add_ideas = POL_PiS_konfederacja_coalition
 		}
 		
-		set_politics = {
-			ruling_party = neoconservative
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
+		POL_make_PiS_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -1981,12 +1973,7 @@ country_event = {
 
 		add_stability = -0.08
 		
-		set_politics = {
-			ruling_party = neoconservative
-			last_election = "2015.10.25"
-			election_frequency = 48
-			elections_allowed = yes
-		}
+		POL_make_PiS_government = yes
 		
 		if={
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
@@ -2156,7 +2143,7 @@ country_event = {
 		add_ideas = POL_PO_PSL_coalition
 		
 		set_politics = {
-			ruling_party = neoconservative
+			ruling_party = eastern_liberal
 			last_election = "2015.10.25"
 			election_frequency = 48
 			elections_allowed = yes
@@ -2168,7 +2155,7 @@ country_event = {
 		}
 	}
 	
-	option = {										#PO forms coalition with PSL and LEFT
+	option = {										#PSL forms coalition with PO and LEFT
 		name = poland_election.48.b
 		ai_chance = { base = 1 }
 		trigger={
@@ -2200,7 +2187,7 @@ country_event = {
 		add_ideas = POL_PO_PSL_LEFT_coalition
 		
 		set_politics = {
-			ruling_party = neoconservative
+			ruling_party = eastern_liberal
 			last_election = "2015.10.25"
 			election_frequency = 48
 			elections_allowed = yes
@@ -2225,7 +2212,7 @@ country_event = {
 		add_stability = -0.08
 		
 		set_politics = {
-			ruling_party = neoconservative
+			ruling_party = eastern_liberal
 			last_election = "2015.10.25"
 			election_frequency = 48
 			elections_allowed = yes
@@ -2235,5 +2222,315 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+	}
+}
+
+#PO tries to form a government
+country_event = {
+	id = poland_election.49
+	title = poland_election.49.t
+	desc = poland_election.49.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PO gets enough votes
+		name = poland_election.49.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_LEFT_coalition
+		
+		POL_make_PO_government = yes
+		
+		add_political_power = -50
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#They fail!
+		name = poland_election.49.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POL_center_failed_to_form_government
+		
+		if={
+			limit = { check_variable = { var = POL.POL_PiS_seats value = POL.POL_RIGHT_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.50
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_RIGHT_seats value = POL.POL_PiS_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.51
+		}
+		else={
+			country_event = poland.54
+		}
+	}
+}
+
+#PiS tries to form a government
+country_event = {
+	id = poland_election.50
+	title = poland_election.50.t
+	desc = poland_election.50.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PiS gets enough votes
+		name = poland_election.50.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PiS_in_power
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		if={
+			limit = { has_country_flag = POL_rightist_party_is_kukiz }
+			add_ideas = POL_PiS_kukiz_coalition
+		}
+		else={
+			add_ideas = POL_PiS_konfederacja_coalition
+		}
+		
+		POL_make_PiS_government = yes
+		
+		add_political_power = -50
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#They fail!
+		name = poland_election.50.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POL_right_failed_to_form_government
+		
+		if={
+			limit = { check_variable = { var = POL.POL_PO_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_PO_seats value = POL.POL_PSL_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.49
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_PSL_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_PSL_seats value = POL.POL_PO_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.53
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_LEFT_seats value = POL.POL_PO_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_LEFT_seats value = POL.POL_PO_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.52
+		}
+		else={
+			country_event = poland.54
+		}
+	}
+}
+
+#RIGHT tries to form a government
+country_event = {
+	id = poland_election.51
+	title = poland_election.51.t
+	desc = poland_election.51.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PiS gets enough votes
+		name = poland_election.51.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PiS_in_power
+		set_country_flag = RIGHT_in_power
+		set_country_flag = PO_in_opposition
+		set_country_flag = PSL_in_opposition
+		set_country_flag = LEFT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		if={
+			limit = { has_country_flag = POL_rightist_party_is_kukiz }
+			add_ideas = POL_PiS_kukiz_coalition
+		}
+		else={
+			add_ideas = POL_PiS_konfederacja_coalition
+		}
+		
+		set_politics = {
+			ruling_party = ultranationalist
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		add_political_power = -50
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#They fail!
+		name = poland_election.51.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POL_right_failed_to_form_government
+		
+		if={
+			limit = { check_variable = { var = POL.POL_PO_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_PO_seats value = POL.POL_PSL_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.49
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_PSL_seats value = POL.POL_LEFT_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_PSL_seats value = POL.POL_PO_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.53
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_LEFT_seats value = POL.POL_PO_seats compare = greater_than_or_equals } check_variable = { var = POL.POL_LEFT_seats value = POL.POL_PO_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_center_failed_to_form_government } }
+			country_event = poland_election.52
+		}
+		else={
+			country_event = poland.54
+		}
+	}
+}
+
+#LEFT tries to form a government
+country_event = {
+	id = poland_election.52
+	title = poland_election.52.t
+	desc = poland_election.52.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#LEFT gets enough votes
+		name = poland_election.52.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_LEFT_coalition
+		
+		set_politics = {
+			ruling_party = social_democracy
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		add_political_power = -50
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#They fail!
+		name = poland_election.52.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POL_center_failed_to_form_government
+		
+		if={
+			limit = { check_variable = { var = POL.POL_PiS_seats value = POL.POL_RIGHT_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.50
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_RIGHT_seats value = POL.POL_PiS_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.51
+		}
+		else={
+			country_event = poland.54
+		}
+	}
+}
+
+#PSL tries to form a government
+country_event = {
+	id = poland_election.53
+	title = poland_election.53.t
+	desc = poland_election.53.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {										#PSL gets enough votes
+		name = poland_election.53.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = PO_in_power
+		set_country_flag = PSL_in_power
+		set_country_flag = LEFT_in_power
+		set_country_flag = PiS_in_opposition
+		set_country_flag = RIGHT_in_opposition
+		
+		POL_get_government_majority_status = yes
+		
+		add_ideas = POL_PO_PSL_LEFT_coalition
+		
+		set_politics = {
+			ruling_party = eastern_liberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		add_political_power = -50
+		
+		if={
+			limit = { POL_are_president_and_pm_different_ideologies = yes }
+			add_ideas = POL_divided_executive
+		}
+	}
+	
+	option = {										#They fail!
+		name = poland_election.53.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POL_center_failed_to_form_government
+		
+		if={
+			limit = { check_variable = { var = POL.POL_PiS_seats value = POL.POL_RIGHT_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.50
+		}
+		else_if={
+			limit = { check_variable = { var = POL.POL_RIGHT_seats value = POL.POL_PiS_seats compare = greater_than_or_equals } NOT = { has_country_flag = POL_right_failed_to_form_government } }
+			country_event = poland_election.51
+		}
+		else={
+			country_event = poland.54
+		}
+	}
+}
+
+#No government!
+country_event = {
+	id = poland_election.54
+	title = poland_election.54.t
+	desc = poland_election.54.desc
+	picture = GFX_report_event_POL_sejm
+	is_triggered_only = yes
+
+	option = {	
+		name = poland_election.54.a
+		ai_chance = { base = 1 }
+
 	}
 }
