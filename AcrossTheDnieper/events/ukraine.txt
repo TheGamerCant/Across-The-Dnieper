@@ -1087,6 +1087,22 @@ country_event = {
 			amount = -1000
 			producer = SOV
 		}
+		
+		every_country={
+			limit={ 
+				OR={
+					tag = DON
+					tag = LHK
+					tag = KHK
+					tag = ODS
+					tag = NOV
+				}
+				exists = yes
+			}
+			give_military_access = PREV
+			PREV = { give_military_access = PREV }
+		}
+		
 		hidden_effect={
 			country_event = { id = russia.1080 days = 103 }
 			if={

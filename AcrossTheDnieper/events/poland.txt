@@ -311,7 +311,7 @@ country_event = {
 		
 		trigger = { has_country_flag = poland_campaign_as_PO_flag }
 		
-		add_popularity = { ideology = neoliberal popularity = -0.025 }
+		add_popularity = { ideology = neoliberal popularity = -0.05 }
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
@@ -356,6 +356,16 @@ country_event = {
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	
+	immediate={
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes NOT = { state = 62 } }
+				multiply_variable = { THIS.OTHER_popularity = 0.8 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+	}
 
 	option = {
 		name = poland.8.a
@@ -370,7 +380,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PO_popularity = 1.1 }
+				add_to_variable = { THIS.PO_popularity = 3 }
 				POL_make_popularities_equal_100 = yes
 			}
 		}
@@ -389,7 +399,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PiS_popularity = 1.12 }
+				add_to_variable = { THIS.PiS_popularity = 3 }
 				POL_make_popularities_equal_100 = yes
 			}
 		}
@@ -408,7 +418,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.RIGHT_popularity = 1.2 }
+				add_to_variable = { THIS.RIGHT_popularity = 3 }
 				POL_make_popularities_equal_100 = yes
 			}
 		}
@@ -427,7 +437,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.LEFT_popularity = 1.16 }
+				add_to_variable = { THIS.LEFT_popularity = 3 }
 				POL_make_popularities_equal_100 = yes
 			}
 		}
@@ -446,7 +456,7 @@ country_event = {
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PSL_popularity = 1.12 }
+				add_to_variable = { THIS.PSL_popularity = 3 }
 				POL_make_popularities_equal_100 = yes
 			}
 		}
@@ -470,6 +480,7 @@ country_event = {
 		
 		add_political_power = -50
 		add_stability = -0.05
+		add_popularity = { ideology = neoliberal popularity = -0.06 }
 		custom_effect_tooltip = POL_decrease_PO_popularity_tt
 		hidden_effect={
 			every_state={
@@ -556,7 +567,7 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_country_flag = poland_election_campaigns_are_ongoing
-			country_event = { id = poland_election.38 days = 350 random_days = 15 }		#election event
+			country_event = { id = poland_election.38 days = 360 random_days = 12 }		#election event
 			country_event = { id = poland.2 days = 80 random_days = 100 }	#create united left
 			country_event = { id = poland.8 days = 45 }	#local elections
 		}

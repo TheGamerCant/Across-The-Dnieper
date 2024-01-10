@@ -72,8 +72,6 @@ characters={
 			slot = political_advisor
 			idea_token = POL_jacek_rostowski
 			
-			cost = 120
-			
 			traits = {
 				POL_minister_of_finance_PO
 			}
@@ -193,5 +191,172 @@ characters={
 			ai_will_do = {
 			}
 		}
+	}
+	
+	POL_mieczyslaw_gocul = {				#"On January 31, 2017, he ended his professional military service and retired." - From wikipedia. Might add this
+		name = POL_mieczyslaw_gocul
+		portraits = {
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Mieczysław_Gocuł_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Mieczysław_Gocuł.png"
+			}
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Mieczysław_Gocuł_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Mieczysław_Gocuł.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = POL_mieczyslaw_gocul
+			cost = 200
+			traits = {
+				army_chief_drill_3
+			}
+			ai_will_do = {
+			}
+		}
+		
+		
+		field_marshal = {
+			traits = {
+				old_guard
+				armor_officer
+				POL_iraq_veteran
+			}
+			skill = 4
+			attack_skill = 5
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 4
+		}	
+	}
+	
+	POL_leszek_surawski = {				#https://www.eeas.europa.eu/sites/default/files/gen_broni_leszek_surawski_en_2017.pdf
+		name = POL_leszek_surawski
+		portraits = {
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Leszek_Surawski_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Leszek_Surawski.png"
+			}
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Leszek_Surawski_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Leszek_Surawski.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = POL_leszek_surawski
+			cost = 100
+			traits = {
+				army_regrouping_2
+			}
+			ai_will_do = {
+			}
+		}
+		
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				POL_iraq_veteran
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}	
+	}
+	
+	POL_rajmund_andrzejczak = {				#https://www.nato.int/cps/en/natohq/who_is_who_156787.htm
+		name = POL_rajmund_andrzejczak
+		portraits = {
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Rajmund_Andrzejczak_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Rajmund_Andrzejczak.png"
+			}
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Rajmund_Andrzejczak_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Rajmund_Andrzejczak.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = POL_rajmund_andrzejczak_army_chief
+			available = { NOT = { has_idea = POL_rajmund_andrzejczak_high_command } }
+			cost = 100
+			traits = {
+				army_chief_offensive_2
+			}
+			ai_will_do = {
+			}
+		}
+		
+		
+		advisor={
+			slot = high_command
+			idea_token = POL_rajmund_andrzejczak_high_command
+			available = { NOT = { has_idea = POL_rajmund_andrzejczak_army_chief } }
+			cost = 100
+			traits = {
+				army_armored_2
+			}
+			ai_will_do = {
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				POL_iraq_veteran
+				POL_afghanistan_veteran
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}	
+	}
+	
+	POL_tomasz_piotrowski = {				#https://warsawsecurityforum.org/speaker/piotrowski-tomasz/
+		name = POL_tomasz_piotrowski
+		portraits = {
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Tomasz_Piotrowski_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Tomasz_Piotrowski.png"
+			}
+			army = {
+				small = "gfx/leaders/POL/advisors/Portrait_Tomasz_Piotrowski_advisor.png"
+				large = "gfx/leaders/POL/generals/Portrait_Tomasz_Piotrowski.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		corps_commander = {
+			traits = {
+				artillery_officer
+				POL_afghanistan_veteran
+			}
+			skill = 2
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}	
 	}
 }
