@@ -28,6 +28,43 @@ country_event = {
 		add_popularity = { ideology = ultranationalist popularity = 0.02 }
 		clr_country_flag = POL_rightist_party_is_kukiz
 		set_country_flag = POL_rightist_party_is_konfederacja
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.RIGHT_popularity = 1.08 }
+				POL_make_popularities_equal_100 = yes
+			}
+			
+			set_party_name = { 
+				ideology = ultranationalist 
+				long_name = POL_KON_no_colour 
+				name =  poland_konfederacja_long 
+			}
+			set_party_name = { 
+				ideology = populist 
+				long_name = POL_KON_no_colour 
+				name =  poland_konfederacja_long 
+			}
+			set_party_name = { 
+				ideology = absolute_monarchy_ideology 
+				long_name = POL_KON_no_colour 
+				name =  poland_konfederacja_long 
+			}
+			
+			if={
+				limit = { bronislaw_komorowski_is_leader = yes }
+				POL_make_bonislaw_komorowski_president = yes
+			}
+			else_if={
+				limit = { andrzej_duda_is_leader = yes }
+				POL_make_andrzej_duda_president = yes
+			}
+			else_if={
+				limit = { jaroslaw_kaczynski_is_leader = yes }
+				POL_make_jaroslaw_kaczynski_president = yes
+			}
+		}
 	}
 }
 
@@ -64,33 +101,15 @@ country_event = {
 			
 			if={
 				limit = { bronislaw_komorowski_is_leader = yes }
-				create_country_leader = {
-					name = "Bronisław Komorowski"
-					picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
-					ideology = poland_united_left
-					
-					traits = { POL_former_minister_of_defence POL_liberal_reformer }
-				}
+				POL_make_bonislaw_komorowski_president = yes
 			}
 			else_if={
 				limit = { andrzej_duda_is_leader = yes }
-				create_country_leader = {
-					name = ""
-					picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-					ideology = poland_united_left
-					
-					traits = {  }
-				}
+				POL_make_andrzej_duda_president = yes
 			}
 			else_if={
 				limit = { jaroslaw_kaczynski_is_leader = yes }
-				create_country_leader = {
-					name = ""
-					picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-					ideology = poland_united_left
-					
-					traits = { POL_conservative_powerhouse }
-				}
+				POL_make_jaroslaw_kaczynski_president = yes
 			}
 		}
 		
@@ -161,41 +180,7 @@ country_event = {
 		}
 		
 		hidden_effect={
-			create_country_leader = {
-				name = "Andrzej Duda"
-				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-				ideology = civic_platform
-				
-				traits = {  }
-			}
-			create_country_leader = {
-				name = "Andrzej Duda"
-				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-				ideology = poland_pis_party
-				
-				traits = {  }
-			}
-			create_country_leader = {
-				name = "Andrzej Duda"
-				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-				ideology = poland_kukiz_15
-				
-				traits = {  }
-			}
-			create_country_leader = {
-				name = "Andrzej Duda"
-				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-				ideology = poland_democratic_left_alliance
-				
-				traits = {  }
-			}
-			create_country_leader = {
-				name = "Andrzej Duda"
-				picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
-				ideology = poland_PSL
-				
-				traits = {  }
-			}
+			POL_make_andrzej_duda_president = yes
 			
 			clr_country_flag = Duda_PiS_candidate_flag
 			
@@ -219,41 +204,7 @@ country_event = {
 		}
 		
 		hidden_effect={
-			create_country_leader = {
-				name = "Jarosław Kaczyński"
-				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-				ideology = civic_platform
-				
-				traits = { POL_conservative_powerhouse }
-			}
-			create_country_leader = {
-				name = "Jarosław Kaczyński"
-				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-				ideology = poland_pis_party
-				
-				traits = { POL_conservative_powerhouse }
-			}
-			create_country_leader = {
-				name = "Jarosław Kaczyński"
-				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-				ideology = poland_kukiz_15
-				
-				traits = { POL_conservative_powerhouse }
-			}
-			create_country_leader = {
-				name = "Jarosław Kaczyński"
-				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-				ideology = poland_democratic_left_alliance
-				
-				traits = { POL_conservative_powerhouse }
-			}
-			create_country_leader = {
-				name = "Jarosław Kaczyński"
-				picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
-				ideology = poland_PSL
-				
-				traits = { POL_conservative_powerhouse }
-			}
+			POL_make_jaroslaw_kaczynski_president = yes
 			
 			clr_country_flag = Kaczynski_PiS_candidate_flag
 			
@@ -2255,11 +2206,19 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+		
+		clr_country_flag = POL_right_failed_to_form_government
+		clr_country_flag = POL_center_failed_to_form_government
 	}
 	
 	option = {										#They fail!
 		name = poland_election.49.b
 		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = POL_right_failed_to_form_government }
+			NOT = { has_country_flag = POL_center_failed_to_form_government }
+		}
 		
 		set_country_flag = POL_center_failed_to_form_government
 		
@@ -2313,11 +2272,19 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+		
+		clr_country_flag = POL_right_failed_to_form_government
+		clr_country_flag = POL_center_failed_to_form_government
 	}
 	
 	option = {										#They fail!
 		name = poland_election.50.b
 		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = POL_right_failed_to_form_government }
+			NOT = { has_country_flag = POL_center_failed_to_form_government }
+		}
 		
 		set_country_flag = POL_right_failed_to_form_government
 		
@@ -2380,11 +2347,19 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+		
+		clr_country_flag = POL_right_failed_to_form_government
+		clr_country_flag = POL_center_failed_to_form_government
 	}
 	
 	option = {										#They fail!
 		name = poland_election.51.b
 		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = POL_right_failed_to_form_government }
+			NOT = { has_country_flag = POL_center_failed_to_form_government }
+		}
 		
 		set_country_flag = POL_right_failed_to_form_government
 		
@@ -2441,11 +2416,19 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+		
+		clr_country_flag = POL_right_failed_to_form_government
+		clr_country_flag = POL_center_failed_to_form_government
 	}
 	
 	option = {										#They fail!
 		name = poland_election.52.b
 		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = POL_right_failed_to_form_government }
+			NOT = { has_country_flag = POL_center_failed_to_form_government }
+		}
 		
 		set_country_flag = POL_center_failed_to_form_government
 		
@@ -2498,11 +2481,19 @@ country_event = {
 			limit = { POL_are_president_and_pm_different_ideologies = yes }
 			add_ideas = POL_divided_executive
 		}
+		
+		clr_country_flag = POL_right_failed_to_form_government
+		clr_country_flag = POL_center_failed_to_form_government
 	}
 	
 	option = {										#They fail!
 		name = poland_election.53.b
 		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = POL_right_failed_to_form_government }
+			NOT = { has_country_flag = POL_center_failed_to_form_government }
+		}
 		
 		set_country_flag = POL_center_failed_to_form_government
 		
