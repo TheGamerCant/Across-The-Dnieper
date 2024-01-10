@@ -9,6 +9,18 @@ country_event = {
 	picture = GFX_report_event_POL_konfederacja
 	is_triggered_only = yes
 
+	immediate={
+		hidden_effect={
+			if={
+				limit = { has_idea = POL_PiS_kukiz_coalition }
+				swap_ideas={
+					remove_idea = POL_PiS_kukiz_coalition
+					add_idea = POL_PiS_konfederacja_coalition
+				}
+			}
+		}
+	}
+
 	option = {
 		name = poland.1.a
 		ai_chance = { base = 1 }

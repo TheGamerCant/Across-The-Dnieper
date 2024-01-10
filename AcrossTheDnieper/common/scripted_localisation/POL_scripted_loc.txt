@@ -659,3 +659,37 @@ defined_text = {
         localization_key = ""
     }
 }
+
+defined_text = {
+	name = get_largest_centre_party
+	text = {
+		trigger = {
+			check_variable = { POL_LEFT_seats > POL_PO_seats }
+			check_variable = { POL_LEFT_seats > POL_PSL_seats }
+		}
+		localization_key = "[POL.get_leftist_party_no_colour]"
+	}
+	text = {
+		trigger = {
+			check_variable = { POL_PSL_seats > POL_PO_seats }
+			check_variable = { POL_PSL_seats > POL_LEFT_seats }
+		}
+		localization_key = "POL_PSL_no_colour"
+	}
+	text = {
+        localization_key = "POL_PO_no_colour"
+    }
+}
+
+defined_text = {
+	name = get_largest_right_party
+	text = {
+		trigger = {
+			check_variable = { POL_RIGHT_seats > POL_PiS_seats }
+		}
+		localization_key = "[POL.get_rightist_party_no_colour]"
+	}
+	text = {
+        localization_key = "POL_PiS_no_colour"
+    }
+}
