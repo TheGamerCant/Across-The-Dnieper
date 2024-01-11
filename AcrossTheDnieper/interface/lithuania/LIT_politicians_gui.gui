@@ -12,7 +12,246 @@ guiTypes = {
 			scale = 0.53
 		}
 	}
+	
+	containerWindowType={
+		name = "LIT_municipality_menu_gui"
+		size = { width = 403 height = 632 }
+		position = { x=-800 y=80 }
+		show_position = { x=540 y=80 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
 
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_LIT_city_menu_bg"
+		}
+		
+		buttonType = {
+			name = "close_button"
+			position = { x = 1150 y = 10 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = ""
+			shortcut = "ESCAPE"
+			scale = 1.2
+		}
+		
+		instantTextboxType = {
+			name = "LIT_city_gui_description"
+			position = { x=16 y=10 }
+			font = "hoi_16mbs"
+			text = "LIT_city_gui_description_tt"
+			maxWidth = 360
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name = "divider_1"
+			spriteType = "GFX_LIT_city_menu_divider"
+			position = {x = 0 y = 158 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "divider_2"
+			spriteType = "GFX_LIT_city_menu_divider"
+			position = {x = 0 y = 393 }
+			alwaystransparent = yes
+		}
+		
+		
+		instantTextboxType = {
+			name = "kaunas_city_text_box"
+			position = { x = 16 y = 162 }
+			font = "hoi_36header"
+			text = "kaunas_city_name"
+			maxWidth = 1200
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "vilnius_city_text_box"
+			position = { x = 16 y = 398 }
+			font = "hoi_36header"
+			text = "vilnius_city_name"
+			maxWidth = 1200
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+		
+		buttonType = {
+			name = "LIT_municipality_kaunas"
+			position = { x=18 y = 200 }
+			quadTextureSprite = "GFX_LIT_kaunas_municipality"
+			alwaystransparent = no
+			scale = 0.2
+
+			pdx_tooltip = "kaunas_city_name"
+			pdx_tooltip_delayed = "kaunas_city_composition"
+		}
+		buttonType = {
+			name = "LIT_municipality_vilnius"
+			position = { x=4 y = 430 }
+			quadTextureSprite = "GFX_LIT_vilnius_municipality"
+			alwaystransparent = no
+			scale = 0.2
+
+			pdx_tooltip = "vilnius_city_name"
+			pdx_tooltip_delayed = "vilnius_city_composition"
+		}
+	}
+	
+	containerWindowType={
+		name = "LIT_kaunas_gui"
+		size = { width = 403 height = 632 }
+		position = { x=-800 y=80 }
+		show_position = { x=943 y=80 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_LIT_city_menu_bg"
+		}
+		
+		buttonType = {
+			name = "close_button"
+			position = { x = 1150 y = 10 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = ""
+			shortcut = "ESCAPE"
+			scale = 1.2
+		}
+
+		iconType = {
+			name = "selected_city_mayor_portrait"
+			spriteType = "GFX_Portrait_Andrius_Kupcinskas"
+			position = {x = 18 y = 22 }
+			orientation = upper_left
+			alwaystransparent = no
+			scale = 1.02
+			pdx_tooltip = "mayor_name_and_trait"
+		}
+		
+		iconType = {
+			name = "selected_city_mayor_frame"
+			spriteType = "GFX_pol_leader_frame"
+			position = {x = 10 y = 10 }
+			orientation = upper_left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "selected_city_mayor_portrait_name"
+			position = { x = -5 y = 227 }
+			font = "hoi_18mbs"
+			text = "[LIT_get_mayor_name]"
+			maxWidth = 200
+			maxHeight = 36
+			format = center
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+		
+		buttonType = {
+			name = "kaunas_promote_construction_button"
+			position = { x = 183 y = 16 }
+			quadTextureSprite = "GFX_LIT_city_button"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "kaunas_promote_construction_loc"
+			pdx_tooltip = "LIT_fund_construction_projects_tt"
+		}
+		
+		buttonType = {
+			name = "city_company_1_vilnius"
+			position = { x = 183 y = 70 }
+			quadTextureSprite = "GFX_LIT_city_button"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "companies_txt"
+			pdx_tooltip = "LIT_vilnius_company_tooltip_no_cost"
+		}
+	}
+	
+	containerWindowType={
+		name = "LIT_vilnius_gui"
+		size = { width = 403 height = 632 }
+		position = { x=-800 y=80 }
+		show_position = { x=943 y=80 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_LIT_city_menu_bg"
+		}
+		
+		buttonType = {
+			name = "close_button"
+			position = { x = 1150 y = 10 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = ""
+			shortcut = "ESCAPE"
+			scale = 1.2
+		}
+		
+		iconType = {
+			name = "selected_city_mayor_portrait"
+			spriteType = "GFX_Portrait_Andrius_Kupcinskas"
+			position = {x = 18 y = 22 }
+			orientation = upper_left
+			alwaystransparent = no
+			scale = 1.02
+			pdx_tooltip = "mayor_name_and_trait"
+		}
+		
+		iconType = {
+			name = "selected_city_mayor_frame"
+			spriteType = "GFX_pol_leader_frame"
+			position = {x = 10 y = 10 }
+			orientation = upper_left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "selected_city_mayor_portrait_name"
+			position = { x = -5 y = 227 }
+			font = "hoi_18mbs"
+			text = "[LIT_get_mayor_name]"
+			maxWidth = 200
+			maxHeight = 36
+			format = center
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "kaunas_promote_construction_button"
+			position = { x = 183 y = 16 }
+			quadTextureSprite = "GFX_LIT_city_button"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "kaunas_promote_construction_loc"
+			pdx_tooltip = "LIT_fund_construction_projects_tt"
+		}
+		
+		buttonType = {
+			name = "city_company_1_vilnius"
+			position = { x = 183 y = 70 }
+			quadTextureSprite = "GFX_LIT_city_button"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "companies_txt"
+			pdx_tooltip = "LIT_vilnius_company_tooltip_no_cost"
+		}
+	}
+	
+	
 	containerWindowType={
 		name = "LIT_municipality_gui"
 		size = { width = 1200 height = 816 }
@@ -259,7 +498,6 @@ guiTypes = {
 	containerWindowType = {
 		name = "kaunas_council_container"
 		position = { x = 0 y = 0 }
-		scale = 1.25
 	
 		iconType = { 
 			name = "kaunas_council_seat"
@@ -271,12 +509,10 @@ guiTypes = {
 	containerWindowType = {
 		name = "vilnius_council_container"
 		position = { x = 0 y = 0 }
-		scale = 1.25
 	
 		iconType = { 
 			name = "vilnius_council_seat"
 			quadTextureSprite = "GFX_LIT_parties_strip"
-
 			pdx_tooltip = "LIT_vilnius_seat_party_tt"
 		}
 	}
