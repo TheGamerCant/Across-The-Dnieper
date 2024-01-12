@@ -11,30 +11,8 @@ country_event = {
 
 	immediate={
 		hidden_effect={
-			if={
-				limit = { has_idea = POL_PiS_kukiz_coalition }
-				swap_ideas={
-					remove_idea = POL_PiS_kukiz_coalition
-					add_idea = POL_PiS_konfederacja_coalition
-				}
-			}
-		}
-	}
-
-	option = {
-		name = poland.1.a
-		ai_chance = { base = 1 }
-
-		add_popularity = { ideology = ultranationalist popularity = 0.02 }
-		clr_country_flag = POL_rightist_party_is_kukiz
-		set_country_flag = POL_rightist_party_is_konfederacja
-		
-		hidden_effect={
-			every_state={
-				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.RIGHT_popularity = 1.08 }
-				POL_make_popularities_equal_100 = yes
-			}
+			clr_country_flag = POL_rightist_party_is_kukiz
+			set_country_flag = POL_rightist_party_is_konfederacja
 			
 			set_party_name = { 
 				ideology = ultranationalist 
@@ -64,7 +42,48 @@ country_event = {
 				limit = { jaroslaw_kaczynski_is_leader = yes }
 				POL_make_jaroslaw_kaczynski_president = yes
 			}
+			
+			if={
+				limit = { has_idea = POL_PiS_kukiz_coalition }
+				swap_ideas={
+					remove_idea = POL_PiS_kukiz_coalition
+					add_idea = POL_PiS_konfederacja_coalition
+				}
+			}
 		}
+	}
+
+	option = {
+		name = poland.1.a
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				has_country_flag = poland_campaign_as_RIGHT_flag
+			}
+		}
+	}
+	
+	option = {
+		name = poland.1.b
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = poland_campaign_as_RIGHT_flag }
+			}
+		}
+		add_popularity = { ideology = ultranationalist popularity = 0.02 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.RIGHT_popularity = 2.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		
+		custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
 	}
 }
 
@@ -75,23 +94,11 @@ country_event = {
 	desc = poland.2.desc
 	picture = GFX_report_event_POL_united_left
 	is_triggered_only = yes
-
-	option = {
-		name = poland.2.a
-		ai_chance = { base = 1 }
-
-		add_popularity = { ideology = social_democracy popularity = 0.02 }
-		add_popularity = { ideology = socialist popularity = 0.005 }
-		clr_country_flag = POL_leftist_party_is_democratic_left_alliance
-		set_country_flag = POL_leftist_party_is_united_left
-		
+	
+	immediate={
 		hidden_effect={
-			every_state={
-				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.OTHER_popularity = 0.5 }
-				multiply_variable = { THIS.LEFT_popularity = 1.08 }
-				POL_make_popularities_equal_100 = yes
-			}
+			clr_country_flag = POL_leftist_party_is_democratic_left_alliance
+			set_country_flag = POL_leftist_party_is_united_left
 			
 			set_party_name = { 
 				ideology = social_democracy 
@@ -110,6 +117,42 @@ country_event = {
 			else_if={
 				limit = { jaroslaw_kaczynski_is_leader = yes }
 				POL_make_jaroslaw_kaczynski_president = yes
+			}
+		}
+	}
+
+	option = {
+		name = poland.2.a
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				has_country_flag = poland_campaign_as_LEFT_flag
+			}
+		}
+
+	}
+	
+	option = {
+		name = poland.2.b
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = poland_campaign_as_LEFT_flag }
+			}
+		}
+
+		add_popularity = { ideology = social_democracy popularity = 0.02 }
+		add_popularity = { ideology = socialist popularity = 0.005 }
+		
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.OTHER_popularity = 0.5 }
+				add_to_variable = { THIS.LEFT_popularity = 2.5 }
+				POL_make_popularities_equal_100 = yes
 			}
 		}
 		
@@ -546,13 +589,110 @@ country_event = {
 	option = {
 		name = poland.11.a
 		ai_chance = { 
-			base = 0 
+			base = 10 
 		}
 		
 		clr_country_flag = POL_its_all_chill_in_da_hood
 		complete_national_focus = POL_the_need_for_NATO
 		
 		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+#High command reorganised
+country_event = {
+	id = poland.12
+	title = poland.12.t
+	desc = poland.12.desc
+	is_triggered_only = yes
+
+
+	option = {
+		name = poland.12.a
+		ai_chance = { 
+			base = 10 
+		}
+		
+		add_to_variable = { POL_land_forces_max_command_power = 30 }
+		add_to_variable = { POL_land_forces_experience_gain_army_factor = 0.06 }
+		add_to_variable = { POL_land_forces_land_doctrine_cost_factor = -0.1 }
+		custom_effect_tooltip = poland_create_new_armed_forces_command_tt
+	}
+}
+
+
+#Creation of Lewica
+country_event = {
+	id = poland.13
+	title = poland.13.t
+	desc = poland.13.desc
+	picture = GFX_report_event_POL_lewica_rally
+	is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			clr_country_flag = POL_leftist_party_is_united_left
+			set_country_flag = POL_leftist_party_is_lewica
+			
+			set_party_name = { 
+				ideology = social_democracy 
+				long_name = poland_lewica_socdem 
+				name =  poland_lewica_socdem 
+			}
+			set_party_name = { 
+				ideology = socialist
+				long_name = poland_lewica_socialist
+				name =  poland_lewica_socialist 
+			}
+			
+			if={
+				limit = { bronislaw_komorowski_is_leader = yes }
+				POL_make_bonislaw_komorowski_president = yes
+			}
+			else_if={
+				limit = { andrzej_duda_is_leader = yes }
+				POL_make_andrzej_duda_president = yes
+			}
+			else_if={
+				limit = { jaroslaw_kaczynski_is_leader = yes }
+				POL_make_jaroslaw_kaczynski_president = yes
+			}
+		}
+	}
+
+	option = {
+		name = poland.13.a
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				has_country_flag = poland_campaign_as_LEFT_flag
+			}
+		}
+	}
+	
+	option = {
+		name = poland.13.b
+		ai_chance = {
+			base = 1 
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = poland_campaign_as_LEFT_flag }
+			}
+		}
+		
+		add_popularity = { ideology = social_democracy popularity = 0.02 }
+		add_popularity = { ideology = socialist popularity = 0.01 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.LEFT_popularity = 2.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		
+		custom_effect_tooltip = POL_increase_LEFT_popularity_tt
 	}
 }
 
