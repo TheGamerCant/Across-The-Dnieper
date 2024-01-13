@@ -696,6 +696,58 @@ country_event = {
 	}
 }
 
+#Humanitarian aid from poland
+country_event = {
+	id = poland.14
+	title = poland.14.t
+	desc = poland.14.desc
+	is_triggered_only = yes
+
+
+	option = {
+		name = poland.14.a
+		ai_chance = { 
+			base = 10 
+		}
+		
+		add_offsite_building = { type = industrial_complex level = 2 }
+		UKR = { add_opinion_modifier = { target = POL modifier = BLR_small_positive } }
+	}
+}
+
+#Humanitarian and military aid from poland
+country_event = {
+	id = poland.15
+	title = poland.15.t
+	desc = poland.15.desc
+	is_triggered_only = yes
+
+
+	option = {
+		name = poland.15.a
+		ai_chance = { 
+			base = 10 
+		}
+		
+		add_offsite_building = { type = industrial_complex level = 3 }
+		effect_tooltip={
+			POL={
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 2000
+					target = UKR
+				}
+				send_equipment = {
+					equipment = support_equipment
+					amount = 450
+					target = UKR
+				}
+			}
+		}
+		UKR = { add_opinion_modifier = { target = POL modifier = BLR_medium_positive } }
+	}
+}
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1

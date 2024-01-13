@@ -1,5 +1,5 @@
 focus_tree = {
-	id = polish_focus
+	id = poland_2014_PO_tree
 	continuous_focus_position = { x = 2000 y = 25 }
 
 	country = {
@@ -13,10 +13,10 @@ focus_tree = {
 	
 	focus = {
 		id = POL_seven_years_of_PO
-		icon = GFX_POL_
+		icon = GFX_focus_POL_
 		x = 5
 		y = 0
-		cost = 50
+		cost = 40
 
 		ai_will_do = { 
 			factor = 10 
@@ -28,7 +28,188 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			country_event = { id = poland.10 hours = 3 }
+			country_event = { id = poland.10 hours = 1 random_hours = 3 }
+		}
+	}
+	
+	focus = {
+		id = POL_stop_foreign_welfare_payments
+		icon = GFX_focus_POL_
+		x = 1
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+		prerequisite = { focus = POL_seven_years_of_PO }
+		relative_position_id = POL_seven_years_of_PO
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_to_variable = { POL_public_institutions_consumer_goods_factor = -0.05 }
+			custom_effect_tooltip = POL_stop_foreign_welfare_payments_tt
+			add_stability = 0.02
+		}
+	}
+	
+	focus = {
+		id = POL_polands_place_in_europe
+		icon = GFX_focus_POL_
+		x = 10
+		y = 0
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			every_other_country = {
+				limit = { 
+					has_country_flag = is_in_european_union
+				}
+				add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations }
+				PREV = { add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations } }
+			}
+		}
+	}
+	
+	focus = {
+		id = POL_nothing_to_spare
+		icon = GFX_focus_POL_
+		x = -2
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_polands_place_in_europe
+		mutually_exclusive = { focus = POL_humanitarian_aid focus = POL_the_moskal_threat }
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.05
+			
+			UKR = { add_opinion_modifier = { target = POL modifier = BLR_large_negative } }
+			SOV = { add_opinion_modifier = { target = POL modifier = BLR_medium_positive } }
+			
+			add_popularity = { ideology = neoliberal popularity = -0.02 }
+		
+			hidden_effect={
+				every_state={
+					limit = { POL_is_election_state = yes }
+					multiply_variable = { THIS.PO_popularity = 0.85 }
+					POL_make_popularities_equal_100 = yes
+				}
+			}
+			
+			custom_effect_tooltip = POL_decrease_PO_popularity_tt
+		}
+	}
+	
+	focus = {
+		id = POL_humanitarian_aid
+		icon = GFX_focus_POL_
+		x = 0
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_polands_place_in_europe
+		mutually_exclusive = { focus = POL_nothing_to_spare focus = POL_the_moskal_threat }
+		completion_reward = {
+			UKR = { country_event = { id = poland.14 random_days = 7 } }
+		}
+	}
+	
+	focus = {
+		id = POL_the_moskal_threat
+		icon = GFX_focus_POL_
+		x = 2
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { support_equipment > 449 }
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_polands_place_in_europe
+		mutually_exclusive = { focus = POL_nothing_to_spare focus = POL_humanitarian_aid }
+		completion_reward = {
+			UKR = { country_event = { id = poland.15 random_days = 7 } }
+			POL={
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 2000
+					target = UKR
+				}
+				send_equipment = {
+					equipment = support_equipment
+					amount = 450
+					target = UKR
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = POL_intervention_in_donbass
+		icon = GFX_focus_POL_
+		x = 1
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_the_moskal_threat }
+		relative_position_id = POL_the_moskal_threat
+		completion_reward = {
+			custom_effect_tooltip = POL_intervention_in_donbass_tt
+			add_political_power = -100
+			
+			hidden_effect={
+				add_ideas = POLAND_donbass_war_idea
+			}
 		}
 	}
 	
@@ -37,7 +218,7 @@ focus_tree = {
 
 shared_focus = {
 	id = POL_the_need_for_NATO
-	icon = GFX_POL_
+	icon = GFX_focus_POL_
 	x = 5
 	y = 7
 	cost = 50

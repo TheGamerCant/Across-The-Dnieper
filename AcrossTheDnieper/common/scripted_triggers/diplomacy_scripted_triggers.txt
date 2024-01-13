@@ -566,6 +566,18 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 			limit = { tag = WAG }
 			always = yes
 		}
+		else_if = {
+			limit = {
+				original_tag = POL
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_SENDING_VOLUNTEERS_TT
+				has_completed_focus = POL_intervention_in_donbass
+				FROM={
+					original_tag = UKR
+				}
+			}
+		}
 		else = {
 			always = no
 		}
