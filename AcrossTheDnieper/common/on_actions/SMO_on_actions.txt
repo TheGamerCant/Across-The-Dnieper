@@ -174,31 +174,34 @@ on_actions={
 	on_weekly_ZZZ={
 		effect={
 			if={
-				limit = { SOV = { has_war_with = UKR } }
+				limit = { SOV = { has_war_with = UKR } has_global_flag = a_harsh_war_active_flag }
 				load_russia_ukraine_war_state_modifiers = yes
-				
-				every_country={
-					limit = { 
+			}
+		}
+	}
+	on_monthly_ZZZ={
+		effect={
+			every_country={
+				limit = { 
+					OR={
+						tag = DON
+						tag = LHK
+						tag = KHK
+						tag = ODS
+						tag = NOV
+					}
+					exists = yes
+					is_puppet_of = SOV
+				}
+				every_state={
+					limit={
 						OR={
-							tag = DON
-							tag = LHK
-							tag = KHK
-							tag = ODS
-							tag = NOV
+							is_claimed_by = PREV
+							is_core_of = PREV
 						}
-						exists = yes
-						is_puppet_of = SOV
+						is_fully_controlled_by = SOV
 					}
-					every_state={
-						limit={
-							OR={
-								is_claimed_by = PREV
-								is_core_of = PREV
-							}
-							is_fully_controlled_by = SOV
-						}
-						set_state_controller_to = PREV
-					}
+					set_state_controller_to = PREV
 				}
 			}
 		}

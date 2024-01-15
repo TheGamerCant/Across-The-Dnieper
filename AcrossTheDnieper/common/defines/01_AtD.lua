@@ -28,7 +28,7 @@ NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_DOCTRINE = 90  --7 the ai will check what t
 NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_TEMPLATE = 30  --7 the ai will check what the best division template they can have is once every month
 NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_EQUIPMENT = 30 --7 the ai will check what the best equipment they can have is once every month
 NDefines.NAI.RESEARCH_DAYS_BETWEEN_WEIGHT_UPDATE = 14 --7 the ai will refreshes need scores based on country situation
-NDefines.NAI.AI_UPDATE_ROLES_FREQUENCY_HOURS = 240  --48 the ai will change templates less frequently
+NDefines.NAI.AI_UPDATE_ROLES_FREQUENCY_HOURS = 360  --48 the ai will change templates less frequently
 NDefines.NAI.UPDATE_SUPPLY_MOTORIZATION_FREQUENCY_HOURS = 120    --52 every 5 days the ai will check weather they should increase supply motorization
 NDefines.NAI.UPDATE_SUPPLY_BOTTLENECKS_FREQUENCY_HOURS = 320    --168 every 15 days the ai will check for supply related bottlenecks and try to fix them
 NDefines.NAI.AREA_DEFENSE_SETTING_VP = true --False (AI will garrison cities as well as coasts)
@@ -53,7 +53,7 @@ NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.7				--base is -0.6
 NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY = -0.35				--base is -0.25
 NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY_LARGE = -0.6			--base is -0.5
 NDefines.NMilitary.INFRASTRUCTURE_MOVEMENT_SPEED_IMPACT = -0.1			--base is -0.05 (speed penalty per infrastucture below maximum)
-NDefines.NMilitary.BASE_FORT_PENALTY = -0.12					--base is -0.15, bunkers now give less defenceand have 5 levels max but are cheaper 
+NDefines.NMilitary.BASE_FORT_PENALTY = -0.12					--base is -0.15, bunkers now give less defence and have 5 levels max but are cheaper 
 NDefines.NMilitary.ENCIRCLED_PENALTY = -0.6					--base is -0.3, encirclements are now more punishing
 
 NDefines.NFocus.FOCUS_POINT_DAYS = 1			--base is 7
