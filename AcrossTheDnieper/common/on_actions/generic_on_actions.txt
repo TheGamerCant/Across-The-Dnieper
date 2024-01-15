@@ -1,7 +1,7 @@
 on_actions={	
 	on_startup = {
 		effect = {
-			every_country = { country_event = { id = generic.3 } }
+			every_country = { country_event = { id = generic.3 } add_ideas = ATD_hidden_production_cost_idea }
 			every_country={
 				limit = {
 					NOT={
@@ -65,7 +65,10 @@ on_actions={
 				add_ideas = generic_demographic_crisis
 			}
 			
-			
+			if={
+				limit ={ NOT = { has_idea = ATD_hidden_production_cost_idea } }
+				add_ideas = ATD_hidden_production_cost_idea
+			}
 			
 			if={
 				limit = {
