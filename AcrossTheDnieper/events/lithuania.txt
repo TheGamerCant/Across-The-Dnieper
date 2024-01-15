@@ -17,8 +17,6 @@ country_event = {
 			ideology = absolute_monarchy_ideology
 			popularity = 0.03
 		}
-
-		add_war_support = 0.05
 		add_stability = -0.08
 
 		hidden_effect = {
@@ -139,6 +137,8 @@ country_event = {
 			ideology = absolute_monarchy_ideology
 			popularity = 0.06
 		}
+
+		add_stability = -0.02
 
 		set_country_flag = LIT_prince_inigo_arrived
 	}
@@ -1212,7 +1212,7 @@ country_event = {
 	title = lithuania.31.t
 	desc = lithuania.31.desc
 	is_triggered_only = yes
-	#picture = 
+	picture = LIT_event_arrest
 
 
 	option = { 
@@ -1221,99 +1221,14 @@ country_event = {
 			base = 10
 		}
 
-		add_stability = 0.01
-		add_political_power = 15
-		add_opinion_modifier = { target = UKR modifier = large_increase }
-		UKR = {
-			add_opinion_modifier = { target = LIT modifier = large_increase }
-		}
-	}
-}
-
-
-country_event = {
-	id = lithuania.32
-	title = lithuania.32.t
-	desc = lithuania.32.desc
-	is_triggered_only = yes
-	#picture = 
-
-
-	option = { 
-		name = lithuania.32.a
-		ai_chance = {
-			base = 10
+		BLR = {
+			add_stability = -0.01
+			add_political_power = -20
 		}
 
-		swap_ideas = {
-			remove_idea = LIT_idea_high_suicide_rates
-			add_idea = LIT_idea_high_suicide_rates_2
-		}
-	}
-}
+		add_stability = 0.02
+		add_political_power = 30
+		add_opinion_modifier = { target = BLR modifier = large_decrease }
 
-country_event = {
-	id = lithuania.33
-	title = lithuania.33.t
-	desc = lithuania.33.desc
-	is_triggered_only = yes
-	#picture = 
-
-	immediate = {
-		hidden_effect = { deactivate_advisor = LIT_algirdas_butkevicius set_country_flag = 2016_pm_elections }
-		
-	}
-
-
-	option = { 
-		name = lithuania.33.a
-		ai_chance = {
-			base = 10
-		}
-
-		activate_advisor = LIT_saulius_skvernelis
-
-		hidden_effect = {
-			remove_trait = {
-				character = LIT_gabrielius_landsbergis
-				slot = political_advisor
-				trait = LIT_prime_minister_3
-			}
-			add_trait = {
-				character = LIT_gabrielius_landsbergis
-				slot = political_advisor
-				trait = LIT_young_politician
-		   }
-		   set_can_be_fired_in_advisor_role = {
-			character = LIT_gabrielius_landsbergis
-			value = yes
-		    }
-		}
-	}
-
-	option = { 
-		name = lithuania.33.b
-		ai_chance = {
-			base = 0
-		}
-
-		activate_advisor = LIT_gabrielius_landsbergis
-
-		hidden_effect = {
-			remove_trait = {
-				character = LIT_saulius_skvernelis
-				slot = political_advisor
-				trait = LIT_prime_minister_2
-			}
-			add_trait = {
-				character = LIT_saulius_skvernelis
-				slot = political_advisor
-				trait = LIT_popular_politician
-		   }
-		   set_can_be_fired_in_advisor_role = {
-			character = LIT_saulius_skvernelis
-			value = yes
-		    }
-		}
 	}
 }
