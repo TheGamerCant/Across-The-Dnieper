@@ -57,6 +57,30 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = POL_healthcare_modernisation_plan
+		icon = GFX_focus_POL_
+		x = -1
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+		prerequisite = { focus = POL_seven_years_of_PO }
+		relative_position_id = POL_seven_years_of_PO
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_to_variable = { POL_public_institutions_monthly_population = 0.1 }
+			add_to_variable = { POL_public_institutions_experience_loss_factor = -0.1 }
+			custom_effect_tooltip = POL_healthcare_modernisation_plan_tt
+		}
+	}
+	
+	focus = {
 		id = POL_polands_place_in_europe
 		icon = GFX_focus_POL_
 		x = 10
@@ -144,6 +168,8 @@ focus_tree = {
 		mutually_exclusive = { focus = POL_nothing_to_spare focus = POL_the_moskal_threat }
 		completion_reward = {
 			UKR = { country_event = { id = poland.14 random_days = 7 } }
+			
+			add_popularity = { ideology = neoliberal popularity = 0.04 }
 		}
 	}
 	
@@ -210,6 +236,143 @@ focus_tree = {
 			hidden_effect={
 				add_ideas = POLAND_donbass_war_idea
 			}
+		}
+	}
+	
+	focus = {
+		id = POL_strengthen_economic_ties_with_visegrad
+		icon = GFX_focus_POL_
+		x = 2
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_the_moskal_threat focus = POL_humanitarian_aid focus = POL_nothing_to_spare }
+		relative_position_id = POL_humanitarian_aid
+		completion_reward = {
+			every_country={
+				limit = { has_idea = SLO_visegrad_member }
+				
+				add_timed_idea = { idea = POL_visegrad_trade days = 365 }
+				hidden_effect={
+					every_state={
+						limit = { is_controlled_by = PREV }
+						increase_state_gdp_growth_by_1 = yes
+					}
+				}
+			}
+			custom_effect_tooltip = POL_strengthen_economic_ties_with_visegrad_tt
+		}
+	}
+	
+	focus = {
+		id = POL_economic_ties_with_europe
+		icon = GFX_focus_POL_
+		x = -1
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_stop_foreign_welfare_payments }
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_stop_foreign_welfare_payments
+		completion_reward = {
+			every_state={
+				limit = { is_controlled_by = POL }
+				increase_state_gdp_growth_by_1_5 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = POL_european_cultural_integration
+		icon = GFX_focus_POL_
+		x = 1
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		mutually_exclusive = { focus = POL_a_traditionalist_poland }
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_stop_foreign_welfare_payments
+		completion_reward = {
+			hidden_effect={
+				every_state={
+					limit = { POL_is_election_state = yes }
+					multiply_variable = { THIS.PO_popularity = 1.12 }
+					multiply_variable = { THIS.LEFT_popularity = 1.25 }
+					POL_make_popularities_equal_100 = yes
+				}
+			}
+			
+			custom_effect_tooltip = POL_increase_PO_popularity_tt
+			custom_effect_tooltip = POL_increase_LEFT_popularity_tt
+			
+			add_political_power = 50
+			add_stability = -0.02
+			
+			add_popularity = { ideology = neoliberal popularity = 0.04 }
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
+		}
+	}
+	
+	focus = {
+		id = POL_a_traditionalist_poland
+		icon = GFX_focus_POL_
+		x = 3
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 0 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		mutually_exclusive = { focus = POL_european_cultural_integration }
+		prerequisite = { focus = POL_polands_place_in_europe }
+		relative_position_id = POL_stop_foreign_welfare_payments
+		completion_reward = {
+			hidden_effect={
+				every_state={
+					limit = { POL_is_election_state = yes }
+					multiply_variable = { THIS.PiS_popularity = 1.12 }
+					multiply_variable = { THIS.RIGHT_popularity = 1.25 }
+					POL_make_popularities_equal_100 = yes
+				}
+			}
+			
+			custom_effect_tooltip = POL_increase_PiS_popularity_tt
+			custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
+			
+			add_stability = 0.05
+			
+			add_popularity = { ideology = neoconservative popularity = 0.03 }
+			add_popularity = { ideology = ultranationalist popularity = 0.02 }
+			add_popularity = { ideology = populist popularity = 0.02 }
 		}
 	}
 	

@@ -403,11 +403,85 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = DONBASS_new_russia
+	icon = GFX_focus_DONBASS_the_novorossiya_project
+	x = 0
+	y = 2
+	
+	cost = 70
+	ai_will_do = {
+		base = 0
+	}
+	available = {
+		can_do_novorossiya_project_foci = yes
+		NOT={
+			any_other_country={
+				focus_progress = {
+					focus = DONBASS_new_russia
+					progress > 0
+				}
+			}
+		}
+		
+		has_war = no
+	}
+	
+	prerequisite = { focus = DONBASS_unifying_propaganda }
+	prerequisite = { focus = DONBASS_joint_administration }
+	prerequisite = { focus = DONBASS_pool_our_industries }
+	relative_position_id = DONBASS_joint_administration
+	
+	bypass = {
+		any_other_country = { has_completed_focus = DONBASS_new_russia }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		hidden_effect={
+			every_country={
+				limit = { is_donbass_country = yes exist = yes}
+				every_character = {
+					set_nationality = ROOT
+				}
+				
+				every_state={
+					limit = { is_core_of = PREV }
+					add_core_of = ROOT
+					remove_core_of = PREV
+				}
+				every_state={
+					limit = { is_claimed_by= PREV }
+					add_claim_by = ROOT
+					remove_claim_by = PREV
+				}
+				
+				ROOT = { annex_country = { target = PREV transfer_troops = yes } }
+				set_cosmetic_tag = NOV
+			}
+		}
+		
+		effect_tooltip = { set_cosmetic_tag = NOV }
+		
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
 
 shared_focus = {
 	id = DONBASS_glory_to_the_republic
 	dynamic = yes 
 	
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -431,12 +505,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_glory_to_the_republic_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
 	}
 	
 	icon = {
@@ -536,6 +604,15 @@ shared_focus = {
 	
 	icon = {
 		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
+	icon = {
+		trigger = {
 			tag = DON
 		}
 		value = GFX_focus_DONBASS_glory_to_the_republic_donetsk
@@ -557,12 +634,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_glory_to_the_republic_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
 	}
 	
 	icon = {
@@ -604,8 +675,17 @@ shared_focus = {
 
 shared_focus = {
 	id = DONBASS_our_own_administration
-	
 	dynamic = yes 
+	
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -629,12 +709,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_our_own_administration_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_our_own_administration_novorossiya
 	}
 	
 	icon = {
@@ -849,8 +923,17 @@ shared_focus = {
 
 shared_focus = {
 	id = DONBASS_all_power_to_the_party
+	dynamic = yes
 	
-	dynamic = yes 
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -874,12 +957,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_glory_to_the_republic_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
 	}
 	
 	icon = {
@@ -917,8 +994,17 @@ shared_focus = {
 
 shared_focus = {
 	id = DONBASS_work_for_the_republic
+	dynamic = yes
 	
-	dynamic = yes 
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -942,12 +1028,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_work_for_the_republic_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_work_for_the_republic_novorossiya
 	}
 	
 	icon = {
@@ -1080,8 +1160,17 @@ shared_focus = {
 
 shared_focus = {
 	id = DONBASS_dig_deeper
+	dynamic = yes
 	
-	dynamic = yes 
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -1105,12 +1194,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_work_for_the_republic_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_work_for_the_republic_novorossiya
 	}
 	
 	icon = {
@@ -1154,8 +1237,17 @@ shared_focus = {
 
 shared_focus = {
 	id = DONBASS_fertile_soil
+	dynamic = yes
 	
-	dynamic = yes 
+	icon = {
+		trigger = {
+			OR={
+				tag = NOV
+				has_completed_focus = DONBASS_new_russia
+			}
+		}
+		value = GFX_focus_DONBASS_glory_to_the_republic_novorossiya
+	}
 	icon = {
 		trigger = {
 			tag = DON
@@ -1179,12 +1271,6 @@ shared_focus = {
 			tag = ODS
 		}
 		value = GFX_focus_DONBASS_fertile_soil_odessa
-	}
-	icon = {
-		trigger = {
-			tag = NOV
-		}
-		value = GFX_focus_DONBASS_fertile_soil_novorossiya
 	}
 	
 	icon = {
