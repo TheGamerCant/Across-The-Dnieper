@@ -1278,55 +1278,38 @@ on_actions={
 				set_variable = { CHN.inflation_rate = 2.64 }
 			}	
 		
-			every_country={		
-				set_variable = { military_spending_consumer_goods_expected_value = 0.06 }
-				set_variable = { military_spending_mobilization_speed = 0.5 }
-				set_variable = { military_spending_conscription_factor = 0 }
-				set_variable = { military_spending_industrial_capacity_factory = 0.1 }
-				set_variable = { military_spending_industrial_capacity_dockyard = 0.1 } 
-				set_variable = { military_spending_army_org_factor = 0 } 
-				set_variable = { military_spending_army_attack_factor = 0 } 
-				set_variable = { military_spending_army_defence_factor = 0 } 
-				set_variable = { military_spending_experience_gain_army_factor = -0.1 } 
-				set_variable = { military_spending_experience_gain_navy_factor = -0.1 } 
-				set_variable = { military_spending_experience_gain_air_factor = -0.1 } 
-
-				set_variable = { military_spending_factor = 3 }		#1 = Minimal, 2 = Low, 3 = Medium, 4 = High, 5 = Extreme
-				add_dynamic_modifier = { modifier = military_spending_dynamic_modifier }
-				
-				set_variable = { intelligence_spending_consumer_goods_expected_value = 0.02 }
-				set_variable = { intelligence_spending_operative_slot = 2 }
-				set_variable = { intelligence_spending_agency_upgrade_time = 0.05 }
-				set_variable = { intelligence_spending_intel_network_gain_factor = 0 } 
-				set_variable = { intelligence_spending_planning_speed = 0 } 
-				set_variable = { intelligence_spending_max_planning = 0.1 } 
-				set_variable = { intelligence_spending_subversive_activites_upkeep = 0 } 
-				set_variable = { intelligence_spending_drift_defence_factor = 0 } 
-				set_variable = { intelligence_spending_resistance_growth_on_our_occupied_states = 0.1 } 
-				set_variable = { intelligence_spending_resistance_decay = 0 } 
-
-				set_variable = { intelligence_spending_factor = 3 }	
-				add_dynamic_modifier = { modifier = intelligence_spending_dynamic_modifier }
-				
-				set_variable = { education_spending_consumer_goods_expected_value = 0.04 }
-				set_variable = { education_spending_research_speed_factor = 0.06 }
-				set_variable = { education_spending_stability_factor = 0.1 }
-				set_variable = { education_spending_local_resources_factor = 0 } 
-				set_variable = { education_spending_production_speed_industrial_complex_factor = 0 } 
-				set_variable = { education_spending_line_change_production_efficiency_factor = 0.1 } 
-
-				set_variable = { education_spending_factor = 3 }		
-				add_dynamic_modifier = { modifier = education_spending_dynamic_modifier }
-				
-				set_variable = { public_services_spending_consumer_goods_expected_value = 0.07 }
-				set_variable = { public_services_spending_stability_weekly = 0 }
-				set_variable = { public_services_spending_monthly_population = 0.1 }
-				set_variable = { public_services_spending_industrial_capacity_factory = 0.05 } 
-				set_variable = { public_services_spending_industrial_capacity_dockyard = 0.05 } 
-				set_variable = { public_services_spending_production_speed_buildings_factor = 0.1 } 
-
-				set_variable = { public_services_spending_factor = 3 }		
-				add_dynamic_modifier = { modifier = public_services_spending_dynamic_modifier }
+			every_country={
+				remove_ideas = { 
+					ATD_military_spending_idea_5
+					ATD_military_spending_idea_4
+					ATD_military_spending_idea_3
+					ATD_military_spending_idea_3
+					ATD_military_spending_idea_1
+					
+					ATD_intelligence_spending_idea_5
+					ATD_intelligence_spending_idea_4
+					ATD_intelligence_spending_idea_3
+					ATD_intelligence_spending_idea_2
+					ATD_intelligence_spending_idea_1
+					
+					ATD_education_spending_idea_5
+					ATD_education_spending_idea_4
+					ATD_education_spending_idea_3
+					ATD_education_spending_idea_2
+					ATD_education_spending_idea_1
+					
+					ATD_public_services_spending_idea_5
+					ATD_public_services_spending_idea_4
+					ATD_public_services_spending_idea_3
+					ATD_public_services_spending_idea_2
+					ATD_public_services_spending_idea_1
+				}
+			
+			
+				add_ideas = ATD_military_spending_idea_3	#1 = Minimal, 2 = Low, 3 = Medium, 4 = High, 5 = Extreme
+				add_ideas = ATD_intelligence_spending_idea_3
+				add_ideas = ATD_education_spending_idea_3
+				add_ideas = ATD_public_services_spending_idea_3
 				
 				add_dynamic_modifier = { modifier = inflation_dynamic_modifier }
 				add_dynamic_modifier = { modifier = real_gdp_pc_dynamic_modifier }
@@ -1347,7 +1330,6 @@ on_actions={
 					decrease_public_services_spending = yes
 				}		
 				else={	
-					
 					increase_military_spending = yes
 					increase_intelligence_spending = yes
 				}
@@ -1513,6 +1495,7 @@ on_actions={
 			}
 			
 			every_state={
+				limit = { is_controlled_by = ROOT }
 				get_yearly_gdp_pc_growth = yes
 			}
 			get_country_gdp_growth = yes

@@ -1,166 +1,403 @@
 increase_military_spending={
 	if={
-		limit = { check_variable = { var = military_spending_factor value = 5 compare = greater_than_or_equals } }
+		limit = { has_idea = ATD_military_spending_idea_5 }
 		custom_effect_tooltip = cannot_increase_military_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_4
+			add_idea = ATD_military_spending_idea_5
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_3
+			add_idea = ATD_military_spending_idea_4
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_2
+			add_idea = ATD_military_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_1 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_1
+			add_idea = ATD_military_spending_idea_2
+		}
+	}
 	else={
-		add_to_variable = { military_spending_factor = 1 }
-		add_to_variable = { military_spending_consumer_goods_expected_value = 0.04 }
-		add_to_variable = { military_spending_mobilization_speed = 0.5 }
-		add_to_variable = { military_spending_conscription_factor = 0.1 }
-		add_to_variable = { military_spending_industrial_capacity_factory = 0.2 }
-		add_to_variable = { military_spending_industrial_capacity_dockyard = 0.2 } 
-		add_to_variable = { military_spending_army_org_factor = 0.05 } 
-		add_to_variable = { military_spending_army_attack_factor = 0.05 } 
-		add_to_variable = { military_spending_army_defence_factor = 0.05 } 
-		add_to_variable = { military_spending_experience_gain_army_factor = 0.2 } 
-		add_to_variable = { military_spending_experience_gain_navy_factor = 0.2 } 
-		add_to_variable = { military_spending_experience_gain_air_factor = 0.2 } 
-		custom_effect_tooltip = increase_military_spending_tt
+		remove_ideas = { 
+			ATD_military_spending_idea_5
+			ATD_military_spending_idea_4
+			ATD_military_spending_idea_3
+			ATD_military_spending_idea_3
+			ATD_military_spending_idea_1
+		}
+		add_ideas = ATD_military_spending_idea_3
 	}
 }
 
 decrease_military_spending={
 	if={
-		limit = { check_variable = { var = military_spending_factor value = 1 compare = less_than_or_equals } }
+		limit = { has_idea = ATD_military_spending_idea_1 }
 		custom_effect_tooltip = cannot_decrease_military_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_2
+			add_idea = ATD_military_spending_idea_1
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_3
+			add_idea = ATD_military_spending_idea_2
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_4
+			add_idea = ATD_military_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_military_spending_idea_5 }
+		swap_ideas={
+			remove_idea = ATD_military_spending_idea_5
+			add_idea = ATD_military_spending_idea_4
+		}
+	}
 	else={
-		subtract_from_variable = { military_spending_factor = 1 }
-		subtract_from_variable = { military_spending_consumer_goods_expected_value = 0.04 }
-		subtract_from_variable = { military_spending_mobilization_speed = 0.5 }
-		subtract_from_variable = { military_spending_conscription_factor = 0.1 }
-		subtract_from_variable = { military_spending_industrial_capacity_factory = 0.2 }
-		subtract_from_variable = { military_spending_industrial_capacity_dockyard = 0.2 } 
-		subtract_from_variable = { military_spending_army_org_factor = 0.05 } 
-		subtract_from_variable = { military_spending_army_attack_factor = 0.05 } 
-		subtract_from_variable = { military_spending_army_defence_factor = 0.05 } 
-		subtract_from_variable = { military_spending_experience_gain_army_factor = 0.2 } 
-		subtract_from_variable = { military_spending_experience_gain_navy_factor = 0.2 } 
-		subtract_from_variable = { military_spending_experience_gain_air_factor = 0.2 } 
-		custom_effect_tooltip = decrease_military_spending_tt
+		remove_ideas = { 
+			ATD_military_spending_idea_5
+			ATD_military_spending_idea_4
+			ATD_military_spending_idea_3
+			ATD_military_spending_idea_3
+			ATD_military_spending_idea_1
+		}
+		add_ideas = ATD_military_spending_idea_3
 	}
 }
 
 increase_intelligence_spending={
 	if={
-		limit = { check_variable = { var = intelligence_spending_factor value = 5 compare = greater_than_or_equals } }
+		limit = { has_idea = ATD_intelligence_spending_idea_5 }
 		custom_effect_tooltip = cannot_increase_intelligence_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_4
+			add_idea = ATD_intelligence_spending_idea_5
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_3
+			add_idea = ATD_intelligence_spending_idea_4
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_2
+			add_idea = ATD_intelligence_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_1 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_1
+			add_idea = ATD_intelligence_spending_idea_2
+		}
+	}
 	else={
-		add_to_variable = { intelligence_spending_factor = 1 }
-		add_to_variable = { intelligence_spending_consumer_goods_expected_value = 0.01 }
-		add_to_variable = { intelligence_spending_operative_slot = 1 }
-		add_to_variable = { intelligence_spending_agency_upgrade_time = -0.15 }
-		add_to_variable = { intelligence_spending_intel_network_gain_factor = 0.2 }
-		add_to_variable = { intelligence_spending_planning_speed = 0.25 } 
-		add_to_variable = { intelligence_spending_max_planning = 0.15 } 
-		add_to_variable = { intelligence_spending_subversive_activites_upkeep = -0.25 } 
-		add_to_variable = { intelligence_spending_drift_defence_factor = 0.2 } 
-		add_to_variable = { intelligence_spending_resistance_growth_on_our_occupied_states = 0.2 } 
-		add_to_variable = { intelligence_spending_resistance_decay = 0.08 } 
-		custom_effect_tooltip = increase_intelligence_spending_tt
+		remove_ideas = { 
+			ATD_intelligence_spending_idea_5
+			ATD_intelligence_spending_idea_4
+			ATD_intelligence_spending_idea_3
+			ATD_intelligence_spending_idea_3
+			ATD_intelligence_spending_idea_1
+		}
+		add_ideas = ATD_intelligence_spending_idea_3
 	}
 }
 
 decrease_intelligence_spending={
 	if={
-		limit = { check_variable = { var = intelligence_spending_factor value = 1 compare = less_than_or_equals } }
+		limit = { has_idea = ATD_intelligence_spending_idea_1 }
 		custom_effect_tooltip = cannot_decrease_intelligence_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_2
+			add_idea = ATD_intelligence_spending_idea_1
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_3
+			add_idea = ATD_intelligence_spending_idea_2
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_4
+			add_idea = ATD_intelligence_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_intelligence_spending_idea_5 }
+		swap_ideas={
+			remove_idea = ATD_intelligence_spending_idea_5
+			add_idea = ATD_intelligence_spending_idea_4
+		}
+	}
 	else={
-		subtract_from_variable = { intelligence_spending_factor = 1 }
-		subtract_from_variable = { intelligence_spending_consumer_goods_expected_value = 0.01 }
-		subtract_from_variable = { intelligence_spending_operative_slot = 1 }
-		subtract_from_variable = { intelligence_spending_agency_upgrade_time = -0.15 }
-		subtract_from_variable = { intelligence_spending_intel_network_gain_factor = 0.2 }
-		subtract_from_variable = { intelligence_spending_planning_speed = 0.25 } 
-		subtract_from_variable = { intelligence_spending_max_planning = 0.15 } 
-		subtract_from_variable = { intelligence_spending_subversive_activites_upkeep = -0.25 } 
-		subtract_from_variable = { intelligence_spending_drift_defence_factor = 0.2 } 
-		subtract_from_variable = { intelligence_spending_resistance_growth_on_our_occupied_states = 0.2 } 
-		subtract_from_variable = { intelligence_spending_resistance_decay = 0.08 } 
-		custom_effect_tooltip = decrease_intelligence_spending_tt
+		remove_ideas = { 
+			ATD_intelligence_spending_idea_5
+			ATD_intelligence_spending_idea_4
+			ATD_intelligence_spending_idea_3
+			ATD_intelligence_spending_idea_3
+			ATD_intelligence_spending_idea_1
+		}
+		add_ideas = ATD_intelligence_spending_idea_3
 	}
 }
 
 increase_education_spending={
 	if={
-		limit = { check_variable = { var = education_spending_factor value = 5 compare = greater_than_or_equals } }
+		limit = { has_idea = ATD_education_spending_idea_5 }
 		custom_effect_tooltip = cannot_increase_education_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_4
+			add_idea = ATD_education_spending_idea_5
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_3
+			add_idea = ATD_education_spending_idea_4
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_2
+			add_idea = ATD_education_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_1 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_1
+			add_idea = ATD_education_spending_idea_2
+		}
+	}
 	else={
-		add_to_variable = { education_spending_factor = 1 }
-		add_to_variable = { education_spending_consumer_goods_expected_value = 0.02 }
-		add_to_variable = { education_spending_research_speed_factor = 0.06 }
-		add_to_variable = { education_spending_stability_factor = 0.035 }
-		add_to_variable = { education_spending_local_resources_factor = 0.15 }
-		add_to_variable = { education_spending_production_speed_industrial_complex_factor = 0.1 } 
-		add_to_variable = { education_spending_line_change_production_efficiency_factor = 0.1 } 
-		custom_effect_tooltip = increase_education_spending_tt
+		remove_ideas = { 
+			ATD_education_spending_idea_5
+			ATD_education_spending_idea_4
+			ATD_education_spending_idea_3
+			ATD_education_spending_idea_3
+			ATD_education_spending_idea_1
+		}
+		add_ideas = ATD_education_spending_idea_3
 	}
 }
 
 decrease_education_spending={
 	if={
-		limit = { check_variable = { var = education_spending_factor value = 1 compare = less_than_or_equals } }
+		limit = { has_idea = ATD_education_spending_idea_1 }
 		custom_effect_tooltip = cannot_decrease_education_spending_tt
 	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_2
+			add_idea = ATD_education_spending_idea_1
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_3
+			add_idea = ATD_education_spending_idea_2
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_4
+			add_idea = ATD_education_spending_idea_3
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_education_spending_idea_5 }
+		swap_ideas={
+			remove_idea = ATD_education_spending_idea_5
+			add_idea = ATD_education_spending_idea_4
+		}
+	}
 	else={
-		subtract_from_variable = { education_spending_factor = 1 }
-		subtract_from_variable = { education_spending_consumer_goods_expected_value = 0.02 }
-		subtract_from_variable = { education_spending_research_speed_factor = 0.06 }
-		subtract_from_variable = { education_spending_stability_factor = 0.035 }
-		subtract_from_variable = { education_spending_local_resources_factor = 0.15 }
-		subtract_from_variable = { education_spending_production_speed_industrial_complex_factor = 0.1 } 
-		subtract_from_variable = { education_spending_line_change_production_efficiency_factor = 0.1 } 
-		custom_effect_tooltip = decrease_education_spending_tt
+		remove_ideas = { 
+			ATD_education_spending_idea_5
+			ATD_education_spending_idea_4
+			ATD_education_spending_idea_3
+			ATD_education_spending_idea_3
+			ATD_education_spending_idea_1
+		}
+		add_ideas = ATD_education_spending_idea_3
 	}
 }
 
 increase_public_services_spending={
 	if={
-		limit = { check_variable = { var = public_services_spending_factor value = 5 compare = greater_than_or_equals } }
+		limit = { has_idea = ATD_public_services_spending_idea_5 }
 		custom_effect_tooltip = cannot_increase_public_services_spending_tt
 	}
-	else={
-		add_to_variable = { public_services_spending_factor = 1 }
-		add_to_variable = { public_services_spending_consumer_goods_expected_value = 0.04 }
-		add_to_variable = { public_services_spending_stability_weekly = 0.001 }
-		add_to_variable = { public_services_spending_monthly_population = 0.075 }
-		add_to_variable = { public_services_spending_industrial_capacity_factory = 0.05 }
-		add_to_variable = { public_services_spending_industrial_capacity_dockyard = 0.05 } 
-		add_to_variable = { public_services_spending_production_speed_buildings_factor = 0.10 } 
-		custom_effect_tooltip = increase_public_services_spending_tt
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_4
+			add_idea = ATD_public_services_spending_idea_5
+		}
 		
 		every_state={
 			limit={ is_controlled_by = ROOT }
 			increase_state_gdp_growth_by_2_5 = yes
 		}
 	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_3
+			add_idea = ATD_public_services_spending_idea_4
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_2
+			add_idea = ATD_public_services_spending_idea_3
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_1 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_1
+			add_idea = ATD_public_services_spending_idea_2
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else={
+		remove_ideas = { 
+			ATD_public_services_spending_idea_5
+			ATD_public_services_spending_idea_4
+			ATD_public_services_spending_idea_3
+			ATD_public_services_spending_idea_3
+			ATD_public_services_spending_idea_1
+		}
+		add_ideas = ATD_public_services_spending_idea_3
+	}
 }
 
 decrease_public_services_spending={
 	if={
-		limit = { check_variable = { var = public_services_spending_factor value = 1 compare = less_than_or_equals } }
+		limit = { has_idea = ATD_public_services_spending_idea_1 }
 		custom_effect_tooltip = cannot_decrease_public_services_spending_tt
 	}
-	else={
-		subtract_from_variable = { public_services_spending_factor = 1 }
-		subtract_from_variable = { public_services_spending_consumer_goods_expected_value = 0.04 }
-		subtract_from_variable = { public_services_spending_stability_weekly = 0.001 }
-		subtract_from_variable = { public_services_spending_monthly_population = 0.075 }
-		subtract_from_variable = { public_services_spending_industrial_capacity_factory = 0.05 }
-		subtract_from_variable = { public_services_spending_industrial_capacity_dockyard = 0.05 } 
-		subtract_from_variable = { public_services_spending_production_speed_buildings_factor = 0.10 } 
-		custom_effect_tooltip = decrease_public_services_spending_tt
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_2 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_2
+			add_idea = ATD_public_services_spending_idea_1
+		}
 		
 		every_state={
 			limit={ is_controlled_by = ROOT }
 			decrease_state_gdp_growth_by_2_5 = yes
 		}
 	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_3 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_3
+			add_idea = ATD_public_services_spending_idea_2
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			decrease_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_4 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_4
+			add_idea = ATD_public_services_spending_idea_3
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			decrease_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else_if={
+		limit = { has_idea = ATD_public_services_spending_idea_5 }
+		swap_ideas={
+			remove_idea = ATD_public_services_spending_idea_5
+			add_idea = ATD_public_services_spending_idea_4
+		}
+		
+		every_state={
+			limit={ is_controlled_by = ROOT }
+			decrease_state_gdp_growth_by_2_5 = yes
+		}
+	}
+	else={
+		remove_ideas = { 
+			ATD_public_services_spending_idea_5
+			ATD_public_services_spending_idea_4
+			ATD_public_services_spending_idea_3
+			ATD_public_services_spending_idea_3
+			ATD_public_services_spending_idea_1
+		}
+		add_ideas = ATD_public_services_spending_idea_3
+	}
 }
+
 
 get_yearly_gdp_pc_growth={
 	set_variable = { THIS.state_gdp_per_capita_growth_yearly = THIS.state_gdp_per_capita_growth }
@@ -896,56 +1133,8 @@ decrease_inflation_rate_by_5={
 spawn_new_country_economy={
 	set_variable = { THIS.inflation_rate = 1 }
 	
-	set_variable = { military_spending_consumer_goods_expected_value = 0.06 }
-	set_variable = { military_spending_mobilization_speed = 0.5 }
-	set_variable = { military_spending_conscription_factor = 0 }
-	set_variable = { military_spending_industrial_capacity_factory = 0.1 }
-	set_variable = { military_spending_industrial_capacity_dockyard = 0.1 } 
-	set_variable = { military_spending_army_org_factor = 0 } 
-	set_variable = { military_spending_army_attack_factor = 0 } 
-	set_variable = { military_spending_army_defence_factor = 0 } 
-	set_variable = { military_spending_experience_gain_army_factor = -0.1 } 
-	set_variable = { military_spending_experience_gain_navy_factor = -0.1 } 
-	set_variable = { military_spending_experience_gain_air_factor = -0.1 } 
-
-	set_variable = { military_spending_factor = 3 }		#1 = Minimal, 2 = Low, 3 = Medium, 4 = High, 5 = Extreme
-	add_dynamic_modifier = { modifier = military_spending_dynamic_modifier }
-	
-	set_variable = { intelligence_spending_consumer_goods_expected_value = 0.02 }
-	set_variable = { intelligence_spending_operative_slot = 2 }
-	set_variable = { intelligence_spending_agency_upgrade_time = 0.05 }
-	set_variable = { intelligence_spending_intel_network_gain_factor = 0 } 
-	set_variable = { intelligence_spending_planning_speed = 0 } 
-	set_variable = { intelligence_spending_max_planning = 0.1 } 
-	set_variable = { intelligence_spending_subversive_activites_upkeep = 0 } 
-	set_variable = { intelligence_spending_drift_defence_factor = 0 } 
-	set_variable = { intelligence_spending_resistance_growth_on_our_occupied_states = 0.1 } 
-	set_variable = { intelligence_spending_resistance_decay = 0 } 
-
-	set_variable = { intelligence_spending_factor = 3 }	
-	add_dynamic_modifier = { modifier = intelligence_spending_dynamic_modifier }
-	
-	set_variable = { education_spending_consumer_goods_expected_value = 0.04 }
-	set_variable = { education_spending_research_speed_factor = 0.06 }
-	set_variable = { education_spending_stability_factor = 0.1 }
-	set_variable = { education_spending_local_resources_factor = 0 } 
-	set_variable = { education_spending_production_speed_industrial_complex_factor = 0 } 
-	set_variable = { education_spending_line_change_production_efficiency_factor = 0.1 } 
-
-	set_variable = { education_spending_factor = 3 }		
-	add_dynamic_modifier = { modifier = education_spending_dynamic_modifier }
-	
-	set_variable = { public_services_spending_consumer_goods_expected_value = 0.07 }
-	set_variable = { public_services_spending_stability_weekly = 0 }
-	set_variable = { public_services_spending_monthly_population = 0.1 }
-	set_variable = { public_services_spending_industrial_capacity_factory = 0.05 } 
-	set_variable = { public_services_spending_industrial_capacity_dockyard = 0.05 } 
-	set_variable = { public_services_spending_production_speed_buildings_factor = 0.1 } 
-
-	set_variable = { public_services_spending_factor = 3 }		
-	add_dynamic_modifier = { modifier = public_services_spending_dynamic_modifier }
-	
-	add_dynamic_modifier = { modifier = inflation_dynamic_modifier }
-	add_dynamic_modifier = { modifier = real_gdp_pc_dynamic_modifier }
-	add_dynamic_modifier = { modifier = gdp_pc_dynamic_modifier }
+	add_ideas = ATD_military_spending_idea_3
+	add_ideas = ATD_intelligence_spending_idea_3
+	add_ideas = ATD_education_spending_idea_3
+	add_ideas = ATD_public_services_spending_idea_3
 }

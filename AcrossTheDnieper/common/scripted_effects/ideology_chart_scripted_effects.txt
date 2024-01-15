@@ -1,0 +1,219 @@
+create_pie_chart = {
+	clear_variable = far_right_pie_chart_frame
+	clear_variable = illiberal_pie_chart_frame
+	clear_variable = western_pie_chart_frame
+	clear_variable = far_left_pie_chart_frame
+	clear_variable = non_aligned_pie_chart_frame
+	
+	set_temp_variable = { far_right_pop = party_popularity@fascist }
+	add_to_temp_variable = { far_right_pop = party_popularity@ultranationalist }
+	add_to_temp_variable = { far_right_pop = party_popularity@military_junta }
+	multiply_temp_variable = { far_right_pop = 100 }
+	set_variable = { far_right_pie_chart_frame = far_right_pop }
+
+	set_temp_variable = { illiberal_democracy_pop = party_popularity@eastern_conservative }
+	add_to_temp_variable = { illiberal_democracy_pop = party_popularity@populist }
+	multiply_temp_variable = { illiberal_democracy_pop = 100 }
+
+	set_variable = { illiberal_pie_chart_frame = far_right_pop }
+	add_to_variable = { illiberal_pie_chart_frame = illiberal_democracy_pop }
+
+
+	set_temp_variable = { western_democracy_pop = party_popularity@neoconservative }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@neoliberal }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@eastern_liberal }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@libertarian }
+	add_to_temp_variable = { western_democracy_pop = party_popularity@social_democracy }
+	multiply_temp_variable = { western_democracy_pop = 100 }
+
+	set_variable = { western_pie_chart_frame = far_right_pop }
+	add_to_variable = { western_pie_chart_frame = illiberal_democracy_pop }
+	add_to_variable = { western_pie_chart_frame = western_democracy_pop }
+	
+	set_temp_variable = { far_left_pop = party_popularity@socialist }
+	add_to_temp_variable = { far_left_pop = party_popularity@moderate_communist }
+	add_to_temp_variable = { far_left_pop = party_popularity@hardline_communist }
+	multiply_temp_variable = { far_left_pop = 100 }
+	set_variable = { far_left_pie_chart_frame = far_right_pop }
+	add_to_variable = { far_left_pie_chart_frame = illiberal_democracy_pop }
+	add_to_variable = { far_left_pie_chart_frame = western_democracy_pop }
+	add_to_variable = { far_left_pie_chart_frame = far_left_pop }
+}
+
+get_macro_party_popularities={
+	set_variable = { ROOT.country_far_right_popularity = party_popularity@fascist }
+	add_to_variable = { ROOT.country_far_right_popularity = party_popularity@ultranationalist }
+	add_to_variable = { ROOT.country_far_right_popularity = party_popularity@military_junta }
+	set_variable = { ROOT.country_far_right_popularity_100 = ROOT.country_far_right_popularity }
+	multiply_variable = { ROOT.country_far_right_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_illiberal_popularity = party_popularity@eastern_conservative }
+	add_to_variable = { ROOT.country_illiberal_popularity = party_popularity@populist }
+	set_variable = { ROOT.country_illiberal_popularity_100 = ROOT.country_illiberal_popularity }
+	multiply_variable = { ROOT.country_illiberal_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_western_popularity = party_popularity@neoconservative }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@neoliberal }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@eastern_liberal }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@libertarian }
+	add_to_variable = { ROOT.country_western_popularity = party_popularity@social_democracy }
+	set_variable = { ROOT.country_western_popularity_100 = ROOT.country_western_popularity }
+	multiply_variable = { ROOT.country_western_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_far_left_popularity = party_popularity@socialist }
+	add_to_variable = { ROOT.country_far_left_popularity = party_popularity@moderate_communist }
+	add_to_variable = { ROOT.country_far_left_popularity = party_popularity@hardline_communist }
+	set_variable = { ROOT.country_far_left_popularity_100 = ROOT.country_far_left_popularity }
+	multiply_variable = { ROOT.country_far_left_popularity_100 = 100 }
+	
+	set_variable = { ROOT.country_non_aligned_popularity = party_popularity@anarchism_ideology }
+	add_to_variable = { ROOT.country_non_aligned_popularity = party_popularity@absolute_monarchy_ideology }
+	add_to_variable = { ROOT.country_non_aligned_popularity = party_popularity@theocracy_ideology }
+	set_variable = { ROOT.country_non_aligned_popularity_100 = ROOT.country_non_aligned_popularity }
+	multiply_variable = { ROOT.country_non_aligned_popularity_100 = 100 }
+}
+
+get_marco_modifier_effects={
+	set_variable = { country_far_right_drift = modifier@far_right_drift }
+	divide_variable = { country_far_right_drift = 3 }
+	set_variable = { fascist_drift_from_far_right_drift = country_far_right_drift }
+	set_variable = { ultranationalist_drift_from_far_right_drift = country_far_right_drift }
+	set_variable = { military_junta_drift_from_far_right_drift = country_far_right_drift }
+	
+	set_variable = { country_illiberal_drift = modifier@illiberal_drift }
+	divide_variable = { country_illiberal_drift = 2 }
+	set_variable = { eastern_conservative_drift_from_illiberal_drift = country_illiberal_drift }
+	set_variable = { populist_drift_from_illiberal_drift = country_illiberal_drift }
+
+	set_variable = { country_western_drift = modifier@western_drift }
+	divide_variable = { country_western_drift = 5 }
+	set_variable = { neoconservative_drift_from_western_drift = country_western_drift }
+	set_variable = { neoliberal_drift_from_western_drift = country_western_drift }
+	set_variable = { eastern_liberal_drift_from_western_drift = country_western_drift }
+	set_variable = { libertarian_drift_from_western_drift = country_western_drift }
+	set_variable = { social_democracy_drift_from_western_drift = country_western_drift }
+	
+	set_variable = { country_far_left_drift = modifier@far_left_drift }
+	divide_variable = { country_far_left_drift = 3 }
+	set_variable = { socialist_drift_from_far_left_drift = country_far_left_drift }
+	set_variable = { moderate_communist_drift_from_far_left_drift = country_far_left_drift }
+	set_variable = { hardline_communist_drift_from_far_left_drift = country_far_left_drift }
+	
+	set_variable = { country_non_aligned_drift = modifier@non_aligned_drift }
+	divide_variable = { country_non_aligned_drift = 3 }
+	set_variable = { anarchism_ideology_drift_from_non_aligned_drift = country_non_aligned_drift }
+	set_variable = { absolute_monarchy_drift_from_non_aligned_drift = country_non_aligned_drift }
+	set_variable = { theocracy_ideology_drift_from_non_aligned_drift = country_non_aligned_drift }
+	
+	set_variable = { country_ruling_party_drift = 0 }
+	set_variable = { fascist_drift_from_ruling_party_drift = 0 }
+	set_variable = { ultranationalist_drift_from_ruling_party_drift = 0 }
+	set_variable = { military_junta_drift_from_ruling_party_drift = 0 }
+	set_variable = { eastern_conservative_drift_from_ruling_party_drift = 0 }
+	set_variable = { populist_drift_from_ruling_party_drift = 0 }
+	set_variable = { neoconservative_drift_from_ruling_party_drift = 0 }
+	set_variable = { neoliberal_drift_from_ruling_party_drift = 0 }
+	set_variable = { eastern_liberal_drift_from_ruling_party_drift = 0 }
+	set_variable = { libertarian_drift_from_ruling_party_drift = 0 }
+	set_variable = { social_democracy_drift_from_ruling_party_drift = 0 }
+	set_variable = { socialist_drift_from_ruling_party_drift = 0 }
+	set_variable = { moderate_communist_drift_from_ruling_party_drift = 0 }
+	set_variable = { hardline_communist_drift_from_ruling_party_drift = 0 }
+	set_variable = { anarchism_ideology_drift_from_ruling_party_drift = 0 }
+	set_variable = { absolute_monarchy_ideology_drift_from_ruling_party_drift = 0 }
+	set_variable = { theocracy_ideology_drift_from_ruling_party_drift = 0 }
+	set_variable = { country_ruling_party_drift = modifier@ruling_party_drift }
+	if={
+		limit = { NOT = { check_variable = { var = ROOT.country_ruling_party_drift value = 0 compare = equals } } }
+		if={ 
+			limit = { has_government = fascist }
+			set_variable = { fascist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = ultranationalist }
+			set_variable = { ultranationalist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = military_junta }
+			set_variable = { military_junta_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = eastern_conservative }
+			set_variable = { eastern_conservative_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = populist }
+			set_variable = { populist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = neoconservative }
+			set_variable = { neoconservative_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = neoliberal }
+			set_variable = { neoliberal_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = eastern_liberal }
+			set_variable = { eastern_liberal_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = libertarian }
+			set_variable = { libertarian_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = social_democracy }
+			set_variable = { social_democracy_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = socialist }
+			set_variable = { socialist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = moderate_communist }
+			set_variable = { moderate_communist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = hardline_communist }
+			set_variable = { hardline_communist_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = anarchism_ideology }
+			set_variable = { anarchism_ideology_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = absolute_monarchy_ideology }
+			set_variable = { absolute_monarchy_ideology_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+		else_if={
+			limit = { has_government = theocracy_ideology }
+			set_variable = { theocracy_ideology_drift_from_ruling_party_drift = country_ruling_party_drift }
+		}
+	}	
+	
+	set_variable = { country_far_right_acceptance = modifier@far_right_acceptance }
+	set_variable = { fascist_acceptance_from_far_right_acceptance = country_far_right_acceptance }
+	set_variable = { ultranationalist_acceptance_from_far_right_acceptance = country_far_right_drift }
+	set_variable = { military_junta_drift_from_far_right_drift = country_far_right_drift }
+	
+	set_variable = { country_illiberal_acceptance = modifier@illiberal_acceptance }
+	set_variable = { eastern_conservative_acceptance_from_illiberal_acceptance = country_illiberal_acceptance }
+	set_variable = { populist_acceptance_from_illiberal_acceptance = country_illiberal_acceptance }
+	
+	set_variable = { country_western_acceptance = modifier@western_acceptance }
+	set_variable = { neoconservative_acceptance_from_western_acceptance = country_western_acceptance }
+	set_variable = { neoliberal_acceptance_from_western_acceptance = country_western_acceptance }
+	set_variable = { eastern_liberal_acceptance_from_western_acceptance = country_western_acceptance }
+	set_variable = { libertarian_acceptance_from_western_acceptance = country_western_acceptance }
+	set_variable = { social_democracy_acceptance_from_western_acceptance = country_western_acceptance }
+	
+	set_variable = { country_far_left_acceptance = modifier@far_left_acceptance }
+	set_variable = { socialist_acceptance_from_far_left_acceptance = country_far_left_acceptance }
+	set_variable = { moderate_communist_acceptance_from_far_left_acceptance = country_far_left_acceptance }
+	set_variable = { hardline_communist_acceptance_from_far_left_acceptance = country_far_left_acceptance }
+	
+	set_variable = { country_non_aligned_acceptance = modifier@non_aligned_acceptance }
+	set_variable = { anarchism_ideology_acceptance_from_non_aligned_acceptance = country_non_aligned_acceptance }
+	set_variable = { absolute_monarchy_acceptance_from_non_aligned_acceptance = country_non_aligned_acceptance }
+	set_variable = { theocracy_ideology_acceptance_from_non_aligned_acceptance = country_non_aligned_acceptance }
+}
