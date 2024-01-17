@@ -3183,8 +3183,82 @@ focus_tree = {
 		modifier = {
 			add = 0
 			tag = LIT
+		}	
+	}
+
+	focus = {
+		id = LIT_president_grybauskaite
+		icon = GFX_focus_LIT_dalia_grybauskaite_wins
+		x = 3
+		y = 0
+		prerequisite = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	focus = {
+		id = LIT_president_balcytis
+		icon = GFX_focus_LIT_lsdp_victory
+		x = 19
+		y = 0
+		prerequisite = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	focus = {
+		id = LIT_nato_values
+		icon = GFX_focus_LIT_nato_values
+		x = 10
+		y = 1
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_president_balcytis focus = LIT_president_grybauskaite }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
 		}
 
-		
+		completion_reward = {
+			country_event = { id = lithuania.32 }
+		}
 	}
 }
