@@ -1006,3 +1006,71 @@ defined_text = {
        localization_key = "texticon_cross"
     }
 }
+
+defined_text = {
+    name = LIT_whos_winning_2014_elections_party_name
+	
+    text = {
+        trigger = {
+            AND = {
+                neoconservative > party_popularity@social_democracy
+                neoconservative > party_popularity@populist
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_dalia_party_tt"
+    }
+	
+    text = {
+        trigger = {
+            AND = {
+                social_democracy > party_popularity@neoconservative
+                social_democracy > party_popularity@populist
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_soc_party_tt"
+    }
+
+    text = {
+        trigger = {
+            AND = {
+                populist > party_popularity@neoconservative
+                populist > party_popularity@social_democracy
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_labour_party_tt"
+    }
+}
+
+defined_text = {
+    name = LIT_whos_winning_2014_elections_leader_name
+	
+    text = {
+        trigger = {
+            AND = {
+                neoconservative > party_popularity@social_democracy
+                neoconservative > party_popularity@populist
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_dalia_tt"
+    }
+	
+    text = {
+        trigger = {
+            AND = {
+                social_democracy > party_popularity@neoconservative
+                social_democracy > party_popularity@populist
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_soc_tt"
+    }
+
+    text = {
+        trigger = {
+            AND = {
+                populist > party_popularity@neoconservative
+                populist > party_popularity@social_democracy
+            }
+        }
+        localization_key = "LIT_2014_elections_winning_labour_tt"
+    }
+}

@@ -3214,7 +3214,7 @@ focus_tree = {
 	focus = {
 		id = LIT_president_balcytis
 		icon = GFX_focus_LIT_lsdp_victory
-		x = 19
+		x = 15
 		y = 0
 		prerequisite = {}
 		
@@ -3237,15 +3237,40 @@ focus_tree = {
 	}
 
 	focus = {
-		id = LIT_nato_values
+		id = LIT_president_paulauskas
+		icon = GFX_focus_LIT_lsdp_victory
+		x = 22
+		y = 0
+		prerequisite = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	focus = {
+		id = LIT_enhance_nato_partnership
 		icon = GFX_focus_LIT_nato_values
 		x = 10
 		y = 1
 		
 		cost = 35
 
-		prerequisite = { focus = LIT_president_balcytis focus = LIT_president_grybauskaite }
-
+		prerequisite = { focus = LIT_president_balcytis focus = LIT_president_grybauskaite focus = LIT_president_paulauskas }
+		mutually_exclusive = { focus = LIT_a_change_of_policies }
 		ai_will_do = {
 
 		}
@@ -3259,6 +3284,33 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = { id = lithuania.32 }
+		}
+	}
+
+	focus = {
+		id = LIT_a_change_of_policies
+		icon = GFX_focus_LIT_nato_values
+		x = 12
+		y = 1
+		
+		cost = 35
+
+		prerequisite = { focus = LIT_president_paulauskas }
+		mutually_exclusive = { focus = LIT_enhance_nato_partnership }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
 		}
 	}
 }

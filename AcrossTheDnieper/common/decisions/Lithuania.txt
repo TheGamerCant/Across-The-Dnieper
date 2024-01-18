@@ -1,0 +1,65 @@
+LIT_2014_elections_decision_category = {
+	LIT_2014_elections_mission = { 
+		icon = SWI_no_elected_president
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		days_mission_timeout = 2
+		activation = {
+			AND = {
+				date < 2014.01.05
+				NOT = { has_country_flag = LIT_2014_elections_have_concluded }
+			}
+		}
+
+		visible = {
+			
+		}		
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			hidden_effect = {
+				set_country_flag = LIT_2014_elections_have_concluded
+
+				if = {
+					limit = {
+						AND = {
+							neoconservative > party_popularity@social_democracy
+							neoconservative > party_popularity@populist
+						}
+					}
+					complete_national_focus = LIT_president_grybauskaite
+					country_event = { id = lithuania.22 }
+				}
+				else_if = {
+					limit = {
+						AND = {
+							social_democracy > party_popularity@neoconservative
+							social_democracy > party_popularity@populist
+						}
+					}
+					complete_national_focus = LIT_president_balcytis
+					country_event = { id = lithuania.26 }
+				}
+				else_if = {
+					limit = {
+						AND = {
+							populist > party_popularity@neoconservative
+							populist > party_popularity@social_democracy
+						}
+					}
+					country_event = { id = lithuania.33 }
+				}
+			}
+
+			effect_tooltip = { country_event = { id = lithuania.27 } }
+		}
+	}	
+}
