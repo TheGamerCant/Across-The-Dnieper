@@ -474,9 +474,11 @@ if = {
 
 	set_technology = {
 		early_fighter = 1
+		basic_fighter = 1
 	}
 
 	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
+	add_equipment_to_stockpile = { type = fighter_equipment_1 amount = 32 }
 }
 
 if = {
@@ -486,6 +488,7 @@ if = {
 
 	set_technology = {
 		iw_small_airframe = 1
+		basic_small_airframe = 1
 		iw_large_airframe = 1
 		bombs1 = 1
 		aa_lmg = 1
@@ -512,12 +515,32 @@ if = {
 		}
 		obsolete = no
 	}
+	create_equipment_variant = {
+		name = "F-16"
+		type = small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = medium_mg
+			fixed_auxiliary_weapon_slot_1 = fox2_1
+			fixed_auxiliary_weapon_slot_2 = fox3_1
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = air_air_radar_1
+		}
+		obsolete = no
+	}
+
 
 	add_equipment_to_stockpile = {
 		type = small_plane_airframe_0
 		variant_name = "Su-27SM"
 		amount = 46
 		producer = SOV
+	}
+	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_1
+		variant_name = "F-16"
+		amount = 32
+		producer = POL
 	}
 }
 
