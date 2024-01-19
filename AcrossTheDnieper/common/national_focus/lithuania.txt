@@ -3239,7 +3239,7 @@ focus_tree = {
 	focus = {
 		id = LIT_president_paulauskas
 		icon = GFX_focus_LIT_lsdp_victory
-		x = 22
+		x = 25
 		y = 0
 		prerequisite = {}
 		
@@ -3288,6 +3288,72 @@ focus_tree = {
 	}
 
 	focus = {
+		id = LIT_enter_eurozone
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 8
+		y = 2
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_enhance_nato_partnership  }
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_euro_integration
+				days = 80
+			}
+			
+		}
+	}
+
+	focus = {
+		id = LIT_buy_american_lng
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 10
+		y = 2
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_enhance_nato_partnership  }
+		ai_will_do = {
+
+		}
+		available = {
+
+			AND = {
+				has_country_flag = LIT_has_built_klaipeda_lng
+				has_idea = LIT_idea_energy_dependence_2
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+
+			swap_ideas = {
+				remove_idea = LIT_idea_energy_dependence_2
+				add_idea = LIT_idea_energy_dependence_3
+			}
+			USA = {
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+			add_opinion_modifier = { target = USA modifier = medium_increase }
+		}
+	}
+
+	focus = {
 		id = LIT_a_change_of_policies
 		icon = GFX_focus_LIT_nato_values
 		x = 12
@@ -3310,7 +3376,37 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			country_event = { id = lithuania.35 }
+		}
+	}
+
+	focus = {
+		id = LIT_propose_new_conscription_laws
+		icon = GFX_focus_LIT_conscription_reforms
+		x = 19
+		y = 1
+		
+		cost = 50
+
+		prerequisite = { focus = LIT_president_balcytis focus = LIT_president_grybauskaite focus = LIT_president_paulauskas }
+
+		ai_will_do = {
+
+		}
+		available = {
 			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "LIT_propose_new_conscription_laws_tt"
+
+			hidden_effect = {
+				set_country_flag = LIT_vote_on_conscription_happening
+			}
 		}
 	}
 }

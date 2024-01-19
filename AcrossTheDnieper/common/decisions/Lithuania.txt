@@ -8,7 +8,7 @@ LIT_2014_elections_decision_category = {
 			}
 		}
 		
-		days_mission_timeout = 2
+		days_mission_timeout = 131
 		activation = {
 			AND = {
 				date < 2014.01.05
@@ -60,6 +60,76 @@ LIT_2014_elections_decision_category = {
 			}
 
 			effect_tooltip = { country_event = { id = lithuania.27 } }
+		}
+	}	
+
+	LIT_conscription_mission = { 
+		icon = SWI_no_elected_president
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		days_mission_timeout = 10
+		activation = {
+			has_country_flag = LIT_vote_on_conscription_happening
+		}
+
+		visible = {
+			
+		}		
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			hidden_effect = {
+				clr_country_flag = LIT_vote_on_conscription_happening
+
+				set_temp_variable = { LIT_cons_in_favour = 1 }
+				set_temp_variable = { LIT_cons_against = 0 }
+
+				if = {
+					limit = { has_government = social_democracy }
+					add_to_temp_variable = { LIT_cons_against = 1 }
+				}
+				else_if = {
+					limit = { has_government = neoconservative }
+					add_to_temp_variable = { LIT_cons_in_favour = 1 }
+				}
+				else_if = {
+					limit = { has_government = populist }
+					add_to_temp_variable = { LIT_cons_in_favour = 1 }
+				}
+
+				set_temp_variable = { LIT_cons_soc = party_popularity@social_democracy }
+				set_temp_variable = { LIT_cons_pop = party_popularity@populist }
+				set_temp_variable = { LIT_cons_neo = party_popularity@neoconservative }
+
+				divide_temp_variable = { LIT_cons_soc = 10 }
+				divide_temp_variable = { LIT_cons_pop = 10 }
+				divide_temp_variable = { LIT_cons_neo = 10 }
+
+				add_to_temp_variable = { LIT_cons_against = LIT_cons_soc }
+				add_to_temp_variable = { LIT_cons_in_favour = LIT_cons_pop }
+				add_to_temp_variable = { LIT_cons_in_favour = LIT_cons_neo }
+			}
+
+			if = {
+				limit = {
+					check_variable ={ LIT_cons_against > LIT_cons_in_favour}
+				}
+				country_event = { id = lithuania.37 }
+			}
+			else_if = {
+				limit = {
+					check_variable ={ LIT_cons_against < LIT_cons_in_favour}
+				}
+				country_event = { id = lithuania.36 }
+			}
 		}
 	}	
 }

@@ -1284,3 +1284,122 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = lithuania.34
+	title = lithuania.34.t
+	desc = lithuania.34.desc
+	is_triggered_only = yes
+	picture = LIT_event_klaipeda_terminal
+
+
+	option = { 
+		name = lithuania.34.a
+		ai_chance = {
+			base = 10
+		}
+
+		swap_ideas = {
+			remove_idea = LIT_idea_energy_dependence
+			add_idea = LIT_idea_energy_dependence_2
+		}
+
+		2 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = LIT_has_built_klaipeda_lng
+		}
+	}
+}
+
+country_event = {
+	id = lithuania.35
+	title = lithuania.35.t
+	desc = lithuania.35.desc
+	is_triggered_only = yes
+	picture = LIT_event_klaipeda_terminal
+
+
+	option = { 
+		name = lithuania.35.a
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			tag = LIT
+		}
+		add_political_power = -5
+		add_stability = -0.03
+		SOV = {
+			add_opinion_modifier = { target = LIT modifier = medium_increase }
+		}
+		add_opinion_modifier = { target = SOV modifier = medium_increase }
+
+		hidden_effect = {
+			SOV = { country_event = { id = lithuania.35 } }
+		}
+	}
+	
+	option = { 
+		name = lithuania.35.b
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			tag = SOV
+		}
+
+		add_political_power = 5
+	}
+}
+
+country_event = {
+	id = lithuania.36
+	title = lithuania.36.t
+	desc = lithuania.36.desc
+	is_triggered_only = yes
+	picture = LIT_event_seimas
+
+	
+	option = { 
+		name = lithuania.36.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = 0.03
+		add_political_power = -5
+
+		swap_ideas = {
+			remove_idea = volunteer_only
+			add_idea = limited_conscription
+		}
+	}
+}
+
+country_event = {
+	id = lithuania.37
+	title = lithuania.37.t
+	desc = lithuania.37.desc
+	is_triggered_only = yes
+	picture = LIT_event_seimas
+
+	
+	option = { 
+		name = lithuania.37.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = -0.05
+		add_political_power = -15
+	}
+}
