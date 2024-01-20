@@ -839,55 +839,54 @@ on_actions={
 	
 	on_daily_SOV={
 		effect={
-			add_to_variable = { global.days_since_start = 1 }
 #			if={
 #				limit = { SOV_can_fire_propaganda_events = yes }	
 #				if={
-#					limit = { check_variable = { global.days_since_start = 48 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
+#					limit = { check_variable = { global.num_days = 735158 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
 #					country_event = { id = russia_propaganda.5 }						#You don't wanna know how much of a headache RT being banned was for me researching this shit
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 91 } }		#1 April 2014
+#					limit = { check_variable = { global.num_days = 735201 } }		#1 April 2014
 #					country_event = { id = russia_propaganda.1 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 98 } }		#8 April 2014
+#					limit = { check_variable = { global.num_days = 735208 } }		#8 April 2014
 #					country_event = { id = russia_propaganda.2 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 116 } }		#26 April 2014
+#					limit = { check_variable = { global.num_days = 735226 } }		#26 April 2014
 #					country_event = { id = russia_propaganda.3 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 140 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }	#20 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
+#					limit = { check_variable = { global.num_days = 735250 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }	#20 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
 #					country_event = { id = russia_propaganda.4 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 146 } any_donbass_country_exists = yes }		#26 May 2014
+#					limit = { check_variable = { global.num_days = 735256 } any_donbass_country_exists = yes }		#26 May 2014
 #					country_event = { id = russia_propaganda.6 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 154 } any_donbass_country_exists = yes }		#3 June 2014
+#					limit = { check_variable = { global.num_days = 735264 } any_donbass_country_exists = yes }		#3 June 2014
 #					country_event = { id = russia_propaganda.7 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 163 } any_donbass_country_exists = yes }		#12 June 2014
+#					limit = { check_variable = { global.num_days = 735273 } any_donbass_country_exists = yes }		#12 June 2014
 #					country_event = { id = russia_propaganda.8 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 186 } any_donbass_country_exists = yes }		#5 July 2014
+#					limit = { check_variable = { global.num_days = 735296 } any_donbass_country_exists = yes }		#5 July 2014
 #					country_event = { id = russia_propaganda.10 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 191 } any_donbass_country_exists = yes }		#10 July 2014
+#					limit = { check_variable = { global.num_days = 735301 } any_donbass_country_exists = yes }		#10 July 2014
 #					country_event = { id = russia_propaganda.11 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 198 } any_donbass_country_exists = yes }		#17 July 2014
+#					limit = { check_variable = { global.num_days = 735308 } any_donbass_country_exists = yes }		#17 July 2014
 #					country_event = { id = russia_propaganda.9 }
 #				}
 #				else_if={
-#					limit = { check_variable = { global.days_since_start = 263 } any_donbass_country_exists = yes }		#20 September 2014
+#					limit = { check_variable = { global.num_days = 735373 } any_donbass_country_exists = yes }		#20 September 2014
 #					country_event = { id = russia_propaganda.12 }
 #				}		
 #			}
@@ -901,52 +900,52 @@ on_actions={
 				
 				
 				if={
-					limit = { check_variable = { global.days_since_start = 337 } vladimir_putin_is_leader = yes }				#SOTN speech
+					limit = { check_variable = { global.num_days = 735447 } vladimir_putin_is_leader = yes }				#SOTN speech
 					country_event = { id = russia.1011 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 200 } vladimir_putin_is_leader = yes }				#Poverty event
-					country_event = { id = russia.1058 }
+					limit = { check_variable = { global.num_days = 735310 } vladimir_putin_is_leader = yes }				#Poverty event
+					country_event = { id = russia.1058 random_days = 250 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 416 }  }												#Nemtsov dies
+					limit = { check_variable = { global.num_days = 735526 }  }												#Nemtsov dies
 					country_event = { id = russia.1012 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 704 }  }				#Shoigu corruption 
+					limit = { check_variable = { global.num_days = 735814 }  }				#Shoigu corruption 
 					country_event = { id = russia.1024 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 778 }  }				#Park Zaryadie
+					limit = { check_variable = { global.num_days = 735888 }  }				#Park Zaryadie
 					country_event = { id = russia.59 random_days = 28 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 849 }  }				#Rise of Kiriyenko
+					limit = { check_variable = { global.num_days = 735959 }  }				#Rise of Kiriyenko
 					country_event = { id = russia.1023 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1041 }  }			#Patriot PMC
-					country_event = { id = russia.1032 }
+					limit = { check_variable = { global.num_days = 736151 }  }			#Patriot PMC
+					country_event = { id = russia.1032 random_days = 30 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1138 }  }			#Continued economic stagnation
+					limit = { check_variable = { global.num_days = 736248 }  }			#Continued economic stagnation
 					country_event = { id = russia.1033 random_days = 50 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1200 } vladimir_putin_is_leader = yes }				#Don't call him Dimon
+					limit = { check_variable = { global.num_days = 736310 } vladimir_putin_is_leader = yes }				#Don't call him Dimon
 					country_event = { id = russia.1059 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1526 } vladimir_putin_is_leader = yes }			#World order 2018
+					limit = { check_variable = { global.num_days = 736636 } vladimir_putin_is_leader = yes }			#World order 2018
 					country_event = { id = russia_propaganda.17 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1583 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
+					limit = { check_variable = { global.num_days = 736693 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
 					country_event = { id = russia.1034 random_days = 7 }
 				}
 				else_if={
-					limit = { check_variable = { global.days_since_start = 1798 } country_exists = TRZ }			#Send more men to Transnistria?
-					country_event = { id = russia.1107 }
+					limit = { check_variable = { global.num_days = 736908 } country_exists = TRZ }			#Send more men to Transnistria?
+					country_event = { id = russia.1107 random_days = 25 }
 				}
 			}
 		}

@@ -1,25 +1,6 @@
 on_actions={	
-	on_startup={
-		effect={
-			every_country={
-				add_dynamic_modifier = { modifier = far_right_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = illiberal_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = western_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = far_left_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = non_aligned_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = ruling_party_drift_dynamic_modifier }
-				add_dynamic_modifier = { modifier = acceptance_dynamic_modifier }
-
-				get_marco_modifier_effects = yes
-			}
-		}
-	}
+	# the on_startup onaction was moved to the event generic.1
 	on_monthly = {		#Changed to monthly do reduce lag
-		effect = {
-			get_marco_modifier_effects = yes
-		}
-	}
-	on_government_change = {		#Will update the ruling_party_drift upon changing a government
 		effect = {
 			get_marco_modifier_effects = yes
 		}
