@@ -748,6 +748,99 @@ country_event = {
 	}
 }
 
+#Migrant ciris
+country_event = {
+	id = poland.16
+	title = poland.16.t
+	desc = poland.16.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_migrant_crisis
+
+
+	option = {
+		name = poland.16.a
+		ai_chance = { 
+			base = 10 
+			modifier={
+				factor = 0
+				NOT={
+					OR={
+						has_government = social_democracy
+						has_far_left_government = yes
+					}
+				}
+			}
+		}
+		add_stability = -0.04
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.LEFT_popularity = 2.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+
+		custom_effect_tooltip = POL_increase_LEFT_popularity_tt
+	}
+	
+	option = {
+		name = poland.16.b
+		ai_chance = { 
+			base = 10 
+			modifier={
+				factor = 0
+				NOT={
+					OR={
+						has_government = neoliberal
+						has_government = eastern_liberal
+					}
+				}
+			}
+		}
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PO_popularity = 1.5 }
+				add_to_variable = { THIS.PSL_popularity = 1.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+
+		custom_effect_tooltip = POL_increase_PO_popularity_tt
+		custom_effect_tooltip = POL_increase_PSL_popularity_tt
+	}
+	
+	option = {
+		name = poland.16.c
+		ai_chance = { 
+			base = 10 
+			modifier={
+				factor = 0
+				OR={
+					has_government = neoliberal
+					has_government = eastern_liberal
+					has_government = social_democracy
+					has_far_left_government = yes
+				}
+			}
+		}
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PiS_popularity = 1.5 }
+				add_to_variable = { THIS.RIGHT_popularity = 2.0 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+
+		custom_effect_tooltip = POL_increase_PiS_popularity_tt
+		custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
+	}
+}
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1

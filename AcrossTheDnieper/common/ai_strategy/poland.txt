@@ -1,0 +1,37 @@
+poland_ally_with_ukraine = {
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		NOT = { has_war_with = UKR }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = befriend
+		id = "UKR"
+		value = 200
+	}
+}
+
+poland_send_vollos_if_possible = {
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		NOT = { has_war_with = UKR }
+		has_completed_focus = POL_intervention_in_donbass
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "UKR"
+		value = 60
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "UKR"
+		value = 1200
+	}
+}
