@@ -1897,3 +1897,50 @@ news_event = {	#Ghost of kyiv
 
 	}
 }
+
+
+news_event = {	#Poland sends peacekeepers to Donbass
+	id = atd_news.67
+	title = atd_news.67.t
+	desc = atd_news.67.desc
+	picture = GFX_news_event_poland_in_donbass
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = atd_news.67.a
+		trigger = {
+			OR={
+				TAG = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+			
+		}
+
+
+	}
+	option = {
+		name = atd_news.67.b
+		trigger = {
+			has_country_flag = is_in_european_union
+		}
+
+	}
+	option = {
+		name = atd_news.67.c
+		trigger = {
+			NOT = {
+				OR={
+					has_country_flag = is_in_european_union
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+
+
+	}
+}

@@ -130,7 +130,16 @@ country_event = {
 				has_country_flag = poland_campaign_as_LEFT_flag
 			}
 		}
-
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.OTHER_popularity = 0.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		
+		custom_effect_tooltip = POL_decrease_OTHER_popularity_tt
 	}
 	
 	option = {
@@ -156,7 +165,8 @@ country_event = {
 			}
 		}
 		
-		custom_effect_tooltip = make_united_left_alliance_tt
+		custom_effect_tooltip = POL_increase_LEFT_popularity_tt
+		custom_effect_tooltip = POL_decrease_OTHER_popularity_tt
 	}
 }
 
@@ -273,6 +283,8 @@ country_event = {
 				limit = { NOT = { has_government = neoliberal } }
 				add_ideas = POL_divided_executive
 			}
+			
+			country_event = { id = poland.17 days = 30 random_days = 30 }
 		}
 		
 		if={
@@ -367,6 +379,8 @@ country_event = {
 				POL_make_popularities_equal_100 = yes
 			}
 		}
+		custom_effect_tooltip = POL_decrease_PO_popularity_tt
+		custom_effect_tooltip = POL_increase_PiS_popularity_tt
 	}
 	
 	option = {
@@ -388,6 +402,8 @@ country_event = {
 				POL_make_popularities_equal_100 = yes
 			}
 		}
+		custom_effect_tooltip = POL_decrease_PO_popularity_tt
+		custom_effect_tooltip = POL_increase_PiS_popularity_tt
 	}
 }
 
@@ -752,7 +768,7 @@ country_event = {
 	}
 }
 
-#Migrant ciris
+#Migrant crisis
 country_event = {
 	id = poland.16
 	title = poland.16.t
@@ -842,6 +858,40 @@ country_event = {
 
 		custom_effect_tooltip = POL_increase_PiS_popularity_tt
 		custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
+	}
+}
+
+#Kopacz does some purgin' but better for PO
+country_event = {
+	id = poland.17
+	title = poland.17.t
+	desc = poland.17.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_kopacz_press
+
+	option = {
+		name = poland.17.a
+		ai_chance = { base = 1 }
+		
+		trigger = { has_country_flag = poland_campaign_as_PO_flag }
+		
+		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
+		set_variable = { ewa_kopacz_stability_weekly = 0 }
+		set_variable = { ewa_kopacz_political_power_gain = 0 }
+		custom_effect_tooltip = poland.7.tt
+	}
+	
+	option = {
+		name = poland.17.b
+		ai_chance = { base = 1 }
+		
+		trigger = { NOT = { has_country_flag = poland_campaign_as_PO_flag } }
+		
+		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
+		set_variable = { ewa_kopacz_stability_weekly = 0 }
+		set_variable = { ewa_kopacz_political_power_gain = 0 }
+		custom_effect_tooltip = poland.7.tt
 	}
 }
 

@@ -126,7 +126,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_polands_place_in_europe
-		icon = GFX_focus_
+		icon = GFX_focus_POL_polands_place_in_europe
 		x = 10
 		y = 0
 		cost = 40
@@ -194,7 +194,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_humanitarian_aid
-		icon = GFX_focus_
+		icon = GFX_focus_POL_humanitarian_aid
 		x = 0
 		y = 1
 		cost = 40
@@ -220,7 +220,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_the_moskal_threat
-		icon = GFX_focus_
+		icon = GFX_focus_POL_the_moskal_threat
 		x = 2
 		y = 1
 		cost = 40
@@ -258,7 +258,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_intervention_in_donbass
-		icon = GFX_focus_
+		icon = GFX_focus_POL_intervention_in_donbass
 		x = 0
 		y = 2
 		cost = 40
@@ -276,11 +276,15 @@ focus_tree = {
 		relative_position_id = POL_the_moskal_threat
 		completion_reward = {
 			custom_effect_tooltip = POL_intervention_in_donbass_tt
-			add_political_power = -100
+			add_political_power = -60
 			
 			hidden_effect={
 				add_ideas = POLAND_donbass_war_idea
+				
+				news_event = { id = atd_news.67 hours = 2 random_hours = 10 }
 			}
+			
+			add_named_threat = { threat = 8 name = POL_intervention_in_donbass }
 		}
 	}
 	
@@ -289,7 +293,7 @@ focus_tree = {
 		icon = GFX_focus_
 		x = -3
 		y = 2
-		cost = 40
+		cost = 60
 
 		ai_will_do = { 
 			factor = 10
@@ -323,7 +327,7 @@ focus_tree = {
 		icon = GFX_focus_
 		x = 1
 		y = 1
-		cost = 40
+		cost = 60
 
 		ai_will_do = { 
 			factor = 10
