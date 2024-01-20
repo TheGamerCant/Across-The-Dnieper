@@ -567,9 +567,21 @@ defined_text = {
     }
 	text = {
         trigger = {
-			check_variable = { company_idx_2 = 1 }
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                NOT = { has_country_flag = LIT_vilnius_company_air_lituanica_banned }
+            }
         }
         localization_key = "LIT_vilnius_company_air_lituanica_effects"
+    }
+    text = {
+        trigger = {
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                has_country_flag = LIT_vilnius_company_air_lituanica_banned 
+            }
+        }
+        localization_key = "LIT_vilnius_company_air_lituanica_ban_tt"
     }
 	text = {
         trigger = {
@@ -602,9 +614,21 @@ defined_text = {
     }
 	text = {
         trigger = {
-			check_variable = { company_idx_2 = 1 }
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                NOT = { has_country_flag = LIT_vilnius_company_air_lituanica_banned }
+            }
         }
         localization_key = "LIT_vilnius_company_air_lituanica"
+    }
+    text = {
+        trigger = {
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                has_country_flag = LIT_vilnius_company_air_lituanica_banned
+            }
+        }
+        localization_key = "LIT_vilnius_company_air_lituanica_ban_tt"
     }
 	text = {
         trigger = {
@@ -637,9 +661,21 @@ defined_text = {
     }
 	text = {
         trigger = {
-			check_variable = { company_idx_2 = 1 }
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                NOT = { has_country_flag = LIT_vilnius_company_air_lituanica_banned }
+            }
         }
         localization_key = "GFX_Air_Lituanica"
+    }
+    text = {
+        trigger = {
+            AND = {
+                check_variable = { company_idx_2 = 1 }
+                has_country_flag = LIT_vilnius_company_air_lituanica_banned
+            }
+        }
+        localization_key = ""
     }
 	text = {
         trigger = {
@@ -836,9 +872,21 @@ defined_text = {
     }
 	text = {
         trigger = {
-			has_country_flag = LIT_vilnius_company_air_lituanica_set
+            AND = {
+                has_country_flag = LIT_vilnius_company_air_lituanica_set
+                NOT = { has_country_flag = LIT_vilnius_company_air_lituanica_banned }
+            }
         }
         localization_key = "GFX_Air_Lituanica"
+    }
+    text = {
+        trigger = {
+            AND = {
+                has_country_flag = LIT_vilnius_company_air_lituanica_set
+                has_country_flag = LIT_vilnius_company_air_lituanica_banned
+            }
+        }
+        localization_key = ""
     }
 	text = {
         trigger = {

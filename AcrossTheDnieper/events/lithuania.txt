@@ -1403,3 +1403,75 @@ country_event = {
 		add_political_power = -15
 	}
 }
+
+country_event = {
+	id = lithuania.38
+	title = lithuania.38.t
+	desc = lithuania.38.desc
+	is_triggered_only = yes
+	picture = LIT_event_zalgiris_stadium
+
+	
+	option = { 
+		name = lithuania.38.a
+		ai_chance = {
+			base = 10
+		}
+
+		6 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = lithuania.39
+	title = lithuania.39.t
+	desc = lithuania.39.desc
+	is_triggered_only = yes
+	picture = LIT_event_plane_crash
+
+	
+	option = { 
+		name = lithuania.39.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.01
+		add_political_power = -10
+	}
+}
+
+country_event = {
+	id = lithuania.40
+	title = lithuania.40.t
+	desc = lithuania.40.desc
+	is_triggered_only = yes
+	picture = LIT_event_royal_prep
+
+	
+	option = { 
+		name = lithuania.40.a
+		ai_chance = {
+			base = 10
+		}
+
+		custom_effect_tooltip = "lithuania.40.tt"
+
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = LIT_vilnius_company_air_lituanica_set  }
+				LIT_stop_air_lituanica = yes
+			}
+
+			set_country_flag = LIT_vilnius_company_air_lituanica_banned
+		}
+
+	}
+}
