@@ -91,6 +91,16 @@ music = {
 	}	
 }
 
+music = {
+	song = "SadSvit - Luhi"
+	
+	chance = {
+		modifier = {
+			factor = 5
+		}		
+	}	
+}
+
 
 music = {
 	song = "Stefania"
@@ -193,6 +203,30 @@ music = {
 			factor = 5
 			AND = {
 				has_global_flag = donbass_war_is_ongoing
+			}
+		}			
+	}	
+}
+
+music = {
+	song = "Batko nash Bandera"
+	chance = {
+		modifier = {
+			factor = 5
+			AND = {
+				tag = UKR
+				UKR = {
+					has_war = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			AND = {
+				tag = UKR
+				UKR = {
+					has_far_right_government = yes
+				}
 			}
 		}			
 	}	
