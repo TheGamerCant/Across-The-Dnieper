@@ -6,7 +6,7 @@ tags={
 	"Map"
 	"National Focuses"
 }
-name="Across The Dnieper | Beta"
+name="Across The Dnieper | Dev Version"
 replace_path="common/abilities"
 replace_path="common/ai_areas"
 replace_path="common/ai_equipment"
