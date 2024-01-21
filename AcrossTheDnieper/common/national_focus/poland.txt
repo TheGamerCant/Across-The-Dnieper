@@ -28,7 +28,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			country_event = { id = poland.10 hours = 1 random_hours = 3 }
+			country_event = { id = atd_poland.10 hours = 1 random_hours = 3 }
 		}
 	}
 	
@@ -276,8 +276,13 @@ focus_tree = {
 		relative_position_id = POL_the_moskal_threat
 		completion_reward = {
 			custom_effect_tooltip = POL_intervention_in_donbass_tt
-			add_political_power = -60
-			
+			if={
+				limit = { has_country_flag = POL_the_eagle_soars_flag }
+				add_political_power = -60
+			}
+			else={
+				add_political_power = -120
+			}
 			hidden_effect={
 				add_ideas = POLAND_donbass_war_idea
 				
@@ -426,11 +431,11 @@ focus_tree = {
 		}
 	}
 	
-	shared_focus = POL_the_need_for_NATO
+	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
 }
 
 shared_focus = {
-	id = POL_the_need_for_NATO
+	id = POL_oh_no_the_ruskies_invaded_crimea
 	icon = GFX_focus_
 	x = 5
 	y = 7

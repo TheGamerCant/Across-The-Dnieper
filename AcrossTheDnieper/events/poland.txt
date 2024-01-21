@@ -1,11 +1,11 @@
-add_namespace = poland
+add_namespace = atd_poland
 add_namespace = poland_election
 
 #Create Konfederacjia
 country_event = {
-	id = poland.1
-	title = poland.1.t
-	desc = poland.1.desc
+	id = atd_poland.1
+	title = atd_poland.1.t
+	desc = atd_poland.1.desc
 	picture = GFX_report_event_POL_konfederacja
 	is_triggered_only = yes
 
@@ -54,7 +54,7 @@ country_event = {
 	}
 
 	option = {
-		name = poland.1.a
+		name = atd_poland.1.a
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -65,7 +65,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.1.b
+		name = atd_poland.1.b
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -89,9 +89,9 @@ country_event = {
 
 #Creation of the United Left
 country_event = {
-	id = poland.2
-	title = poland.2.t
-	desc = poland.2.desc
+	id = atd_poland.2
+	title = atd_poland.2.t
+	desc = atd_poland.2.desc
 	picture = GFX_report_event_POL_united_left
 	is_triggered_only = yes
 	
@@ -122,7 +122,7 @@ country_event = {
 	}
 
 	option = {
-		name = poland.2.a
+		name = atd_poland.2.a
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -143,7 +143,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.2.b
+		name = atd_poland.2.b
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -172,15 +172,15 @@ country_event = {
 
 #A candidate from PiS for President
 country_event = {
-	id = poland.3
-	title = poland.3.t
-	desc = poland.3.desc
+	id = atd_poland.3
+	title = atd_poland.3.t
+	desc = atd_poland.3.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_PiS_candidate_2015
 
 	option = {			#Andrzej Duda
-		name = poland.3.a
+		name = atd_poland.3.a
 		ai_chance = { base = 1 }
 
 		set_country_flag = Duda_PiS_candidate_flag
@@ -196,7 +196,7 @@ country_event = {
 	}
 	
 	option = {			#Jarosław Kaczyński
-		name = poland.3.b
+		name = atd_poland.3.b
 		ai_chance = { base = 0 }
 
 		set_country_flag = Kaczynski_PiS_candidate_flag
@@ -215,9 +215,9 @@ country_event = {
 
 #2015 Election
 country_event = {
-	id = poland.4
-	title = poland.4.t
-	desc = poland.4.desc
+	id = atd_poland.4
+	title = atd_poland.4.t
+	desc = atd_poland.4.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_pokemon_go_to_the_polls
@@ -225,7 +225,7 @@ country_event = {
 	timeout_days = 5
 
 	option = {			#Andrzej Duda
-		name = poland.4.a
+		name = atd_poland.4.a
 		ai_chance = { base = 1 }
 
 		trigger={
@@ -237,7 +237,7 @@ country_event = {
 			
 			clr_country_flag = Duda_PiS_candidate_flag
 			
-			country_event = { id = poland.7 days = 30 random_days = 30 }
+			country_event = { id = atd_poland.7 days = 30 random_days = 30 }
 		}
 		
 		custom_effect_tooltip = POL_duda_becomes_president_tt
@@ -249,7 +249,7 @@ country_event = {
 	}
 	
 	option = {			#Jarosław Kaczyński
-		name = poland.4.b
+		name = atd_poland.4.b
 		ai_chance = { base = 1 }
 
 		trigger={
@@ -261,7 +261,7 @@ country_event = {
 			
 			clr_country_flag = Kaczynski_PiS_candidate_flag
 			
-			country_event = { id = poland.7 days = 30 random_days = 30 }
+			country_event = { id = atd_poland.7 days = 30 random_days = 30 }
 		}
 		
 		custom_effect_tooltip = POL_kaczynski_becomes_president_tt
@@ -273,7 +273,7 @@ country_event = {
 	}
 	
 	option = {			#Bronisław Komorowski
-		name = poland.4.c
+		name = atd_poland.4.c
 		ai_chance = { base = 1 }
 		
 		custom_effect_tooltip = POL_komorowski_stays_president_tt
@@ -284,7 +284,7 @@ country_event = {
 				add_ideas = POL_divided_executive
 			}
 			
-			country_event = { id = poland.17 days = 30 random_days = 30 }
+			country_event = { id = atd_poland.17 days = 30 random_days = 30 }
 		}
 		
 		if={
@@ -296,9 +296,9 @@ country_event = {
 
 #Donald Tusk becomes EC president
 country_event = {
-	id = poland.5
-	title = poland.5.t
-	desc = poland.5.desc
+	id = atd_poland.5
+	title = atd_poland.5.t
+	desc = atd_poland.5.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_donald_tusk_eu
@@ -306,8 +306,8 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_country_flag = POL_donald_tusk_not_available_flag
-			country_event = { id = poland.6 days = 1825 }
-			country_event = { id = poland.9 days = 25 random_days = 20 }
+			country_event = { id = atd_poland.6 days = 1825 }
+			country_event = { id = atd_poland.9 days = 25 random_days = 20 }
 			every_state={
 				limit = { POL_is_election_state = yes }
 				multiply_variable = { THIS.PO_popularity = 0.90 }
@@ -324,7 +324,7 @@ country_event = {
 	}
 
 	option = {
-		name = poland.5.a
+		name = atd_poland.5.a
 		ai_chance = { base = 1 }
 
 		POL_make_ewa_kopacz_pm = yes
@@ -334,15 +334,15 @@ country_event = {
 
 #Donald Tusk returns to Poland
 country_event = {
-	id = poland.6
-	title = poland.6.t
-	desc = poland.6.desc
+	id = atd_poland.6
+	title = atd_poland.6.t
+	desc = atd_poland.6.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_donald_tusk_eu
 
 	option = {
-		name = poland.6.a
+		name = atd_poland.6.a
 		ai_chance = { base = 1 }
 
 		clr_country_flag = POL_donald_tusk_not_available_flag
@@ -353,15 +353,15 @@ country_event = {
 
 #Kopacz does some purgin'
 country_event = {
-	id = poland.7
-	title = poland.7.t
-	desc = poland.7.desc
+	id = atd_poland.7
+	title = atd_poland.7.t
+	desc = atd_poland.7.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_kopacz_press
 
 	option = {
-		name = poland.7.a
+		name = atd_poland.7.a
 		ai_chance = { base = 1 }
 		
 		trigger = { has_country_flag = poland_campaign_as_PO_flag }
@@ -370,7 +370,7 @@ country_event = {
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
-		custom_effect_tooltip = poland.7.tt
+		custom_effect_tooltip = atd_poland.7.tt
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
@@ -384,7 +384,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.7.b
+		name = atd_poland.7.b
 		ai_chance = { base = 1 }
 		
 		trigger = { NOT = { has_country_flag = poland_campaign_as_PO_flag } }
@@ -393,7 +393,7 @@ country_event = {
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
-		custom_effect_tooltip = poland.7.tt
+		custom_effect_tooltip = atd_poland.7.tt
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
@@ -409,9 +409,9 @@ country_event = {
 
 #Results of the local elections
 country_event = {
-	id = poland.8
-	title = poland.8.t
-	desc = poland.8.desc
+	id = atd_poland.8
+	title = atd_poland.8.t
+	desc = atd_poland.8.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_pokemon_go_to_the_polls
@@ -427,7 +427,7 @@ country_event = {
 	}
 
 	option = {
-		name = poland.8.a
+		name = atd_poland.8.a
 		ai_chance = { 
 			base = 1 
 			modifier = {
@@ -446,7 +446,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.8.b
+		name = atd_poland.8.b
 		ai_chance = { 
 			base = 1 
 			modifier = {
@@ -465,7 +465,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.8.c
+		name = atd_poland.8.c
 		ai_chance = { 
 			base = 1 
 			modifier = {
@@ -484,7 +484,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.8.d
+		name = atd_poland.8.d
 		ai_chance = { 
 			base = 1 
 			modifier = {
@@ -503,7 +503,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.8.e
+		name = atd_poland.8.e
 		ai_chance = { 
 			base = 1 
 			modifier = {
@@ -524,15 +524,15 @@ country_event = {
 
 #Waitergate
 country_event = {
-	id = poland.9
-	title = poland.9.t
-	desc = poland.9.desc
+	id = atd_poland.9
+	title = atd_poland.9.t
+	desc = atd_poland.9.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_kopacz_press
 
 	option = {
-		name = poland.9.a
+		name = atd_poland.9.a
 		ai_chance = { 
 			base = 1 
 		}
@@ -553,15 +553,15 @@ country_event = {
 
 #Seven years of PO
 country_event = {
-	id = poland.10
-	title = poland.10.t
-	desc = poland.10.desc
+	id = atd_poland.10
+	title = atd_poland.10.t
+	desc = atd_poland.10.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_generic_PO
 
 	option = {
-		name = poland.10.a
+		name = atd_poland.10.a
 		ai_chance = { 
 			base = 1 
 		}
@@ -579,7 +579,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.10.b
+		name = atd_poland.10.b
 		ai_chance = { 
 			base = 1 
 		}
@@ -599,36 +599,56 @@ country_event = {
 
 #Crimea event - for POL
 country_event = {
-	id = poland.11
-	title = poland.11.t
-	desc = poland.11.desc
+	id = atd_poland.11
+	title = atd_poland.11.t
+	desc = atd_poland.11.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_UKR_little_green_men
 
 	option = {
-		name = poland.11.a
+		name = atd_poland.11.a
 		ai_chance = { 
 			base = 10 
 		}
 		
-		clr_country_flag = POL_its_all_chill_in_da_hood
-		complete_national_focus = POL_the_need_for_NATO
+		custom_effect_tooltip = POL_the_need_for_nato_event_tt
+		hidden_effect={
+			clr_country_flag = POL_its_all_chill_in_da_hood
+			clr_country_flag = POL_the_eagle_soars_flag
+			set_country_flag = POL_the_need_for_nato_flag
+			complete_national_focus = POL_oh_no_the_ruskies_invaded_crimea
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	option = {
+		name = atd_poland.11.b
+		ai_chance = { 
+			base = 10 
+		}
 		
-		mark_focus_tree_layout_dirty = yes
+		custom_effect_tooltip = POL_the_eagle_soars_event_tt
+		hidden_effect={
+			clr_country_flag = POL_its_all_chill_in_da_hood
+			clr_country_flag = POL_the_need_for_nato_flag
+			set_country_flag = POL_the_eagle_soars_flag
+			complete_national_focus = POL_oh_no_the_ruskies_invaded_crimea
+			mark_focus_tree_layout_dirty = yes
+		}
 	}
 }
 
 #High command reorganised
 country_event = {
-	id = poland.12
-	title = poland.12.t
-	desc = poland.12.desc
+	id = atd_poland.12
+	title = atd_poland.12.t
+	desc = atd_poland.12.desc
 	is_triggered_only = yes
 
 
 	option = {
-		name = poland.12.a
+		name = atd_poland.12.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -643,9 +663,9 @@ country_event = {
 
 #Creation of Lewica
 country_event = {
-	id = poland.13
-	title = poland.13.t
-	desc = poland.13.desc
+	id = atd_poland.13
+	title = atd_poland.13.t
+	desc = atd_poland.13.desc
 	picture = GFX_report_event_POL_lewica_rally
 	is_triggered_only = yes
 	
@@ -681,7 +701,7 @@ country_event = {
 	}
 
 	option = {
-		name = poland.13.a
+		name = atd_poland.13.a
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -692,7 +712,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.13.b
+		name = atd_poland.13.b
 		ai_chance = {
 			base = 1 
 			modifier = {
@@ -718,14 +738,14 @@ country_event = {
 
 #Humanitarian aid from poland
 country_event = {
-	id = poland.14
-	title = poland.14.t
-	desc = poland.14.desc
+	id = atd_poland.14
+	title = atd_poland.14.t
+	desc = atd_poland.14.desc
 	is_triggered_only = yes
 
 
 	option = {
-		name = poland.14.a
+		name = atd_poland.14.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -737,14 +757,14 @@ country_event = {
 
 #Humanitarian and military aid from poland
 country_event = {
-	id = poland.15
-	title = poland.15.t
-	desc = poland.15.desc
+	id = atd_poland.15
+	title = atd_poland.15.t
+	desc = atd_poland.15.desc
 	is_triggered_only = yes
 
 
 	option = {
-		name = poland.15.a
+		name = atd_poland.15.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -770,15 +790,15 @@ country_event = {
 
 #Migrant crisis
 country_event = {
-	id = poland.16
-	title = poland.16.t
-	desc = poland.16.desc
+	id = atd_poland.16
+	title = atd_poland.16.t
+	desc = atd_poland.16.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_migrant_crisis
 
 
 	option = {
-		name = poland.16.a
+		name = atd_poland.16.a
 		ai_chance = { 
 			base = 10 
 			modifier={
@@ -805,7 +825,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.16.b
+		name = atd_poland.16.b
 		ai_chance = { 
 			base = 10 
 			modifier={
@@ -833,7 +853,7 @@ country_event = {
 	}
 	
 	option = {
-		name = poland.16.c
+		name = atd_poland.16.c
 		ai_chance = { 
 			base = 10 
 			modifier={
@@ -863,15 +883,15 @@ country_event = {
 
 #Kopacz does some purgin' but better for PO
 country_event = {
-	id = poland.17
-	title = poland.17.t
-	desc = poland.17.desc
+	id = atd_poland.17
+	title = atd_poland.17.t
+	desc = atd_poland.17.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_kopacz_press
 
 	option = {
-		name = poland.17.a
+		name = atd_poland.17.a
 		ai_chance = { base = 1 }
 		
 		trigger = { has_country_flag = poland_campaign_as_PO_flag }
@@ -879,11 +899,11 @@ country_event = {
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
-		custom_effect_tooltip = poland.7.tt
+		custom_effect_tooltip = atd_poland.7.tt
 	}
 	
 	option = {
-		name = poland.17.b
+		name = atd_poland.17.b
 		ai_chance = { base = 1 }
 		
 		trigger = { NOT = { has_country_flag = poland_campaign_as_PO_flag } }
@@ -891,7 +911,7 @@ country_event = {
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
-		custom_effect_tooltip = poland.7.tt
+		custom_effect_tooltip = atd_poland.7.tt
 	}
 }
 
@@ -907,8 +927,8 @@ country_event = {
 		hidden_effect={
 			set_country_flag = poland_election_campaigns_are_ongoing
 			country_event = { id = poland_election.38 days = 360 random_days = 12 }		#election event
-			country_event = { id = poland.2 days = 80 random_days = 100 }	#create united left
-			country_event = { id = poland.8 days = 45 }	#local elections
+			country_event = { id = atd_poland.2 days = 80 random_days = 100 }	#create united left
+			country_event = { id = atd_poland.8 days = 45 }	#local elections
 		}
 	}
 
@@ -2581,7 +2601,7 @@ country_event = {
 			country_event = poland_election.51
 		}
 		else={
-			country_event = poland.54
+			country_event = poland_election.54
 		}
 	}
 }
@@ -2651,7 +2671,7 @@ country_event = {
 			country_event = poland_election.52
 		}
 		else={
-			country_event = poland.54
+			country_event = poland_election.54
 		}
 	}
 }
@@ -2726,7 +2746,7 @@ country_event = {
 			country_event = poland_election.52
 		}
 		else={
-			country_event = poland.54
+			country_event = poland_election.54
 		}
 	}
 }
@@ -2791,7 +2811,7 @@ country_event = {
 			country_event = poland_election.51
 		}
 		else={
-			country_event = poland.54
+			country_event = poland_election.54
 		}
 	}
 }
@@ -2856,7 +2876,7 @@ country_event = {
 			country_event = poland_election.51
 		}
 		else={
-			country_event = poland.54
+			country_event = poland_election.54
 		}
 	}
 }
