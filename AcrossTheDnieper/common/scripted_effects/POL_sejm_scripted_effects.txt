@@ -1455,9 +1455,6 @@ POL_get_total_country_votes_effect={
 	clear_variable = POL.national_OTHER_vote_count_no_dp
 	multiply_variable = { POL.national_OTHER_vote_count_small = 1000 }
 	
-	
-	
-	
 	if={
 		limit = { check_variable = { var = POL.national_PO_vote_count_small value = 1000 compare = greater_than_or_equals } }
 		subtract_from_variable = { POL.national_PO_vote_count_small = 1000 }
@@ -1487,6 +1484,32 @@ POL_get_total_country_votes_effect={
 		limit = { check_variable = { var = POL.national_OTHER_vote_count_small value = 1000 compare = greater_than_or_equals } }
 		subtract_from_variable = { POL.national_OTHER_vote_count_small = 1000 }
 		add_to_variable = { POL.national_OTHER_vote_count_k = 1 }
+	}
+	
+	#If it's less than 100 add 100 or else the tt will display two digits instead of three.
+	if={
+		limit = { check_variable = { var = POL.national_PO_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_PO_vote_count_small = 100 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_PiS_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_PiS_vote_count_small = 100 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_RIGHT_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_RIGHT_vote_count_small = 100 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_LEFT_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_LEFT_vote_count_small = 100 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_PSL_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_PSL_vote_count_small = 100 }
+	}
+	if={
+		limit = { check_variable = { var = POL.national_OTHER_vote_count_small value = 100 compare = less_than } }
+		add_to_variable = { POL.national_OTHER_vote_count_small = 100 }
 	}
 }
 
