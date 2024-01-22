@@ -3148,6 +3148,34 @@ focus_tree = {
 	}
 
 	focus = {
+		id = LIT_the_russian_threat
+		icon = GFX_focus_LIT_dalia_grybauskaite_wins
+		x = 3
+		y = 1
+		prerequisite = {focus = LIT_president_grybauskaite}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+			has_country_flag = donbass_war_started
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 20
+			add_war_support = 0.05
+			air_experience = 10
+			increase_military_spending = yes
+		}
+	}
+
+	focus = {
 		id = LIT_president_balcytis
 		icon = GFX_focus_LIT_lsdp_victory
 		x = 15
@@ -3315,6 +3343,107 @@ focus_tree = {
 			country_event = { id = lithuania.35 }
 		}
 	}
+	
+	focus = {
+		id = LIT_adopt_the_rouble
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 12
+		y = 2
+		
+		cost = 70
+
+		prerequisite = { focus = LIT_a_change_of_policies }
+		mutually_exclusive = { focus = LIT_stay_with_the_litas }
+
+		ai_will_do = {
+
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			SOV = { country_event = { id = lithuania.41 }}
+
+			add_timed_idea = {
+				idea = LIT_idea_rouble_integration
+				days = 80
+			}
+		}
+	}
+
+		focus = {
+			id = LIT_stay_with_the_litas
+			icon = GFX_focus_LIT_adopt_the_euro
+			x = 14
+			y = 2
+			
+			cost = 70
+	
+			prerequisite = { focus = LIT_a_change_of_policies }
+			mutually_exclusive = { focus = LIT_adopt_the_rouble }
+	
+			ai_will_do = {
+	
+			}
+			available = {
+				
+			}
+			
+			bypass = {
+	
+			}
+	
+			completion_reward = {
+				add_stability = 0.03
+				add_political_power = 30
+				every_country = {
+					limit = { has_country_flag = is_in_european_union }
+					add_opinion_modifier = { target = LIT modifier = large_decrease }
+				}
+			}
+	}
+
+	focus = {
+		id = LIT_import_russian_gas
+		icon = GFX_focus_LIT_adopt_the_euro
+		x = 13
+		y = 3
+		
+		cost = 40
+
+		prerequisite = { focus = LIT_a_change_of_policies }
+		prerequisite = { focus = LIT_stay_with_the_litas focus = LIT_adopt_the_rouble }
+
+		ai_will_do = {
+
+		}
+		available = {
+			AND = {
+				has_country_flag = LIT_has_built_klaipeda_lng
+				has_idea = LIT_idea_energy_dependence_2
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = LIT_idea_energy_dependence_2
+				add_idea = LIT_idea_energy_dependence_3_russia
+			}
+			SOV = {
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+			add_opinion_modifier = { target = SOV modifier = medium_increase }
+		}
+}
 
 	focus = {
 		id = LIT_propose_new_conscription_laws
