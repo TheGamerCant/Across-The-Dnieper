@@ -796,3 +796,107 @@ defined_text = {
         localization_key = "POL_the_eagle_soars_desc"
     }
 }
+
+defined_text = {
+	name = POLAND_get_bill_in_sejm
+	text = {
+		trigger = {
+			has_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+		}
+		localization_key = "POL_strategy_for_energy_security_and_environment"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_will_bill_pass
+	text = {
+		trigger = {
+			check_variable = { var = POL.POLAND_votes_for_the_bill value = POL.POLAND_required_votes compare = greater_than_or_equals }
+		}
+		localization_key = "POLAND_bill_will_pass"
+	}
+	text = {
+        localization_key = "POLAND_bill_will_fail"
+    }
+}
+
+defined_text = {
+	name = POLAND_get_PO_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_PO_seats > 0 }
+		}
+		localization_key = "POLAND_PO_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_get_PiS_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_PiS_seats > 0 }
+		}
+		localization_key = "POLAND_PiS_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_get_RIGHT_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_RIGHT_seats > 0 }
+		}
+		localization_key = "POLAND_RIGHT_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_get_LEFT_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_LEFT_seats > 0 }
+		}
+		localization_key = "POLAND_LEFT_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_get_PSL_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_PSL_seats > 0 }
+		}
+		localization_key = "POLAND_PSL_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = POLAND_get_OTHER_votes_for_bill
+	text = {
+		trigger = {
+			check_variable = { POL.POL_sejm_non_aligned_seats > 0 }
+		}
+		localization_key = "POLAND_OTHER_voting_intentions_loc"
+	}
+	text = {
+        localization_key = ""
+    }
+}

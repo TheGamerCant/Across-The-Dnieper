@@ -23,6 +23,34 @@ debug_decisions = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
+	
+	POL_climate_change_bill = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+			POL_bill_needs_simple_majority = yes
+			POLAND_set_party_votes_for_the_bill = yes
+			POLAND_get_party_votes_for_the_bill = yes
+		}
+	}
 }
 
 POL_parliament_gui_decision_category={
@@ -1178,6 +1206,438 @@ POL_parliament_gui_decision_category={
 				}
 				clear_variable = POL.OTHER_campaign_state
 			}
+		}
+	}
+}
+
+POL_parliament_vote_on_bill_decision_category={
+	POL_strategy_for_energy_security_and_environment = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			hidden_trigger={ always = no }
+		}
+		
+		allowed = { 
+			tag = POL
+		}
+		
+		activation = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			has_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			clr_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = POLAND_votes_for_the_bill value = POLAND_required_votes compare = greater_than_or_equals } }
+					add_political_power = 100
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				add_political_power = 100
+			}
+			clr_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+		}
+	}
+	
+	POL_put_strategy_for_energy_security_and_environment_in_sejm = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			NOT = { has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag }
+		}
+
+		visible = {
+			always = no
+			NOT = { has_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment }
+			NOT = { has_country_flag = POL_strategy_for_energy_security_and_environment_has_passed }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+			POL_bill_needs_simple_majority = yes
+			POLAND_set_party_votes_for_the_bill = yes
+			POLAND_get_party_votes_for_the_bill = yes
+		}
+	}
+
+
+
+	POL_lobby_PO = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_PO_seats > POL_PO_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = PO_in_opposition }
+			check_variable = { var = POL_PO_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PO_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PO_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_PO_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_PO_votes
+				max = POL_PO_seats
+				integer = yes
+			}
+			set_variable = { POL_PO_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	POL_lobby_PiS = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_PiS_seats > POL_PiS_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = PiS_in_opposition }
+			check_variable = { var = POL_PiS_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PiS_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PiS_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_PiS_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_PiS_votes
+				max = POL_PiS_seats
+				integer = yes
+			}
+			set_variable = { POL_PiS_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	POL_lobby_RIGHT = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_RIGHT_seats > POL_RIGHT_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = RIGHT_in_opposition }
+			check_variable = { var = POL_RIGHT_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_RIGHT_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_RIGHT_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_RIGHT_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_RIGHT_votes
+				max = POL_RIGHT_seats
+				integer = yes
+			}
+			set_variable = { POL_RIGHT_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	POL_lobby_LEFT = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_LEFT_seats > POL_LEFT_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = LEFT_in_opposition }
+			check_variable = { var = POL_LEFT_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_LEFT_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_LEFT_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_LEFT_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_LEFT_votes
+				max = POL_LEFT_seats
+				integer = yes
+			}
+			set_variable = { POL_LEFT_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	POL_lobby_PSL = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_PSL_seats > POL_PSL_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = PSL_in_opposition }
+			check_variable = { var = POL_PSL_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PSL_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_PSL_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_PSL_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_PSL_votes
+				max = POL_PSL_seats
+				integer = yes
+			}
+			set_variable = { POL_PSL_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	POL_lobby_OTHER = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 14
+		days_re_enable = 35
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			check_variable = { POL_sejm_non_aligned_seats > POL_OTHER_votes }
+		}
+
+		visible = {
+			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			NOT = { has_country_flag = OTHER_in_opposition }
+			check_variable = { var = POL_sejm_non_aligned_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:POL.cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_OTHER_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { POLAND_votes_for_the_bill < POLAND_required_votes }
+				check_variable = { POL_OTHER_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = POL_lobby_OTHER_tooltip
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = POL_OTHER_votes
+				max = POL_sejm_non_aligned_seats
+				integer = yes
+			}
+			set_variable = { POL_OTHER_votes = random_seats_to_add }
+			POLAND_get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
 		}
 	}
 }

@@ -78,7 +78,313 @@ POL_get_government_majority_status={
 	if={ limit = { has_country_flag = PSL_in_power } add_to_variable = { government_seats = POL_PSL_seats } }
 }
 
+POLAND_get_party_votes_for_the_bill={
+	set_variable = { POLAND_votes_for_the_bill = 0 }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_PO_votes }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_PiS_votes }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_RIGHT_votes }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_LEFT_votes }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_PSL_votes }
+	add_to_variable = { POLAND_votes_for_the_bill = POL_OTHER_votes }
 
+	set_variable = { POLAND_votes_against_the_bill = POL_sejm_seat_count }
+	subtract_from_variable = { POLAND_votes_against_the_bill = POLAND_votes_for_the_bill }
+	
+	set_variable = { POL_PO_votes_remaining = POL_PO_seats }
+	subtract_from_variable = { POL_PO_votes_remaining = POL_PO_votes }
+	set_variable = { POL_PiS_votes_remaining = POL_PiS_seats }
+	subtract_from_variable = { POL_PiS_votes_remaining = POL_PiS_votes }
+	set_variable = { POL_RIGHT_votes_remaining = POL_RIGHT_seats }
+	subtract_from_variable = { POL_RIGHT_votes_remaining = POL_RIGHT_votes }
+	set_variable = { POL_LEFT_votes_remaining = POL_LEFT_seats }
+	subtract_from_variable = { POL_LEFT_votes_remaining = POL_LEFT_votes }
+	set_variable = { POL_PSL_votes_remaining = POL_PSL_seats }
+	subtract_from_variable = { POL_PSL_votes_remaining = POL_PSL_votes }
+	set_variable = { POL_OTHER_votes_remaining = POL_sejm_non_aligned_seats }
+	subtract_from_variable = { POL_OTHER_votes_remaining = POL_OTHER_votes }
+}
+
+POL_bill_needs_simple_majority={
+	clr_country_flag = POLAND_bill_needs_simple_majority_flag
+	clr_country_flag = POLAND_bill_needs_super_majority_flag
+	clr_country_flag = POLAND_bill_needs_three_fifths_majority_flag
+	
+	set_country_flag = POLAND_bill_needs_simple_majority_flag
+	
+	set_variable = { POL.POLAND_required_votes = POL.POL_sejm_seat_count }
+	divide_variable = { POL.POLAND_required_votes = 2 }
+	
+	set_variable = { POL.POLAND_required_votes_rounded = POL.POLAND_required_votes }
+	round_variable = POL.POLAND_required_votes_rounded
+	
+	#If there are an odd number of seats in the Sejm, it will round upwards, giving us a simple majority
+	#Example: If there are 461 seats, POL.POLAND_required_votes_rounded will be 231, giving us a simple majority
+	#		  However, if there are 460 seats for example, POL.POLAND_required_votes_rounded will give us 230, meaning we need to add one
+	#		  In this code, you need to use greater than, not greater than or equal to 
+	#
+	#The same principle applies to any other majorities you may need - make a variable that gives the exact number needed for a majority (two thirds, three fifths, etc.)
+	#then duplicate that variable, round it, and check if it is larger than or smaller to the exact number needed, then act accordingly
+	
+	if={
+		limit = { check_variable = { POL.POLAND_required_votes_rounded > POL.POLAND_required_votes } }		#Sejm seat count is odd
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+	}
+	else={																									#Sejm seat count is even
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+		add_to_variable = { POL.POLAND_required_votes = 1 }
+	}
+	clear_variable = POL.POLAND_required_votes_rounded
+}
+
+POL_bill_needs_super_majority={
+	clr_country_flag = POLAND_bill_needs_simple_majority_flag
+	clr_country_flag = POLAND_bill_needs_super_majority_flag
+	clr_country_flag = POLAND_bill_needs_three_fifths_majority_flag
+	
+	set_country_flag = POLAND_bill_needs_super_majority_flag
+	
+	set_variable = { POL.POLAND_required_votes = POL.POL_sejm_seat_count }
+	divide_variable = { POL.POLAND_required_votes = 3 }
+	multiply_variable = { POL.POLAND_required_votes = 2 }
+	
+	set_variable = { POL.POLAND_required_votes_rounded = POL.POLAND_required_votes }
+	round_variable = POL.POLAND_required_votes_rounded
+	
+	if={
+		limit = { check_variable = { POL.POLAND_required_votes_rounded > POL.POLAND_required_votes } }
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+	}
+	else={
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+		add_to_variable = { POL.POLAND_required_votes = 1 }
+	}
+	clear_variable = POL.POLAND_required_votes_rounded
+}
+
+POL_bill_needs_three_fifths_majority={
+	clr_country_flag = POLAND_bill_needs_simple_majority_flag
+	clr_country_flag = POLAND_bill_needs_super_majority_flag
+	clr_country_flag = POLAND_bill_needs_three_fifths_majority_flag
+	
+	set_country_flag = POLAND_bill_needs_three_fifths_majority_flag
+	
+	set_variable = { POL.POLAND_required_votes = POL.POL_sejm_seat_count }
+	divide_variable = { POL.POLAND_required_votes = 5 }
+	multiply_variable = { POL.POLAND_required_votes = 3 }
+	
+	set_variable = { POL.POLAND_required_votes_rounded = POL.POLAND_required_votes }
+	round_variable = POL.POLAND_required_votes_rounded
+	
+	if={
+		limit = { check_variable = { POL.POLAND_required_votes_rounded > POL.POLAND_required_votes } }
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+	}
+	else={
+		set_variable = { POL.POLAND_required_votes = POL.POLAND_required_votes_rounded }
+		add_to_variable = { POL.POLAND_required_votes = 1 }
+	}
+	clear_variable = POL.POLAND_required_votes_rounded
+}
+
+POLAND_set_party_votes_for_the_bill={
+	if={
+		limit = { is_ai = yes }
+		set_variable = { POL_PO_votes = POL_PO_seats }
+		set_variable = { POL_PiS_votes = POL_PiS_seats }
+		set_variable = { POL_RIGHT_votes = POL_RIGHT_seats }
+		set_variable = { POL_LEFT_votes = POL_LEFT_seats }
+		set_variable = { POL_PSL_votes = POL_PSL_seats }
+		set_variable = { POL_OTHER_votes = POL_sejm_non_aligned_seats }
+	}
+	else={
+		if={
+			limit = { has_country_flag = PO_in_power }					#Anywhere from 80% to 100% of a party will vote for a bill if in power
+			set_variable = { POL_PO_votes_minimum = POL_PO_seats }
+			multiply_variable = { POL_PO_votes_minimum = 0.8 }
+			set_variable_to_random = {
+				var = POL_PO_votes
+				min = POL_PO_votes_minimum
+				max = POL_PO_seats
+				integer = yes
+			}
+			clear_variable = POL_PO_votes_minimum
+		}
+		else_if={
+			limit = { has_country_flag = PO_in_opposition }					#Anywhere from 0% to 1% of a party will vote for a bill if in opposition
+			set_variable = { POL_PO_votes_maximum = POL_PO_seats }
+			multiply_variable = { POL_PO_votes_maximum = 0.1 }
+			set_variable_to_random = {
+				var = POL_PO_votes
+				min = 0
+				max = POL_PO_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PO_votes_maximum
+		}
+		else={
+			set_variable = { POL_PO_votes_maximum = POL_PO_seats }		#Anywhere from 0% to 30% of a party will vote for a bill if in opposition
+			multiply_variable = { POL_PO_votes_maximum = 0.3 }
+			set_variable_to_random = {
+				var = POL_PO_votes
+				min = 0
+				max = POL_PO_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PO_votes_maximum
+		}
+		
+		if={
+			limit = { has_country_flag = PiS_in_power }
+			set_variable = { POL_PiS_votes_minimum = POL_PiS_seats }
+			multiply_variable = { POL_PiS_votes_minimum = 0.8 }
+			set_variable_to_random = {
+				var = POL_PiS_votes
+				min = POL_PiS_votes_minimum
+				max = POL_PiS_seats
+				integer = yes
+			}
+			clear_variable = POL_PiS_votes_minimum
+		}
+		else_if={
+			limit = { has_country_flag = PiS_in_opposition }
+			set_variable = { POL_PiS_votes_maximum = POL_PiS_seats }
+			multiply_variable = { POL_PiS_votes_maximum = 0.1 }
+			set_variable_to_random = {
+				var = POL_PiS_votes
+				min = 0
+				max = POL_PiS_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PiS_votes_maximum
+		}
+		else={
+			set_variable = { POL_PiS_votes_maximum = POL_PiS_seats }
+			multiply_variable = { POL_PiS_votes_maximum = 0.3 }
+			set_variable_to_random = {
+				var = POL_PiS_votes
+				min = 0
+				max = POL_PiS_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PiS_votes_maximum
+		}
+		
+		if={
+			limit = { has_country_flag = RIGHT_in_power }
+			set_variable = { POL_RIGHT_votes_minimum = POL_RIGHT_seats }
+			multiply_variable = { POL_RIGHT_votes_minimum = 0.8 }
+			set_variable_to_random = {
+				var = POL_RIGHT_votes
+				min = POL_RIGHT_votes_minimum
+				max = POL_RIGHT_seats
+				integer = yes
+			}
+			clear_variable = POL_RIGHT_votes_minimum
+		}
+		else_if={
+			limit = { has_country_flag = RIGHT_in_opposition }
+			set_variable = { POL_RIGHT_votes_maximum = POL_RIGHT_seats }
+			multiply_variable = { POL_RIGHT_votes_maximum = 0.1 }
+			set_variable_to_random = {
+				var = POL_RIGHT_votes
+				min = 0
+				max = POL_RIGHT_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_RIGHT_votes_maximum
+		}
+		else={
+			set_variable = { POL_RIGHT_votes_maximum = POL_RIGHT_seats }
+			multiply_variable = { POL_RIGHT_votes_maximum = 0.3 }
+			set_variable_to_random = {
+				var = POL_RIGHT_votes
+				min = 0
+				max = POL_RIGHT_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_RIGHT_votes_maximum
+		}
+		
+		if={
+			limit = { has_country_flag = LEFT_in_power }
+			set_variable = { POL_LEFT_votes_minimum = POL_LEFT_seats }
+			multiply_variable = { POL_LEFT_votes_minimum = 0.8 }
+			set_variable_to_random = {
+				var = POL_LEFT_votes
+				min = POL_LEFT_votes_minimum
+				max = POL_LEFT_seats
+				integer = yes
+			}
+			clear_variable = POL_LEFT_votes_minimum
+		}
+		else_if={
+			limit = { has_country_flag = LEFT_in_opposition }
+			set_variable = { POL_LEFT_votes_maximum = POL_LEFT_seats }
+			multiply_variable = { POL_LEFT_votes_maximum = 0.1 }
+			set_variable_to_random = {
+				var = POL_LEFT_votes
+				min = 0
+				max = POL_LEFT_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_LEFT_votes_maximum
+		}
+		else={
+			set_variable = { POL_LEFT_votes_maximum = POL_LEFT_seats }
+			multiply_variable = { POL_LEFT_votes_maximum = 0.3 }
+			set_variable_to_random = {
+				var = POL_LEFT_votes
+				min = 0
+				max = POL_LEFT_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_LEFT_votes_maximum
+		}
+		
+		if={
+			limit = { has_country_flag = PSL_in_power }
+			set_variable = { POL_PSL_votes_minimum = POL_PSL_seats }
+			multiply_variable = { POL_PSL_votes_minimum = 0.8 }
+			set_variable_to_random = {
+				var = POL_PSL_votes
+				min = POL_PSL_votes_minimum
+				max = POL_PSL_seats
+				integer = yes
+			}
+			clear_variable = POL_PSL_votes_minimum
+		}
+		else_if={
+			limit = { has_country_flag = PSL_in_opposition }
+			set_variable = { POL_PSL_votes_maximum = POL_PSL_seats }
+			multiply_variable = { POL_PSL_votes_maximum = 0.1 }
+			set_variable_to_random = {
+				var = POL_PSL_votes
+				min = 0
+				max = POL_PSL_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PSL_votes_maximum
+		}
+		else={
+			set_variable = { POL_PSL_votes_maximum = POL_PSL_seats }
+			multiply_variable = { POL_PSL_votes_maximum = 0.3 }
+			set_variable_to_random = {
+				var = POL_PSL_votes
+				min = 0
+				max = POL_PSL_votes_maximum
+				integer = yes
+			}
+			clear_variable = POL_PSL_votes_maximum
+		}
+		
+		set_variable_to_random = {
+			var = POL_OTHER_votes
+			min = 0
+			max = POL_sejm_non_aligned_seats
+			integer = yes
+		}
+	}
+}
 
 POL_campaign_in_state_scripted_effect={
 	clr_country_flag = poland_is_doing_campaign_flag
@@ -1702,6 +2008,8 @@ POL_hold_election_effect={
 
 
 POL_load_sejm_460_seats={
+	set_variable = { POL_sejm_seat_count = 460 }
+
 	clear_array = sejm_seat_X
 	clear_array = sejm_seat_y
 
