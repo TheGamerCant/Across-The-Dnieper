@@ -1598,13 +1598,13 @@ POL_parliament_vote_on_bill_decision_category={
 		}
 
 		available = {
-			check_variable = { POL_sejm_non_aligned_seats > POL_OTHER_votes }
+			check_variable = { POL_OTHER_seats > POL_OTHER_votes }
 		}
 
 		visible = {
 			has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 			NOT = { has_country_flag = OTHER_in_opposition }
-			check_variable = { var = POL_sejm_non_aligned_seats value = 0 compare = greater_than }
+			check_variable = { var = POL_OTHER_seats value = 0 compare = greater_than }
 		}
 
 		cost = var:POL.cost_of_lobby_decisions
@@ -1632,7 +1632,7 @@ POL_parliament_vote_on_bill_decision_category={
 			set_variable_to_random = {
 				var = random_seats_to_add
 				min = POL_OTHER_votes
-				max = POL_sejm_non_aligned_seats
+				max = POL_OTHER_seats
 				integer = yes
 			}
 			set_variable = { POL_OTHER_votes = random_seats_to_add }

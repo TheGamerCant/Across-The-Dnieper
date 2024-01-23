@@ -1,10 +1,10 @@
 POL_get_non_aligned_seats={
-	set_variable = { POL_sejm_non_aligned_seats = POL_sejm_seat_count }
-	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PO_seats }
-	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PiS_seats }
-	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_RIGHT_seats }
-	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_LEFT_seats }
-	subtract_from_variable = { POL_sejm_non_aligned_seats = POL_PSL_seats }
+	set_variable = { POL_OTHER_seats = POL_sejm_seat_count }
+	subtract_from_variable = { POL_OTHER_seats = POL_PO_seats }
+	subtract_from_variable = { POL_OTHER_seats = POL_PiS_seats }
+	subtract_from_variable = { POL_OTHER_seats = POL_RIGHT_seats }
+	subtract_from_variable = { POL_OTHER_seats = POL_LEFT_seats }
+	subtract_from_variable = { POL_OTHER_seats = POL_PSL_seats }
 }
 
 POL_clr_party_flags={
@@ -100,7 +100,7 @@ POLAND_get_party_votes_for_the_bill={
 	subtract_from_variable = { POL_LEFT_votes_remaining = POL_LEFT_votes }
 	set_variable = { POL_PSL_votes_remaining = POL_PSL_seats }
 	subtract_from_variable = { POL_PSL_votes_remaining = POL_PSL_votes }
-	set_variable = { POL_OTHER_votes_remaining = POL_sejm_non_aligned_seats }
+	set_variable = { POL_OTHER_votes_remaining = POL_OTHER_seats }
 	subtract_from_variable = { POL_OTHER_votes_remaining = POL_OTHER_votes }
 }
 
@@ -194,7 +194,7 @@ POLAND_set_party_votes_for_the_bill={
 		set_variable = { POL_RIGHT_votes = POL_RIGHT_seats }
 		set_variable = { POL_LEFT_votes = POL_LEFT_seats }
 		set_variable = { POL_PSL_votes = POL_PSL_seats }
-		set_variable = { POL_OTHER_votes = POL_sejm_non_aligned_seats }
+		set_variable = { POL_OTHER_votes = POL_OTHER_seats }
 	}
 	else={
 		if={
@@ -380,7 +380,7 @@ POLAND_set_party_votes_for_the_bill={
 		set_variable_to_random = {
 			var = POL_OTHER_votes
 			min = 0
-			max = POL_sejm_non_aligned_seats
+			max = POL_OTHER_seats
 			integer = yes
 		}
 	}
@@ -1616,7 +1616,7 @@ POL_get_sejm_seats_per_voivodeship={
 	add_to_variable = { POL.POL_RIGHT_seats = THIS.RIGHT_seat_count }
 	add_to_variable = { POL.POL_LEFT_seats = THIS.LEFT_seat_count }
 	add_to_variable = { POL.POL_PSL_seats = THIS.PSL_seat_count }
-	add_to_variable = { POL.POL_sejm_non_aligned_seats = THIS.OTHER_seat_count }
+	add_to_variable = { POL.POL_OTHER_seats = THIS.OTHER_seat_count }
 	
 	
 #	clear_variable = THIS.PO_seat_count
@@ -1973,7 +1973,7 @@ POL_hold_election_effect={
 	set_variable = { POL_RIGHT_seats = 0 }
 	set_variable = { POL_LEFT_seats = 0 }
 	set_variable = { POL_PSL_seats = 0 }
-	set_variable = { POL_sejm_non_aligned_seats = 0 }
+	set_variable = { POL_OTHER_seats = 0 }
 	
 	set_country_flag = POL_an_election_has_been_held
 	
