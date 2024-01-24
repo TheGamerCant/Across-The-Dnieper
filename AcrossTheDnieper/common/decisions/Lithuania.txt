@@ -1,4 +1,5 @@
 LIT_2014_elections_decision_category = {
+
 	LIT_2014_elections_mission = { 
 		icon = SWI_no_elected_president
 
@@ -133,4 +134,106 @@ LIT_2014_elections_decision_category = {
 			}
 		}
 	}	
+
+	LIT_promote_anti_migrant_rhetoric = {
+        allowed = {
+            tag = LIT
+        }
+        icon = SWI_expand_covert_operations
+        fire_only_once = yes
+        days_remove = 60
+        modifier = {
+            populist_drift = 0.25
+			stability_factor = -0.005
+        }
+		cost = 35
+        remove_effect = {
+			add_popularity = {
+				ideology = populist 
+				popularity = 0.08
+			}
+			custom_effect_tooltip = LIT_promise_better_welfare_tt
+        }
+    }
+
+	LIT_increase_relations_with_russia = {
+        allowed = {
+            tag = LIT
+        }
+        icon = SWI_expand_covert_operations
+        fire_only_once = yes
+        days_remove = 60
+        modifier = {
+			populist_drift = 0.25
+			stability_factor = -0.08
+        }
+		cost = 35
+        remove_effect = {
+			add_opinion_modifier = { target = SOV modifier = small_increase }
+			add_popularity = {
+				ideology = populist 
+				popularity = 0.08
+			}
+        }
+    }
+
+	LIT_promise_better_welfare = {
+        allowed = {
+            tag = LIT
+        }
+        icon = SWI_expand_covert_operations
+        fire_only_once = yes
+        days_remove = 60
+        modifier = {
+			social_democracy_drift = 0.25
+			stability_factor = -0.01
+        }
+		cost = 35
+        remove_effect = {
+			add_popularity = {
+				ideology = social_democracy 
+				popularity = 0.08
+			}
+			custom_effect_tooltip = LIT_promise_better_welfare_tt
+        }
+    }
+
+	LIT_promote_social_equality = {
+        allowed = {
+            tag = LIT
+        }
+        icon = SWI_expand_covert_operations
+        fire_only_once = yes
+        days_remove = 60
+        modifier = {
+			social_democracy_drift = 0.25
+			stability_factor = -0.01
+        }
+		cost = 35
+        remove_effect = {
+			add_popularity = {
+				ideology = social_democracy 
+				popularity = 0.08
+			}
+        }
+    }
+	LIT_promise_energy_independence = {
+        allowed = {
+            tag = LIT
+        }
+        icon = SWI_expand_covert_operations
+        fire_only_once = yes
+        days_remove = 60
+        modifier = {
+			neoconservative_drift = 0.25
+			stability_factor = -0.02
+        }
+		cost = 35
+        remove_effect = {
+			add_popularity = {
+				ideology = neoconservative 
+				popularity = 0.08
+			}
+        }
+    }
 }
