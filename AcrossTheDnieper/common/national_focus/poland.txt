@@ -61,7 +61,7 @@ focus_tree = {
 		icon = GFX_focus_POL_infrastructure_developments
 		x = -1
 		y = 1
-		cost = 40
+		cost = 48
 
 		ai_will_do = { 
 			factor = 10 
@@ -124,6 +124,8 @@ focus_tree = {
 				POL_bill_needs_simple_majority = yes
 				POLAND_set_party_votes_for_the_bill = yes
 				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_strategy_for_energy_security_and_environment
 			}
 			effect_tooltip={
 				custom_effect_tooltip = POL_climate_change_commitments_tt
@@ -455,7 +457,7 @@ focus_tree = {
 				every_state={
 					limit = { POL_is_election_state = yes }
 					multiply_variable = { THIS.PO_popularity = 1.12 }
-					multiply_variable = { THIS.LEFT_popularity = 1.25 }
+					add_to_variable = { THIS.LEFT_popularity = 1.8 }
 					POL_make_popularities_equal_100 = yes
 				}
 			}
@@ -494,7 +496,7 @@ focus_tree = {
 				every_state={
 					limit = { POL_is_election_state = yes }
 					multiply_variable = { THIS.PiS_popularity = 1.12 }
-					multiply_variable = { THIS.RIGHT_popularity = 1.25 }
+					add_to_variable = { THIS.RIGHT_popularity = 2.1 }
 					POL_make_popularities_equal_100 = yes
 				}
 			}
@@ -541,5 +543,93 @@ shared_focus = {
 
 	completion_reward = {
 		add_war_support = 0.05
+	}
+}
+
+shared_focus = {
+	id = POL_army_reform_plan
+	icon = GFX_focus_
+	x = -9
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_oh_no_the_ruskies_invaded_crimea }
+	relative_position_id = POL_oh_no_the_ruskies_invaded_crimea
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = POL_recreate_the_territorial_defence_force
+	icon = GFX_focus_
+	x = -3
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_oh_no_the_ruskies_invaded_crimea }
+	relative_position_id = POL_oh_no_the_ruskies_invaded_crimea
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = POL_aerial_modernisation_plan
+	icon = GFX_focus_
+	x = 3
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_oh_no_the_ruskies_invaded_crimea }
+	relative_position_id = POL_oh_no_the_ruskies_invaded_crimea
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = POL_navy_modernisation_plan
+	icon = GFX_focus_
+	x = 9
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_oh_no_the_ruskies_invaded_crimea }
+	relative_position_id = POL_oh_no_the_ruskies_invaded_crimea
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
 	}
 }
