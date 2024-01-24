@@ -1167,6 +1167,82 @@ get_multiplicative_between_minus_twenty_and_twenty={
 	}
 }
 
+get_THIS_turnout_random={
+	random_list={
+		1 = { set_variable = { THIS.election_turnout = 40 } }
+		2 = { set_variable = { THIS.election_turnout = 41 } }
+		3 = { set_variable = { THIS.election_turnout = 42 } }
+		4 = { set_variable = { THIS.election_turnout = 43 } }
+		5 = { set_variable = { THIS.election_turnout = 44 } }
+		6 = { set_variable = { THIS.election_turnout = 45 } }
+		7 = { set_variable = { THIS.election_turnout = 46 } }
+		8 = { set_variable = { THIS.election_turnout = 47 } }
+		9 = { set_variable = { THIS.election_turnout = 48 } }
+		10 = { set_variable = { THIS.election_turnout = 49 } }
+		11 = { set_variable = { THIS.election_turnout = 50 } }
+		14 = { set_variable = { THIS.election_turnout = 51 } }
+		16 = { set_variable = { THIS.election_turnout = 52 } }
+		20 = { set_variable = { THIS.election_turnout = 53 } }
+		24 = { set_variable = { THIS.election_turnout = 54 } }
+		25 = { set_variable = { THIS.election_turnout = 55 } }
+		24 = { set_variable = { THIS.election_turnout = 56 } }
+		20 = { set_variable = { THIS.election_turnout = 57 } }
+		16 = { set_variable = { THIS.election_turnout = 58 } }
+		14 = { set_variable = { THIS.election_turnout = 59 } }
+		11 = { set_variable = { THIS.election_turnout = 60 } }
+		10 = { set_variable = { THIS.election_turnout = 61 } }
+		9 = { set_variable = { THIS.election_turnout = 62 } }
+		8 = { set_variable = { THIS.election_turnout = 63 } }
+		7 = { set_variable = { THIS.election_turnout = 64 } }
+		6 = { set_variable = { THIS.election_turnout = 65 } }
+		5 = { set_variable = { THIS.election_turnout = 66 } }
+		4 = { set_variable = { THIS.election_turnout = 67 } }
+		3 = { set_variable = { THIS.election_turnout = 68 } }
+		2 = { set_variable = { THIS.election_turnout = 69 } }
+		1 = { set_variable = { THIS.election_turnout = 70 } }
+	}
+	
+	random_list={
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.00 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.01 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.02 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.03 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.04 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.05 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.06 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.07 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.08 } }
+		1 = { set_variable = { THIS.election_turnout_dp_hundreth = 0.09 } }
+	}
+	
+	random_list={
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.00 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.10 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.20 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.30 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.40 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.50 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.60 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.70 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.80 } }
+		1 = { set_variable = { THIS.election_turnout_dp_tenth = 0.90 } }
+	}
+	
+	add_to_variable = { THIS.election_turnout = THIS.election_turnout_dp_hundreth }
+	add_to_variable = { THIS.election_turnout = THIS.election_turnout_dp_tenth }
+	clear_variable = THIS.election_turnout_dp_hundreth
+	clear_variable = THIS.election_turnout_dp_tenth
+	
+	if={
+		limit = { date > 2017.1.1 }
+		add_to_variable = { THIS.election_turnout = 5 }
+	}
+	else_if={
+		limit = { date > 2020.1.1 }
+		add_to_variable = { THIS.election_turnout = 15 }
+	}
+}
+
 randomise_polling_numbers_and_eliminate_insufficient_parties={
 	get_multiplicative_between_minus_twenty_and_twenty = yes
 	multiply_variable = { THIS.PO_popularity = THIS.multiplicative_between_minus_twenty_and_twenty }
@@ -1186,17 +1262,14 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	
 	
 	#This stuff is used for the election GUI
-	set_variable_to_random = {
-		var = THIS.election_turnout
-		min = 40
-		max = 75
-	}
+	get_THIS_turnout_random = yes
 	
 	set_variable = { THIS.state_PO_previous_election_popularity = THIS.PO_popularity }
 	set_variable = { THIS.state_PO_vote_count = THIS.PO_popularity }
 	multiply_variable = { THIS.state_PO_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_PO_vote_count = 10 }
 	multiply_variable = { THIS.state_PO_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }		#Around 80% of Poland's population is eligible to vote, take this into account
 	round_variable = THIS.state_PO_vote_count
 	set_variable = { THIS.state_PO_vote_count_k = THIS.state_PO_vote_count }
 	divide_variable = { THIS.state_PO_vote_count_k = 1000 }
@@ -1208,6 +1281,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	multiply_variable = { THIS.state_PiS_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_PiS_vote_count = 10 }
 	multiply_variable = { THIS.state_PiS_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }
 	round_variable = THIS.state_PiS_vote_count
 	set_variable = { THIS.state_PiS_vote_count_k = THIS.state_PiS_vote_count }
 	divide_variable = { THIS.state_PiS_vote_count_k = 1000 }
@@ -1219,6 +1293,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	multiply_variable = { THIS.state_RIGHT_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_RIGHT_vote_count = 10 }
 	multiply_variable = { THIS.state_RIGHT_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }
 	round_variable = THIS.state_RIGHT_vote_count
 	set_variable = { THIS.state_RIGHT_vote_count_k = THIS.state_RIGHT_vote_count }
 	divide_variable = { THIS.state_RIGHT_vote_count_k = 1000 }
@@ -1230,6 +1305,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	multiply_variable = { THIS.state_LEFT_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_LEFT_vote_count = 10 }
 	multiply_variable = { THIS.state_LEFT_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }
 	round_variable = THIS.state_LEFT_vote_count
 	set_variable = { THIS.state_LEFT_vote_count_k = THIS.state_LEFT_vote_count }
 	divide_variable = { THIS.state_LEFT_vote_count_k = 1000 }
@@ -1241,6 +1317,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	multiply_variable = { THIS.state_PSL_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_PSL_vote_count = 10 }
 	multiply_variable = { THIS.state_PSL_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }
 	round_variable = THIS.state_PSL_vote_count	
 	set_variable = { THIS.state_PSL_vote_count_k = THIS.state_PSL_vote_count }
 	divide_variable = { THIS.state_PSL_vote_count_k = 1000 }
@@ -1252,6 +1329,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	multiply_variable = { THIS.state_OTHER_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_OTHER_vote_count = 10 }
 	multiply_variable = { THIS.state_OTHER_vote_count = THIS.election_turnout }
+	multiply_variable = { THIS.state_PO_vote_count = 0.8 }
 	round_variable = THIS.state_OTHER_vote_count
 	set_variable = { THIS.state_OTHER_vote_count_k = THIS.state_OTHER_vote_count }
 	divide_variable = { THIS.state_OTHER_vote_count_k = 1000 }
