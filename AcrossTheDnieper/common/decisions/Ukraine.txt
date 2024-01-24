@@ -2750,7 +2750,7 @@ UKR_dealing_with_the_oligarchy={
 		}
 
 		visible = {
-			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch }
+			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch has_country_flag = UKR_kolomoyskyi_takes_power }
 		}
 		
 		fire_only_once = yes
@@ -2787,7 +2787,7 @@ UKR_dealing_with_the_oligarchy={
 
 		visible = {
 			has_country_flag = is_dealing_with_kolomoyskyi
-			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with has_country_flag = UKR_kolomoyskyi_takes_power }
 		}
 		
 		fire_only_once = yes
@@ -2825,7 +2825,7 @@ UKR_dealing_with_the_oligarchy={
 
 		visible = {
 			has_country_flag = is_dealing_with_kolomoyskyi
-			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with has_country_flag = UKR_kolomoyskyi_takes_power }
 		}
 		
 		fire_only_once = yes
@@ -2864,7 +2864,7 @@ UKR_dealing_with_the_oligarchy={
 
 		visible = {
 			has_country_flag = is_dealing_with_kolomoyskyi
-			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with has_country_flag = UKR_kolomoyskyi_takes_power }
 		}
 		
 		fire_only_once = yes
@@ -2903,6 +2903,12 @@ UKR_dealing_with_the_oligarchy={
 			base = 350
 		}
 
+		cancel_trigger = {
+			hidden_trigger = {
+				has_country_flag = UKR_kolomoyskyi_takes_power
+			}
+		}
+
 		available = {
 			custom_trigger_tooltip = {
 			    tooltip = can_arrest_kolomoyskyi_tt
@@ -2918,12 +2924,20 @@ UKR_dealing_with_the_oligarchy={
 		
 		visible = {
 			has_country_flag = is_dealing_with_kolomoyskyi
-			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with has_country_flag = UKR_kolomoyskyi_takes_power }
 		}
 		
 		fire_only_once = yes
 		
 		cost = 100
+
+		complete_effect = {
+			random = {
+				chance = 50
+
+				country_event = { id = ukraine.126 days = 9 }
+			}
+		}
 
 		remove_effect = {
 			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }

@@ -4227,7 +4227,7 @@ country_event = {
 				set_state_controller_to = UKR
 			}
 		}
-		
+
 		every_country = { 
 			limit = { 
 				OR={
@@ -4934,5 +4934,117 @@ country_event = { #Some western equipment stolen
 			type = motorized_equipment_1
 			amount = var:UKR_nato_trucks_lost
 		}
+	}
+}
+
+country_event = { #Kolomoyskyi seizes state
+	id = ukraine.126
+	title = ukraine.126.t
+	desc = ukraine.126.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_kolomoyskyi
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = UKR_kolomoyskyi_takes_power
+			create_dynamic_country = {
+				original_tag = UKR
+	
+				set_politics = {
+					ruling_party = eastern_liberal
+				}
+	
+				set_popularities = {
+					eastern_liberal = 100
+				}
+	
+				create_country_leader = {
+					name = "Ihor Kolomoyskyi"
+					desc = ""
+					picture = gfx/leaders/UKR/Portrait_Ihor_Kolomoyskyi.png
+					ideology = generic_eastern_liberal
+				}
+	
+				set_cosmetic_tag = IKF
+	
+				add_manpower = 3000
+
+				add_ideas = UKR_kolomoyskyis_wallet
+	
+				145 = { set_state_owner_to = IKF }
+				set_province_controller = 18133
+				set_province_controller = 15180
+				set_province_controller = 14513
+				set_province_controller = 11281
+				set_province_controller = 14360
+				set_province_controller = 2364
+				set_province_controller = 67
+	
+	
+				declare_war_on = {
+					target = UKR
+					type = civil_war
+				}
+	
+				add_civil_war_target = UKR
+
+				division_template = {
+					name = "Kolomoyskyi's Private Militia"
+					division_names_group = UKR
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+					}
+				}
+				
+				for_loop_effect = {
+					end = 6
+					value = temp
+					145 = {
+						create_unit = {
+							division = "name = \"Kolomoyskyi's Private Militia\" division_template = \"Kolomoyskyi's Private Militia\" start_experience_factor = 0.05" 
+							owner = PREV
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+			}
+
+
+		}
+	}
+
+	option = { 
+		name = ukraine.126.a
+
+		add_political_power = -20
+		add_stability = -0.01
+	}
+	option = { 
+		name = ukraine.126.b
+
+		IKF = { change_tag_from = UKR }
+	}
+}
+
+country_event = { #kolomoyskyi arrested
+	id = ukraine.127
+	title = ukraine.127.t
+	desc = ukraine.127.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_kolomoyskyi
+
+	option = { 
+		name = ukraine.127.a
+		add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+		custom_effect_tooltip = increase_oligarch_pp_by_5
+		set_country_flag = kolomoyskyi_is_dealt_with
+		clr_country_flag = is_currently_dealing_with_an_oligarch
 	}
 }
