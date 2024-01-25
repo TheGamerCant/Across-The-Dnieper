@@ -575,7 +575,7 @@ country_event = {
 			}
 		}
 		
-		add_political_power = 75
+		add_political_power = 60
 	}
 	
 	option = {
@@ -593,7 +593,7 @@ country_event = {
 			}
 		}
 		
-		add_political_power = 75
+		add_political_power = 60
 	}
 }
 
@@ -912,6 +912,140 @@ country_event = {
 		set_variable = { ewa_kopacz_stability_weekly = 0 }
 		set_variable = { ewa_kopacz_political_power_gain = 0 }
 		custom_effect_tooltip = atd_poland.7.tt
+	}
+}
+
+#Coal industry
+country_event = {
+	id = atd_poland.18
+	title = atd_poland.18.t
+	desc = atd_poland.18.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_coal_industry
+
+	option = {
+		name = atd_poland.18.a
+		ai_chance = { base = 2 }
+		
+		add_political_power = -75
+	}
+	
+	option = {
+		name = atd_poland.18.b
+		ai_chance = { 
+			base = 1 
+			modifier={
+				factor = 0
+				OR={
+					has_country_flag = PiS_in_power
+					has_country_flag = RIGHT_in_power
+				}
+			}
+		}
+		if={
+			limit = { 67 = { is_controlled_by = ROOT } }
+			67={
+				add_resource={ type = oil amount = -18 }
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PSL_popularity_in_state_tt
+				}
+			}
+		}
+		if={
+			limit = { 62 = { is_controlled_by = ROOT } }
+			62={
+				add_resource={ type = oil amount = -10 }
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = -5.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_decrease_PSL_popularity_in_state_tt
+				}
+			}
+		}
+	
+		if={
+			limit = { has_government = neoliberal }
+			add_popularity = { ideology = neoliberal popularity = -0.02 }
+		}
+		else_if={
+			limit = { has_government = neoconservative }
+			add_popularity = { ideology = neoconservative popularity = -0.02 }
+		}
+		
+		add_timed_idea = { idea = POL_cut_coal_subsidies days = 730 }
 	}
 }
 
@@ -1308,7 +1442,7 @@ country_event = {
 	id = poland_election.12
 	title = poland_election.12.t
 	desc = poland_election.12.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	immediate={
@@ -1337,7 +1471,7 @@ country_event = {
 	id = poland_election.13
 	title = poland_election.13.t
 	desc = poland_election.13.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	immediate={
@@ -1366,7 +1500,7 @@ country_event = {
 	id = poland_election.14
 	title = poland_election.14.t
 	desc = poland_election.14.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	immediate={
@@ -1395,7 +1529,7 @@ country_event = {
 	id = poland_election.15
 	title = poland_election.15.t
 	desc = poland_election.15.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	immediate={
@@ -1424,7 +1558,7 @@ country_event = {
 	id = poland_election.16
 	title = poland_election.16.t
 	desc = poland_election.16.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	immediate={
@@ -2045,7 +2179,7 @@ country_event = {
 	id = poland_election.41
 	title = poland_election.41.t
 	desc = poland_election.41.desc
-	picture = GFX_report_event_POL_konfederacja
+	picture = [POL.POLAND_get_rightist_party_event_picture]
 	is_triggered_only = yes
 
 	option = {

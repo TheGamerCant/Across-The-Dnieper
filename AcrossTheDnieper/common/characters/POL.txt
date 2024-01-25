@@ -104,6 +104,13 @@ characters={
 			}
 			available={
 				has_country_flag = PO_in_power
+				if={
+					limit = { OR = { has_idea = POL_mateusz_morawiecki } }
+					custom_trigger_tooltip={
+						tooltip = POL_cannot_have_multiple_ministers_of_finance
+						always = no
+					}
+				}
 			}
 			ai_will_do = {
 			}
@@ -138,6 +145,32 @@ characters={
 		}
 	}
 	
+	POL_antoni_macierewicz = {
+		name = POL_antoni_macierewicz
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/POL_antoni_macierewicz_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_antoni_macierewicz
+			
+			traits = {
+				POL_catholic_ultraconservative
+			}
+			available={
+				has_country_flag = PiS_in_power
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
 	POL_mateusz_morawiecki = {
 		name = POL_mateusz_morawiecki
 		portraits = {
@@ -160,6 +193,13 @@ characters={
 			available={
 				has_country_flag = PiS_in_power
 				NOT = { has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag }
+				if={
+					limit = { OR = { has_idea = POL_jacek_rostowski } }
+					custom_trigger_tooltip={
+						tooltip = POL_cannot_have_multiple_ministers_of_finance
+						always = no
+					}
+				}
 			}
 			ai_will_do = {
 			}
@@ -219,6 +259,33 @@ characters={
 			}
 		}
 	}
+	
+	POL_waldemar_pawlak = {
+		name = POL_waldemar_pawlak
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/POL/advisors/Portrait_Waldemar_Pawlak_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = POL_waldemar_pawlak
+			
+			traits = {
+				POL_minister_of_economy_PSL
+			}
+			available={
+				has_country_flag = PSL_in_power
+			}
+			ai_will_do = {
+			}
+		}
+	}
+	
 	
 	POL_mieczyslaw_gocul = {				#"On January 31, 2017, he ended his professional military service and retired." - From wikipedia. Might add this
 		name = POL_mieczyslaw_gocul

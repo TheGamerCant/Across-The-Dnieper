@@ -1,66 +1,5 @@
 debug_decisions = {
-	POL_load_full_focus_tree = { 
-		priority = 200
 
-		icon = eng_ally_imperialist_coup
-
-		allowed = {
-			original_tag = POL
-		}
-
-		available = {
-			always = yes
-		}
-
-		visible = {
-			
-		}
-
-		cost = 0
-
-		complete_effect = {
-			clr_country_flag = POL_its_all_chill_in_da_hood
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	
-	POL_climate_change_bill = { 
-		priority = 200
-
-		icon = eng_ally_imperialist_coup
-
-		allowed = {
-			original_tag = POL
-		}
-
-		available = {
-			always = yes
-		}
-
-		visible = {
-			
-		}
-
-		cost = 0
-
-		complete_effect = {
-			hidden_effect={
-				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
-				set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
-				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill = yes
-				POLAND_get_party_votes_for_the_bill = yes
-				
-				activate_mission = POL_strategy_for_energy_security_and_environment
-			}
-			effect_tooltip={
-				custom_effect_tooltip = POL_climate_change_commitments_tt
-				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
-				add_political_power = 100
-				add_stability = 0.08
-			}
-		}
-	}
 }
 
 POL_parliament_gui_decision_category={
@@ -1250,6 +1189,11 @@ POL_parliament_vote_on_bill_decision_category={
 					limit = { check_variable = { var = POLAND_votes_for_the_bill value = POLAND_required_votes compare = greater_than_or_equals } }
 					add_political_power = 100
 					add_stability = 0.08
+					
+					if={
+						limit = { OR = { 62 = { is_controlled_by = ROOT } 67 = { is_controlled_by = ROOT } } }
+						country_event = { id = atd_poland.18 days = 90 random_days = 90 }
+					}
 				}
 			}
 			effect_tooltip={

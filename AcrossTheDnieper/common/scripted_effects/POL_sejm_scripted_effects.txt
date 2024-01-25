@@ -1438,9 +1438,9 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	
 	
 	#This stuff is used for the election GUI
-	get_THIS_turnout_random = yes
+	get_THIS_turnout_random = yes				#I love the fact that set_variable_to_random is broken i love it so much! :) :) :)
 	
-	set_variable = { THIS.state_PO_previous_election_popularity = THIS.PO_popularity }
+	set_variable = { THIS.state_PO_previous_election_popularity = THIS.PO_popularity }		#Used so we can have a variable for the election gui
 	set_variable = { THIS.state_PO_vote_count = THIS.PO_popularity }
 	multiply_variable = { THIS.state_PO_vote_count = THIS.state_population_k }
 	divide_variable = { THIS.state_PO_vote_count = 10 }
@@ -1512,6 +1512,7 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	add_to_variable = { POL.national_OTHER_vote_count_k = THIS.state_OTHER_vote_count_k }
 	clear_variable = THIS.state_OTHER_vote_count_k
 	
+	#Some voivodeships are split into two or more in-game states. some of these are tiny, 5k manpower states which are ignored, but others need to be accounted for in the total votes gui as the have significantly more people in them
 	if={
 		limit = { THIS = { state = 427 } }
 		
@@ -1664,7 +1665,9 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 	}
 	
 	
-	
+	#Set the seat counts variable to the state popularity, if it's less than 5% we eliminate them
+	#also there's a rule where parties need 5% but alliances need 8%, this wouldn't be hard to code as it would only require a country flag + an IF statement but i feel it would just make things more confusing and complicated for the less knowledgable about polish politics
+	#that rule was actually why ZL got 0 seats in the Sejm despite getting ~7.5% of the national vote lol, their support is so evenly distributed across Poland they didn't qualify in a single Sejm district lmao
 	if={
 		limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than_or_equals } }
 		set_variable = { THIS.PO_seat_count = 0 }
@@ -2214,6 +2217,61 @@ POL_can_government_be_formed={
 	}
 }
 
+POL_get_other_gui_stuff={
+	set_variable = { POL.POL_total_national_votes_cast_k = POL.national_PO_vote_count_k }
+	add_to_variable = { POL.POL_total_national_votes_cast_k = POL.national_PiS_vote_count_k }
+	add_to_variable = { POL.POL_total_national_votes_cast_k = POL.national_RIGHT_vote_count_k }
+	add_to_variable = { POL.POL_total_national_votes_cast_k = POL.national_LEFT_vote_count_k }
+	add_to_variable = { POL.POL_total_national_votes_cast_k = POL.national_PSL_vote_count_k }
+	add_to_variable = { POL.POL_total_national_votes_cast_k = POL.national_OTHER_vote_count_k }
+	
+	set_variable = { POL.POL_total_national_votes_cast_small = POL.national_PO_vote_count_small }
+	add_to_variable = { POL.POL_total_national_votes_cast_small = POL.national_PiS_vote_count_small }
+	add_to_variable = { POL.POL_total_national_votes_cast_small = POL.national_RIGHT_vote_count_small }
+	add_to_variable = { POL.POL_total_national_votes_cast_small = POL.national_LEFT_vote_count_small }
+	add_to_variable = { POL.POL_total_national_votes_cast_small = POL.national_PSL_vote_count_small }
+	add_to_variable = { POL.POL_total_national_votes_cast_small = POL.national_OTHER_vote_count_small }
+	
+	while_loop_effect = {
+		limit = {
+			check_variable = { var = POL.POL_total_national_votes_cast_small value = 1000 compare = greater_than_or_equals }
+			subtract_from_variable = { POL.POL_total_national_votes_cast_small = 1000 }
+		}
+	}
+	
+	if={
+		limit = { check_variable = { var = POL.POL_total_national_votes_cast_small value = 100 compare = less_than } }
+		add_to_variable = { POL.POL_total_national_votes_cast_small = 100 }
+	}
+	
+	set_variable = { POL.national_turnout = POL.POL_total_national_votes_cast_k }
+	divide_variable = { POL.national_turnout = 305 }				#divide by 30500 to get it as a decimal, divide by 305 to get percentage.
+	
+	set_variable = { POL.PO_national_vote_percentage = POL.national_PO_vote_count_k }
+	multiply_variable = { POL.PO_national_vote_percentage = 100 }
+	divide_variable = { POL.PO_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	set_variable = { POL.PiS_national_vote_percentage = POL.national_PiS_vote_count_k }
+	multiply_variable = { POL.PiS_national_vote_percentage = 100 }
+	divide_variable = { POL.PiS_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	set_variable = { POL.RIGHT_national_vote_percentage = POL.national_RIGHT_vote_count_k }
+	multiply_variable = { POL.RIGHT_national_vote_percentage = 100 }
+	divide_variable = { POL.RIGHT_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	set_variable = { POL.LEFT_national_vote_percentage = POL.national_LEFT_vote_count_k }
+	multiply_variable = { POL.LEFT_national_vote_percentage = 100 }
+	divide_variable = { POL.LEFT_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	set_variable = { POL.PSL_national_vote_percentage = POL.national_PSL_vote_count_k }
+	multiply_variable = { POL.PSL_national_vote_percentage = 100 }
+	divide_variable = { POL.PSL_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	set_variable = { POL.OTHER_national_vote_percentage = POL.national_OTHER_vote_count_k }
+	multiply_variable = { POL.OTHER_national_vote_percentage = 100 }
+	divide_variable = { POL.OTHER_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+}
+
 POL_hold_election_effect={
 	clr_country_flag = poland_election_campaigns_are_ongoing
 	clr_country_flag = poland_campaign_as_PO_flag
@@ -2253,6 +2311,8 @@ POL_hold_election_effect={
 	
 	POL_remove_government_ideas = yes
 	POL_can_government_be_formed = yes
+	
+	POL_get_other_gui_stuff = yes
 }
 
 

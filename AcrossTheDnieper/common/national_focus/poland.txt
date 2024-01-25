@@ -517,10 +517,20 @@ focus_tree = {
 
 shared_focus = {
 	id = POL_oh_no_the_ruskies_invaded_crimea
-	icon = GFX_focus_
+	dynamic = yes
+	icon = {
+		trigger = {
+			has_country_flag = POL_the_need_for_nato_flag
+		}
+		value = GFX_focus_POL_the_need_for_NATO
+	}
+	
+	icon = {
+		value = GFX_focus_POL_the_eagle_soars
+	}
 	x = 5
 	y = 7
-	cost = 50
+	cost = 48
 
 	ai_will_do = { 
 		factor = 10 
@@ -551,7 +561,7 @@ shared_focus = {
 	icon = GFX_focus_
 	x = -9
 	y = 1
-	cost = 50
+	cost = 48
 
 	ai_will_do = { 
 		factor = 10 
@@ -564,7 +574,7 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		army_experience = 75
 	}
 }
 
@@ -573,7 +583,7 @@ shared_focus = {
 	icon = GFX_focus_
 	x = -3
 	y = 1
-	cost = 50
+	cost = 48
 
 	ai_will_do = { 
 		factor = 10 
@@ -586,7 +596,8 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		add_manpower = 25000
+		add_war_support = 0.03
 	}
 }
 
@@ -595,7 +606,7 @@ shared_focus = {
 	icon = GFX_focus_
 	x = 3
 	y = 1
-	cost = 50
+	cost = 48
 
 	ai_will_do = { 
 		factor = 10 
@@ -608,7 +619,7 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		air_experience = 75
 	}
 }
 
@@ -617,7 +628,7 @@ shared_focus = {
 	icon = GFX_focus_
 	x = 9
 	y = 1
-	cost = 50
+	cost = 48
 
 	ai_will_do = { 
 		factor = 10 
@@ -630,6 +641,87 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		navy_experience = 75
+	}
+}
+
+shared_focus = {
+	id = POL_joint_production_of_ships_with_the_usa
+	icon = GFX_focus_
+	x = 2
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_navy_modernisation_plan }
+	relative_position_id = POL_navy_modernisation_plan
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect={
+			if={
+				limit = { has_dlc = "Man the Guns" }
+				create_equipment_variant = {
+					name = "Oliver Hazard Perry Class"
+					type = light_cruiser_2
+					name_group = POL_CRUISER_HISTORICAL
+					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
+					modules = {
+						fixed_ship_battery_slot = ship_medium_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+						fixed_ship_radar_slot = ship_radar_2
+						fixed_ship_engine_slot = cruiser_ship_engine_3
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_cruiser_2
+						front_1_custom_slot = empty
+						mid_1_custom_slot = ship_torpedo_1
+						mid_2_custom_slot = ship_secondaries_2
+					}
+				}
+			}
+			else={
+				create_equipment_variant = {
+					name = "Oliver Hazard Perry Class"
+					type = light_cruiser_2
+					parent_version = 1
+					upgrades = {
+						ship_reliability_upgrade = 5
+						ship_engine_upgrade = 4
+						ship_gun_upgrade = 4
+						ship_anti_air_upgrade = 4
+					}
+				}
+			}
+			add_equipment_production = {
+				equipment = {
+					type = light_cruiser_2
+					creator = "POL" 
+					version_name = "Oliver Hazard Perry Class"
+				}
+				name = "ORP Generał Tadeusz Kościuszko" 
+				requested_factories = 1
+				progress = 0.84
+				amount = 1
+			}
+			add_equipment_production = {
+				equipment = {
+					type = light_cruiser_2
+					creator = "POL" 
+					version_name = "Oliver Hazard Perry Class"
+				}
+				name = "ORP Generał Kazimierz Pułaski" 
+				requested_factories = 1
+				progress = 0.87
+				amount = 1
+			}
+		}
+		custom_effect_tooltip = POL_joint_production_of_ships_with_the_usa_tt
 	}
 }
