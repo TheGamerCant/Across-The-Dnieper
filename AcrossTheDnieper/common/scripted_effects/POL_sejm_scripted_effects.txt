@@ -198,183 +198,359 @@ POLAND_set_party_votes_for_the_bill={
 	}
 	else={
 		if={
-			limit = { has_country_flag = PO_in_power }					#Anywhere from 90% to 100% of a party will vote for a bill if in power
-			set_variable = { POL_PO_votes_minimum = POL_PO_seats }
-			multiply_variable = { POL_PO_votes_minimum = 0.9 }
-			set_variable_to_random = {
-				var = POL_PO_votes
-				min = POL_PO_votes_minimum
-				max = POL_PO_seats
-				integer = yes
+			limit = { has_country_flag = PO_in_power }					#Anywhere from 90% to 100% of a party will vote for a bill if in power		
+			set_variable = { POL_PO_votes = POL_PO_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PO_votes = 0.90 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.91 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.92 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.93 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.94 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.95 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.96 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.97 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.98 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.99 } }
+				1 = { multiply_variable = { POL_PO_votes = 1.00 } }
 			}
-			clear_variable = POL_PO_votes_minimum
+			round_variable = POL_PO_votes
 		}
 		else_if={
-			limit = { has_country_flag = PO_in_opposition }					#Anywhere from 0% to 1% of a party will vote for a bill if in opposition
-			set_variable = { POL_PO_votes_maximum = POL_PO_seats }
-			multiply_variable = { POL_PO_votes_maximum = 0.1 }
-			set_variable_to_random = {
-				var = POL_PO_votes
-				min = 0
-				max = POL_PO_votes_maximum
-				integer = yes
+			limit = { has_country_flag = PO_in_opposition }					#Anywhere from 0% to 7% of a party will vote for a bill if in opposition
+			set_variable = { POL_PO_votes = POL_PO_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PO_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.07 } }
 			}
-			clear_variable = POL_PO_votes_maximum
+			round_variable = POL_PO_votes
 		}
 		else={
-			set_variable = { POL_PO_votes_maximum = POL_PO_seats }		#Anywhere from 0% to 30% of a party will vote for a bill if in opposition
-			multiply_variable = { POL_PO_votes_maximum = 0.3 }
-			set_variable_to_random = {
-				var = POL_PO_votes
-				min = 0
-				max = POL_PO_votes_maximum
-				integer = yes
+			set_variable = { POL_PO_votes_maximum = POL_PO_seats }		#Anywhere from 0% to 30% of a party will vote for a bill if neutral
+			set_variable = { POL_PO_votes = POL_PO_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PO_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.07 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.08 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.09 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.10 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.11 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.12 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.13 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.14 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.15 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.16 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.17 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.18 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.19 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.20 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.21 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.22 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.23 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.24 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.25 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.26 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.27 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.28 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.29 } }
+				1 = { multiply_variable = { POL_PO_votes = 0.30 } }
 			}
-			clear_variable = POL_PO_votes_maximum
+			round_variable = POL_PO_votes
 		}
-		
 		if={
 			limit = { has_country_flag = PiS_in_power }
-			set_variable = { POL_PiS_votes_minimum = POL_PiS_seats }
-			multiply_variable = { POL_PiS_votes_minimum = 0.9 }
-			set_variable_to_random = {
-				var = POL_PiS_votes
-				min = POL_PiS_votes_minimum
-				max = POL_PiS_seats
-				integer = yes
+			set_variable = { POL_PiS_votes = POL_PiS_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PiS_votes = 0.90 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.91 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.92 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.93 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.94 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.95 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.96 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.97 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.98 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.99 } }
+				1 = { multiply_variable = { POL_PiS_votes = 1.00 } }
 			}
-			clear_variable = POL_PiS_votes_minimum
+			round_variable = POL_PiS_votes
 		}
 		else_if={
 			limit = { has_country_flag = PiS_in_opposition }
-			set_variable = { POL_PiS_votes_maximum = POL_PiS_seats }
-			multiply_variable = { POL_PiS_votes_maximum = 0.1 }
-			set_variable_to_random = {
-				var = POL_PiS_votes
-				min = 0
-				max = POL_PiS_votes_maximum
-				integer = yes
+			set_variable = { POL_PiS_votes = POL_PiS_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PiS_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.07 } }
 			}
-			clear_variable = POL_PiS_votes_maximum
+			round_variable = POL_PiS_votes
 		}
 		else={
 			set_variable = { POL_PiS_votes_maximum = POL_PiS_seats }
-			multiply_variable = { POL_PiS_votes_maximum = 0.3 }
-			set_variable_to_random = {
-				var = POL_PiS_votes
-				min = 0
-				max = POL_PiS_votes_maximum
-				integer = yes
+			set_variable = { POL_PiS_votes = POL_PiS_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PiS_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.07 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.08 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.09 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.10 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.11 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.12 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.13 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.14 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.15 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.16 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.17 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.18 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.19 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.20 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.21 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.22 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.23 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.24 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.25 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.26 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.27 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.28 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.29 } }
+				1 = { multiply_variable = { POL_PiS_votes = 0.30 } }
 			}
-			clear_variable = POL_PiS_votes_maximum
+			round_variable = POL_PiS_votes
 		}
-		
 		if={
 			limit = { has_country_flag = RIGHT_in_power }
-			set_variable = { POL_RIGHT_votes_minimum = POL_RIGHT_seats }
-			multiply_variable = { POL_RIGHT_votes_minimum = 0.9 }
-			set_variable_to_random = {
-				var = POL_RIGHT_votes
-				min = POL_RIGHT_votes_minimum
-				max = POL_RIGHT_seats
-				integer = yes
+			set_variable = { POL_RIGHT_votes = POL_RIGHT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.90 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.91 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.92 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.93 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.94 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.95 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.96 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.97 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.98 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.99 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 1.00 } }
 			}
-			clear_variable = POL_RIGHT_votes_minimum
+			round_variable = POL_RIGHT_votes
 		}
 		else_if={
 			limit = { has_country_flag = RIGHT_in_opposition }
-			set_variable = { POL_RIGHT_votes_maximum = POL_RIGHT_seats }
-			multiply_variable = { POL_RIGHT_votes_maximum = 0.1 }
-			set_variable_to_random = {
-				var = POL_RIGHT_votes
-				min = 0
-				max = POL_RIGHT_votes_maximum
-				integer = yes
+			set_variable = { POL_RIGHT_votes = POL_RIGHT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.00 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.01 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.02 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.03 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.04 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.05 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.06 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.07 } }
 			}
-			clear_variable = POL_RIGHT_votes_maximum
+			round_variable = POL_RIGHT_votes
 		}
 		else={
 			set_variable = { POL_RIGHT_votes_maximum = POL_RIGHT_seats }
-			multiply_variable = { POL_RIGHT_votes_maximum = 0.3 }
-			set_variable_to_random = {
-				var = POL_RIGHT_votes
-				min = 0
-				max = POL_RIGHT_votes_maximum
-				integer = yes
+			set_variable = { POL_RIGHT_votes = POL_RIGHT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.00 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.01 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.02 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.03 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.04 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.05 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.06 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.07 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.08 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.09 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.10 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.11 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.12 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.13 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.14 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.15 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.16 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.17 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.18 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.19 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.20 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.21 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.22 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.23 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.24 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.25 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.26 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.27 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.28 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.29 } }
+				1 = { multiply_variable = { POL_RIGHT_votes = 0.30 } }
 			}
-			clear_variable = POL_RIGHT_votes_maximum
+			round_variable = POL_RIGHT_votes
 		}
-		
 		if={
 			limit = { has_country_flag = LEFT_in_power }
-			set_variable = { POL_LEFT_votes_minimum = POL_LEFT_seats }
-			multiply_variable = { POL_LEFT_votes_minimum = 0.9 }
-			set_variable_to_random = {
-				var = POL_LEFT_votes
-				min = POL_LEFT_votes_minimum
-				max = POL_LEFT_seats
-				integer = yes
+			set_variable = { POL_LEFT_votes = POL_LEFT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_LEFT_votes = 0.90 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.91 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.92 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.93 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.94 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.95 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.96 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.97 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.98 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.99 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 1.00 } }
 			}
-			clear_variable = POL_LEFT_votes_minimum
+			round_variable = POL_LEFT_votes
 		}
 		else_if={
 			limit = { has_country_flag = LEFT_in_opposition }
-			set_variable = { POL_LEFT_votes_maximum = POL_LEFT_seats }
-			multiply_variable = { POL_LEFT_votes_maximum = 0.1 }
-			set_variable_to_random = {
-				var = POL_LEFT_votes
-				min = 0
-				max = POL_LEFT_votes_maximum
-				integer = yes
+			set_variable = { POL_LEFT_votes = POL_LEFT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_LEFT_votes = 0.00 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.01 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.02 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.03 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.04 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.05 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.06 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.07 } }
 			}
-			clear_variable = POL_LEFT_votes_maximum
+			round_variable = POL_LEFT_votes
 		}
 		else={
 			set_variable = { POL_LEFT_votes_maximum = POL_LEFT_seats }
-			multiply_variable = { POL_LEFT_votes_maximum = 0.3 }
-			set_variable_to_random = {
-				var = POL_LEFT_votes
-				min = 0
-				max = POL_LEFT_votes_maximum
-				integer = yes
+			set_variable = { POL_LEFT_votes = POL_LEFT_seats }
+			random_list={
+				1 = { multiply_variable = { POL_LEFT_votes = 0.00 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.01 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.02 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.03 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.04 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.05 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.06 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.07 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.08 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.09 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.10 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.11 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.12 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.13 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.14 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.15 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.16 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.17 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.18 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.19 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.20 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.21 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.22 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.23 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.24 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.25 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.26 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.27 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.28 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.29 } }
+				1 = { multiply_variable = { POL_LEFT_votes = 0.30 } }
 			}
-			clear_variable = POL_LEFT_votes_maximum
+			round_variable = POL_LEFT_votes
 		}
-		
 		if={
-			limit = { has_country_flag = PSL_in_power }
-			set_variable = { POL_PSL_votes_minimum = POL_PSL_seats }
-			multiply_variable = { POL_PSL_votes_minimum = 0.9 }
-			set_variable_to_random = {
-				var = POL_PSL_votes
-				min = POL_PSL_votes_minimum
-				max = POL_PSL_seats
-				integer = yes
+			limit = { has_country_flag = PSL_in_power }	
+			set_variable = { POL_PSL_votes = POL_PSL_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PSL_votes = 0.90 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.91 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.92 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.93 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.94 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.95 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.96 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.97 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.98 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.99 } }
+				1 = { multiply_variable = { POL_PSL_votes = 1.00 } }
 			}
-			clear_variable = POL_PSL_votes_minimum
+			round_variable = POL_PSL_votes
 		}
 		else_if={
 			limit = { has_country_flag = PSL_in_opposition }
-			set_variable = { POL_PSL_votes_maximum = POL_PSL_seats }
-			multiply_variable = { POL_PSL_votes_maximum = 0.1 }
-			set_variable_to_random = {
-				var = POL_PSL_votes
-				min = 0
-				max = POL_PSL_votes_maximum
-				integer = yes
+			set_variable = { POL_PSL_votes = POL_PSL_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PSL_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.07 } }
 			}
-			clear_variable = POL_PSL_votes_maximum
+			round_variable = POL_PSL_votes
 		}
 		else={
 			set_variable = { POL_PSL_votes_maximum = POL_PSL_seats }
-			multiply_variable = { POL_PSL_votes_maximum = 0.3 }
-			set_variable_to_random = {
-				var = POL_PSL_votes
-				min = 0
-				max = POL_PSL_votes_maximum
-				integer = yes
+			set_variable = { POL_PSL_votes = POL_PSL_seats }
+			random_list={
+				1 = { multiply_variable = { POL_PSL_votes = 0.00 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.01 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.02 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.03 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.04 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.05 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.06 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.07 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.08 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.09 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.10 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.11 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.12 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.13 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.14 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.15 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.16 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.17 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.18 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.19 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.20 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.21 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.22 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.23 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.24 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.25 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.26 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.27 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.28 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.29 } }
+				1 = { multiply_variable = { POL_PSL_votes = 0.30 } }
 			}
-			clear_variable = POL_PSL_votes_maximum
+			round_variable = POL_PSL_votes
 		}
 		
 		set_variable_to_random = {
