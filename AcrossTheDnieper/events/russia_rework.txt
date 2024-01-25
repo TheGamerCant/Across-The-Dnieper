@@ -4894,6 +4894,41 @@ country_event = {
     }
 }
 
+
+#Russian troops humiliated
+country_event = {
+    id = russia.1135
+    title = russia.1135.t
+    desc = russia.1135.desc
+    picture = SOV_drone_explosion
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+
+    option = {
+        name = russia.1135.a
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			set_temp_variable_to_random = {
+				var = SOV_lost_mp_event
+				min = -80
+				max = -20
+				integer = yes
+			}
+		}
+
+		add_manpower = SOV_lost_mp_event
+		add_war_support = -0.005
+		add_command_power = -2
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
