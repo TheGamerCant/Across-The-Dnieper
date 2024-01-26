@@ -1944,3 +1944,174 @@ news_event = {	#Poland sends peacekeepers to Donbass
 
 	}
 }
+
+news_event = {	#Drone explodes near the kremlin
+	id = atd_news.68
+	title = atd_news.68.t
+	desc = atd_news.68.desc
+	picture = GFX_news_event_kremlin_hit
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			SOV = {
+				add_war_support = 0.05
+				add_political_power = -1
+			}
+
+			UKR = {
+				add_war_support = 0.005
+				add_command_power = 5
+			}
+		}
+	}
+
+	option = {
+		name = atd_news.68.a
+		trigger = {
+			OR={
+				TAG = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+			
+		}
+
+		effect_tooltip = {
+			SOV = {
+				add_war_support = 0.05
+				add_political_power = -1
+			}
+
+			UKR = {
+				add_war_support = 0.005
+				add_command_power = 5
+			}
+		}
+	}
+	option = {
+		name = atd_news.68.b
+		trigger = {
+			has_country_flag = is_in_european_union
+		}
+
+		effect_tooltip = {
+			SOV = {
+				add_war_support = 0.05
+				add_political_power = -1
+			}
+
+			UKR = {
+				add_war_support = 0.005
+				add_command_power = 5
+			}
+		}
+	}
+	option = {
+		name = atd_news.68.c
+		trigger = {
+			NOT = {
+				OR={
+					has_country_flag = is_in_european_union
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+
+		effect_tooltip = {
+			SOV = {
+				add_war_support = 0.05
+				add_political_power = -1
+			}
+
+			UKR = {
+				add_war_support = 0.005
+				add_command_power = 5
+			}
+		}
+	}
+}
+
+
+news_event = {	#black sea fleet hq blown up
+	id = atd_news.69
+	title = atd_news.69.t
+	desc = atd_news.69.desc
+	picture = GFX_news_event_black_sea_fleet_hq
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			433 = {
+				damage_building = {
+					type = naval_base
+					damage = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = atd_news.69.a
+		trigger = {
+			OR={
+				TAG = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+			
+		}
+
+		effect_tooltip = {
+			433 = {
+				damage_building = {
+					type = naval_base
+					damage = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.69.b
+		trigger = {
+			has_country_flag = is_in_european_union
+		}
+
+		effect_tooltip = {
+			433 = {
+				damage_building = {
+					type = naval_base
+					damage = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = atd_news.69.c
+		trigger = {
+			NOT = {
+				OR={
+					has_country_flag = is_in_european_union
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+
+		effect_tooltip = {
+			433 = {
+				damage_building = {
+					type = naval_base
+					damage = 1
+				}
+			}
+		}
+	}
+}

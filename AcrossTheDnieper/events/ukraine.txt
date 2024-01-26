@@ -5108,3 +5108,161 @@ country_event = { #kolomoyskyi arrested
 		clr_country_flag = is_currently_dealing_with_an_oligarch
 	}
 }
+
+country_event = { #rvc require equipment
+	id = ukraine.128
+	title = ukraine.128.t
+	desc = ukraine.128.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_belgorod_raid
+
+	option = { 
+		name = ukraine.128.a
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_2
+			amount = -110
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -100
+		}
+		add_equipment_to_stockpile = {
+			type = mechanized_equipment
+			amount = -50
+		}
+	}
+}
+
+country_event = { #Ukraine becomes more dependant on western equipment
+	id = ukraine.129
+	title = ukraine.129.t
+	desc = ukraine.129.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_weapons
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.129.a
+		add_ideas = UKR_dependant_on_western_equipment
+	}
+}
+
+country_event = { #Raid Failed (all dead)
+	id = ukraine.130
+	title = ukraine.130.t
+	desc = ukraine.130.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_crimea_raid_fail
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.130.a
+		trigger = {
+			tag = UKR
+		}
+		hidden_effect = {
+			set_temp_variable_to_random = {
+				var = UKR_lost_mp_event
+				min = -60
+				max = -21
+				integer = yes
+			}
+		}
+
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_2
+			amount = UKR_lost_mp_event
+		}
+
+
+		add_manpower = UKR_lost_mp_event
+		add_war_support = -0.003
+		add_command_power = -2
+	}
+	
+	option = { 
+		name = ukraine.130.b
+
+		trigger = {
+			tag = SOV
+		}
+	}
+}
+
+country_event = { #Raid Failed (escaped)
+	id = ukraine.131
+	title = ukraine.131.t
+	desc = ukraine.131.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_crimea_raid_escaped
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.131.a
+		trigger = {
+			tag = UKR
+		}
+		add_command_power = -3
+	}
+
+	option = { 
+		name = ukraine.131.b
+
+		trigger = {
+			tag = SOV
+		}
+	}
+}
+
+country_event = { #Raid Successful
+	id = ukraine.132
+	title = ukraine.132.t
+	desc = ukraine.132.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_crimea_raid_success
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.132.a
+		trigger = {
+			tag = UKR
+		}
+		add_command_power = 5
+		add_war_support = 0.005
+		army_experience = 15
+
+		hidden_effect = {
+			set_temp_variable_to_random = {
+				var = UKR_crimea_loot_event
+				min = 5
+				max = 30
+				integer = yes
+			}
+		}
+
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_2
+			amount = UKR_crimea_loot_event
+		}
+	}
+
+	option = { 
+		name = ukraine.132.b
+
+		trigger = {
+			tag = SOV
+		}
+	}
+}

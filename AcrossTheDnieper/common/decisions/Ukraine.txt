@@ -4438,10 +4438,19 @@ UKR_hur_decisions={
 		
 		fire_only_once = yes
 		
-		cost = 50
+		custom_cost_trigger = {
+			command_power > 9
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_10_pp_50
 
 		complete_effect={
 			set_country_flag = UKR_is_doing_a_hur_decision
+
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -10
+			}
 		}
 	
 		remove_effect = {
@@ -4483,10 +4492,20 @@ UKR_hur_decisions={
 			base = 50
 		}
 
-		cost = 50
+		custom_cost_trigger = {
+			command_power > 19
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_20_pp_50
 
 		complete_effect={
 			set_country_flag = UKR_is_doing_a_hur_decision
+
+			
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -20
+			}
 		}
 	
 		remove_effect = {
@@ -4530,10 +4549,19 @@ UKR_hur_decisions={
 		
 		fire_only_once = yes
 		
-		cost = 50
+		custom_cost_trigger = {
+			command_power > 9
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_10_pp_50
 
 		complete_effect={
 			set_country_flag = UKR_is_doing_a_hur_decision
+
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -10
+			}
 		}
 	
 		remove_effect = {
@@ -4541,6 +4569,171 @@ UKR_hur_decisions={
 			random_list = {
 				95 = { news_event = { hours = 6 id = atd_news.35 } }
 				5 = { news_event = { hours = 6 id = atd_news.36 } }
+			}
+		}
+	}
+		
+	UKR_drone_strike_the_kremlin = { 
+		icon = generic_ignite_civil_war
+		
+		days_remove = 30
+		days_re_enable = 350
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+			NOT = { 11 = { is_controlled_by = ROOT } } #You can never know ;)
+			has_idea = SOV_drone_warfare_better
+		}
+
+		visible = {
+			NOT = { 11 = { is_controlled_by = ROOT } }
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		custom_cost_trigger = {
+			command_power > 19
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_20_pp_50
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -20
+			}
+		}
+	
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+
+			random_list = {
+				80 = { news_event = { hours = 6 id = atd_news.68 } }
+				20 = { custom_effect_tooltip = "UKR_drone_strike_the_kremlin_fail_tt" add_stability = -0.002 }
+			}
+		}
+	}
+
+	UKR_blow_up_black_sea_fleet_hq = { 
+		icon = generic_ignite_civil_war
+		
+		days_remove = 15
+		on_map_mode = map_and_decisions_view 
+		state_target = yes
+		targets = { state = 433 }
+
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+			NOT = { 433 = { is_controlled_by = ROOT } }
+			has_idea = SOV_drone_warfare_better
+		}
+
+		visible = {
+			NOT = { 433 = { is_controlled_by = ROOT } }
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		custom_cost_trigger = {
+			command_power > 19
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_20_pp_50
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -20
+			}
+		}
+	
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+
+			random_list = {
+				70 = { news_event = { hours = 6 id = atd_news.69 } }
+				30 = { custom_effect_tooltip = "UKR_blow_up_black_sea_fleet_hq_tt" add_stability = -0.01 }
+			}
+		}
+	}
+
+	UKR_raid_crimean_state = {
+		target_array = SOV.core_states
+
+		days_remove = 20
+		days_re_enable = 280
+		fire_only_once = no
+
+		target_trigger = {
+			FROM = {
+				is_fully_controlled_by = SOV
+				is_coastal = yes
+				has_state_flag = crimea_oblast_flag
+				NOT = { state = 309 state = 448 state = 232 state = 308 state = 331 }
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		icon = generic_merge_plant_ship
+		custom_cost_trigger = {
+			command_power > 19
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_20_pp_50
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+		}
+
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -20
+			}
+		}
+
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+
+			custom_effect_tooltip = "UKR_raid_crimean_state_tt"
+
+			hidden_effect = {
+				if = { 
+					limit = {
+						SOV = { NOT = { army_manpower_in_state = { state = FROM amount < 900 } } }
+						
+					}
+
+					random_list = {
+						30 = { country_event = { hours = 2 id = ukraine.130 } SOV = { country_event = { hours = 2 id = ukraine.130 } } }	
+						70 = { country_event = { hours = 2 id = ukraine.131 } SOV = { country_event = { hours = 2 id = ukraine.131 } } }
+					}
+				}
+				else = {
+					country_event = { hours = 2 id = ukraine.132 }
+					SOV = { country_event = { hours = 2 id = ukraine.132 } }
+				}
 			}
 		}
 	}

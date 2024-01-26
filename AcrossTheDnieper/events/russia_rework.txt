@@ -4411,12 +4411,6 @@ country_event = {
 		has_war_with = UKR
 	}
 
-	immediate = {
-		hidden_effect = {
-			country_event = { id = russia.1118 days = 9 }
-		}
-	}
-
     option = {
         name = russia.1119.a
 		ai_chance = {
@@ -4425,6 +4419,12 @@ country_event = {
 
 		add_war_support = -0.04
 		add_stability = -0.01
+
+		hidden_effect = {
+			country_event = { id = russia.1118 days = 9 }
+
+			UKR = { country_event = { id = ukraine.128 days = 2 } }
+		}
 	}
 }
 
