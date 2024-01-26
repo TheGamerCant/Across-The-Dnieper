@@ -72,7 +72,29 @@ country_event = {
 				scoped_sound_effect = "super_event_UKR_march_of_the_new_army"
 				scoped_play_song = "MOTNA (SP)"
 			}
-		}	
+		}
+		
+		#load post-war portaits
+		UKR={
+			if={
+				limit = { volodymyr_zelenskyy_is_leader = yes }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/UKR/Portrait_Volodymyr_Zelenskyy_Post_War.png"
+				}
+			}
+			else_if={
+				limit = { petro_poroshenko_is_leader = yes }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/UKR/Portrait_Petro_Poroshenko_Post_War.png"
+				}
+			}
+			else_if={
+				limit = { yulia_tymoshenko_is_leader = yes }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/UKR/Portrait_Yulia_Tymoshenko_Post_War.png"
+				}
+			}
+		}
 	}
 }
 

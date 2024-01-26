@@ -584,6 +584,55 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = POL_beryl_modernisation_package
+	icon = GFX_focus_
+	x = -1
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_cost_effective_designs }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { add_ideas = POL_beryl_modernisation_package_hidden_idea }
+		custom_effect_tooltip = POL_beryl_modernisation_package_tt
+	}
+}
+
+shared_focus = {
+	id = POL_cost_effective_designs
+	icon = GFX_focus_
+	x = 1
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_beryl_modernisation_package }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { add_ideas = POL_cost_effective_designs_hidden_idea }
+		custom_effect_tooltip = POL_cost_effective_designs_tt
+	}
+}
+
+
+shared_focus = {
 	id = POL_recreate_the_territorial_defence_force
 	icon = GFX_focus_
 	x = -3
@@ -704,27 +753,55 @@ shared_focus = {
 					}
 				}
 			}
-			add_equipment_production = {
-				equipment = {
-					type = light_cruiser_2
-					creator = "POL" 
-					version_name = "Oliver Hazard Perry Class"
+			
+			if={
+				limit = { has_country_flag = POL_the_need_for_nato_flag }
+				add_equipment_production = {
+					equipment = {
+						type = light_cruiser_2
+						creator = "POL" 
+						version_name = "Oliver Hazard Perry Class"
+					}
+					name = "ORP Generał Tadeusz Kościuszko" 
+					requested_factories = 1
+					progress = 0.88
+					amount = 1
 				}
-				name = "ORP Generał Tadeusz Kościuszko" 
-				requested_factories = 1
-				progress = 0.84
-				amount = 1
+				add_equipment_production = {
+					equipment = {
+						type = light_cruiser_2
+						creator = "POL" 
+						version_name = "Oliver Hazard Perry Class"
+					}
+					name = "ORP Generał Kazimierz Pułaski" 
+					requested_factories = 1
+					progress = 0.88
+					amount = 1
+				}
 			}
-			add_equipment_production = {
-				equipment = {
-					type = light_cruiser_2
-					creator = "POL" 
-					version_name = "Oliver Hazard Perry Class"
+			else={
+				add_equipment_production = {
+					equipment = {
+						type = light_cruiser_2
+						creator = "POL" 
+						version_name = "Oliver Hazard Perry Class"
+					}
+					name = "ORP Generał Tadeusz Kościuszko" 
+					requested_factories = 1
+					progress = 0.8
+					amount = 1
 				}
-				name = "ORP Generał Kazimierz Pułaski" 
-				requested_factories = 1
-				progress = 0.87
-				amount = 1
+				add_equipment_production = {
+					equipment = {
+						type = light_cruiser_2
+						creator = "POL" 
+						version_name = "Oliver Hazard Perry Class"
+					}
+					name = "ORP Generał Kazimierz Pułaski" 
+					requested_factories = 1
+					progress = 0.8
+					amount = 1
+				}
 			}
 		}
 		custom_effect_tooltip = POL_joint_production_of_ships_with_the_usa_tt
