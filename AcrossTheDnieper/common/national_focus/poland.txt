@@ -747,6 +747,85 @@ shared_focus = {
 	}
 }
 
+
+shared_focus = {
+	id = POL_purchase_anti_tank_systems
+	icon = GFX_focus_
+	x = -4
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	
+	prerequisite = { focus = POL_recreate_the_territorial_defence_force }
+	relative_position_id = POL_aerial_modernisation_plan
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment_2
+				amount = 340
+				producer = USA
+			}
+		}
+		else={
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment_2
+				amount = 250
+				producer = USA
+			}
+		}
+		unlock_decision_tooltip = buy_nlaws
+		unlock_decision_tooltip = buy_javelins
+	}
+}
+
+
+shared_focus = {
+	id = POL_purchase_MANPADS
+	icon = GFX_focus_
+	x = -2
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	
+	prerequisite = { focus = POL_aerial_modernisation_plan focus = POL_recreate_the_territorial_defence_force }
+	relative_position_id = POL_aerial_modernisation_plan
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment_1
+				amount = 300
+				producer = USA
+			}
+		}
+		else={
+			add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment_1
+				amount = 220
+				producer = USA
+			}
+		}
+		unlock_decision_tooltip = buy_stingers
+	}
+}
+
 shared_focus = {
 	id = POL_navy_modernisation_plan
 	icon = GFX_focus_

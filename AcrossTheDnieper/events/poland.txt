@@ -1049,6 +1049,26 @@ country_event = {
 	}
 }
 
+#Female self-defence courses
+country_event = {
+	id = atd_poland.19
+	title = atd_poland.19.t
+	desc = atd_poland.19.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_womens_self_defence
+
+	option = {
+		name = atd_poland.19.a
+		ai_chance = { base = 1 }
+		
+		add_to_variable = { POL_land_forces_conscription_factor = 0.04 }
+		custom_effect_tooltip = POL_womens_self_defence_courses_tt
+		add_political_power = 25
+		add_war_support = 0.02
+	}
+}
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1
