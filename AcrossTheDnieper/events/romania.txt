@@ -1,25 +1,44 @@
 add_namespace = romania
 
-
 country_event = {
-	id = romania.1
-	title = romania.1
-	desc = romania.1.desc
-	is_triggered_only = yes
-	picture =
-	option = { 
-		name = romania.1.a
-		ai_chance = {
+    id = romania.1
+    title = romania.1.t
+    desc = romania.1.desc
+    picture = GFX_report_event_ROM_Multiple_Members_of_the_Government_Resign_event
+    is_triggered_only = yes
+
+    option = {
+        name = romania.1.a
+        ai_chance = {
 			base = 10
-#			modifier = {
-#				factor = 0
-#				has_game_rule = {
-#					rule = 
-#					option = Traian Basescu
-#				}
-#			}
 		}
-		add_political_power = 25
-        complete_national_focus = ROM_Traian_Basescu
-	}
-}
+		add_popularity = { ideology = libertarian popularity = -0.02 }
+		add_popularity = { ideology = neoconservative popularity = 0.01 }
+		add_political_power = -20
+		add_stability = -0.05
+    }
+}	
+country_event = {
+    id = romania.2
+    title = romania.2.t
+    desc = romania.2.desc
+		picture = GFX_report_event_ROM_The_Democratic_Liberal_Party_Collapses
+		is_triggered_only = yes
+
+    option = {
+        name = romania.2.a
+        ai_chance = {
+			base = 10
+		}
+	complete_national_focus = Pontas_Alliance_Stands_Strong
+	add_idea = ROM_2014_elections
+    }
+	   option = {
+        name = romania.2.b
+        ai_chance = {
+			base = 10
+		}
+    complete_national_focus = The_coalltion_fails
+	add_idea = ROM_2014_elections
+    }
+}	

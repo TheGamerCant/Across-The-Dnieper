@@ -1,1 +1,215 @@
-##Will appear in the next update, stay tuned cuz it is going to be HUGE##
+focus_tree = {
+	id = romania_first_elections_focus_tree
+	continuous_focus_position = { x = 20000 y = 250 }
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ROM
+		}
+	}
+
+	focus = {
+		id = ROM_Campaign_for_elections
+		icon = GFX_focus_Campaign_for_elections
+		x = 8
+		y = 0
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			country_event = { id = romania.2 }
+			add_political_power = 100
+			add_popularity = { ideology = libertarian popularity = 0.02 }
+		}
+	}
+		focus = {
+		id = The_coalltion_fails
+		icon = GFX_focus_The_coalltion_fails
+		x = 6
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = ROM_Campaign_for_elections }
+		mutually_exclusive = { focus = Pontas_Alliance_Stands_Strong }
+		available = {
+		hidden_trigger = { always = no }
+        }
+		bypass = {
+		}
+
+		completion_reward = {
+	    add_war_support = -0.05
+		add_popularity = { ideology = social_democracy popularity = -0.05 }
+		add_stability = -0.1
+		add_popularity = { ideology = neoconservative popularity = 0.05 }	
+		add_popularity = { ideology = libertarian popularity = -0.1 }
+		add_political_power = -50
+        add_ideas = ROM_2014_elections_1
+        }
+		}  
+		focus = {
+		id = Pontas_Alliance_Stands_Strong
+
+		icon = GFX_focus_Pontas_Alliance_Stands_Strong
+		x = 10
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = ROM_Campaign_for_elections }
+		mutually_exclusive = { focus = The_coalltion_fails }
+		available = {
+        hidden_trigger = { always = no }
+        }
+		bypass = {
+		}
+
+		completion_reward = {
+        add_ideas = ROM_2014_elections_2
+		add_popularity = { ideology = libertarian popularity = 0.02 }
+        add_popularity = { ideology = social_democracy popularity = 0.05 }
+		add_stability = 0.05
+        }
+		}
+
+		focus = {
+		id = Scapegoat_Vadim_Tudor
+		icon = GFX_focus_Scapegoat_Vadim_Tudor
+		x = 10
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Pontas_Alliance_Stands_Strong }
+		available = {
+        }
+		bypass = {
+		}
+
+		completion_reward = {
+		add_popularity = { ideology = libertarian popularity = 0.03 }
+        add_popularity = { ideology = social_democracy popularity = 0.04 }
+		add_popularity = { ideology = neoconservative popularity = 0.01 }	
+		add_popularity = { ideology = fascist popularity = -0.04 }
+		add_popularity = { ideology = ultranationalist popularity = -0.04 }
+		add_political_power = -50
+		}
+	}
+		focus = {
+		id = The_red_spirit
+		icon = GFX_focus_red_spirit
+		x = 9
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Scapegoat_Vadim_Tudor }
+		available = {
+        }
+		bypass = {
+		}
+
+		completion_reward = {
+        add_stability = 0.05
+		add_popularity = { ideology = social_democracy popularity = 0.05 }
+		}
+	}
+		focus = {
+		id = Protect_Human_Rights
+		icon = GFX_focus_Protect_Human_Rights
+		x = 11
+		y = 3
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Scapegoat_Vadim_Tudor }
+		available = {
+        }
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = libertarian popularity = 0.05 }
+		add_stability = 0.05
+		}
+	}
+		focus = {
+		id = Praise_work_ethic
+		icon = GFX_focus_Praise_work_ethic
+		x = 11
+		y = 4
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Protect_Human_Rights }
+		available = {
+        }
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = libertarian popularity = 0.05 }
+		add_stability = 0.05
+		}
+	}
+		focus = {
+		id = Embrace_the_Peoples_Say
+		icon = GFX_focus_Embrace_the_Peoples_Say
+		x = 9
+		y = 4
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = The_red_spirit }
+		available = {
+			}
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = libertarian popularity = 0.04 }
+		add_stability = 0.02
+		}
+	}
+		focus = {
+		id = Democracy_Over_All
+		icon = GFX_focus_Democracy_over_all
+		x = 10
+		y = 5
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Embrace_the_Peoples_Say }
+		prerequisite = {  focus = Praise_work_ethic }
+		available = {
+			}
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = libertarian popularity = 0.04 }
+		add_popularity = { ideology = social_democracy popularity = 0.04 }
+		add_political_power = 50
+		}
+	}
+}
+
+
