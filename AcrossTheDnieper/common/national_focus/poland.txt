@@ -563,7 +563,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_army_reform_plan
-	icon = GFX_focus_
+	icon = GFX_focus_POL_army_reform_plan
 	x = -9
 	y = 1
 	cost = 48
@@ -585,7 +585,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_american_advisors
-	icon = GFX_focus_
+	icon = GFX_focus_POL_american_advisors
 	x = 3
 	y = 1
 	cost = 48
@@ -619,7 +619,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_beryl_modernisation_package
-	icon = GFX_focus_
+	icon = GFX_focus_POL_beryl_modernisation_package
 	x = -1
 	y = 1
 	cost = 48
@@ -643,7 +643,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_cost_effective_designs
-	icon = GFX_focus_
+	icon = GFX_focus_POL_cost_effective_designs
 	x = 1
 	y = 1
 	cost = 48
@@ -697,7 +697,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_recreate_the_territorial_defence_force
-	icon = GFX_focus_
+	icon = GFX_focus_POL_recreate_the_territorial_defence_force
 	x = -3
 	y = 1
 	cost = 24
@@ -722,6 +722,28 @@ shared_focus = {
 			add_manpower = 25000
 			add_war_support = 0.05
 		}
+	}
+}
+
+shared_focus = {
+	id = POL_womens_self_defence_courses
+	icon = GFX_focus_POL_womens_self_defence_courses
+	x = -1
+	y = 1
+	cost = 24
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_recreate_the_territorial_defence_force }
+	relative_position_id = POL_recreate_the_territorial_defence_force
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		country_event = { id = atd_poland.19 hours = 2 random_hours = 4 }
 	}
 }
 
