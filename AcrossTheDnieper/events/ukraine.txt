@@ -4449,7 +4449,7 @@ country_event = { #Ghost of kyiv
 }
 
 country_event = { #Ghost of kyiv proved to be a myth
-	id = ukraine.121
+	id = ukraine.121		#he's real to me :3
 	title = ukraine.121.t
 	desc = ukraine.121.desc
 	is_triggered_only = yes
@@ -5166,18 +5166,18 @@ country_event = { #Raid Failed (all dead)
 		trigger = {
 			tag = UKR
 		}
-		hidden_effect = {
-			set_temp_variable_to_random = {
-				var = UKR_lost_mp_event
-				min = -60
-				max = -21
-				integer = yes
-			}
+		set_temp_variable_to_random = {
+			var = UKR_lost_mp_event
+			min = -60
+			max = -21
+			integer = yes
 		}
-
+		set_temp_variable = { UKR.crimea_equipment_lost = global.crimea_loot_event }
+		multiply_temp_variable = { UKR.crimea_equipment_lost = -1 }
+		
 		add_equipment_to_stockpile = {
 			type = infantry_equipment_2
-			amount = UKR_lost_mp_event
+			amount = UKR.crimea_equipment_lost
 		}
 
 
@@ -5191,6 +5191,11 @@ country_event = { #Raid Failed (all dead)
 
 		trigger = {
 			tag = SOV
+		}
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_2
+			amount = global.crimea_loot_event
 		}
 	}
 }
@@ -5212,6 +5217,7 @@ country_event = { #Raid Failed (escaped)
 			tag = UKR
 		}
 		add_command_power = -3
+		UKR = { add_intel = { target = SOV civilian_intel = 0 army_intel = 1 navy_intel = 1 airforce_intel = 0 } }
 	}
 
 	option = { 
@@ -5243,19 +5249,12 @@ country_event = { #Raid Successful
 		add_war_support = 0.005
 		army_experience = 15
 
-		hidden_effect = {
-			set_temp_variable_to_random = {
-				var = UKR_crimea_loot_event
-				min = 5
-				max = 30
-				integer = yes
-			}
-		}
-
 		add_equipment_to_stockpile = {
 			type = infantry_equipment_2
-			amount = UKR_crimea_loot_event
+			amount = global.crimea_loot_event
 		}
+		
+		UKR = { add_intel = { target = SOV civilian_intel = 1 army_intel = 2 navy_intel = 2 airforce_intel = 1 } }
 	}
 
 	option = { 
@@ -5263,6 +5262,14 @@ country_event = { #Raid Successful
 
 		trigger = {
 			tag = SOV
+		}
+		
+		set_temp_variable = { SOV.crimea_equipment_lost = global.crimea_loot_event }
+		multiply_temp_variable = { SOV.crimea_equipment_lost = -1 }
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_2
+			amount = SOV.crimea_equipment_lost
 		}
 	}
 }
