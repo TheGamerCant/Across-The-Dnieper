@@ -1419,7 +1419,7 @@ get_THIS_turnout_random={
 	}
 }
 
-randomise_polling_numbers_and_eliminate_insufficient_parties={
+randomise_polling_numbers_and_get_vote_count={
 	get_multiplicative_between_minus_twenty_and_twenty = yes
 	multiply_variable = { THIS.PO_popularity = THIS.multiplicative_between_minus_twenty_and_twenty }
 	get_multiplicative_between_minus_twenty_and_twenty = yes
@@ -1663,211 +1663,150 @@ randomise_polling_numbers_and_eliminate_insufficient_parties={
 		clear_variable = 48.state_OTHER_vote_count_k
 		clear_variable = 48.state_OTHER_vote_count
 	}
-	
-	
-	#Set the seat counts variable to the state popularity, if it's less than 5% we eliminate them
-	#also there's a rule where parties need 5% but alliances need 8%, this wouldn't be hard to code as it would only require a country flag + an IF statement but i feel it would just make things more confusing and complicated for the less knowledgable about polish politics
-	#that rule was actually why ZL got 0 seats in the Sejm despite getting ~7.5% of the national vote lol, their support is so evenly distributed across Poland they didn't qualify in a single Sejm district lmao
-	if={
-		limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.PO_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.PO_seat_count = THIS.PO_popularity }
-	}
-	
-	if={
-		limit = { check_variable = { var = THIS.PiS_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.PiS_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.PiS_seat_count = THIS.PiS_popularity }
-	}
-	
-	if={
-		limit = { check_variable = { var = THIS.LEFT_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.LEFT_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.LEFT_seat_count = THIS.LEFT_popularity }
-	}
-	
-	if={
-		limit = { check_variable = { var = THIS.RIGHT_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.RIGHT_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.RIGHT_seat_count = THIS.RIGHT_popularity }
-	}
-	
-	if={
-		limit = { check_variable = { var = THIS.PSL_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.PSL_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.PSL_seat_count = THIS.PSL_popularity }
-	}
-	
-	if={
-		limit = { check_variable = { var = THIS.OTHER_popularity value = 5 compare = less_than_or_equals } }
-		set_variable = { THIS.OTHER_seat_count = 0 }
-	}
-	else={
-		set_variable = { THIS.OTHER_seat_count = THIS.OTHER_popularity }
-	}
-	
-	#Same as POL_make_popularities_equal_100 but since it's only being used once and needs different variables, there's no point in making it it's own effect
-	set_variable = { THIS.sum_of_popularites = THIS.PO_seat_count }
-	add_to_variable = { THIS.sum_of_popularites = THIS.PiS_seat_count }
-	add_to_variable = { THIS.sum_of_popularites = THIS.LEFT_seat_count }
-	add_to_variable = { THIS.sum_of_popularites = THIS.RIGHT_seat_count }
-	add_to_variable = { THIS.sum_of_popularites = THIS.PSL_seat_count }
-	add_to_variable = { THIS.sum_of_popularites = THIS.OTHER_seat_count }
-	
-	multiply_variable = { THIS.PO_seat_count = 100 }
-	multiply_variable = { THIS.PiS_seat_count = 100 }
-	multiply_variable = { THIS.LEFT_seat_count = 100 }
-	multiply_variable = { THIS.RIGHT_seat_count = 100 }
-	multiply_variable = { THIS.PSL_seat_count = 100 }
-	multiply_variable = { THIS.OTHER_seat_count = 100 }
-	
-	divide_variable = { THIS.PO_seat_count = THIS.sum_of_popularites }
-	divide_variable = { THIS.PiS_seat_count = THIS.sum_of_popularites }
-	divide_variable = { THIS.LEFT_seat_count = THIS.sum_of_popularites }
-	divide_variable = { THIS.RIGHT_seat_count = THIS.sum_of_popularites }
-	divide_variable = { THIS.PSL_seat_count = THIS.sum_of_popularites }
-	divide_variable = { THIS.OTHER_seat_count = THIS.sum_of_popularites }
-	
-	divide_variable = { THIS.PO_seat_count = 100 }
-	divide_variable = { THIS.PiS_seat_count = 100 }
-	divide_variable = { THIS.LEFT_seat_count = 100 }
-	divide_variable = { THIS.RIGHT_seat_count = 100 }
-	divide_variable = { THIS.PSL_seat_count = 100 }
-	divide_variable = { THIS.OTHER_seat_count = 100 }		#Probably best to get rid of the multiply and divide by 100 parts but hoi4 doesn't like small variables, the lowest it can do is 3 d.p so it's best to avoid that kind of stuff
-	
-	clamp_variable = { var = THIS.PO_seat_count min = 0 max = 1 }		#Clamp / correct the variables
-	clamp_variable = { var = THIS.PiS_seat_count min = 0 max = 1 }
-	clamp_variable = { var = THIS.LEFT_seat_count min = 0 max = 1 }
-	clamp_variable = { var = THIS.RIGHT_seat_count min = 0 max = 1 }
-	clamp_variable = { var = THIS.PSL_seat_count min = 0 max = 1 }
-	clamp_variable = { var = THIS.OTHER_seat_count min = 0 max = 1 }
-	
-	clear_variable = THIS.sum_of_popularites
 }
 
 POL_get_sejm_seats_per_voivodeship={
-	multiply_variable = { THIS.PO_seat_count = THIS.number_of_seats_in_sejm }
-	multiply_variable = { THIS.PiS_seat_count = THIS.number_of_seats_in_sejm }
-	multiply_variable = { THIS.LEFT_seat_count = THIS.number_of_seats_in_sejm }
-	multiply_variable = { THIS.RIGHT_seat_count = THIS.number_of_seats_in_sejm }
-	multiply_variable = { THIS.PSL_seat_count = THIS.number_of_seats_in_sejm }
-	multiply_variable = { THIS.OTHER_seat_count = THIS.number_of_seats_in_sejm }
-	
-	round_variable = THIS.PO_seat_count
-	round_variable = THIS.PiS_seat_count
-	round_variable = THIS.LEFT_seat_count
-	round_variable = THIS.RIGHT_seat_count
-	round_variable = THIS.PSL_seat_count
-	round_variable = THIS.OTHER_seat_count
-	
-	set_variable = { THIS.seats_allocated = THIS.PO_seat_count }
-	add_to_variable = { THIS.seats_allocated = THIS.PiS_seat_count }
-	add_to_variable = { THIS.seats_allocated = THIS.LEFT_seat_count }
-	add_to_variable = { THIS.seats_allocated = THIS.RIGHT_seat_count }
-	add_to_variable = { THIS.seats_allocated = THIS.PSL_seat_count }
-	add_to_variable = { THIS.seats_allocated = THIS.OTHER_seat_count }
-	
-	if={
-		limit = { check_variable = { var = THIS.seats_allocated value = THIS.number_of_seats_in_sejm compare = less_than } }		#Can only ever be less than total amount
-		
-		set_variable = { THIS.PO_seat_count_weighting = THIS.PO_seat_count }
-		set_variable = { THIS.PiS_seat_count_weighting = THIS.PiS_seat_count }
-		set_variable = { THIS.LEFT_seat_count_weighting = THIS.LEFT_seat_count }
-		set_variable = { THIS.RIGHT_seat_count_weighting = THIS.RIGHT_seat_count }
-		set_variable = { THIS.PSL_seat_count_weighting = THIS.PSL_seat_count }
-		set_variable = { THIS.OTHER_seat_count_weighting = THIS.OTHER_seat_count }
-		
+	#Set the seat counts variable to the state popularity, if it's less than 5% we eliminate them
+	#also there's a rule where parties need 5% but alliances need 8%, this wouldn't be hard to code as it would only require a country flag + an IF statement but i feel it would just make things more confusing and complicated for the less knowledgable about polish politics
+	#that rule was actually why ZL got 0 seats in the Sejm despite getting ~7.5% of the national vote lol, their support is so evenly distributed across Poland they didn't qualify in a single Sejm district lmao
 
-		while_loop_effect = {
-			limit = {
-				check_variable = { var = THIS.seats_allocated value = THIS.number_of_seats_in_sejm compare = less_than }
-			}
-			if={
-				limit = {  
-					check_variable = { THIS.PO_seat_count_weighting > THIS.PiS_seat_count_weighting }
-					check_variable = { THIS.PO_seat_count_weighting > THIS.LEFT_seat_count_weighting }
-					check_variable = { THIS.PO_seat_count_weighting > THIS.RIGHT_seat_count_weighting }
-					check_variable = { THIS.PO_seat_count_weighting > THIS.PSL_seat_count_weighting }
-					check_variable = { THIS.PO_seat_count_weighting > THIS.OTHER_seat_count_weighting }
-				}
-				add_to_variable = { THIS.PO_seat_count = 1 }
-				divide_variable = { THIS.PO_seat_count_weighting = 2 }
-			}
-			else_if={
-				limit = {  
-					check_variable = { THIS.PiS_seat_count_weighting > THIS.PO_seat_count_weighting }
-					check_variable = { THIS.PiS_seat_count_weighting > THIS.LEFT_seat_count_weighting }
-					check_variable = { THIS.PiS_seat_count_weighting > THIS.RIGHT_seat_count_weighting }
-					check_variable = { THIS.PiS_seat_count_weighting > THIS.PSL_seat_count_weighting }
-					check_variable = { THIS.PiS_seat_count_weighting > THIS.OTHER_seat_count_weighting }
-				}
-				add_to_variable = { THIS.PiS_seat_count = 1 }
-				divide_variable = { THIS.PiS_seat_count_weighting = 2 }
-			}
-			else_if={
-				limit = {  
-					check_variable = { THIS.LEFT_seat_count_weighting > THIS.PO_seat_count_weighting }
-					check_variable = { THIS.LEFT_seat_count_weighting > THIS.PiS_seat_count_weighting }
-					check_variable = { THIS.LEFT_seat_count_weighting > THIS.RIGHT_seat_count_weighting }
-					check_variable = { THIS.LEFT_seat_count_weighting > THIS.PSL_seat_count_weighting }
-					check_variable = { THIS.LEFT_seat_count_weighting > THIS.OTHER_seat_count_weighting }
-				}
-				add_to_variable = { THIS.LEFT_seat_count = 1 }
-				divide_variable = { THIS.LEFT_seat_count_weighting = 2 }
-			}
-			else_if={
-				limit = {  
-					check_variable = { THIS.RIGHT_seat_count_weighting > THIS.PO_seat_count_weighting }
-					check_variable = { THIS.RIGHT_seat_count_weighting > THIS.PiS_seat_count_weighting }
-					check_variable = { THIS.RIGHT_seat_count_weighting > THIS.LEFT_seat_count_weighting }
-					check_variable = { THIS.RIGHT_seat_count_weighting > THIS.PSL_seat_count_weighting }
-					check_variable = { THIS.RIGHT_seat_count_weighting > THIS.OTHER_seat_count_weighting }
-				}
-				add_to_variable = { THIS.RIGHT_seat_count = 1 }
-				divide_variable = { THIS.RIGHT_seat_count_weighting = 2 }
-			}
-			else_if={
-				limit = {  
-					check_variable = { THIS.PSL_seat_count_weighting > THIS.PO_seat_count_weighting }
-					check_variable = { THIS.PSL_seat_count_weighting > THIS.PiS_seat_count_weighting }
-					check_variable = { THIS.PSL_seat_count_weighting > THIS.LEFT_seat_count_weighting }
-					check_variable = { THIS.PSL_seat_count_weighting > THIS.RIGHT_seat_count_weighting }
-					check_variable = { THIS.PSL_seat_count_weighting > THIS.OTHER_seat_count_weighting }
-				}
-				add_to_variable = { THIS.PSL_seat_count = 1 }
-				divide_variable = { THIS.PSL_seat_count_weighting = 2 }
-			}
-			else_if={
-				limit = {  
-					check_variable = { THIS.OTHER_seat_count_weighting > THIS.PO_seat_count_weighting }
-					check_variable = { THIS.OTHER_seat_count_weighting > THIS.PiS_seat_count_weighting }
-					check_variable = { THIS.OTHER_seat_count_weighting > THIS.LEFT_seat_count_weighting }
-					check_variable = { THIS.OTHER_seat_count_weighting > THIS.RIGHT_seat_count_weighting }
-					check_variable = { THIS.OTHER_seat_count_weighting > THIS.PSL_seat_count_weighting }
-				}
-				add_to_variable = { THIS.OTHER_seat_count = 1 }
-				divide_variable = { THIS.OTHER_seat_count_weighting = 2 }
-			}
-			
-			set_variable = { THIS.seats_allocated = THIS.PO_seat_count }
-			add_to_variable = { THIS.seats_allocated = THIS.PiS_seat_count }
-			add_to_variable = { THIS.seats_allocated = THIS.LEFT_seat_count }
-			add_to_variable = { THIS.seats_allocated = THIS.RIGHT_seat_count }
-			add_to_variable = { THIS.seats_allocated = THIS.PSL_seat_count }
-			add_to_variable = { THIS.seats_allocated = THIS.OTHER_seat_count }
-		}
-	}
+	set_variable = { THIS.seats_allocated = 0 }
+	set_variable = { THIS.PO_seat_count = 0 }
+	set_variable = { THIS.PiS_seat_count = 0 }
+	set_variable = { THIS.RIGHT_seat_count = 0 }
+	set_variable = { THIS.LEFT_seat_count = 0 }
+	set_variable = { THIS.PSL_seat_count = 0 }
+	set_variable = { THIS.OTHER_seat_count = 0 }
 	
+	
+	#This is D'Hondt method, not Sainte-Laguë method
+	#Sainte-Laguë my beloved
+	while_loop_effect = {
+		limit = {
+			check_variable = { var = THIS.seats_allocated value = THIS.number_of_seats_in_sejm compare = less_than }
+		}
+		
+		set_variable = { THIS.PO_quotient = THIS.state_PO_vote_count }
+		set_variable = { THIS.PO_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.PO_quotient_to_divide_by = THIS.PO_seat_count }
+		divide_variable = { THIS.PO_quotient = THIS.PO_quotient_to_divide_by }
+		clear_variable = THIS.PO_quotient_to_divide_by
+
+		set_variable = { THIS.PiS_quotient = THIS.state_PiS_vote_count }
+		set_variable = { THIS.PiS_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.PiS_quotient_to_divide_by = THIS.PiS_seat_count }
+		divide_variable = { THIS.PiS_quotient = THIS.PiS_quotient_to_divide_by }
+		clear_variable = THIS.PiS_quotient_to_divide_by
+		
+		set_variable = { THIS.RIGHT_quotient = THIS.state_RIGHT_vote_count }
+		set_variable = { THIS.RIGHT_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.RIGHT_quotient_to_divide_by = THIS.RIGHT_seat_count }
+		divide_variable = { THIS.RIGHT_quotient = THIS.RIGHT_quotient_to_divide_by }
+		clear_variable = THIS.RIGHT_quotient_to_divide_by
+		
+		set_variable = { THIS.LEFT_quotient = THIS.state_LEFT_vote_count }
+		set_variable = { THIS.LEFT_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.LEFT_quotient_to_divide_by = THIS.LEFT_seat_count }
+		divide_variable = { THIS.LEFT_quotient = THIS.LEFT_quotient_to_divide_by }
+		clear_variable = THIS.LEFT_quotient_to_divide_by
+		
+		set_variable = { THIS.PSL_quotient = THIS.state_PSL_vote_count }
+		set_variable = { THIS.PSL_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.PSL_quotient_to_divide_by = THIS.PSL_seat_count }
+		divide_variable = { THIS.PSL_quotient = THIS.PSL_quotient_to_divide_by }
+		clear_variable = THIS.PSL_quotient_to_divide_by
+		
+		set_variable = { THIS.OTHER_quotient = THIS.state_OTHER_vote_count }
+		set_variable = { THIS.OTHER_quotient_to_divide_by = 1 }
+		add_to_variable = { THIS.OTHER_quotient_to_divide_by = THIS.OTHER_seat_count }
+		divide_variable = { THIS.OTHER_quotient = THIS.OTHER_quotient_to_divide_by }
+		clear_variable = THIS.OTHER_quotient_to_divide_by
+		
+		if={
+			limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.PO_quotient = 0 }
+		}
+		if={
+			limit = { check_variable = { var = THIS.PiS_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.PiS_quotient = 0 }
+		}
+		if={
+			limit = { check_variable = { var = THIS.RIGHT_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.RIGHT_quotient = 0 }
+		}
+		if={
+			limit = { check_variable = { var = THIS.LEFT_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.LEFT_quotient = 0 }
+		}
+		if={
+			limit = { check_variable = { var = THIS.PSL_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.PSL_quotient = 0 }
+		}
+		if={
+			limit = { check_variable = { var = THIS.OTHER_popularity value = 5 compare = less_than } }
+			set_variable = { THIS.OTHER_quotient = 0 }
+		}
+		
+		if={
+			limit = {
+				check_variable = { var = THIS.PO_quotient value = THIS.PiS_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PO_quotient value = THIS.RIGHT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PO_quotient value = THIS.LEFT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PO_quotient value = THIS.PSL_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PO_quotient value = THIS.OTHER_quotient compare = greater_than_or_equals }
+			}
+			add_to_variable = { THIS.PO_seat_count = 1 }
+		}
+		else_if={
+			limit = {
+				check_variable = { var = THIS.PiS_quotient value = THIS.PO_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PiS_quotient value = THIS.RIGHT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PiS_quotient value = THIS.LEFT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PiS_quotient value = THIS.PSL_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PiS_quotient value = THIS.OTHER_quotient compare = greater_than_or_equals }
+			}
+			add_to_variable = { THIS.PiS_seat_count = 1 }
+		}
+		else_if={
+			limit = {
+				check_variable = { var = THIS.RIGHT_quotient value = THIS.PO_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.RIGHT_quotient value = THIS.PiS_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.RIGHT_quotient value = THIS.LEFT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.RIGHT_quotient value = THIS.PSL_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.RIGHT_quotient value = THIS.OTHER_quotient compare = greater_than_or_equals }
+			}
+			add_to_variable = { THIS.RIGHT_seat_count = 1 }
+		}
+		else_if={
+			limit = {
+				check_variable = { var = THIS.LEFT_quotient value = THIS.PO_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.LEFT_quotient value = THIS.PiS_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.LEFT_quotient value = THIS.RIGHT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.LEFT_quotient value = THIS.PSL_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.LEFT_quotient value = THIS.OTHER_quotient compare = greater_than_or_equals }
+			}
+			add_to_variable = { THIS.LEFT_seat_count = 1 }
+		}
+		else_if={
+			limit = {
+				check_variable = { var = THIS.PSL_quotient value = THIS.PO_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PSL_quotient value = THIS.PiS_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PSL_quotient value = THIS.RIGHT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PSL_quotient value = THIS.LEFT_quotient compare = greater_than_or_equals }
+				check_variable = { var = THIS.PSL_quotient value = THIS.OTHER_quotient compare = greater_than_or_equals }
+			}
+			add_to_variable = { THIS.PSL_seat_count = 1 }
+		}
+		else={
+			add_to_variable = { THIS.OTHER_seat_count = 1 }
+		}
+		
+		add_to_variable = { THIS.seats_allocated = 1 }
+	}
+
+	
+	
+	#Add seats from this voivodeship to the Sejm and get rid of unecessary variables
 	add_to_variable = { POL.POL_PO_seats = THIS.PO_seat_count }
 	add_to_variable = { POL.POL_PiS_seats = THIS.PiS_seat_count }
 	add_to_variable = { POL.POL_RIGHT_seats = THIS.RIGHT_seat_count }
@@ -1875,19 +1814,12 @@ POL_get_sejm_seats_per_voivodeship={
 	add_to_variable = { POL.POL_PSL_seats = THIS.PSL_seat_count }
 	add_to_variable = { POL.POL_OTHER_seats = THIS.OTHER_seat_count }
 	
-	
-#	clear_variable = THIS.PO_seat_count
-#	clear_variable = THIS.PiS_seat_count
-#	clear_variable = THIS.LEFT_seat_count
-#	clear_variable = THIS.RIGHT_seat_count
-#	clear_variable = THIS.PSL_seat_count
-#	clear_variable = THIS.OTHER_seat_count
-	clear_variable = THIS.PO_seat_count_weighting
-	clear_variable = THIS.PiS_seat_count_weighting
-	clear_variable = THIS.LEFT_seat_count_weighting
-	clear_variable = THIS.RIGHT_seat_count_weighting
-	clear_variable = THIS.PSL_seat_count_weighting
-	clear_variable = THIS.OTHER_seat_count_weighting
+	clear_variable = THIS.PO_quotient
+	clear_variable = THIS.PiS_quotient
+	clear_variable = THIS.RIGHT_quotient
+	clear_variable = THIS.LEFT_quotient
+	clear_variable = THIS.PSL_quotient
+	clear_variable = THIS.OTHER_quotient
 	clear_variable = THIS.seats_allocated
 }
 
@@ -2298,7 +2230,7 @@ POL_hold_election_effect={
 
 	every_state={
 		limit = { POL_is_election_state = yes }
-		randomise_polling_numbers_and_eliminate_insufficient_parties = yes
+		randomise_polling_numbers_and_get_vote_count = yes
 		POL_get_sejm_seats_per_voivodeship = yes
 	}
 	

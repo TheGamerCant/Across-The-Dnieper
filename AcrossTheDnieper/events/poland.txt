@@ -1069,6 +1069,33 @@ country_event = {
 	}
 }
 
+#Rise of Kukiz-15
+country_event = {
+	id = atd_poland.20
+	title = atd_poland.20.t
+	desc = atd_poland.20.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_kukiz_15_rally
+
+	option = {
+		name = atd_poland.20.a
+		ai_chance = { base = 1 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+				subtract_from_variable = { THIS.PO_popularity = 0.9 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
+		add_popularity = { ideology = populist popularity = 0.05 }
+	}
+}
+
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1
