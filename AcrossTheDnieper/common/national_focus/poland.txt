@@ -674,7 +674,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_increase_procurement_spending
-	icon = GFX_focus_
+	icon = GFX_focus_POL_cost_effective_designs
 	x = -2
 	y = 2
 	cost = 70
@@ -692,6 +692,80 @@ shared_focus = {
 
 	completion_reward = {
 		increase_military_spending = yes
+	}
+}
+
+shared_focus = {
+	id = POL_expand_radom_lucznik_factory
+	icon = GFX_focus_POL_generic_arms_industry
+	x = -1
+	y = 1
+	cost = 42
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_increase_procurement_spending }
+	relative_position_id = POL_increase_procurement_spending
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		random_controlled_state={
+			limit = { is_core_of = ROOT }
+			prioritize = { 427 }
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_4 = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_consolodate_the_polska_grupa_zbrojeniowa
+	icon = GFX_focus_POL_generic_arms_industry
+	x = 0
+	y = 1
+	cost = 70
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_expand_radom_lucznik_factory }
+	relative_position_id = POL_expand_radom_lucznik_factory
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		random_controlled_state={
+			limit = { is_core_of = ROOT }
+			prioritize = { 427 }
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_4 = yes
+		}
+		
+		add_tech_bonus = {
+			name = POL_consolodate_the_polska_grupa_zbrojeniowa
+			bonus = 1.0
+			uses = 4
+			category = infantry_anti_tank_cat
+			category = infantry_anti_air_cat
+			category = support_tech
+			category = infantry_tech
+		}
 	}
 }
 
@@ -749,7 +823,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_aerial_modernisation_plan
-	icon = GFX_focus_
+	icon = GFX_focus_POL_aerial_modernisation_plan
 	x = 3
 	y = 1
 	cost = 48
@@ -850,7 +924,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_navy_modernisation_plan
-	icon = GFX_focus_
+	icon = GFX_focus_POL_joint_production_of_ships_with_the_usa
 	x = 9
 	y = 1
 	cost = 48
@@ -872,7 +946,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_joint_production_of_ships_with_the_usa
-	icon = GFX_focus_
+	icon = GFX_focus_POL_joint_production_of_ships_with_the_usa
 	x = 2
 	y = 1
 	cost = 48
