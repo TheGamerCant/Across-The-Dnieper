@@ -724,6 +724,16 @@ shared_focus = {
 			}
 			increase_state_gdp_growth_by_4 = yes
 		}
+		
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.08 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_eagle_soars
+		}
+		else={
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.05 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_need_for_nato
+		}
 	}
 }
 
@@ -765,6 +775,16 @@ shared_focus = {
 			category = infantry_anti_air_cat
 			category = support_tech
 			category = infantry_tech
+		}
+		
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.08 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_eagle_soars
+		}
+		else={
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.05 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_need_for_nato
 		}
 	}
 }
@@ -846,7 +866,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_purchase_anti_tank_systems
-	icon = GFX_focus_
+	icon = GFX_focus_POL_purchase_anti_tank_systems
 	x = -4
 	y = 1
 	cost = 35
@@ -886,7 +906,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_purchase_MANPADS
-	icon = GFX_focus_
+	icon = GFX_focus_POL_purchase_MANPADS
 	x = -2
 	y = 1
 	cost = 35
@@ -1050,5 +1070,252 @@ shared_focus = {
 			}
 		}
 		custom_effect_tooltip = POL_joint_production_of_ships_with_the_usa_tt
+	}
+}
+
+shared_focus = {
+	id = POL_purchase_us_harpoon_missiles
+	icon = GFX_focus_POL_purchase_us_harpoon_missiles
+	x = -1
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_joint_production_of_ships_with_the_usa }
+	relative_position_id = POL_joint_production_of_ships_with_the_usa
+	mutually_exclusive = { focus = POL_domestic_ASM_missile_research }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_to_variable = { POL_navy_naval_hit_chance = 0.14 }
+			add_to_variable = { POL_navy_naval_critical_score_chance_factor = 0.14 }
+			custom_effect_tooltip = POL_purchase_us_harpoon_missiles_the_need_for_nato
+		}
+		else={
+			add_to_variable = { POL_navy_naval_hit_chance = 0.1 }
+			add_to_variable = { POL_navy_naval_critical_score_chance_factor = 0.1 }
+			custom_effect_tooltip = POL_purchase_us_harpoon_missiles_the_eagle_soars
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_domestic_ASM_missile_research
+	icon = GFX_focus_POL_domestic_ASM_missile_research
+	x = 1
+	y = 1
+	cost = 52
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_joint_production_of_ships_with_the_usa }
+	relative_position_id = POL_joint_production_of_ships_with_the_usa
+	mutually_exclusive = { focus = POL_purchase_us_harpoon_missiles }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_tech_bonus = {
+				name = POL_domestic_ASM_missile_research
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+				category = ship_modules_tech
+			}
+		}
+		else={
+			add_tech_bonus = {
+				name = POL_domestic_ASM_missile_research
+				bonus = 1.5
+				uses = 2
+				category = rocketry
+				category = ship_modules_tech
+			}
+		}
+		
+		random_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_2 = yes
+		}
+	}
+}
+
+
+
+shared_focus = {
+	id = POL_naval_coordination_excersizes
+	icon = GFX_focus_POL_naval_excersizes
+	x = 0
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_navy_modernisation_plan }
+	relative_position_id = POL_navy_modernisation_plan
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_navy_naval_coordination = 0.1 }
+		add_to_variable = { POL_navy_naval_detection = 0.1 }
+		add_to_variable = { POL_navy_spotting_chance = 0.08 }
+		
+		custom_effect_tooltip = POL_naval_coordination_excersizes_tt
+	}
+}
+
+shared_focus = {
+	id = POL_expand_hel_dockyard
+	icon = GFX_focus_
+	x = -2
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_navy_modernisation_plan }
+	relative_position_id = POL_navy_modernisation_plan
+	available = {
+		24={
+			CONTROLLER={
+				OR={				#If NATO spawns in they take control of Hel
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+	}
+	bypass = {
+		NOT={
+			24={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_in_faction_with = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		24={
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 3
+				instant_build = yes
+				province = 20305
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		add_to_variable = { POL_navy_industrial_capacity_dockyard = 0.07 }
+		custom_effect_tooltip = POL_expand_hel_dockyard_tt
+	}
+}
+
+shared_focus = {
+	id = POL_expand_gdansk_port
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_expand_hel_dockyard }
+	relative_position_id = POL_expand_hel_dockyard
+	available = {
+		19={
+			CONTROLLER={
+				OR={
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+	}
+	bypass = {
+		NOT={
+			19={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_in_faction_with = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		19={
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 3
+				instant_build = yes
+				province = 2235
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		add_to_variable = { POL_navy_industrial_capacity_dockyard = 0.1 }
+		custom_effect_tooltip = POL_expand_gdansk_port_tt
 	}
 }
