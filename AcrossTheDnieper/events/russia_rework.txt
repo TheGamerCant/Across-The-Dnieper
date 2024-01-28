@@ -4926,6 +4926,92 @@ country_event = {
     }
 }
 
+
+#Surovikin/Gerasimov Line
+country_event = {
+    id = russia.1136
+    title = russia.1136.t
+    desc = russia.1136.desc
+    picture = SOV_surovikin_line
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+
+    option = {
+        name = russia.1136.a
+		ai_chance = {
+			base = 10
+		}
+
+		custom_effect_tooltip = "russia.1136.tt"
+
+		hidden_effect = {
+			every_state = {
+				limit = {
+					AND = {
+						is_controlled_by = SOV
+						is_core_of = UKR
+						OR = {
+							has_state_flag = zaporizhia_oblast_flag
+							has_state_flag = kherson_oblast_flag
+							has_state_flag = donetsk_oblast_flag
+						}
+						
+						any_neighbor_state = {
+							is_controlled_by = UKR
+						}
+					}
+				}
+	
+				add_building_construction = {
+					type = bunker
+					level = 8
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border_country = UKR
+					}
+				}
+			}
+	
+			if = {
+				limit = { 250 = { is_controlled_by = SOV } }
+				250 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_victory_point = yes
+						}
+					}
+				}
+			}
+	
+			if = {
+				limit = { 243 = { is_controlled_by = SOV } }
+				243 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_victory_point = yes
+						}
+					}
+				}
+			}
+		}
+
+
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
