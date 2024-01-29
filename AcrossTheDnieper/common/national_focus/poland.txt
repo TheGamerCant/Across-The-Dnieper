@@ -595,7 +595,6 @@ shared_focus = {
 	}
 	prerequisite = { focus = POL_army_reform_plan }
 	relative_position_id = POL_army_reform_plan
-	mutually_exclusive = { focus = POL_cost_effective_designs }
 	available = {
 	}
 	bypass = {
@@ -613,6 +612,100 @@ shared_focus = {
 			add_to_variable = { POL_land_forces_land_doctrine_cost_factor = -0.15 }
 			add_to_variable = { POL_land_forces_army_org_factor = 0.08 }
 			custom_effect_tooltip = POL_american_advisors_tt_the_eagle_soars
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_NATO_JFTC_bydgoszcz
+	icon = GFX_focus_POL_NATO_JFTC_bydgoszcz
+	x = -1
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_american_advisors }
+	relative_position_id = POL_american_advisors
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_land_forces_max_command_power = 30 }
+		add_to_variable = { POL_land_forces_experience_gain_army_factor = 0.05 }
+		add_to_variable = { POL_land_forces_land_doctrine_cost_factor = -0.1 }
+		add_to_variable = { POL_land_forces_training_time_factor = -0.05 }
+		custom_effect_tooltip = POL_NATO_JFTC_bydgoszcz_tt
+	}
+}
+
+shared_focus = {
+	id = POL_reactive_response_exercises
+	icon = GFX_focus_POL_reactive_response_exercises
+	x = 0
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_proactive_response_exercises }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_army_defence_factor = 0.05 }
+			add_to_variable = { POL_land_forces_max_dig_in = 2.5 }
+			custom_effect_tooltip = POL_reactive_response_exercises_the_eagle_soars_tt
+		}
+		else={
+			add_command_power = 25
+			add_to_variable = { POL_land_forces_army_defence_factor = 0.07 }
+			add_to_variable = { POL_land_forces_max_dig_in = 3.2 }
+			custom_effect_tooltip = POL_reactive_response_exercises_the_need_for_nato_tt
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_proactive_response_exercises
+	icon = GFX_focus_POL_proactive_response_exercises
+	x = -2
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_reactive_response_exercises }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_war_support = 0.03
+			add_to_variable = { POL_land_forces_army_attack_factor = 0.07 }
+			add_to_variable = { POL_land_forces_org_loss_when_moving = -0.12 }
+			custom_effect_tooltip = POL_proactive_response_exercises_the_eagle_soars_tt
+		}
+		else={
+			add_to_variable = { POL_land_forces_army_attack_factor = 0.05 }
+			add_to_variable = { POL_land_forces_org_loss_when_moving = -0.1 }
+			custom_effect_tooltip = POL_proactive_response_exercises_the_need_for_nato_tt
 		}
 	}
 }
@@ -824,7 +917,7 @@ shared_focus = {
 	icon = GFX_focus_POL_womens_self_defence_courses
 	x = -1
 	y = 1
-	cost = 24
+	cost = 35
 
 	ai_will_do = { 
 		factor = 10 
@@ -1188,7 +1281,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_expand_hel_dockyard
-	icon = GFX_focus_
+	icon = GFX_focus_POL_expand_hel_dockyard
 	x = -2
 	y = 1
 	cost = 40
@@ -1255,7 +1348,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_expand_gdansk_port
-	icon = GFX_focus_
+	icon = GFX_focus_POL_expand_gdansk_port
 	x = 0
 	y = 1
 	cost = 40
