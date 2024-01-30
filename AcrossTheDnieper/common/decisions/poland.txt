@@ -1,5 +1,53 @@
 debug_decisions = {
+	load_2015_PO_tree = {
 
+		fire_only_once = no
+
+        cost = 0
+		
+		allowed={
+			tag = POL
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			load_focus_tree = poland_2015_PO_tree
+		}
+	}
+	
+	load_2015_PiS_tree = {
+
+		fire_only_once = no
+
+        cost = 0
+		
+		allowed={
+			tag = POL
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			load_focus_tree = poland_2015_PiS_tree
+		}
+	}
 }
 
 POL_parliament_gui_decision_category={
@@ -1608,6 +1656,95 @@ POL_parliament_vote_on_bill_decision_category={
 }
 
 POL_army_decisions_category={
+	POL_raise_reservists = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_war = yes
+			any_enemy_country={
+				is_major = yes
+			}
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			
+		}
+
+		visible = {
+			has_completed_focus = POL_rapid_mobilisation
+		}
+		
+		days_remove = 28
+		cost = 50
+
+		remove_effect = {
+			custom_effect_tooltip = POL_raise_reservists_tt
+			hidden_effect={
+				if={
+					limit = { 
+						POL = { is_ai = yes }
+						any_country={
+							is_major = yes
+							has_war_with = POL
+							is_ai = no
+						}
+					}
+					division_template = {
+						name = "Polish Territorial Defence Force"
+						division_names_group = POL_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }	
+							infantry = { x = 1 y = 2 }
+							artillery = { x = 2 y = 0 }
+						}
+					}
+				}
+				else={
+					division_template = {
+						name = "Polish Territorial Defence Force"
+						division_names_group = POL_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }	
+							infantry = { x = 1 y = 2 }
+							artillery = { x = 2 y = 0 }
+						}
+					}
+				}
+				for_loop_effect = {
+					end = 36
+					value = temp
+					random_controlled_state = {
+						limit={ is_fully_controlled_by = ROOT }
+						create_unit = {
+							division = "name = \"Light Infantry Regiment\" division_template = \"Polish Territorial Defence Force\" start_experience_factor = 0.05" 
+							owner = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+
 	POL_expand_preexisting_dockyards = { 
 		priority = 200
 
