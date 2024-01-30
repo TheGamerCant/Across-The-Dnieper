@@ -1,3 +1,27 @@
+calculate_eu_members = {
+	if = {
+		limit = { NOT = { has_global_flag = cant_calculate_eu_members } }
+
+		set_global_flag = {
+			flag = cant_calculate_eu_members
+			days = 15
+			value = 1
+		}
+
+		every_country = {
+			limit = {
+				OR = {
+					has_country_flag = is_in_european_union 
+					has_ideas = eu_member
+				}
+			}
+
+			add_to_variable = { global.EU_voting_countries = 1 }
+			
+		}
+	}
+}
+
 nuclear_war={
 	set_global_flag = nuclear_war_flag
 	every_country={
