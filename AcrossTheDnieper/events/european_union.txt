@@ -1,5 +1,7 @@
 add_namespace = european_union
 
+
+#Russo-ukraine war sanctions
 country_event = {
 	id = european_union.1
 	title = european_union.1.t
@@ -17,9 +19,14 @@ country_event = {
 			base = 10
 		}
 
+
+		effect_tooltip = {
+			SOV = { custom_effect_tooltip = russia.1048.tt }
+		}
 	}
 }
 
+#Donbas recognision sanctions
 country_event = {
 	id = european_union.2
 	title = european_union.2.t
@@ -34,7 +41,6 @@ country_event = {
 		}
 		add_to_variable = { global.eu_vote_for = 1 }
 		custom_effect_tooltip = "european_union_vote_yea"
-
 		set_variable = { ROOT.eu_votes_together = global.eu_vote_for }
 		add_to_variable = { ROOT.eu_votes_together = global.eu_vote_against }
 
@@ -46,14 +52,35 @@ country_event = {
 				}
 			}
 
+
+
+			if = {
+				limit = {
+					OR = {
+						check_variable = { global.eu_vote_for > global.eu_vote_against }
+						check_variable = { global.eu_vote_for = global.eu_vote_against }
+					}
+				}
+
+				every_country = {
+					limit = { has_ideas = eu_member  }
+					country_event = { id = european_union.3 }
+				}
+			}
+
+			else_if = {
+				limit = {
+					check_variable = { global.eu_vote_for < global.eu_vote_against }
+				}
+
+				every_country = {
+					limit = { has_ideas = eu_member  }
+					country_event = { id = european_union.4 }
+				}
+			}
+
 			set_variable = { var = global.eu_vote_against value = 0 }
             set_variable = { var = global.eu_vote_for value = 0 }
-
-			every_country = {
-				limit = { has_ideas = eu_member  }
-				country_event = { id = european_union.3 }
-				
-			}
 		}
 		
 		clear_variable = ROOT.eu_votes_together
@@ -66,33 +93,53 @@ country_event = {
 		}
 
 		add_to_variable = { global.eu_vote_against = 1 }
-
 		custom_effect_tooltip = "european_union_vote_nay"
-
-		set_temp_variable = { eu_votes_together = global.eu_vote_for }
-		add_to_temp_variable = { eu_votes_together = global.eu_vote_against }
+		set_variable = { ROOT.eu_votes_together = global.eu_vote_for }
+		add_to_variable = { ROOT.eu_votes_together = global.eu_vote_against }
 
 		if = {
 			limit = {
 				OR = {
-					check_variable = { eu_votes_together > global.EU_voting_countries }
-					check_variable = { eu_votes_together = global.EU_voting_countries }
+					check_variable = { ROOT.eu_votes_together > global.EU_voting_countries }
+					check_variable = { ROOT.eu_votes_together = global.EU_voting_countries }
 				}
 			}
-			
+
+
+
+			if = {
+				limit = {
+					OR = {
+						check_variable = { global.eu_vote_for > global.eu_vote_against }
+						check_variable = { global.eu_vote_for = global.eu_vote_against }
+					}
+				}
+
+				every_country = {
+					limit = { has_ideas = eu_member  }
+					country_event = { id = european_union.3 }
+				}
+			}
+
+			else_if = {
+				limit = {
+					check_variable = { global.eu_vote_for < global.eu_vote_against }
+				}
+
+				every_country = {
+					limit = { has_ideas = eu_member  }
+					country_event = { id = european_union.4 }
+				}
+			}
+
 			set_variable = { var = global.eu_vote_against value = 0 }
             set_variable = { var = global.eu_vote_for value = 0 }
-
-			every_country = {
-				limit = { has_ideas = eu_member }
-				
-				country_event = { id = european_union.3 }
-				
-			}
 		}
+
+		clear_variable = ROOT.eu_votes_together
 	}
 }
-
+#
 country_event = {
 	id = european_union.3
 	title = european_union.3.t
@@ -102,6 +149,23 @@ country_event = {
 
 	option = { 
 		name = european_union.3.a
+		ai_chance = {
+			base = 30
+		}
+
+		
+	}
+}
+
+country_event = {
+	id = european_union.4
+	title = european_union.4.t
+	desc = european_union.4.desc
+	is_triggered_only = yes
+	picture = GFX_event_EU_parliament
+
+	option = { 
+		name = european_union.4.a
 		ai_chance = {
 			base = 30
 		}
