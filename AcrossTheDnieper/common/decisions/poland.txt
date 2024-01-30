@@ -1744,7 +1744,45 @@ POL_army_decisions_category={
 			}
 		}
 	}
+	
+	POL_conduct_reservist_training_exercises = { 
+		priority = 200
 
+		icon = generic_decision
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+			political_power_cost = 0.02
+		}
+
+		visible = {
+			has_completed_focus = POL_rapid_mobilisation
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			army_experience = 75
+			add_manpower = 5000
+			add_to_variable = { POL_land_forces_training_time_factor = -0.12 }
+			custom_effect_tooltip = POL_conduct_reservist_training_exercises_tt
+		}
+	}
+	
 	POL_expand_preexisting_dockyards = { 
 		priority = 200
 
@@ -1804,7 +1842,7 @@ POL_army_decisions_category={
 		}
 	}
 	
-	POL_conduct_reservist_training_exercises = { 
+	POL_purchase_patriot_systems_1 = { 
 		priority = 200
 
 		icon = generic_decision
@@ -1818,27 +1856,245 @@ POL_army_decisions_category={
 		}
 
 		available = {
+			any_controlled_state={
+				custom_trigger_tooltip={
+					tooltip = POL_there_are_states_without_patriots_tt
+					check_variable = { building_level@anti_air_building < 3 }
+				}
+			}
 		}
 		
 		fire_only_once = yes
 		
 		modifier={
 			consumer_goods_factor = 0.03
-			political_power_cost = 0.02
 		}
 
 		visible = {
-			has_completed_focus = POL_rapid_mobilisation
+			has_completed_focus = POL_purhcase_PATRIOT_systems
 		}
 		
 		days_remove = 180
 		cost = 75
 
 		remove_effect = {
-			army_experience = 75
-			add_manpower = 5000
-			add_to_variable = { POL_land_forces_training_time_factor = -0.12 }
-			custom_effect_tooltip = POL_conduct_reservist_training_exercises_tt
+			every_state={
+				limit = { 
+					is_owned_and_controlled_by = ROOT 
+					check_variable = { building_level@anti_air_building < 2 }
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+				
+				random_select_amount = 2
+			}
+			
+			set_country_flag = POL_purchase_patriot_systems_1_completed_flag
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 50 } }
+		}
+	}
+	
+	POL_purchase_patriot_systems_2 = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_country_flag = POL_purchase_patriot_systems_1_completed_flag
+		
+			any_controlled_state={
+				custom_trigger_tooltip={
+					tooltip = POL_there_are_states_without_patriots_tt
+					check_variable = { building_level@anti_air_building < 3 }
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+			has_completed_focus = POL_purhcase_PATRIOT_systems
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			every_state={
+				limit = { 
+					is_owned_and_controlled_by = ROOT 
+					check_variable = { building_level@anti_air_building < 2 }
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+				
+				random_select_amount = 2
+			}
+			
+			clr_country_flag = POL_purchase_patriot_systems_1_completed_flag
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 50 } }
+		}
+	}
+	
+	POL_upgrade_patriot_systems_1 = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			any_controlled_state={
+				custom_trigger_tooltip={
+					tooltip = POL_there_are_states_with_patriots_tt
+					check_variable = { building_level@anti_air_building > 1 }
+					check_variable = { building_level@anti_air_building < 5 }
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+			has_completed_focus = POL_purhcase_PATRIOT_systems
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			every_state={
+				limit = { 
+					is_owned_and_controlled_by = ROOT 
+					check_variable = { building_level@anti_air_building > 1 }
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+					instant_build = yes
+				}
+				
+				random_select_amount = 2
+			}
+			
+			set_country_flag = POL_upgrade_patriot_systems_1_completed_flag
+			
+			add_to_variable = { POL_air_force_static_anti_air_damage_factor = 0.2 }
+			custom_effect_tooltip = POL_upgrade_patriot_systems_1_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 50 } }
+		}
+	}
+	
+	POL_upgrade_patriot_systems_2 = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+			has_country_flag = POL_upgrade_patriot_systems_1_completed_flag
+		
+			any_controlled_state={
+				custom_trigger_tooltip={
+					tooltip = POL_there_are_states_with_patriots_tt
+					check_variable = { building_level@anti_air_building > 1 }
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			consumer_goods_factor = 0.03
+		}
+
+		visible = {
+			has_completed_focus = POL_purhcase_PATRIOT_systems
+		}
+		
+		days_remove = 180
+		cost = 75
+
+		remove_effect = {
+			every_state={
+				limit = { 
+					is_owned_and_controlled_by = ROOT 
+					check_variable = { building_level@anti_air_building > 1 }
+					check_variable = { building_level@anti_air_building < 5 }
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+					instant_build = yes
+				}
+				
+				random_select_amount = 2
+			}
+			
+			clr_country_flag = POL_upgrade_patriot_systems_1_completed_flag
+			
+			add_to_variable = { POL_air_force_static_anti_air_damage_factor = 0.2 }
+			custom_effect_tooltip = POL_upgrade_patriot_systems_1_tt
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 50 } }
 		}
 	}
 }

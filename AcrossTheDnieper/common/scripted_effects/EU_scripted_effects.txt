@@ -1,3 +1,26 @@
+calculate_eu_members = {
+	if = {
+		limit = { NOT = { has_global_flag = cant_calculate_eu_members } }
+
+		set_global_flag = {
+			flag = cant_calculate_eu_members
+			days = 15
+			value = 1
+		}
+
+		every_country = {
+			limit = {
+				has_idea = eu_member
+			}
+
+			add_to_variable = { global.EU_voting_countries = 1 }
+			
+		}
+	}
+}
+
+
+
 EU_clr_open_flags = {
 	clr_country_flag = EU_council_open
 	clr_country_flag = EU_parliament_open

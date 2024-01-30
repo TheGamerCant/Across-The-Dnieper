@@ -104,6 +104,10 @@ set_variable = { POL_air_force_air_interception_detect_factor = -0.08 }
 set_variable = { POL_air_force_air_night_penalty = 0.15 }
 set_variable = { POL_air_force_air_doctrine_cost_factor = 0.5 }
 set_variable = { POL_air_force_air_accidents_factor = 0.33 }
+set_variable = { POL_air_force_air_cas_present_factor = 0 }
+set_variable = { POL_air_force_army_bonus_air_superiority_factor = 0 }
+set_variable = { POL_air_force_air_cas_efficiency = -0.15 }
+set_variable = { POL_air_force_static_anti_air_damage_factor = 0 }
 
 add_dynamic_modifier = { modifier = POL_outdated_air_force_modifier }
 
@@ -150,7 +154,7 @@ create_country_leader = {
 }
 
 #DONT REMOVE
-set_country_flag = is_in_european_union
+
 #set_variable = { pro_eu = 72 }
 #set_variable = { sce_eu =  24 }
 #set_variable = { neu_eu =  4 }
@@ -638,6 +642,8 @@ set_country_flag = POL_leftist_party_is_democratic_left_alliance
 	POL_get_non_aligned_seats = yes
 	POL_get_sejm_seats = yes
 	POL_get_government_majority_status = yes
+	
+	load_focus_tree = generic_focus
 }
 
 # http://electionresources.org/pl/maps.php?election=2011

@@ -35,14 +35,14 @@ country_event = {
 		add_to_variable = { global.eu_vote_for = 1 }
 		custom_effect_tooltip = "european_union_vote_yea"
 
-		set_temp_variable = { eu_votes_together = global.eu_vote_for }
-		add_to_temp_variable = { eu_votes_together = global.eu_vote_against }
+		set_variable = { ROOT.eu_votes_together = global.eu_vote_for }
+		add_to_variable = { ROOT.eu_votes_together = global.eu_vote_against }
 
 		if = {
 			limit = {
 				OR = {
-					check_variable = { eu_votes_together > global.EU_voting_countries }
-					check_variable = { eu_votes_together = global.EU_voting_countries }
+					check_variable = { ROOT.eu_votes_together > global.EU_voting_countries }
+					check_variable = { ROOT.eu_votes_together = global.EU_voting_countries }
 				}
 			}
 
@@ -55,6 +55,8 @@ country_event = {
 				
 			}
 		}
+		
+		clear_variable = ROOT.eu_votes_together
 	}
 
 	option = { 

@@ -225,7 +225,7 @@ focus_tree = {
 			add_political_power = 120
 			every_other_country = {
 				limit = { 
-					has_country_flag = is_in_european_union
+					has_idea = eu_member
 				}
 				add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations }
 				PREV = { add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations } }
@@ -1137,6 +1137,102 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = POL_A2A_missile_focus
+	icon = GFX_focus_POL_A2A_missile_focus
+	x = 0
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_aerial_modernisation_plan }
+	relative_position_id = POL_aerial_modernisation_plan
+	mutually_exclusive = { focus = POL_A2S_missile_focus }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_air_force_army_bonus_air_superiority_factor = 0.1 }
+		add_to_variable = { POL_air_force_air_superiority_efficiency = 0.12 }
+		custom_effect_tooltip = POL_A2A_missile_focus_tt
+	}
+}
+
+shared_focus = {
+	id = POL_A2S_missile_focus
+	icon = GFX_focus_POL_A2S_missile_focus
+	x = 2
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_aerial_modernisation_plan }
+	relative_position_id = POL_aerial_modernisation_plan
+	mutually_exclusive = { focus = POL_A2A_missile_focus }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_air_force_air_cas_present_factor = 0.1 }
+		add_to_variable = { POL_air_force_air_cas_efficiency = 0.1 }
+		custom_effect_tooltip = POL_A2S_missile_focus_tt
+	}
+}
+
+shared_focus = {
+	id = POL_purhcase_PATRIOT_systems
+	icon = GFX_focus_POL_purhcase_PATRIOT_systems
+	x = -1
+	y = 1
+	cost = 70
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_A2A_missile_focus focus = POL_A2S_missile_focus }
+	prerequisite = { focus = POL_purchase_MANPADS }
+	relative_position_id = POL_A2A_missile_focus
+	available = {
+		has_tech = interwar_antiair
+		has_tech = radio_detection
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		every_state={
+			limit = { 
+				is_owned_and_controlled_by = ROOT 
+				check_variable = { building_level@anti_air_building < 5 }
+			}
+			add_building_construction = {
+				type = anti_air_building
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = radar_station
+				level = 1
+				instant_build = yes
+			}
+			
+			random_select_amount = 3
+		}
+		
+		unlock_decision_tooltip = POL_purchase_patriot_systems_1
+		unlock_decision_tooltip = POL_purchase_patriot_systems_2
+		unlock_decision_tooltip = POL_upgrade_patriot_systems_1
+		unlock_decision_tooltip = POL_upgrade_patriot_systems_2
+	}
+}
 
 shared_focus = {
 	id = POL_purchase_anti_tank_systems
