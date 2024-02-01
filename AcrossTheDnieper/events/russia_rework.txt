@@ -1914,8 +1914,8 @@ country_event = {
 	picture = SOV_sanctions_event
 	
 	immediate={
-		add_to_variable = { SOV_sanctions_inflation_monthly = 0.1 }
-		add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.07 }
+		add_to_variable = { SOV_sanctions_inflation_monthly = 0.08 }
+		add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.05 }
 		subtract_from_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.35 }
 		subtract_from_variable = { SOV_sanctions_stability_weekly = 0.001 }
 	}
@@ -5010,6 +5010,44 @@ country_event = {
 
 
     }
+}
+
+#we get sanctioned for guaranteeing donbas
+country_event = {
+    id = russia.1137
+    title = russia.1137.t
+    desc = russia.1137.desc
+    picture = SOV_sanctions_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1137.a
+		ai_chance = {
+			base = 10
+		}
+
+		effect_tooltip = {
+			SOV = { custom_effect_tooltip = "european_union.3.tt" }
+		
+			every_country = {
+				limit = {
+					OR = {
+						tag = DON
+						tag = LHK
+						tag = ODS
+						tag = KHK
+						tag = NOV
+					}
+				}
+
+				add_ideas = DONBASS_western_sanctions_idea
+			}
+		}
+
+
+    }
+
+
 }
 
 country_event = {
