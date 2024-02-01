@@ -5158,7 +5158,10 @@ country_event = { #Raid Failed (all dead)
 	picture = GFX_report_event_UKR_crimea_raid_fail
 
 	trigger = {
-		has_war_with = SOV
+		OR = {
+			has_war_with = SOV
+			has_war_with = UKR
+		}
 	}
 
 	option = { 
@@ -5208,7 +5211,10 @@ country_event = { #Raid Failed (escaped)
 	picture = GFX_report_event_UKR_crimea_raid_escaped
 
 	trigger = {
-		has_war_with = SOV
+		OR = {
+			has_war_with = SOV
+			has_war_with = UKR
+		}
 	}
 
 	option = { 
@@ -5237,7 +5243,10 @@ country_event = { #Raid Successful
 	picture = GFX_report_event_UKR_crimea_raid_success
 
 	trigger = {
-		has_war_with = SOV
+		OR = {
+			has_war_with = SOV
+			has_war_with = UKR
+		}
 	}
 
 	option = { 
@@ -5271,5 +5280,27 @@ country_event = { #Raid Successful
 			type = infantry_equipment_2
 			amount = SOV.crimea_equipment_lost
 		}
+	}
+}
+
+country_event = { #EU Council addresses the nation
+	id = ukraine.133
+	title = ukraine.133.t
+	desc = ukraine.133.desc
+	is_triggered_only = yes
+	picture = GFX_event_EU_parliament
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	immediate = {
+		set_country_flag = EU_council_open
+	}
+
+	option = { 
+		name = ukraine.133.a
+		add_political_power = 2
+		clr_country_flag = EU_council_open
 	}
 }
