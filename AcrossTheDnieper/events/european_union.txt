@@ -268,7 +268,7 @@ country_event = {
 	option = { 
 		name = european_union.5.a
 		ai_chance = {
-			base = 0
+			base = 30
 			modifier = {
 				factor = 0
 				OR = { tag = HUN tag = ENG } #Imagine not voting for tusk smh
@@ -335,6 +335,10 @@ country_event = {
 		name = european_union.5.b
 		ai_chance = {
 			base = 30
+			modifier = {
+				factor = 0
+				NOT = { tag = HUN tag = ENG }
+			}
 		}
 
 		trigger = {
