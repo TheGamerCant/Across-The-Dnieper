@@ -5050,6 +5050,90 @@ country_event = {
 
 }
 
+#Putin confirms 2024 candidacy
+country_event = {
+    id = russia.1138
+    title = russia.1138.t
+    desc = russia.1138.desc
+    picture = SOV_putins_2024_candidacy
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1138.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -15
+		add_stability = 0.02
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.02
+        }
+
+
+    }
+}
+
+#Duntsova appears
+country_event = {
+    id = russia.1139
+    title = russia.1139.t
+    desc = russia.1139.desc
+    picture = SOV_duntsova
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1139.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -3
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = -0.05
+        }
+
+		hidden_effect = {
+			country_event = { id = russia.1140 days = 44 }	
+		}
+    }
+}
+
+#Duntsova rejected
+country_event = {
+    id = russia.1140
+    title = russia.1140.t
+    desc = russia.1140.desc
+    picture = SOV_duntsova_2
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1140.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 5
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
