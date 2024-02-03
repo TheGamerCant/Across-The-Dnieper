@@ -1231,25 +1231,18 @@ POL_parliament_vote_on_bill_decision_category={
 		is_good = no
 
 		timeout_effect = {
-			clr_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
 			hidden_effect={
 				if={
 					limit = { check_variable = { var = POLAND_votes_for_the_bill value = POLAND_required_votes compare = greater_than_or_equals } }
-					add_political_power = 100
-					add_stability = 0.08
-					
-					if={
-						limit = { OR = { 62 = { is_controlled_by = ROOT } 67 = { is_controlled_by = ROOT } } }
-						country_event = { id = atd_poland.18 days = 120 random_days = 700 }
-					}
+					country_event = atd_poland.22
 				}
 			}
 			effect_tooltip={
 				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				country_event = atd_poland.22
 				add_political_power = 100
 				add_stability = 0.08
 			}
-			clr_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 		}
 	}
 	
@@ -1297,6 +1290,7 @@ POL_parliament_vote_on_bill_decision_category={
 			}
 			effect_tooltip={
 				custom_effect_tooltip = POL_climate_change_commitments_tt
+				POL_bill_needs_simple_majority = yes
 				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
 				add_political_power = 100
 				add_stability = 0.08

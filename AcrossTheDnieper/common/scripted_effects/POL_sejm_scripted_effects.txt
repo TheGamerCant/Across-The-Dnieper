@@ -134,6 +134,8 @@ POL_bill_needs_simple_majority={
 		add_to_variable = { POL.POLAND_required_votes = 1 }
 	}
 	clear_variable = POL.POLAND_required_votes_rounded
+	
+	custom_effect_tooltip = POL_bill_needs_simple_majority_tt
 }
 
 POL_bill_needs_super_majority={
@@ -159,6 +161,8 @@ POL_bill_needs_super_majority={
 		add_to_variable = { POL.POLAND_required_votes = 1 }
 	}
 	clear_variable = POL.POLAND_required_votes_rounded
+	
+	custom_effect_tooltip = POL_bill_needs_super_majority_tt
 }
 
 POL_bill_needs_three_fifths_majority={
@@ -184,6 +188,8 @@ POL_bill_needs_three_fifths_majority={
 		add_to_variable = { POL.POLAND_required_votes = 1 }
 	}
 	clear_variable = POL.POLAND_required_votes_rounded
+	
+	custom_effect_tooltip = POL_bill_needs_three_fifths_majority_tt
 }
 
 POLAND_set_party_votes_for_the_bill={
@@ -2202,6 +2208,23 @@ POL_get_other_gui_stuff={
 	set_variable = { POL.OTHER_national_vote_percentage = POL.national_OTHER_vote_count_k }
 	multiply_variable = { POL.OTHER_national_vote_percentage = 100 }
 	divide_variable = { POL.OTHER_national_vote_percentage = POL.POL_total_national_votes_cast_k }
+	
+	
+	#Get seat changes from last election
+	
+	set_variable = { POL_PO_seats_CHANGE = POL_PO_seats }
+	set_variable = { POL_PiS_seats_CHANGE = POL_PiS_seats }
+	set_variable = { POL_RIGHT_seats_CHANGE = POL_RIGHT_seats }
+	set_variable = { POL_LEFT_seats_CHANGE = POL_LEFT_seats }
+	set_variable = { POL_PSL_seats_CHANGE = POL_PSL_seats }
+	set_variable = { POL_OTHER_seats_CHANGE = POL_OTHER_seats }
+	
+	subtract_from_variable = { POL_PO_seats_CHANGE = POL_PO_seats_PREV }
+	subtract_from_variable = { POL_PiS_seats_CHANGE = POL_PiS_seats_PREV }
+	subtract_from_variable = { POL_RIGHT_seats_CHANGE = POL_RIGHT_seats_PREV }
+	subtract_from_variable = { POL_LEFT_seats_CHANGE = POL_LEFT_seats_PREV }
+	subtract_from_variable = { POL_PSL_seats_CHANGE = POL_PSL_seats_PREV }
+	subtract_from_variable = { POL_OTHER_seats_CHANGE = POL_OTHER_seats_PREV }
 }
 
 POL_hold_election_effect={
@@ -2211,6 +2234,13 @@ POL_hold_election_effect={
 	clr_country_flag = poland_campaign_as_RIGHT_flag
 	clr_country_flag = poland_campaign_as_LEFT_flag
 	clr_country_flag = poland_campaign_as_PSL_flag
+	
+	set_variable = { POL_PO_seats_PREV = POL_PO_seats }
+	set_variable = { POL_PiS_seats_PREV = POL_PiS_seats }
+	set_variable = { POL_RIGHT_seats_PREV = POL_RIGHT_seats }
+	set_variable = { POL_LEFT_seats_PREV = POL_LEFT_seats }
+	set_variable = { POL_PSL_seats_PREV = POL_PSL_seats }
+	set_variable = { POL_OTHER_seats_PREV = POL_OTHER_seats }
 	
 	set_variable = { POL_PO_seats = 0 }
 	set_variable = { POL_PiS_seats = 0 }

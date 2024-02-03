@@ -1113,6 +1113,116 @@ country_event = {
 	}
 }
 
+#Who should be PiS PM?
+country_event = {
+	id = atd_poland.21
+	title = atd_poland.21.t
+	desc = atd_poland.21.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_PiS_leader_event
+
+	option = {
+		name = atd_poland.21.a
+		ai_chance = { base = 0 }
+		
+		trigger={
+			NOT = { has_country_flag = Kaczynski_PiS_candidate_flag }
+			NOT = { jaroslaw_kaczynski_is_leader = yes }
+		}
+		
+		POL_clear_PiS_party_leader_flags = yes
+		set_country_flag = POL_jaroslaw_kaczynski_is_PiS_leader
+		
+		POL_make_jaroslaw_kaczynski_pm = yes
+	}
+	
+	option = {
+		name = atd_poland.21.b
+		ai_chance = { base = 1 }
+		
+		POL_clear_PiS_party_leader_flags = yes
+		set_country_flag = POL_beata_szydlo_is_PiS_leader
+		
+		POL_make_beata_szydlo_pm = yes
+	}
+	
+	option = {
+		name = atd_poland.21.c
+		ai_chance = { base = 0 }
+		
+		POL_clear_PiS_party_leader_flags = yes
+		set_country_flag = POL_mateusz_morawiecki_is_PiS_leader
+		
+		POL_make_mateusz_morawiecki_pm = yes
+	}
+}
+
+#Bill goes to the President
+country_event = {
+	id = atd_poland.22
+	title = atd_poland.22.t
+	desc = atd_poland.22.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_sejm
+
+	option = {
+		name = atd_poland.22.a
+		ai_chance = { base = 1 }
+		
+		if={
+			limit = { has_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment }
+			add_political_power = 100
+			add_stability = 0.08
+			hidden_effect={
+				if={
+					limit = { OR = { 62 = { is_controlled_by = ROOT } 67 = { is_controlled_by = ROOT } } }
+					country_event = { id = atd_poland.18 days = 120 random_days = 700 }
+				}
+			}
+			
+			set_country_flag = POL_strategy_for_energy_security_and_environment_has_passed
+			clr_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
+			clr_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			clr_country_flag = POL_president_has_vetoed_recent_legislation
+		}
+	}
+	
+	option = {
+		name = atd_poland.22.b
+		ai_chance = { base = 0 }
+		
+		trigger={
+			POL_are_president_and_pm_different_ideologies = yes
+			NOT = { has_country_flag = POL_president_has_vetoed_recent_legislation }
+		}
+		
+		if={
+			limit = { has_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment }
+			hidden_effect={
+				POL_bill_needs_three_fifths_majority = yes
+				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_strategy_for_energy_security_and_environment
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_climate_change_commitments_tt
+				POL_bill_needs_three_fifths_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				add_political_power = 100
+				add_stability = 0.08
+			}
+		}
+		
+		set_country_flag = POL_president_has_vetoed_recent_legislation
+	}
+	
+}
+
+
+
 
 #Choose your party for election
 country_event = {

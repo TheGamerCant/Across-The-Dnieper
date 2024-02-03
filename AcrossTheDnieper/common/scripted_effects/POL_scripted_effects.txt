@@ -3,6 +3,7 @@ POL_clear_prime_minister_flags={
 	clr_country_flag = POL_ewa_kopacz_is_current_pm_flag
 	clr_country_flag = POL_beata_szydlo_is_current_pm_flag
 	clr_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
+	clr_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
 }
 
 POL_make_donald_tusk_pm={
@@ -33,6 +34,13 @@ POL_make_mateusz_morawiecki_pm={
 	custom_effect_tooltip = POL_make_mateusz_morawiecki_pm_tt
 }
 
+POL_make_jaroslaw_kaczynski_pm={
+	POL_clear_prime_minister_flags = yes
+	set_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+	
+	custom_effect_tooltip = POL_make_jaroslaw_kaczynski_pm_tt
+}
+
 POL_clear_PO_party_leader_flags={
 	clr_country_flag = POL_donald_tusk_is_PO_leader
 	clr_country_flag = POL_ewa_kopacz_is_PO_leader
@@ -40,6 +48,7 @@ POL_clear_PO_party_leader_flags={
 POL_clear_PiS_party_leader_flags={
 	clr_country_flag = POL_beata_szydlo_is_PiS_leader
 	clr_country_flag = POL_mateusz_morawiecki_is_PiS_leader
+	clr_country_flag = POL_jaroslaw_kaczynski_is_PiS_leader
 }
 POL_clear_RIGHT_party_leader_flags={
 	clr_country_flag = POL_pawel_kukiz_is_RIGHT_leader
@@ -122,16 +131,11 @@ POL_make_PiS_government={
 		}
 	}
 	
-	if={
-		limit = { has_country_flag = POL_beata_szydlo_is_PiS_leader }
-		POL_make_beata_szydlo_pm = yes
-	}
-	else={
-		POL_make_mateusz_morawiecki_pm = yes
-	}
+	country_event = atd_poland.21
 }
 
 POL_make_bonislaw_komorowski_president={
+	news_event = { id = atd_news.72 hours = 2 random_hours = 6 }
 	create_country_leader = {
 		name = "Bronisław Komorowski"
 		picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
@@ -229,6 +233,7 @@ POL_make_bonislaw_komorowski_president={
 }
 
 POL_make_jaroslaw_kaczynski_president={
+	news_event = { id = atd_news.70 hours = 2 random_hours = 6 }
 	create_country_leader = {
 		name = "Jarosław Kaczyński"
 		picture = gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png
@@ -326,6 +331,7 @@ POL_make_jaroslaw_kaczynski_president={
 }
 
 POL_make_andrzej_duda_president={
+	news_event = { id = atd_news.71 hours = 2 random_hours = 6 }
 	create_country_leader = {
 		name = "Andrzej Duda"
 		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
