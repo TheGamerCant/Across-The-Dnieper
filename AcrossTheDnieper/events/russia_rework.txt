@@ -488,8 +488,9 @@ country_event = {
 	
 	immediate={
 		hidden_effect={
+			set_party_name = { ideology = neoliberal long_name = SOV_civic_initiative_long name = SOV_civic_initiative }
 			create_country_leader = {
-				name = "No Leader"
+				name = "Andrey Nechayev"
 				desc = ""
 				picture = gfx/leaders/SOV/Portrait_Boris_Nemtsov_dead.png
 				ideology = generic_neoliberal
@@ -4876,6 +4877,18 @@ country_event = {
 		has_government = eastern_conservative
 	}
 
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Ksenia Sobchak"
+				desc = ""
+				picture = gfx/leaders/SOV/Portrait_Ksenia_Sobchak.png
+				ideology = generic_neoliberal
+				traits = {  }
+			}
+		}
+	}
+
 
     option = {
         name = russia.1134.a
@@ -5133,6 +5146,74 @@ country_event = {
 		add_political_power = 5
     }
 }
+
+#Nadezhdin Lore
+country_event = {
+    id = russia.1141
+    title = russia.1141.t
+    desc = russia.1141.desc
+    picture = SOV_nedezhdin
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = russia.1142 days = 219 }	
+		}
+	}
+
+    option = {
+        name = russia.1141.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -5
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = -0.02
+        }
+    }
+}
+
+#Nadezhdin Candidacy Announced
+country_event = {
+    id = russia.1142
+    title = russia.1142.t
+    desc = russia.1142.desc
+    picture = SOV_nedezhdin
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1142.a
+		ai_chance = {
+			base = 10
+		}
+
+		create_country_leader = {
+			name = "Boris Nadezhdin"
+			desc = ""
+			picture = gfx/leaders/SOV/Portrait_Boris_Nadezhdin.png
+			ideology = generic_neoliberal
+			traits = {  }
+		}
+
+		add_popularity = {
+            ideology = neoliberal
+            popularity = 0.06
+        }
+    }
+}
+
 
 country_event = {
     id = russia_propaganda.1
