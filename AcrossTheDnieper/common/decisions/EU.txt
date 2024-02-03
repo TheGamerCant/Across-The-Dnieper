@@ -1,0 +1,50 @@
+EU_european_council_category = {
+	EU_response_to_russian_aggression = {
+		days_mission_timeout = 1
+
+		icon = generic_fundraising
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		fire_only_once = yes
+
+		activation = {
+			SOV = { has_war_with = UKR }
+		}
+
+		timeout_effect = {
+			country_event = { id = european_union.1 }
+		}
+	}
+
+	EU_response_to_russian_recognition_of_donbas_republics = {
+		days_mission_timeout = 0
+
+		icon = generic_fundraising
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		fire_only_once = yes
+
+		activation = {
+			SOV = {
+				OR = {
+					has_guaranteed = DON
+					has_guaranteed = LHK
+					has_guaranteed = ODS
+					has_guaranteed = KHK
+					has_guaranteed = NOV
+				}
+			}
+		}
+
+		timeout_effect = {
+			calculate_eu_members = yes
+			country_event = { id = european_union.2 }
+		}
+	}
+}

@@ -32,6 +32,10 @@ if={
 	news_event = { id = atd_news.23 days = 2045 }	#epstein arrested
 	news_event = { id = atd_news.24 days = 2047 }	#epstein dead
 	news_event = { id = atd_news.25 days = 546 }	#greek debt crisis
+	
+	every_country = {
+		country_event = { id = european_union.5 days = 334 } #Council elections 2014
+	}
 }
 
 if={
@@ -51,3 +55,23 @@ add_to_array = { global.donbass_war_countries = NOV }
 set_variable = { var = global.infr_investment_ukr    value = 0 }
 set_variable = { var = global.civs_investment_ukr    value = 0 }
 set_variable = { var = global.mils_investment_ukr    value = 0 }
+
+set_global_flag = EU_council_herman_van_rompuy
+set_global_flag = EU_commission_jose_manuel_barroso
+set_global_flag = EU_parliament_martin_schulz
+
+set_variable = { var = global.eu_vote_against value = 0 }
+set_variable = { var = global.eu_vote_for value = 0 }
+set_variable = { var = global.EU_voting_countries value = 0 }
+
+2022.1.1 = {
+	EU_clr_council_president = yes
+	set_global_flag = EU_council_charles_michel
+
+	EU_clr_commission_president = yes
+	set_global_flag = EU_commission_ursula_von_der_leyen
+
+	EU_clr_parliament_president = yes
+	set_global_flag = EU_parliament_david_sassoli
+}
+

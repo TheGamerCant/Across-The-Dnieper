@@ -1,0 +1,48 @@
+calculate_eu_members = {
+	if = {
+		limit = { NOT = { has_global_flag = cant_calculate_eu_members } }
+
+		set_global_flag = {
+			flag = cant_calculate_eu_members
+			days = 15
+			value = 1
+		}
+
+		every_country = {
+			limit = {
+				has_idea = eu_member
+			}
+
+			add_to_variable = { global.EU_voting_countries = 1 }
+			
+		}
+	}
+}
+
+
+
+EU_clr_open_flags = {
+	clr_country_flag = EU_council_open
+	clr_country_flag = EU_parliament_open
+	clr_country_flag = EU_commission_open
+}
+
+EU_clr_council_president = {
+	clr_global_flag = EU_council_herman_van_rompuy
+	clr_global_flag = EU_council_donald_tusk
+	clr_global_flag	 = EU_council_charles_michel
+}
+
+EU_clr_commission_president = {
+	clr_global_flag = EU_commission_jose_manuel_barroso
+	clr_global_flag = EU_commission_jean_claude_juncker
+	clr_global_flag	 = EU_commission_ursula_von_der_leyen
+}
+
+
+EU_clr_parliament_president = {
+	clr_global_flag = EU_parliament_martin_schulz
+	clr_global_flag = EU_parliament_antonio_tajani
+	clr_global_flag	 = EU_parliament_david_sassoli
+	clr_global_flag	 = EU_parliament_roberta_metsola
+}

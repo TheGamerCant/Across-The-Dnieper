@@ -672,8 +672,8 @@ focus_tree = {
 		completion_reward={
 			custom_effect_tooltip = SOV_movements_on_the_border_tt
 			hidden_effect={
-				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1119 days = 453 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } }
-				UKR = { country_event = { id = ukraine.120 hours = 30 } }
+				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1119 days = 453 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 221 } }
+				UKR = { country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } }
 				
 				every_state={
 					limit={
@@ -926,10 +926,13 @@ focus_tree = {
 					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 30 } 
 				}
 				
-				add_province_modifier = {
-					static_modifiers = { wagner_in_bakhmut }
-					province = 17988
+				146 = {
+					add_province_modifier = {
+						static_modifiers = { wagner_in_bakhmut }
+						province = 17988
+					}
 				}
+
 				
 				mark_focus_tree_layout_dirty = yes
 				
@@ -3550,7 +3553,7 @@ focus_tree = {
 						is_puppet_of = SOV
 						is_in_faction_with = SOV
 					}
-					has_country_flag = is_in_european_union
+					has_idea = eu_member
 				}
 				add_opinion_modifier = { target = SOV modifier = large_decrease }
 

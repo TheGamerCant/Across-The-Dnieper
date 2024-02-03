@@ -52,11 +52,34 @@ POL_clear_PSL_party_leader_flags={
 }
 
 POL_make_PO_government={
-	set_politics = {
-		ruling_party = neoliberal
-		last_election = "2015.10.25"
-		election_frequency = 48
-		elections_allowed = yes
+	if={
+		limit = { date < 2017.1.1 }
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		load_focus_tree = poland_2015_PO_tree
+	}
+	else_if={
+		limit = { date < 2021.1.1 }
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2019.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	else_if={
+		limit = { date < 2025.1.1 }
+		set_politics = {
+			ruling_party = neoliberal
+			last_election = "2023.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
 	}
 	
 	if={
@@ -69,11 +92,34 @@ POL_make_PO_government={
 }
 
 POL_make_PiS_government={
-	set_politics = {
-		ruling_party = neoconservative
-		last_election = "2015.10.25"
-		election_frequency = 48
-		elections_allowed = yes
+	if={
+		limit = { date < 2017.1.1 }
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2015.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		
+		load_focus_tree = poland_2015_PiS_tree
+	}
+	else_if={
+		limit = { date < 2021.1.1 }
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2019.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	else_if={
+		limit = { date < 2025.1.1 }
+		set_politics = {
+			ruling_party = neoconservative
+			last_election = "2023.10.25"
+			election_frequency = 48
+			elections_allowed = yes
+		}
 	}
 	
 	if={

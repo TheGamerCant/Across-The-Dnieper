@@ -225,7 +225,7 @@ focus_tree = {
 			add_political_power = 120
 			every_other_country = {
 				limit = { 
-					has_country_flag = is_in_european_union
+					has_idea = eu_member
 				}
 				add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations }
 				PREV = { add_opinion_modifier = { target = PREV modifier = POL_strengthened_european_relations } }
@@ -515,6 +515,72 @@ focus_tree = {
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
 }
 
+focus_tree = {
+	id = poland_2015_PO_tree
+	continuous_focus_position = { x = 2000 y = 25 }
+
+	country = {
+		factor = 0
+	}
+
+	
+	focus = {
+		id = POL_four_more_years_PO
+		icon = GFX_focus_
+		x = 4
+		y = 0
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+}
+
+focus_tree = {
+	id = poland_2015_PiS_tree
+	continuous_focus_position = { x = 2000 y = 25 }
+
+	country = {
+		factor = 0
+	}
+
+	
+	focus = {
+		id = POL_law_and_justice
+		icon = GFX_focus_
+		x = 4
+		y = 0
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+}
+
 shared_focus = {
 	id = POL_oh_no_the_ruskies_invaded_crimea
 	dynamic = yes
@@ -595,7 +661,6 @@ shared_focus = {
 	}
 	prerequisite = { focus = POL_army_reform_plan }
 	relative_position_id = POL_army_reform_plan
-	mutually_exclusive = { focus = POL_cost_effective_designs }
 	available = {
 	}
 	bypass = {
@@ -613,6 +678,185 @@ shared_focus = {
 			add_to_variable = { POL_land_forces_land_doctrine_cost_factor = -0.15 }
 			add_to_variable = { POL_land_forces_army_org_factor = 0.08 }
 			custom_effect_tooltip = POL_american_advisors_tt_the_eagle_soars
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_NATO_JFTC_bydgoszcz
+	icon = GFX_focus_POL_NATO_JFTC_bydgoszcz
+	x = -1
+	y = 1
+	cost = 52
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_american_advisors }
+	relative_position_id = POL_american_advisors
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_land_forces_max_command_power = 30 }
+		add_to_variable = { POL_land_forces_experience_gain_army_factor = 0.05 }
+		add_to_variable = { POL_land_forces_land_doctrine_cost_factor = -0.1 }
+		add_to_variable = { POL_land_forces_training_time_factor = -0.05 }
+		custom_effect_tooltip = POL_NATO_JFTC_bydgoszcz_tt
+	}
+}
+
+shared_focus = {
+	id = POL_doctrinal_innovation
+	icon = GFX_focus_POL_NATO_JFTC_bydgoszcz
+	x = -1
+	y = 1
+	cost = 52
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_NATO_JFTC_bydgoszcz }
+	relative_position_id = POL_NATO_JFTC_bydgoszcz
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			name = POL_doctrinal_innovation
+			cost_reduction = 0.75
+			uses = 3
+			category = land_doctrine
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_eastern_logisitcal_hubs
+	icon = GFX_focus_POL_eastern_logisitcal_hubs
+	x = -2
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_doctrinal_innovation }
+	prerequisite = { focus = POL_proactive_response_exercises focus = POL_reactive_response_exercises }
+	relative_position_id = POL_doctrinal_innovation
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { controls_province = 7537 }
+			34 = {
+				add_building_construction = {
+					type = supply_node
+					province = 7537
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		if={
+			limit = { controls_province = 138 }
+			51 = {
+				add_building_construction = {
+					type = supply_node
+					province = 138
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		if={
+			limit = { controls_province = 14296 }
+			51 = {
+				add_building_construction = {
+					type = supply_node
+					province = 14296
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		unlock_decision_tooltip = nato_buy_trucks_usa
+		unlock_decision_tooltip = nato_buy_trucks_ger
+	}
+}
+
+shared_focus = {
+	id = POL_reactive_response_exercises
+	icon = GFX_focus_POL_reactive_response_exercises
+	x = 0
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_proactive_response_exercises }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_army_defence_factor = 0.05 }
+			add_to_variable = { POL_land_forces_max_dig_in = 2.5 }
+			custom_effect_tooltip = POL_reactive_response_exercises_the_eagle_soars_tt
+		}
+		else={
+			add_command_power = 25
+			add_to_variable = { POL_land_forces_army_defence_factor = 0.07 }
+			add_to_variable = { POL_land_forces_max_dig_in = 3.2 }
+			custom_effect_tooltip = POL_reactive_response_exercises_the_need_for_nato_tt
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_proactive_response_exercises
+	icon = GFX_focus_POL_proactive_response_exercises
+	x = -2
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_army_reform_plan }
+	relative_position_id = POL_army_reform_plan
+	mutually_exclusive = { focus = POL_reactive_response_exercises }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_war_support = 0.03
+			add_to_variable = { POL_land_forces_army_attack_factor = 0.07 }
+			add_to_variable = { POL_land_forces_org_loss_when_moving = -0.12 }
+			custom_effect_tooltip = POL_proactive_response_exercises_the_eagle_soars_tt
+		}
+		else={
+			add_to_variable = { POL_land_forces_army_attack_factor = 0.05 }
+			add_to_variable = { POL_land_forces_org_loss_when_moving = -0.1 }
+			custom_effect_tooltip = POL_proactive_response_exercises_the_need_for_nato_tt
 		}
 	}
 }
@@ -692,6 +936,9 @@ shared_focus = {
 
 	completion_reward = {
 		increase_military_spending = yes
+		unlock_decision_tooltip = buy_guns
+		unlock_decision_tooltip = buy_artillery
+		unlock_decision_tooltip = buy_support_equipment
 	}
 }
 
@@ -723,6 +970,16 @@ shared_focus = {
 				instant_build = yes
 			}
 			increase_state_gdp_growth_by_4 = yes
+		}
+		
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.08 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_eagle_soars
+		}
+		else={
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.05 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_need_for_nato
 		}
 	}
 }
@@ -766,6 +1023,16 @@ shared_focus = {
 			category = support_tech
 			category = infantry_tech
 		}
+		
+		if={
+			limit = { has_country_flag = POL_the_eagle_soars_flag }
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.08 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_eagle_soars
+		}
+		else={
+			add_to_variable = { POL_land_forces_industrial_capacity_factory = 0.05 }
+			custom_effect_tooltip = POL_expand_radom_lucznik_factory_tt_the_need_for_nato
+		}
 	}
 }
 
@@ -804,7 +1071,7 @@ shared_focus = {
 	icon = GFX_focus_POL_womens_self_defence_courses
 	x = -1
 	y = 1
-	cost = 24
+	cost = 35
 
 	ai_will_do = { 
 		factor = 10 
@@ -818,6 +1085,33 @@ shared_focus = {
 
 	completion_reward = {
 		country_event = { id = atd_poland.19 hours = 2 random_hours = 4 }
+	}
+}
+
+shared_focus = {
+	id = POL_rapid_mobilisation
+	icon = GFX_focus_POL_army_reform_plan
+	x = 2
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_purchase_anti_tank_systems focus = POL_purchase_MANPADS }
+	prerequisite = { focus = POL_womens_self_defence_courses }
+	relative_position_id = POL_womens_self_defence_courses
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_land_forces_mobilization_speed = 0.7 }
+		custom_effect_tooltip = POL_rapid_mobilisation_tt
+		
+		unlock_decision_tooltip = POL_conduct_reservist_training_exercises
+		unlock_decision_tooltip = POL_raise_reservists
 	}
 }
 
@@ -843,10 +1137,106 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = POL_A2A_missile_focus
+	icon = GFX_focus_POL_A2A_missile_focus
+	x = 0
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_aerial_modernisation_plan }
+	relative_position_id = POL_aerial_modernisation_plan
+	mutually_exclusive = { focus = POL_A2S_missile_focus }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_air_force_army_bonus_air_superiority_factor = 0.1 }
+		add_to_variable = { POL_air_force_air_superiority_efficiency = 0.12 }
+		custom_effect_tooltip = POL_A2A_missile_focus_tt
+	}
+}
+
+shared_focus = {
+	id = POL_A2S_missile_focus
+	icon = GFX_focus_POL_A2S_missile_focus
+	x = 2
+	y = 1
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_aerial_modernisation_plan }
+	relative_position_id = POL_aerial_modernisation_plan
+	mutually_exclusive = { focus = POL_A2A_missile_focus }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_air_force_air_cas_present_factor = 0.1 }
+		add_to_variable = { POL_air_force_air_cas_efficiency = 0.1 }
+		custom_effect_tooltip = POL_A2S_missile_focus_tt
+	}
+}
+
+shared_focus = {
+	id = POL_purhcase_PATRIOT_systems
+	icon = GFX_focus_POL_purhcase_PATRIOT_systems
+	x = -1
+	y = 1
+	cost = 70
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_A2A_missile_focus focus = POL_A2S_missile_focus }
+	prerequisite = { focus = POL_purchase_MANPADS }
+	relative_position_id = POL_A2A_missile_focus
+	available = {
+		has_tech = interwar_antiair
+		has_tech = radio_detection
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		every_state={
+			limit = { 
+				is_owned_and_controlled_by = ROOT 
+				check_variable = { building_level@anti_air_building < 5 }
+			}
+			add_building_construction = {
+				type = anti_air_building
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = radar_station
+				level = 1
+				instant_build = yes
+			}
+			
+			random_select_amount = 3
+		}
+		
+		unlock_decision_tooltip = POL_purchase_patriot_systems_1
+		unlock_decision_tooltip = POL_purchase_patriot_systems_2
+		unlock_decision_tooltip = POL_upgrade_patriot_systems_1
+		unlock_decision_tooltip = POL_upgrade_patriot_systems_2
+	}
+}
 
 shared_focus = {
 	id = POL_purchase_anti_tank_systems
-	icon = GFX_focus_
+	icon = GFX_focus_POL_purchase_anti_tank_systems
 	x = -4
 	y = 1
 	cost = 35
@@ -886,7 +1276,7 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_purchase_MANPADS
-	icon = GFX_focus_
+	icon = GFX_focus_POL_purchase_MANPADS
 	x = -2
 	y = 1
 	cost = 35
@@ -1050,5 +1440,289 @@ shared_focus = {
 			}
 		}
 		custom_effect_tooltip = POL_joint_production_of_ships_with_the_usa_tt
+	}
+}
+
+shared_focus = {
+	id = POL_purchase_us_harpoon_missiles
+	icon = GFX_focus_POL_purchase_us_harpoon_missiles
+	x = -1
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_joint_production_of_ships_with_the_usa }
+	relative_position_id = POL_joint_production_of_ships_with_the_usa
+	mutually_exclusive = { focus = POL_domestic_ASM_missile_research }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_to_variable = { POL_navy_naval_hit_chance = 0.14 }
+			add_to_variable = { POL_navy_naval_critical_score_chance_factor = 0.14 }
+			custom_effect_tooltip = POL_purchase_us_harpoon_missiles_the_need_for_nato
+		}
+		else={
+			add_to_variable = { POL_navy_naval_hit_chance = 0.1 }
+			add_to_variable = { POL_navy_naval_critical_score_chance_factor = 0.1 }
+			custom_effect_tooltip = POL_purchase_us_harpoon_missiles_the_eagle_soars
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_domestic_ASM_missile_research
+	icon = GFX_focus_POL_domestic_ASM_missile_research
+	x = 1
+	y = 1
+	cost = 52
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_joint_production_of_ships_with_the_usa }
+	relative_position_id = POL_joint_production_of_ships_with_the_usa
+	mutually_exclusive = { focus = POL_purchase_us_harpoon_missiles }
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_tech_bonus = {
+				name = POL_domestic_ASM_missile_research
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+				category = ship_modules_tech
+			}
+		}
+		else={
+			add_tech_bonus = {
+				name = POL_domestic_ASM_missile_research
+				bonus = 1.5
+				uses = 2
+				category = rocketry
+				category = ship_modules_tech
+			}
+		}
+		
+		random_controlled_state={
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			increase_state_gdp_growth_by_2 = yes
+		}
+	}
+}
+
+
+
+shared_focus = {
+	id = POL_naval_coordination_excersizes
+	icon = GFX_focus_POL_naval_excersizes
+	x = 0
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_navy_modernisation_plan }
+	relative_position_id = POL_navy_modernisation_plan
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_to_variable = { POL_navy_naval_coordination = 0.1 }
+		add_to_variable = { POL_navy_naval_detection = 0.1 }
+		add_to_variable = { POL_navy_spotting_chance = 0.08 }
+		
+		custom_effect_tooltip = POL_naval_coordination_excersizes_tt
+	}
+}
+
+shared_focus = {
+	id = POL_expand_NATO_presence_at_gdansk
+	icon = GFX_focus_POL_the_need_for_NATO
+	x = -1
+	y = 2
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_naval_coordination_excersizes }
+	prerequisite = { focus = POL_expand_gdansk_port }
+	relative_position_id = POL_naval_coordination_excersizes
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		if={
+			limit = { has_country_flag = POL_the_need_for_nato_flag }
+			add_to_variable = { POL_navy_navy_intel_factor = 0.14 }
+			add_to_variable = { POL_navy_naval_detection = 0.09 }
+			add_to_variable = { POL_navy_naval_doctrine_cost_factor = -0.1 }
+			custom_effect_tooltip = POL_expand_NATO_presence_at_gdansk_the_need_for_nato_tt
+		}
+		else={
+			add_to_variable = { POL_navy_navy_intel_factor = 0.1 }
+			add_to_variable = { POL_navy_naval_detection = 0.06 }
+			add_to_variable = { POL_navy_naval_doctrine_cost_factor = -0.1 }
+			custom_effect_tooltip = POL_expand_NATO_presence_at_gdansk_the_eagle_soars_tt
+		}
+	}
+}
+
+shared_focus = {
+	id = POL_expand_hel_dockyard
+	icon = GFX_focus_POL_expand_hel_dockyard
+	x = -2
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_navy_modernisation_plan }
+	relative_position_id = POL_navy_modernisation_plan
+	available = {
+		24={
+			CONTROLLER={
+				OR={				#If NATO spawns in they take control of Hel
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+	}
+	bypass = {
+		NOT={
+			24={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_in_faction_with = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		24={
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 3
+				instant_build = yes
+				province = 20305
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		add_to_variable = { POL_navy_industrial_capacity_dockyard = 0.07 }
+		custom_effect_tooltip = POL_expand_hel_dockyard_tt
+	}
+}
+
+shared_focus = {
+	id = POL_expand_gdansk_port
+	icon = GFX_focus_POL_expand_gdansk_port
+	x = 0
+	y = 1
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_expand_hel_dockyard }
+	relative_position_id = POL_expand_hel_dockyard
+	available = {
+		19={
+			CONTROLLER={
+				OR={
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+	}
+	bypass = {
+		NOT={
+			19={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_in_faction_with = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		19={
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 3
+				instant_build = yes
+				province = 2235
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			increase_state_gdp_growth_by_2_5 = yes
+		}
+		
+		add_to_variable = { POL_navy_industrial_capacity_dockyard = 0.1 }
+		custom_effect_tooltip = POL_expand_gdansk_port_tt
+		
+		unlock_decision_tooltip = POL_expand_preexisting_dockyards
 	}
 }

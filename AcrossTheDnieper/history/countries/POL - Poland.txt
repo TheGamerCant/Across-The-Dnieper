@@ -5,7 +5,11 @@
 #https://www.macrotrends.net/countries/POL/poland/military-spending-defense-budget		-> use this for budget stuff
 #https://www.lse.ac.uk/GranthamInstitute/wp-content/uploads/2015/05/POLAND.pdf 			-> Poland climate change bill
 #https://wiiw.ac.at/different-choices-divergent-paths-poland-and-ukraine-dlp-6419.pdf	-> analysis of polish and ukrainian economic development
-
+#https://ec.europa.eu/commission/presscorner/detail/en/ip_16_2015						-> Polish rule of law review by EC
+#https://ec.europa.eu/commission/presscorner/detail/en/IP_17_5367
+#https://en.wikipedia.org/wiki/Polish_Constitutional_Tribunal_crisis_(2015_%E2%80%93_ongoing)#Inclusion_of_the_new_judges	->Specifics of 22nd December law
+#https://web.archive.org/web/20190213022413/https://freedomhouse.org/report/special-reports/assault-press-freedom-poland	->Press freedom report and summary (note, i say summary, it is NOT short)
+#https://www.dziennikustaw.gov.pl/DU/2016/25											->Full text of the "small media law"
 
 
 capital = 427
@@ -76,16 +80,24 @@ set_variable = { POL_land_forces_army_morale_factor = -0.08 }
 set_variable = { POL_land_forces_max_command_power = -40 }
 set_variable = { POL_land_forces_experience_gain_army_factor = -0.16 }
 set_variable = { POL_land_forces_army_org_factor = -0.16 }
+set_variable = { POL_land_forces_training_time_factor = 0 }
+set_variable = { POL_land_forces_army_attack_factor = 0 }
+set_variable = { POL_land_forces_army_defence_factor = 0 }
+set_variable = { POL_land_forces_max_dig_in = 0 }
+set_variable = { POL_land_forces_org_loss_when_moving = 0 }
+set_variable = { POL_land_forces_mobilization_speed = 0 }
 
 add_dynamic_modifier = { modifier = POL_land_forces_modifier }
 
 
-set_variable = { POL_navy_naval_doctrine_cost_factor = 0.50 }
+set_variable = { POL_navy_naval_doctrine_cost_factor = 0.5 }
 set_variable = { POL_navy_naval_coordination = -0.08 }
 set_variable = { POL_navy_naval_detection = -0.09 }
 set_variable = { POL_navy_spotting_chance = -0.05 }
 set_variable = { POL_navy_navy_intel_factor = -0.16 }
 set_variable = { POL_navy_industrial_capacity_dockyard = -0.32 }
+set_variable = { POL_navy_naval_hit_chance = 0 }
+set_variable = { POL_navy_naval_critical_score_chance_factor = 0 }
 
 add_dynamic_modifier = { modifier = POL_outdated_navy_modifier }
 
@@ -96,6 +108,10 @@ set_variable = { POL_air_force_air_interception_detect_factor = -0.08 }
 set_variable = { POL_air_force_air_night_penalty = 0.15 }
 set_variable = { POL_air_force_air_doctrine_cost_factor = 0.5 }
 set_variable = { POL_air_force_air_accidents_factor = 0.33 }
+set_variable = { POL_air_force_air_cas_present_factor = 0 }
+set_variable = { POL_air_force_army_bonus_air_superiority_factor = 0 }
+set_variable = { POL_air_force_air_cas_efficiency = -0.15 }
+set_variable = { POL_air_force_static_anti_air_damage_factor = 0 }
 
 add_dynamic_modifier = { modifier = POL_outdated_air_force_modifier }
 
@@ -142,7 +158,7 @@ create_country_leader = {
 }
 
 #DONT REMOVE
-set_country_flag = is_in_european_union
+
 #set_variable = { pro_eu = 72 }
 #set_variable = { sce_eu =  24 }
 #set_variable = { neu_eu =  4 }
@@ -194,6 +210,8 @@ add_ideas = {
 	eu_member
 	SLO_visegrad_member
 	POL_continued_growth
+	POL_religious_population
+	POL_progressive_youth
 	
 #	POL_recovered_territories			#missing GFX
 	
@@ -218,7 +236,7 @@ add_ideas = {
 
 set_research_slots = 3
 set_stability = 0.05
-set_war_support = 0.37
+set_war_support = 0.35
 
 # Starting tech
 set_technology = {
@@ -629,6 +647,8 @@ set_country_flag = POL_leftist_party_is_democratic_left_alliance
 	POL_get_non_aligned_seats = yes
 	POL_get_sejm_seats = yes
 	POL_get_government_majority_status = yes
+	
+	load_focus_tree = generic_focus
 }
 
 # http://electionresources.org/pl/maps.php?election=2011

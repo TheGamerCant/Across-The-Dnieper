@@ -212,7 +212,7 @@ focus_tree = {
 		focus = {
 		id = Rally_RightWing_Support
 		icon = GFX_Rally_Rightwing_Support
-		x = 7
+		x = 5
 		y = 2
 		cost = 40
 		ai_will_do = { 
@@ -229,7 +229,73 @@ focus_tree = {
 		add_popularity = { ideology = populist popularity= 0.01}
 		add_political_power = 50}
 		}
+		focus = {
+		id = Rally_Leftwing_Support
+		icon = GFX_Rally_Leftwing_Support
+		x = 7
+		y = 2
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = The_coalltion_fails }
+		available = {
+			}
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = social_democracy popularity = 0.03 }
+		add_popularity = { ideology = neoliberal popularity = 0.03 }
+		add_popularity = { ideology = socialist popularity= 0.01}
+		add_political_power = 50}
+		}
+		focus = {
+		id = Champion_Pontas_Victories
+		icon = GFX_Champion_Pontas_Victories
+		x = 7
+		y = 3
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Rally_Leftwing_Support }
+		available = {
+			}
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = social_democracy popularity = 0.03 }
+		add_political_power = 20
+				swap_ideas={
+			remove_idea = ROM_2014_elections_1
+			add_idea = ROM_2014_elections_3
+		}
+		}
 	}
+		focus = {
+		id = Form_The_Christian_Liberal_Alliance
+		icon = GFX_Form_The_Christian_Liberal_Alliance
+		x = 5
+		y = 3
+		cost = 40
+		ai_will_do = { 
+			factor = 10 
+		}
+	    prerequisite = { focus = Rally_RightWing_Support }
+		available = {
+			}
+		bypass = {
+		}
+		completion_reward = {
+        add_popularity = { ideology = libertarian popularity = -0.05 }
+		add_popularity = { ideology = neoconservative popularity = 0.08 }
+				swap_ideas={
+			remove_idea = ROM_2014_elections_1
+			add_idea = ROM_2014_elections_4
+		}
+		}
+	}
+}
 
 
 

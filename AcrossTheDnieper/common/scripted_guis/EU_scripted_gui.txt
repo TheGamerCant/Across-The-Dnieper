@@ -1,11 +1,46 @@
 scripted_gui = {
 
-	eu_decisions = {
+	eu_scripted_gui = {
 		context_type = decision_category
-		window_name = "eu_ui_window"
+		window_name = "eu_scripted_gui_window"
 		
 		ai_enabled = {
 			always = no
+		}
+
+		properties = {
+			EU_portrait_image = {
+				image = "[EU_get_president_portrait]"
+			}
+		}
+
+		effects = {
+			EU_council_button_click = {
+				if = {
+					limit = { NOT = { has_country_flag = EU_council_open } }
+
+					EU_clr_open_flags = yes
+					set_country_flag = EU_council_open
+				}
+			}
+
+			EU_commission_button_click = {
+				if = {
+					limit = { NOT = { has_country_flag = EU_commission_open } }
+
+					EU_clr_open_flags = yes
+					set_country_flag = EU_commission_open
+				}
+			}
+
+			EU_parliament_button_click = {
+				if = {
+					limit = { NOT = { has_country_flag = EU_parliament_open } }
+
+					EU_clr_open_flags = yes
+					set_country_flag = EU_parliament_open
+				}
+			}
 		}
 	}
 }
