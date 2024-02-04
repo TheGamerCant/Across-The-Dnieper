@@ -384,11 +384,62 @@ focus_tree = {
         }
         completion_reward = {
         add_political_power = 20
-        add_popularity = { ideology = eastern_liberal popularity = -0.03 }
+        add_popularity = { ideology = eastern_liberal popularity = 0.03 }
         add_popularity = { ideology = social_democracy popularity = 0.05 }
                 swap_ideas={
             remove_idea = ROM_2014_elections_4
             add_idea = ROM_2014_elections_5
+        }
+        }
+    }
+	focus = {
+        id = Win_Minority_Support
+        icon = GFX_Win_Minority_Support
+        x = 7
+        y = 5
+        cost = 40
+        ai_will_do = { 
+            factor = 10 
+        }
+        prerequisite = { focus = Make_Strong_Allies }
+        available = {
+            }
+        bypass = {
+        }
+        completion_reward = {
+        add_popularity = { ideology = neoliberal popularity = 0.03 }
+		add_popularity = {ideology = eastern_liberal popularity = 0.01}
+        add_popularity = { ideology = social_democracy popularity = 0.05 }
+                swap_ideas={
+            remove_idea = ROM_2014_elections_5
+            add_idea = ROM_2014_elections_6
+        }
+        }
+    }
+	focus = {
+        id = Left_Wave
+        icon = GFX_LEFT_Wave
+        x = 7
+        y = 6
+        cost = 40
+        ai_will_do = { 
+            factor = 10 
+        }
+        prerequisite = { focus = Win_Minority_Support }
+        available = {
+            }
+        bypass = {
+        }
+        completion_reward = {
+        add_popularity = { ideology = neoliberal popularity = 0.03 }
+		add_popularity = { ideology = eastern_liberal popularity = 0.03 }
+        add_popularity = { ideology = social_democracy popularity = 0.03 }
+		add_popularity = { ideology = socialist popularity = 0.03}
+		add_popularity = { ideology = moderate_communist popularity = 0.01}
+		add_stability = -0.02
+                swap_ideas={
+            remove_idea = ROM_2014_elections_6
+            add_idea = ROM_2014_elections_7
         }
         }
     }
