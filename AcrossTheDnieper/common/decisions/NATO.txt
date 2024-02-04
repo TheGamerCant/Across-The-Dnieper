@@ -355,6 +355,10 @@ NATO_decisions = {
 
 		ai_will_do = {
             base = 1
+			modifier={
+				add = 100
+				has_equipment = { infantry_anti_air_equipment < 1500 }
+			}
         }
         
         visible = { 
@@ -362,10 +366,6 @@ NATO_decisions = {
         
         available = {
             num_of_civilian_factories_available_for_projects > 1
-			modifier={
-				add = 100
-				has_equipment = { infantry_anti_air_equipment < 1500 }
-			}
 			
 			if={
 				limit = { tag = POL NOT = { has_focus_tree = generic_focus } }
@@ -636,14 +636,6 @@ NATO_decisions = {
 
 		ai_will_do = {
             base = 1
-        }
-        
-        visible = { 
-        }
-        
-        available = {
-            num_of_civilian_factories_available_for_projects > 5
-			is_in_nato = yes
 			modifier={
 				add = 100
 				has_dlc = "No Step Back"
@@ -654,6 +646,14 @@ NATO_decisions = {
 				NOT = { has_dlc = "No Step Back" }
 				has_equipment = { modern_tank_archetype < 250 }
 			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 5
+			is_in_nato = yes
         }
 
         days_remove = 140

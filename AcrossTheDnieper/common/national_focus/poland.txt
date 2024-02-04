@@ -113,6 +113,7 @@ focus_tree = {
 		prerequisite = { focus = POL_seven_years_of_PO }
 		relative_position_id = POL_seven_years_of_PO
 		available = {
+			NOT = { has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag }
 		}
 		bypass = {
 		}
@@ -134,6 +135,8 @@ focus_tree = {
 				add_political_power = 100
 				add_stability = 0.08
 			}
+			
+			set_country_flag = POLAND_strategy_for_energy_security_and_environment_is_available
 		}
 	}
 	
@@ -551,7 +554,7 @@ focus_tree = {
 
 focus_tree = {
 	id = poland_2015_PiS_tree
-	continuous_focus_position = { x = 2000 y = 25 }
+	continuous_focus_position = { x = 2000 y = 3000 }
 
 	country = {
 		factor = 0
@@ -578,6 +581,29 @@ focus_tree = {
 			
 		}
 	}
+	
+	focus = {
+		id = POL_our_christian_values
+		icon = GFX_focus_
+		x = -6
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		completion_reward = {
+			
+		}
+	}
+	
 	
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
 }

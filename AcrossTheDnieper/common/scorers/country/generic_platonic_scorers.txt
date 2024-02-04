@@ -46,13 +46,7 @@ fascist_major_scorer = { #Finds biggest Fascist
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
+				NOT = { has_far_right_government = yes }
 				factor = 0 
 			}
 			modifier = {
@@ -109,17 +103,7 @@ democratic_major_scorer = { # Finds biggest Democratic Nation
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
+				NOT = { has_western_government = yes }
 				factor = 0 
 			}
 		}
@@ -170,13 +154,7 @@ communist_major_scorer = { # Finds biggest Communist
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = moderate_communist
-					    has_government = hardline_communist
-					    has_government = socialist
-				    } 
-			    }
+				NOT = { has_far_left_government = yes }
 				factor = 0 
 			}
 		}
@@ -219,13 +197,7 @@ non_aligned_major_scorer = { # Finds biggest Non-Aligned
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = anarchism_ideology
-					    has_government = absolute_monarchy_ideology
-					    has_government = theocracy_ideology
-				    } 
-			    }
+				NOT = { is_non_aligned_or_illiberal = yes }
 				factor = 0 
 			}
 		}
@@ -317,13 +289,7 @@ local_fascist_country = {
 				add = num_of_factories
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
+				NOT = { has_far_right_government = yes }
 				factor = 0 
 			}
 		}
@@ -378,13 +344,7 @@ fascist_bully_scorer = { #Finds meanest fascist
 				add = 100
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
+				NOT = { has_far_right_government = yes }
 				factor = 0 
 			}
 		}
@@ -437,17 +397,7 @@ democratic_faction_leader_scorer = { # Finds biggest Democratic Nation
 				factor = 0.1
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
+				NOT = { has_western_government = yes }
 				factor = 0 
 			}
 		}
@@ -501,17 +451,7 @@ democratic_sleeping_giant_scorer = { #Finds the least armed big democratic count
 				factor = 0.5
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
+				NOT = { has_western_government = yes }
 				factor = 0 
 			}
 		}
@@ -568,13 +508,7 @@ european_fascist_major_scorer = { #Finds biggest Fascist in Europe
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
+				NOT = { has_far_right_government = yes }
 				factor = 0 
 			}
 			modifier = {
@@ -628,17 +562,7 @@ european_democratic_major_scorer = { # Finds biggest Democratic Nation in Europe
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
+				NOT = { has_western_government = yes }
 				factor = 0 
 			}
 			modifier = {
@@ -689,13 +613,7 @@ european_communist_major_scorer = { # Finds biggest Communist in Europe
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = moderate_communist
-					    has_government = hardline_communist
-					    has_government = socialist
-				    } 
-			    }
+				NOT = { has_far_left_government = yes }
 				factor = 0 
 			}
 			modifier = {
@@ -742,481 +660,12 @@ european_non_aligned_major_scorer = { # Finds biggest Non-Aligned in Europe
 				add = 50
 			}
 			modifier = {
-				NOT = {
-					OR = {
-					    has_government = anarchism_ideology
-					    has_government = absolute_monarchy_ideology
-					    has_government = theocracy_ideology
-				    } 
-			    }
+				NOT = { is_non_aligned_or_illiberal = yes }
 				factor = 0 
 			}
 			modifier = {
 				NOT = { THIS.capital_scope = { is_on_continent = europe } }
 				factor = 0 
-			}
-		}
-	}
-}
-
-asian_fascist_major_scorer = { #Finds biggest Fascist in Asia
-    # Valid example of mission scorer:
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				tag = JAP # If Japan is still fascist, they are something to be vary about - always 
-				factor = 1.5
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				is_faction_leader = yes 
-				add = 50
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
-				
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = asia } } 
-					NOT = { THIS.capital_scope = { is_on_continent = australia } }
-					NOT = { THIS.capital_scope = { is_on_continent = middle_east } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-asian_democratic_major_scorer = { # Finds biggest Democratic Nation in Asia
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				is_faction_leader = yes 
-				add = 50
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = asia } } 
-					NOT = { THIS.capital_scope = { is_on_continent = australia } }
-					NOT = { THIS.capital_scope = { is_on_continent = middle_east } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-asian_communist_major_scorer = { # Finds biggest Communist in Asia
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				tag = PRC # If Communist China is still communist, they should have preference 
-				factor = 1.5
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				is_faction_leader = yes 
-				add = 50
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = moderate_communist
-					    has_government = hardline_communist
-					    has_government = socialist
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = asia } } 
-					NOT = { THIS.capital_scope = { is_on_continent = australia } }
-					NOT = { THIS.capital_scope = { is_on_continent = middle_east } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-asian_non_aligned_major_scorer = { # Finds biggest Non-Aligned in Asia
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				is_faction_leader = yes 
-				add = 50
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = anarchism_ideology
-					    has_government = absolute_monarchy_ideology
-					    has_government = theocracy_ideology
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = asia } } 
-					NOT = { THIS.capital_scope = { is_on_continent = australia } }
-					NOT = { THIS.capital_scope = { is_on_continent = middle_east } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-american_fascist_major_scorer = { #Finds biggest Fascist in the Americas
-    # Valid example of mission scorer:
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				is_faction_leader = yes 
-				add = 50
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    fhas_government = fascist
-					    has_government = ultranationalist
-					    has_government = military_junta
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = south_america } } 
-					NOT = { THIS.capital_scope = { is_on_continent = north_america } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-american_democratic_major_scorer = { # Finds biggest Democratic Nation in the Americas
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = { # If the US is still democratic, it shuld prefer it 
-				tag = USA
-				factor = 1.5
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = eastern_conservative
-					    has_government = populist
-					    has_government = neoconservative
-						has_government = neoliberal
-						has_government = eastern_liberal
-						has_government = libertarian
-						has_government = social_democracy
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = south_america } } 
-					NOT = { THIS.capital_scope = { is_on_continent = north_america } }
-				}
-				factor = 0 
-			}
-		}
-	}
-}
-
-american_communist_major_scorer = { # Finds biggest Communist in the Americas
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = moderate_communist
-					    has_government = hardline_communist
-					    has_government = socialist
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = south_america } } 
-					NOT = { THIS.capital_scope = { is_on_continent = north_america } }
-				}
-				factor = 0
-			}
-		}
-	}
-}
-
-american_non_aligned_major_scorer = { # Finds biggest Non-Aligned in The Americas
-	targets = {
-		# describe the target to consider
-		targets_dynamic = no
-		target_non_existing = no
-		#target_array = global.majors
-		target_array = global.countries
-		# MTTH like score description
-		# THIS is a target
-		# FROM is the initiator
-		score = {
-			base = 1
-			# Add tension added by country
-			modifier = {
-				always = yes 
-				add = has_added_tension_amount
-			}        
-			# Add total number of Divisions 
-			modifier = {
-				always = yes 
-				add = num_armies
-			}
-			# add factories
-			modifier = {
-				always = yes 
-				add = num_of_factories
-			}
-			modifier = {
-				is_major = yes
-				add = 100
-			}
-			modifier = {
-				NOT = {
-					OR = {
-					    has_government = anarchism_ideology
-					    has_government = absolute_monarchy_ideology
-					    has_government = theocracy_ideology
-				    } 
-			    }
-				factor = 0 
-			}
-			modifier = {
-				OR = { 
-					NOT = { THIS.capital_scope = { is_on_continent = south_america } } 
-					NOT = { THIS.capital_scope = { is_on_continent = north_america } }
-				}
-				factor = 0
 			}
 		}
 	}

@@ -222,9 +222,7 @@ ally_with_donbass = {
 	enable = {
 		always = yes		#Change if you want Russia to not supply Donbass for whatever reason
 	}						#Also make sure they can't send stuff to ODS
-	abort = {
-
-	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = befriend
@@ -298,15 +296,9 @@ crimea_is_important = {
 			354 = { is_controlled_by = SOV }	#Sevastopol
 			433 = { is_controlled_by = SOV }	#Sevastopol Port
 		}
+		date < 2015.1.1
 	}
-	abort = {
-		AND={
-			331 = { NOT = { is_controlled_by = SOV }	} #Kerch
-			354 = { NOT = { is_controlled_by = SOV }	}	#Sevastopol
-			433 = { NOT = { is_controlled_by = SOV }	}	#Sevastopol Port
-		}
-		date > 2015.1.1
-	}
+	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = area_priority
