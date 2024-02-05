@@ -2406,3 +2406,32 @@ SOV_foreign_subversive_activities={
 		}
 	}
 }
+
+SOV_stopping_boris_nadezhdin = {
+	SOV_signature_recounting = {
+		activation = {
+			has_country_flag = SOV_stopping_boris_nadezhdin_enabled
+		}
+		available = {
+			hidden_trigger={
+				always=no
+			}
+			
+		}
+		icon = mission_icon
+		is_good = no
+		days_mission_timeout = 7
+		selectable_mission = no
+		complete_effect = {
+
+		}
+		timeout_effect = {
+			hidden_effect={
+				activate_mission = SOV_signature_recounting
+			}
+			
+			SOV_increase_nadezhdin_signatures = yes
+
+		}
+	}
+}

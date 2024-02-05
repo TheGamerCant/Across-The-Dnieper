@@ -5212,7 +5212,49 @@ country_event = {
             popularity = 0.06
         }
 		set_variable = { SOV_boris_nadazhdin_signatures = 100 }
+		set_variable = { SOV_boris_nadazhdin_signatures_weekly_gain = 7800 }
 		unlock_decision_category_tooltip = SOV_stopping_boris_nadezhdin
+    }
+}
+
+#Collects enough signatures
+country_event = {
+    id = russia.1143
+    title = russia.1143.t
+    desc = russia.1143.desc
+    picture = SOV_nedezhdin_signatures
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1143.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1143.a_tt"
+		add_political_power = -15
+		add_popularity = {
+            ideology = neoliberal
+            popularity = -0.04
+        }
+    }
+
+	option = {
+        name = russia.1143.b
+		ai_chance = {
+			base = 0
+		}
+
+		add_popularity = {
+            ideology = neoliberal
+            popularity = 0.05
+        }
+		add_political_power = 2
+		add_stability = -0.02
     }
 }
 

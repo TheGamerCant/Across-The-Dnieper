@@ -8512,3 +8512,21 @@ SOV_load_KRP_mutiny={
 		KRP = { country_event = { id = russia.1101 hours = 8 } }
 	}
 }
+
+SOV_increase_nadezhdin_signatures = {
+	custom_effect_tooltip = SOV_stopping_boris_nadezhdin_add_signatures_tt
+	hidden_effect={
+		add_to_variable = { SOV_boris_nadazhdin_signatures = SOV_boris_nadazhdin_signatures_weekly_gain }
+		add_popularity = {
+			ideology = neoliberal
+			popularity = 0.025
+		}
+		if = {
+			limit = { OR = { check_variable = { SOV_boris_nadazhdin_signatures > 105000 } check_variable = { SOV_boris_nadazhdin_signatures = 105000 } } }
+	
+			clr_country_flag = SOV_stopping_boris_nadezhdin_enabled
+			country_event = { id = russia.1143 days = 2 }	
+		}
+	}
+
+}
