@@ -1297,6 +1297,94 @@ POL_parliament_vote_on_bill_decision_category={
 			}
 		}
 	}
+	
+	POL_the_small_media_law = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			hidden_trigger={ always = no }
+		}
+		
+		allowed = { 
+			tag = POL
+		}
+		
+		activation = {
+			always = no
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = POLAND_votes_for_the_bill value = POLAND_required_votes compare = greater_than_or_equals } }
+					country_event = atd_poland.22
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				country_event = atd_poland.22
+				country_event = atd_poland.23
+			}
+		}
+	}
+	
+	POL_put_the_small_media_law_in_sejm = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			NOT = { has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag }
+		}
+
+		visible = {
+			has_country_flag = POLAND_the_small_media_law_is_available
+			NOT = { has_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law }
+			NOT = { has_country_flag = POL_the_small_media_law }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			hidden_effect={
+				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+				set_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law
+				POL_bill_needs_simple_majority = yes
+				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_the_small_media_law
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_climate_change_commitments_tt
+				POL_bill_needs_simple_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				country_event = atd_poland.23
+			}
+		}
+	}
 
 
 

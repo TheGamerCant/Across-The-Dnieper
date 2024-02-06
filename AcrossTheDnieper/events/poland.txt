@@ -244,6 +244,8 @@ country_event = {
 				multiply_variable = { THIS.PiS_popularity = 1.15 }
 				POL_make_popularities_equal_100 = yes
 			}
+			
+			news_event = { id = atd_news.71 hours = 2 random_hours = 6 }
 		}
 		
 		custom_effect_tooltip = POL_duda_becomes_president_tt
@@ -274,6 +276,8 @@ country_event = {
 				multiply_variable = { THIS.PiS_popularity = 1.15 }
 				POL_make_popularities_equal_100 = yes
 			}
+			
+			news_event = { id = atd_news.70 hours = 2 random_hours = 6 }
 		}
 		
 		custom_effect_tooltip = POL_kaczynski_becomes_president_tt
@@ -303,6 +307,8 @@ country_event = {
 				multiply_variable = { THIS.PO_popularity = 1.15 }
 				POL_make_popularities_equal_100 = yes
 			}
+			
+			news_event = { id = atd_news.72 hours = 2 random_hours = 6 }
 		}
 		
 		if={
@@ -1187,6 +1193,15 @@ country_event = {
 			clr_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 			clr_country_flag = POL_president_has_vetoed_recent_legislation
 		}
+		else_if={
+			limit = { has_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law }
+			country_event = atd_poland.23
+			
+			set_country_flag = POL_the_small_media_law_has_passed
+			clr_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law
+			clr_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+			clr_country_flag = POL_president_has_vetoed_recent_legislation
+		}
 	}
 	
 	option = {
@@ -1205,7 +1220,7 @@ country_event = {
 				POLAND_set_party_votes_for_the_bill = yes
 				POLAND_get_party_votes_for_the_bill = yes
 				
-				activate_mission = POL_strategy_for_energy_security_and_environment
+				activate_mission = POL_the_small_media_law
 			}
 			effect_tooltip={
 				custom_effect_tooltip = POL_climate_change_commitments_tt
@@ -1215,13 +1230,66 @@ country_event = {
 				add_stability = 0.08
 			}
 		}
+		else_if={
+			limit = { has_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law }
+			hidden_effect={
+				POL_bill_needs_three_fifths_majority = yes
+				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_strategy_for_energy_security_and_environment
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_the_small_media_law_focus_tt
+				POL_bill_needs_simple_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				country_event = atd_poland.23
+			}
+		}
 		
 		set_country_flag = POL_president_has_vetoed_recent_legislation
-	}
-	
+	}	
 }
 
+#Small media law event
+country_event = {
+	id = atd_poland.23
+	title = atd_poland.23.t
+	desc = atd_poland.23.desc
+	is_triggered_only = yes
 
+	option = {
+		name = atd_poland.23.a
+		ai_chance = { base = 1 }
+		add_ideas = POL_control_of_the_media
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PiS_popularity = 2.0 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_increase_PiS_popularity_tt
+		add_popularity = { ideology = neoconservative popularity = 0.025 }
+	}
+	
+	option = {
+		name = atd_poland.23.b
+		ai_chance = { base = 1 }
+		add_ideas = POL_control_of_the_media
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				subtract_from_variable = { THIS.PiS_popularity = 2.0 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_decrease_PiS_popularity_tt
+		add_popularity = { ideology = neoconservative popularity = -0.025 }
+	}
+}
 
 
 #Choose your party for election
