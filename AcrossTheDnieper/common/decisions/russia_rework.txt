@@ -2418,7 +2418,10 @@ SOV_stopping_boris_nadezhdin = {
 			}
 			
 		}
-		icon = mission_icon
+		cancel_trigger = {
+			NOT = { has_country_flag = SOV_stopping_boris_nadezhdin_enabled }
+		}
+		icon = eng_trade_unions_support
 		is_good = no
 		days_mission_timeout = 7
 		selectable_mission = no
@@ -2432,6 +2435,70 @@ SOV_stopping_boris_nadezhdin = {
 			
 			SOV_increase_nadezhdin_signatures = yes
 
+		}
+	}
+
+	SOV_promote_anti_liberalism = { 
+		priority = 200
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = no
+
+		visible = {
+			has_country_flag = SOV_stopping_boris_nadezhdin_enabled
+		}
+		
+		days_remove = 20
+		days_re_enable = 30
+		cost = 55
+
+		remove_effect = {	
+			SOV_decrease_300_nadezhdin_signatures_weekly = yes
+		}
+	}
+
+	SOV_buy_off_tiktokers = { 
+		priority = 200
+
+		icon = eng_propaganda_campaigns
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = no
+
+		visible = {
+			has_country_flag = SOV_stopping_boris_nadezhdin_enabled
+		}
+		
+		days_remove = 20
+		days_re_enable = 30
+		cost = 55
+
+		remove_effect = {	
+			SOV_decrease_300_nadezhdin_signatures_weekly = yes
 		}
 	}
 }

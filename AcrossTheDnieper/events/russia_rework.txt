@@ -5212,7 +5212,7 @@ country_event = {
             popularity = 0.06
         }
 		set_variable = { SOV_boris_nadazhdin_signatures = 100 }
-		set_variable = { SOV_boris_nadazhdin_signatures_weekly_gain = 7800 }
+		set_variable = { SOV_boris_nadazhdin_signatures_weekly_gain = 9600 }
 		unlock_decision_category_tooltip = SOV_stopping_boris_nadezhdin
     }
 }
@@ -5248,7 +5248,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-
+		set_country_flag = SOV_nadezhdin_2024_elections
 		add_popularity = {
             ideology = neoliberal
             popularity = 0.05
@@ -5258,6 +5258,42 @@ country_event = {
     }
 }
 
+#2024 Electionsss
+country_event = {
+    id = russia.1144
+    title = russia.1144.t
+    desc = russia.1144.desc
+    picture = SOV_event_2_more_terms
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1144.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 20
+    }
+
+	option = {
+        name = russia.1144.b
+		ai_chance = {
+			base = 0
+		}
+
+		trigger = {
+			has_country_flag = SOV_nadezhdin_2024_elections
+		}
+
+		set_politics = {
+			ruling_party = neoliberal
+			elections_allowed = yes
+		}
+
+		add_political_power = -20
+		add_stability = 0.005
+    }
+}
 
 country_event = {
     id = russia_propaganda.1

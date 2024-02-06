@@ -8519,7 +8519,7 @@ SOV_increase_nadezhdin_signatures = {
 		add_to_variable = { SOV_boris_nadazhdin_signatures = SOV_boris_nadazhdin_signatures_weekly_gain }
 		add_popularity = {
 			ideology = neoliberal
-			popularity = 0.025
+			popularity = 0.015
 		}
 		if = {
 			limit = { OR = { check_variable = { SOV_boris_nadazhdin_signatures > 105000 } check_variable = { SOV_boris_nadazhdin_signatures = 105000 } } }
@@ -8529,4 +8529,11 @@ SOV_increase_nadezhdin_signatures = {
 		}
 	}
 
+}
+
+SOV_decrease_300_nadezhdin_signatures_weekly = {
+	custom_effect_tooltip = SOV_decrease_300_nadezhdin_signatures_weekly
+	hidden_effect={
+		add_to_variable = { SOV_boris_nadazhdin_signatures_weekly_gain = -300 }
+	}
 }
