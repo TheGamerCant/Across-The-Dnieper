@@ -15,7 +15,7 @@ NDefines.NCountry.MIN_STABILITY = -1.0
 NDefines.NCountry.MIN_WAR_SUPPORT = -1.0
 NDefines.NCountry.POLITICAL_POWER_LOWER_CAP = -2000.0
 NDefines.NCountry.MIN_MAJOR_COUNTRIES = 3 -- was 1, should result in at least 3 countries being assigned the major tag, no real change to gameplay
-NDefines.NCountry.EVENT_PROCESS_OFFSET = 30	--base is 20, this should reduce lag
+NDefines.NCountry.EVENT_PROCESS_OFFSET = 7	--base is 20, changed to 7 so the event triggers are checked weekly. This shouldn't cause too much lag, as most of our events are manually triggered, this just means that the few events that aren't will fire quicker
 NDefines.NCountry.BASE_SURRENDER_LIMIT = 0.65		--base is 0.8
 NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0.2		-- base is 0.3
 
