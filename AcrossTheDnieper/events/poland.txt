@@ -3280,14 +3280,6 @@ country_event = {
 	title = poland_court_event.1.t
 	desc = poland_court_event.1.desc
 	is_triggered_only = yes
-	
-	immediate={
-		hidden_effect={
-			clr_country_flag = POLAND_Maria_Gintowt_Jankowicz_is_justice_for_seat_1
-			clr_country_flag = POLAND_Wojciech_Hermelinski_is_justice_for_seat_2
-			clr_country_flag = POLAND_Marek_Kotlinowski_is_justice_for_seat_3
-		}
-	}
 
 	picture = GFX_report_event_POL_constitutional_court
 
@@ -3303,15 +3295,6 @@ country_event = {
 				}
 			}
 		}
-		set_country_flag = POLAND_Roman_Hauser_is_justice_for_seat_1
-		set_country_flag = POLAND_Krzysztof_Slebzak_is_justice_for_seat_2
-		set_country_flag = POLAND_Andrzej_Jakubecki_is_justice_for_seat_3
-		
-		#global.date = 61442.64 on 1st Jan
-		set_variable = { POLAND_seat_1_expiry_date = global.date }
-		add_to_variable = { POLAND_seat_1_expiry_date = 78.84 }
-		set_variable = { POLAND_seat_2_expiry_date = POLAND_seat_1_expiry_date }
-		set_variable = { POLAND_seat_3_expiry_date = POLAND_seat_1_expiry_date }
 	}
 	
 	option = {
@@ -3324,63 +3307,39 @@ country_event = {
 			}
 		}
 		add_political_power = -80
+		add_stability = -0.08
+		
+		hidden_effect={
+			country_event = { id = poland_court_event.2 days = 30 }
+		}
 	}
 }
 
-
-#Replace Zbigniew Cieślak
+#Check if government is neolib or not
 country_event = {
 	id = poland_court_event.2
-	title = poland_court_event.2.t
-	desc = poland_court_event.2.desc
+	hidden = yes
 	is_triggered_only = yes
-	
-	immediate={
-		hidden_effect={
-			clr_country_flag = POLAND_Zbigniew_Cieslak_is_justice_for_seat_4
-		}
-	}
-	
+
 	picture = GFX_report_event_POL_constitutional_court
 
-	option = {
-		name = poland_court_event.2.a
-		ai_chance = { 
-			base = 1 
+	immediate={
+		if={
+			limit = { has_government = neoliberal }
+			country_event = poland_court_event.3
 		}
-		trigger={
-			has_government = neoliberal
+		else={
+			country_event = poland_court_event.4
 		}
-		set_country_flag = POLAND_Andrzej_Sokala_is_justice_for_seat_4
-		set_variable = { POLAND_seat_4_expiry_date = global.date }
-		add_to_variable = { POLAND_seat_4_expiry_date = 78.84 }
-	}
-	
-	option = {
-		name = poland_court_event.2.b
-		ai_chance = { base = 1 }
-		trigger={
-			has_government = neoconservative
-		}
-		set_country_flag = POLAND_Piotr_Pszczolkowski_is_justice_for_seat_4
-		set_variable = { POLAND_seat_4_expiry_date = global.date }
-		add_to_variable = { POLAND_seat_4_expiry_date = 78.84 }
 	}
 }
 
-#Replace Zbigniew Cieślak
-country_event = {
+#Constitutional crisis over
 	id = poland_court_event.3
 	title = poland_court_event.3.t
 	desc = poland_court_event.3.desc
 	is_triggered_only = yes
-	
-	immediate={
-		hidden_effect={
-			clr_country_flag = POLAND_Teresa_Liszcz_is_justice_for_seat_5
-		}
-	}
-	
+
 	picture = GFX_report_event_POL_constitutional_court
 
 	option = {
@@ -3388,22 +3347,36 @@ country_event = {
 		ai_chance = { 
 			base = 1 
 		}
-		trigger={
-			has_government = neoliberal
+		
+		add_stability = 0.05
+	}
+}
+
+#Constitutional crisis event
+country_event = {
+	id = poland_court_event.4
+	title = poland_court_event.4.t
+	desc = poland_court_event.4.desc
+	is_triggered_only = yes
+
+	picture = GFX_report_event_POL_constitutional_court
+
+	option = {
+		name = poland_court_event.4.a
+		ai_chance = { 
+			base = 0 
 		}
-		set_country_flag = POLAND_Bronislaw_Sitek_is_justice_for_seat_5
-		set_variable = { POLAND_seat_5_expiry_date = global.date }
-		add_to_variable = { POLAND_seat_5_expiry_date = 78.84 }
+		
+		add_stability = 0.05
+		add_political_power = -50
 	}
 	
 	option = {
-		name = poland_court_event.3.b
-		ai_chance = { base = 1 }
-		trigger={
-			has_government = neoconservative
+		name = poland_court_event.4.b
+		ai_chance = { 
+			base = 1 
 		}
-		set_country_flag = POLAND_Julia_Przylebska_is_justice_for_seat_5
-		set_variable = { POLAND_seat_5_expiry_date = global.date }
-		add_to_variable = { POLAND_seat_5_expiry_date = 78.84 }
+		
+		add_ideas = POL_constitutional_crisis_idea
 	}
 }
