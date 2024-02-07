@@ -5321,6 +5321,11 @@ country_event = { #Ukrainains running away
 	option = { 
 		name = ukraine.134.a
 		set_country_flag = UKR_refugees_fleeing_active
-		custom_effect_tooltip = "ukraine.134.tt"
+
+		every_owned_state={
+			limit = { is_controlled_by = UKR }
+
+			add_dynamic_modifier = { modifier = UKR_refugees_fleeing }
+		}
 	}
 }
