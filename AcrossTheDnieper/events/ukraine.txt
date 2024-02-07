@@ -5305,3 +5305,22 @@ country_event = { #EU Council addresses the nation
 		clr_country_flag = EU_council_open
 	}
 }
+
+country_event = { #Ukrainains running away
+	id = ukraine.134
+	title = ukraine.134.t
+	desc = ukraine.134.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_refugees
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.134.a
+		set_country_flag = UKR_refugees_fleeing_active
+		custom_effect_tooltip = "ukraine.134.tt"
+	}
+}
