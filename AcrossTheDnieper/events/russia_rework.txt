@@ -5290,8 +5290,89 @@ country_event = {
 			elections_allowed = yes
 		}
 
+		hidden_effect = {
+			country_event = { id = russia.1145 days = 1 }	
+		}
+
 		add_political_power = -20
 		add_stability = 0.005
+    }
+}
+
+#Ending the war (nedezhdin)
+country_event = {
+    id = russia.1145
+    title = russia.1145.t
+    desc = russia.1145.desc
+    picture = SOV_novorossiya_referendum_event
+    is_triggered_only = yes
+
+	
+	trigger = {
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1145.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1145.tt"
+		hidden_effect = {
+			russia_ukraine_peace = yes
+			every_state={
+				limit={
+					has_state_flag = crimea_oblast_flag
+				}
+				SOV = { transfer_state = PREV }
+			}
+		}
+		if={
+			limit = { has_idea = extensive_conscription }
+			swap_ideas={
+				remove_idea = extensive_conscription
+				add_idea = limited_conscription
+			}
+		}
+
+		add_stability = 0.1
+		add_war_support = -0.05
+
+
+    }
+
+	option = {
+        name = russia.1145.b
+		ai_chance = {
+			base = 0
+		}
+		custom_effect_tooltip = "russia.1145.tt"
+		add_stability = 0.05
+		
+		if={
+			limit = { has_idea = extensive_conscription }
+			swap_ideas={
+				remove_idea = extensive_conscription
+				add_idea = limited_conscription
+			}
+		}
+
+		hidden_effect = {
+			russia_ukraine_peace = yes
+			every_state={
+				limit={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+						has_state_flag = zaporizhia_oblast_flag
+						has_state_flag = crimea_oblast_flag
+						has_state_flag = kherson_oblast_flag
+					}
+					NOT = { state = 455 state = 196 state = 166 state = 135 state = 131 state = 146 }
+				}
+				SOV = { transfer_state = PREV }
+			}
+		}
     }
 }
 
