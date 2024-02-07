@@ -5320,12 +5320,12 @@ country_event = { #Ukrainains running away
 
 	option = { 
 		name = ukraine.134.a
-		set_country_flag = UKR_refugees_fleeing_active
+		set_country_flag = { flag = UKR_refugees_fleeing_active value = 1 days = 365 }
 
 		every_controlled_state={
 			limit = { is_core_of = UKR }
 
-			add_dynamic_modifier = { modifier = UKR_refugees_fleeing }
+			add_dynamic_modifier = { modifier = UKR_refugees_fleeing days = 365 }
 		}
 	}
 }
