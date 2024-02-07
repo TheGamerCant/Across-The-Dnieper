@@ -1291,6 +1291,49 @@ country_event = {
 	}
 }
 
+#New judges
+country_event = {
+	id = atd_poland.24
+	title = atd_poland.24.t
+	desc = atd_poland.24.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_constitutional_court
+	
+	immediate={
+		hidden_effect={
+			
+		}
+	}
+
+	option = {
+		name = atd_poland.24.a
+		ai_chance = { 
+			base = 1 
+			modifier={
+				factor = 0
+				OR={
+					jaroslaw_kaczynski_is_leader = yes
+					andrzej_duda_is_leader = yes
+				}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = atd_poland.24.b
+		ai_chance = { base = 1 }
+		trigger={
+			OR={
+				jaroslaw_kaczynski_is_leader = yes
+				andrzej_duda_is_leader = yes
+			}
+		}
+	}
+}
+
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1
@@ -1302,7 +1345,7 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_country_flag = poland_election_campaigns_are_ongoing
-			country_event = { id = poland_election.38 days = 360 random_days = 12 }		#election event
+			country_event = { id = poland_election.38 days = 365 }		#election event
 			country_event = { id = atd_poland.2 days = 80 random_days = 100 }	#create united left
 			country_event = { id = atd_poland.8 days = 45 }	#local elections
 		}
