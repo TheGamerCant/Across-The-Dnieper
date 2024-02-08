@@ -5291,7 +5291,8 @@ country_event = {
 		}
 
 		hidden_effect = {
-			country_event = { id = russia.1145 days = 1 }	
+			country_event = { id = russia.1145 hours = 1 }
+			country_event = { id = russia.1147 days = 1 }	
 		}
 
 		add_political_power = -20
@@ -5319,6 +5320,8 @@ country_event = {
 		}
 		custom_effect_tooltip = "russia.1145.tt"
 		hidden_effect = {
+			load_focus_tree = nadezhdin_tree 
+			complete_national_focus = SOV_negotiate_a_ceasefire
 			russia_ukraine_peace = yes
 			every_state={
 				limit={
@@ -5358,6 +5361,8 @@ country_event = {
 		}
 
 		hidden_effect = {
+			load_focus_tree = nadezhdin_tree 
+			complete_national_focus = SOV_negotiate_a_ceasefire
 			russia_ukraine_peace = yes
 			every_state={
 				limit={
@@ -5376,6 +5381,8 @@ country_event = {
     }
 }
 
+
+#Women protest
 country_event = {
     id = russia.1146
     title = russia.1146.t
@@ -5390,6 +5397,44 @@ country_event = {
 			base = 10
 		}
 		add_war_support = -0.03
+    }
+}
+
+#The shattered bear
+country_event = {
+    id = russia.1147
+    title = russia.1147.t
+    desc = russia.1147.desc
+    picture = GFX_report_event_SOV_central_bank
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1147.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ideas = SOV_shattered_bear
+    }
+}
+
+
+#National mourning
+country_event = {
+    id = russia.1148
+    title = russia.1148.t
+    desc = russia.1148.desc
+    picture = SOV_nadezhdin_address
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1148.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 2
+		add_stability = 0.005
     }
 }
 

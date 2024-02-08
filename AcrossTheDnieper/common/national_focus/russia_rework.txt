@@ -6723,6 +6723,7 @@ shared_focus = {
 				has_completed_focus = SOV_the_war_effort
 				is_ai = no
 				igor_girkin_is_not_leader = yes
+				
 			}
 		}
 	}
@@ -10146,4 +10147,56 @@ shared_focus = {
 		
 		add_stability = -0.03
 	}
+}
+
+
+focus_tree = {
+	id = nadezhdin_tree
+	continuous_focus_position = { x = 80 y = 2280 } 
+	country = {
+		factor = 0
+	}
+	
+	focus = {
+		id = SOV_negotiate_a_ceasefire
+		icon = GFX_focus_SOV_Retreat_From_Ukraine
+		x = 32
+		y = 0
+		cost = 30
+		search_filters = {
+			
+		}
+		available={
+			hidden_trigger = { always = no }
+		}
+		
+		completion_reward={
+			hidden_effect={
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_national_mourning
+		icon = GFX_focus_SOV_National_Mourning
+		x = 32
+		y = 1
+		cost = 3
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_negotiate_a_ceasefire }
+		available={
+			
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1148 }
+		}
+	}
+
+	shared_focus = SOV_welcome_home_2
+	shared_focus = SOV_army_modernisation
 }
