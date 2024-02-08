@@ -242,7 +242,7 @@ country_event = {
 			
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PiS_popularity = 1.15 }
+				add_to_variable = { THIS.PiS_popularity = 2.0 }
 				POL_make_popularities_equal_100 = yes
 			}
 			
@@ -274,7 +274,7 @@ country_event = {
 			
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PiS_popularity = 1.15 }
+				add_to_variable = { THIS.PiS_popularity = 2.0 }
 				POL_make_popularities_equal_100 = yes
 			}
 			
@@ -305,7 +305,7 @@ country_event = {
 			
 			every_state={
 				limit = { POL_is_election_state = yes }
-				multiply_variable = { THIS.PO_popularity = 1.15 }
+				add_to_variable = { THIS.PO_popularity = 2.0 }
 				POL_make_popularities_equal_100 = yes
 			}
 			
@@ -864,6 +864,11 @@ country_event = {
 			}
 		}
 		
+		every_state={
+			limit = { is_controlled_by = POL }
+			increase_state_gdp_growth_by_0_5 = yes
+		}
+		
 		hidden_effect={
 			every_state={
 				limit = { POL_is_election_state = yes }
@@ -891,6 +896,8 @@ country_event = {
 				}
 			}
 		}
+		
+		add_political_power = 15
 		
 		hidden_effect={
 			every_state={
@@ -3335,6 +3342,7 @@ country_event = {
 }
 
 #Constitutional crisis over
+country_event = {
 	id = poland_court_event.3
 	title = poland_court_event.3.t
 	desc = poland_court_event.3.desc
