@@ -52,3 +52,76 @@ country_event = {
         }
     }
 }
+
+news_event = {	#attack Ukraine
+	id = transnistria.3
+	title = transnistria.3.t
+	desc = transnistria.3.desc
+	picture = GFX_event_TRZ_attack_ukraine
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = transnistria.3.a
+		trigger = {
+			NOT = {
+				OR={
+					TAG = UKR
+					TAG = SOV
+					is_in_faction_with = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = transnistria.3.b
+		trigger = { TAG = UKR }
+	}
+	option = {
+		name = transnistria.3.c
+		trigger = {
+			OR={
+				TAG = SOV 
+				is_in_faction_with = SOV
+			}
+		}
+	}
+}
+
+country_event = { #Ukraine capture transnistria
+    id = transnistria.4
+    title = transnistria.4.t
+    desc = transnistria.4.d
+    #picture = 
+    fire_only_once = yes
+
+    trigger = { tag = UKR
+    TRZ = { has_capitulated = yes }
+    UKR = {controls_state = 268}
+    UKR = {controls_state = 440}
+    UKR = {controls_state = 439}
+    UKR = {controls_state = 247}
+    UKR = {controls_state = 241}
+    UKR = {controls_state = 215}
+    UKR = {controls_state = 202} }
+    option = {
+        name = transnistria.4.a
+
+        add_war_support = 0.005
+        MOL = {annex_country = {
+    target = TRZ
+    transfer_troops = no
+}
+        }
+
+        trigger = { MOL = {exists = yes} }
+    }
+
+    option = {
+        name = transnistria.4.b
+
+        add_stability = 0.01
+    }
+}
