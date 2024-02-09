@@ -543,3 +543,13 @@ SOV_second_great_patriotic_war_modifier = {
 	army_artillery_attack_factor = SOV_SGPW_army_artillery_attack_factor
 	conscription = SOV_SGPW_conscription
 }
+
+SOV_reconstruction_fund_modifier = {
+	icon = GFX_modifiers_generic_military_plans
+	enable = { always = yes }
+	remove_trigger = { NOT = { is_controlled_by = SOV } }
+	
+	state_production_speed_buildings_factor = 0.1
+	recruitable_population_factor = 0.03
+	local_supplies_for_controller = 0.06
+}

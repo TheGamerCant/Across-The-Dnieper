@@ -10189,11 +10189,74 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_negotiate_a_ceasefire }
 		available={
-			
+			has_government = neoliberal
 		}
 		
 		completion_reward={
 			country_event = { id = russia.1148 }
+		}
+	}
+
+	focus = {
+		id = SOV_reconstruction_fund
+		icon = GFX_focus_SOV_Reconstruction_Fund
+		x = 32
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_national_mourning }
+		available={
+			has_government = neoliberal
+		}
+
+		bypass = {
+			any_state = {
+				AND = {
+					is_controlled_by = SOV
+					is_core_of = UKR
+					NOT = { has_state_flag = crimea_oblast_flag }
+				}
+
+			}
+		}
+		
+		completion_reward={
+			every_controlled_state = {
+				limit = { AND = { is_core_of = UKR NOT = { has_state_flag = crimea_oblast_flag } } }
+
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+				add_dynamic_modifier = { modifier = SOV_reconstruction_fund_modifier scope = SOV days = 130 }
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_reminder_of_true_heroes
+		icon = GFX_focus_SOV_reminder_of_true_heroes
+		x = 28
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_national_mourning }
+		available={
+			has_government = neoliberal
+		}
+		
+		completion_reward={
+			army_experience = 10
+			air_experience = 5
+			add_ideas = SOV_legacy_of_the_war
 		}
 	}
 
