@@ -1046,6 +1046,49 @@ SOV_smo={
 			}
 		}
 	}
+	SOV_atack_south_east = { 
+		priority = 10
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			has_war_with = UKR
+			NOT = { has_global_flag = smo_northern_front_open }
+			TRZ = {exists = yes}
+		}
+		
+		days_remove = 5
+		
+		modifier={
+
+		}
+
+		visible = {
+
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		remove_effect = {
+			TRZ = {add_to_war = {
+    targeted_alliance = SOV
+    enemy = UKR
+    hostility_reason = asked_to_join
+}
+set_global_flag = smo_southem_east_front_open
+}
+		}
+	}
 	
 	
 	SMO_offensive_in_state = { 
