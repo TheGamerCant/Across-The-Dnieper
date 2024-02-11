@@ -1,0 +1,80 @@
+focus_tree = {
+	id = romania_2
+	continuous_focus_position = { x = 20000 y = 250 }
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ROM
+		}
+	}
+
+	focus = {
+		id = military_modernazition
+		icon = GFX_military_modernazition
+		x = 7
+		y = 0
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			army_experience = 50
+            naval_experience = 50
+            air_experience = 50
+            add_ideas = 3_Stage_Military_Restructuring
+                 add_tech_bonus = {
+                name = ROM_military
+                bonus = 1.0
+                uses = 1
+                category = infantry_weapons
+                category = ship_modules_tech
+                category = support_tech
+                category = armor
+                category = artillery
+                category = air_equipment
+                category = infantry_anti_air_cat
+                category = ifv_cat
+                category = apc_cat
+            }	
+		}
+	}
+		focus = {
+		id = land_force_doctrine_reform
+		icon = GFX_Land_Force_Doctrine_Reform
+		x = 7
+		y = 1
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+
+		completion_reward = {
+			army_experience = 25
+				add_doctrine_cost_reduction = {
+				name = ROM_doctrine_reform
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+             swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring
+            add_idea = 3_Stage_Military_Restructuring_1
+		    }
+		}
+    }
+}
