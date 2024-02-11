@@ -154,12 +154,59 @@ defined_text = {
     }
 }
 
+
+defined_text = {
+    name = stimulous_package_has_enough_political_power
+	
+    text = {
+        trigger = {
+			has_political_power < 120
+        }
+       localization_key = "R"
+    }
+	
+    text = {
+       localization_key = "Y"
+    }
+}
+
+defined_text = {
+    name = can_do_stimulous_packages
+	
+    text = {
+        trigger = {
+			NOT = { has_country_flag = cannot_launch_stimulous_pacakges }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = has_recently_done_a_stimulous_package
+	
+    text = {
+        trigger = {
+			NOT = { has_country_flag = has_recently_done_a_stimulous_pacakge_flag }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+       localization_key = "texticon_cross"
+    }
+}
+
+
 defined_text = {
     name = inflation_has_enough_political_power
 	
     text = {
         trigger = {
-			has_political_power < var:ROOT.cost_to_change_inflation
+			has_political_power < 50
         }
        localization_key = "R"
     }

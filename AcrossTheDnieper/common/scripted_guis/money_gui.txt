@@ -148,7 +148,7 @@ scripted_gui = {
 					factor = 0
 					modifier={
 						check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than_or_equals }
-						add = 150
+						add = 100
 					}
 				}
 			}
@@ -158,7 +158,18 @@ scripted_gui = {
 					modifier={
 						check_variable = { var = ROOT.inflation_rate value = 2 compare = greater_than_or_equals }	
 						check_variable = { var = ROOT.real_gdp_growth value = 0 compare = less_than_or_equals }
-						add = 150
+						add = 100
+					}
+				}
+			}
+			
+			economic_stimulous_package_button_click={
+				ai_will_do={
+					factor = 0
+					modifier={
+						check_variable = { var = ROOT.inflation_rate value = 1.0 compare = less_than_or_equals }	
+						check_variable = { var = ROOT.country_gdp_growth_yearly value = 0.8 compare = less_than_or_equals }
+						add = 200
 					}
 				}
 			}
@@ -166,10 +177,20 @@ scripted_gui = {
 		
 		triggers={
 			increase_inflation_button_click_enabled = {  
-				can_increase_inflation_rate = yes
+				has_political_power > 50
+				NOT = { has_country_flag = cannot_modify_inflation_rate }
+				NOT = { has_country_flag = has_recently_modified_inflation_rate }
 			}
 			decrease_inflation_button_click_enabled = {  
-				can_decrease_inflation_rate = yes
+				has_political_power > 50
+				NOT = { has_country_flag = cannot_modify_inflation_rate }
+				NOT = { has_country_flag = has_recently_modified_inflation_rate }
+				NOT = { has_country_leader = { name = "Recep Tayyip Erdoğan" ruling_only = yes } }		#You can't get him but I think it's funni
+			}
+			economic_stimulous_package_button_click_enabled = {  
+				has_political_power > 120
+				NOT = { has_country_flag = cannot_launch_stimulous_pacakges }
+				NOT = { has_country_flag = has_recently_done_a_stimulous_pacakge_flag }
 			}
 		}
 		
@@ -190,10 +211,15 @@ scripted_gui = {
 				else = { clr_country_flag = opened_gdp_mechanics }
 			}
 			increase_inflation_button_click = {  
-				set_variable = { pp_to_subtract = ROOT.cost_to_change_inflation }
-				multiply_variable = { pp_to_subtract = -1 }
-				add_political_power = var:ROOT.pp_to_subtract
-				clear_variable = pp_to_subtract
+				random = {
+					chance = 30
+
+					every_state={
+						limit = { is_controlled_by = ROOT }
+						increase_state_gdp_growth_by_0_5 = yes
+					}
+				}	
+				add_political_power = 50
 				add_to_variable = { ROOT.inflation_rate = 0.5 }
 				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
 				get_effects_from_inflation = yes
@@ -208,10 +234,15 @@ scripted_gui = {
 				country_event = { id = generic.5 days = 120 }
 			}
 			decrease_inflation_button_click = {  
-				set_variable = { pp_to_subtract = ROOT.cost_to_change_inflation }
-				multiply_variable = { pp_to_subtract = -1 }
-				add_political_power = var:ROOT.pp_to_subtract
-				clear_variable = pp_to_subtract					#For some reason temp variables don't work
+				random = {
+					chance = 12
+
+					every_state={
+						limit = { is_controlled_by = ROOT }
+						decrease_state_gdp_growth_by_0_5 = yes
+					}
+				}
+				add_political_power = 50
 				subtract_from_variable = { ROOT.inflation_rate = 0.5 }
 				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
 				get_effects_from_inflation = yes
@@ -224,6 +255,56 @@ scripted_gui = {
 				}
 				
 				country_event = { id = generic.5 days = 120 }
+			}
+			economic_stimulous_package_button_click = {  
+				random_list={
+					10={
+						every_state={
+							limit = { is_controlled_by = ROOT }
+							decrease_state_gdp_growth_by_1_5 = yes
+						}
+					}
+					45={
+						every_state={
+							limit = { is_controlled_by = ROOT }
+							decrease_state_gdp_growth_by_1 = yes
+						}
+					}
+					20={
+						every_state={
+							limit = { is_controlled_by = ROOT }
+							decrease_state_gdp_growth_by_0_5 = yes
+						}
+					}
+					25={
+					
+					}
+				}
+				
+				random_list={
+					1={ add_to_variable = { ROOT.inflation_rate = 1.2 } }
+					1={ add_to_variable = { ROOT.inflation_rate = 1.0 } }
+					1={ add_to_variable = { ROOT.inflation_rate = 0.8 } }
+					1={ add_to_variable = { ROOT.inflation_rate = 0.6 } }
+					1={ add_to_variable = { ROOT.inflation_rate = 0.4 } }
+					1={ add_to_variable = { ROOT.inflation_rate = 0.2 } }
+					1={ }
+				}
+				
+				get_effects_from_inflation = yes
+				get_country_real_gdp_growth = yes
+				get_effects_from_real_gdp_pc = yes
+				
+				add_political_power = -120
+				add_timed_idea = { idea = economic_subsidies_idea days = 60 }
+				set_country_flag = { flag = has_recently_done_a_stimulous_pacakge_flag value = 1 days = 364 }
+				
+				if={
+					limit = { is_ai = yes }
+					log = "[GetDateText]: [Root.GetName] AI launched an economic stimulous package"
+				}
+				
+				country_event = { id = generic.8 days = 365 }
 			}
 		}
 	}

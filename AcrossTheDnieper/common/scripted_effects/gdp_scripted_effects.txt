@@ -679,7 +679,7 @@ get_effects_from_inflation={
 	}
 	else_if={
 		limit = {
-			check_variable = { var = ROOT.inflation_rate value = 7.5 compare = less_than }					#Normal inflation
+			check_variable = { var = ROOT.inflation_rate value = 5.5 compare = less_than }					#Normal inflation
 			check_variable = { var = ROOT.inflation_rate value = 1 compare = greater_than_or_equals }
 		}
 		set_variable = { ROOT.inflation_consumer_goods_expected_value = -0.01 }
@@ -688,7 +688,7 @@ get_effects_from_inflation={
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 20 compare = less_than }					#High inflation
-			check_variable = { var = ROOT.inflation_rate value = 7.5 compare = greater_than_or_equals }
+			check_variable = { var = ROOT.inflation_rate value = 5.5 compare = greater_than_or_equals }
 		}
 		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.04 }
 		set_variable = { ROOT.inflation_stability_weekly = -0.001 }
