@@ -5328,4 +5328,27 @@ country_event = { #Ukrainains running away
 			add_dynamic_modifier = { modifier = UKR_refugees_fleeing days = 365 }
 		}
 	}
+
+	
+}
+
+country_event = { #second year drag on
+	id = ukraine.135
+	title = ukraine.135.t
+	desc = ukraine.135.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.135.a
+		swap_ideas = {
+			remove_idea = UKR_dependant_on_western_equipment
+			add_idea = UKR_dependant_on_western_equipment_2
+		}
+	}
 }
