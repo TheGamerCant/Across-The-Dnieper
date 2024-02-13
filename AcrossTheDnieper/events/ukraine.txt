@@ -3754,11 +3754,18 @@ country_event = {
 	is_triggered_only = yes
 	picture = GFX_report_event_UKR_ukraine_army
 
+	trigger = {
+		has_war = yes
+	}
+
 	immediate = { 
-		if={
-			limit = { has_war = yes }
-			hidden_effect={ country_event = { id = ukraine.99 days = 90 } } 
+		set_variable_to_random = {
+			var = western_troops_count_variable
+			max = 3
+			integer = yes
 		}
+
+		hidden_effect={ country_event = { id = ukraine.99 days = 90 } } 
 	}
 
 	option = { 
@@ -3791,15 +3798,17 @@ country_event = {
 					mot_recon = { x = 0 y = 3 }  
 				}
 			}
-			
+
+
+
 			for_loop_effect = {
-				end = 3
+				end = western_troops_count_variable
 				value = temp
 				random_owned_controlled_state = {
 					limit = { ROOT = { has_full_control_of_state = PREV } }
 					prioritize = { 92 }
 					create_unit = {
-						division = "name = \"Elite Forces\" division_template = \"Western Trained Forces\" start_experience_factor = 0.9" 
+						division = "name = \"Elite Forces\" division_template = \"Western Trained Forces\" start_experience_factor = 0.9 start_equipment_factor = 0.8" 
 						owner = UKR
 					}
 				}
@@ -5320,13 +5329,7 @@ country_event = { #Ukrainains running away
 
 	option = { 
 		name = ukraine.134.a
-		set_country_flag = { flag = UKR_refugees_fleeing_active value = 1 days = 365 }
-
-		every_controlled_state={
-			limit = { is_core_of = UKR }
-
-			add_dynamic_modifier = { modifier = UKR_refugees_fleeing days = 365 }
-		}
+		add_timed_idea = { idea = UKR_migration_crisis days = 365 }
 	}
 
 	
