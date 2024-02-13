@@ -108,7 +108,7 @@ country_event = { #Ukraine capture transnistria
     UKR = {controls_state = 202} }
     option = {
         name = transnistria.4.a
-
+        ai_will_do = {base = 1}
         add_war_support = 0.005
         MOL = {annex_country = {
     target = TRZ
@@ -124,4 +124,36 @@ country_event = { #Ukraine capture transnistria
 
         add_stability = 0.01
     }
+}
+
+news_event = {	#Moldova take TRZ
+	id = transnistria.5
+	title = transnistria.5.t
+	desc = transnistria.5.desc
+	picture = GFX_event_TRZ_attack_ukraine
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = transnistria.5.a
+		trigger = {
+				OR={
+					TAG = SOV
+					is_in_faction_with = SOV
+				}
+		}
+	}
+	option = {
+		name = transnistria.5.b
+        trigger = {
+            NOT = {
+				OR={
+					TAG = SOV
+					is_in_faction_with = SOV
+				}
+            }
+		}
+	}
 }
