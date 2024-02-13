@@ -66,18 +66,12 @@ news_event = {	#attack Ukraine
 	option = {
 		name = transnistria.3.a
 		trigger = {
-			NOT = {
-				OR={
-					TAG = UKR
-					TAG = SOV
-					is_in_faction_with = SOV
-				}
-			}
+			TAG = UKR
 		}
 	}
 	option = {
 		name = transnistria.3.b
-		trigger = { TAG = UKR }
+		trigger = { TAG = TRZ }
 	}
 	option = {
 		name = transnistria.3.c
@@ -86,6 +80,20 @@ news_event = {	#attack Ukraine
 				TAG = SOV 
 				is_in_faction_with = SOV
 			}
+            NOT = {TAG = TRZ}
+		}
+	}
+    option = {
+		name = transnistria.3.d
+		trigger = {
+            NOT = {
+			OR={
+				TAG = SOV 
+				is_in_faction_with = SOV
+                TAG = TRZ
+                TAG = UKR
+			}
+          }
 		}
 	}
 }
@@ -94,7 +102,7 @@ country_event = { #Ukraine capture transnistria
     id = transnistria.4
     title = transnistria.4.t
     desc = transnistria.4.d
-    #picture = 
+    picture = GFX_report_event_TRZ_victory_ukraine
     fire_only_once = yes
 
     trigger = { tag = UKR
@@ -114,6 +122,10 @@ country_event = { #Ukraine capture transnistria
     target = TRZ
     transfer_troops = no
 }
+news_event = {
+    id = transnistria.5
+    random_hours = 10
+}
         }
 
         trigger = { MOL = {exists = yes} }
@@ -130,7 +142,7 @@ news_event = {	#Moldova take TRZ
 	id = transnistria.5
 	title = transnistria.5.t
 	desc = transnistria.5.desc
-	picture = GFX_event_TRZ_attack_ukraine
+	picture = GFX_event_TRZ_return_moldova
 	
 	major = yes
 	
