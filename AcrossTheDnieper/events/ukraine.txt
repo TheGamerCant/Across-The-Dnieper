@@ -4081,6 +4081,7 @@ country_event = {
 
 		hidden_effect = {
 			country_event = { id = ukraine.109 days = 45 }
+			country_event = { id = ukraine.136 days = 120 random_days = 65 }
 		}
 		add_timed_idea = {
 			idea = UKR_low_morale
@@ -5353,5 +5354,80 @@ country_event = { #second year drag on
 			remove_idea = UKR_dependant_on_western_equipment
 			add_idea = UKR_dependant_on_western_equipment_2
 		}
+	}
+}
+
+country_event = { #a change in high command?
+	id = ukraine.136
+	title = ukraine.136.t
+	desc = ukraine.136.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_assessing_the_situation
+
+	trigger = {
+		has_war_with = SOV
+	}
+	
+	immediate={
+		set_country_flag = UKRAINE_new_high_command_available_flag
+	}
+
+
+	option = { 
+		name = ukraine.136.a
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = { 
+		name = ukraine.136.b
+		ai_chance = {
+			base = 10
+		}
+		
+		if={
+			limit = { has_idea = UKR_valerii_zaluzhnui }
+			remove_ideas = UKR_valerii_zaluzhnui
+		}
+		if={
+			limit = { has_idea = UKR_oleksandr_syrskyi }
+			remove_ideas = UKR_oleksandr_syrskyi
+		}
+		add_ideas = UKR_oleksandr_syrskyi_army_chief
+	}
+	
+	option = { 
+		name = ukraine.136.c
+		ai_chance = {
+			base = 0
+		}
+		
+		if={
+			limit = { has_idea = UKR_valerii_zaluzhnui }
+			remove_ideas = UKR_valerii_zaluzhnui
+		}
+		if={
+			limit = { has_idea = UKR_mykhailo_zabrodskyi }
+			remove_ideas = UKR_mykhailo_zabrodskyi
+		}
+		add_ideas = UKR_mykhailo_zabrodskyi_army_chief
+	}
+	
+	option = { 
+		name = ukraine.136.d
+		ai_chance = {
+			base = 0
+		}
+		
+		if={
+			limit = { has_idea = UKR_valerii_zaluzhnui }
+			remove_ideas = UKR_valerii_zaluzhnui
+		}
+		if={
+			limit = { has_idea = UKR_kyrylo_budanov }
+			remove_ideas = UKR_kyrylo_budanov
+		}
+		add_ideas = UKR_kyrylo_budanov_army_chief
 	}
 }

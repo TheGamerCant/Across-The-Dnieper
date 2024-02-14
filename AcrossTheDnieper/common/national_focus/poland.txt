@@ -746,7 +746,7 @@ shared_focus = {
 	icon = GFX_focus_POL_eastern_logisitcal_hubs
 	x = -2
 	y = 1
-	cost = 35
+	cost = 30
 
 	ai_will_do = { 
 		factor = 10 
@@ -796,6 +796,40 @@ shared_focus = {
 		
 		unlock_decision_tooltip = nato_buy_trucks_usa
 		unlock_decision_tooltip = nato_buy_trucks_ger
+	}
+}
+
+
+shared_focus = {
+	id = POL_the_homeland_defence_act
+	icon = GFX_focus_POL_the_homeland_defence_act
+	x = 7
+	y = 1
+	cost = 45
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_eastern_logisitcal_hubs }
+	prerequisite = { focus = POL_consolodate_the_polska_grupa_zbrojeniowa }
+	prerequisite = { focus = POL_rapid_mobilisation }
+	relative_position_id = POL_eastern_logisitcal_hubs
+	available = {
+		OR={
+			has_global_flag = russia_has_invaded_ukraine_flag
+			AND={
+				has_war = yes
+				any_enemy_country={
+					is_major = yes
+				}
+			}
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		increase_military_spending = yes
 	}
 }
 
@@ -1554,6 +1588,8 @@ shared_focus = {
 	}
 
 	completion_reward = {
+		navy_experience = 50
+	
 		add_to_variable = { POL_navy_naval_coordination = 0.1 }
 		add_to_variable = { POL_navy_naval_detection = 0.1 }
 		add_to_variable = { POL_navy_spotting_chance = 0.08 }
@@ -1656,11 +1692,77 @@ shared_focus = {
 					instant_build = yes
 				}
 			}
-			increase_state_gdp_growth_by_2_5 = yes
+			increase_state_gdp_growth_by_2 = yes
 		}
 		
 		add_to_variable = { POL_navy_industrial_capacity_dockyard = 0.07 }
 		custom_effect_tooltip = POL_expand_hel_dockyard_tt
+	}
+}
+
+shared_focus = {
+	id = POL_hel_base_of_operations
+	icon = GFX_focus_POL_expand_hel_dockyard
+	x = -1
+	y = 2
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_expand_hel_dockyard }
+	prerequisite = { focus = POL_A2A_missile_focus focus = POL_A2S_missile_focus }
+	relative_position_id = POL_expand_hel_dockyard
+	available = {
+		24={
+			CONTROLLER={
+				OR={
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		has_tech = interwar_antiair
+		has_tech = radio_detection
+	}
+	bypass = {
+		NOT={
+			24={
+				CONTROLLER={
+					OR={
+						tag = ROOT
+						is_in_faction_with = ROOT
+						is_puppet_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		24={
+			add_building_construction = {
+				type = anti_air_building
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = radar_station
+				level = 3
+				instant_build = yes
+			}
+			if={
+				limit = { infrastructure < 5 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		navy_experience = 30
 	}
 }
 

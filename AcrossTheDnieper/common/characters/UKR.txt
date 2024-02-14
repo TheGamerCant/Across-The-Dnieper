@@ -549,10 +549,36 @@ characters={
 			available = {
 				NOT = { OR = { is_puppet_of = SOV original_tag = SOV } }
 				has_completed_focus = UKR_promote_budanov
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_kyrylo_budanov_army_chief }
+				}
 			}
 			traits = {
 				head_of_the_hur
 			}
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = UKR_kyrylo_budanov_army_chief
+			allowed = {
+				NOT = { OR={ original_tag = SOV original_tag = DON original_tag = LHK original_tag = KHK original_tag = ODS original_tag = NOV } }
+			}
+			available={
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_kyrylo_budanov }
+				}
+			}
+			visible = { has_country_flag = UKRAINE_new_high_command_available_flag }
+			traits = {
+				BUDANOV_unconventional
+			}
+			cost = 100
+			ai_will_do = {
+			}
+			visible = { NOT = { OR = { is_puppet_of = SOV original_tag = SOV } } }
 		}
 		
 		corps_commander = {
@@ -619,7 +645,7 @@ characters={
 			traits = {
 				army_chief_reform_3
 			}
-			cost = 150
+			cost = 200
 			ai_will_do = {
 				factor = 100
 			}
@@ -660,6 +686,12 @@ characters={
 			allowed = {
 				NOT = { OR={ original_tag = SOV original_tag = DON original_tag = LHK original_tag = KHK original_tag = ODS original_tag = NOV } }
 			}
+			available={
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_oleksandr_syrskyi_army_chief  }
+				}
+			}
 			traits = {
 				army_armored_2
 			}
@@ -667,6 +699,28 @@ characters={
 			ai_will_do = {
 				factor = 100
 			}
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = UKR_oleksandr_syrskyi_army_chief
+			allowed = {
+				NOT = { OR={ original_tag = SOV original_tag = DON original_tag = LHK original_tag = KHK original_tag = ODS original_tag = NOV } }
+			}
+			visible = { has_country_flag = UKRAINE_new_high_command_available_flag }
+			available={
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_oleksandr_syrskyi  }
+				}
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+			}
+			visible = { NOT = { OR = { is_puppet_of = SOV original_tag = SOV } } }
 		}
 		
 		field_marshal = {
@@ -1099,6 +1153,10 @@ characters={
 			cost = 200
 			available = {
 				NOT = { OR = { is_puppet_of = SOV original_tag = SOV } }
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_mykhailo_zabrodskyi_army_chief }
+				}
 			}
 			traits = {
 				popular_war_hero
@@ -1117,6 +1175,28 @@ characters={
 			cost = 100
 			ai_will_do = {
 				factor = 0
+			}
+			visible = { NOT = { OR = { is_puppet_of = SOV original_tag = SOV } } }
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = UKR_mykhailo_zabrodskyi_army_chief
+			allowed = {
+				NOT = { OR={ original_tag = SOV original_tag = DON original_tag = LHK original_tag = KHK original_tag = ODS original_tag = NOV } }
+			}
+			visible = { has_country_flag = UKRAINE_new_high_command_available_flag }
+			available={
+				if={
+					limit = { has_country_flag = UKRAINE_new_high_command_available_flag }
+					NOT = { has_idea = UKR_mykhailo_zabrodskyi }
+				}
+			}
+			traits = {
+				army_chief_maneuver_2
+			}
+			cost = 150
+			ai_will_do = {
 			}
 			visible = { NOT = { OR = { is_puppet_of = SOV original_tag = SOV } } }
 		}
