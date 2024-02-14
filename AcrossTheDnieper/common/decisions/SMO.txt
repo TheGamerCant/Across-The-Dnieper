@@ -1061,7 +1061,19 @@ SOV_smo={
 
 		available = {
 			has_war_with = UKR
-			NOT = { has_global_flag = smo_northern_front_open }
+			any_state={
+				has_state_flag = odessa_oblast_flag
+				CONTROLLER={
+					OR={
+						is_puppet_of = ROOT
+						tag = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				any_neighbor_state={
+					is_owned_by = TRZ
+				}
+			}
 			TRZ = {exists = yes}
 		}
 		
@@ -1080,14 +1092,15 @@ SOV_smo={
 		cost = 50
 
 		remove_effect = {
-			TRZ = {add_to_war = {
-    targeted_alliance = SOV
-    enemy = UKR
-    hostility_reason = asked_to_join
-}
-news_event = transnistria.3
-}
-set_global_flag = smo_southem_west_front_open
+			TRZ = {
+				add_to_war = {
+					targeted_alliance = SOV
+					enemy = UKR
+					hostility_reason = asked_to_join
+				}
+				news_event = transnistria.3
+			}
+			set_global_flag = smo_southem_west_front_open
 		}
 	}
 	
