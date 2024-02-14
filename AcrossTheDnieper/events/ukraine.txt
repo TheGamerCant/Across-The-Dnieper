@@ -5378,6 +5378,8 @@ country_event = { #a change in high command?
 		ai_chance = {
 			base = 0
 		}
+
+		add_stability = -0.07
 	}
 	
 	option = { 
@@ -5390,11 +5392,20 @@ country_event = { #a change in high command?
 			limit = { has_idea = UKR_valerii_zaluzhnui }
 			remove_ideas = UKR_valerii_zaluzhnui
 		}
-		if={
-			limit = { has_idea = UKR_oleksandr_syrskyi }
-			remove_ideas = UKR_oleksandr_syrskyi
+
+		hidden_effect={
+			if={
+				limit = { has_idea = UKR_oleksandr_syrskyi }
+				remove_ideas = UKR_oleksandr_syrskyi
+			}
 		}
+
 		add_ideas = UKR_oleksandr_syrskyi_army_chief
+
+		add_timed_idea = {
+			idea = UKR_low_morale
+			days = 25
+		}
 	}
 	
 	option = { 
@@ -5407,11 +5418,20 @@ country_event = { #a change in high command?
 			limit = { has_idea = UKR_valerii_zaluzhnui }
 			remove_ideas = UKR_valerii_zaluzhnui
 		}
-		if={
-			limit = { has_idea = UKR_mykhailo_zabrodskyi }
-			remove_ideas = UKR_mykhailo_zabrodskyi
+
+		hidden_effect={
+			if={
+				limit = { has_idea = UKR_mykhailo_zabrodskyi }
+				remove_ideas = UKR_mykhailo_zabrodskyi
+			}
 		}
+
 		add_ideas = UKR_mykhailo_zabrodskyi_army_chief
+
+		add_timed_idea = {
+			idea = UKR_low_morale
+			days = 25
+		}
 	}
 	
 	option = { 
@@ -5424,10 +5444,19 @@ country_event = { #a change in high command?
 			limit = { has_idea = UKR_valerii_zaluzhnui }
 			remove_ideas = UKR_valerii_zaluzhnui
 		}
-		if={
-			limit = { has_idea = UKR_kyrylo_budanov }
-			remove_ideas = UKR_kyrylo_budanov
+
+		hidden_effect={
+			if={
+				limit = { has_idea = UKR_kyrylo_budanov }
+				remove_ideas = UKR_kyrylo_budanov
+			}
 		}
+
 		add_ideas = UKR_kyrylo_budanov_army_chief
+
+		add_timed_idea = {
+			idea = UKR_low_morale
+			days = 25
+		}
 	}
 }
