@@ -3449,12 +3449,24 @@ focus_tree = {
 				}
 				
 				for_loop_effect = {
-					end = 25
+					end = 10
 					value = temp
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+							division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.7" 
+							owner = SOV
+						}
+					}
+				}
+
+				for_loop_effect = {
+					end = 15
+					value = temp
+					random_owned_controlled_state = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Storm-Z Unit\" division_template = \"Prison Infantry\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
 							owner = SOV
 						}
 					}
