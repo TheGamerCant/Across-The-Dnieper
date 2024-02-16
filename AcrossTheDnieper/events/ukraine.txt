@@ -5524,6 +5524,7 @@ country_event = { #Kastuś Kalinoŭski Regiment volunteers
 		name = ukraine.138.a
 
 		hidden_effect = {
+			country_event = { id = ukraine.139 days = 5 }
 			if = {
 				limit = { NOT = { has_template = "Volunteer Militia" } }
 
@@ -5554,5 +5555,24 @@ country_event = { #Kastuś Kalinoŭski Regiment volunteers
 		}
 		recruit_character = BLR_aliaksiej_skoblia
 		recruit_character = BLR_dzianis_prokharau
+	}
+}
+
+country_event = { #Aliaksiej Skoblia dies
+	id = ukraine.139
+	title = ukraine.139.t
+	desc = ukraine.139.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_belarussian_volunteers
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.139.a
+		set_country_flag = BLR_aliaksiej_skoblia_dead
+		add_war_support = -0.005
 	}
 }
