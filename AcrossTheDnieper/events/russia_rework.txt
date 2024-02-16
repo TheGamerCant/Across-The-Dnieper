@@ -2440,7 +2440,51 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		add_manpower = 5000
+		custom_effect_tooltip = "event_tt_historical"
+		hidden_effect={
+			division_template = {
+				name = "Gazpromneft Security PMC"
+				division_names_group = SOV_ESF_01
+				regiments = {
+					elite_special_forces = { x = 0 y = 0 }
+					elite_special_forces = { x = 0 y = 1 }
+					elite_special_forces = { x = 0 y = 2 }
+			
+					elite_special_forces = { x = 1 y = 0 }
+					elite_special_forces = { x = 1 y = 1 }
+					elite_special_forces = { x = 1 y = 2 }
+			
+					artillery_brigade = { x = 2 y = 0}
+					artillery_brigade = { x = 2 y = 1}
+				}
+				support = {
+					engineer = { x = 0 y = 0 }   
+				}
+				
+				priority = 0
+			}
+
+			set_division_template_lock = {
+				division_template = "Gazpromneft Security PMC"
+				is_locked = yes
+			}
+		}
+		random_state={
+			limit = {
+				AND = {
+					is_controlled_by = SOV
+					any_neighbor_state = {
+						is_controlled_by = UKR
+					}
+					NOT={is_demilitarized_zone = yes}
+				}
+			}
+
+			create_unit = {
+				division = "name = \"Gazpromneft Security PMC\" division_template = \"Gazpromneft Security PMC\" start_experience_factor = 0.6" 
+				owner = ROOT
+			}
+		}
 		army_experience = 10
 		SOV_increase_oil_and_gas_faction_small = yes
 		hidden_effect={
@@ -2450,7 +2494,7 @@ country_event = {
 			}
 		}
 		
-		custom_effect_tooltip = "event_tt_historical"
+		
 		custom_effect_tooltip = "SOV_move_towards_wagner_rebellion_tt"
     }
 	

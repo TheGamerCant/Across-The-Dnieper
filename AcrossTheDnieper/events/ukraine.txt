@@ -5460,3 +5460,99 @@ country_event = { #a change in high command?
 		}
 	}
 }
+
+country_event = { #karelian volunteers
+	id = ukraine.137
+	title = ukraine.137.t
+	desc = ukraine.137.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_azov_flag
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.137.a
+
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_template = "Volunteer Militia" } }
+
+				division_template = {
+					name = "Volunteer Militia"
+					division_names_group = UKR_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+					support = {
+						logistics_company = { x = 0 y = 0 }  
+					}
+				}	
+				set_division_template_lock = {
+					division_template = "Volunteer Militia"
+					is_locked = yes
+				}
+			}
+		}
+		random_controlled_state = {
+			create_unit = {
+				division = "name = \"Karelian National Battalion\" division_template = \"Volunteer Militia\" start_experience_factor = 0.65" 
+				owner = ROOT
+			}
+		}
+	}
+}
+
+country_event = { #Kastuś Kalinoŭski Regiment volunteers
+	id = ukraine.138
+	title = ukraine.138.t
+	desc = ukraine.138.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_belarussian_volunteers
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.138.a
+
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_template = "Volunteer Militia" } }
+
+				division_template = {
+					name = "Volunteer Militia"
+					division_names_group = UKR_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+					support = {
+						logistics_company = { x = 0 y = 0 }  
+					}
+				}	
+				set_division_template_lock = {
+					division_template = "Volunteer Militia"
+					is_locked = yes
+				}
+			}
+		}
+		random_controlled_state = {
+			create_unit = {
+				division = "name = \"Kastus Kalinouski Regiment\" division_template = \"Volunteer Militia\" start_experience_factor = 0.8" 
+				owner = ROOT
+			}
+		}
+		recruit_character = BLR_aliaksiej_skoblia
+		recruit_character = BLR_dzianis_prokharau
+	}
+}

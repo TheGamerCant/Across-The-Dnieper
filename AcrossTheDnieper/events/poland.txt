@@ -1299,6 +1299,41 @@ country_event = {
 	}
 }
 
+#Ukraine war - rocket explodes inside poland
+country_event = {
+	id = atd_poland.24
+	title = atd_poland.24.t
+	desc = atd_poland.24.desc
+	picture = GFX_report_event_POL_rocket_goes_boom
+	is_triggered_only = yes
+
+	trigger = {
+		UKR = { has_war_with = SOV }
+		51 = { is_controlled_by = POL }
+	}
+
+	option = {
+		name = atd_poland.24.a
+		ai_chance = { base = 1 }
+
+		51 = {add_manpower = -2}
+		add_stability = 0.03
+
+		hidden_effect={
+			news_event = { id = atd_news.74 } 
+		}
+	}
+	
+	option = {
+		name = atd_poland.24.b
+		ai_chance = { base = 0 }
+
+		51 = {add_manpower = -2}
+		add_stability = -0.05
+		add_political_power = 20
+	}
+}
+
 
 #Choose your party for election
 country_event = {
