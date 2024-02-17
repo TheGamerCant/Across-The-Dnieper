@@ -152,6 +152,30 @@ on_actions={
                 }
 				news_event = { id = city_captures.1 }
 			}
+			else_if = {	#Liberation of Kherson
+			limit = {
+				SOV={ has_war_with = UKR } 
+				tag = UKR
+				FROM.FROM = { state = 264 }
+				NOT={ has_global_flag = kherson_lib }
+				has_global_flag = kherson_fell
+			}
+			264={
+				add_dynamic_modifier = {
+					modifier = UKR_heavily_entrenched
+					scope = SOV
+				}
+			}
+			if={
+				limit={231={is_controlled_by=UKR}}
+				231={
+					add_dynamic_modifier = {
+						modifier = UKR_heavily_entrenched
+						scope = SOV
+					}
+				}
+			}
+		    }
 			else_if = {	#Fall of Mariupol
                 limit = {
 					SOV={ has_war_with = UKR } 
