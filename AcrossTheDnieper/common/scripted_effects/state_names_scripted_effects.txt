@@ -202,6 +202,10 @@ update_state_67_names={
 update_state_68_names={
 	68={
 		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_68_UKR
+		}
+		else_if ={ 
 			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
 			set_state_name = STATE_68_RUS
 		}
@@ -227,6 +231,14 @@ update_state_68_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 5878 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 5878 name = VICTORY_POINTS_5878_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 5878 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 5878 name = VICTORY_POINTS_5878_SOV }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 5878 OR={ original_tag = POL is_puppet_of = POL } } }
 		set_province_name = { id = 5878 name = VICTORY_POINTS_5878_POL }
 	}
@@ -318,6 +330,10 @@ update_state_91_names={
 update_state_92_names={
 	92={
 		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_92_UKR
+		}
+		else_if ={ 
 			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
 			set_state_name = STATE_92_RUS
 		}
@@ -331,6 +347,10 @@ update_state_92_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 8013 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 8013 name = VICTORY_POINTS_8013_UKR }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 8013 OR={ original_tag = SOV is_puppet_of = SOV } } }
 		set_province_name = { id = 8013 name = VICTORY_POINTS_8013_RUS }
 	}
@@ -355,6 +375,10 @@ update_state_92_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 12930 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 12930 name = VICTORY_POINTS_12930_UKR }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 12930 OR={ original_tag = SOV is_puppet_of = SOV } } }
 		set_province_name = { id = 12930 name = VICTORY_POINTS_12930_RUS }
 	}
@@ -367,6 +391,10 @@ update_state_92_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 17163 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 17163 name = VICTORY_POINTS_17163_UKR }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 17163 OR={ original_tag = SOV is_puppet_of = SOV } } }
 		set_province_name = { id = 17163 name = VICTORY_POINTS_17163_RUS }
 	}
@@ -379,6 +407,10 @@ update_state_92_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 17164 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 17164 name = VICTORY_POINTS_17164_UKR }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 17164 OR={ original_tag = SOV is_puppet_of = SOV } } }
 		set_province_name = { id = 17164 name = VICTORY_POINTS_17164_RUS }
 	}
@@ -1422,6 +1454,10 @@ update_state_435_names={
 update_state_436_names={
 	436={
 		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_436_UKR
+		}
+		else_if ={ 
 			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
 			set_state_name = STATE_436_RUS
 		}
@@ -1435,6 +1471,10 @@ update_state_436_names={
 	}
 	
 	if={
+		limit = { any_country = { controls_province = 7988 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 7988 name = VICTORY_POINTS_7988_UKR }
+	}
+	else_if={
 		limit = { any_country = { controls_province = 7988 OR={ original_tag = SOV is_puppet_of = SOV } } }
 		set_province_name = { id = 7988 name = VICTORY_POINTS_7988_RUS }
 	}
@@ -1990,7 +2030,6 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 56 name = VICTORY_POINTS_56 }
 	set_province_name = { id = 56 name = VICTORY_POINTS_56 }
 	set_province_name = { id = 67 name = VICTORY_POINTS_67 }
-	set_province_name = { id = 69 name = VICTORY_POINTS_69 }
 	set_province_name = { id = 72 name = VICTORY_POINTS_72 }
 	set_province_name = { id = 77 name = VICTORY_POINTS_77 }
 	set_province_name = { id = 89 name = VICTORY_POINTS_89 }

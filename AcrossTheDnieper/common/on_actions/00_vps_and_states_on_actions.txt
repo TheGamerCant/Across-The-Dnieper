@@ -1,9 +1,15 @@
-on_actions={	
+on_actions={					#Update all the states and vps every three months but only update singluar states when their control changes
 	on_monthly_ZZZ={
 		effect={
 			if={
 				limit = { NOT = { has_global_flag = city_name_changes_are_off } }
-				change_city_names = yes
+				add_to_variable = { global.is_it_time_to_change_state_names_yet = 1 }
+				if={
+					limit = { check_variable = { var = global.is_it_time_to_change_state_names_yet value = 3 compare = greater_than_or_equals } }
+					
+					change_city_names = yes
+					clear_variable = global.is_it_time_to_change_state_names_yet
+				}
 			}
 		}
 	}
