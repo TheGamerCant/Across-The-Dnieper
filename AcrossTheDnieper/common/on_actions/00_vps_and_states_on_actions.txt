@@ -1,0 +1,23 @@
+on_actions={	
+	on_monthly_ZZZ={
+		effect={
+			if={
+				limit = { NOT = { has_global_flag = city_name_changes_are_off } }
+				change_city_names = yes
+			}
+		}
+	}
+	
+	on_state_control_changed={
+		effect={
+			FROM.FROM={
+				meta_effect = {
+					text = {
+						update_state_[STATE_TO_BE_UPDATED_ID]_names
+					}
+					STATE_TO_BE_UPDATED_ID = "[THIS.GetID]"
+				}
+			}
+		}
+	}
+}

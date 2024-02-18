@@ -470,6 +470,66 @@ money_gui_decisions={
 			}
 		}
 	}
+	
+	toggle_super_event_music = { 
+
+		icon = eng_trade_unions_support
+
+		allowed = {
+
+		}
+
+		available = {
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			if={
+				limit = { has_country_flag = super_event_sounds_are_off }
+				clr_country_flag = super_event_sounds_are_off
+			}
+			else={ 
+				set_country_flag = super_event_sounds_are_off
+			}
+		}
+	}
+	
+	toggle_city_name_changes = { 
+
+		icon = eng_trade_unions_support
+
+		allowed = {
+
+		}
+
+		available = {
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			if={
+				limit = { has_global_flag = city_name_changes_are_off }
+				clr_global_flag = city_name_changes_are_off
+				
+				hidden_effect = { change_city_names = yes }
+			}
+			else={ 
+				set_global_flag = city_name_changes_are_off
+				
+				hidden_effect = { revert_city_names_to_original = yes }
+			}
+		}
+	}
 }
 
 nukes_decision_category={
