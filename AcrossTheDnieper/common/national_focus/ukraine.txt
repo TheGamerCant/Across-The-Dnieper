@@ -1575,101 +1575,100 @@ focus_tree = {
 			}
 			hidden_effect={
 				division_template = {
-					name = "Donbass Militias"
+					name = "Territorial Battalion Of Donbas"
 					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 163
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
 						irregular_infantry = { x = 0 y = 2 }
-						irregular_infantry = { x = 1 y = 0 }
-						irregular_infantry = { x = 1 y = 1 }
-						irregular_infantry = { x = 1 y = 2 }
-						irregular_infantry = { x = 2 y = 0 }
+						mechanized = { x = 1 y = 0 }
+						mechanized = { x = 1 y = 1 }
+						apc = { x = 1 y = 2 }
+						apc = { x = 2 y = 0 }
 						artillery_brigade = { x = 2 y = 1 }
 					}
 				}
-				random_owned_controlled_state = {
-					limit = { 
-						ROOT = { has_full_control_of_state = PREV } 
-						OR={ 
-							has_state_flag = donetsk_oblast_flag
-							has_state_flag = luhansk_oblast_flag
-							has_state_flag = zaporizhia_oblast_flag
-							has_state_flag = kharkiv_oblast_flag
-							has_state_flag = kherson_oblast_flag
+
+				if = {
+					limit = { has_start_date = 2022.2.1 }
+
+					135 = {
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
 						}
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
 					}
 				}
-				random_owned_controlled_state = {
-					limit = { 
-						ROOT = { has_full_control_of_state = PREV } 
-						OR={ 
-							has_state_flag = donetsk_oblast_flag
-							has_state_flag = luhansk_oblast_flag
-							has_state_flag = zaporizhia_oblast_flag
-							has_state_flag = kharkiv_oblast_flag
-							has_state_flag = kherson_oblast_flag
+				else={
+					random_owned_controlled_state = {
+						limit = { 
+							ROOT = { has_full_control_of_state = PREV } 
+							OR={ 
+								has_state_flag = donetsk_oblast_flag
+								has_state_flag = luhansk_oblast_flag
+								has_state_flag = zaporizhia_oblast_flag
+								has_state_flag = kharkiv_oblast_flag
+								has_state_flag = kherson_oblast_flag
+							}
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
 						}
 					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-				}
-				random_owned_controlled_state = {
-					limit = { 
-						ROOT = { has_full_control_of_state = PREV } 
-						OR={ 
-							has_state_flag = donetsk_oblast_flag
-							has_state_flag = luhansk_oblast_flag
-							has_state_flag = zaporizhia_oblast_flag
-							has_state_flag = kharkiv_oblast_flag
-							has_state_flag = kherson_oblast_flag
+					random_owned_controlled_state = {
+						limit = { 
+							ROOT = { has_full_control_of_state = PREV } 
+							OR={ 
+								has_state_flag = donetsk_oblast_flag
+								has_state_flag = luhansk_oblast_flag
+								has_state_flag = zaporizhia_oblast_flag
+								has_state_flag = kharkiv_oblast_flag
+								has_state_flag = kherson_oblast_flag
+							}
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
 						}
 					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
-					}
-					create_unit = {
-						division = "name = \"Dobrovol'tsi ukrayins'koyi oborony\" division_template = \"Donbass Militias\" start_experience_factor = 0.15" 
-						owner = UKR
+					random_owned_controlled_state = {
+						limit = { 
+							ROOT = { has_full_control_of_state = PREV } 
+							OR={ 
+								has_state_flag = donetsk_oblast_flag
+								has_state_flag = luhansk_oblast_flag
+								has_state_flag = zaporizhia_oblast_flag
+								has_state_flag = kharkiv_oblast_flag
+								has_state_flag = kherson_oblast_flag
+							}
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
+						create_unit = {
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							owner = UKR
+						}
 					}
 				}
 			}
@@ -7630,95 +7629,767 @@ focus_tree = {
 			add_ideas = limited_conscription
 			custom_effect_tooltip = UKR_mobilise_the_national_guard_tt
 			hidden_effect={
-				if={
+				division_template = {
+					name = "2nd Battalion of State Facilities Protection"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 139
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "11th Battalion"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 145
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "75th Battalion"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 152
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "16th Battalion"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 155
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "21st Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 140
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "31st Dnipro Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 141
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "Spartan Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 143
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "5th Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 144
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "12th Operational Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 146
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "18th Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 147
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "Bureviy Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 148
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						anti_air = { x = 0 y = 1 }
+					}
+				}
+
+				division_template = {
+					name = "25th Brigade of Public Order Protection"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 149
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "23rd Brigade of Public Order Protection"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 157
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "11th Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 153
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "Kara-Dag Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 154
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						modern_armor_nsb = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+				}
+
+				division_template = {
+					name = "Chervona Kalyna Brigade"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 158
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						apc = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }	
+						mechanized = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "32nd Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 142
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "27th Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 150
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "31st Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 151
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "19th Mykolaiv Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 156
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "40th Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 159
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "45th Operational Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 160
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				division_template = {
+					name = "50th Regiment"
+					division_names_group = UKR_INF_01
+					is_locked = yes
+					template_counter = 161
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 269 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"11th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"11th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"11th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 196 }
+					create_unit = {
+						division = "name = \"2nd Battalion of State Facilities Protection\" division_template = \"2nd Battalion of State Facilities Protection\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"23rd Battalion of Public Order Protection\" division_template = \"23rd Brigade of Public Order Protection\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"Kara-Dag Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"Kara-Dag Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"Kara-Dag Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 55 }
+					create_unit = {
+						division = "name = \"27th Regiment\" division_template = \"27th Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 127 }
+					create_unit = {
+						division = "name = \"50th Regiment\" division_template = \"50th Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 96 }
+					create_unit = {
+						division = "name = \"45th Operational Regiment\" division_template = \"45th Operational Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 115 }
+					create_unit = {
+						division = "name = \"31st Regiment\" division_template = \"31st Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 87 }
+					create_unit = {
+						division = "name = \"75th Battalion\" division_template = \"75th Battalion\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 145 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"21st Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"21st Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"21st Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+
+
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"31st Dnipro Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"31st Dnipro Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"31st Dnipro Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 100 }
+					create_unit = {
+						division = "name = \"32nd Battalion\" division_template = \"32nd Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+				
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 129 }
+					create_unit = {
+						division = "name = \"Chervona Kalyna Battalion\" division_template = \"Chervona Kalyna Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"40th Regiment\" division_template = \"40th Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 94 }
+					create_unit = {
+						division = "name = \"Spartan Battalion\" division_template = \"Spartan Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"5th Battalion\" division_template = \"5th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 70 }
+					create_unit = {
+						division = "name = \"11th Battalion\" division_template = \"11th Battalion\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 230 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"12th Operational Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 135 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"18th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"18th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"18th Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 72 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"Bureviy Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Battalion of Operational Assignment\" division_template = \"Bureviy Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"Bureviy Brigade\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 92 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"25th Brigade of Public Order Protection\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"25th Brigade of Public Order Protection\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 264 }
+					create_unit = {
+						division = "name = \"16th Battalion\" division_template = \"16th Battalion\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { controls_state = PREV } }
+					prioritize = { 236 }
+					create_unit = {
+						division = "name = \"1st Guardsmen Battalion\" division_template = \"19th Mykolaiv Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Guardsmen Battalion\" division_template = \"19th Mykolaiv Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Guardsmen Battalion\" division_template = \"19th Mykolaiv Regiment\" start_experience_factor = 0.1" 
+						owner = UKR
+					}
+				}
+
+				if={ #130 is now 140
 					limit={
 						SOV = { is_ai = no }
 						is_ai = yes
 					}
+
 					division_template = {
-						name = "Emergency National Guard"
+						name = "National Guard Unit"
 						division_names_group = UKR_INF_01
+						template_counter = 133
 						regiments = {
 							infantry = { x = 0 y = 0 }
 							infantry = { x = 0 y = 1 }
 							infantry = { x = 0 y = 2 }
 							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }	
-							mechanized = { x = 2 y = 0 }
-							mechanized = { x = 2 y = 1 }
+							irregular_infantry = { x = 1 y = 1 }
+							irregular_infantry = { x = 1 y = 2 }
+							irregular_infantry = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+							irregular_infantry = { x = 2 y = 2 }
 						}
 						support = {
-							artillery = { x = 0 y = 0 }
+							anti_air = { x = 0 y = 0 }
 						}
 					}
 					
 					for_loop_effect = {
-						end = 130
+						end = 102
 						value = temp
 						random_owned_controlled_state = {
-							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } }
+							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.2" 
+								division = "name = \"National Guard Unit\" division_template = \"National Guard Unit\" start_experience_factor = 0.2" 
 								owner = UKR
 							}
 						}
 					}
 				}
-				else_if={
+				else_if={ #105 is now 110
 					limit={
 						SOV = { is_ai = yes }
 						is_ai = yes
 					}
+
 					division_template = {
-						name = "Emergency National Guard"
+						name = "National Guard Unit"
 						division_names_group = UKR_INF_01
+						template_counter = 133
 						regiments = {
-							irregular_infantry = { x = 0 y = 0 }
-							irregular_infantry = { x = 0 y = 1 }
-							irregular_infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
 							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }	
-							mechanized = { x = 2 y = 0 }
-							mechanized = { x = 2 y = 1 }
+							irregular_infantry = { x = 1 y = 1 }
+							irregular_infantry = { x = 1 y = 2 }
+							irregular_infantry = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+							irregular_infantry = { x = 2 y = 2 }
 						}
 						support = {
-							artillery = { x = 0 y = 0 }
+							anti_air = { x = 0 y = 0 }
 						}
 					}
 					
 					for_loop_effect = {
-						end = 105
+						end = 72
 						value = temp
 						random_owned_controlled_state = {
-							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } }
+							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.16" 
+								division = "name = \"National Guard Unit\" division_template = \"National Guard Unit\" start_experience_factor = 0.2" 
 								owner = UKR
 							}
 						}
 					}
-				}
-				else={
+				} 
+				else={ #80 stays 80
+
 					division_template = {
-						name = "Emergency National Guard"
+						name = "National Guard Unit"
 						division_names_group = UKR_INF_01
+						template_counter = 133
 						regiments = {
-							irregular_infantry = { x = 0 y = 0 }
-							irregular_infantry = { x = 0 y = 1 }
-							irregular_infantry = { x = 0 y = 2 }
-							infantry = { x = 1 y = 0 }	
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+							irregular_infantry = { x = 1 y = 1 }
+							irregular_infantry = { x = 1 y = 2 }
+							irregular_infantry = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+							irregular_infantry = { x = 2 y = 2 }
+						}
+						support = {
+							anti_air = { x = 0 y = 0 }
 						}
 					}
 					
 					for_loop_effect = {
-						end = 80
+						end = 42
 						value = temp
 						random_owned_controlled_state = {
-							limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } }
+							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03" 
+								division = "name = \"National Guard Unit\" division_template = \"National Guard Unit\" start_experience_factor = 0.2" 
 								owner = UKR
 							}
 						}
