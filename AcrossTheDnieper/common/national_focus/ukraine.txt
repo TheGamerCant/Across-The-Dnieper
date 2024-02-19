@@ -635,7 +635,7 @@ focus_tree = {
 	country = {
 		factor = 0
 	}
-	
+
 	focus = {
 		id = UKR_the_war_in_donbass
 		icon = GFX_focus_generic_donbass
@@ -1596,7 +1596,7 @@ focus_tree = {
 
 					135 = {
 						create_unit = {
-							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion of Donbas\" start_experience_factor = 0.15" 
+							division = "name = \"Special Purpose Battalion Donbas\" division_template = \"Territorial Battalion Of Donbas\" start_experience_factor = 0.15" 
 							owner = UKR
 						}
 					}
@@ -7507,28 +7507,31 @@ focus_tree = {
 			custom_effect_tooltip = UKR_the_battle_of_kyiv_tt
 			hidden_effect={
 				division_template = {
-					name = "Kyiv Militia"
+					name = "101st Guard Brigade Of General Staff"
 					division_names_group = UKR_INF_01
+					template_counter = 176
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
 						irregular_infantry = { x = 0 y = 2 }
 						irregular_infantry = { x = 0 y = 3 }
 						irregular_infantry = { x = 1 y = 0 }
-						irregular_infantry = { x = 1 y = 1 }
-						
+						irregular_infantry = { x = 1 y = 1 }	
 					}
 				}
-				
-				for_loop_effect = {
-					end = 5
-					value = temp
-					random_owned_controlled_state = {
-						prioritize = { 92 }
-						create_unit = {
-							division = "name = \"Kyiv Militia Unit\" division_template = \"Kyiv Militia\" start_experience_factor = 0.05" 
-							owner = UKR
-						}
+
+				division_template = {
+					name = "Presidential Brigade"
+					division_names_group = UKR_INF_01
+					template_counter = 177
+					is_locked = yes
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						mechanized = { x = 1 y = 0 }
+						mechanized = { x = 1 y = 1 }	
 					}
 				}
 				
@@ -7538,7 +7541,19 @@ focus_tree = {
 					random_owned_controlled_state = {
 						prioritize = { 85 }
 						create_unit = {
-							division = "name = \"Kyiv Militia Unit\" division_template = \"Kyiv Militia\" start_experience_factor = 0.05" 
+							division = "name = \"101st Guard Battalion Of General Staff\" division_template = \"101st Guard Brigade Of General Staff\" start_experience_factor = 0.08" 
+							owner = UKR
+						}
+					}
+				}
+				
+				for_loop_effect = {
+					end = 5
+					value = temp
+					random_owned_controlled_state = {
+						prioritize = { 92 }
+						create_unit = {
+							division = "name = \"Presidential Separate Special Purpose Battalion\" division_template = \"Presidential Brigade\" start_experience_factor = 0.1" 
 							owner = UKR
 						}
 					}
@@ -7551,8 +7566,9 @@ focus_tree = {
 					}
 					UKR={
 						division_template = {
-							name = "AI Emergency National Guard"
+							name = "Emergency National Guard"
 							division_names_group = UKR_INF_01
+							template_counter = 133
 							regiments = {
 								infantry = { x = 0 y = 0 }
 								infantry = { x = 0 y = 1 }
@@ -7571,7 +7587,7 @@ focus_tree = {
 							random_owned_controlled_state = {
 								limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } }
 								create_unit = {
-									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03" 
 									owner = UKR
 								}
 							}
@@ -7590,7 +7606,7 @@ focus_tree = {
 							random_owned_controlled_state = {
 								limit = { UKR = { has_full_control_of_state = PREV } NOT = { has_state_flag = kherson_oblast_flag } NOT = { state = 288 } }
 								create_unit = {
-									division = "name = \"National Guard Unit\" division_template = \"AI Emergency National Guard\" start_experience_factor = 0.03" 
+									division = "name = \"National Guard Unit\" division_template = \"Emergency National Guard\" start_experience_factor = 0.03" 
 									owner = UKR
 								}
 							}
