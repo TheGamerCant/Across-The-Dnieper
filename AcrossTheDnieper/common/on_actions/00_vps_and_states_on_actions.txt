@@ -22,12 +22,15 @@ on_actions={
 	
 	on_state_control_changed={
 		effect={
-			FROM.FROM={
-				meta_effect = {
-					text = {
-						update_state_[STATE_TO_BE_UPDATED_ID]_names
+			if={
+				limit = { NOT = { has_global_flag = city_name_changes_are_off } }
+				FROM.FROM={
+					meta_effect = {
+						text = {
+							update_state_[STATE_TO_BE_UPDATED_ID]_names
+						}
+						STATE_TO_BE_UPDATED_ID = "[THIS.GetID]"
 					}
-					STATE_TO_BE_UPDATED_ID = "[THIS.GetID]"
 				}
 			}
 		}
