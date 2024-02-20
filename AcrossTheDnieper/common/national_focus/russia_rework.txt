@@ -672,7 +672,7 @@ focus_tree = {
 		completion_reward={
 			custom_effect_tooltip = SOV_movements_on_the_border_tt
 			hidden_effect={
-				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1119 days = 453 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 221 } }
+				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1119 days = 453 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 221 } country_event = { id = russia.1149 days = 108 } country_event = { id = russia.1150 days = 41 } }
 				UKR = { country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.137 days = 330 } country_event = { id = ukraine.138 days = 14 } }
 				POL = { country_event = { id = atd_poland.24 days = 265 } }
 				news_event = { id = atd_news.73 days = 84 } 
@@ -3093,6 +3093,20 @@ focus_tree = {
 					days = 80
 				}
 			}
+
+			every_state = {
+				limit = {
+					AND = {
+						is_controlled_by = SOV
+						OR = { state = 438 state = 242 state = 282 }
+					}
+				}
+
+				add_dynamic_modifier = {
+					modifier = UKR_heavily_entrenched_russians
+					scope = UKR
+				}
+			}
 		}
 	}
 
@@ -3434,19 +3448,47 @@ focus_tree = {
 			add_manpower = 75000
 			custom_effect_tooltip = SOV_prison_recruitment_tt
 			hidden_effect={
-				division_template = {
-					name = "Prison Infantry"
-					division_names_group = SOV_INF_01
-					regiments = {
-						irregular_infantry = { x = 0 y = 0 }
-						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
-						irregular_infantry = { x = 1 y = 0 }
-						irregular_infantry = { x = 1 y = 1 }
-						irregular_infantry = { x = 1 y = 2 }
-						irregular_infantry = { x = 2 y = 0 }
-						irregular_infantry = { x = 2 y = 1 }
-						irregular_infantry = { x = 2 y = 2 }
+				if = {
+					limit = { NOT = { has_template = "Wagner PMC" } }
+	
+					division_template = {
+						name = "Wagner PMC"
+						template_counter = 183
+						division_names_group = SOV_ESF_01
+						is_locked = yes
+						regiments = {
+							elite_special_forces = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 1 y = 0 }
+							irregular_infantry = { x = 1 y = 1 }
+							elite_special_forces = { x = 1 y = 2 }
+							artillery_brigade = { x = 2 y = 0}
+							artillery_brigade = { x = 2 y = 1}
+						}
+						support = {
+							engineer = { x = 0 y = 0 }   
+						}
+					}
+
+					division_template = {
+						name = "Storm-Z Brigade"
+						template_counter = 204
+						division_names_group = SOV_ESF_01
+						is_locked = yes
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 1 y = 0 }
+							irregular_infantry = { x = 1 y = 1 }
+							irregular_infantry = { x = 1 y = 2 }
+							artillery_brigade = { x = 2 y = 0}
+							artillery_brigade = { x = 2 y = 1}
+						}
+						support = {
+							engineer = { x = 0 y = 0 }   
+						}
 					}
 				}
 				
@@ -3456,7 +3498,7 @@ focus_tree = {
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.7" 
+							division = "name = \"Wagner Battalion\" division_template = \"Wagner PMC\" start_experience_factor = 0.1 start_equipment_factor = 0.7" 
 							owner = SOV
 						}
 					}
@@ -3468,7 +3510,7 @@ focus_tree = {
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"Storm-Z Unit\" division_template = \"Prison Infantry\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
+							division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
 							owner = SOV
 						}
 					}
@@ -3477,12 +3519,12 @@ focus_tree = {
 				if={
 					limit = { is_ai = yes UKR= { is_ai = no } }
 					for_loop_effect = {
-						end = 18
+						end = 19
 						value = temp
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"Prison Battalion\" division_template = \"Prison Infantry\" start_experience_factor = 0.03 start_equipment_factor = 0.6" 
+								division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
 								owner = SOV
 							}
 						}

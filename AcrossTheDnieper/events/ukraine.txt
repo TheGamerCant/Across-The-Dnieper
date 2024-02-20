@@ -3763,14 +3763,15 @@ country_event = {
 	immediate = { 
 		set_variable_to_random = {
 			var = western_troops_count_variable
+			min = 1
 			max = 3
 			integer = yes
 		}
 
 		set_variable_to_random = {
 			var = western_troops_id
-			min = 187
-			max = 187
+			min = 1
+			max = 7
 			integer = yes
 		}
 
@@ -3784,8 +3785,7 @@ country_event = {
 		}
 		hidden_effect={
 			if = {
-				limit = { check_variable = { western_troops_id = 187 } }
-				set_variable = { western_troops_name = "41st Mechanized Brigade" }
+				limit = { check_variable = { western_troops_id = 1 } }
 
 				if = {
 					limit = { NOT = { has_template = "41st Mechanized Brigade" } }
@@ -3796,31 +3796,207 @@ country_event = {
 						is_locked = yes
 						template_counter = 187
 						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-							elite_special_forces = { x = 0 y = 3 }
-							elite_special_forces = { x = 1 y = 3 }
-							mechanized = { x = 2 y = 0 }
-							mechanized = { x = 2 y = 1 }
-							mechanized = { x = 2 y = 2 }
-							mechanized = { x = 2 y = 3 }
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
 						}
 						support = {
-							maintenance_company = { x = 0 y = 0 }   
-							logistics_company = { x = 0 y = 1 }  
-							signal_company = { x = 0 y = 2 }  
-							mot_recon = { x = 0 y = 3 }  
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
 						}
 					}
 				}
-
-
 			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 2 } }
 
+				if = {
+					limit = { NOT = { has_template = "47th Mechanized Brigade" } }
+
+					division_template = {
+						name = "47th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 188
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 3 } }
+
+				if = {
+					limit = { NOT = { has_template = "3rd Assault Brigade" } }
+
+					division_template = {
+						name = "3rd Assault Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 189
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 4 } }
+
+				if = {
+					limit = { NOT = { has_template = "21st Mechanized Brigade" } }
+
+					division_template = {
+						name = "21st Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 191
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 5 } }
+
+				if = {
+					limit = { NOT = { has_template = "32nd Mechanized Brigade" } }
+
+					division_template = {
+						name = "32nd Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 192
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 6 } }
+
+				if = {
+					limit = { NOT = { has_template = "37th Marine Brigade" } }
+
+					division_template = {
+						name = "37th Marine Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 193
+						regiments = {
+							anti_air_brigade = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							apc = { x = 0 y = 3 }
+							marine = { x = 1 y = 0 }
+							marine = { x = 1 y = 1 }
+							marine = { x = 1 y = 2 }
+							marine = { x = 2 y = 0 }
+							marine = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 7 } }
+
+				if = {
+					limit = { NOT = { has_template = "82nd Air Assault Brigade" } }
+
+					division_template = {
+						name = "82nd Air Assault Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 194
+						regiments = {
+							elite_special_forces = { x = 0 y = 0 }
+							elite_special_forces = { x = 0 y = 1 }
+							elite_special_forces = { x = 0 y = 2 }
+							anti_air_brigade = { x = 0 y = 3 }
+							modern_armor_nsb = { x = 1 y = 0 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
 			for_loop_effect = {
 				end = western_troops_count_variable
 				value = temp
@@ -3830,11 +4006,12 @@ country_event = {
 					meta_effect = {
 						text = {
 							create_unit = {
-								division = "name = \"Elite Forces\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
+								division = "name = \"[WTSB]\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
 								owner = UKR
 							}
 						}
-						WTS = "[UKR.get_western_troops_name]"
+						WTS = "[UKR.get_western_troops_name] Brigade"
+						WTSB = "[UKR.get_western_troops_name] Battalion"
 					}
 				}
 			}
