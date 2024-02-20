@@ -237,7 +237,7 @@ country_event = {
 			
 			54 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					prioritize_location = 4048
 					allow_spawning_on_enemy_provs = yes
@@ -245,7 +245,7 @@ country_event = {
 			}
 			353 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					prioritize_location = 19885
 					allow_spawning_on_enemy_provs = yes
@@ -255,7 +255,7 @@ country_event = {
 
 			344 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					prioritize_location = 10994
 					allow_spawning_on_enemy_provs = yes
@@ -266,7 +266,7 @@ country_event = {
 
 			326 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					prioritize_location = 2537
 					allow_spawning_on_enemy_provs = yes
@@ -276,7 +276,7 @@ country_event = {
 
 			331 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					allow_spawning_on_enemy_provs = yes
 					count = 2
@@ -285,7 +285,7 @@ country_event = {
 
 			308 = {
 				create_unit = {
-					division = "name = \"Morskaya Pekhota\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
+					division = "name = \"Zelyonye Chelovechki\" division_template = \"Sevastopol Garrison\" start_experience_factor = 0.1"
 					owner = SOV
 					allow_spawning_on_enemy_provs = yes
 					count = 1
@@ -2445,6 +2445,8 @@ country_event = {
 			division_template = {
 				name = "Gazpromneft Security PMC"
 				division_names_group = SOV_ESF_01
+				is_locked = yes
+				template_counter = 182
 				regiments = {
 					elite_special_forces = { x = 0 y = 0 }
 					elite_special_forces = { x = 0 y = 1 }
@@ -2460,14 +2462,8 @@ country_event = {
 				support = {
 					engineer = { x = 0 y = 0 }   
 				}
-				
-				priority = 0
 			}
 
-			set_division_template_lock = {
-				division_template = "Gazpromneft Security PMC"
-				is_locked = yes
-			}
 		}
 		random_state={
 			limit = {
@@ -2481,7 +2477,7 @@ country_event = {
 			}
 
 			create_unit = {
-				division = "name = \"Gazpromneft Security PMC\" division_template = \"Gazpromneft Security PMC\" start_experience_factor = 0.6" 
+				division = "name = \"Fakel\" division_template = \"Gazpromneft Security PMC\" start_experience_factor = 0.8" 
 				owner = ROOT
 			}
 		}
@@ -3158,7 +3154,7 @@ country_event = {
 	immediate = {
 		set_variable_to_random = {
 			var = wagner_count_variable
-			max = 9
+			max = 10
 			integer = yes
 		}
 	}
@@ -3173,9 +3169,8 @@ country_event = {
 		custom_effect_tooltip = "russia.1078.tt"
 		hidden_effect = {
 			division_template = {
-	            name = "Musicians"
-	            template_counter = 33
-	            priority = 2
+	            name = "Wagner PMC"
+	            template_counter = 183
 	            division_names_group = SOV_ESF_01
 	            regiments = {
 	            	elite_special_forces = { x = 0 y = 0 }
@@ -3200,7 +3195,7 @@ country_event = {
 				random_owned_controlled_state = {
 					limit = { ROOT = { has_full_control_of_state = PREV } }
 					create_unit = {
-						division = "name = \"Wagner Battalion\" division_template = \"Musicians\" start_experience_factor = 0.95 start_equipment_factor = 0.95" 
+						division = "name = \"Wagner Battalion\" division_template = \"Wagner PMC\" start_experience_factor = 0.95 start_equipment_factor = 0.95" 
 						owner = SOV
 					}
 				}
@@ -4053,29 +4048,24 @@ country_event = {
 				regiments = {
 					irregular_infantry = { x = 0 y = 0 }
 					irregular_infantry = { x = 0 y = 1 }
-					irregular_infantry = { x = 0 y = 2 }
-					irregular_infantry = { x = 1 y = 0 }
-					irregular_infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-					infantry = { x = 2 y = 0 }
-					artillery_brigade = { x = 2 y = 1 }
+					apc = { x = 0 y = 2 }
 				}
-				
-				priority = 0
+				is_locked = yes
+				template_counter = 184
 			}
 		}
 		random_state = {
 			limit = { TRZ = { has_full_control_of_state = PREV } }
 			create_unit = {
-				division = "name = \"22nd Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				division = "name = \"Russian Peacekeeping Forces\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
 				owner = SOV
 			}
 			create_unit = {
-				division = "name = \"23rd Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				division = "name = \"Russian Peacekeeping Forces\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
 				owner = SOV
 			}
 			create_unit = {
-				division = "name = \"24th Guards Infantry\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
+				division = "name = \"Russian Peacekeeping Forces\" division_template = \"Pridnestrovie Peacekeepers\" start_experience_factor = 0.1" 
 				owner = SOV
 			}
 		}
@@ -4613,15 +4603,18 @@ country_event = {
 		custom_effect_tooltip = "russia.1123.tt"
 		hidden_effect={
 			division_template = {
-				name = "Volunteer Battalion"
+				name = "Volunteer Brigade"
 				division_names_group = SOV_INF_01
+				template_counter = 185
 				regiments = {
 					irregular_infantry = { x = 0 y = 0 }
 					irregular_infantry = { x = 0 y = 1 }
 					irregular_infantry = { x = 0 y = 2 }
+					apc = { x = 0 y = 3 }
 				}
 				support = {
 					logistics_company = { x = 0 y = 1 }  
+					maintenance_company = { x = 0 y = 0 }  
 				}
 			}
 			
@@ -4631,7 +4624,7 @@ country_event = {
 				random_owned_controlled_state = {
 					limit = { ROOT = { has_full_control_of_state = PREV } }
 					create_unit = {
-						division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Battalion\" start_experience_factor = 0.035 start_equipment_factor = 0.7" 
+						division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85" 
 						owner = SOV
 					}
 				}
@@ -4640,12 +4633,12 @@ country_event = {
 			if={
 				limit = { is_ai = yes UKR= { is_ai = no } }
 				for_loop_effect = {
-					end = 5
+					end = 8
 					value = temp
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Battalion\" start_experience_factor = 0.01 start_equipment_factor = 0.2" 
+							division = "name = \"Volunteer Battalion\" division_template = \"Volunteer Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85" 
 							owner = SOV
 						}
 					}
