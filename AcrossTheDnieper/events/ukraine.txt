@@ -3821,27 +3821,22 @@ country_event = {
 
 			}
 
-			meta_effect = {
-				text = {
-					for_loop_effect = {
-						end = western_troops_count_variable
-						value = temp
-						random_owned_controlled_state = {
-							limit = { ROOT = { has_full_control_of_state = PREV } }
-							prioritize = { 92 }
-							meta_effect = {
-								text = {
-									create_unit = {
-										division = "name = \"Elite Forces\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
-										owner = UKR
-									}
-								}
-								WTS = "[UKR.get_western_troops_name]"
+			for_loop_effect = {
+				end = western_troops_count_variable
+				value = temp
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 92 }
+					meta_effect = {
+						text = {
+							create_unit = {
+								division = "name = \"Elite Forces\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
+								owner = UKR
 							}
 						}
+						WTS = "[UKR.get_western_troops_name]"
 					}
 				}
-				WTS = "[get_western_troops_name]"
 			}
 		}
 	}
