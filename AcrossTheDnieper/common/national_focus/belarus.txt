@@ -3142,6 +3142,7 @@ focus_tree = {
 	  create_unit = { division = "name = \"3rd Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
 	  create_unit = { division = "name = \"4th Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
 		}
+		add_manpower = 15000
 	  }
 	}
 	
@@ -3210,6 +3211,7 @@ focus_tree = {
 					owner = PREV
 				}
 			}
+		add_manpower = 10000
 		}
 	  }
 	  
@@ -3241,6 +3243,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_manpower = 100000
 			army_experience = 40
 			add_ideas = BLR_the_kings_army_idea
 		}
@@ -3359,6 +3362,11 @@ focus_tree = {
 		`			instant_build = yes
 										}
 									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 8
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 			
 		}
 	}
@@ -3425,6 +3433,11 @@ focus_tree = {
 		`			instant_build = yes
 										}
 									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 16
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 			
 		}
 	}
@@ -3458,6 +3471,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = BLR_mondernised_serfdom_idea
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -3465,12 +3479,18 @@ focus_tree = {
 										}
 									}
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 		`			instant_build = yes
 										}
 									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 4
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 			
 		}
 	}
@@ -3503,6 +3523,7 @@ focus_tree = {
 
 		completion_reward = {
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -3510,6 +3531,7 @@ focus_tree = {
 										}
 									}
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -3517,6 +3539,7 @@ focus_tree = {
 										}
 									}
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -3524,6 +3547,7 @@ focus_tree = {
 										}
 									}
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -3531,12 +3555,18 @@ focus_tree = {
 										}
 									}
 				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 		`			instant_build = yes
 										}
 									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 16
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 			
 		}
 	}
@@ -3568,6 +3598,11 @@ focus_tree = {
 
 		completion_reward = {
 		add_ideas = BLR_economic_expanstion_idea
+		add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 6
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 		}
 	}
 	
@@ -3598,6 +3633,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_stability = 0.10
 			add_ideas = BLR_traditional_reforms_idea
 			remove_ideas = generic_demographic_crisis
 		}
@@ -3630,6 +3666,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+				add_stability = 0.05
 				swap_ideas = {
 					remove_idea = religion_law_religious
 					add_idea = religion_law_fundamentalist
@@ -3915,7 +3952,11 @@ focus_tree = {
 			add_state_core = 57
 			add_state_core = 58
 			add_state_core = 73
-			create_wargoal = { type = annex_everything target = UKR }
+			create_wargoal = {
+				type = take_state_focus
+				target = UKR
+				generator = { 68 436 72 85 92 55 56 69 86 79 65 61 60 57 58 73 }
+				}
 			}
 		}
 		
@@ -3948,7 +3989,12 @@ focus_tree = {
 			add_state_core = 6
 			add_state_core = 7
 			add_state_core = 33
-			create_wargoal = { type = annex_everything target = LIT }
+			add_state_core = 431
+			create_wargoal = {
+				type = take_state_focus
+				target = LIT
+				generator = { 431 6 7 33 }
+				}
 			}
 		}
 		
@@ -3982,9 +4028,13 @@ focus_tree = {
 			add_state_core = 51
 			add_state_core = 427
 			add_state_core = 43
-			create_wargoal = { type = annex_everything target = POL }
-			}
+			create_wargoal = {
+				type = take_state_focus
+				target = POL
+				generator = { 34 51 427 43 }
+				}
 		}
+	}
 		
 		focus = {
 		id = BLR_grand_duchy_of_belarus
