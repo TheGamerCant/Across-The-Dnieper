@@ -3017,7 +3017,7 @@ focus_tree = {
 	focus = {
 		id = BLR_monarchism
 		icon = GFX_
-	    x = 30
+	    x = 50
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
@@ -3043,7 +3043,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = BLR_monarchism_tt
 				swap_ideas = {
-					remove_idea = liberal_democracy
+					remove_idea = authoritarian_democracy
 					add_idea = absolute_monarchy
 			}
 		}
@@ -6004,7 +6004,7 @@ focus_tree = {
 	focus = {
 		id = BLR_nationalism
 		icon = GFX_BLR_nationalism
-		x = 16
+		x = 25
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
@@ -6029,17 +6029,23 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = BLR_nationalism_tt
+			swap_ideas = {
+					remove_idea = authoritarian_democracy
+					add_idea = fascist_regime
+				}
+			}
 		}
-	}
+	
+
 
 	focus = {
 		id = BLR_belarus_first
 		icon = GFX_BLR_belarus_first
-		x = -3
+		x = 10
 		y = 1
 		relative_position_id = BLR_nationalism
 		prerequisite = { focus = BLR_nationalism }
-		mutually_exclusive = {  }
+		mutually_exclusive = {focus =  BLR_pan_slavic}
 		
 		cost = 70
 		ai_will_do = {
@@ -6066,14 +6072,275 @@ focus_tree = {
 			custom_effect_tooltip = "BLR_belarus_first_tt"
 		}
 	}
-
+	
 	focus = {
-		id = BLR_nationalist_agriculture
-		icon = GFX_BLR_nationalist_agriculture
-		x = -1
+		id = BLR_patriarchy_society
+		icon = GFX_
+		x = 5
 		y = 1
 		relative_position_id = BLR_belarus_first
 		prerequisite = { focus = BLR_belarus_first }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		swap_ideas = {
+					remove_idea = womens_rights_traditional_values
+					add_idea = womens_rights_patriarchy
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_vote_of_nation
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_patriarchy_society
+		prerequisite = { focus = BLR_patriarchy_society }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		swap_ideas = {
+					remove_idea = free_press
+					add_idea = state_controlled_press
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_nationalist_education
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_vote_of_nation
+		prerequisite = { focus = BLR_vote_of_nation }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = BLR_nationalist_education_idea
+		}
+	}
+	
+		focus = {
+		id = BLR_anti_drugs
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_nationalist_education
+		prerequisite = { focus = BLR_nationalist_education }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		swap_ideas = {
+					remove_idea = alchohol_narcotics_laws_largely_regulated
+					add_idea = alchohol_narcotics_laws_banned
+			}
+		swap_ideas = {
+					remove_idea = firearm_laws_restricted
+					add_idea = firearm_laws_unregulated
+			}
+			remove_ideas = generic_demographic_crisis
+		}
+	}
+	
+		focus = {
+		id = BLR_superior_race
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_anti_drugs
+		prerequisite = { focus = BLR_anti_drugs }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		swap_ideas = {
+					remove_idea = minority_rights_minor_inequality
+					add_idea = minority_rights_ethnic_servitude
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_economic_autarky
+		icon = GFX_
+		x = -8
+		y = 1
+		relative_position_id = BLR_belarus_first
+		prerequisite = { focus = BLR_belarus_first }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = BLR_economic_autarky_idea
+		add_ideas = BLR_foreign_investment_restrictions
+		}
+	}
+	
+		focus = {
+		id = BLR_potato_farms
+		icon = GFX_
+		x = -2
+		y = 1
+		relative_position_id = BLR_economic_autarky
+		prerequisite = { focus = BLR_economic_autarky }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = BLR_potato_farms_idea
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+		`		instant_build = yes
+									}
+									}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+		`		instant_build = yes
+									}
+									}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+		`		instant_build = yes
+									}
+									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 8
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+		}
+	}
+	
+	focus = {
+		id = BLR_nationalist_agriculture
+		icon = GFX_BLR_nationalist_agriculture
+		x = 0
+		y = 1
+		relative_position_id = BLR_potato_farms
+		prerequisite = { focus = BLR_potato_farms }
 		mutually_exclusive = {  }
 		
 		cost = 70
@@ -6111,15 +6378,15 @@ focus_tree = {
 			}
 		}
 	}
-
-	focus = {
-		id = BLR_industrialization
+	
+		focus = {
+		id = BLR_local_factory
 		icon = GFX_BLR_industrialization2
-		x = 1
+		x = 2
 		y = 1
-		relative_position_id = BLR_belarus_first
-		prerequisite = { focus = BLR_belarus_first }
-		mutually_exclusive = {  }
+		relative_position_id = BLR_economic_autarky
+		prerequisite = { focus = BLR_economic_autarky }
+		mutually_exclusive = {}
 		
 		cost = 70
 		ai_will_do = {
@@ -6139,62 +6406,39 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
+		add_ideas = BLR_local_factory_idea
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
 				add_to_variable = {
 					var = THIS.state_gdp_per_capita
-					value = 8
+					value = 12
 					tooltip = SOV_RANDOM_GDP_TOOLTIP
 				}
-			}
 		}
 	}
-
-	focus = {
-		id = BLR_foreign_investment_restrictions
-		icon = GFX_BLR_foreign_investment_restrictions
-		x = -1
-		y = 1
-		relative_position_id = BLR_industrialization
-		prerequisite = { focus = BLR_industrialization }
-		prerequisite = { focus = BLR_nationalist_agriculture }
-		mutually_exclusive = {  }
-		
-		cost = 70
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = BLR_foreign_investment_restrictions
-		}
-	}
-
-	focus = {
-		id = BLR_energy_independence
-		icon = GFX_BLR_energy_independence
+	
+		focus = {
+		id = BLR_mass_nationalist_industrialisation
+		icon = GFX_
 		x = 0
 		y = 1
-		relative_position_id = BLR_foreign_investment_restrictions
-		prerequisite = { focus = BLR_foreign_investment_restrictions }
-		mutually_exclusive = {  }
+		relative_position_id = BLR_local_factory
+		prerequisite = { focus = BLR_local_factory }
+		mutually_exclusive = {}
 		
 		cost = 70
 		ai_will_do = {
@@ -6214,17 +6458,73 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_ideas = BLR_energy_independence
+		swap_ideas = {
+		remove_idea = BLR_local_factory_idea1
+		add_idea = BLR_local_factory_idea2
+		}
+		add_popularity = {
+	ideology = ultranationalist
+	popularity = 0.20
+}
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+					
+				random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+									
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+									
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+		`		instant_build = yes
+									}
+									}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 18
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
 		}
 	}
-
-	focus = {
+	
+		focus = {
 		id = BLR_nationalist_healthcare
 		icon = GFX_BLR_nationalist_healthcare
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = BLR_energy_independence
-		prerequisite = { focus = BLR_energy_independence }
+		relative_position_id = BLR_mass_nationalist_industrialisation
+		prerequisite = { focus = BLR_mass_nationalist_industrialisation }
+		prerequisite = { focus = BLR_nationalist_agriculture }
 		mutually_exclusive = {  }
 		
 		cost = 70
@@ -6248,14 +6548,14 @@ focus_tree = {
 			add_ideas = BLR_nationalist_healthcare
 		}
 	}
-
-	focus = {
-		id = BLR_military_expantion
-		icon = GFX_BLR_military_expantion
+	
+		focus = {
+		id = BLR_energy_independence
+		icon = GFX_BLR_energy_independence
 		x = 0
 		y = 1
-		relative_position_id = BLR_nationalism
-		prerequisite = { focus = BLR_nationalism }
+		relative_position_id = BLR_nationalist_healthcare
+		prerequisite = { focus = BLR_nationalist_healthcare }
 		mutually_exclusive = {  }
 		
 		cost = 70
@@ -6276,25 +6576,18 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_manpower = 80000
-			army_experience = 75
-
-			add_doctrine_cost_reduction = {
-				cost_reduction = 0.80
-				uses = 2
-				category = land_doctrine
-			}
+			add_ideas = BLR_energy_independence
 		}
 	}
-
-	focus = {
-		id = BLR_military_modernisation
-		icon = GFX_BLR_military_modernisation
+	
+		focus = {
+		id = BLR_nationalist_army
+		icon = GFX_
 		x = 0
 		y = 1
-		relative_position_id = BLR_military_expantion
-		prerequisite = { focus = BLR_military_expantion }
-		mutually_exclusive = {  }
+		relative_position_id = BLR_belarus_first
+		prerequisite = { focus = BLR_belarus_first }
+		mutually_exclusive = {}
 		
 		cost = 70
 		ai_will_do = {
@@ -6314,95 +6607,20 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_tech_bonus = {
-			    bonus = 1.0
-			    uses = 2
-			    category = armor
-			}
-			add_tech_bonus = {
-			    bonus = 1.0
-			    uses = 1
-			    category = motorized_equipment
-			}
-			add_tech_bonus = {
-			    bonus = 0.75
-			    uses = 2
-			    category = infantry_tech
-			}
-			add_tech_bonus = {
-			    bonus = 1.0
-			    uses = 1
-			    category = artillery
-			}
+			add_ideas = BLR_nationalist_army_idea1
 		}
 	}
-
-	focus = {
-		id = BLR_national_defence_industry
-		icon = GFX_BLR_national_defence_industry
-		x = -1
-		y = 1
-		relative_position_id = BLR_military_modernisation
-		prerequisite = { focus = BLR_military_modernisation }
-		mutually_exclusive = {  }
-		
-		cost = 70
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				add_to_variable = {
-					var = THIS.state_gdp_per_capita
-					value = 12
-					tooltip = SOV_RANDOM_GDP_TOOLTIP
-				}
-			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_to_variable = {
-					var = THIS.state_gdp_per_capita
-					value = 4
-					tooltip = SOV_RANDOM_GDP_TOOLTIP
-				}
-			}
-		}
-	}
-
-	focus = {
+	
+		focus = {
 		id = BLR_national_guard
 		icon = GFX_BLR_national_guard
-		x = 1
+		x = -2
 		y = 1
-		relative_position_id = BLR_military_modernisation
-		prerequisite = { focus = BLR_military_modernisation }
-		mutually_exclusive = {  }
+		relative_position_id = BLR_nationalist_army
+		prerequisite = { focus = BLR_nationalist_army }
+		mutually_exclusive = {}
 		
-		cost = 70
+		cost = 105
 		ai_will_do = {
 			base = 10
 		}
@@ -6427,7 +6645,7 @@ focus_tree = {
 
 			division_template = {
 				name = "National Guards"
-				is_locked = yes
+				is_locked = no
 				division_names_group = BLR_MCH_01
 				regiments = {
 					mechanized = { x = 0 y = 0 }
@@ -6464,15 +6682,206 @@ focus_tree = {
 			}
 		}
 	}
+	
+		focus = {
+		id = BLR_nationalistic_military_youth
+		icon = GFX
+		x = 2
+		y = 1
+		relative_position_id = BLR_nationalist_army
+		prerequisite = { focus = BLR_nationalist_army }
+		mutually_exclusive = {}
+		
+		cost = 90
+		ai_will_do = {
+			base = 10
+		}
 
-	focus = {
-		id = BLR_military_doctrine
-		icon = GFX_
-		x = -1
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_ideas = BLR_nationalistic_military_youth_idea
+			
+		}
+	}
+	
+		focus = {
+		id = BLR_quality_over_quantity
+		icon = GFX
+		x = 0
 		y = 1
 		relative_position_id = BLR_national_guard
 		prerequisite = { focus = BLR_national_guard }
-		prerequisite = { focus = BLR_national_defence_industry }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_nat_quantity
+			
+		}
+	}
+	
+		focus = {
+		id = BLR_combat_youth
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_nationalistic_military_youth
+		prerequisite = { focus = BLR_nationalistic_military_youth }
+		mutually_exclusive = {}
+		
+		cost = 105
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 10
+			add_manpower = 5000
+
+			division_template = {
+				name = "Combat Military Youth"
+				is_locked = no
+				division_names_group = BLR_INF_02
+				regiments = {
+					bicycle_battalion = { x = 0 y = 0 }
+					bicycle_battalion = { x = 0 y = 1 }
+					bicycle_battalion = { x = 0 y = 2 }
+
+					bicycle_battalion = { x = 1 y = 0 }
+					bicycle_battalion = { x = 1 y = 1 }
+					bicycle_battalion = { x = 1 y = 2 }
+				}
+				support = {
+					assault_battalion = { x = 0 y = 0 }
+					blackshirt_assault_battalion  = { x = 0 y = 1 }
+				}
+			}
+
+			random_owned_controlled_state = {
+				create_unit = {
+				    division = "name = \"1st Combat Military Youth Brigade\" division_template = \"Combat Military Youth\" start_experience_factor = 0.30"
+				    owner = ROOT
+				}
+				create_unit = {
+				    division = "name = \"2nd Combat Military Youth Brigade\" division_template = \"Combat Military Youth\" start_experience_factor = 0.30"
+				    owner = ROOT
+				}
+				create_unit = {
+				    division = "name = \"3rd Combat Military Youth Brigade\" division_template = \"Combat Military Youth\" start_experience_factor = 0.30"
+				    owner = ROOT
+				}
+				create_unit = {
+				    division = "name = \"4th Combat Military Youth Brigade\" division_template = \"Combat Military Youth\" start_experience_factor = 0.30"
+				    owner = ROOT
+				}
+				create_unit = {
+				    division = "name = \"5th Combat Military Youth Brigade\" division_template = \"Combat Military Youth\" start_experience_factor = 0.30"
+				    owner = ROOT
+				}
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_local_gun
+		icon = GFX_BLR_national_defence_industry
+		x = -2
+		y = 1
+		relative_position_id = BLR_combat_youth
+		prerequisite = { focus = BLR_combat_youth }
+		prerequisite = { focus = BLR_quality_over_quantity }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_local_gun_idea
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+			}
+			
+				random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_military_expantion
+		icon = GFX_BLR_military_expantion
+		x = 0
+		y = 1
+		relative_position_id = BLR_local_gun
+		prerequisite = { focus = BLR_local_gun }
 		mutually_exclusive = {  }
 		
 		cost = 70
@@ -6493,26 +6902,36 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			army_experience = 40
+		swap_ideas = {
+		remove_idea = BLR_nationalist_army_idea1
+		add_idea = BLR_nationalist_army_idea2
+		
+		}
+			add_manpower = 80000
+			army_experience = 75
 
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.60
+				cost_reduction = 0.80
 				uses = 2
 				category = land_doctrine
 			}
 		}
 	}
-
-	focus = {
-		id = BLR_strategic_partnerships
+	
+	
+	
+		focus = {
+		id = BLR_ethnic_cleansing
 		icon = GFX_
-		x = 0
-		y = 1
-		relative_position_id = BLR_military_doctrine
-		prerequisite = { focus = BLR_military_doctrine }
+		x = -2
+		y = 3
+		relative_position_id = BLR_military_expantion
+		prerequisite = { focus = BLR_military_expantion }
+		prerequisite = { focus = BLR_energy_independence }
+		prerequisite = { focus = BLR_superior_race }
 		mutually_exclusive = {  }
 		
-		cost = 70
+		cost = 35
 		ai_will_do = {
 			base = 10
 		}
@@ -6530,33 +6949,59 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			every_neighbor_country = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_medium_positive
-				}
-				BLR = {
-					add_opinion_modifier = {
-					    target = PREV
-					    modifier = BLR_medium_positive
-					}
+		add_timed_idea = {
+		idea = BLR_ethnic_cleansing_idea 
+		days = 31 
+		}
+			}
+		}
+		
+		focus = {
+		id = BLR_nationalism_end
+		icon = GFX_BLR_nationalism_end
+		x = 0
+		y = 1
+		relative_position_id = BLR_ethnic_cleansing
+		prerequisite = { focus = BLR_ethnic_cleansing }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			if = {
+				NOT = {
+				has_idea = BLR_ethnic_cleansing_idea
 				}
 			}
 		}
-	}
+		
+		bypass = {
+		
+		}
 
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_nationalism_end
+		}
+	}
+	
+	
 	focus = {
 		id = BLR_nuclear_program
 		icon = GFX_BLR_Nuclear_Test4
 		x = 0
 		y = 1
-		relative_position_id = BLR_strategic_partnerships
-		prerequisite = { focus = BLR_strategic_partnerships }
-		prerequisite = { focus = BLR_international_diplomacy }
-		prerequisite = { focus = BLR_nationalist_healthcare }
+		relative_position_id = BLR_nationalism_end
+		prerequisite = { focus = BLR_nationalism_end }
 		mutually_exclusive = {  }
 		
-		cost = 70
+		cost = 120
 		ai_will_do = {
 			base = 10
 		}
@@ -6580,253 +7025,134 @@ focus_tree = {
 			set_country_flag = has_nukes_flag
 		}
 	}
-
 	
-	focus = {
-		id = BLR_regional_influence
-		icon = GFX_BLR_regional_influence
-		x = 3
-		y = 1
-		relative_position_id = BLR_nationalism
-		prerequisite = { focus = BLR_nationalism }
-		mutually_exclusive = {  }
-		
-		cost = 30
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_political_power = 120
-			add_stability = 0.05
-
-			every_neighbor_country = {
-				add_stability = 0.02
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-				BLR = {
-					add_opinion_modifier = {
-					    target = PREV
-					    modifier = BLR_small_positive
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = BLR_pan_slavic_unity
-		icon = GFX_
-		x = 0
-		y = 1
-		relative_position_id = BLR_regional_influence
-		prerequisite = { focus = BLR_regional_influence }
-		mutually_exclusive = {  }
-		
-		cost = 40
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_political_power = 120
-
-			
-			SOV = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-			}
-			UKR = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-			}
-			POL = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-			}
-
-			
-			BLR = {
-				add_opinion_modifier = {
-				    target = SOV
-				    modifier = BLR_small_positive
-				}
-				add_opinion_modifier = {
-				    target = UKR
-				    modifier = BLR_small_positive
-				}
-				add_opinion_modifier = {
-				    target = POL
-				    modifier = BLR_small_positive
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = BLR_baltic_cooperations
-		icon = GFX_
-		x = 0
-		y = 1
-		relative_position_id = BLR_pan_slavic_unity
-		prerequisite = { focus = BLR_pan_slavic_unity }
-		mutually_exclusive = {  }
-		
-		cost = 30
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_political_power = 120
-			LIT = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-			}
-
-			
-			BLR = {
-				add_opinion_modifier = {
-				    target = LIT
-				    modifier = BLR_small_positive
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = BLR_eastern_partnershp
-		icon = GFX_
-		x = 0
-		y = 1
-		relative_position_id = BLR_baltic_cooperations
-		prerequisite = { focus = BLR_baltic_cooperations }
-		mutually_exclusive = {  }
-		
-		cost = 40
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = BLR_eastern_partnershp
-			add_political_power = 120
-
-			SOV = { add_ideas = BLR_eastern_partnershp}
-			UKR = { add_ideas = BLR_eastern_partnershp}
-			POL = { add_ideas = BLR_eastern_partnershp}
-			LIT = { add_ideas = BLR_eastern_partnershp}
-		}
-	}
-	
-	focus = {
-		id = BLR_international_diplomacy
-		icon = GFX_
-		x = 0
-		y = 1
-		relative_position_id = BLR_eastern_partnershp
-		prerequisite = { focus = BLR_eastern_partnershp }
-		mutually_exclusive = {  }
-		
-		cost = 30
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			every_country = {
-				add_opinion_modifier = {
-				    target = BLR
-				    modifier = BLR_small_positive
-				}
-				BLR = {
-					add_opinion_modifier = {
-					    target = PREV
-					    modifier = BLR_small_positive
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = BLR_nationalism_end
-		icon = GFX_BLR_nationalism_end
+		focus = {
+		id = BLR_real_russia
+		icon = 
 		x = 0
 		y = 1
 		relative_position_id = BLR_nuclear_program
 		prerequisite = { focus = BLR_nuclear_program }
 		mutually_exclusive = {  }
+		
+		cost = 30
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = SOV }
+		}
+	}
+	
+		focus = {
+		id = BLR_new_russia
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_real_russia
+		prerequisite = { focus = BLR_real_russia }
+		mutually_exclusive = {  }
+		
+		cost = 0
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		NOT = {
+			country_exists = SOV
+			}
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_cosmetic_tag = blr_new_russia_tag
+			add_state_core = 9
+			add_state_core = 10
+			add_state_core = 11
+			add_state_core = 12
+			add_state_core = 13
+			add_state_core = 15
+			add_state_core = 16
+			add_state_core = 17
+			add_state_core = 42
+			add_state_core = 426
+			add_state_core = 59
+			add_state_core = 428
+			add_state_core = 429
+			add_state_core = 118
+			add_state_core = 149
+			add_state_core = 270
+			add_state_core = 372
+			add_state_core = 363
+			add_state_core = 359
+			add_state_core = 350
+			add_state_core = 256
+			add_state_core = 430
+			add_state_core = 450
+			add_state_core = 88
+			add_state_core = 52
+			add_state_core = 66
+			add_state_core = 50
+			add_state_core = 39
+			add_state_core = 20
+			add_state_core = 44
+			add_state_core = 28
+			add_state_core = 41
+			add_state_core = 52
+			add_state_core = 425
+			add_state_core = 37
+			add_state_core = 423
+			add_state_core = 30
+			add_state_core = 1
+			add_state_core = 331
+			add_state_core = 330
+			add_state_core = 353
+			add_state_core = 448
+			add_state_core = 354
+			add_state_core = 433
+			add_state_core = 344
+			add_state_core = 323
+			add_state_core = 317
+			add_state_core = 326
+			add_state_core = 299
+			add_state_core = 308
+		}
+	}
+	
+	
+	
+	
+	
+	
+		focus = {
+		id = BLR_pan_slavic
+		icon = GFX_
+		x = -10
+		y = 1
+		relative_position_id = BLR_nationalism
+		prerequisite = { focus = BLR_nationalism }
+		mutually_exclusive = {focus =  BLR_belarus_first}
 		
 		cost = 70
 		ai_will_do = {
@@ -6846,8 +7172,41 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_ideas = BLR_nationalism_end
+			
+			add_to_variable = { BLR_grimacing_economy_consumer_goods = -0.02 }
+			add_to_variable = { BLR_grimacing_economy_construction_speed = 0.10 }
+
+			custom_effect_tooltip = "BLR_belarus_first_tt"
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+	
+
+
+
+	
+
+
+
+	
+
+
+
 
 }
