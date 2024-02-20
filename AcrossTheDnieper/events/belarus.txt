@@ -381,6 +381,34 @@ country_event = {
 		
 		set_country_flag = blr_ultranationalist
 	}
+	
+	option = {	#absolute_monarchy_ideology
+		name = blr_event.5.g
+		ai_chance = { 
+			base = 0 
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = BLR_ai_behavior
+					option = REVOLUTION_MON
+				}
+			}
+		}
+
+		set_politics = {
+			ruling_party = absolute_monarchy_ideology
+		    elections_allowed = no
+		    election_frequency = 48
+		}
+
+		add_popularity = {
+		    ideology = absolute_monarchy_ideology
+		    popularity = 0.42
+		}
+
+		
+		set_country_flag = blr_absolute_monarchy_ideology
+	}
 }
 
 # Migrant Crysis

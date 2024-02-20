@@ -2932,6 +2932,12 @@ focus_tree = {
 					complete_national_focus = BLR_nationalism
 					hidden_effect = { add_ideas = authoritarian_democracy } 
 				}
+				if = {
+					limit = { 
+						has_country_flag = blr_absolute_monarchy_ideology
+					}
+					complete_national_focus = BLR_monarchism
+				}
 			}
 		}
 	}
@@ -3006,6 +3012,1080 @@ focus_tree = {
 			custom_effect_tooltip = BLR_free_at_last_2_tt
 		}
 	}
+	
+	
+	focus = {
+		id = BLR_monarchism
+		icon = GFX_
+	    x = 30
+		y = 1
+		relative_position_id = BLR_free_at_last_2
+		prerequisite = { focus = BLR_free_at_last_2 }
+		mutually_exclusive = { focus = BLR_liberalism focus = BLR_socialism focus = BLR_nationalism focus = BLR_conservatism }
+		
+		cost = 0
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_monarchism_tt
+				swap_ideas = {
+					remove_idea = liberal_democracy
+					add_idea = absolute_monarchy
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_royal_army
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_monarchism
+		prerequisite = { focus = BLR_monarchism }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_royal_army_idea
+		}
+	}
+	
+		focus = {
+		id = BLR_royal_guards
+		icon = GFX_
+	    x = -2
+		y = 1
+		relative_position_id = BLR_royal_army
+		prerequisite = { focus = BLR_royal_army }
+		mutually_exclusive = {}
+		
+		cost = 95
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			division_template = {
+				name = "Royal Guards"
+				priority = 2
+
+				regiments = {
+					infantry = { x = 0 y = 0 }		
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+					infantry = { x = 2 y = 4 }
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					apc = { x = 4 y = 0 }
+					}
+						support = {
+		engineer = { x = 0 y = 0 }   
+        artillery = { x = 0 y = 1}
+		assault_battalion = { x = 0 y = 2}
+	}
+}  	 424 = {
+      create_unit = { division = "name = \"1st Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
+	  create_unit = { division = "name = \"2nd Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
+	  create_unit = { division = "name = \"3rd Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
+	  create_unit = { division = "name = \"4th Royal Guards Division\" division_template = \"Royal Guards\" start_experience_factor = 0.5"  owner = BLR }
+		}
+	  }
+	}
+	
+		focus = {
+		id = BLR_crusaders
+		icon = GFX
+		x = 2
+		y = 1
+		relative_position_id = BLR_royal_army
+		prerequisite = { focus = BLR_royal_army }
+		mutually_exclusive = {  }
+		
+		cost = 95
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+						division_template = {
+				name = "Crusaders"
+				priority = 1
+
+				regiments = {
+					motorized = { x = 0 y = 0 }		
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+					motorized = { x = 0 y = 3 }
+					motorized = { x = 0 y = 4 }
+					motorized = { x = 1 y = 0 }
+					motorized = { x = 1 y = 1 }
+					motorized = { x = 1 y = 2 }
+					motorized = { x = 1 y = 3 }
+					motorized = { x = 1 y = 4 }
+					mot_artillery_brigade  = { x = 2 y = 0 }
+					mot_artillery_brigade  = { x = 2 y = 1 }
+					}
+						support = {
+		maintenance_company = { x = 0 y = 0 }   
+        artillery = { x = 0 y = 1}
+	}
+}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"1st Crusader Division\" division_template = \"Crusaders\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"2nd Crusader Division\" division_template = \"Crusaders\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"3rd Crusader Division\" division_template = \"Crusaders\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+		}
+	  }
+	  
+	  	focus = {
+		id = BLR_king_army
+		icon = GFX_
+		x = -2
+		y = 1
+		relative_position_id = BLR_crusaders
+		prerequisite = { focus = BLR_crusaders }
+		prerequisite = { focus = BLR_royal_guards }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 40
+			add_ideas = BLR_the_kings_army_idea
+		}
+	}
+	
+		focus = {
+		id = BLR_worthy_army
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_king_army
+		prerequisite = { focus = BLR_king_army }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 100
+			add_ideas = BLR_army_expanstion_idea
+		}
+	}
+
+	  
+		focus = {
+		id = BLR_economic_plan
+		icon = GFX_
+	    x = 7
+		y = 1
+		relative_position_id = BLR_monarchism
+		prerequisite = { focus = BLR_monarchism }
+		mutually_exclusive = {}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_timed_idea = { idea = BLR_economic_plan_idea days = 1825 }
+		}
+	}
+	
+		focus = {
+		id = BLR_serfdom_agriculture
+		icon = GFX_
+	    x = -3
+		y = 1
+		relative_position_id = BLR_economic_plan
+		prerequisite = { focus = BLR_economic_plan }
+		mutually_exclusive = {focus = BLR_mondernised_serfdom}
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_serfdom_agriculture_idea
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+		`			instant_build = yes
+										}
+									}
+			
+		}
+	}
+	
+		focus = {
+		id = BLR_mass_agriculture
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_serfdom_agriculture
+		prerequisite = { focus = BLR_serfdom_agriculture }
+		mutually_exclusive = {}
+		
+		cost = 105
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+		`			instant_build = yes
+										}
+									}
+			
+		}
+	}
+	
+		focus = {
+		id = BLR_mondernised_serfdom 
+		icon = GFX_
+	    x = 3
+		y = 1
+		relative_position_id = BLR_economic_plan
+		prerequisite = { focus = BLR_economic_plan }
+		mutually_exclusive = {focus = BLR_serfdom_agriculture }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_mondernised_serfdom_idea
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+			
+		}
+	}
+	
+		focus = {
+		id = BLR_mass_industrialisation
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_mondernised_serfdom
+		prerequisite = { focus = BLR_mondernised_serfdom }
+		mutually_exclusive = {}
+		
+		cost = 120
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+				random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+		`			instant_build = yes
+										}
+									}
+			
+		}
+	}
+	
+		 focus = {
+		id = BLR_Economic_Expanstion
+		icon = GFX_
+		x = -3
+		y = 1
+		relative_position_id = BLR_mass_industrialisation
+		prerequisite = { focus = BLR_mass_agriculture focus = BLR_mass_industrialisation }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = BLR_economic_expanstion_idea
+		}
+	}
+	
+		focus = {
+		id = BLR_traditional_reforms
+		icon = GFX_
+	    x = -5
+		y = 1
+		relative_position_id = BLR_monarchism
+		prerequisite = { focus = BLR_monarchism }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_traditional_reforms_idea
+			remove_ideas = generic_demographic_crisis
+		}
+	}
+	
+		focus = {
+		id = BLR_religous_reforms
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_traditional_reforms
+		prerequisite = { focus = BLR_traditional_reforms }
+		mutually_exclusive = {}
+		
+		cost = 45
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+				swap_ideas = {
+					remove_idea = religion_law_religious
+					add_idea = religion_law_fundamentalist
+			}
+				swap_ideas = {
+					remove_idea = alchohol_narcotics_laws_largely_regulated
+					add_idea = alchohol_narcotics_laws_banned
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_patrotic_education
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_religous_reforms
+		prerequisite = { focus = BLR_religous_reforms }
+		mutually_exclusive = {}
+		
+		cost = 45
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_patrotic_education_idea
+			}
+		}
+		
+		focus = {
+		id = BLR_hell
+		icon = GFX_
+		x = -3
+		y = 1
+		relative_position_id = BLR_Economic_Expanstion
+		prerequisite = { focus = BLR_Economic_Expanstion }
+		prerequisite = { focus = BLR_worthy_army }
+		mutually_exclusive = {  }
+		
+		cost = 45
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+				swap_ideas = {
+					remove_idea = religion_law_fundamentalist
+					add_idea = religion_law_holy_war
+			}
+			swap_ideas = {
+					remove_idea = nationalism_laws_interventionist
+					add_idea = nationalism_laws_revanchist
+			}
+			swap_ideas = {
+					remove_idea = centrally_planned_economy
+					add_idea = war_economy
+			}
+			swap_ideas = {
+					remove_idea = free_press
+					add_idea = wartime_censorship
+			}
+		}
+	}
+	
+		focus = {
+		id = BLR_puppet
+		icon = GFX_
+	    x = -3
+		y = 1
+		relative_position_id = BLR_hell
+		prerequisite = { focus = BLR_hell }
+		mutually_exclusive = {focus = BLR_for_king}
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.10
+			}
+		}
+		
+		focus = {
+		id = BLR_duchy_of_kyiv
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_puppet
+		prerequisite = { focus = BLR_puppet }
+		mutually_exclusive = {}
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = { type = puppet_wargoal_focus target = UKR }
+			}
+		}
+		
+		focus = {
+		id = BLR_duchy_of_lit
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_duchy_of_kyiv
+		prerequisite = { focus = BLR_duchy_of_kyiv }
+		mutually_exclusive = {}
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = { type = puppet_wargoal_focus target = LIT }
+			}
+		}
+		
+		focus = {
+		id = BLR_duchy_of_pol
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_duchy_of_lit
+		prerequisite = { focus = BLR_duchy_of_lit }
+		mutually_exclusive = {}
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = { type = puppet_wargoal_focus target = LIT }
+			}
+		}
+		
+		focus = {
+		id = BLR_for_king
+		icon = GFX_
+	    x = 3
+		y = 1
+		relative_position_id = BLR_hell
+		prerequisite = { focus = BLR_hell }
+		mutually_exclusive = {focus = BLR_puppet}
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_war_support = 0.15
+			}
+		}
+		
+		focus = {
+		id = BLR_down_south
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_for_king
+		prerequisite = { focus = BLR_for_king }
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_core = 68
+			add_state_core = 436
+			add_state_core = 72
+			add_state_core = 85
+			add_state_core = 92
+			add_state_core = 55
+			add_state_core = 56
+			add_state_core = 69
+			add_state_core = 86
+			add_state_core = 79
+			add_state_core = 65
+			add_state_core = 61
+			add_state_core = 60
+			add_state_core = 57
+			add_state_core = 58
+			add_state_core = 73
+			create_wargoal = { type = annex_everything target = UKR }
+			}
+		}
+		
+		focus = {
+		id = BLR_end_our_lithunian
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_down_south
+		prerequisite = { focus = BLR_down_south }
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_core = 6
+			add_state_core = 7
+			add_state_core = 33
+			create_wargoal = { type = annex_everything target = LIT }
+			}
+		}
+		
+		focus = {
+		id = BLR_cross_border
+		icon = GFX_
+	    x = 0
+		y = 1
+		relative_position_id = BLR_end_our_lithunian
+		prerequisite = { focus = BLR_end_our_lithunian }
+		
+		cost = 20
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_core = 34
+			add_state_core = 51
+			add_state_core = 427
+			add_state_core = 43
+			create_wargoal = { type = annex_everything target = POL }
+			}
+		}
+		
+		focus = {
+		id = BLR_grand_duchy_of_belarus
+		icon = GFX_
+		x = -3
+		y = 1
+		relative_position_id = BLR_cross_border
+		prerequisite = { focus = BLR_cross_border focus = BLR_duchy_of_pol }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		set_cosmetic_tag = blr_grand_tag
+		}
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3019,7 +4099,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
-		mutually_exclusive = { focus = BLR_liberalism focus = BLR_socialism focus = BLR_nationalism }
+		mutually_exclusive = { focus = BLR_liberalism focus = BLR_socialism focus = BLR_nationalism focus = BLR_monarchism }
 		
 		cost = 0
 		ai_will_do = {
@@ -3449,7 +4529,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
-		mutually_exclusive = { focus = BLR_socialism focus = BLR_conservatism focus = BLR_nationalism }
+		mutually_exclusive = { focus = BLR_socialism focus = BLR_conservatism focus = BLR_nationalism focus = BLR_monarchism }
 		
 		cost = 0
 		ai_will_do = {
@@ -3982,7 +5062,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
-		mutually_exclusive = { focus = BLR_liberalism focus = BLR_conservatism focus = BLR_nationalism }
+		mutually_exclusive = { focus = BLR_liberalism focus = BLR_conservatism focus = BLR_nationalism focus = BLR_monarchism }
 		
 		cost = 0
 		ai_will_do = {
@@ -4878,7 +5958,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BLR_free_at_last_2
 		prerequisite = { focus = BLR_free_at_last_2 }
-		mutually_exclusive = { focus = BLR_liberalism focus = BLR_conservatism focus = BLR_socialism }
+		mutually_exclusive = { focus = BLR_liberalism focus = BLR_conservatism focus = BLR_socialism focus = BLR_monarchism }
 		
 		cost = 0
 		ai_will_do = {
@@ -5719,4 +6799,5 @@ focus_tree = {
 			add_ideas = BLR_nationalism_end
 		}
 	}
+
 }
