@@ -3829,9 +3829,14 @@ country_event = {
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
 							prioritize = { 92 }
-							create_unit = {
-								division = "name = \"Elite Forces\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
-								owner = UKR
+							meta_effect = {
+								text = {
+									create_unit = {
+										division = "name = \"Elite Forces\" division_template = \"[WTS]\" start_experience_factor = 0.8 start_equipment_factor = 0.8" 
+										owner = UKR
+									}
+								}
+								WTS = "[UKR.get_western_troops_name]"
 							}
 						}
 					}
