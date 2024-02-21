@@ -94,6 +94,15 @@ UKR_state_of_the_nation_decisions={
 						
 						LHK = { transfer_state = PREV }
 					}
+					every_state={
+						limit = { OR = { state = 208 state = 186 state = 173 } }
+
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_defended_area
+							scope = UKR
+							days = 80
+						}
+					}
 					DON = { 
 						load_oob = DON_moderate
 
