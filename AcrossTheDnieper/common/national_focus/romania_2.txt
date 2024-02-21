@@ -30,6 +30,7 @@ focus_tree = {
             naval_experience = 50
             air_experience = 50
             add_ideas = 3_Stage_Military_Restructuring
+			add_ideas = Romanian_Military_Industry
                  add_tech_bonus = {
                 name = ROM_military
                 bonus = 1.0
@@ -51,7 +52,7 @@ focus_tree = {
 		icon = GFX_Land_Force_Doctrine_Reform
 		x = 7
 		y = 1
-		cost = 70
+		cost = 40
 
 		ai_will_do = { 
 			factor = 10 
@@ -77,4 +78,123 @@ focus_tree = {
 		    }
 		}
     }
+			focus = {
+		id = increase_equipment_producement_standard
+		icon = GFX_Increase_Equipment_Procurement_Standards
+		x = 6
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas={
+            remove_idea = romanian_military_industry
+            add_idea = romanian_military_industry_2
+
+		    }
+		}
+    }
+		focus = {
+		id = Rigorous_Military_Training
+		icon = GFX_Rigorous_Military_Training
+		x = 8
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_1
+            add_idea = 3_Stage_Military_Restructuring_2
+		    }
+		}
+    }
+		focus = {
+		id = increase_randd_standards
+		icon = GFX_Increase_R_and_D_standards
+		x = 7
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_equipment_producement_standard }
+		prerequisite = { focus = Rigorous_Military_Training }
+
+		completion_reward = {
+             swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_2
+            add_idea = 3_Stage_Military_Restructuring_3
+		    }
+		}
+    }
+		focus = {
+		id = Partnership_With_Swiss_Defensive_Corporations
+		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
+		x = 6
+		y = 4
+		cost = 15
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            army_experience = 50
+			add_political_power = -50
+		 }
+	}
+			focus = {
+		id = Increase_Domestic_Production_standards
+		icon = GFX_Increase_Domestic_Production_Standards
+		x = 8
+		y = 4
+		cost = 15
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_3
+            add_idea = 3_Stage_Military_Restructuring_4
+		    }
+		 }
+	}
 }
+
