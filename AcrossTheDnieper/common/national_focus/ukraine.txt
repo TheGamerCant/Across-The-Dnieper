@@ -3486,7 +3486,6 @@ focus_tree = {
 
 				set_global_flag = VICTORY_POINT_12106_RENAMED_FLAG
 				set_province_name = { id = 12106 name = VICTORY_POINTS_12106_RENAMED }
-				
 				set_global_flag = VICTORY_POINT_3744_RENAMED_FLAG
 				set_province_name = { id = 3744 name = VICTORY_POINTS_3744_RENAMED }
 			}
@@ -8473,33 +8472,6 @@ focus_tree = {
 					}
 				}
 			}
-		}
-	}
-
-	focus = {
-		id = UKR_close_the_border
-		icon = GFX_focus_UKR_stabilise_the_front
-		x = 2
-		y = 2
-		
-		cost = 10
-		ai_will_do = {
-		}
-		prerequisite = { focus = UKR_the_battle_of_kyiv }
-		relative_position_id = UKR_the_battle_of_kyiv
-		available = {
-			NOT = { is_puppet_of = SOV }
-			any_country={ original_tag = SOV has_war_with = ROOT }
-		}
-		
-		
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		completion_reward = {
-			add_ideas = UKR_border_closed_idea
 		}
 	}
 	

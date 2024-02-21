@@ -36,24 +36,6 @@ ideas ={
 				eastern_liberal_drift = 0.1
 			}
 		}
-
-		UKR_border_closed_idea = {
-			removal_cost = -1
-
-			picture = GFX_idea_SLO_army_production
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			modifier = {
-				stability_factor = -0.1
-				weekly_manpower = 1000
-			}
-
-
-
-		}
 		
 		UKR_maidan_anarchy_idea = {
 			removal_cost = -1
@@ -253,6 +235,25 @@ ideas ={
 				army_attack_factor = -0.1
 				army_defence_factor = -0.12
 				army_morale_factor = -0.06
+			}
+		}
+
+		UKR_manpower_shortage = {
+			removal_cost = -1
+
+			picture = UKR_never_forgive
+				
+			available = { NOT = { is_puppet_of = SOV } has_war_with = SOV  }
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = -0.02
+				breakthrough_factor = -0.02
+				stability_factor = -0.07
+				conscription_factor = -0.55
 			}
 		}
 		
