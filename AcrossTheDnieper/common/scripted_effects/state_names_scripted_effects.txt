@@ -1,3 +1,5 @@
+#https://en.wikipedia.org/wiki/List_of_renamed_cities_in_Ukraine
+
 update_state_1_names={
 
 }
@@ -167,10 +169,81 @@ update_state_56_names={
 
 }
 update_state_57_names={
-
+	57={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_57_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_57_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_57_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	if={
+		limit = { any_country = { controls_province = 11433 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 11433 name = VICTORY_POINTS_11433_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11433 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 11433 name = VICTORY_POINTS_11433_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11433 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 11433 name = VICTORY_POINTS_11433_POL }
+	}
+	else={
+		reset_province_name = 11433
+	}
 }
 update_state_58_names={
-
+	58={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_58_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_58_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_58_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 6310 OR={ original_tag = UKR is_puppet_of = UKR original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 6310 name = VICTORY_POINTS_6310_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 6310 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 6310 name = VICTORY_POINTS_6310_POL }
+	}
+	else={
+		reset_province_name = 6310
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9390 OR={ original_tag = UKR is_puppet_of = UKR original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 9390 name = VICTORY_POINTS_9390_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9390 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 9390 name = VICTORY_POINTS_9390_POL }
+	}
+	else={
+		reset_province_name = 9390
+	}
 }
 update_state_59_names={
 
@@ -265,7 +338,55 @@ update_state_70_names={
 
 }
 update_state_71_names={
-
+	71={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_71_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_71_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_71_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 2322 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 2322 name = VICTORY_POINTS_2322_POL }
+	}
+	else={
+		reset_province_name = 2322
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 3316 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 3316 name = VICTORY_POINTS_3316_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 3316 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 3316 name = VICTORY_POINTS_3316_POL }
+	}
+	else={
+		reset_province_name = 3316
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9081 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 9081 name = VICTORY_POINTS_9081_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9081 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 9081 name = VICTORY_POINTS_9081_POL }
+	}
+	else={
+		reset_province_name = 9081
+	}
 }
 update_state_72_names={
 	72={
@@ -323,7 +444,67 @@ update_state_72_names={
 	}
 }
 update_state_73_names={
-
+	73={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_73_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_73_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_73_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { has_global_flag = VICTORY_POINT_3744_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 3744 OR={ original_tag = POL is_puppet_of = POL } } }
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_POL_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 3744 OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_SOV_RENAMED }
+		}
+		else={
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 3744 OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_UKR }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 3744 OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 3744 OR={ original_tag = POL is_puppet_of = POL } } }
+			set_province_name = { id = 3744 name = VICTORY_POINTS_3744_POL }
+		}
+		else={
+			reset_province_name = 3744
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16999 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 16999 name = VICTORY_POINTS_16999_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16999 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 16999 name = VICTORY_POINTS_16999_POL }
+	}
+	else={
+		reset_province_name = 16999
+	}
 }
 update_state_74_names={
 
@@ -356,7 +537,55 @@ update_state_83_names={
 
 }
 update_state_84_names={
-
+	84={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_84_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_84_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_84_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17115 OR={ original_tag = UKR is_puppet_of = UKR original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17115 name = VICTORY_POINTS_17115_UKR }
+	}
+	else={
+		reset_province_name = 17115
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17153 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17153 name = VICTORY_POINTS_17153_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17153 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17153 name = VICTORY_POINTS_17153_SOV }
+	}
+	else={
+		reset_province_name = 17153
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17194 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17194 name = VICTORY_POINTS_17194_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17194 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17194 name = VICTORY_POINTS_17194_SOV }
+	}
+	else={
+		reset_province_name = 17194
+	}
 }
 update_state_85_names={
 	85={
@@ -652,7 +881,99 @@ update_state_95_names={
 
 }
 update_state_96_names={
-
+	96={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_96_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_96_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_96_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 1082 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 1082 name = VICTORY_POINTS_1082_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1082 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 1082 name = VICTORY_POINTS_1082_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1082 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 1082 name = VICTORY_POINTS_1082_POL }
+	}
+	else={
+		reset_province_name = 1082
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 4812 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 4812 name = VICTORY_POINTS_4812_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4812 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 4812 name = VICTORY_POINTS_4812_POL }
+	}
+	else={
+		reset_province_name = 4812
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 6922 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 6922 name = VICTORY_POINTS_6922_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 6922 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 6922 name = VICTORY_POINTS_6922_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 6922 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 6922 name = VICTORY_POINTS_6922_POL }
+	}
+	else={
+		reset_province_name = 6922
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12115 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 12115 name = VICTORY_POINTS_12115_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12115 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 12115 name = VICTORY_POINTS_12115_POL }
+	}
+	else={
+		reset_province_name = 12115
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12141 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 12141 name = VICTORY_POINTS_12141_POL }
+	}
+	else={
+		reset_province_name = 12141
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12726 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 12726 name = VICTORY_POINTS_12726_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12726 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 12726 name = VICTORY_POINTS_12726_POL }
+	}
+	else={
+		reset_province_name = 12726
+	}
 }
 update_state_97_names={
 	97={
@@ -733,13 +1054,85 @@ update_state_98_names={
 
 }
 update_state_99_names={
-
+	99={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_99_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_99_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_99_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 1547 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 1547 name = VICTORY_POINTS_1547_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1547 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 1547 name = VICTORY_POINTS_1547_POL }
+	}
+	else={
+		reset_province_name = 1547
+	}
 }
 update_state_100_names={
 
 }
 update_state_101_names={
-
+	101={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_101_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_101_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_101_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7871 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 7871 name = VICTORY_POINTS_7871_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7871 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 7871 name = VICTORY_POINTS_7871_POL }
+	}
+	else={
+		reset_province_name = 7871
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 10871 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 10871 name = VICTORY_POINTS_10871_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 10871 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 10871 name = VICTORY_POINTS_10871_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 10871 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 10871 name = VICTORY_POINTS_10871_POL }
+	}
+	else={
+		reset_province_name = 10871
+	}
 }
 update_state_102_names={
 	102={
@@ -1075,7 +1468,31 @@ update_state_116_names={
 
 }
 update_state_117_names={
-
+	117={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_117_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_117_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_117_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 3756 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 3756 name = VICTORY_POINTS_3756_SOV }
+	}
+	else={
+		reset_province_name = 3756
+	}
 }
 update_state_118_names={
 
@@ -1087,7 +1504,107 @@ update_state_120_names={
 
 }
 update_state_121_names={
-
+	121={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_121_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_121_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_121_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 40 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 40 name = VICTORY_POINTS_40_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 40 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 40 name = VICTORY_POINTS_40_POL }
+	}
+	else={
+		reset_province_name = 40
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 4924 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 4924 name = VICTORY_POINTS_4924_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4924 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 4924 name = VICTORY_POINTS_4924_POL }
+	}
+	else={
+		reset_province_name = 4924
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 5773 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 5773 name = VICTORY_POINTS_5773_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 5773 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 5773 name = VICTORY_POINTS_5773_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 5773 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 5773 name = VICTORY_POINTS_5773_POL }
+	}
+	else={
+		reset_province_name = 5773
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9191 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 9191 name = VICTORY_POINTS_9191_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9191 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 9191 name = VICTORY_POINTS_9191_POL }
+	}
+	else={
+		reset_province_name = 9191
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17560 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17560 name = VICTORY_POINTS_17560_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17560 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17560 name = VICTORY_POINTS_17560_POL }
+	}
+	else={
+		reset_province_name = 17560
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17609 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17609 name = VICTORY_POINTS_17609_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17609 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17609 name = VICTORY_POINTS_17609_POL }
+	}
+	else={
+		reset_province_name = 17609
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17669 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17669 name = VICTORY_POINTS_17669_POL }
+	}
+	else={
+		reset_province_name = 17669
+	}
 }
 update_state_122_names={
 
@@ -1099,7 +1616,59 @@ update_state_124_names={
 
 }
 update_state_125_names={
-
+	125={
+		if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = UKR is_puppet_of = UKR } } }
+			set_state_name = STATE_125_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ OR={ original_tag = SOV is_puppet_of = SOV } } }
+			set_state_name = STATE_125_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ OR={ original_tag = POL is_puppet_of = POL } } }
+			set_state_name = STATE_125_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 614 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 614 name = VICTORY_POINTS_614_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 614 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 614 name = VICTORY_POINTS_614_POL }
+	}
+	else={
+		reset_province_name = 614
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17641 OR={ original_tag = SOV is_puppet_of = SOV } } }
+		set_province_name = { id = 17641 name = VICTORY_POINTS_17641_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17641 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17641 name = VICTORY_POINTS_17641_POL }
+	}
+	else={
+		reset_province_name = 17641
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17654 OR={ original_tag = UKR is_puppet_of = UKR } } }
+		set_province_name = { id = 17654 name = VICTORY_POINTS_17654_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17654 OR={ original_tag = POL is_puppet_of = POL } } }
+		set_province_name = { id = 17654 name = VICTORY_POINTS_17654_POL }
+	}
+	else={
+		reset_province_name = 17654
+	}
 }
 update_state_126_names={
 
@@ -3047,7 +3616,13 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 3730 name = VICTORY_POINTS_3730 }
 	set_province_name = { id = 3731 name = VICTORY_POINTS_3731 }
 	set_province_name = { id = 3736 name = VICTORY_POINTS_3736 }
-	set_province_name = { id = 3744 name = VICTORY_POINTS_3744 }
+	if={
+		limit = { has_global_flag = VICTORY_POINT_3744_RENAMED_FLAG }
+		set_province_name = { id = 3744 name = VICTORY_POINTS_3744_RENAMED }
+	}
+	else={
+		set_province_name = { id = 3744 name = VICTORY_POINTS_3744 }
+	}
 	set_province_name = { id = 3756 name = VICTORY_POINTS_3756 }
 	set_province_name = { id = 3757 name = VICTORY_POINTS_3757 }
 	set_province_name = { id = 3762 name = VICTORY_POINTS_3762 }
