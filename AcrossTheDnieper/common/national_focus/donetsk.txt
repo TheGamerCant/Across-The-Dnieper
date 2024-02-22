@@ -567,26 +567,54 @@ shared_focus = {
 		has_global_flag = minsk_ii_has_been_signed
 	}
 	completion_reward ={
-		division_template = {
-			name = "Diesel Battalion"
-			division_names_group = DON_INF_01
-			regiments = {
-				modern_armor = { x = 0 y = 0 }
-				modern_armor = { x = 0 y = 1 }
-				modern_armor = { x = 0 y = 2 }
-				mechanized = { x = 1 y = 0 }
-				apc = { x = 1 y = 1 }
-				apc = { x = 1 y = 2 }
-				mot_rocket_artillery_brigade = { x = 1 y = 3 }
-				
-			}
-			support = {
-				maintenance_company = { x = 0 y = 0 }   
-				logistics_company = { x = 0 y = 1 }  
-				signal_company = { x = 0 y = 2 }  
-				mot_recon = { x = 0 y = 3 }  
-			}
+		if = {
+			limit = { has_dlc = "No Step Back" }
+		    division_template = {
+		    	name = "Diesel Battalion"
+		    	division_names_group = DON_INF_01
+				template_counter = 216
+		    	regiments = {
+		    		modern_armor_nsb = { x = 0 y = 0 }
+		    		modern_armor_nsb = { x = 0 y = 1 }
+		    		modern_armor_nsb = { x = 0 y = 2 }
+		    		mechanized = { x = 1 y = 0 }
+		    		apc = { x = 1 y = 1 }
+		    		apc = { x = 1 y = 2 }
+		    		mot_rocket_artillery_brigade = { x = 1 y = 3 }
+		    		
+		    	}
+		    	support = {
+		    		maintenance_company = { x = 0 y = 0 }   
+		    		logistics_company = { x = 0 y = 1 }  
+		    		signal_company = { x = 0 y = 2 }  
+		    		mot_recon = { x = 0 y = 3 }  
+		    	}
+		    }
 		}
+		else = {
+			division_template = {
+		    	name = "Diesel Battalion"
+		    	division_names_group = DON_INF_01
+				template_counter = 216
+		    	regiments = {
+		    		modern_armor = { x = 0 y = 0 }
+		    		modern_armor = { x = 0 y = 1 }
+		    		modern_armor = { x = 0 y = 2 }
+		    		mechanized = { x = 1 y = 0 }
+		    		apc = { x = 1 y = 1 }
+		    		apc = { x = 1 y = 2 }
+		    		mot_rocket_artillery_brigade = { x = 1 y = 3 }
+		    		
+		    	}
+		    	support = {
+		    		maintenance_company = { x = 0 y = 0 }   
+		    		logistics_company = { x = 0 y = 1 }  
+		    		signal_company = { x = 0 y = 2 }  
+		    		mot_recon = { x = 0 y = 3 }  
+		    	}
+		    }
+		}
+
 		army_experience = 10
 		random_owned_controlled_state = {
 			create_unit = {
@@ -619,9 +647,27 @@ shared_focus = {
 	}
 	completion_reward ={
 		army_experience = 10
+		division_template = {
+	        name = "Vikings Battalion"
+	        division_names_group = DON_INF_01
+	        template_counter = 215
+	        regiments = {
+	        	irregular_infantry = { x = 0 y = 0 }
+	        	irregular_infantry = { x = 0 y = 1 }
+	        	irregular_infantry = { x = 0 y = 2 }
+	        	irregular_infantry = { x = 0 y = 3 }
+	        	apc = { x = 1 y = 0 }
+	        	apc = { x = 1 y = 1 }
+	        	apc = { x = 1 y = 2 }
+	        	artillery_brigade = { x = 2 y = 0 }
+	        }
+	        support = {
+	        	logistics_company = { x = 0 y = 0 }
+	        }
+        }
 		random_owned_controlled_state = {
 			create_unit = {
-				division = "name = \"Vikings Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.25" 
+				division = "name = \"Vikings Battalion\" division_template = \"Vikings Battalion\" start_experience_factor = 0.25" 
 				owner = DON
 			}
 		}
@@ -652,8 +698,9 @@ shared_focus = {
 	completion_reward ={
 		army_experience = 10
 		division_template = {
-			name = "Republican Guard Battalion"
+			name = "Republican Guard Brigade"
 			division_names_group = DON_INF_01
+			template_counter = 213
 			regiments = {
 				motorized = { x = 0 y = 0 }
 				motorized = { x = 0 y = 1 }
@@ -918,14 +965,32 @@ shared_focus = {
 		has_completed_focus = DON_restructure_the_militias
 	}
 	completion_reward ={
+		division_template = {
+	        name = "Oplot Brigade"
+	        division_names_group = DON_INF_01
+	        template_counter = 214
+	        regiments = {
+	        	irregular_infantry = { x = 0 y = 0 }
+	        	irregular_infantry = { x = 0 y = 1 }
+	        	irregular_infantry = { x = 0 y = 2 }
+	        	irregular_infantry = { x = 0 y = 3 }
+	        	apc = { x = 1 y = 0 }
+	        	apc = { x = 1 y = 1 }
+	        	apc = { x = 1 y = 2 }
+	        	artillery_brigade = { x = 2 y = 0 }
+	        }
+	        support = {
+	        	logistics_company = { x = 0 y = 0 }
+	        }
+        }
 
 		random_owned_controlled_state = {
 			create_unit = {
-				division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+				division = "name = \"Oplot Battalion\" division_template = \"Oplot Brigade\" start_experience_factor = 0.2" 
 				owner = DON
 			}
 			create_unit = {
-				division = "name = \"Oplot Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+				division = "name = \"Oplot Battalion\" division_template = \"Oplot Brigade\" start_experience_factor = 0.2" 
 				owner = DON
 			}
 		}
@@ -956,7 +1021,7 @@ shared_focus = {
 
 		random_owned_controlled_state = {
 			create_unit = {
-				division = "name = \"Sparta Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.2" 
+				division = "name = \"2nd Sparta Battalion\" division_template = \"Sparta Battalion\" start_experience_factor = 0.2" 
 				owner = DON
 			}
 		}
@@ -995,10 +1060,27 @@ shared_focus = {
 		has_completed_focus = DON_restructure_the_militias
 	}
 	completion_reward ={
-
+		division_template = {
+	        name = "Somalia Battalion"
+	        division_names_group = DON_INF_01
+	        template_counter = 213
+	        regiments = {
+	        	irregular_infantry = { x = 0 y = 0 }
+	        	irregular_infantry = { x = 0 y = 1 }
+	        	irregular_infantry = { x = 0 y = 2 }
+	        	irregular_infantry = { x = 0 y = 3 }
+	        	apc = { x = 1 y = 0 }
+	        	apc = { x = 1 y = 1 }
+	        	apc = { x = 1 y = 2 }
+	        	artillery_brigade = { x = 2 y = 0 }
+	        }
+	        support = {
+	        	logistics_company = { x = 0 y = 0 }
+	        }
+        }
 		random_owned_controlled_state = {
 			create_unit = {
-				division = "name = \"Somalia Battalion\" division_template = \"Donetsk Militia Brigade\" start_experience_factor = 0.25" 
+				division = "name = \"Somalia Battalion\" division_template = \"Somalia Battalion\" start_experience_factor = 0.25" 
 				owner = DON
 			}
 		}
@@ -1037,6 +1119,7 @@ shared_focus = {
 					division_template = {
 						name = "Foreign Volunteers"
 						division_names_group = DON_INF_01
+						template_counter = 210
 						regiments = {
 							irregular_infantry = { x = 0 y = 0 }
 							irregular_infantry = { x = 0 y = 1 }
@@ -1235,6 +1318,7 @@ shared_focus = {
 
 					division_template = {
 						name = "Foreign Volunteers"
+						template_counter = 210
 						division_names_group = DON_INF_01
 						regiments = {
 							irregular_infantry = { x = 0 y = 0 }
