@@ -1,511 +1,253 @@
 make_borders_look_nice={
+	set_variable = { global.donbass_countries_states_owned = 0 }
 	every_state={
-		limit = { has_state_flag = STATE_CONTROLLED_BY_UKRAINE }
-		UKR = { transfer_state = PREV }
-		clr_state_flag = STATE_CONTROLLED_BY_UKRAINE
-	}
-
-	if={
-		limit = { 
-			146 = { is_controlled_by = DON }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		DON = { transfer_state = 186 }
-	}
-	if={
-		limit = { 
-			131 = { is_controlled_by = LHK }
-			152 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 131 }
-		LHK = { transfer_state = 152 }
-		
-	}
-	else_if={
-		limit = { 
-			155 = { is_controlled_by = LHK }
-			152 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 155 }
-		LHK = { transfer_state = 152 }
-		if={
-			limit = { 154 = { is_controlled_by = LHK } }
-			UKR = { transfer_state = 154 }
-		}
-		
-	}	
-	if={
-		limit = { 
-			136 = { is_controlled_by = LHK }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 136 }
-		DON = { transfer_state = 186 }
-		
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = DON }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		DON = { transfer_state = 186 }
-		
-	}
-	if={
-		limit = { 
-			166 = { is_controlled_by = DON }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		DON = { transfer_state = 186 }
-	}
-	else_if={
-		limit = { 
-			166 = { is_controlled_by = DON }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		DON = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = DON }
-			186 = { is_controlled_by = DON }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		DON = { transfer_state = 208 }
-	}
-	else_if={
-		limit = { 
-			146 = { is_controlled_by = DON }
-			186 = { is_controlled_by = DON }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		DON = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			131 = { is_controlled_by = LHK }
-			186 = { is_controlled_by = DON }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 131 }
-		DON = { transfer_state = 208 }
-	}	
-	if={
-		limit = { 
-			103 = { is_controlled_by = LHK }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 103 }
-		LHK = { transfer_state = 136 }
-	}	
-	if={
-		limit = { 
-			109 = { is_controlled_by = LHK }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 109 }
-		LHK = { transfer_state = 136 }
-	}	
-	if={
-		limit = { 
-			166 = { is_controlled_by = DON }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		LHK = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			146 = { is_controlled_by = DON }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		LHK = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = UKR }
-			155 = { is_controlled_by = LHK }
-		}
-		UKR = { transfer_state = 155 }
-		DON = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = DON }
-			230 = { is_controlled_by = DON }
-			186 = { is_controlled_by = DON }
-			166 = { is_controlled_by = DON }
-			173 = { is_controlled_by = DON }
-			146 = { is_controlled_by = DON }
-			
-			195 = { is_controlled_by = UKR }
-			135 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		DON = { transfer_state = 195 }
-	}
-	if={
-		limit = { 
-			152 = { is_controlled_by = LHK }
-			146 = { is_controlled_by = DON }
-			
-			135 = { is_controlled_by = UKR }
-			131 = { is_controlled_by = UKR }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		LHK = { transfer_state = 136 }
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = DON }
-			146 = { is_controlled_by = DON }
-			136 = { is_controlled_by = LHK }
-			
-			131 = { is_controlled_by = UKR }
-			166 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		LHK = { transfer_state = 131 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = DON }
-			173 = { is_controlled_by = DON }
-			
-			186 = { is_controlled_by = UKR }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 208 }
-		LHK = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			195 = { is_controlled_by = DON }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 195 }
-		LHK = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			136 = { is_controlled_by = LHK }
-			173 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 136 }
-		DON = { transfer_state = 173 }
-	}
-	if={
-		limit = { 
-			230 = { is_controlled_by = DON }
-			208 = { is_controlled_by = DON }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 230 }
-		DON = { transfer_state = 186 }
-	}
-	if={#Keep this at bottom
-		limit = { 
-			154 = { is_controlled_by = LHK }
-			155 = { is_controlled_by = UKR }
-			136 = { is_controlled_by = UKR }
-			131 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 154 }
-	}
-	if={
-		limit = { 
-			154 = { is_controlled_by = UKR }
-			155 = { is_controlled_by = LHK }
-			136 = { is_controlled_by = LHK }
-			131 = { is_controlled_by = LHK }
-		}
-		LHK = { transfer_state = 154 }
-	}
-	
-	
-
-	
-	if={			#Have same effects repeat of Novorossiya
-		limit = { 
-			146 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		NOV = { transfer_state = 186 }
-	}
-	if={
-		limit = { 
-			131 = { is_controlled_by = NOV }
-			152 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 131 }
-		NOV = { transfer_state = 152 }
-		
-	}
-	else_if={
-		limit = { 
-			155 = { is_controlled_by = NOV }
-			152 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 155 }
-		NOV = { transfer_state = 152 }
-		if={
-			limit = { 154 = { is_controlled_by = NOV } }
-			UKR = { transfer_state = 154 }
-		}
-		
-	}	
-	if={
-		limit = { 
-			136 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 136 }
-		NOV = { transfer_state = 186 }
-		
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		NOV = { transfer_state = 186 }
-		
-	}
-	if={
-		limit = { 
-			166 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		NOV = { transfer_state = 186 }
-	}
-	else_if={
-		limit = { 
-			166 = { is_controlled_by = NOV }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		NOV = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = NOV }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		NOV = { transfer_state = 208 }
-	}
-	else_if={
-		limit = { 
-			146 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = NOV }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		NOV = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			131 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = NOV }
-			208 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 131 }
-		NOV = { transfer_state = 208 }
-	}	
-	if={
-		limit = { 
-			103 = { is_controlled_by = NOV }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 103 }
-		NOV = { transfer_state = 136 }
-	}
-	if={
-		limit = { 
-			109 = { is_controlled_by = NOV }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 109 }
-		NOV = { transfer_state = 136 }
-	}
-	if={
-		limit = { 
-			166 = { is_controlled_by = NOV }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 166 }
-		NOV = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			146 = { is_controlled_by = NOV }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		NOV = { transfer_state = 155 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = UKR }
-			155 = { is_controlled_by = NOV }
-		}
-		UKR = { transfer_state = 155 }
-		NOV = { transfer_state = 208 }
-	}
-	if={
-		limit = { 
-			230 = { is_controlled_by = NOV }
-			208 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 230 }
-		NOV = { transfer_state = 186 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = NOV }
-			230 = { is_controlled_by = NOV }
-			186 = { is_controlled_by = NOV }
-			166 = { is_controlled_by = NOV }
-			173 = { is_controlled_by = NOV }
-			146 = { is_controlled_by = NOV }
-			
-			195 = { is_controlled_by = UKR }
-			135 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		NOV = { transfer_state = 195 }
-	}
-	if={
-		limit = { 
-			152 = { is_controlled_by = NOV }
-			146 = { is_controlled_by = NOV }
-			
-			135 = { is_controlled_by = UKR }
-			131 = { is_controlled_by = UKR }
-			136 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 146 }
-		NOV = { transfer_state = 136 }
-	}
-	if={
-		limit = { 
-			135 = { is_controlled_by = NOV }
-			146 = { is_controlled_by = NOV }
-			136 = { is_controlled_by = NOV }
-			
-			131 = { is_controlled_by = UKR }
-			166 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 135 }
-		NOV = { transfer_state = 131 }
-	}
-	if={
-		limit = { 
-			208 = { is_controlled_by = NOV }
-			173 = { is_controlled_by = NOV }
-			
-			186 = { is_controlled_by = UKR }
-			155 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 208 }
-		NOV = { transfer_state = 155 }
-	}
-	
-	
-	if={
-		limit = { 
-			154 = { is_controlled_by = NOV }
-			155 = { is_controlled_by = UKR }
-			136 = { is_controlled_by = UKR }
-			131 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 154 }
-	}
-	
-	if={
-		limit = { 
-			255 = { is_controlled_by = NOV }
-			304 = { is_controlled_by = UKR }
-		}
-		NOV = { transfer_state = 304 }
-	}
-	else_if={
-		limit = { 
-			255 = { is_controlled_by = UKR }
-			304 = { is_controlled_by = NOV }
-		}
-		UKR = { transfer_state = 304 }
-	}
-	
-	if={
-		limit = { 
-			255 = { is_controlled_by = NOV }
-			447 = { is_controlled_by = UKR }
-		}
-		NOV = { transfer_state = 447 }
-	}
-	else_if={
-		limit = { 
-			255 = { is_controlled_by = UKR }
-			447 = { is_controlled_by = NOV }
-		}
-		UKR = { transfer_state = 447 }
-	}
-	if={
-		limit = { 
-			136 = { is_controlled_by = NOV }
-			173 = { is_controlled_by = UKR }
-		}
-		UKR = { transfer_state = 136 }
-		NOV = { transfer_state = 173 }
-	}
-	
-	if={
-		limit = { 
-			250 = { is_controlled_by = NOV }
-			300 = { is_controlled_by = UKR }
-		}
-		NOV = { transfer_state = 300 }
-	}
-	else_if={
-		limit = { 
-			250 = { is_controlled_by = UKR }
-			300 = { is_controlled_by = NOV }
-		}
-		UKR = { transfer_state = 300 }
-	}
-	
-	
-	
-	every_country={
 		limit={
-			OR={
-				tag = DON
-				tag = LHK
-				tag = KHK
-				tag = ODS
-				tag = NOV
+			CONTROLLER={
+				OR={
+					tag = DON
+					tag = LHK
+				}
 			}
 		}
-		every_owned_state={
-			limit = { NOT = { is_core_of = PREV } }
-			UKR={ transfer_state = PREV }	
+		
+		add_to_variable = { global.donbass_countries_states_owned = 1 }
+	}
+	
+	if={
+		limit = { has_global_flag = donetsk_has_capitulated }
+		every_state={
+			limit = { has_state_flag = luhansk_oblast_flag }
+			UKR = { transfer_state = PREV }
+		}
+		
+		if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 1 compare = equals }
+				LHK = { transfer_state = 159 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 2 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 3 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 4 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 5 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 transfer_state = 154 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 6 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 7 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 131 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 8 compare = equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 131 transfer_state = 109 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 9 compare = greater_than_or_equals }
+				LHK = { transfer_state = 159 transfer_state = 152 transfer_state = 174 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 131 transfer_state = 109 transfer_state = 103 }
+			}
+		}
+	}
+	else_if={
+		limit = { has_global_flag = donetsk_has_capitulated }
+		every_state={
+			limit = { has_state_flag = donetsk_oblast_flag }
+			UKR = { transfer_state = PREV }
+		}
+		
+		if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 1 compare = equals }
+				DON = { transfer_state = 208 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 2 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 3 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 4 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 5 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 6 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 7 compare = equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 8 compare = greater_than_or_equals }
+				DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+			}
+		}
+	}
+	else={
+		every_state={
+			limit = { OR={ has_state_flag = donetsk_oblast_flag has_state_flag = luhansk_oblast_flag } }
+			UKR = { transfer_state = PREV }
+		}
+		
+		if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 3 compare = equals }
+				LHK = { transfer_state = 174 }
+				DON = { transfer_state = 186 transfer_state = 173 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 4 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 }
+				DON = { transfer_state = 186 transfer_state = 173 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 5 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 }
+				DON = { transfer_state = 186 transfer_state = 173 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 6 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 7 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 8 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 9 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 10 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 11 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 12 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 13 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 14 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 15 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 16 compare = equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+			}
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 17 compare = greater_than_or_equals }
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 transfer_state = 103 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+			}
 		}
 	}
 	
+
+	
+	
+	#Keep this at the bottom
 	if={
 		limit = { has_global_flag = donetsk_has_capitulated }
 		UKR = { annex_country = { target = DON transfer_troops = no } }
@@ -530,6 +272,7 @@ make_borders_look_nice={
 		limit = { has_global_flag = novorossiya_has_capitulated }
 		UKR = { annex_country = { target = NOV transfer_troops = no } }
 	}
+	clear_variable = global.donbass_countries_states_owned
 }
 
 load_russian_occupation={

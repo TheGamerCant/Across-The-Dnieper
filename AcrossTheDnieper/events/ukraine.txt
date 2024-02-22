@@ -1935,7 +1935,7 @@ country_event = {
 			}
 
 			clr_global_flag = donbass_war_is_ongoing
-			UKR={ country_event = { id = ukraine.48 hours = 1 } }
+			UKR={ country_event = { id = ukraine.48 hours = 2 } country_event = { id = ukraine.143 hours = 1 } }
 			SOV = { clr_country_flag = chosen_to_send_volunteers_to_donbass }
 			
 			if={
@@ -5857,4 +5857,39 @@ country_event = { #eurovision 2022
 		name = ukraine.142.a
 
 	}
+}
+
+#Make borders look nice
+country_event = {
+	id = ukraine.143
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	immediate = { 
+		every_state={
+			limit = { has_state_flag = STATE_CONTROLLED_BY_UKRAINE }
+			UKR = { transfer_state = PREV }
+			clr_state_flag = STATE_CONTROLLED_BY_UKRAINE
+		}
+
+		
+		
+		
+		every_country={
+			limit={
+				OR={
+					tag = DON
+					tag = LHK
+					tag = KHK
+					tag = ODS
+					tag = NOV
+				}
+			}
+			every_owned_state={
+				limit = { NOT = { OR={ is_core_of = PREV is_claimed_by = PREV } } }
+				UKR={ transfer_state = PREV }	
+			}
+		}
+	}	
 }
