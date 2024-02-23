@@ -94,9 +94,23 @@ UKR_state_of_the_nation_decisions={
 						
 						LHK = { transfer_state = PREV }
 					}
-					DON = { 
-						load_oob = DON_moderate
+					every_state={
+						limit = { OR = { state = 208 state = 186 state = 173 } }
 
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_defended_area
+							scope = UKR
+							days = 150
+						}
+					}
+					DON = { 
+						if={
+							limit = { has_dlc = "No Step Back" }
+							load_oob = DON_moderate_nsb
+						}
+						else={
+							load_oob = DON_moderate
+						}
 #						unlock_national_focus = DON_storm_the_rsa
 #						unlock_national_focus = DON_appoint_new_leadership
 #						unlock_national_focus = DON_hold_referendum_rallies
@@ -167,7 +181,13 @@ UKR_state_of_the_nation_decisions={
 						transfer_state = 159
 						transfer_state = 186
 						transfer_state = 173
-						load_donetsk_oob = yes
+						if={
+							limit = { has_dlc = "No Step Back" }
+							load_oob = DON_moderate_nsb
+						}
+						else={
+							load_oob = DON_moderate
+						}
 						load_oob = LHK_moderate
 						load_oob = NOV_rebel
 					}
