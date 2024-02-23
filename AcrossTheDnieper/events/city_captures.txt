@@ -679,10 +679,15 @@ news_event = {
     desc = city_captures.23.d
     picture = GFX_news_event_UKR_avdiivka_fall
     major = yes
-	is_triggered_only = yes
 
+    immediate = {
+        set_global_flag = fall_avdiivka
+    }
 
-
+    trigger = { OR = {SOV = {controls_province = 3581}
+	 DON = {controls_province = 3581} }
+	 NOT = { has_global_flag = fall_avdiivka }
+	}
 
 	option = {
 		name = city_captures.22.a
