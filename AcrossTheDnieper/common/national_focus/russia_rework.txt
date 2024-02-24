@@ -706,6 +706,19 @@ focus_tree = {
 						scope = UKR
 					}
 				}
+
+				every_state = {
+					limit ={
+						is_controlled_by = SOV
+						has_state_flag = crimea_oblast_flag
+					}
+					
+					add_dynamic_modifier = {
+						modifier = UKR_heavily_defended_area
+						scope = UKR
+					}
+				}
+				
 				every_state={ #can be moved to an event if you want
 					limit = {
 						is_controlled_by = UKR
@@ -995,12 +1008,12 @@ focus_tree = {
 						}
 						
 						for_loop_effect = {
-							end = 15
+							end = 20
 							value = temp
 							random_owned_controlled_state = {
 								limit = { SOV = { has_full_control_of_state = PREV } }
 								create_unit = {
-									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
+									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.05" 
 									owner = SOV
 								}
 							}
