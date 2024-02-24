@@ -1,6 +1,135 @@
 
 guiTypes = {
 	containerWindowType = {
+		name = "UKR_HUR_decision"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 200 }
+
+		buttonType = {
+			name = "UKR_HUR_decision_button"
+			position = { x = 130 y = -12.5 }
+			quadTextureSprite = "GFX_decision_UKR_hur_button"
+			orientation = upper_left
+		}
+	}
+}
+
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_executive_gui"
+		size = { width = 400 height = 550 }
+		position = { x=-200 y=80 }
+		show_position = { x=1460 y=79 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_hur_executive_bg"
+		}
+		
+		instantTextboxType = {
+			name = "title_text_box"
+			position = { x = -435 y = 8 }
+			font = "hoi_36header"
+			text = "UKR_hur_executive_title"
+			maxWidth = 1250
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
+		iconType = {
+			name = "UKR_HUR_executive_portrait"
+			orientation = center
+			position = { x = -90 y =-150 }
+			spriteType = "GFX_decision_UKR_budanov_portrait"
+		}
+
+		iconType = {
+			name = "leader_frame"
+			spriteType = "GFX_pol_leader_frame"
+			position = {x = -100 y = -160 }
+			orientation = center
+			alwaystransparent = no
+		}
+
+		iconType = { #might be better without it idk
+		name = "UKR_HUR_overlay_2"
+		orientation = center
+		position = {x = -200 y = -275 }
+		spriteType = "GFX_decision_UKR_hur_executive_overlay"
+		alwaystransparent = yes
+	}
+	}
+}
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_crimea_gui"
+		size = { width = 1000 height = 850 }
+		position = { x=-200 y=80 }
+		show_position = { x=540 y=79 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_hur_crimea_bg"
+		}
+
+		instantTextboxType = {
+			name = "title_text_box"
+			position = { x = -165 y = 10 }
+			font = "hoi_36header"
+			text = "UKR_hur_crimea_title"
+			maxWidth = 1250
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
+		buttonType = {
+			name = "UKR_HUR_mayak_and_olenivka"
+			position = { x = -455 y = -38 }
+			quadTextureSprite = "GFX_decision_UKR_hur_crimea_button"
+			orientation = center
+		}
+		buttonType = {
+			name = "UKR_HUR_sevastopol_port"
+			position = { x = -345 y = 140 }
+			quadTextureSprite = "GFX_decision_UKR_hur_crimea_button_2"
+			orientation = center
+		}
+		buttonType = {
+			name = "UKR_HUR_kerch_button"
+			position = { x = 350 y = 20 }
+			quadTextureSprite = "GFX_decision_UKR_hur_crimea_button_2"
+			orientation = center
+		}
+		iconType = {
+			name = "UKR_HUR_kerch_bridge"
+			orientation = center
+			position = { x = 368 y = -62 }
+			spriteType = "GFX_decision_UKR_hur_crimea_kerch_bridge"
+		}
+		iconType = { #might be better without it
+			name = "UKR_HUR_overlay"
+			orientation = center
+			position = { x = -499 y = -424 }
+			spriteType = "GFX_decision_UKR_hur_crimea_overlay"
+			alwaystransparent = yes
+		}
+	}
+}
+
+guiTypes = {
+	containerWindowType = {
 		name = "Ukraine_decision_ui_window"
 		position = { x = 0 y = 0 }
 		size = { width = 100% height = 330 }

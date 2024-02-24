@@ -1,0 +1,78 @@
+scripted_gui = {
+
+	ukraine_hur_decisions = {
+		context_type = decision_category
+		window_name = "UKR_HUR_decision"
+		triggers = {
+		}
+		
+		effects={
+			UKR_HUR_decision_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_hur_ui } }
+					set_country_flag = UKR_opened_hur_ui
+				}
+				else={
+					clr_country_flag = UKR_opened_hur_ui
+				}
+			}
+		}
+		properties = { 
+				
+		}
+	}
+
+	ukraine_hur_gui = {
+		context_type = player_context
+		window_name = "UKR_HUR_crimea_gui"
+		triggers = {
+		}
+		
+		effects={
+
+		}
+		properties = { 
+			UKR_HUR_mayak_and_olenivka = {
+				image = "GFX_decision_UKR_hur_crimea_button"
+				frame = 1
+			}
+			UKR_HUR_sevastopol_port = {
+				image = "GFX_decision_UKR_hur_crimea_button_2"
+				frame = 1
+			}
+			UKR_HUR_kerch_button = {
+				image = "GFX_decision_UKR_hur_crimea_button_2"
+				frame = 1
+			}
+		}
+
+		visible={
+			AND = {
+				has_country_flag = UKR_opened_hur_ui
+				NOT = {
+					any_controlled_state = {
+						has_state_flag = crimea_oblast_flag 
+					}
+				}
+			}
+			
+		}
+	}
+
+	UKR_HUR_executive_gui = {
+		context_type = player_context
+		window_name = "UKR_HUR_executive_gui"
+		triggers = {
+		}
+		
+		effects={
+
+		}
+		properties = { 
+		}
+
+		visible={
+			has_country_flag = UKR_opened_hur_ui
+		}
+	}
+}
