@@ -1,4 +1,5 @@
 add_namespace = ukraine
+add_namespace = ukraine_hur
 
 #Intro event
 country_event = {
@@ -5892,4 +5893,67 @@ country_event = {
 			}
 		}
 	}	
+}
+
+#Successful Belgorod Incursion
+country_event = {
+	id = ukraine_hur.1
+	title = ukraine_hur.1.t
+	desc = ukraine_hur.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_maidan_protests
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = UKR_HUR_borisovka_selected }
+				set_variable = { ROOT.borisovka_controller = 2 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected }
+				set_variable = { ROOT.gorkovsky_tsapovka_shchetinovka_controller = 2 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_belgorod_selected }
+				set_variable = { ROOT.belgorod_controller = 2 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_shebeniko_selected }
+				set_variable = { ROOT.shebeniko_controller = 2 }
+			}
+		}
+	}
+	
+	option = { 
+		name = ukraine_hur.1.a
+		ai_chance = {
+			base = 10
+		}
+		set_variable = { ROOT.can_do_hur_mission = 1 } #temporary
+	}
+
+	option = { 
+		name = ukraine_hur.1.b
+		ai_chance = {
+			base = 10
+		}
+		set_variable = { ROOT.can_do_hur_mission = 1 } #temporary
+	}
+}
+
+#Failed Belgorod Incursion
+country_event = {
+	id = ukraine_hur.2
+	title = ukraine_hur.2.t
+	desc = ukraine_hur.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_maidan_protests
+	
+	option = { 
+		name = ukraine_hur.2.a
+		ai_chance = {
+			base = 20
+		}
+		set_variable = { ROOT.can_do_hur_mission = 1 }
+	}
 }

@@ -14,26 +14,153 @@ guiTypes = {
 	}
 }
 
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_assassinations_gui"
+		size = { width = 400 height = 725 }
+		position = { x=-200 y=585 }
+		show_position = { x=1449 y=585 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		#moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_hur_assassinations_bg"
+		}
+		containerWindowType = {
+			name = "assassination_grid_container"
+			Orientation = upper_left
+			size = { width = 100%% height = 100%%}
+			position = {x=0 y=100}
+			verticalScrollbar = "right_vertical_slider_intel"
+			scroll_wheel_factor = 50
+			smooth_scrolling = yes
+					
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_tiled_window_transparent"
+			}
+			
+			gridBoxType = {
+				name = "assassination_grid_box"
+				position = { x = 50 y = 20}
+				size = { width = 100%% height = 750 }
+				Orientation = upper_left
+				slotsize = {width=400 height=250 }
+				format = "UPPER_LEFT"
+				max_slots_horizontal = 1
+			}
+		}
+
+		instantTextboxType = {
+	    	name = "title_text_box"
+	    	position = { x = -10 y = 15 }
+	    	font = "hoi_36header"
+	    	text = "UKR_hur_assassinations_title"
+	    	maxWidth = 400
+	    	maxHeight = 40
+	    	alwaystransparent = yes
+	    	format = center
+	    }
+	}
+
+	containerWindowType = {
+		name = "assassination_array"
+		size = {width=400 height=80}
+
+		iconType = {
+			name = "person_portrait"
+			orientation = center
+			position = {x = -214 y = -60 }
+			spriteType = "GFX_pol_leader_frame"
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "person_frame"
+			spriteType = "GFX_pol_leader_frame"
+			position = {x = -220 y = -65 }
+			orientation = center
+			alwaystransparent = no
+			scale = 0.8
+		}
+		
+		instantTextboxType = {
+			name = "title_text_box"
+			position = { x = -45 y = 155  }
+			font = "hoi_18mbs"
+			text = "[UKR_HUR_get_assassination_name]"
+			maxWidth = 180
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
+		instantTextboxType = {
+			name = "reasoning_text_box"
+			position = { x = 125 y = 120  }
+			font = "hoi_18mbs"
+			text = "UKR_HUR_reason_assassination"
+			maxWidth = 180
+			maxHeight = 40
+			alwaystransparent = yes
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "health_text_box"
+			position = { x = 125 y = 0  }
+			font = "hoi_18mbs"
+			text = "UKR_HUR_health_status"
+			maxWidth = 180
+			maxHeight = 40
+			alwaystransparent = yes
+			format = left
+		}
+
+		buttonType = {
+			name = "prepare_assassination_button"
+			position = { x = 25 y = 185 }
+			quadTextureSprite = "GFX_button_221x34"
+			buttonFont = "hoi_18mbs"
+			buttonText  = "UKR_HUR_prepare_assassination"
+			scale = 1.2
+		}
+	}
+}
+
+
 
 guiTypes = {
 	containerWindowType = {
 		name = "UKR_HUR_executive_gui"
 		size = { width = 400 height = 550 }
-		position = { x=-200 y=80 }
-		show_position = { x=1460 y=79 }
+		position = { x=-200 y=78 }
+		show_position = { x=1452 y=78 }
 		show_animation_type = decelerated
 		hide_animation_type = accelerated
 		animation_time = 300
-		moveable = yes
+		#moveable = yes
 
 		background = {
 			name = "Background"
 			quadTextureSprite = "GFX_decision_UKR_hur_executive_bg"
 		}
-		
+
+		buttonType = {
+			name = "close_button"
+			position = { x = 325 y = 7 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = ""
+			shortcut = "ESCAPE"
+			scale = 1.2
+		}
+
 		instantTextboxType = {
 			name = "title_text_box"
-			position = { x = -435 y = 8 }
+			position = { x = -450 y = 8 }
 			font = "hoi_36header"
 			text = "UKR_hur_executive_title"
 			maxWidth = 1250
@@ -45,25 +172,304 @@ guiTypes = {
 		iconType = {
 			name = "UKR_HUR_executive_portrait"
 			orientation = center
-			position = { x = -90 y =-150 }
+			position = { x = -90 y =-200 }
 			spriteType = "GFX_decision_UKR_budanov_portrait"
 		}
 
 		iconType = {
 			name = "leader_frame"
 			spriteType = "GFX_pol_leader_frame"
-			position = {x = -100 y = -160 }
+			position = {x = -100 y = -210 }
 			orientation = center
 			alwaystransparent = no
 		}
 
 		iconType = { #might be better without it idk
-		name = "UKR_HUR_overlay_2"
-		orientation = center
-		position = {x = -200 y = -275 }
-		spriteType = "GFX_decision_UKR_hur_executive_overlay"
-		alwaystransparent = yes
+		    name = "UKR_HUR_overlay_2"
+		    orientation = center
+		    position = {x = -200 y = -275 }
+		    spriteType = "GFX_decision_UKR_hur_executive_overlay"
+		    alwaystransparent = yes
+	    }
+
+		instantTextboxType = {
+			name = "executive_name"
+			position = { x = 35 y = 290 }
+			font = "hoi_18mbs"
+			text = "executive_name_txt"
+			maxWidth = 300
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
+		instantTextboxType = {
+			name = "executive_effects"
+			position = { x = 20 y = 355 }
+			font = "hoi_18mbs"
+			text = "executive_effects_txt"
+			maxWidth = 350
+			maxHeight = 40
+			alwaystransparent = yes
+			format = left
+		}
 	}
+}
+
+
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_belgorod_gui"
+		size = { width = 930 height = 600 }
+		position = { x=-200 y=79 }
+		show_position = { x=540 y=79 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		#moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_hur_belgorod_bg"
+		}
+		
+		instantTextboxType = {
+			name = "title_text_box"
+			position = { x = 0 y = 8 }
+			font = "hoi_36header"
+			text = "UKR_hur_belgorod_title"
+			maxWidth = 930
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+
+
+
+		iconType = {
+			name = "city_borisovka"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			position = {x = -215 y = -145 }
+			orientation = center
+			alwaystransparent = no
+			pdx_tooltip = "UKR_hur_belgorod_borisovka_city"
+			scale = 1.2
+		}
+		buttonType = {
+			name = "city_borisovka_button"
+			position = {x = -400 y = -60 }
+			quadTextureSprite = "GFX_decision_UKR_hur_belgorod_button"
+			pdx_tooltip = "UKR_hur_belgorod_incursion_tt"
+			orientation = center
+		}
+
+		iconType = {
+			name = "city_gorkovsky"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			pdx_tooltip = "UKR_hur_belgorod_gorkovsky_city"
+			position = {x = -215 y = -88 }
+			orientation = center
+			alwaystransparent = no
+			scale = 1.2
+		}
+		buttonType = {
+			name = "city_gorkovsky_tsapovka_shchetinovka_button"
+			position = {x = -160 y = 25 }
+			quadTextureSprite = "GFX_decision_UKR_hur_belgorod_button"
+			pdx_tooltip = "UKR_hur_belgorod_incursion_tt"
+			orientation = center
+		}
+		iconType = {
+			name = "city_tsapovka"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			pdx_tooltip = "UKR_hur_belgorod_tsapovka_city"
+			position = {x = -175 y = -89 }
+			orientation = center
+			alwaystransparent = no
+			scale = 1.2
+		}
+		iconType = {
+			name = "city_shchetinovka"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			position = {x = -125 y = -95 }
+			pdx_tooltip = "UKR_hur_belgorod_shhetinovka_city"
+			orientation = center
+			alwaystransparent = no
+			scale = 1.2
+		}
+		iconType = {
+			name = "city_belgorod"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			pdx_tooltip = "UKR_hur_belgorod_belgorod_city"
+			position = {x = 148 y = -185 }
+			orientation = center
+			alwaystransparent = no
+			scale = 1.5
+		}
+		buttonType = {
+			name = "city_belgorod_button"
+			position = {x = 70 y = 103 }
+			quadTextureSprite = "GFX_decision_UKR_hur_belgorod_button"
+			pdx_tooltip = "UKR_hur_belgorod_incursion_tt"
+			orientation = center
+		}
+		iconType = {
+			name = "city_shebeniko"
+			spriteType = "GFX_decision_UKR_hur_city_images"
+			pdx_tooltip = "UKR_hur_belgorod_shebeniko_city"
+			position = {x = 235 y = -55 }
+			orientation = center
+			alwaystransparent = no
+			scale = 1.2
+		}
+		buttonType = {
+			name = "city_shebeniko_button"
+			position = {x = 240 y = 45 }
+			quadTextureSprite = "GFX_decision_UKR_hur_belgorod_button"
+			pdx_tooltip = "UKR_hur_belgorod_incursion_tt"
+			orientation = center
+		}
+
+		instantTextboxType = {
+			name = "open_moscow_view_button_text_box"
+			position = { x = -510 y = 420 }
+			font = "hoi_36header"
+			text = "UKR_open_moscow_view_button_title"
+			maxWidth = 1250
+			maxHeight = 40
+			alwaystransparent = yes
+			format = center
+		}
+		
+		buttonType = {
+			name = "open_moscow_view_button"
+			position = {x = -410 y = 165 }
+			quadTextureSprite = "GFX_decision_UKR_hur_moscow_button"
+			orientation = center
+		}
+
+		iconType = {
+		    name = "UKR_HUR_overlay"
+		    orientation = center
+		    position = { x = -465 y = -295 }
+		    spriteType = "GFX_decision_UKR_hur_belgorod_overlay"
+		    alwaystransparent = yes
+	    }
+
+	}
+}
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_belgorod_preperations_gui"
+		size = { width = 550 height = 600 }
+		position = { x=-200 y=400 }
+		show_position = { x=800 y=400 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_diplo_action_justify_wargoals_bg"
+		}
+
+		instantTextboxType = {
+			name = "required_items_text_box"
+			position = { x = 25 y = 135 }
+			font = "hoi_18mbs"
+			text = "UKR_HUR_required_items_for_incursion"
+			maxWidth = 1250
+			maxHeight = 40
+			alwaystransparent = yes
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "title_text_box"
+			position = { x = 0 y = 20 }
+			font = "hoi_36header"
+			text = "UKR_hur_belgorod_title"
+			maxWidth = 525
+			maxHeight = 60
+			alwaystransparent = yes
+			format = center
+		}
+
+		buttonType = {
+			name = "fill_required_garrison"
+			position = { x = 275 y = 152 }
+			quadTextureSprite = "GFX_button_221x34"
+			buttonFont = "hoi_18mbs"
+			buttonText  = "UKR_HUR_fill_required_garrison_txt"
+			scale = 1.2
+		}
+
+		buttonType = {
+			name = "begin_incursion_button"
+			position = { x = 150 y = 450 }
+			quadTextureSprite = "GFX_button_221x34"
+			buttonFont = "hoi_18mbs"
+			buttonText  = "UKR_HUR_begin_incursion_button_txt"
+			pdx_tooltip = "begin_incursion_button_tooltip"
+			scale = 1.2
+		}
+	}
+}
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_moscow_gui"
+		size = { width = 550 height = 600 }
+		position = { x=-200 y=745 }
+		show_position = { x=800 y=745 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_hur_moscow_bg"
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = 500 y = 7 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = ""
+			shortcut = "ESCAPE"
+			scale = 1.2
+		}
+
+
+		iconType = {
+		    name = "UKR_HUR_overlay"
+		    orientation = center
+		    position = { x = -275 y = -275 }
+		    spriteType = "GFX_decision_UKR_hur_moscow_overlay"
+		    alwaystransparent = yes
+	    }
+
+	    instantTextboxType = {
+	    	name = "title_text_box"
+	    	position = { x = -480 y = 555 }
+	    	font = "hoi_18mbs"
+	    	text = "UKR_hur_moscow_title"
+	    	maxWidth = 1250
+	    	maxHeight = 40
+	    	alwaystransparent = yes
+	    	format = center
+	    }
+
+		buttonType = {
+			name = "UKR_HUR_moscow_button_drone"
+			position = { x = 5 y = 240 }
+			quadTextureSprite = "GFX_decision_UKR_hur_moscow_button_2"
+			orientation = center
+		}
 	}
 }
 
@@ -71,12 +477,12 @@ guiTypes = {
 	containerWindowType = {
 		name = "UKR_HUR_crimea_gui"
 		size = { width = 1000 height = 850 }
-		position = { x=-200 y=80 }
-		show_position = { x=540 y=79 }
+		position = { x=-200 y=645 }
+		show_position = { x=540 y=645 }
 		show_animation_type = decelerated
 		hide_animation_type = accelerated
 		animation_time = 300
-		moveable = yes
+		#moveable = yes
 
 		background = {
 			name = "Background"

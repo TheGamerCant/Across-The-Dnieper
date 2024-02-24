@@ -315,3 +315,243 @@ defined_text = {
         localization_key = "82nd Air Assault"
     }
 }
+
+defined_text = {
+    name = UKR_HUR_get_assassination_name
+	
+	text = {
+        trigger = {
+            check_variable = { i = 0  }
+        }
+        localization_key = "UKR_HUR_kyva"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 1  }
+        }
+        localization_key = "UKR_HUR_filiponenko"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 2  }
+        }
+        localization_key = "UKR_HUR_gorenko"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_get_assassination_portrait
+	
+	text = {
+        trigger = {
+            check_variable = { i = 0  }
+        }
+        localization_key = "GFX_decision_Portrait_Illia_Kyva"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 1  }
+        }
+        localization_key = "GFX_decision_Portrait_Mikhail_Filiponenko"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 2  }
+        }
+        localization_key = "GFX_decision_Portrait_Sergei_Gorenko"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_get_assassination_reason
+	
+	text = {
+        trigger = {
+            check_variable = { i = 0  }
+        }
+        localization_key = "UKR_HUR_kyva_reason"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 1  }
+        }
+        localization_key = "UKR_HUR_filiponenko_reason"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 2  }
+        }
+        localization_key = "UKR_HUR_gorenko_reason"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_get_assassination_health_status
+	
+	text = {
+        trigger = {
+            check_variable = { i = 0  }
+            NOT = {
+                has_country_flag = UKR_HUR_kyva_hospitalized
+                has_country_flag = UKR_HUR_kyva_dead
+            }
+        }
+        localization_key = "UKR_HUR_health_status_healthy"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 0 }
+            has_country_flag = UKR_HUR_kyva_hospitalized
+        }
+        localization_key = "UKR_HUR_health_status_hospitalized"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 0 }
+            has_country_flag = UKR_HUR_kyva_dead
+        }
+        localization_key = "UKR_HUR_health_status_dead"
+    }
+
+
+    text = {
+        trigger = {
+            check_variable = { i = 1  }
+            NOT = {
+                has_country_flag = UKR_HUR_filiponenko_hospitalized
+                has_country_flag = UKR_HUR_filiponenko_dead
+            }
+        }
+        localization_key = "UKR_HUR_health_status_healthy"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 1 }
+            has_country_flag = UKR_HUR_filiponenko_hospitalized
+        }
+        localization_key = "UKR_HUR_health_status_hospitalized"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 1 }
+            has_country_flag = UKR_HUR_filiponenko_dead
+        }
+        localization_key = "UKR_HUR_health_status_dead"
+    }
+
+    text = {
+        trigger = {
+            check_variable = { i = 2  }
+            NOT = {
+                has_country_flag = UKR_HUR_gorenko_hospitalized
+                has_country_flag = UKR_HUR_gorenko_dead
+            }
+        }
+        localization_key = "UKR_HUR_health_status_healthy"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 2 }
+            has_country_flag = UKR_HUR_gorenko_hospitalized
+        }
+        localization_key = "UKR_HUR_health_status_hospitalized"
+    }
+    text = {
+        trigger = {
+            check_variable = { i = 2 }
+            has_country_flag = UKR_HUR_gorenko_dead
+        }
+        localization_key = "UKR_HUR_health_status_dead"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_doing_mission
+	
+    text = {
+        trigger = {
+			check_variable = { ROOT.can_do_hur_mission = 1 }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+        trigger = {
+			check_variable = { ROOT.can_do_hur_mission = 2 }
+        }
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_has_enough_cp_incursion
+	
+    text = {
+        trigger = {
+			command_power > ROOT.required_cp_incursion
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+        trigger = {
+			command_power < ROOT.required_cp_incursion
+        }
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_has_gave_equipment_incursion
+	
+    text = {
+        trigger = {
+            check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+            check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+            check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+            check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+        }
+       localization_key = "texticon_tick"
+    }
+	
+    text = {
+        trigger = {
+            NOT = {
+                check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+                check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+                check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+                check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+            }
+        }
+       localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_get_incursion_city_name
+	
+    text = {
+        trigger = {
+            check_variable = { ROOT.city_done_operation_in = 1 }
+        }
+       localization_key = "UKR_hur_belgorod_borisovka_city"
+    }
+    text = {
+        trigger = {
+            check_variable = { ROOT.city_done_operation_in = 2 }
+        }
+       localization_key = "UKR_hur_belgorod_3_cities_in_one"
+    }
+    text = {
+        trigger = {
+            check_variable = { ROOT.city_done_operation_in = 3 }
+        }
+       localization_key = "UKR_hur_belgorod_belgorod_city"
+    }
+    text = {
+        trigger = {
+            check_variable = { ROOT.city_done_operation_in = 4 }
+        }
+       localization_key = "UKR_hur_belgorod_shebeniko_city"
+    }
+}

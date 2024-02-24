@@ -498,3 +498,98 @@ russia_ukraine_peace={		#This is total Ukrainian victory
 	}
 	country_event = { id = super.2 }
 }
+
+UKR_HUR_setup = {
+	set_variable = { UKR.executive_successful_operation_chance_modifier = 25 }
+	set_variable = { UKR.executive_forces_morale_modifier = 40 }
+	set_variable = { UKR.executive_strategy_modifier = 60 }
+
+	set_variable = { UKR.can_do_hur_mission = 1 }
+
+	set_variable = { UKR.borisovka_controller = 1 }
+	set_variable = { UKR.gorkovsky_tsapovka_shchetinovka_controller = 1 }
+	set_variable = { UKR.belgorod_controller = 1 }
+	set_variable = { UKR.shebeniko_controller = 1 }
+
+	set_variable = { UKR.required_rifles_incursion = 100 }
+	set_variable = { UKR.given_rifles_incursion = 0 }
+
+	set_variable = { UKR.required_manpower_incursion = 100 }
+	set_variable = { UKR.given_manpower_incursion = 0 }
+
+	set_variable = { UKR.required_apc_incursion = 4 }
+	set_variable = { UKR.given_apc_incursion = 0 }
+
+	set_variable = { UKR.required_mechanized_incursion = 5 }
+	set_variable = { UKR.given_mechanized_incursion = 0 }
+
+	set_variable = { UKR.required_cp_incursion = 50 }
+	
+	add_to_array = { HUR_assassination_array = "Illia Kyva" }
+	add_to_array = { HUR_assassination_array = "Mikhail Filiponenko" }
+	add_to_array = { HUR_assassination_array = "Sergei Gorenko" }
+}
+
+UKR_HUR_belgorod_clear_flags = {
+	clr_country_flag = UKR_HUR_borisovka_selected
+	clr_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected
+	clr_country_flag = UKR_HUR_belgorod_selected
+	clr_country_flag = UKR_HUR_shebeniko_selected
+}
+
+UKR_HUR_belgorod_incursion_calculate = {
+	set_temp_variable = { temp_var_percent_of_success = 25 } #20 is base value
+	add_to_temp_variable = { temp_var_percent_of_success = ROOT.executive_successful_operation_chance_modifier }
+
+	set_temp_variable_to_random = {
+		var = temp_var_random_chance
+		min = -10
+		max = 10
+		integer = yes
+	}
+
+	add_to_temp_variable = { temp_var_percent_of_success = temp_var_random_chance }
+
+	if = {
+		limit = {
+			AND = {
+				check_variable = { temp_var_percent_of_success > 50 }
+				check_variable = { temp_var_percent_of_success < 60 }
+			}
+
+		}
+
+		random_list = {
+			50 = {
+				country_event = { id = ukraine_hur.1 hours = 2 }
+			}
+			50 = {
+				country_event = { id = ukraine_hur.2 hours = 2 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { temp_var_percent_of_success < 50 }
+		}
+
+		random_list = {
+			20 = {
+				country_event = { id = ukraine_hur.1 hours = 2 }
+			}
+			80 = {
+				country_event = { id = ukraine_hur.2 hours = 2 }
+			}
+		}
+	}
+	else = {
+		random_list = {
+			80 = {
+				country_event = { id = ukraine_hur.1 hours = 2 }
+			}
+			20 = {
+				country_event = { id = ukraine_hur.2 hours = 2 }
+			}
+		}
+	}
+}
