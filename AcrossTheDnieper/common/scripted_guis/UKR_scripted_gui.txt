@@ -282,6 +282,9 @@ scripted_gui = {
 					clr_country_flag = UKR_opened_hur_belgorod_prep_ui
 					set_variable = { ROOT.can_do_hur_mission = 2 }
 
+
+
+
 					if = {
 						limit = { has_country_flag = UKR_HUR_borisovka_selected }
 						set_variable = { ROOT.city_done_operation_in = 1 }
@@ -299,7 +302,10 @@ scripted_gui = {
 						set_variable = { ROOT.city_done_operation_in= 4 }
 					}
 
-					
+					set_temp_variable = { temp_var_cp = ROOT.required_cp_incursion }
+					multiply_temp_variable = { temp_var_cp = -1 }
+
+					add_command_power = temp_var_cp
 
 					set_variable = { ROOT.given_rifles_incursion = 0 }
 					set_variable = { ROOT.given_manpower_incursion = 0 }
