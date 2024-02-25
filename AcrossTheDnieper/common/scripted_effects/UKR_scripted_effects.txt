@@ -76,7 +76,7 @@ make_borders_look_nice={
 		}
 	}
 	else_if={
-		limit = { has_global_flag = donetsk_has_capitulated }
+		limit = { has_global_flag = luhansk_has_capitulated }
 		every_state={
 			limit = { has_state_flag = donetsk_oblast_flag }
 			UKR = { transfer_state = PREV }
@@ -110,25 +110,31 @@ make_borders_look_nice={
 			limit = {
 				check_variable = { var = global.donbass_countries_states_owned value = 5 compare = equals }
 			}
-			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 }
+			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 306 }
 		}
 		else_if={
 			limit = {
 				check_variable = { var = global.donbass_countries_states_owned value = 6 compare = equals }
 			}
-			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 306 transfer_state = 166 }
 		}
 		else_if={
 			limit = {
 				check_variable = { var = global.donbass_countries_states_owned value = 7 compare = equals }
 			}
-			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 }
+			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 }
 		}
 		else_if={
 			limit = {
-				check_variable = { var = global.donbass_countries_states_owned value = 8 compare = greater_than_or_equals }
+				check_variable = { var = global.donbass_countries_states_owned value = 8 compare = equals }
 			}
-			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 transfer_state = 195 }
+		}
+		else_if={
+			limit = {
+				check_variable = { var = global.donbass_countries_states_owned value = 9 compare = greater_than_or_equals }
+			}
+			DON = { transfer_state = 208 transfer_state = 186 transfer_state = 173 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 transfer_state = 195 transfer_state = 135 }
 		}
 	}
 	else={
@@ -206,49 +212,56 @@ make_borders_look_nice={
 					check_variable = { var = global.donbass_countries_states_owned value = 11 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 }
 			}
 			else_if={
 				limit = {
 					check_variable = { var = global.donbass_countries_states_owned value = 12 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 }
-					DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 }
 			}
 			else_if={
 				limit = {
 					check_variable = { var = global.donbass_countries_states_owned value = 13 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 }
 			}
 			else_if={
 				limit = {
 					check_variable = { var = global.donbass_countries_states_owned value = 14 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 }
 			}
 			else_if={
 				limit = {
 					check_variable = { var = global.donbass_countries_states_owned value = 15 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 }
 			}
 			else_if={
 				limit = {
 					check_variable = { var = global.donbass_countries_states_owned value = 16 compare = equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 transfer_state = 195}
 			}
 			else_if={
 				limit = {
-					check_variable = { var = global.donbass_countries_states_owned value = 17 compare = greater_than_or_equals }
+					check_variable = { var = global.donbass_countries_states_owned value = 17 compare = equals }
+				}
+				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 transfer_state = 195 transfer_state = 135 }
+			}
+			else_if={
+				limit = {
+					check_variable = { var = global.donbass_countries_states_owned value = 18 compare = greater_than_or_equals }
 				}
 				LHK = { transfer_state = 174 transfer_state = 159 transfer_state = 152 transfer_state = 155 transfer_state = 154 transfer_state = 136 transfer_state = 109 transfer_state = 131 transfer_state = 103 }
-				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 195 transfer_state = 166 transfer_state = 146 transfer_state = 135 }
+				DON = { transfer_state = 186 transfer_state = 173 transfer_state = 208 transfer_state = 230 transfer_state = 306 transfer_state = 166 transfer_state = 146 transfer_state = 195 transfer_state = 135 }
 			}
 		}
 	}
