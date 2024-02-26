@@ -2646,16 +2646,14 @@ country_event = {
     picture = SOV_zaryadie_event
     is_triggered_only = yes
 
+	trigger={
+		NOT = { has_western_government = yes }
+		vladimir_putin_is_leader = yes 
+	}
+
     option = {
         name = russia.59.a
-		if={
-			limit = { russia_rework_trigger = yes }
-			add_political_power = 5
-		}
-		else={
-			add_stability = 0.02
-			add_war_support = -0.03
-		}
+		add_political_power = 5
     }
 }
 

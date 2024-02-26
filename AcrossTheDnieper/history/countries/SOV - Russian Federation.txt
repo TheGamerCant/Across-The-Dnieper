@@ -273,6 +273,26 @@ if = {
 	}
 }
 
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_oob = "SOV_2014_nsb"
+}
+if = {
+	limit = { NOT = { has_dlc = "No Step Back" } }
+	set_oob = "SOV_2014"
+}
+
+2022.1.1={
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		set_oob = "SOV_2022_nsb_rework"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+		set_oob = "SOV_2022_rework"
+	}
+}
+
 set_country_flag = has_nukes_flag
 
 capital = 11

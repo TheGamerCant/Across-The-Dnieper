@@ -7,7 +7,7 @@ on_actions={
 					has_war = yes
 					OR={
 						is_ai = no
-						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
+						NOT = { any_enemy_country = { is_ai = no is_major = yes } }		#won't trigger for RU ai if an enemy country is a player and a major (e.g ukraine player vs RU ai)
 					}
 				}
 				random_owned_controlled_state={
@@ -57,7 +57,7 @@ on_actions={
 					}
 				}
 				else={
-					limit = { is_on_normal_mode = yes }
+					#Normal mode
 					random_list = {			#Some of these are cancelled out, caused your troops to be neutral
 						2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
 						1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
@@ -71,91 +71,6 @@ on_actions={
 					}
 				}
 			}
-			else_if={
-				limit = {
-
-					OR={
-						has_idea = SOV_the_eastern_yoke 
-						has_idea = SOV_the_eastern_yoke_monarch
-					}
-					has_war = yes
-					NOT = { has_war_with = WAG }
-					OR={
-						is_ai = no
-						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
-					}
-				}
-				random_owned_controlled_state={
-					limit={ NOT={ state = 14 } }
-					set_variable = { ROOT.random_state_selected = THIS }	#For loc
-				}
-				random_list = {			#Some of these are cancelled out, caused your troops to be neutral
-					2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
-                    1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
-					2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
-#                   1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
-					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
-                    1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
-					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
-#                   1 = { 
-#						if={
-#							limit = {
-#								any_state = {
-#									is_coastal = yes
-#									is_controlled_by = ROOT
-#									NOT = { state = 14 }
-#								}
-#							}
-#							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
-#						}
-#					}
-					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
-					1 = { country_event = { id = russia.1135 hours = 11 } } 		#Traitors
-#                   4 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
-#					3 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
-					90 = {}
-				}
-			}
-			else_if={
-				limit = { 
-					has_idea = SOV_the_eastern_yoke_improved 
-					has_war = yes
-					OR={
-						is_ai = no
-						NOT = { any_enemy_country = { is_ai = no is_major = yes } }
-					}
-				}
-				random_owned_controlled_state={
-					limit={ NOT={ state = 14 } }
-					set_variable = { ROOT.random_state_selected = THIS }	#For loc
-				}
-				random_list = {
-					2 = { if={ limit = { OR={ has_equipment = { modern_tank_chassis > 500 } has_equipment = { modern_tank_archetype > 500 } } } country_event = { id = russia_equipment_goes_missing.1 days = 5 } } }	#Tanks	
-                    1 = { if={ limit = { has_equipment = { infantry_equipment > 6000 } } country_event = { id = russia_equipment_goes_missing.2 hours = 17 } } }		#Guns
-					2 = { if={ limit = { has_equipment = { motorized_equipment > 1400 } } country_event = { id = russia_equipment_goes_missing.3 hours = 11 } } }		#Trucks
-#                   1 = { country_event = { id = russia_equipment_goes_missing.4 hours = 89 } }		#Planes
-					2 = { country_event = { id = russia_equipment_goes_missing.5 hours = 69 } }		#Generic ammo dump
-                    1 = { if={ limit = { has_equipment = { apc_equipment > 500 } has_equipment = { mechanized_equipment > 300 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }		#APCs and IFVs
-					1 = { if={ limit = { has_equipment = { rocket_artillery_equipment > 600 } has_equipment = { artillery_equipment > 600 } } country_event = { id = russia_equipment_goes_missing.6 hours = 11 } } }	#Artillery
-#                   1 = { 
-#						if={
-#							limit = {
-#								any_state = {
-#									is_coastal = yes
-#									is_controlled_by = ROOT
-#									NOT = { state = 14 }
-#								}
-#							}
-#							country_event = { id = russia_equipment_goes_missing.8 hours = 3 } 		#Navy issues
-#						}
-#					}
-					1 = { if={ limit = { has_equipment = { support_equipment > 850 } } country_event = { id = russia_equipment_goes_missing.9 hours = 11 } } }		#Support equipment
-					1 = { country_event = { id = russia.1135 hours = 11 } } 		#Traitors
-#                   5 = { country_event = { id = russia_equipment_goes_missing.10 hours = 8 } }		#6% of everything goes to a random country SOV is at war with
-#					4 = { country_event = { id = russia_equipment_goes_missing.11 hours = 31 } }	#8% of everything goes missing
-					160 = {}
-				}
-			}
 		}
 	}
 
@@ -163,73 +78,7 @@ on_actions={
 		effect={
 			SOV = {
 				if = {
-					limit = { 
-						has_start_date < 2022.01.01 
-						NOT = { russia_rework_trigger = yes }
-					}
-
-					country_event = { id = russia.3 days = 1536 }
-					country_event = { id = russia.63 days = 2547  }
-					country_event = { id = russia.64 days = 666  }
-				}
-
-				else_if = {
-					limit = { 
-						has_start_date > 2022.01.01 
-						NOT = { russia_rework_trigger = yes }
-					}
-					country_event = { id = russia.88 days = 1 }
-				}
-				country_event = { id = russia.61 days = 77 }
-				country_event = { id = russia.62 days = 129 }
-
-				if = {
 					limit = {
-						NOT = { russia_rework_trigger = yes }
-						OR = {
-							AND = {
-								is_historical_focus_on = no
-								has_game_rule = {
-									rule = SOV_ai_behavior
-									option = DEFAULT
-								}
-							}
-							has_game_rule = {
-								rule = SOV_ai_behavior
-								option = RANDOM
-							}
-						}
-					}
-
-					random_list = {		
-						8 = {
-							SOV = {
-								set_country_flag = SOV_PUTIN_DEAD_AI_FLAG
-							}
-						}
-
-						15 = {
-							SOV = {
-								set_country_flag = SOV_SOBCHAK_AI_FLAG
-							}
-						}
-
-						15 = {
-							SOV = {
-								set_country_flag = SOV_YAVLINKSI_AI_FLAG
-							}
-						}
-
-						2 = {
-							SOV = {
-								set_country_flag = SOV_PUTIN_AI_FLAG
-							}
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						russia_rework_trigger = yes
 						OR = {
 							AND = {
 								is_historical_focus_on = no
@@ -308,7 +157,6 @@ on_actions={
 				}
 				else_if = {
 					limit = {
-						russia_rework_trigger = yes
 						has_game_rule = {
 							rule = SOV_ai_behavior
 							option = REWORK_RANDOM_SILOVIK
@@ -353,496 +201,122 @@ on_actions={
 						}
 					}
 				}
-			}
-			
-			
-			
-			
-			
-			SOV={
-			
+	
+				set_party_name = { ideology = ultranationalist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
+				create_country_leader = {
+					name = "Aleksey Zhuravlyov"
+					desc = ""
+					picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
+					ideology = generic_ultranationalist
+				}
+
+				create_country_leader = {
+					name = "Vladimir Zhirinovsky"
+					desc = ""
+					picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
+					ideology = russia_liberal_democratic_party_subideology
+					traits = { SOV_aggressive_populist }
+				}
+				
+				set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
+				add_popularity = { ideology = neoconservative popularity = -0.06 }
+				add_popularity = { ideology = eastern_liberal popularity = 0.1 }
+				add_popularity = { ideology = ultranationalist popularity = 0.051 }
+				add_popularity = { ideology = populist popularity = -0.04 }
+				add_war_support = -0.3
+				add_stability = 0.15
+				add_ideas = unions_restricted
+				puppet = CHN
+
 				if={
-					limit = { russia_rework_trigger = yes }
-					set_party_name = { ideology = ultranationalist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
-					create_country_leader = {
-						name = "Aleksey Zhuravlyov"
-						desc = ""
-						picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
-						ideology = generic_ultranationalist
-					}
-
-					create_country_leader = {
-						name = "Vladimir Zhirinovsky"
-						desc = ""
-						picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
-						ideology = russia_liberal_democratic_party_subideology
-						traits = { SOV_aggressive_populist }
-					}
+					limit = { has_start_date < 2022.01.01 }
+					country_event = { id = russia.59 days = 778 random_days = 28 }			#Park Zaryadie
+					country_event = { id = russia.1005 days = 42 }							#Meeting with Gerasimov
+					country_event = { id = russia.1011 days = 337 }							#SOTN speech
+					country_event = { id = russia.1012 days = 416 }							#Death of Boris Nemtsov
+					country_event = { id = russia.1023 days = 846 random_days = 24 }		#Rise of Kiriyenko
+					country_event = { id = russia.1024  days = 702 random_days = 7 }		#Shoigu is a corrupt goofy goober
+					country_event = { id = russia.1029 days = 1626 }						#World Cup
+					country_event = { id = russia.1032 days = 1041 random_days = 30 }		#Patriot PMC created
+					country_event = { id = russia.1033 days = 1138 random_days = 50 }		#Continued economic stagnation
+					country_event = { id = russia.1034 days = 1583 random_days = 7 }		#Oligarchy gets worse
+					country_event = { id = russia.1050 days = 270 }							#Grand Prix	
+					country_event = { id = russia.1058 days = 90 random_days = 250 }		#Poverty event	
+					country_event = { id = russia.1059 days = 1200 random_days = 20 }		#Don't call him Dimon				
+					country_event = { id = russia.1094 days = 392 }							#Dedovschina
+					country_event = { id = russia.1107 days = 1798 random_days = 25 }		#Send more men to Transnistria?
+					country_event = { id = russia.1134 days = 1538 }						#2018 Elections
+					country_event = { id = russia.1138 days = 3629 }						#Putins 2024 Candidacy
+					country_event = { id = russia.1139 days = 3601 }						#Duntsova Candidacy
+					country_event = { id = russia.1141 days = 3373 }						#Boris Nadezhdin Lore
+					country_event = { id = russia.1144 days = 3728 }						#2024 Elections
+					country_event = { id = russia_propaganda.17 days = 1526 }				#World order 2018
 					
-					set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
-					add_popularity = { ideology = neoconservative popularity = -0.06 }
-					add_popularity = { ideology = eastern_liberal popularity = 0.1 }
-					add_popularity = { ideology = ultranationalist popularity = 0.051 }
-					add_popularity = { ideology = populist popularity = -0.04 }
-					add_war_support = -0.3
-					add_stability = 0.15
-					add_ideas = unions_restricted
-					puppet = CHN
-
+					country_event = { id = russia.61 days = 77 }							#Great fast
+					country_event = { id = russia.62 days = 129 }							#Victory Day
 					if={
-						limit = { has_start_date < 2022.01.01 }
-						country_event = { id = russia.1005 days = 42 }			#Meeting with Gerasimov
-						country_event = { id = russia.1050 days = 270 }			#Grand Prix
-						country_event = { id = russia.1029 days = 1626 }		#World Cup		
-						country_event = { id = russia.1094 days = 392 }			#Dedovschina
-						country_event = { id = russia.1134 days = 1538 }			#2018 Elections
-						country_event = { id = russia.1138 days = 3629 }			#Putins 2024 Candidacy
-						country_event = { id = russia.1139 days = 3601 }			#Duntsova Candidacy
-						country_event = { id = russia.1141 days = 3373 }			#Boris Nadezhdin Lore
-						country_event = { id = russia.1144 days = 3728 }			#2024 Elections
-						if={
-							limit = { is_ai = yes }
-							add_ideas = SOV_sergey_surovikin_air_force_rework
-							add_ideas = SOV_roman_vladimirovich_kutuzov_rework		#AI is too stupid to do it themselves lol
-						}
-						remove_ideas = SOV_alexander_bortnikov_rework
-						SOV_increase_siloviki_faction_medium = yes
-					}
-					else={
-						set_party_name = { ideology = neoliberal long_name = SOV_civic_initiative_long name = SOV_civic_initiative }
-						create_country_leader = {
-							name = "Andrey Nechayev"
-							desc = ""
-							picture = gfx/leaders/SOV/Portrait_Boris_Nemtsov_dead.png
-							ideology = generic_neoliberal
-							traits = {  }
-						}
-						
-						puppet = BLR
+						limit = { is_ai = yes }
 						add_ideas = SOV_sergey_surovikin_air_force_rework
-						remove_ideas = SOV_dmitry_medvedev_rework
-						add_ideas = SOV_mikhail_mishustin_rework
-						add_ideas = SOV_roman_vladimirovich_kutuzov_rework
-						add_war_support = -0.1
-						add_stability = -0.25
-						add_political_power = 948
-						add_command_power = 100
-						SOV_increase_technocrat_faction_large = yes
-						SOV_decrease_putinist_faction_small = yes
-						SOV_decrease_oil_and_gas_faction_small = yes
-						SOV_increase_liberal_faction_small = yes
-						
-						add_popularity = { ideology = ultranationalist popularity = 0.1 }
-						add_popularity = { ideology = social_democracy popularity = -0.012 }
-						
-						set_variable = { SOV.SOV_media_leans_eastern_conservative = 79 }
-						set_variable = { SOV.SOV_media_leans_ultranationalist = 18 }
-						set_variable = { SOV.SOV_media_leans_eastern_liberal = 3 }
-
-						SOV_media_leaning_calculate_XY = yes
-						
-						modify_timed_idea = { idea = SOV_subsidies_for_childbirth_idea days = -1030 }
-						
-						country_event = { id = russia.88 days = 12 }
-						country_event = { id = russia.1138 days = 676 }			#Putins 2024 Candidacy
-						country_event = { id = russia.1139 days = 648 }			#Duntsova Candidacy
-						country_event = { id = russia.1141 days = 420 }			#Boris Nadezhdin Lore
-						country_event = { id = russia.1144 days = 775 }			#2024 Elections
-						
-						DON = { give_resource_rights = { receiver = SOV state = 186 } }
-						LHK = { give_resource_rights = { receiver = SOV state = 152 } }
-						LHK = { give_resource_rights = { receiver = SOV state = 174 } }
-						
-						if={
-							limit = { is_ai = yes }
-							add_to_variable = { SOV_raspizdyaystvo_army_morale_factor = 0.02 }
-							add_to_variable = { SOV_raspizdyaystvo_army_attack_factor = 0.02 }
-							add_to_variable = { SOV_raspizdyaystvo_army_defence_factor = 0.02 }
-							add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.02 }
-						}
+						add_ideas = SOV_roman_vladimirovich_kutuzov_rework		#AI is too stupid to do it themselves lol
 					}
+					remove_ideas = SOV_alexander_bortnikov_rework
+					SOV_increase_siloviki_faction_medium = yes
 				}
-				else = {
-					transfer_state = 371
-					remove_dynamic_modifier = { modifier = SOV_raspizdyaystvo }
-					remove_dynamic_modifier = { modifier = SOV_army_modernisation_plan }
-					remove_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
-					remove_ideas = SOV_patriots_from_a_young_age_idea
-					remove_ideas = SOV_krym_nash_ultranat
-					remove_ideas = SOV_oil_revenues_2
-					remove_ideas = SOV_russia_of_a_new_age
-					modify_timed_idea = { idea = SOV_subsidies_for_childbirth_idea days = -2000 }
+				else={
+					country_event = { id = russia.61 days = 46 }							#Great fast
+					country_event = { id = russia.62 days = 98 }							#Victory Day
 				
-					add_dynamic_modifier = { modifier = SOV_russian_cabinet }
-
-					set_variable = { SOV_soc_dem_opposition_political_power_gain = -0.02 }
-					set_variable = { SOV_soc_dem_opposition_social_democracy_drift = 0.01 }
-					set_variable = { SOV_ultranationalist_opposition_political_power_gain = 0.02 }
-					set_variable = { SOV_ultranationalist_opposition_ultranationalist_drift = 0 }
-					set_variable = { SOV_communist_opposition_political_power_gain = 0.05 }
-					set_variable = { SOV_communist_opposition_hardline_communist_drift = 0 }
-					set_variable = { SOV_eastern_liberal_opposition_political_power_gain = -0.03 }
-					set_variable = { SOV_eastern_liberal_opposition_eastern_liberal_drift = 0.02 }
-
-					set_variable = { SOV_soc_dem_opposition_status = 0 }			#0 = Puppet, -1 = Active, -2 = Destroyed
-					set_variable = { SOV_ultranationalist_opposition_status = 0 }
-					set_variable = { SOV_communist_opposition_status = 0 }
-					set_variable = { SOV_eastern_liberal_opposition_status = -1 }
-					set_variable = { SOV_neoliberal_opposition_status = -1 }
-
-					clamp_variable = { var = SOV_soc_dem_opposition_status min = -2 max = 0 }
-					clamp_variable = { var = SOV_ultranationalist_opposition_status min = -2 max = 0 }
-					clamp_variable = { var = SOV_communist_opposition_status min = -2 max = 0 }
-					clamp_variable = { var = SOV_eastern_liberal_opposition_status min = -2 max = 0 }
-
-					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
-					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
-					add_dynamic_modifier = { modifier = SOV_communist_opposition }
-					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
-
-					set_variable = { SOV_opposition_unity = 22 }
-					set_variable = { SOV_opposition_strength = 27 }
-
-					clamp_variable = { var = SOV_opposition_unity min = 0 max = 100 }
-					clamp_variable = { var = SOV_opposition_strength min = 0 max = 100 }
-
-					get_opposition_o_meter_3000_stats = yes
-
-					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
-					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
-					add_dynamic_modifier = { modifier = SOV_communist_opposition }
-					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
-					add_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
-
-					set_variable = { SOV_influence_on_transnistria = 15 }
-				
-				
+					set_party_name = { ideology = neoliberal long_name = SOV_civic_initiative_long name = SOV_civic_initiative }
 					create_country_leader = {
-						name = "Andrey Savelyev"
+						name = "Andrey Nechayev"
 						desc = ""
-						picture = gfx/leaders/SOV/Portait_Andrey_Savelyev.png
-						ideology = generic_ultranationalist
-					}
-
-					create_country_leader = {
-						name = "Aleksey Zhuravlyov"
-						desc = ""
-						picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
-						ideology = generic_neoconservative
+						picture = gfx/leaders/SOV/Portrait_Boris_Nemtsov_dead.png
+						ideology = generic_neoliberal
+						traits = {  }
 					}
 					
-					create_country_leader = {
-						name = "Vladimir Zhirinovsky"
-						desc = ""
-						picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
-						ideology = russia_liberal_democratic_party_subideology
-						traits = { SOV_aggressive_populist }
-					}
+					puppet = BLR
+					add_ideas = SOV_sergey_surovikin_air_force_rework
+					remove_ideas = SOV_dmitry_medvedev_rework
+					add_ideas = SOV_mikhail_mishustin_rework
+					add_ideas = SOV_roman_vladimirovich_kutuzov_rework
+					add_war_support = -0.1
+					add_stability = -0.25
+					add_political_power = 948
+					add_command_power = 100
+					SOV_increase_technocrat_faction_large = yes
+					SOV_decrease_putinist_faction_small = yes
+					SOV_decrease_oil_and_gas_faction_small = yes
+					SOV_increase_liberal_faction_small = yes
+					
+					add_popularity = { ideology = ultranationalist popularity = 0.1 }
+					add_popularity = { ideology = social_democracy popularity = -0.012 }
+					
+					set_variable = { SOV.SOV_media_leans_eastern_conservative = 79 }
+					set_variable = { SOV.SOV_media_leans_ultranationalist = 18 }
+					set_variable = { SOV.SOV_media_leans_eastern_liberal = 3 }
 
+					SOV_media_leaning_calculate_XY = yes
 					
-					remove_ideas = SOV_bloated_welfare_system
-					remove_ideas = SOV_wunderwaffe_rework
-					remove_ideas = SOV_rampant_oligarchy
-					remove_ideas = SOV_oil_revenues
-					remove_ideas = SOV_rampant_oligarchy_2				
+					modify_timed_idea = { idea = SOV_subsidies_for_childbirth_idea days = -1030 }
 					
-					add_dynamic_modifier = { modifier = SOV_soc_dem_opposition }
-					add_dynamic_modifier = { modifier = SOV_ultranationalist_opposition }
-					add_dynamic_modifier = { modifier = SOV_communist_opposition }
-					add_dynamic_modifier = { modifier = SOV_eastern_liberal_opposition }
-					add_dynamic_modifier = { modifier = SOV_neoliberal_opposition }
-					add_dynamic_modifier = { modifier = SOV_russian_cabinet }
+					country_event = { id = russia.88 days = 12 }
+					country_event = { id = russia.1138 days = 676 }			#Putins 2024 Candidacy
+					country_event = { id = russia.1139 days = 648 }			#Duntsova Candidacy
+					country_event = { id = russia.1141 days = 420 }			#Boris Nadezhdin Lore
+					country_event = { id = russia.1144 days = 775 }			#2024 Elections
 					
-					swap_ruler_traits = {
-						remove = SOV_king_of_the_castle_rework
-						add = SOV_king_of_the_castle
-					}	
+					DON = { give_resource_rights = { receiver = SOV state = 186 } }
+					LHK = { give_resource_rights = { receiver = SOV state = 152 } }
+					LHK = { give_resource_rights = { receiver = SOV state = 174 } }
 					
-					load_russian_doctrine = yes
-
-					recruit_character = SOV_valentina_matviyenko
-					recruit_character = SOV_aleksandr_dugin
-					recruit_character = SOV_valery_gerasimov
-					recruit_character = SOV_alexei_navalny
-					recruit_character = SOV_kirill
-					recruit_character = SOV_svyatoslav_rechkalov
-					recruit_character = SOV_igor_vsevolodovich_girkin
-					recruit_character = SOV_vladlen_tatarsky
-					recruit_character = SOV_dmitry_medvedev
-					recruit_character = SOV_mikhail_mishustin
-					recruit_character = SOV_kokoltsev_vladimir
-					recruit_character = SOV_sergey_lavrov
-					recruit_character = SOV_alexander_bastrykin
-					recruit_character = SOV_viktor_yanukovych
-					recruit_character = SOV_ramzan_kadyrov
-					recruit_character = SOV_ilya_kiva
-					recruit_character = SOV_sergey_shoygu
-					recruit_character = SOV_alexander_bortnikov
-					recruit_character = SOV_andrei_sychevoi
-					recruit_character = SOV_oleg_leonidovich
-					recruit_character = SOV_dmitry_bulgakov
-					recruit_character = SOV_andrey_nikolayevich_mordvichev
-					recruit_character = SOV_mikhail_yuryevich_teplinsky
-					recruit_character = SOV_viktor_viktorovich_chirkov
-					recruit_character = SOV_igor_vladimirovich_osipov
-					recruit_character = SOV_aleksandr_vladimirovich_dvornikov
-					recruit_character = SOV_gennady_valeryevich_zhidko
-					recruit_character = SOV_mikhail_yevgenyevich_mizintsev
-					recruit_character = SOV_nikolai_anatolyevich_yevmenov
-					recruit_character = SOV_viktor_nikolayevich_sokolov
-					recruit_character = SOV_adam_delimkhanov
-					recruit_character = SOV_andrey_nikolaevich_serdyukov
-					recruit_character = SOV_sergey_yurvevich_kuzovlev
-					recruit_character = SOV_yevgeny_valeryevich_nikiforov
-					recruit_character = SOV_rustam_usmanovich_muradov
-					recruit_character = SOV_roman_vladimirovich_kutuzov
-					recruit_character = SOV_roman_borisovich_berdnikov
-					recruit_character = SOV_alexander_alexandrovich_zhuravlyov
-					recruit_character = SOV_aleksandr_pavlovich_lapin
-					recruit_character = SOV_valery_nikolaevich_solodchuk
-					recruit_character = SOV_sergey_surovikin
-					
-					load_russian_doctrine = yes		
-					
-					
-					#TODO: Oleg Tsarev advisor
-					
-					retire_character = SOV_valentina_matviyenko_rework
-					retire_character = SOV_aleksandr_dugin_rework
-					retire_character = SOV_valery_gerasimov_rework
-					retire_character = SOV_alexei_navalny_rework
-					retire_character = SOV_garry_kasparov
-					retire_character = SOV_kirill_rework
-					retire_character = SOV_igor_vsevolodovich_girkin_rework
-					retire_character = SOV_vladlen_tatarsky_rework
-					retire_character = SOV_dmitry_medvedev_rework
-					retire_character = SOV_mikhail_mishustin_rework
-					retire_character = SOV_kokoltsev_vladimir_rework
-					retire_character = SOV_sergey_lavrov_rework
-					retire_character = SOV_alexander_bastrykin_rework
-					retire_character = SOV_viktor_yanukovych_rework
-					retire_character = SOV_ramzan_kadyrov_rework
-					retire_character = SOV_ilya_kiva_rework
-					retire_character = SOV_sergey_shoygu_rework
-					retire_character = SOV_alexander_bortnikov_rework
-					retire_character = SOV_andrei_sychevoi_rework
-					retire_character = SOV_oleg_leonidovich_rework
-					retire_character = SOV_dmitry_bulgakov_rework
-					retire_character = SOV_andrey_nikolayevich_mordvichev_rework
-					retire_character = SOV_mikhail_yuryevich_teplinsky_rework
-					retire_character = SOV_viktor_viktorovich_chirkov_rework
-					retire_character = SOV_igor_vladimirovich_osipov_rework
-					retire_character = SOV_aleksandr_vladimirovich_dvornikov_rework
-					retire_character = SOV_gennady_valeryevich_zhidko_rework
-					retire_character = SOV_mikhail_yevgenyevich_mizintsev_rework
-					retire_character = SOV_nikolai_anatolyevich_yevmenov_rework
-					retire_character = SOV_viktor_nikolayevich_sokolov_rework
-					retire_character = SOV_adam_delimkhanov_rework
-					retire_character = SOV_andrey_nikolaevich_serdyukov_rework
-					retire_character = SOV_sergey_yurvevich_kuzovlev_rework
-					retire_character = SOV_yevgeny_valeryevich_nikiforov_rework
-					retire_character = SOV_rustam_usmanovich_muradov_rework
-					retire_character = SOV_roman_vladimirovich_kutuzov_rework
-					retire_character = SOV_roman_borisovich_berdnikov_rework
-					retire_character = SOV_alexander_alexandrovich_zhuravlyov_rework
-					retire_character = SOV_aleksandr_pavlovich_lapin_rework
-					retire_character = SOV_valery_nikolaevich_solodchuk_rework
-					retire_character = SOV_sergey_surovikin_rework		
-					retire_character = SOV_vladimir_solovyov_rework
-					retire_character = SOV_vladimir_zhirinovsky_rework
-					retire_character = SOV_dmitry_utkin
-					retire_character = SOV_sergey_kiriyenko
-					retire_character = SOV_alexei_miller
-					retire_character = SOV_yevgeny_prigozhin_rework
-					retire_character = SOV_ivan_popov
-					retire_character = SOV_lukashenko
-					retire_character = SOV_viktor_zolotov
-					retire_character = SOV_nikolai_patrushev
-					retire_character = SOV_dmitry_patrushev
-					retire_character = SOV_vladimir_lisin
-					retire_character = SOV_sergey_chemezov
-					retire_character = SOV_pavel_gubarev
-					retire_character = SOV_vladimir_kucherenko
-					retire_character = SOV_viktor_alksnis
-					
-					
-					add_ideas = {
-						SOV_the_great_patriotic_war_idea
-						SOV_stagnant_economy
-						SOV_the_eastern_yoke
-						SOV_wunderwaffe
-						SOV_russia_today
-
-						SOV_dmitry_medvedev
-						SOV_sergey_surovikin
-						SOV_kokoltsev_vladimir
-						SOV_sergey_lavrov
-					}
-				
-					WAG = { transfer_state = 432 }	
-
 					if={
-						limit = { has_start_date < 2022.01.01 }
-						load_focus_tree = soviet_crimea
+						limit = { is_ai = yes }
+						add_to_variable = { SOV_raspizdyaystvo_army_morale_factor = 0.02 }
+						add_to_variable = { SOV_raspizdyaystvo_army_attack_factor = 0.02 }
+						add_to_variable = { SOV_raspizdyaystvo_army_defence_factor = 0.02 }
+						add_to_variable = { SOV_raspizdyaystvo_conscription_factor = 0.02 }
 					}
-					else={
-						remove_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-					
-						load_focus_tree = soviet_focus
-						complete_national_focus = SOV_russia_and_its_people
-						complete_national_focus = SOV_crimean_water_supply
-						unlock_national_focus = SOV_the_crimean_bridge
-						complete_national_focus = SOV_antigay_laws
-						complete_national_focus = SOV_ban_conversion_therapy
-						unlock_national_focus = SOV_host_2014_grand_prix
-						complete_national_focus = SOV_vks_in_syria
-						complete_national_focus = SOV_send_wagner_to_syria
-
-						complete_national_focus = SOV_the_future_of_russia
-						complete_national_focus = SOV_in_control_of_inner_politics
-						complete_national_focus = SOV_russian_spirit
-						complete_national_focus = SOV_syloviki
-						complete_national_focus = SOV_gem_of_black_sea
-						complete_national_focus = SOV_russian_spirit
-						complete_national_focus = SOV_chernomorsky_flot
-						complete_national_focus = SOV_the_russian_trident
-						complete_national_focus = SOV_international_power
-						complete_national_focus = SOV_turkish_and_asian_corridors
-						complete_national_focus = SOV_pik_and_donstroy
-						complete_national_focus = SOV_big_three
-						unlock_national_focus = SOV_transnistrian_crisis
-						complete_national_focus = SOV_venezuelan_crisis
-						complete_national_focus = SOV_introduce_akhmat_battalions
-						complete_national_focus = SOV_capital_of_northern_caucasus
-						complete_national_focus = SOV_MIR_payment_system
-						complete_national_focus = SOV_increase_interest_rates
-						complete_national_focus = SOV_state_control_of_the_economy
-						complete_national_focus = SOV_patriotic_education
-						complete_national_focus = SOV_ministry_of_culture
-						unlock_national_focus = SOV_better_future
-						complete_national_focus = SOV_media_control
-						complete_national_focus = SOV_eliminating_dissent
-						complete_national_focus = SOV_enforced_loyalty
-						complete_national_focus = SOV_weaken_the_ops
-						complete_national_focus = SOV_peoples_only_choice
-						complete_national_focus = SOV_boost_subsidies
-						unlock_national_focus = SOV_prepare_for_elect
-						
-						complete_national_focus = SOV_novorossiya_at_hand
-
-						complete_national_focus = SOV_2018_elections
-						complete_national_focus = SOV_Putin
-						complete_national_focus = SOV_park_zaryade
-						complete_national_focus = SOV_the_luzhniki
-						complete_national_focus = SOV_traitors_abroad
-						complete_national_focus = SOV_host_the_world_cup
-						complete_national_focus = SOV_tourist_boom
-						complete_national_focus = SOV_soften_pension_reform
-						complete_national_focus = SOV_minsk_accord_ignored
-						complete_national_focus = SOV_kerch_incident
-						complete_national_focus = SOV_vostok_exercises
-						complete_national_focus = SOV_prepare_the_high_command
-						complete_national_focus = SOV_close_borders
-						complete_national_focus = SOV_increase_medical_budget
-						complete_national_focus = SOV_hospitals_overpopulated
-						complete_national_focus = SOV_the_quarantine
-						complete_national_focus = SOV_prepare_constitutional_changes
-						complete_national_focus = SOV_our_own_vaccine
-						complete_national_focus = SOV_address_the_nation
-						complete_national_focus = SOV_vote_yes
-						complete_national_focus = SOV_bad_samesex_marriage
-						complete_national_focus = SOV_heir_to_thrones
-						complete_national_focus = SOV_small_business_crisis_solved
-						complete_national_focus = SOV_nothing_in_the_way
-						complete_national_focus = SOV_refusing_diplomacy
-						complete_national_focus = SOV_prepare_our_people
-						complete_national_focus = SOV_ready_for_what_is_to_come
-						complete_national_focus = SOV_exercises_on_the_ukrainian_border
-						complete_national_focus = SOV_donbass_tv_programs
-						complete_national_focus = SOV_lukashenko_aware
-						complete_national_focus = SOV_neo_nazism_on_the_rise
-						complete_national_focus = SOV_azov_battalions_in_odessa
-						complete_national_focus = SOV_ilya_kiva
-						complete_national_focus = SOV_anti_russian_slogans
-						complete_national_focus = SOV_no_going_back
-						complete_national_focus = SOV_our_victory_symbol
-						unlock_national_focus = SOV_place_an_order_chef
-						complete_national_focus = SOV_topol_rocket_mass_use
-						complete_national_focus = SOV_pass_new_laws_duma
-						complete_national_focus = SOV_prepare_those_who_we_protect
-						complete_national_focus = SOV_power_of_our_industry
-
-						add_ideas = SOV_corrupt_military
-						add_ideas = SOV_the_crimean_burden_better
-						add_ideas = SOV_lowered_pensions
-
-						add_country_leader_trait = great_rus_leader
-
-						set_popularities = {
-							eastern_conservative = 74.2
-							moderate_communist = 13.6
-							social_democracy = 7
-							populist = 5.2
-						}
-
-						set_variable = { SOV_opposition_unity = 38 }
-						set_variable = { SOV_opposition_strength = 31.5 }
-						set_variable = { SOV_eastern_liberal_opposition_status = -2 }
-						get_opposition_o_meter_3000_stats = yes
-
-						set_stability = 0.63
-						set_war_support = 0.55
-						
-						
-					}
-				}
-				
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-						has_start_date < 2022.01.01
-					}
-					load_oob = "SOV_2014_nsb"
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "No Step Back" }
-						has_start_date < 2022.01.01
-					}
-					load_oob = "SOV_2014"
-				}
-
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-						russia_rework_trigger = yes
-						has_start_date > 2022.01.01
-					}
-					load_oob = "SOV_2022_nsb_rework"
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "No Step Back" }
-						russia_rework_trigger = yes
-						has_start_date > 2022.01.01
-					}
-					load_oob = "SOV_2022_rework"
-				}
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-						NOT = { russia_rework_trigger = yes }
-						has_start_date > 2022.01.01
-					}
-					load_oob = "SOV_2022_nsb"
-				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "No Step Back" }
-						NOT = { russia_rework_trigger = yes }
-						has_start_date > 2022.01.01
-					}
-					load_oob = "SOV_2022"
 				}
 				
 				every_state = {
@@ -859,121 +333,7 @@ on_actions={
 			}
 		}
 	}
-	
-	on_daily_SOV={
-		effect={
-#			if={
-#				limit = { SOV_can_fire_propaganda_events = yes }	
-#				if={
-#					limit = { check_variable = { global.num_days = 735158 } }		#17 February 2014 -> I can't verify the exact date this was run, but I know it happened around this time
-#					country_event = { id = russia_propaganda.5 }						#You don't wanna know how much of a headache RT being banned was for me researching this shit
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735201 } }		#1 April 2014
-#					country_event = { id = russia_propaganda.1 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735208 } }		#8 April 2014
-#					country_event = { id = russia_propaganda.2 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735226 } }		#26 April 2014
-#					country_event = { id = russia_propaganda.3 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735250 } NOT = { UKR = { has_country_flag = UKR_rs_svoboda_coalition } } }	#20 May 2014	-> we don't want it to fire if yarosh is actually gonna win lol
-#					country_event = { id = russia_propaganda.4 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735256 } any_donbass_country_exists = yes }		#26 May 2014
-#					country_event = { id = russia_propaganda.6 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735264 } any_donbass_country_exists = yes }		#3 June 2014
-#					country_event = { id = russia_propaganda.7 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735273 } any_donbass_country_exists = yes }		#12 June 2014
-#					country_event = { id = russia_propaganda.8 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735296 } any_donbass_country_exists = yes }		#5 July 2014
-#					country_event = { id = russia_propaganda.10 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735301 } any_donbass_country_exists = yes }		#10 July 2014
-#					country_event = { id = russia_propaganda.11 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735308 } any_donbass_country_exists = yes }		#17 July 2014
-#					country_event = { id = russia_propaganda.9 }
-#				}
-#				else_if={
-#					limit = { check_variable = { global.num_days = 735373 } any_donbass_country_exists = yes }		#20 September 2014
-#					country_event = { id = russia_propaganda.12 }
-#				}		
-#			}
-			
-			if={
-				limit = {													#These are here so they only fire if Putin is leader + any other triggers I want in the future
-					russia_rework_trigger = yes
-					NOT = { has_western_government = yes }
-					has_start_date = 2014.1.1.1
-				}
-				
-				
-				if={
-					limit = { check_variable = { global.num_days = 735447 } vladimir_putin_is_leader = yes }				#SOTN speech
-					country_event = { id = russia.1011 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 735310 } vladimir_putin_is_leader = yes }				#Poverty event
-					country_event = { id = russia.1058 random_days = 250 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 735526 }  }												#Nemtsov dies
-					country_event = { id = russia.1012 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 735814 }  }				#Shoigu corruption 
-					country_event = { id = russia.1024 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 735888 }  }				#Park Zaryadie
-					country_event = { id = russia.59 random_days = 28 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 735959 }  }				#Rise of Kiriyenko
-					country_event = { id = russia.1023 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736151 }  }			#Patriot PMC
-					country_event = { id = russia.1032 random_days = 30 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736248 }  }			#Continued economic stagnation
-					country_event = { id = russia.1033 random_days = 50 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736310 } vladimir_putin_is_leader = yes }				#Don't call him Dimon
-					country_event = { id = russia.1059 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736636 } vladimir_putin_is_leader = yes }			#World order 2018
-					country_event = { id = russia_propaganda.17 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736693 } has_idea = SOV_rampant_oligarchy }			#Oligarchy gets worse
-					country_event = { id = russia.1034 random_days = 7 }
-				}
-				else_if={
-					limit = { check_variable = { global.num_days = 736908 } country_exists = TRZ }			#Send more men to Transnistria?
-					country_event = { id = russia.1107 random_days = 25 }
-				}
-			}
-		}
-	}
-	
+		
 	on_capitulation={
 		effect={
 			if={
