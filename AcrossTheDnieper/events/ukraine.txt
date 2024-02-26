@@ -5895,6 +5895,55 @@ country_event = {
 	}	
 }
 
+#the shelling begins
+country_event = {
+	id = ukraine.144
+	title = ukraine.144.t
+	desc = ukraine.144.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_shelling
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.144.a
+
+		every_state = {
+			limit = {
+				AND = {
+					is_controlled_by = UKR
+					OR = {
+						state = 92
+						state = 94
+						state = 230
+						state = 196
+						state = 269
+					}
+				}
+			}
+
+			damage_building = {
+				type = infrastructure
+				damage = 0.2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.1
+			}
+
+			add_dynamic_modifier = { modifier = UKR_city_shelling scope = UKR days = 55 }	
+		}
+	}
+	
+}
+
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1

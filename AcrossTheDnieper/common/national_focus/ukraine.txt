@@ -9396,18 +9396,48 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = UKR_impromptu_bomb_shelters
+		icon = GFX_focus_BLR_local_arms_manufacturing
+		x = 10
+		y = 1
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_taking_back_the_north }
+		relative_position_id = UKR_taking_back_the_north
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.02
+			custom_effect_tooltip = "UKR_impromptu_bomb_shelters_tt"
+			add_to_variable = { UKR_afu_industry_air_damage_factor = -0.15 }
+		}
+	}
 	
 	focus = {
 		id = UKR_the_war_industry
 		icon = GFX_focus_BLR_local_arms_manufacturing
-		x = 4
+		x = 0
 		y = 1
 		
 		cost = 40
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_taking_back_the_north }
-		relative_position_id = UKR_taking_back_the_north
+		prerequisite = { focus = UKR_impromptu_bomb_shelters }
+		relative_position_id = UKR_impromptu_bomb_shelters
 		available = {
 			NOT = { is_puppet_of = SOV }
 			any_country={ original_tag = SOV has_war_with = ROOT }
@@ -9592,10 +9622,10 @@ focus_tree = {
 	focus = {
 		id = UKR_dishonour_before_death
 		icon = GFX_focus_UKR_dishonour_before_death
-		x = 32
+		x = 38
 		y = 12
 		
-		cost = 4
+		cost = 2
 		ai_will_do = {
 		}
 		available = {

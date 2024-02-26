@@ -36,7 +36,7 @@ UKR_sotn_liberals = {
 UKR_western_experience = { 
 	enable = { always = yes }
 
-	icon = GFX_idea_generic_water_shortage
+	icon = GFX_idea_UKR_Western_Experience
 
 	army_armor_attack_factor  = UKR_WE_army_armor_attack_factor
 	army_armor_defence_factor  = UKR_WE_army_armor_defence_factor
@@ -187,6 +187,20 @@ UKR_minor_wagner_offensive = {
 	supply_factor = 0.1
 }
 
+UKR_city_shelling = {
+	icon = GFX_modifiers_generic_defense
+
+	remove_trigger = { OR = { has_war = no NOT = { is_controlled_by = UKR } } }
+
+	local_org_regain = -0.02
+	army_defence_factor = -0.02
+	army_speed_factor_for_controller = -0.04
+	local_factories = -0.4
+
+	state_repair_speed_industrial_complex_factor = -0.25
+	state_repair_speed_arms_factory_factor = -0.25
+	state_repair_speed_infrastructure_factor = -0.3
+}
 
 
 
@@ -307,6 +321,7 @@ UKR_air_force_of_ukraine_reforming = {
 	air_night_penalty = UKR_afu_air_night_penalty
 	air_doctrine_cost_factor = UKR_afu_air_doctrine_cost_factor
 	air_accidents_factor = UKR_afu_air_accidents_factor
+	industry_air_damage_factor = UKR_afu_industry_air_damage_factor
 }
 
 UKR_navy_of_ukraine = { #Initial national spirit
