@@ -273,15 +273,6 @@ if = {
 	}
 }
 
-if = {
-	limit = { has_dlc = "No Step Back" }
-	set_oob = "SOV_2014_nsb"
-}
-if = {
-	limit = { NOT = { has_dlc = "No Step Back" } }
-	set_oob = "SOV_2014"
-}
-
 set_country_flag = has_nukes_flag
 
 capital = 11
@@ -313,327 +304,6 @@ set_variable = {
 
 create_faction = "CSTO"
 add_to_faction = BLR
-
-2022.1.1 = {
-	set_global_flag = kerch_bridge_built_flag
-
-	puppet = DON
-	puppet = LHK
-
-	add_to_faction = DON
-	add_to_faction = LHK
-
-	DON = {
-		set_popularities = {
-			eastern_conservative = 85
-			populist = 3
-			eastern_liberal = 2
-			socialist = 2
-			moderate_communist = 1
-			fascist = 7
-		}		
-	}
-
-	LHK = {
-		set_popularities = {
-			eastern_conservative = 92
-			populist = 3
-			eastern_liberal = 2
-			socialist = 2
-			moderate_communist = 1
-		}
-	}
-
-	create_country_leader = {
-		name = "No Leader"
-		desc = ""
-		picture = gfx/leaders/SOV/Portrait_Boris_Nemtsov_dead.png
-		ideology = generic_neoliberal
-		traits = {  }
-	}
-
-	set_country_flag = SOV_mishustin_has_been_pm_flag
-	set_country_flag = SOV_solovyov_available_as_advisor_flag
-
-	set_global_flag = russia_ukraine_war
-	set_global_flag = smo_northern_front_open
-	set_global_flag = smo_eastern_front_open
-	set_global_flag = smo_donbass_front_open
-	set_global_flag = smo_southern_front_open
-	
-	add_to_variable = { SOV_sanctions_industrial_capacity_factory = -0.15 }
-	add_to_variable = { SOV_sanctions_production_speed_buildings_factor = -0.15 }
-	add_to_variable = { SOV_sanctions_research_speed_factor = -0.1 }
-	add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.08 }
-	add_to_variable = { SOV_sanctions_stability_weekly = -0.003 }
-	add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = -0.25 }
-	add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = -0.25 }
-	add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = -0.25 }
-	add_to_variable = { SOV_sanctions_inflation_monthly = 0.05 }
-	add_to_variable = { SOV_sanctions_political_power_cost = 0.6 }
-	add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = -0.2 }
-	
-	add_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
-	remove_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
-	add_ideas = SOV_krym_nash_ultranat
-	load_focus_tree = post_crimea_tree
-	set_country_flag = russia_united_flag
-	complete_national_focus = SOV_putin_at_the_helm
-	complete_national_focus = SOV_strengthen_the_union_state
-	complete_national_focus = SOV_strengthen_the_government_in_transnistria
-	complete_national_focus = SOV_welcome_home_2
-	complete_national_focus = SOV_build_the_crimean_bridge
-	complete_national_focus = SOV_encourage_crimean_settlement
-	complete_national_focus = SOV_brothers_in_donbass
-	complete_national_focus = SOV_send_them_artillery
-	complete_national_focus = SOV_send_them_armour
-	complete_national_focus = SOV_fight_western_sanctions
-	complete_national_focus = SOV_no_need_for_western_food
-	complete_national_focus = SOV_BRICS_investments
-	complete_national_focus = SOV_nationalise_western_assets
-	complete_national_focus = SOV_hike_interest_rates
-	complete_national_focus = SOV_increase_economic_bureaucracy
-	complete_national_focus = SOV_economic_corridors
-	complete_national_focus = SOV_bypass_western_sanctions
-	complete_national_focus = SOV_army_modernisation
-	complete_national_focus = SOV_move_to_a_professional_military
-	complete_national_focus = SOV_drone_infantry_integration
-	complete_national_focus = SOV_improve_our_air_defences
-	complete_national_focus = SOV_modernise_our_t_72s
-	complete_national_focus = SOV_defensive_drills
-	complete_national_focus = SOV_send_surovikin_to_syria
-	complete_national_focus = SOV_utilise_wagner
-	complete_national_focus = SOV_lease_tartus_naval_base
-	complete_national_focus = SOV_grom_2019
-	complete_national_focus = SOV_pivot_to_the_east
-	complete_national_focus = SOV_increase_our_operations_in_syria
-	complete_national_focus = SOV_closer_ties_with_china
-	complete_national_focus = SOV_multipolarism
-	
-	complete_national_focus = SOV_strong_president_strong_country
-	complete_national_focus = SOV_the_control_of_inner_politic
-	complete_national_focus = SOV_black_sea_pipelines
-	complete_national_focus = SOV_closer_ties_with_gazprom
-	complete_national_focus = SOV_subsidies_for_childbirth
-	complete_national_focus = SOV_the_western_infestation
-	complete_national_focus = SOV_promote_orthodoxy
-	complete_national_focus = SOV_raise_akhmat_battallions
-	complete_national_focus = SOV_secure_chemezovs_loyalty
-	complete_national_focus = SOV_geopolitical_grandmaster
-	complete_national_focus = SOV_the_need_for_reforms
-	complete_national_focus = SOV_ambitious_new_faces_2
-	complete_national_focus = SOV_russia_the_land_of_opportunities
-	complete_national_focus = SOV_bureaucratic_reforms
-	complete_national_focus = SOV_liberalise_the_banking_sector
-	complete_national_focus = SOV_invest_in_internet_banking
-	complete_national_focus = SOV_strengthen_the_central_bank
-	complete_national_focus = SOV_memories_of_old
-	complete_national_focus = SOV_economic_integration
-	complete_national_focus = SOV_patriots_from_a_young_age
-	complete_national_focus = SOV_our_grand_history
-	complete_national_focus = SOV_expand_vk_group
-	complete_national_focus = SOV_internet_infastructure
-	complete_national_focus = SOV_huawei_contrats
-	add_ideas = SOV_patriots_from_a_young_age_idea
-	
-	#load 2022 oobs after foci are completed or else 'movements on the border' won't be ongoing at start
-	if = {
-		limit = { has_dlc = "No Step Back" }
-		set_oob = "SOV_2022_nsb"
-	}
-	if = {
-		limit = { NOT = { has_dlc = "No Step Back" } }
-		set_oob = "SOV_2022"
-	}
-	
-	set_country_flag = boris_nemtsov_not_active_flag
-	SOV_make_alexei_navalny_liberal_leader = yes
-	SOV_make_sergey_kiriyenko_technocrat_leader = yes
-	set_variable = { SOV_sergey_chemezov_faction = 5 }
-	SOV_make_nikolai_patrushev_siloviki_leader = yes
-	
-	remove_ideas = SOV_bloated_welfare_system
-	add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.05 }
-	add_to_variable = { SOV_sanctions_research_speed_factor = -0.12 }
-	add_to_variable = { SOV_sanctions_political_power_cost = 0.1 }
-	swap_ideas={
-		remove_idea = SOV_rampant_oligarchy
-		add_idea = SOV_rampant_oligarchy_2
-	}
-
-	set_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
-	
-	SOV_increase_nationalist_faction_large = yes
-	SOV_decrease_putinist_faction_small = yes
-	SOV_decrease_liberal_faction_small = yes
-	SOV_increase_nationalist_faction_small = yes
-	
-	# Russia 2022 gets more tank techs done
-
-	if = {
-		limit = {
-			NOT = { has_dlc = "No Step Back" }
-		}
-		set_technology = {
-			modern_tank_doctrine = 1
-			upgrade_old_models = 1
-			increase_infantry_support = 1
-		}
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		set_technology = {
-			armor_tech_2 = 1
-			engine_tech_2 = 1
-			gun_tech_2 = 1
-			at_tech_1 = 1
-			aa_tech_1 = 1
-			tank_module_tech_2 = 1
-		}
-	}
-	
-	if = {
-		limit = {
-			has_dlc = "By Blood Alone"
-		}
-		set_technology = {
-			basic_small_airframe = 1
-		}
-	}
-	
-	set_technology = {
-		ifv_upgrade = 1
-		better_ifvs_1 = 1
-		ifv_2 = 1
-		infantry_anti_tank_upgrade = 1
-		infantry_weapons2 = 1
-		improved_infantry_weapons = 1
-		
-		tech_maintenance_company = 1
-		tech_engineers2 = 1
-		
-		interwar_artillery = 1
-		artillery1 = 1
-		rocket_artillery2 = 1
-		
-		four_g_satellite = 1
-		radio = 1
-		increase_in_ram_capabilities = 1
-		quad_processors = 1
-		
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		concentrated_industry = 1
-		concentrated_industry2 = 1
-		concentrated_industry3 = 1
-		construction1 = 1
-	}
-	
-	for_loop_effect = {
-		end = 9
-		value = temp
-		random_owned_controlled_state = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	
-	for_loop_effect = {
-		end = 17
-		value = temp
-		random_owned_controlled_state = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	
-	for_loop_effect = {
-		end = 12
-		value = temp
-		random_owned_controlled_state = {
-			limit = { infrastructure < 4 }
-			add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	
-	for_loop_effect = {
-		end = 6
-		value = temp
-		random_owned_controlled_state = {
-			add_building_construction = {
-				type = synthetic_refinery
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	
-	#ARMY REFORM DECISIONS
-	army_experience = 50
-	navy_experience = 50
-	air_experience = 50
-	random_state={
-		limit = { is_controlled_by = ROOT is_coastal = yes }
-		add_extra_state_shared_building_slots = 2
-		add_building_construction = {
-			type = dockyard
-			level = 2
-			instant_build = yes
-		}
-	}
-	add_manpower = 50000
-	random_state={
-		limit = { is_controlled_by = ROOT }
-		add_extra_state_shared_building_slots = 2
-		add_building_construction = {
-			type = arms_factory
-			level = 2
-			instant_build = yes
-		}
-		increase_state_gdp_growth_by_5 = yes
-	}
-	
-	add_equipment_to_stockpile = { 
-		type = infantry_equipment_1
-		amount = 10000
-		producer = SOV
-	}
-	army_experience = -30
-	air_experience = -30
-	air_experience = -50
-	army_experience = -40
-	
-	subtract_from_variable = { SOV_army_attrition = 0.09 }
-	add_to_variable = { SOV_army_army_attack_factor = 0.02 }
-	add_to_variable = { SOV_army_army_defence_factor = 0.02 }
-	add_to_variable = { SOV_army_army_morale_factor = 0.01 }
-	add_to_variable = { SOV_army_army_org_factor = 0.03 }
-	add_to_variable = { SOV_army_army_bonus_air_superiority_factor = 0.1 }
-	subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.15 }
-	add_to_variable = { SOV_army_army_morale_factor = 0.04 }
-	add_to_variable = { SOV_army_breakthrough_factor = 0.08 }
-	add_to_variable = { SOV_army_army_attack_factor = 0.03 }
-	add_to_variable = { SOV_army_army_defence_factor = 0.03 }
-	add_to_variable = { SOV_sanctions_industrial_capacity_dockyard = 0.06 }
-	add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.12 }
-	add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.1 }
-	add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.1 }
-	add_to_variable = { SOV_army_max_command_power = 25 }
-}
 
 
 add_equipment_to_stockpile = { 
@@ -848,21 +518,21 @@ create_country_leader = {
 	traits = {  }
 }
 
+set_party_name = { ideology = ultranationalist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
 create_country_leader = {
 	name = "Aleksey Zhuravlyov"
 	desc = ""
 	picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
-	ideology = generic_populist
+	ideology = generic_ultranationalist
 }
 
 create_country_leader = {
 	name = "Vladimir Zhirinovsky"
 	desc = ""
 	picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
-	ideology = russia_liberal_democratic_party_ultranat_subideology
+	ideology = russia_liberal_democratic_party_subideology
 	traits = { SOV_aggressive_populist }
 }
-
 
 add_ideas = SOV_wide_is_my_motherland
 add_ideas = SOV_bloated_welfare_system
@@ -1140,3 +810,321 @@ set_variable = { SOV_SGPW_war_support_weekly = 0 }
 set_variable = { SOV_SGPW_army_artillery_defence_factor = 0 }
 set_variable = { SOV_SGPW_army_artillery_attack_factor = 0 }
 set_variable = { SOV_SGPW_conscription = 0 }
+
+
+
+
+
+
+
+
+2022.1.1 = {
+	set_global_flag = kerch_bridge_built_flag
+
+	puppet = DON
+	puppet = LHK
+
+	add_to_faction = DON
+	add_to_faction = LHK
+
+	DON = {
+		set_popularities = {
+			eastern_conservative = 85
+			populist = 3
+			eastern_liberal = 2
+			socialist = 2
+			moderate_communist = 1
+			fascist = 7
+		}		
+	}
+
+	LHK = {
+		set_popularities = {
+			eastern_conservative = 92
+			populist = 3
+			eastern_liberal = 2
+			socialist = 2
+			moderate_communist = 1
+		}
+	}
+
+	create_country_leader = {
+		name = "No Leader"
+		desc = ""
+		picture = gfx/leaders/SOV/Portrait_Boris_Nemtsov_dead.png
+		ideology = generic_neoliberal
+		traits = {  }
+	}
+
+	set_country_flag = SOV_mishustin_has_been_pm_flag
+	set_country_flag = SOV_solovyov_available_as_advisor_flag
+
+	set_global_flag = russia_ukraine_war
+	set_global_flag = smo_northern_front_open
+	set_global_flag = smo_eastern_front_open
+	set_global_flag = smo_donbass_front_open
+	set_global_flag = smo_southern_front_open
+	
+	add_to_variable = { SOV_sanctions_industrial_capacity_factory = -0.15 }
+	add_to_variable = { SOV_sanctions_production_speed_buildings_factor = -0.15 }
+	add_to_variable = { SOV_sanctions_research_speed_factor = -0.1 }
+	add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.08 }
+	add_to_variable = { SOV_sanctions_stability_weekly = -0.003 }
+	add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = -0.25 }
+	add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = -0.25 }
+	add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = -0.25 }
+	add_to_variable = { SOV_sanctions_inflation_monthly = 0.05 }
+	add_to_variable = { SOV_sanctions_political_power_cost = 0.6 }
+	add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = -0.2 }
+	
+	add_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+	remove_dynamic_modifier = { modifier = SOV_stagnant_economy_rework }
+	add_ideas = SOV_krym_nash_ultranat
+	load_focus_tree = post_crimea_tree
+	set_country_flag = russia_united_flag
+	complete_national_focus = SOV_putin_at_the_helm
+	complete_national_focus = SOV_strengthen_the_union_state
+	complete_national_focus = SOV_strengthen_the_government_in_transnistria
+	complete_national_focus = SOV_welcome_home_2
+	complete_national_focus = SOV_build_the_crimean_bridge
+	complete_national_focus = SOV_encourage_crimean_settlement
+	complete_national_focus = SOV_brothers_in_donbass
+	complete_national_focus = SOV_send_them_artillery
+	complete_national_focus = SOV_send_them_armour
+	complete_national_focus = SOV_fight_western_sanctions
+	complete_national_focus = SOV_no_need_for_western_food
+	complete_national_focus = SOV_BRICS_investments
+	complete_national_focus = SOV_nationalise_western_assets
+	complete_national_focus = SOV_hike_interest_rates
+	complete_national_focus = SOV_increase_economic_bureaucracy
+	complete_national_focus = SOV_economic_corridors
+	complete_national_focus = SOV_bypass_western_sanctions
+	complete_national_focus = SOV_army_modernisation
+	complete_national_focus = SOV_move_to_a_professional_military
+	complete_national_focus = SOV_drone_infantry_integration
+	complete_national_focus = SOV_improve_our_air_defences
+	complete_national_focus = SOV_modernise_our_t_72s
+	complete_national_focus = SOV_defensive_drills
+	complete_national_focus = SOV_send_surovikin_to_syria
+	complete_national_focus = SOV_utilise_wagner
+	complete_national_focus = SOV_lease_tartus_naval_base
+	complete_national_focus = SOV_grom_2019
+	complete_national_focus = SOV_pivot_to_the_east
+	complete_national_focus = SOV_increase_our_operations_in_syria
+	complete_national_focus = SOV_closer_ties_with_china
+	complete_national_focus = SOV_multipolarism
+	
+	complete_national_focus = SOV_strong_president_strong_country
+	complete_national_focus = SOV_the_control_of_inner_politic
+	complete_national_focus = SOV_black_sea_pipelines
+	complete_national_focus = SOV_closer_ties_with_gazprom
+	complete_national_focus = SOV_subsidies_for_childbirth
+	complete_national_focus = SOV_the_western_infestation
+	complete_national_focus = SOV_promote_orthodoxy
+	complete_national_focus = SOV_raise_akhmat_battallions
+	complete_national_focus = SOV_secure_chemezovs_loyalty
+	complete_national_focus = SOV_geopolitical_grandmaster
+	complete_national_focus = SOV_the_need_for_reforms
+	complete_national_focus = SOV_ambitious_new_faces_2
+	complete_national_focus = SOV_russia_the_land_of_opportunities
+	complete_national_focus = SOV_bureaucratic_reforms
+	complete_national_focus = SOV_liberalise_the_banking_sector
+	complete_national_focus = SOV_invest_in_internet_banking
+	complete_national_focus = SOV_strengthen_the_central_bank
+	complete_national_focus = SOV_memories_of_old
+	complete_national_focus = SOV_economic_integration
+	complete_national_focus = SOV_patriots_from_a_young_age
+	complete_national_focus = SOV_our_grand_history
+	complete_national_focus = SOV_expand_vk_group
+	complete_national_focus = SOV_internet_infastructure
+	complete_national_focus = SOV_huawei_contrats
+	add_ideas = SOV_patriots_from_a_young_age_idea
+	
+	set_country_flag = boris_nemtsov_not_active_flag
+	SOV_make_alexei_navalny_liberal_leader = yes
+	SOV_make_sergey_kiriyenko_technocrat_leader = yes
+	set_variable = { SOV_sergey_chemezov_faction = 5 }
+	SOV_make_nikolai_patrushev_siloviki_leader = yes
+	
+	remove_ideas = SOV_bloated_welfare_system
+	add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.05 }
+	add_to_variable = { SOV_sanctions_research_speed_factor = -0.12 }
+	add_to_variable = { SOV_sanctions_political_power_cost = 0.1 }
+	swap_ideas={
+		remove_idea = SOV_rampant_oligarchy
+		add_idea = SOV_rampant_oligarchy_2
+	}
+
+	set_country_flag = SOV_girkin_has_influence_in_the_fsb_flag
+	
+	SOV_increase_nationalist_faction_large = yes
+	SOV_decrease_putinist_faction_small = yes
+	SOV_decrease_liberal_faction_small = yes
+	SOV_increase_nationalist_faction_small = yes
+	
+	# Russia 2022 gets more tank techs done
+
+	if = {
+		limit = {
+			NOT = { has_dlc = "No Step Back" }
+		}
+		set_technology = {
+			modern_tank_doctrine = 1
+			upgrade_old_models = 1
+			increase_infantry_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		set_technology = {
+			armor_tech_2 = 1
+			engine_tech_2 = 1
+			gun_tech_2 = 1
+			at_tech_1 = 1
+			aa_tech_1 = 1
+			tank_module_tech_2 = 1
+		}
+	}
+	
+	if = {
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_technology = {
+			basic_small_airframe = 1
+		}
+	}
+	
+	set_technology = {
+		ifv_upgrade = 1
+		better_ifvs_1 = 1
+		ifv_2 = 1
+		infantry_anti_tank_upgrade = 1
+		infantry_weapons2 = 1
+		improved_infantry_weapons = 1
+		
+		tech_maintenance_company = 1
+		tech_engineers2 = 1
+		
+		interwar_artillery = 1
+		artillery1 = 1
+		rocket_artillery2 = 1
+		
+		four_g_satellite = 1
+		radio = 1
+		increase_in_ram_capabilities = 1
+		quad_processors = 1
+		
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+		construction1 = 1
+	}
+	
+	for_loop_effect = {
+		end = 9
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 17
+		value = temp
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 12
+		value = temp
+		random_owned_controlled_state = {
+			limit = { infrastructure < 4 }
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	for_loop_effect = {
+		end = 6
+		value = temp
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	#ARMY REFORM DECISIONS
+	army_experience = 50
+	navy_experience = 50
+	air_experience = 50
+	random_state={
+		limit = { is_controlled_by = ROOT is_coastal = yes }
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = dockyard
+			level = 2
+			instant_build = yes
+		}
+	}
+	add_manpower = 50000
+	random_state={
+		limit = { is_controlled_by = ROOT }
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_factory
+			level = 2
+			instant_build = yes
+		}
+		increase_state_gdp_growth_by_5 = yes
+	}
+	
+	add_equipment_to_stockpile = { 
+		type = infantry_equipment_1
+		amount = 10000
+		producer = SOV
+	}
+	army_experience = -30
+	air_experience = -30
+	air_experience = -50
+	army_experience = -40
+	
+	subtract_from_variable = { SOV_army_attrition = 0.09 }
+	add_to_variable = { SOV_army_army_attack_factor = 0.02 }
+	add_to_variable = { SOV_army_army_defence_factor = 0.02 }
+	add_to_variable = { SOV_army_army_morale_factor = 0.01 }
+	add_to_variable = { SOV_army_army_org_factor = 0.03 }
+	add_to_variable = { SOV_army_army_bonus_air_superiority_factor = 0.1 }
+	subtract_from_variable = { SOV_army_land_doctrine_cost_factor = 0.15 }
+	add_to_variable = { SOV_army_army_morale_factor = 0.04 }
+	add_to_variable = { SOV_army_breakthrough_factor = 0.08 }
+	add_to_variable = { SOV_army_army_attack_factor = 0.03 }
+	add_to_variable = { SOV_army_army_defence_factor = 0.03 }
+	add_to_variable = { SOV_sanctions_industrial_capacity_dockyard = 0.06 }
+	add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.12 }
+	add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.1 }
+	add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.1 }
+	add_to_variable = { SOV_army_max_command_power = 25 }
+}

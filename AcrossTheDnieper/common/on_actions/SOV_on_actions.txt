@@ -201,22 +201,7 @@ on_actions={
 						}
 					}
 				}
-	
-				set_party_name = { ideology = ultranationalist long_name = SOV_neoconservative_party_long name = SOV_neoconservative_party }
-				create_country_leader = {
-					name = "Aleksey Zhuravlyov"
-					desc = ""
-					picture = gfx/leaders/SOV/Portait_Aleksey_Zhuravlyov.png
-					ideology = generic_ultranationalist
-				}
 
-				create_country_leader = {
-					name = "Vladimir Zhirinovsky"
-					desc = ""
-					picture = gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png
-					ideology = russia_liberal_democratic_party_subideology
-					traits = { SOV_aggressive_populist }
-				}
 				
 				set_party_name = { ideology = neoconservative long_name = SOV_dem_party_long name = SOV_dem_party }
 				add_popularity = { ideology = neoconservative popularity = -0.06 }
@@ -329,6 +314,32 @@ on_actions={
 						level = 1
 						instant_build = yes
 					}
+				}
+				
+				#Has to load in via on_actions for the 2022 focus to start while being done. No idea why as when I put this in the history file like a normal country and change the 2022 focus to any other focus it works fine, it's just "Movements on the border" that doesn't work. I <3 Paradox :)
+				if={
+					limit={
+						NOT={ has_dlc = "No Step Back" }
+						has_start_date < 2022.01.01
+					}
+					load_oob = "SOV_2014"
+				}
+				else_if={
+					limit={
+						has_dlc = "No Step Back"
+						has_start_date < 2022.01.01
+					}
+					load_oob = "SOV_2014_nsb"
+				}
+				else_if={
+					limit={
+						NOT={ has_dlc = "No Step Back" }
+						has_start_date > 2022.01.01
+					}
+					load_oob = "SOV_2022"
+				}
+				else={
+					load_oob = "SOV_2022_nsb"
 				}
 			}
 		}
