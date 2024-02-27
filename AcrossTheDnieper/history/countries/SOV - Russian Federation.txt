@@ -282,17 +282,6 @@ if = {
 	set_oob = "SOV_2014"
 }
 
-2022.1.1={
-	if = {
-		limit = { has_dlc = "No Step Back" }
-		set_oob = "SOV_2022_nsb_rework"
-	}
-	if = {
-		limit = { NOT = { has_dlc = "No Step Back" } }
-		set_oob = "SOV_2022_rework"
-	}
-}
-
 set_country_flag = has_nukes_flag
 
 capital = 11
@@ -446,6 +435,16 @@ add_to_faction = BLR
 	complete_national_focus = SOV_internet_infastructure
 	complete_national_focus = SOV_huawei_contrats
 	add_ideas = SOV_patriots_from_a_young_age_idea
+	
+	#load 2022 oobs after foci are completed or else 'movements on the border' won't be ongoing at start
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		set_oob = "SOV_2022_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+		set_oob = "SOV_2022"
+	}
 	
 	set_country_flag = boris_nemtsov_not_active_flag
 	SOV_make_alexei_navalny_liberal_leader = yes
