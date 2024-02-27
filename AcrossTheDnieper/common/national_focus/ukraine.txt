@@ -634,6 +634,7 @@ focus_tree = {
 	continuous_focus_position = { x = -40 y = 1050 } 
 	country = {
 		factor = 0
+
 	}
 
 	focus = {
@@ -8631,7 +8632,7 @@ focus_tree = {
 	focus = {
 		id = UKR_himars
 		icon = GFX_focus_UKR_5_million_rockets
-		x = 2
+		x = 0
 		y = 1
 		
 		cost = 10
@@ -8770,6 +8771,41 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = UKR_spartans
+		icon = GFX_focus_UKR_5_million_rockets
+		x = 3
+		y = 1
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_lobby_for_western_aid }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+			
+			has_country_flag = UKR_activate_british_aid_focuses
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				variant_name = "FV103 Spartan"
+				amount = 100
+				producer = ENG
+			}
+		}
+	}
 
 	focus = {
 		id = UKR_abrams
@@ -8852,7 +8888,7 @@ focus_tree = {
 	focus = {
 		id = UKR_future_of_warfare
 		icon = GFX_focus_UKR_5_million_rockets
-		x = -2
+		x = -4
 		y = 1
 		
 		cost = 10
@@ -8880,7 +8916,7 @@ focus_tree = {
 	focus = {
 		id = UKR_western_training
 		icon = GFX_focus_UKR_training_agreements_with_uk
-		x = -8
+		x = -10
 		y = 1
 		
 		cost = 10
