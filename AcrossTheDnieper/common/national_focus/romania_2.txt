@@ -147,8 +147,8 @@ focus_tree = {
 
 		completion_reward = {
              swap_ideas={
-            remove_idea = 3_Stage_Military_Restructuring_2
-            add_idea = 3_Stage_Military_Restructuring_3
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
 		    }
 		}
     }
@@ -173,7 +173,7 @@ focus_tree = {
 			add_political_power = -50
 		 }
 	}
-			focus = {
+		focus = {
 		id = Increase_Domestic_Production_standards
 		icon = GFX_Increase_Domestic_Production_Standards
 		x = 8
@@ -191,8 +191,36 @@ focus_tree = {
 		prerequisite = { focus = increase_randd_standards }
 		completion_reward = {
             swap_ideas={
-            remove_idea = 3_Stage_Military_Restructuring_3
-            add_idea = 3_Stage_Military_Restructuring_4
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
+		    }
+		 }
+	}
+		focus = {
+		id = Modernize_The_Airforce
+		icon = GFX_Modernize_The_Airforce
+		x = 2
+		y = 1
+		cost = 15
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_air
+				uses = 1
+				category = air_doctrine
+			}
+            swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_2
+            add_idea = 3_Stage_Military_Restructuring_3
 		    }
 		 }
 	}
