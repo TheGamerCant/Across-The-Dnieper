@@ -31,6 +31,16 @@ on_actions={
 						}
 						STATE_TO_BE_UPDATED_ID = "[THIS.GetID]"
 					}
+					
+					#By doing every neighbor state, we can minimise the risk that some straggler vps will be left unchanged until the next month
+					every_neighbor_state={
+						meta_effect = {
+							text = {
+								update_state_[STATE_TO_BE_UPDATED_ID]_names
+							}
+							STATE_TO_BE_UPDATED_ID = "[THIS.GetID]"
+						}
+					}
 				}
 			}
 		}
