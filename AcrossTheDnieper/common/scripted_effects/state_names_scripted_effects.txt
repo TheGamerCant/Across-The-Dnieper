@@ -1,4 +1,5 @@
 #https://en.wikipedia.org/wiki/List_of_renamed_cities_in_Ukraine
+#https://zakon.rada.gov.ua/laws/show/v0180359-16#Text
 
 update_state_1_names={
 
@@ -3234,11 +3235,47 @@ update_state_230_names={
 	}
 	
 	if={
-		limit = { any_country = { controls_province = 6609 OR={ is_ukraine_tag = yes is_russia_tag = yes } } }
-		set_province_name = { id = 6609 name = VICTORY_POINTS_6609_UKR }
+		limit = { any_country = { controls_province = 6470 OR={ is_ukraine_tag = yes is_russia_tag = yes } } }
+		set_province_name = { id = 6470 name = VICTORY_POINTS_6470_UKR }
 	}
 	else={
-		reset_province_name = 6609
+		reset_province_name = 6470
+	}
+	
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 6609 is_ukraine_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_UKR_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 6609 is_russia_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_SOV_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 6609 is_poland_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_POL_RENAMED }
+		}
+		else={
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 6609 is_ukraine_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_UKR }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 6609 is_russia_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 6609 is_poland_tag = yes } }
+			set_province_name = { id = 6609 name = VICTORY_POINTS_6609_POL }
+		}
+		else={
+			reset_province_name = 6609
+		}
 	}
 	
 	if={
@@ -3247,6 +3284,22 @@ update_state_230_names={
 	}
 	else={
 		reset_province_name = 9365
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12002 is_ukraine_tag = yes } }
+		set_province_name = { id = 12002 name = VICTORY_POINTS_12002_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12002 is_russia_tag = yes } }
+		set_province_name = { id = 12002 name = VICTORY_POINTS_12002_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12002 is_poland_tag = yes } }
+		set_province_name = { id = 12002 name = VICTORY_POINTS_12002_POL }
+	}
+	else={
+		reset_province_name = 12002
 	}
 	
 	if={
@@ -5348,6 +5401,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 6463 name = VICTORY_POINTS_6463 }
 	set_province_name = { id = 6463 name = VICTORY_POINTS_6463 }
 	set_province_name = { id = 6464 name = VICTORY_POINTS_6464 }
+	set_province_name = { id = 6470 name = VICTORY_POINTS_6470 }
 	set_province_name = { id = 6478 name = VICTORY_POINTS_6478 }
 	set_province_name = { id = 6486 name = VICTORY_POINTS_6486 }
 	set_province_name = { id = 6493 name = VICTORY_POINTS_6493 }
@@ -5363,7 +5417,13 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 6559 name = VICTORY_POINTS_6559 }
 	set_province_name = { id = 6569 name = VICTORY_POINTS_6569 }
 	set_province_name = { id = 6581 name = VICTORY_POINTS_6581 }
-	set_province_name = { id = 6609 name = VICTORY_POINTS_6609 }
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		set_province_name = { id = 6609 name = VICTORY_POINTS_6609_RENAMED }
+	}
+	else={
+		set_province_name = { id = 6609 name = VICTORY_POINTS_6609 }
+	}
 	set_province_name = { id = 6615 name = VICTORY_POINTS_6615 }
 	set_province_name = { id = 6616 name = VICTORY_POINTS_6616 }
 	set_province_name = { id = 6620 name = VICTORY_POINTS_6620 }
@@ -6070,6 +6130,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 12083 name = VICTORY_POINTS_12083 }
 	set_province_name = { id = 12094 name = VICTORY_POINTS_12094 }
 	set_province_name = { id = 12101 name = VICTORY_POINTS_12101 }
+	set_province_name = { id = 12102 name = VICTORY_POINTS_12102 }
 	if={
 		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
 		set_province_name = { id = 12106 name = VICTORY_POINTS_12106_RENAMED }
