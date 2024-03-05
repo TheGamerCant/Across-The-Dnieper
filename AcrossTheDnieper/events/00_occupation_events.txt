@@ -1945,6 +1945,10 @@ country_event = {
 	
 	option = {
 		name = occupation.10.b#Give to Chisinau owner
+		
+		TRIGGER={
+			NOT = { tag = var:global.chisinau_owner }
+		}
 
 		if={
 			limit={
@@ -2020,9 +2024,104 @@ country_event = {
 	}
 	
 	option = {
-		name = occupation.10.c#Integrate
+		name = occupation.10.c#Give to Odessa owner
+		
+		TRIGGER={
+			NOT = { tag = var:global.odesa_owner }
+		}
+		
+		if={
+			limit={
+				any_country={
+					exists = yes
+					original_tag = var:global.odesa_owner
+					OR={
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			set_variable = { global.country_releasing_puppet = THIS }
+			every_country_with_original_tag = {
+				original_tag_to_check = var:global.odesa_owner
+				limit={
+					OR={
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				set_variable = { global.country_being_puppeted = THIS }
+				every_state = {
+					limit = { 
+						is_owned_and_controlled_by = var:global.country_releasing_puppet
+						NOT = { is_claimed_by = var:global.country_releasing_puppet }
+						NOT = { is_core_of = PREV.PREV }
+						OCCUPATION_is_transnistria_trigger = yes
+					}
+					
+					add_core_of = var:global.country_being_puppeted
+					var:global.country_being_puppeted = { transfer_state = PREV }
+				}
+				var:global.country_being_puppeted = { remove_cores = yes }
+				clear_variable = global.country_being_puppeted
+			}
+			clear_variable = global.country_releasing_puppet
+		}
+		else={
+			if = {
+				limit = { var:global.odesa_owner = { exists = no } }
+				every_state={
+					limit = { 
+						is_owned_and_controlled_by = ROOT
+						NOT = { is_claimed_by = ROOT }
+						NOT = { is_core_of = ROOT }
+						OCCUPATION_is_transnistria_trigger = yes
+					}
+					add_core_of = var:global.odesa_owner
+					var:global.odesa_owner = { transfer_state = PREV }
+				}
+				puppet = var:global.odesa_owner
+			}
+			else = {
+				create_dynamic_country = {
+					original_tag = var:global.odesa_owner
+					every_state={
+						limit = { 
+							is_owned_and_controlled_by = PREV.PREV
+							NOT = { is_claimed_by = PREV.PREV }
+							NOT = { is_core_of = PREV.PREV }
+							OCCUPATION_is_transnistria_trigger = yes
+						}
+						add_core_of = PREV
+						PREV = { transfer_state = PREV }
+					}
+					PREV = { puppet = PREV }
+					remove_cores = yes
+				}	
+			}
+		}
+		clear_variable = global.odesa_owner
+	}
+	
+	option = {
+		name = occupation.10.d#Integrate
 		trigger={
-			258 = { is_owned_and_controlled_by = ROOT }
+			OR={
+				AND={
+					OR={
+						original_tag = UKR
+						original_tag = UGE
+						original_tag = SOV
+					}
+					AND={
+						controls_state = 269
+						controls_state = 238
+						controls_state = 229
+						controls_state = 199
+					}
+				}
+				258 = { is_owned_and_controlled_by = ROOT }
+			}
 		}
 		ai_chance = {
 			base = 1000
@@ -2040,15 +2139,33 @@ country_event = {
 		}
 		add_political_power = -50
 		clear_variable = global.chisinau_owner
+		clear_variable = global.odesa_owner
 	}
 	
 	option = {
-		name = occupation.10.d#Annex
+		name = occupation.10.e#Annex
 		ai_chance = {
 			base = 0
 		}
 		trigger={
-			NOT = { 258 = { is_owned_and_controlled_by = ROOT } }
+			NOT={
+				OR={
+					AND={
+						OR={
+							original_tag = UKR
+							original_tag = UGE
+							original_tag = SOV
+						}
+						AND={
+							controls_state = 269
+							controls_state = 238
+							controls_state = 229
+							controls_state = 199
+						}
+					}
+					258 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
 		}
 		
 		add_political_power = -50
@@ -2064,6 +2181,7 @@ country_event = {
 			add_claim_by = ROOT
 		}
 		clear_variable = global.chisinau_owner
+		clear_variable = global.odesa_owner
 	}
 }
 

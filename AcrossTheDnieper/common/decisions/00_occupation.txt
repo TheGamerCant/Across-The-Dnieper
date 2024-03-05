@@ -594,6 +594,20 @@ occupation_decisions = {
 				else={
 					set_variable ={ global.chisinau_owner = MOL }
 				}
+				
+				if={
+					limit = {
+						OR={
+							269 = { owner={ original_tag = UKR } }
+							269 = { owner={ original_tag = UGE } }
+							269 = { owner={ original_tag = SOV } }
+						}
+					}
+					269 = { owner = { set_variable ={ global.odesa_owner = THIS } } } 
+				}
+				else={
+					set_variable ={ global.odesa_owner = UKR }
+				}
 			}
 			country_event = { id = occupation.10 }
 		}
