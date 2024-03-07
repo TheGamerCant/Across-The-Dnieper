@@ -366,6 +366,21 @@ country_can_be_reasonable_target_of_wargoal = { #Expected scopes: Target country
 	}
 }
 
+mio_original_country_available_with_opinion_subject_and_war_requirements_fulfilled = { #Used for MIO decisions availability - THIS is original country
+	has_opinion = {
+		target = ROOT
+		value > 49
+	}
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+	has_capitulated = no
+	NOT = { has_war_with = ROOT }
+}
+
+
+
 is_donbass_country={
 	OR={
 		original_tag = DON
