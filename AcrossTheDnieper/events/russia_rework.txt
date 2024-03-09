@@ -4135,16 +4135,19 @@ country_event = {
 			base = 10
 		}
 		hidden_effect={
-			division_template = {
-				name = "Pridnestrovie Peacekeepers"
-				division_names_group = SOV_INF_01
-				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-					irregular_infantry = { x = 0 y = 1 }
-					apc = { x = 0 y = 2 }
+			if = { 
+				limit = { NOT = { has_template = "Pridnestrovie Peacekeepers" } } 
+				division_template = {
+					name = "Pridnestrovie Peacekeepers"
+					division_names_group = SOV_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						apc = { x = 0 y = 2 }
+					}
+					is_locked = yes
+					template_counter = 184
 				}
-				is_locked = yes
-				template_counter = 184
 			}
 		}
 		random_state = {

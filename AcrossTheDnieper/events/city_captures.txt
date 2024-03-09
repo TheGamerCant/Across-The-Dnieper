@@ -684,9 +684,10 @@ news_event = {
         set_global_flag = fall_avdiivka
     }
 
-    trigger = { OR = {SOV = {controls_province = 3581}
-	 DON = {controls_province = 3581} }
-	 NOT = { has_global_flag = fall_avdiivka }
+    trigger = { 
+		SOV = { has_war_with = UKR }
+		OR = {SOV = {controls_province = 3581} DON = {controls_province = 3581} }
+	    NOT = { has_global_flag = fall_avdiivka }
 	}
 
 	option = {
