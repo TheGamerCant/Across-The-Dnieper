@@ -4371,37 +4371,7 @@ focus_tree = {
 			increase_education_spending = yes
 		}
 	}
-
-	focus = {
-		id = BLR_elite_rule
-		icon = GFX_
-		x = 1
-		y = 1
-		relative_position_id = BLR_emphasys_on_education
-		prerequisite = { focus = BLR_emphasys_on_education }
-		mutually_exclusive = {  }
-		
-		cost = 70
-		ai_will_do = {
-			base = 10
-		}
-
-		available = {
-		}
-		
-		bypass = {
-		
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = BLR_elite_rule
-		}
-	}
-
+	
 	focus = {
 		id = BLR_preservation
 		icon = GFX_
@@ -4417,6 +4387,7 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = BLR_elite_rule }
 		}
 		
 		bypass = {
@@ -4431,6 +4402,38 @@ focus_tree = {
 			add_ideas = BLR_preservation
 		}
 	}
+	
+	focus = {
+		id = BLR_elite_rule
+		icon = GFX_
+		x = 1
+		y = 1
+		relative_position_id = BLR_emphasys_on_education
+		prerequisite = { focus = BLR_emphasys_on_education }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = { has_completed_focus = BLR_preservation }
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_elite_rule
+		}
+	}
+
 
 	focus = {
 		id = BLR_law_above_all
@@ -4493,15 +4496,911 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = BLR_conservatism_end_second
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_conservatism_end
+		prerequisite = { focus = BLR_conservatism_end }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+				swap_ideas = {
+					remove_idea = generic_demographic_crisis
+					add_idea = generic_demographic_crisis_less_worse
+			}
+		}
+	}
 
 
 
+	focus = {
+		id = BLR_tax_haven
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_conservatism_end_second
+		prerequisite = { focus = BLR_conservatism_end_second }
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_tax_haven_yes
+		}
+	}
+	
+	
+	focus = {
+		id = BLR_EU_member
+		icon = GFX_
+		x = -2
+		y = 2
+		relative_position_id = BLR_tax_haven
+		prerequisite = { focus = BLR_tax_haven focus = BLR_tax_the_rich }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = eu_member
+		}
+	}
+	
+	focus = {
+		id = BLR_EU_member_ask_for_loans
+		icon = GFX_
+		x = 0
+		y = 2
+		relative_position_id = BLR_EU_member
+		prerequisite = { focus = BLR_EU_member }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_EU_loans
+		}
+	}
+
+	focus = {
+		id = BLR_infastructure_effort
+		icon = GFX_
+		x = 2
+		y = 1
+		relative_position_id = BLR_EU_member_ask_for_loans
+		prerequisite = { focus = BLR_EU_member_ask_for_loans }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+			}
+		
+		}
+	}
+	
+	focus = {
+		id = BLR_infastructure_effort_second
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_infastructure_effort
+		prerequisite = { focus = BLR_infastructure_effort }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		remove_ideas = BLR_outdated_infastructure
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+				}
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+				increase_state_gdp_growth_by_1 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = BLR_industry_effort
+		icon = GFX_
+		x = -2
+		y = 1
+		relative_position_id = BLR_EU_member_ask_for_loans
+		prerequisite = { focus = BLR_EU_member_ask_for_loans }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+					add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 5
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+				}
+								add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 5
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = BLR_industry_effort_second
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_industry_effort
+		prerequisite = { focus = BLR_industry_effort }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 3
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+								add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 3
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_economy_effort
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_EU_member_ask_for_loans
+		prerequisite = { focus = BLR_EU_member_ask_for_loans }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		random_owned_controlled_state = {
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 10
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		random_owned_controlled_state = {
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 10
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_economy_effort_second
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_economy_effort
+		prerequisite = { focus = BLR_economy_effort }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		random_owned_controlled_state = {
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 5
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		random_owned_controlled_state = {
+				add_to_variable = {
+					var = THIS.state_gdp_per_capita
+					value = 5
+					tooltip = SOV_RANDOM_GDP_TOOLTIP
+				}
+			}
+		}
+	}
 
 
 
+	focus = {
+		id = BLR_country_of_the_modern
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_economy_effort_second
+		prerequisite = { focus = BLR_economy_effort_second }
+		prerequisite = { focus = BLR_infastructure_effort_second }
+		prerequisite = { focus = BLR_industry_effort_second }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
 
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
 
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
 
+		completion_reward = {
+			remove_ideas = generic_demographic_crisis_less_worse
+			add_ideas = traditional_heaven
+		}
+	}
+	
+	
+		focus = {
+		id = BLR_join_nato
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_country_of_the_modern
+		prerequisite = { focus = BLR_country_of_the_modern }
+	
+	cost = 70
+	ai_will_do = {
+	}
+	available = {
+		has_idea = liberal_democracy
+		has_idea = western_economy
+		NOT={
+			any_state={
+				NOT = { is_owned_by = ROOT }
+				OR={
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+		}
+		custom_trigger_tooltip={
+			tooltip = can_join_nato_tt
+			NOT={
+				has_game_rule = {
+					rule = factions
+					option = ALL_FACTIONS_DISBANDED
+				}
+			}
+			NOT={
+				has_game_rule = {
+					rule = factions
+					option = NATO_DISBANDED
+				}
+			}
+		}
+		
+		NOT = { is_puppet_of = SOV }
+	}
+
+	
+	bypass = { 
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		USA = { add_to_faction = ROOT }
+		add_political_power = 100
+	}
+	}
+	
+	focus = {
+		id = BLR_unite_europe
+		icon = GFX_
+		x = -2
+		y = 0
+		relative_position_id = BLR_join_nato
+		prerequisite = { focus = BLR_country_of_the_modern }
+		
+		mutually_exclusive = { focus = BLR_unite_europe }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_cosmetic_tag = BLR_europe
+				every_other_country = {
+				limit = {
+					OR = {
+						original_tag = POL
+						original_tag = CZE
+						original_tag = BLR
+						original_tag = SLO
+						original_tag = HUN
+						original_tag = CRO
+						original_tag = BOS
+						original_tag = BUL
+						original_tag = ROM
+						original_tag = MOL
+						original_tag = LIT
+						original_tag = KOS
+					}
+					is_in_faction_with = ROOT
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = PREV
+					}
+					add_core_of = PREV.PREV
+				}
+				PREV = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}		
+		}
+							1 = {
+						add_core_of = BLR
+					}
+					437 = {
+						add_core_of = BLR
+					}
+					18 = {
+						add_core_of = BLR
+					}
+					
+					439 = {
+						add_core_of = BLR
+					}
+					440 = {
+						add_core_of = BLR
+					}
+					268 = {
+						add_core_of = BLR
+					}
+					247 = {
+						add_core_of = BLR
+					}
+					241 = {
+						add_core_of = BLR
+					}
+					215 = {
+						add_core_of = BLR
+					}
+					202 = {
+						add_core_of = BLR
+					}
+					175 = {
+						add_core_of = BLR
+					}
+					140 = {
+						add_core_of = BLR
+					}
+					147 = {
+						add_core_of = BLR
+					}
+					156 = {
+						add_core_of = BLR
+					}
+					169 = {
+						add_core_of = BLR
+					}
+					181 = {
+						add_core_of = BLR
+					}
+			}
+		}
+	
+	
+	focus = {
+		id = BLR_unite_the_slavs
+		icon = GFX_
+		x = 2
+		y = 0
+		relative_position_id = BLR_join_nato
+		prerequisite = { focus = BLR_country_of_the_modern }
+		
+		mutually_exclusive = { focus = BLR_join_nato }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		set_cosmetic_tag = BLR_slavic
+				every_other_country = {
+				limit = {
+					OR = {
+						original_tag = UKR
+						original_tag = TRZ
+						original_tag = BLR
+						original_tag = SOV
+						original_tag = ABK
+						original_tag = CHN
+						original_tag = SER
+						original_tag = MNT
+						original_tag = CRO
+						original_tag = BUL
+					}
+					NOT = { is_in_faction_with = ZZZ }
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = PREV
+					}
+					add_core_of = PREV.PREV
+				}		
+		}	
+					431 = {
+						add_core_of = BLR
+					}
+					34 = {
+						add_core_of = BLR
+					}
+		}
+			}
+			
+		
+	focus = {
+		id = BLR_take_out_the_serbs
+		icon = GFX_
+		x = -4
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = {  }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = SER type = take_state id = 337 }
+		declare_war_on = { target = MNT type = take_state id = 397 }
+		}
+	}
+			
+	focus = {
+		id = BLR_take_out_ukraine
+		icon = GFX_
+		x = -2
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = UKR type = take_state id = 92 }
+		}
+	}
+	
+	focus = {
+		id = BLR_take_out_poland
+		icon = GFX_
+		x = 2
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = POL type = take_state id = 427 }
+		declare_war_on = { target = LIT type = take_state id = 4 }
+		}
+	}
+	
+	focus = {
+		id = BLR_take_out_czechoslovakia
+		icon = GFX_
+		x = 6
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = CZE type = take_state id = 75 }
+		declare_war_on = { target = SLO type = take_state id = 130 }
+		}
+	}
+	
+	
+	focus = {
+		id = BLR_take_out_balkans
+		icon = GFX_
+		x = 4
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = HUN type = take_state id = 204 }
+		declare_war_on = { target = ROM type = take_state id = 358 }
+		declare_war_on = { target = CRO type = take_state id = 289 }
+		declare_war_on = { target = BUL type = take_state id = 417 }
+		declare_war_on = { target = BOS type = take_state id = 362 }
+		}
+	}
+	
+	focus = {
+		id = BLR_take_out_russia
+		icon = GFX_
+		x = 0
+		y = 1
+		relative_position_id = BLR_unite_the_slavs
+		prerequisite = { focus = BLR_unite_europe focus = BLR_unite_the_slavs focus = BLR_join_nato }
+		
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		declare_war_on = { target = SOV type = take_state id = 11 }
+		}
+	}
 
 
 
@@ -5025,6 +5924,38 @@ focus_tree = {
 			add_ideas = womens_rights_equality
 		}
 	}
+	
+	focus = {
+		id = BLR_tax_the_rich
+		icon = GFX_
+		x = 1
+		y = 2
+		relative_position_id = BLR_equality
+		prerequisite = { focus = BLR_equality }
+		mutually_exclusive = { }
+		
+		cost = 70
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_tax_the_rich_yes
+		}
+	}
+	
 
 
 
