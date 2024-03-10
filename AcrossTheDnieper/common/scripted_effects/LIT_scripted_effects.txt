@@ -204,3 +204,30 @@ LIT_stop_air_lituanica = {
 	clr_country_flag = LIT_vilnius_company_air_lituanica_set
 	remove_dynamic_modifier = { modifier = LIT_vilnius_company_air_lituanica_modifier }
 }
+
+LIT_setup_seimas = {
+	set_temp_variable = { t1 = LIT_unfriendly_seats }
+	set_temp_variable = { t2 = LIT_friendly_seats }
+	set_temp_variable = { t3 = 141 }
+
+	add_to_temp_variable = { t2 = t1 }
+	add_to_temp_variable = { t3 = t2 }
+
+	clear_array = LIT_seimas_frame
+
+	resize_array = {
+		array = LIT_seimas_frame
+		value = 1
+		size = t1
+	}
+	resize_array = {
+		array = LIT_seimas_frame
+		value = 2
+		size = t2
+	}
+	resize_array = {
+		array = LIT_seimas_frame
+		value = 3
+		size = t3
+	}
+}

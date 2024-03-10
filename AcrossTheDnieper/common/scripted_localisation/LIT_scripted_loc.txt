@@ -1056,69 +1056,19 @@ defined_text = {
 }
 
 defined_text = {
-    name = LIT_whos_winning_2014_elections_party_name
+    name = LIT_seimas_is_it_majority
 	
     text = {
         trigger = {
-            AND = {
-                neoconservative > party_popularity@social_democracy
-                neoconservative > party_popularity@populist
-            }
+			check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
         }
-        localization_key = "LIT_2014_elections_winning_dalia_party_tt"
-    }
-	
-    text = {
-        trigger = {
-            AND = {
-                social_democracy > party_popularity@neoconservative
-                social_democracy > party_popularity@populist
-            }
-        }
-        localization_key = "LIT_2014_elections_winning_soc_party_tt"
-    }
-
-    text = {
-        trigger = {
-            AND = {
-                populist > party_popularity@neoconservative
-                populist > party_popularity@social_democracy
-            }
-        }
-        localization_key = "LIT_2014_elections_winning_labour_party_tt"
-    }
-}
-
-defined_text = {
-    name = LIT_whos_winning_2014_elections_leader_name
-	
-    text = {
-        trigger = {
-            AND = {
-                neoconservative > party_popularity@social_democracy
-                neoconservative > party_popularity@populist
-            }
-        }
-        localization_key = "LIT_2014_elections_winning_dalia_tt"
+        localization_key = "LIT_seimas_support_majority"
     }
 	
     text = {
         trigger = {
-            AND = {
-                social_democracy > party_popularity@neoconservative
-                social_democracy > party_popularity@populist
-            }
+			check_variable = { LIT_friendly_seats < LIT_unfriendly_seats }
         }
-        localization_key = "LIT_2014_elections_winning_soc_tt"
-    }
-
-    text = {
-        trigger = {
-            AND = {
-                populist > party_popularity@neoconservative
-                populist > party_popularity@social_democracy
-            }
-        }
-        localization_key = "LIT_2014_elections_winning_labour_tt"
+       localization_key = "LIT_seimas_support_minority"
     }
 }

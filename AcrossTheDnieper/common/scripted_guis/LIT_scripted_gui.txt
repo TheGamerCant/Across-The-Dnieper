@@ -1,4 +1,30 @@
 scripted_gui = {
+	LIT_seimas_gui = {
+		window_name = "LIT_seimas_decision_tab"
+		context_type = decision_category
+
+		visible = {
+			tag = LIT
+		}
+
+		dynamic_lists = {
+			LIT_seimas_diagram_container = {
+				array = LIT_seimas_x
+				change_scope = no
+				entry_container = LIT_seimas_seat_container
+				index = seat_idx
+			}
+		}
+		
+		properties = {
+			LIT_seimas_seat_icon = {
+				x = LIT_seimas_x^seat_idx
+				y = LIT_seimas_y^seat_idx
+				frame = LIT_seimas_frame^seat_idx
+			}
+		}
+	}
+
 	LIT_municipality_idea_gui = {
 		window_name = "city_ideas_window"
 		context_type = player_context
