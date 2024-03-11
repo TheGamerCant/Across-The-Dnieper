@@ -4,7 +4,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 100
+			add = 0
 			tag = LIT
 		}	
 	}
@@ -351,7 +351,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
 
 		}
 	}
@@ -3115,15 +3114,15 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = { #add here
-			add = 0
+			add = 100
 			tag = LIT
 		}	
 	}
 
 	focus = {
-		id = LIT_president_tomaszewski
+		id = LIT_prince_inigo
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 26
 		y = 0
 		
 		cost = 35
@@ -3133,7 +3132,147 @@ focus_tree = {
 		}
 
 		available = {
-			has_country_flag = LIT_2014_elections_have_concluded
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = LIT_president_grybauskaite
+		icon = GFX_focus_LIT_2014_elections
+		x = 20
+		y = 0
+		
+		cost = 35
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = LIT_implement_austerity_measures
+		icon = GFX_focus_LIT_2014_elections
+		x = 19
+		y = 2
+		
+		cost = 70
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		prerequisite = { focus = LIT_president_grybauskaite }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_stability = -0.05
+				add_political_power = 5
+				every_owned_state = {
+					increase_state_gdp_growth_by_0_5 = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_strenghten_nato_ties
+		icon = GFX_focus_LIT_2014_elections
+		x = 20
+		y = 1
+		
+		cost = 70
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		prerequisite = { focus = LIT_president_grybauskaite }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_political_power = 50
+				every_country = {
+					limit = { is_in_faction_with = LIT }
+
+					add_opinion_modifier = { target = LIT modifier = medium_increase }
+				}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = LIT_anti_corruption_efforts
+		icon = GFX_focus_LIT_2014_elections
+		x = 21
+		y = 2
+		
+		cost = 70
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		prerequisite = { focus = LIT_president_grybauskaite }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = LIT_anti_corruption_efforts
+					days = 150
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = LIT_president_tomaszewski
+		icon = GFX_focus_LIT_2014_elections
+		x = 7
+		y = 0
+		
+		cost = 35
+
+
+		ai_will_do = {
+		}
+
+		available = {
 			hidden_trigger = {
 				always = no
 			}
@@ -3147,7 +3286,7 @@ focus_tree = {
 	focus = {
 		id = LIT_strenghten_the_church
 		icon = GFX_focus_LIT_2014_elections
-		x = 9
+		x = 11
 		y = 1
 		
 		cost = 70
@@ -3159,6 +3298,7 @@ focus_tree = {
 
 		available = {
 			has_idea = religion_law_secular
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		bypass = {
@@ -3179,7 +3319,7 @@ focus_tree = {
 	focus = {
 		id = LIT_polish_catholicism
 		icon = GFX_focus_LIT_2014_elections
-		x = 10
+		x = 12
 		y = 2
 		
 		cost = 35
@@ -3190,8 +3330,8 @@ focus_tree = {
 		}
 
 		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
-
 		completion_reward = {
 			add_timed_idea = {
 				idea = LIT_learning_from_the_church_of_poland
@@ -3203,7 +3343,7 @@ focus_tree = {
 	focus = {
 		id = LIT_polish_as_second_language
 		icon = GFX_focus_LIT_2014_elections
-		x = 8
+		x = 10
 		y = 2
 		
 		cost = 35
@@ -3214,6 +3354,7 @@ focus_tree = {
 		}
 
 		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3231,10 +3372,10 @@ focus_tree = {
 	focus = {
 		id = LIT_teach_polish_history
 		icon = GFX_focus_LIT_2014_elections
-		x = 9
+		x = 11
 		y = 3
 		
-		cost = 35
+		cost = 70
 		prerequisite = { focus = LIT_polish_as_second_language }
 		prerequisite = { focus = LIT_polish_catholicism }
 
@@ -3242,6 +3383,7 @@ focus_tree = {
 		}
 
 		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3252,11 +3394,12 @@ focus_tree = {
 	focus = {
 		id = LIT_dual_citizenship
 		icon = GFX_focus_LIT_2014_elections
-		x = 7
+		x = 9
 		y = 4
 		
 		cost = 50
 		prerequisite = { focus = LIT_teach_polish_history }
+		prerequisite = { focus = LIT_look_east_not_west }
 
 		ai_will_do = {
 		}
@@ -3264,8 +3407,14 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = LIT_has_to_have_majority
-				check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
+				OR = {
+					check_variable = { LIT_friendly_seats > 71 }
+					check_variable = { LIT_friendly_seats = 71 }
+				}
+				
 			}
+
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3277,10 +3426,217 @@ focus_tree = {
 		}
 	}
 
+	
+	focus = {
+		id = LIT_invite_polish_workers
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 1
+		
+		cost = 70
+		prerequisite = { focus = LIT_president_tomaszewski }
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = 0.05
+			}
+			add_ideas = LIT_polish_workers
+			every_state = {
+				limit = { is_owned_and_controlled_by = LIT }
+
+				increase_state_gdp_growth_by_0_5 = yes
+			}
+
+			hidden_effect = {
+				country_event = { id = lithuania.55 days = 15 }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_polish_knowledge
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 2
+		
+		cost = 35
+		prerequisite = { focus = LIT_invite_polish_workers }
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = LIT_baltic_gas_pipeline
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 3
+		
+		cost = 35
+		prerequisite = { focus = LIT_polish_knowledge }
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
+		bypass = {
+			2 = { NOT = { is_controlled_by = ROOT } }
+		}
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_tech = fuel_silos } }
+
+				set_technology = {
+					fuel_silos = 1
+				}
+			}
+
+			2 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_0_5 = yes
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_polish_arms_deals
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 3
+		
+		cost = 70
+		prerequisite = { focus = LIT_polish_knowledge }
+
+		ai_will_do = {
+		}
+
+
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = LIT_has_to_have_majority
+				OR = {
+					check_variable = { LIT_friendly_seats > 71 }
+					check_variable = { LIT_friendly_seats = 71 }
+				}
+			}
+
+			waldemar_tomaszewski_is_leader = yes
+		}
+
+		completion_reward = {
+			add_political_power = -50
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = 0.05
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1 
+				amount = 100
+				producer = POL
+			}
+
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = leopard2_chasis
+					variant_name = "Leopard 2"
+					amount = 10
+					producer = POL
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = leopard_2_equipment
+					amount = 10
+					producer = POL
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_deal_with_the_strikes
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 4
+		
+		cost = 70
+		prerequisite = { focus = LIT_polish_arms_deals }
+		prerequisite = { focus = LIT_look_east_not_west }
+		ai_will_do = {
+		}
+
+		bypass = {
+			NOT = { has_idea = LIT_labor_strikes }
+		}
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = -0.1
+			}
+			remove_ideas = LIT_labor_strikes
+		}
+	}
+
 	focus = {
 		id = LIT_eurosceptic_seimas
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 7
 		y = 1
 		
 		cost = 70
@@ -3290,9 +3646,13 @@ focus_tree = {
 		ai_will_do = {
 		}
 
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
 		completion_reward = {
 			add_political_power = -15
-			LIT_increase_seimas_support_3_to_7 = yes
+			LIT_small_seimas_increase = yes
 
 			every_country = {
 				limit = {
@@ -3308,7 +3668,7 @@ focus_tree = {
 	focus = {
 		id = LIT_no_single_market
 		icon = GFX_focus_LIT_2014_elections
-		x = 6
+		x = 8
 		y = 2
 		
 		cost = 35
@@ -3317,8 +3677,13 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = LIT_has_to_have_majority
-				check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
+				OR = {
+					check_variable = { LIT_friendly_seats > 71 }
+					check_variable = { LIT_friendly_seats = 71 }
+				}
 			}
+
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		ai_will_do = {
@@ -3344,7 +3709,7 @@ focus_tree = {
 	focus = {
 		id = LIT_europe_of_nations
 		icon = GFX_focus_LIT_2014_elections
-		x = 4
+		x = 6
 		y = 2
 		
 		cost = 35
@@ -3353,28 +3718,36 @@ focus_tree = {
 		ai_will_do = {
 		}
 
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
 		completion_reward = {
 			add_popularity = {
 				ideology = eastern_conservative
 				popularity = 0.03
 			}
-			LIT_increase_seimas_support_3_to_7 = yes
+			LIT_medium_seimas_increase = yes
 		}
 	}
 
 	focus = {
 		id = LIT_look_east_not_west
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 7
 		y = 3
 		
 		cost = 70
-		prerequisite = { focus = LIT_europe_of_nations }
-		prerequisite = { focus = LIT_no_single_market }
+		prerequisite = { focus = LIT_europe_of_nations focus = LIT_no_single_market }
 		ai_will_do = {
 		}
 
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+
 		completion_reward = {
+			LIT_medium_seimas_decrease = yes
 			every_country={
 				limit = {
 					OR = { tag = BLR tag = SOV }
@@ -3388,15 +3761,20 @@ focus_tree = {
 	focus = {
 		id = LIT_jagellonian_legacy
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 7
 		y = 5
 		
 		cost = 70
 		prerequisite = { focus = LIT_look_east_not_west }
 		prerequisite = { focus = LIT_dual_citizenship }
+		prerequisite = { focus = LIT_deal_with_the_strikes }
 		ai_will_do = {
 		}
 
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
 		completion_reward = {
 
 			add_popularity = {
@@ -3409,7 +3787,7 @@ focus_tree = {
 	focus = {
 		id = LIT_the_nato_question
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 7
 		y = 7
 		
 		cost = 70
@@ -3417,6 +3795,18 @@ focus_tree = {
 		ai_will_do = {
 		}
 
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = LIT_has_to_have_majority
+				OR = {
+					check_variable = { LIT_friendly_seats > 71 }
+					check_variable = { LIT_friendly_seats = 71 }
+				}
+			}
+		}
 
 		completion_reward = {
 			country_event = { id = lithuania.47 }
@@ -3426,7 +3816,7 @@ focus_tree = {
 	focus = {
 		id = LIT_total_equality
 		icon = GFX_focus_LIT_2014_elections
-		x = 5
+		x = 7
 		y = 8
 		
 		cost = 70
@@ -3435,6 +3825,9 @@ focus_tree = {
 		ai_will_do = {
 		}
 
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
 
 		completion_reward = {
 			remove_power_balance = {
@@ -3450,13 +3843,17 @@ focus_tree = {
 	focus = {
 		id = LIT_revisit_zeligowskis_plan
 		icon = GFX_focus_LIT_2014_elections
-		x = 3
+		x = 5
 		y = 6
 		
 		cost = 50
 		prerequisite = { focus = LIT_jagellonian_legacy }
 		mutually_exclusive = { focus = LIT_restore_commonwealth_nobility }
 		ai_will_do = {
+		}
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3467,7 +3864,7 @@ focus_tree = {
 	focus = {
 		id = LIT_shared_seimas
 		icon = GFX_focus_LIT_2014_elections
-		x = 3
+		x = 5
 		y = 7
 		
 		cost = 70
@@ -3476,19 +3873,37 @@ focus_tree = {
 		}
 		available = {
 			country_exists = RCL
+			waldemar_tomaszewski_is_leader = yes
 		}
 
+
+
 		completion_reward = {
-			LIT_increase_seimas_support_10 = yes
-			give_guarantee = RCL
-			RCL = { give_guarantee = LIT }
+			set_variable = {
+				var = LIT.LIT_friendly_seats_to_add
+				value = 10
+				tooltip = LIT_add_set_amount_of_friendly_seats_tooltip
+			}
+			LIT_add_set_amount_of_friendly_seats = yes
+			diplomatic_relation = {
+				country = RCL
+				relation = non_aggression_pact
+				active = yes
+			}
+			RCL = { 
+				diplomatic_relation = {
+					country = LIT
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = LIT_triple_citizenship
 		icon = GFX_focus_LIT_2014_elections
-		x = 4
+		x = 6
 		y = 9
 
 		cost = 70
@@ -3498,6 +3913,7 @@ focus_tree = {
 		}
 		available = {
 			country_exists = RCL
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3515,13 +3931,17 @@ focus_tree = {
 	focus = {
 		id = LIT_restore_commonwealth_nobility
 		icon = GFX_focus_LIT_2014_elections
-		x = 7
+		x = 9
 		y = 6
 		
 		cost = 50
 		prerequisite = { focus = LIT_jagellonian_legacy }
 		mutually_exclusive = { focus = LIT_revisit_zeligowskis_plan }
 		ai_will_do = {
+		}
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3533,12 +3953,16 @@ focus_tree = {
 	focus = {
 		id = LIT_urach_connections
 		icon = GFX_focus_LIT_2014_elections
-		x = 7
+		x = 9
 		y = 7
 		
 		cost = 70
 		prerequisite = { focus = LIT_restore_commonwealth_nobility }
 		ai_will_do = {
+		}
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
 		}
 
 		completion_reward = {
@@ -3569,8 +3993,12 @@ focus_tree = {
 	focus = {
 		id = LIT_meeting_with_inigo_of_urach
 		icon = GFX_focus_LIT_2014_elections
-		x = 6
+		x = 8
 		y = 9
+
+		available = {
+			waldemar_tomaszewski_is_leader = yes
+		}
 		
 		cost = 70
 		prerequisite = { focus = LIT_urach_connections }

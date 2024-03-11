@@ -1111,9 +1111,10 @@ country_event = {
 			}
 
 			set_variable = { LIT_friendly_seats = 68  }
-            set_variable = { LIT_unfriendly_seats = 73  }
 
             LIT_setup_seimas = yes
+
+			country_event = { id = lithuania.50 days = 6 }
 		}
 	}
 }
@@ -1619,10 +1620,10 @@ country_event = {
 
 		hidden_effect = {
 			LIT = {
-				add_offsite_building = { type = industrial_complex level = 3 }
+				add_offsite_building = { type = industrial_complex level = 5 }
 				add_offsite_building = { type = arms_factory level = 3 }
 
-				country_event = { id = lithuania.49 days = 3 }
+				country_event = { id = lithuania.49 days = 10 }
 			}
 
 			create_dynamic_country = {
@@ -1806,4 +1807,175 @@ country_event = {
 		}
 
 	}
+}
+country_event = {
+	id = lithuania.50
+	title = lithuania.50.t
+	desc = lithuania.50.desc
+	is_triggered_only = yes
+	picture = LIT_event_protests
+
+	
+	option = { 
+		name = lithuania.50.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.03
+		add_popularity = {
+			ideology = eastern_conservative
+			popularity = -0.05
+		}
+
+		LIT_large_seimas_decrease = yes
+
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = -0.2
+		}
+
+		hidden_effect = {
+			country_event = { id = lithuania.51 days = 24 }
+		}
+	}
+}
+country_event = {
+	id = lithuania.51
+	title = lithuania.51.t
+	desc = lithuania.51.desc
+	is_triggered_only = yes
+	picture = LIT_event_polish_paramilitary
+
+	
+	option = { 
+		name = lithuania.51.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.05
+		add_war_support = 0.05
+
+
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = 0.05
+		}
+		hidden_effect = {
+			country_event = { id = lithuania.52 days = 40 }
+		}
+	}
+}
+country_event = {
+	id = lithuania.52
+	title = lithuania.52.t
+	desc = lithuania.52.desc
+	is_triggered_only = yes
+	picture = LIT_event_vilnius_protests
+
+	
+	option = { 
+		name = lithuania.52.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.1
+		add_war_support = 0.08
+
+		6 = {
+			add_manpower = -36
+		}
+
+		hidden_effect = {
+			country_event = { id = lithuania.53 days = 50 }
+		}
+	}
+}
+
+country_event = {
+	id = lithuania.53
+	title = lithuania.53.t
+	desc = lithuania.53.desc
+	is_triggered_only = yes
+	picture = LIT_event_court
+
+	
+	option = { 
+		name = lithuania.53.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.1
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = -0.1
+		}
+
+		hidden_effect = {
+			country_event = { id = lithuania.54 days = 20 }
+		}
+	}
+}
+
+
+country_event = {
+	id = lithuania.54
+	title = lithuania.54.t
+	desc = lithuania.54.desc
+	is_triggered_only = yes
+	picture = LIT_event_polish_paramilitary
+
+	
+	option = { 
+		name = lithuania.54.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_manpower = 15000
+		add_stability = -0.05
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = 0.05
+		}
+	}
+
+	option = { 
+		name = lithuania.54.b
+		ai_chance = {
+			base = 10
+		}
+		add_stability = 0.03
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = -0.1
+		}
+	}
+}
+
+country_event = {
+	id = lithuania.55
+	title = lithuania.55.t
+	desc = lithuania.55.desc
+	is_triggered_only = yes
+	picture = LIT_event_labor_strike
+
+	
+	option = { 
+		name = lithuania.55.a
+		ai_chance = {
+			base = 10
+		}
+		LIT_small_seimas_decrease = yes
+		add_ideas = LIT_labor_strikes
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = -0.1
+		}
+		
+	}
+
 }
