@@ -634,7 +634,6 @@ focus_tree = {
 	continuous_focus_position = { x = -40 y = 1050 } 
 	country = {
 		factor = 0
-
 	}
 
 	focus = {
@@ -9175,20 +9174,24 @@ focus_tree = {
 				}
 			}
 
-			every_state = {
-				limit = {
-					AND = {
-						is_controlled_by = UKR
-						OR = { state = 264 state = 231 }
-					}
-				}
+			custom_effect_tooltip = UKR_offensives_in_the_south_west_tt
 
-				add_dynamic_modifier = {
-					modifier = UKR_heavily_entrenched
-					scope = SOV
-				}
+			hidden_effect={
+				country_event = { id = ukraine.146 days = 61 }
 			}
 
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						OR = { state = 264 state = 231 }
+					}
+	
+					add_dynamic_modifier = {
+						modifier = UKR_heavily_entrenched
+						scope = SOV
+					}
+				}
+			}
 			hidden_effect = {
 				if = {
 					limit = {
