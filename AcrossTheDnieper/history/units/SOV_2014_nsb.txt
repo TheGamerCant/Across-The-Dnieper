@@ -1,4 +1,18 @@
-﻿#AIRBORNE
+﻿#TRANSNITRIA
+
+division_template = {
+	name = "Pridnestrovie Peacekeepers"
+	division_names_group = SOV_INF_01
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		apc = { x = 0 y = 2 }
+	}
+	is_locked = yes
+	template_counter = 184
+}
+
+#AIRBORNE
 
 division_template = {
 	name = "45th Guards Spetsnaz Brigade"
@@ -9,11 +23,11 @@ division_template = {
 		paratrooper = { x = 0 y = 1 }
 		paratrooper = { x = 0 y = 2 }
 		paratrooper = { x = 0 y = 3 }
-		apc = { x = 1 y = 0 }
-		apc = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 0 }
 	}
 	support = {
-		recon = { x = 0 y = 0 }  
+		recon = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
 	}
 }
 
@@ -26,11 +40,11 @@ division_template = {
 		paratrooper = { x = 0 y = 1 }
 		paratrooper = { x = 0 y = 2 }
 		paratrooper = { x = 0 y = 3 }
-		apc = { x = 1 y = 0 }
-		apc = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 0 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
 	}
 }
 
@@ -44,11 +58,11 @@ division_template = {
 		paratrooper = { x = 0 y = 1 }
 		paratrooper = { x = 0 y = 2 }
 		paratrooper = { x = 0 y = 3 }
-		apc = { x = 1 y = 0 }
-		apc = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 0 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
 	}
 }
 
@@ -61,11 +75,11 @@ division_template = {
 		paratrooper = { x = 0 y = 1 }
 		paratrooper = { x = 0 y = 2 }
 		paratrooper = { x = 0 y = 3 }
-		apc = { x = 1 y = 0 }
-		apc = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 0 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
 	}
 }
 
@@ -78,27 +92,55 @@ division_template = {
 		paratrooper = { x = 0 y = 1 }
 		paratrooper = { x = 0 y = 2 }
 		paratrooper = { x = 0 y = 3 }
-		apc = { x = 1 y = 0 }
-		apc = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 0 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
 	}
 }
-
-#TRANSNITRIA
 
 division_template = {
-	name = "Pridnestrovie Peacekeepers"
+	name = "10th Spetsnaz Brigade"
 	division_names_group = SOV_INF_01
+	template_counter = 244
 	regiments = {
-		irregular_infantry = { x = 0 y = 0 }
-		irregular_infantry = { x = 0 y = 1 }
-		apc = { x = 0 y = 2 }
+		elite_special_forces = { x = 0 y = 0 }
+		elite_special_forces = { x = 0 y = 1 }
+		elite_special_forces = { x = 0 y = 2 }
+		elite_special_forces = { x = 0 y = 3 }
 	}
-	is_locked = yes
-	template_counter = 184
+	support = {
+		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
+	}
 }
+
+
+
+division_template = {
+	name = "1141st Guards Artillery Regiment"
+	division_names_group = SOV_INF_01
+	template_counter = 245
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+		artillery_brigade = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		irregular_infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 1 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 }   
+	}
+}
+
+
 
 units = {
 	division = {
@@ -132,7 +174,7 @@ units = {
 
 	division = {
 		location = 19747
-		name = "108th Guards Kuban Cossack Air Assault Regiment"
+		name = "108th Guards Kuban Cossack Air Assault Battalion"
 		division_template = "108th Guards Kuban Cossack Air Assault Regiment"
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.85
@@ -140,21 +182,21 @@ units = {
 	
 	division = {
 		location = 8027
-		name = "247th Guards Air Assault Regiment"
+		name = "247th Guards Air Assault Battalion"
 		division_template = "247th Guards Air Assault Regiment"
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.85
 	}
 	division = {
 		location = 16150
-		name = "328th Airborne Regiment"
+		name = "328th Airborne Battalion"
 		division_template = "328th Airborne Regiment"
 		start_experience_factor = 0.8
 		start_equipment_factor = 0.85
 	}
 	division = {
 		location = 5120
-		name = "137th Guards Airborne Regiment"
+		name = "137th Guards Airborne Battalion"
 		division_template = "137th Guards Airborne Regiment"
 		start_experience_factor = 0.8
 		start_equipment_factor = 0.85
@@ -174,6 +216,22 @@ units = {
 		division_template = "Pridnestrovie Peacekeepers"
 		start_experience_factor = 0.05
 		start_equipment_factor = 0.8
+	}
+
+	division = {
+		location = 12278
+		name = "10th Spetsnaz Battalion"
+		division_template = "10th Spetsnaz Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 13857
+		name = "1141st Guards Artillery Battalion"
+		division_template = "1141st Guards Artillery Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.9
 	}
 }
 

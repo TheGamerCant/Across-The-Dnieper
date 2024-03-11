@@ -4,9 +4,20 @@ LIT_2014_elections_decision_category = {
 	allowed = {
 		original_tag = LIT
 	}
-	visible_when_empty = no
+	visible_when_empty = yes
 	visible = {
-		NOT = { has_country_flag = LIT_2014_elections_have_concluded }
+		
 	}
 	scripted_gui = LIT_seimas_gui
+}
+
+LIT_balance_of_power_category = {
+	icon = GFX_decision_category_power_struggle
+	allowed = {
+		original_tag = LIT
+	}
+	priority = 90
+	visible = {
+		has_country_flag = LIT_poland_inbalance
+	}
 }

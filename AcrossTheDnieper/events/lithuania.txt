@@ -1072,64 +1072,49 @@ country_event = {
 	desc = lithuania.27.desc
 	is_triggered_only = yes
 	picture = LIT_event_elections
-	immediate = {
-		hidden_effect = {
-			complete_national_focus = LIT_election_day
-		}
-	}
 
 	option = { 
 		name = lithuania.27.a
         ai_chance = {
 			base = 10
-			modifier = {
-				factor = 0
-                OR = {
-                    LIT_is_zygimantas_ai = yes
-                    LIT_is_inigo_ai = yes
-                    LIT_is_mindaugas_ai = yes
-					LIT_is_inija_ai = yes
-                }
-			} 
 		}
+		
 
-		complete_national_focus = LIT_dalia_grybauskaite_wins
-	}
 
-	
-	option = { 
-		name = lithuania.27.b
-        ai_chance = {
-			base = 10
-			modifier = {
-				factor = 0
-                OR = {
-                    LIT_is_dalia_ai = yes
-                    LIT_is_inigo_ai = yes
-                    LIT_is_mindaugas_ai = yes
-					LIT_is_inija_ai = yes
-                }
-			} 
+		complete_national_focus = LIT_president_tomaszewski
+		custom_effect_tooltip = "lithuania.27.tt"
+
+		hidden_effect = {
+
+			set_power_balance = {
+				id = LIT_polish_supremacy_balance
+			}
+
+			set_country_flag = LIT_poland_inbalance
+
+			set_party_name = {
+				ideology = eastern_conservative
+				long_name = LIT_polish_movement_long
+				name = LIT_polish_movement
+			}
+
+			create_country_leader = {
+				name = "Waldemar Tomaszewski"
+				desc = ""
+				picture = gfx/leaders/LIT/Portrait_Waldemar_Tomaszewski.png
+				ideology = generic_eastern_conservative
+			}
+
+			set_politics = {
+				ruling_party = eastern_conservative
+				elections_allowed = yes
+			}
+
+			set_variable = { LIT_friendly_seats = 68  }
+            set_variable = { LIT_unfriendly_seats = 73  }
+
+            LIT_setup_seimas = yes
 		}
-
-		complete_national_focus = LIT_lsdp_victory
-	}
-	option = { 
-		name = lithuania.27.c
-        ai_chance = {
-			base = 10
-			modifier = {
-				factor = 0
-                OR = {
-                    LIT_is_dalia_ai = yes
-                    LIT_is_inigo_ai = yes
-                    LIT_is_zygimantas_ai = yes
-					LIT_is_inija_ai = yes
-                }
-			} 
-		}
-
-		complete_national_focus = LIT_lithuanian_national_union_victory
 	}
 }
 
@@ -1502,5 +1487,323 @@ country_event = {
 				}
 			}
 		}
+	}
+}
+
+country_event = {
+	id = lithuania.42
+	title = lithuania.42.t
+	desc = lithuania.42.desc
+	is_triggered_only = yes
+	picture = LIT_event_commonwealth
+
+	
+	option = { 
+		name = lithuania.42.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_power_balance_value = {
+			id = LIT_polish_supremacy_balance
+			value = 0.1
+		}
+
+		add_war_support = 0.08
+	}
+}
+
+country_event = {
+	id = lithuania.43
+	title = lithuania.43.t
+	desc = lithuania.43.desc
+	is_triggered_only = yes
+	picture = LIT_event_homecoming
+
+	
+	option = { 
+		name = lithuania.43.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -20
+
+		hidden_effect = {
+			if = {
+				limit = { tag = SOV }
+
+				LIT = { country_event = { id = lithuania.44 days = 2 } }
+			}
+			else = {
+				LIT = { country_event = { id = lithuania.45 days = 2 } }
+			}
+		}
+	}
+
+	option = { 
+		name = lithuania.43.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 5
+	}
+}
+
+country_event = {
+	id = lithuania.44
+	title = lithuania.44.t
+	desc = lithuania.44.desc
+	is_triggered_only = yes
+	picture = LIT_event_news
+
+	
+	option = { 
+		name = lithuania.44.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 1 }
+		build_railway = {
+			level = 2
+			start_province = 13385
+			target_province = 14907
+		}
+	}
+
+}
+
+country_event = {
+	id = lithuania.45
+	title = lithuania.45.t
+	desc = lithuania.45.desc
+	is_triggered_only = yes
+	picture = LIT_event_news
+
+	
+	option = { 
+		name = lithuania.45.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_offsite_building = { type = industrial_complex level = 1 }
+		build_railway = {
+			level = 2
+			start_province = 13385
+			target_province = 6977
+		}
+	}
+
+}
+
+
+country_event = {
+	id = lithuania.46
+	title = lithuania.46.t
+	desc = lithuania.46.desc
+	is_triggered_only = yes
+	picture = LIT_event_central_lithuania
+
+	
+	option = { 
+		name = lithuania.46.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -20
+
+		hidden_effect = {
+			LIT = {
+				add_offsite_building = { type = industrial_complex level = 3 }
+				add_offsite_building = { type = arms_factory level = 3 }
+
+				country_event = { id = lithuania.49 days = 3 }
+			}
+
+			create_dynamic_country = {
+                original_tag = LIT
+
+                create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_neoliberal
+                }
+
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_neoconservative
+                }
+
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_eastern_conservative
+                }
+
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_populist
+                }
+
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_eastern_liberal
+                }
+
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_libertarian
+                }
+				
+				create_country_leader = {
+                    name = "Barbara Jundo-Kaliszewska"
+                    picture = gfx/leaders/LIT/Barbara_Kaliszewska.png
+                    ideology = generic_social_democracy
+                }
+
+                set_cosmetic_tag = RCL
+
+            }
+			every_state = {
+				limit = { is_core_of = RCL }
+
+				remove_core_of = RCL
+				add_claim_by = RCL
+			}
+			    
+			every_state = {
+				limit = {
+					is_controlled_by = LIT
+					OR = {
+						state = 33
+						state = 6
+						state = 431
+						state = 7
+					}
+				}
+
+				transfer_state_to = RCL
+			}
+
+			POL = { puppet = RCL }
+		}
+	}
+
+}
+
+country_event = {
+	id = lithuania.47
+	title = lithuania.47.t
+	desc = lithuania.47.desc
+	is_triggered_only = yes
+	picture = LIT_event_west
+
+	
+	option = { 
+		name = lithuania.47.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.05
+		leave_faction = yes
+
+
+		swap_ideas = {
+			remove_idea = western_aligned
+			add_idea = neutral
+		}
+	}
+
+	option = { 
+		name = lithuania.47.b
+		ai_chance = {
+			base = 10
+		}
+
+		trigger = {
+			has_completed_focus = LIT_revisit_zeligowskis_plan
+		}
+
+		add_stability = 0.02
+		leave_faction = yes
+
+		SOV = { add_to_faction = LIT }
+
+		swap_ideas = {
+			remove_idea = western_aligned
+			add_idea = bipolarist
+		}
+	}
+}
+
+
+country_event = {
+	id = lithuania.48
+	title = lithuania.48.t
+	desc = lithuania.48.desc
+	is_triggered_only = yes
+	picture = LIT_event_nobility
+
+	
+	option = { 
+		name = lithuania.48.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = {
+			ideology = absolute_monarchy_ideology
+			popularity = 0.05
+		}
+		add_stability = 0.07
+	}
+}
+
+country_event = {
+	id = lithuania.49
+	title = lithuania.49.t
+	desc = lithuania.49.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_refugees
+
+	
+	option = { 
+		name = lithuania.49.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "lithuania.49.tt"
+		add_stability = -0.03
+		
+		hidden_effect = {
+			every_state = {
+				limit = { is_controlled_by = RCL }
+	
+				set_temp_variable = { state_pop = THIS.state_population }
+				multiply_temp_variable = { state_pop = 0.85 }
+	
+				random_state = {
+					limit = { is_controlled_by = LIT }
+	
+					add_manpower = state_pop
+				}
+	
+				multiply_temp_variable = { state_pop = -1 }
+	
+	
+				add_manpower = state_pop
+			}
+		}
+
 	}
 }

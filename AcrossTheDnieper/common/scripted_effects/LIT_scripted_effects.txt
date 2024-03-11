@@ -206,6 +206,16 @@ LIT_stop_air_lituanica = {
 }
 
 LIT_setup_seimas = {
+	clamp_variable = {
+		var = LIT_unfriendly_seats
+		min = 0
+	}
+
+	clamp_variable = {
+		var = LIT_friendly_seats
+		min = 0
+	}
+
 	set_temp_variable = { t1 = LIT_unfriendly_seats }
 	set_temp_variable = { t2 = LIT_friendly_seats }
 	set_temp_variable = { t3 = 141 }
@@ -229,5 +239,61 @@ LIT_setup_seimas = {
 		array = LIT_seimas_frame
 		value = 3
 		size = t3
+	}
+}
+
+LIT_decrease_seimas_support_3_to_7 = {
+	custom_effect_tooltip = LIT_decrease_seimas_support_3_tt
+	hidden_effect = {
+
+		set_temp_variable_to_random = {
+			var = random_num
+			min = 3
+			max = 7
+			integer = yes
+		}
+
+		
+
+		add_to_variable = { LIT_unfriendly_seats = random_num }
+
+		divide_temp_variable = { random_num = -1 }
+
+		add_to_variable = { LIT_friendly_seats = random_num }
+
+		LIT_setup_seimas = yes
+	}
+}
+
+LIT_increase_seimas_support_3_to_7 = {
+	custom_effect_tooltip = LIT_increase_seimas_support_3_tt
+	hidden_effect = {
+
+		set_temp_variable_to_random = {
+			var = random_num
+			min = 3
+			max = 7
+			integer = yes
+		}
+
+		
+
+		add_to_variable = { LIT_friendly_seats = random_num }
+
+		divide_temp_variable = { random_num = -1 }
+
+		add_to_variable = { LIT_unfriendly_seats = random_num }
+
+		LIT_setup_seimas = yes
+	}
+}
+
+LIT_increase_seimas_support_10 = {
+	custom_effect_tooltip = LIT_increase_seimas_support_10_tt
+	hidden_effect = {
+		add_to_variable = { LIT_friendly_seats = 10 }
+		add_to_variable = { LIT_unfriendly_seats = -10 }
+
+		LIT_setup_seimas = yes
 	}
 }

@@ -4,7 +4,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
+			add = 100
 			tag = LIT
 		}	
 	}
@@ -3114,10 +3114,475 @@ focus_tree = {
 	continuous_focus_position = { x = 3100 y = 1000 } 
 	country = {
 		factor = 0
-		modifier = {
+		modifier = { #add here
 			add = 0
 			tag = LIT
 		}	
 	}
 
+	focus = {
+		id = LIT_president_tomaszewski
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 0
+		
+		cost = 35
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			has_country_flag = LIT_2014_elections_have_concluded
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = LIT_strenghten_the_church
+		icon = GFX_focus_LIT_2014_elections
+		x = 9
+		y = 1
+		
+		cost = 70
+		prerequisite = { focus = LIT_president_tomaszewski }
+
+
+		ai_will_do = {
+		}
+
+		available = {
+			has_idea = religion_law_secular
+		}
+
+		bypass = {
+			hidden_trigger = {
+				NOT = { has_idea = religion_law_secular }
+			}
+		}
+
+		completion_reward = {
+			add_stability = -0.02
+			swap_ideas = {
+				remove_idea = religion_law_secular
+				add_idea = religion_law_religious
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_polish_catholicism
+		icon = GFX_focus_LIT_2014_elections
+		x = 10
+		y = 2
+		
+		cost = 35
+		prerequisite = { focus = LIT_strenghten_the_church }
+
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_learning_from_the_church_of_poland
+				days = 120
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_polish_as_second_language
+		icon = GFX_focus_LIT_2014_elections
+		x = 8
+		y = 2
+		
+		cost = 35
+		prerequisite = { focus = LIT_strenghten_the_church }
+
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		completion_reward = {
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = 0.15
+			}
+			add_political_power = -20
+			POL = {
+				add_opinion_modifier = { target = LIT modifier = medium_increase }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_teach_polish_history
+		icon = GFX_focus_LIT_2014_elections
+		x = 9
+		y = 3
+		
+		cost = 35
+		prerequisite = { focus = LIT_polish_as_second_language }
+		prerequisite = { focus = LIT_polish_catholicism }
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.42 }
+		}
+	}
+
+	focus = {
+		id = LIT_dual_citizenship
+		icon = GFX_focus_LIT_2014_elections
+		x = 7
+		y = 4
+		
+		cost = 50
+		prerequisite = { focus = LIT_teach_polish_history }
+
+		ai_will_do = {
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = LIT_has_to_have_majority
+				check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
+			}
+		}
+
+		completion_reward = {
+			add_ideas = LIT_dual_citizenship_idea
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = 0.15
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_eurosceptic_seimas
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 1
+		
+		cost = 70
+		prerequisite = { focus = LIT_president_tomaszewski }
+
+
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_political_power = -15
+			LIT_increase_seimas_support_3_to_7 = yes
+
+			every_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					has_idea = eu_member
+				}
+
+				add_opinion_modifier = { target = LIT modifier = small_decrease }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_no_single_market
+		icon = GFX_focus_LIT_2014_elections
+		x = 6
+		y = 2
+		
+		cost = 35
+		prerequisite = { focus = LIT_eurosceptic_seimas }
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = LIT_has_to_have_majority
+				check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
+			}
+		}
+
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = eu_member
+				add_idea = LIT_no_single_market_eu_member
+			}
+
+			every_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					has_idea = eu_member
+				}
+
+				add_opinion_modifier = { target = LIT modifier = small_decrease }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_europe_of_nations
+		icon = GFX_focus_LIT_2014_elections
+		x = 4
+		y = 2
+		
+		cost = 35
+		prerequisite = { focus = LIT_eurosceptic_seimas }
+
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.03
+			}
+			LIT_increase_seimas_support_3_to_7 = yes
+		}
+	}
+
+	focus = {
+		id = LIT_look_east_not_west
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 3
+		
+		cost = 70
+		prerequisite = { focus = LIT_europe_of_nations }
+		prerequisite = { focus = LIT_no_single_market }
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			every_country={
+				limit = {
+					OR = { tag = BLR tag = SOV }
+					has_government = eastern_conservative
+				}
+				country_event = { id = lithuania.43 days = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_jagellonian_legacy
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 5
+		
+		cost = 70
+		prerequisite = { focus = LIT_look_east_not_west }
+		prerequisite = { focus = LIT_dual_citizenship }
+		ai_will_do = {
+		}
+
+		completion_reward = {
+
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_the_nato_question
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 7
+		
+		cost = 70
+		prerequisite = { focus = LIT_revisit_zeligowskis_plan focus = LIT_restore_commonwealth_nobility }
+		ai_will_do = {
+		}
+
+
+		completion_reward = {
+			country_event = { id = lithuania.47 }
+		}
+	}
+
+	focus = {
+		id = LIT_total_equality
+		icon = GFX_focus_LIT_2014_elections
+		x = 5
+		y = 8
+		
+		cost = 70
+		prerequisite = { focus = LIT_the_nato_question  }
+		prerequisite = { focus = LIT_shared_seimas focus = LIT_urach_connections }
+		ai_will_do = {
+		}
+
+
+		completion_reward = {
+			remove_power_balance = {
+				id = LIT_polish_supremacy_balance
+			}
+			add_stability = 0.08
+			add_political_power = 60
+			clr_country_flag = LIT_poland_inbalance
+
+		}
+	}
+
+	focus = {
+		id = LIT_revisit_zeligowskis_plan
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 6
+		
+		cost = 50
+		prerequisite = { focus = LIT_jagellonian_legacy }
+		mutually_exclusive = { focus = LIT_restore_commonwealth_nobility }
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			POL = { country_event = { id = lithuania.46} }
+		}
+	}
+
+	focus = {
+		id = LIT_shared_seimas
+		icon = GFX_focus_LIT_2014_elections
+		x = 3
+		y = 7
+		
+		cost = 70
+		prerequisite = { focus = LIT_revisit_zeligowskis_plan }
+		ai_will_do = {
+		}
+		available = {
+			country_exists = RCL
+		}
+
+		completion_reward = {
+			LIT_increase_seimas_support_10 = yes
+			give_guarantee = RCL
+			RCL = { give_guarantee = LIT }
+		}
+	}
+
+	focus = {
+		id = LIT_triple_citizenship
+		icon = GFX_focus_LIT_2014_elections
+		x = 4
+		y = 9
+
+		cost = 70
+		prerequisite = { focus = LIT_shared_seimas }
+		prerequisite = { focus = LIT_the_nato_question }
+		ai_will_do = {
+		}
+		available = {
+			country_exists = RCL
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = LIT_dual_citizenship_idea
+				add_idea = LIT_triple_citizenship_idea
+			}
+
+			give_military_access = RCL
+			RCL = {give_military_access = LIT}
+		}
+	}
+
+	
+	focus = {
+		id = LIT_restore_commonwealth_nobility
+		icon = GFX_focus_LIT_2014_elections
+		x = 7
+		y = 6
+		
+		cost = 50
+		prerequisite = { focus = LIT_jagellonian_legacy }
+		mutually_exclusive = { focus = LIT_revisit_zeligowskis_plan }
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.48 }
+		}
+	}
+
+		
+	focus = {
+		id = LIT_urach_connections
+		icon = GFX_focus_LIT_2014_elections
+		x = 7
+		y = 7
+		
+		cost = 70
+		prerequisite = { focus = LIT_restore_commonwealth_nobility }
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			set_party_name = {
+				ideology = absolute_monarchy_ideology
+				long_name = LIT_urach_party_long
+				name = LIT_urach_party
+			}
+			add_timed_idea = {
+				idea = LIT_idea_urach_connections
+				days = 180
+			}
+
+			hidden_effect = {
+				create_country_leader = {
+					name = "Prince Inigo of Urach"
+					desc = ""
+					picture = gfx/leaders/LIT/Portrait_Prince_Inigo.png
+					ideology = generic_absolute_monarchy
+					traits = { SOV_royal_heir }
+				}
+			}
+		}
+	}
+
+	
+		
+	focus = {
+		id = LIT_meeting_with_inigo_of_urach
+		icon = GFX_focus_LIT_2014_elections
+		x = 6
+		y = 9
+		
+		cost = 70
+		prerequisite = { focus = LIT_urach_connections }
+		prerequisite = { focus = LIT_the_nato_question }
+		ai_will_do = {
+		}
+
+		available = {
+			absolute_monarchy_ideology > 0.4
+		}
+
+		completion_reward = {
+		}
+	}
 }

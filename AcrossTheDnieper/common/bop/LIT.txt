@@ -1,0 +1,105 @@
+LIT_polish_supremacy_balance = {
+    initial_value = 0
+    left_side = lithuanian_supremacy
+    right_side = polish_supremacy
+    decision_category = LIT_balance_of_power_category
+    range = {
+        id = LIT_bop_range
+        min = -0.15
+        max = 0.15
+        modifier = {
+			stability_weekly = 0.0015
+        }
+    }
+
+    side = {
+        id = polish_supremacy
+        icon = GFX_focus_generic_polish_deal
+        range = {
+            id = pole_supremacy_max
+			min = 0.8
+			max = 1
+            modifier = {
+				political_power_cost = 0.4
+                stability_weekly = -0.006
+				eastern_conservative_drift = 0.06
+				industrial_capacity_factory = -0.45
+				industrial_capacity_dockyard = -0.45
+				production_speed_buildings_factor = -0.45
+            }
+        }
+
+		range = {
+            id = pole_supremacy_medium
+			min = 0.4
+			max = 0.8
+            modifier = {
+				political_power_cost = 0.2
+                stability_weekly = -0.003
+				eastern_conservative_drift = 0.04
+				industrial_capacity_factory = -0.3
+				industrial_capacity_dockyard = -0.3
+				production_speed_buildings_factor = -0.3
+            }
+        }
+
+		range = {
+            id = pole_supremacy_small
+			min = 0.15
+			max = 0.4
+            modifier = {
+				political_power_cost = 0.1
+                stability_weekly = -0.001
+				eastern_conservative_drift = 0.02
+				industrial_capacity_factory = -0.15
+				industrial_capacity_dockyard = -0.15
+				production_speed_buildings_factor = -0.15
+            }
+        }
+    }
+
+	side = {
+		id = lithuanian_supremacy
+        icon = GFX_focus_LIT_restore_the_grand_duchy
+		range = {
+            id = lit_supremacy_small
+			min = -0.4
+			max = -0.15
+            modifier = {
+				political_power_cost = 0.1
+                stability_weekly = -0.001
+				eastern_conservative_drift = -0.02
+				industrial_capacity_factory = -0.15
+				industrial_capacity_dockyard = -0.15
+				production_speed_buildings_factor = -0.15
+            }
+        }
+		range = {
+            id = lit_supremacy_medium
+			min = -0.8
+			max = -0.4
+            modifier = {
+				political_power_cost = 0.2
+                stability_weekly = -0.003
+				eastern_conservative_drift = -0.04
+				industrial_capacity_factory = -0.3
+				industrial_capacity_dockyard = -0.3
+				production_speed_buildings_factor = -0.3
+            }
+        }
+		range = {
+            id = lit_supremacy_max
+			min = -1
+			max = -0.8
+            modifier = {
+				political_power_cost = 0.4
+                stability_weekly = -0.006
+				eastern_conservative_drift = -0.06
+				industrial_capacity_factory = -0.45
+				industrial_capacity_dockyard = -0.45
+				production_speed_buildings_factor = -0.45
+            }
+        }
+	}
+
+}
