@@ -1,4 +1,119 @@
 LIT_2014_elections_decision_category = {
+	#debugging decisions, ignore if not a dev
+	LIT_add_10_friendly_seats = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = {
+				var = LIT.LIT_friendly_seats_to_add
+				value = 10
+				tooltip = LIT_add_set_amount_of_friendly_seats_tooltip
+			}
+			LIT_add_set_amount_of_friendly_seats = yes
+		}
+	}
+	
+	LIT_add_15_unfriendly_seats = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = {
+				var = LIT.LIT_friendly_seats_to_add
+				value = -15
+				tooltip = LIT_subtract_set_amount_of_friendly_seats_tooltip
+			}
+			LIT_add_set_amount_of_friendly_seats = yes
+		}
+	}
+	
+	LIT_small_increase = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			LIT_small_seimas_increase = yes
+		}
+	}
+	
+	LIT_large_increase = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			LIT_large_seimas_increase = yes
+		}
+	}
+	
+	LIT_medium_decrease = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			LIT_medium_seimas_decrease = yes
+		}
+	}
 
 	LIT_2014_elections_mission = { 
 		icon = SWI_no_elected_president

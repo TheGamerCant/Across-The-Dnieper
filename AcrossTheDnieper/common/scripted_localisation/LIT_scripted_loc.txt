@@ -1060,15 +1060,30 @@ defined_text = {
 	
     text = {
         trigger = {
-			check_variable = { LIT_friendly_seats > LIT_unfriendly_seats }
+			check_variable = { LIT_friendly_seats > 71 }
         }
         localization_key = "LIT_seimas_support_majority"
     }
 	
     text = {
         trigger = {
-			check_variable = { LIT_friendly_seats < LIT_unfriendly_seats }
+			check_variable = { LIT_friendly_seats < 71 }
         }
        localization_key = "LIT_seimas_support_minority"
+    }
+}
+
+defined_text = {
+    name = LIT_seimas_does_seat_support_government
+	
+    text = {
+        trigger = {
+			check_variable = { LIT_seimas_frame^seat_idx = 1 }
+        }
+        localization_key = "LIT_seimas_seat_is_friendly"
+    }
+	
+    text = {
+       localization_key = "LIT_seimas_seat_is_unfriendly"
     }
 }

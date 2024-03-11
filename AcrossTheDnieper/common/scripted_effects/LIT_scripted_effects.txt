@@ -207,21 +207,15 @@ LIT_stop_air_lituanica = {
 
 LIT_setup_seimas = {
 	clamp_variable = {
-		var = LIT_unfriendly_seats
-		min = 0
-	}
-
-	clamp_variable = {
 		var = LIT_friendly_seats
 		min = 0
+		max = 141
 	}
 
-	set_temp_variable = { t1 = LIT_unfriendly_seats }
-	set_temp_variable = { t2 = LIT_friendly_seats }
-	set_temp_variable = { t3 = 141 }
+	set_temp_variable = { t1 = LIT_friendly_seats }
+	set_temp_variable = { t2 = 141 }
 
 	add_to_temp_variable = { t2 = t1 }
-	add_to_temp_variable = { t3 = t2 }
 
 	clear_array = LIT_seimas_frame
 
@@ -235,65 +229,122 @@ LIT_setup_seimas = {
 		value = 2
 		size = t2
 	}
-	resize_array = {
-		array = LIT_seimas_frame
-		value = 3
-		size = t3
-	}
 }
 
-LIT_decrease_seimas_support_3_to_7 = {
-	custom_effect_tooltip = LIT_decrease_seimas_support_3_tt
-	hidden_effect = {
 
-		set_temp_variable_to_random = {
-			var = random_num
-			min = 3
-			max = 7
-			integer = yes
+LIT_add_set_amount_of_friendly_seats={
+	add_to_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
+}
+
+#From testing, set_variable_to_random doesn't work as intended, so I have to use random_list instead
+LIT_small_seimas_increase={
+	custom_effect_tooltip = LIT_small_seimas_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 0 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 1 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 2 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 3 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 4 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 5 } }
 		}
-
-		
-
-		add_to_variable = { LIT_unfriendly_seats = random_num }
-
-		divide_temp_variable = { random_num = -1 }
-
-		add_to_variable = { LIT_friendly_seats = random_num }
-
-		LIT_setup_seimas = yes
 	}
+	
+	add_to_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
 }
-
-LIT_increase_seimas_support_3_to_7 = {
-	custom_effect_tooltip = LIT_increase_seimas_support_3_tt
-	hidden_effect = {
-
-		set_temp_variable_to_random = {
-			var = random_num
-			min = 3
-			max = 7
-			integer = yes
+LIT_medium_seimas_increase={
+	custom_effect_tooltip = LIT_medium_seimas_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 5 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 6 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 7 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 8 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 9 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 10 } }
 		}
-
-		
-
-		add_to_variable = { LIT_friendly_seats = random_num }
-
-		divide_temp_variable = { random_num = -1 }
-
-		add_to_variable = { LIT_unfriendly_seats = random_num }
-
-		LIT_setup_seimas = yes
 	}
+	
+	add_to_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
 }
-
-LIT_increase_seimas_support_10 = {
-	custom_effect_tooltip = LIT_increase_seimas_support_10_tt
-	hidden_effect = {
-		add_to_variable = { LIT_friendly_seats = 10 }
-		add_to_variable = { LIT_unfriendly_seats = -10 }
-
-		LIT_setup_seimas = yes
+LIT_large_seimas_increase={
+	custom_effect_tooltip = LIT_large_seimas_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 10 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 11 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 12 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 13 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 14 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 15 } }
+		}
 	}
+	
+	add_to_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
+}
+LIT_small_seimas_decrease={
+	custom_effect_tooltip = LIT_small_seimas_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 0 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 1 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 2 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 3 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 4 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 5 } }
+		}
+	}
+	
+	subtract_from_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
+}
+LIT_medium_seimas_decrease={
+	custom_effect_tooltip = LIT_medium_seimas_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 5 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 6 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 7 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 8 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 9 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 10 } }
+		}
+	}
+	
+	subtract_from_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
+}
+LIT_large_seimas_decrease={
+	custom_effect_tooltip = LIT_large_seimas_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 10 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 11 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 12 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 13 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 14 } }
+			1={ set_variable = { LIT.LIT_friendly_seats_to_add = 15 } }
+		}
+	}
+	
+	subtract_from_variable = { LIT_friendly_seats = LIT.LIT_friendly_seats_to_add }
+	clamp_variable = { var = LIT_friendly_seats min = 0 max = 141 }
+	clear_variable = LIT.LIT_friendly_seats_to_add
+	LIT_setup_seimas= yes
 }
