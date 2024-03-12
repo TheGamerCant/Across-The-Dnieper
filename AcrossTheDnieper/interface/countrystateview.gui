@@ -65,7 +65,7 @@ guiTypes = {
 			
 			instantTextboxType = {
 				name = "shared_slot_count"
-				position = { x = 194 y = 147 }
+				position = { x = 194 y = 145 }
 				textureFile = ""
 				font = "hoi_18mbs"
 				text = "SLOTS"
@@ -115,7 +115,7 @@ guiTypes = {
 			OverlappingElementsBoxType = {
 				name = "state_claims"
 				position = { x = 35 y = 118 }
-				size = { x = 110 y = 40 }
+				size = { x = 96 y = 40 }
 				format = left
 				spacing = 1.0
 			}
@@ -135,26 +135,26 @@ guiTypes = {
 			buttonType = {
 				name = "owner_flag"
 				quadTextureSprite ="GFX_flag_small2"
-				position = { x= 35 y = 63 }
+				position = { x= 37 y = 63 }
 			}
 			
 			iconType ={
 				name ="owner_flag_border"
-				quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
-				position = { x= 30 y = 59 }
+				quadTextureSprite = "GFX_state_flag_outline"
+				position = { x= 34 y = 61 }
 				alwaystransparent = yes
 			}
 			
 			buttonType = {
 				name = "controller_flag"
 				quadTextureSprite = "GFX_flag_small2"
-				position = { x= 75 y = 63 }
+				position = { x= 90 y = 63 }
 			}	
 			
 			iconType ={
 				name ="controller_flag_border"
-				quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
-				position = { x= 70 y = 59 }
+				quadTextureSprite = "GFX_state_flag_outline"
+				position = { x= 87 y = 61 }
 				alwaystransparent = yes
 			}
 			
@@ -203,22 +203,12 @@ guiTypes = {
 				position = { x = 20 y = 196}	
 				size = { width = 519 height = 100 }
 				
-				iconType ={
-					name ="state_resistance_icon"
-					spriteType = "GFX_resistance_icon"
-					position = { x = 0 y = 0 }
-				}
 				
 				positionType = {
 					name = "resistance_status_pos"
 					position = { x = 36 y = 6 }
 				}
 				
-				iconType ={
-					name ="state_compliance_icon"
-					spriteType = "GFX_compliance_icon"
-					position = { x = 0 y = 37 }
-				}
 				
 				positionType = {
 					name = "compliance_status_pos"
@@ -227,7 +217,7 @@ guiTypes = {
 				
 				containerWindowType = {
 					name = "law_and_template_container"
-					position = { x = 0 y = 0}	
+					position = { x = 9999 y = 0}	
 					size = { width = 0 height = 0 }
 
 					buttonType = {
@@ -278,14 +268,14 @@ guiTypes = {
 			
 			iconType = {
 				name = "terrain_picture"
-				position = { x = 10 y= -27 }
+				position = { x = 0 y= -29 }
 				spriteType = "GFX_terrain_default"
 				Orientation = "UPPER_LEFT"
 			}
 			
 			iconType = {
 				name = "province_header"
-				position = { x = 6 y= -34 }
+				position = { x = 9999 y=10  }
 				spriteType = "GFX_province_header"
 				Orientation = "UPPER_LEFT"
 				alwaystransparent = yes
@@ -293,7 +283,7 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "province"
-				position = { x = 23 y= -29 }
+				position = { x = 9999 y= -29 }
 				font = "hoi_18mbs"
 				maxWidth = 80
 				maxHeight = 30
@@ -302,7 +292,7 @@ guiTypes = {
 			
 			iconType = {
 				name = "province_required_rule"
-				position = { x = 100 y = -3 }
+				position = { x = 9999 y = -3 }		#Straits
 				spriteType = "GFX_required_rule"
 				Orientation = "UPPER_LEFT"
 			}	
@@ -377,7 +367,7 @@ guiTypes = {
 			
 			gridBoxType = {
 				name = "province_building_entries"
-				position = { x = -2 y = 48 }
+				position = { x = 0 y = 48 }
 				size = { width = 480 height = 90%% }
 				format = "UPPER_LEFT"
 				slotsize = { width = 109 height = 54 }
@@ -418,7 +408,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "scorched_earth_state_button"
-			position = { x = -31 y = 135 }
+			position = { x = -6 y = 147 }
 			quadTextureSprite ="GFX_scorched_earth"
 			buttonFont = "Main_14_black"
 			Orientation = "UPPER_RIGHT"
@@ -439,7 +429,7 @@ guiTypes = {
 		
 		iconType ={
 			name ="core_flag_border"
-			quadTextureSprite = "GFX_small_flag_frame_thin"
+			quadTextureSprite = "GFX_state_flag_outline"
 			position = { x= -3 y = -1 }
 			alwaystransparent = yes
 		}
@@ -458,7 +448,7 @@ guiTypes = {
 		
 		iconType = {
 			name = "level_bg"
-			position = { x=5 y=60 }	
+			position = { x=5 y=59 }	
 			spriteType = "GFX_generic_text_bg_48"
 		}
 		
@@ -477,6 +467,12 @@ guiTypes = {
 			position = { x = 12 y = 5 }
 			quadTextureSprite ="GFX_buildings_strip"
 		}
+		
+		iconType = {
+			name = "state_building_overlay"
+			spriteType = "GFX_building_entry_overlay"
+			position = { x=15 y=9 }
+		}	
 		
 		iconType = {
 			name = "damage_bar"
@@ -539,7 +535,7 @@ guiTypes = {
 		
 		iconType = {
 			name = "level_bg"
-			position = { x=58 y=11 }	
+			position = { x=58 y=10 }	
 			spriteType = "GFX_generic_text_bg_48"
 		}
 		
@@ -560,10 +556,16 @@ guiTypes = {
 		}
 		
 		iconType = {
+			name = "state_building_overlay"
+			spriteType = "GFX_building_entry_overlay"
+			position = { x=12 y=5 }
+		}	
+		
+		iconType = {
 			name = "damage_bar"
 			spriteType = "GFX_damage_bar"
 			position = { x=9 y=38  }
-			rotation = 1.5708		
+			rotation = 1.5708
 		}
 	}
 	
@@ -576,13 +578,13 @@ guiTypes = {
 		
 		iconType = {
 			name = "resource"
-			position = { x=53 y=8 }	
+			position = { x=51 y=9 }	
 			spriteType = "GFX_resources_strip"
 		}
 		
 		instantTextboxType = {
 			name = "amount"
-			position = { x = 70 y = 11 }
+			position = { x = 68 y = 12 }
 			font = "hoi_20b"
 			maxWidth = 37
 			maxHeight = 18
@@ -593,7 +595,7 @@ guiTypes = {
 	
 	containerWindowType = {
 		name = "state_compliance_status_container"
-		position = { x = 300 y = 40 }	
+		position = { x = 302 y = 40 }	
 		size = { width = 45 height = 31 }
 		
 		iconType = {
@@ -611,8 +613,8 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name ="progress_text"
-			position = { x = 4 y = 0 }
-			font = "hoi_18mbs"
+			position = { x = -58 y = 0 }
+			font = "hoi_16mbs"
 			text = "100%"
 			maxWidth = 80
 			format = center
@@ -621,7 +623,7 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "state_resistance_status_container"
-		position = { x = 300 y = 40 }	
+		position = { x = 302 y = 40 }	
 		size = { width = 45 height = 31 }
 		
 		iconType = {
@@ -633,14 +635,14 @@ guiTypes = {
 		iconType = {
 			name = "progress"
 			spriteType = "GFX_occupation_state_resistance_bar"
-			position = { x = 1 y = 2 }
+			position = { x = 3 y = 2 }
 			frame = 100
 		}
 		
 		instantTextBoxType = {
 			name ="progress_text"
-			position = { x = 4 y = 0 }
-			font = "hoi_18mbs"
+			position = { x = -58 y = 0 }
+			font = "hoi_16mbs"
 			text = "100%"
 			maxWidth = 80
 			format = center
