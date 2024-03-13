@@ -740,7 +740,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = LIT_jagellonian_legacy
+		id = LIT_raise_the_lithuanian_polish_flag
 		icon = GFX_focus_LIT_2014_elections
 		x = 7
 		y = 5
@@ -757,11 +757,21 @@ focus_tree = {
 			waldemar_tomaszewski_is_leader = yes
 		}
 		completion_reward = {
-
+			add_stability = -0.05
+			add_power_balance_value = {
+				id = LIT_polish_supremacy_balance
+				value = 0.1
+			}
+			add_war_support = 0.08
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.05
+			}
 			add_popularity = {
 				ideology = absolute_monarchy_ideology
 				popularity = 0.05
 			}
+			set_cosmetic_tag = PLF
 		}
 	}
 
@@ -828,7 +838,7 @@ focus_tree = {
 		y = 6
 		
 		cost = 50
-		prerequisite = { focus = LIT_jagellonian_legacy }
+		prerequisite = { focus = LIT_raise_the_lithuanian_polish_flag }
 		mutually_exclusive = { focus = LIT_restore_commonwealth_nobility }
 		ai_will_do = {
 		}
@@ -916,7 +926,7 @@ focus_tree = {
 		y = 6
 		
 		cost = 50
-		prerequisite = { focus = LIT_jagellonian_legacy }
+		prerequisite = { focus = LIT_raise_the_lithuanian_polish_flag }
 		mutually_exclusive = { focus = LIT_revisit_zeligowskis_plan }
 		ai_will_do = {
 		}
