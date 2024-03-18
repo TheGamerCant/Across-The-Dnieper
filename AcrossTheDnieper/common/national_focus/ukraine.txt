@@ -8496,15 +8496,6 @@ focus_tree = {
 						scope = SOV
 					}
 				}
-
-				every_state = {
-					limit = { OR = { state = 223 state = 214 } }
-
-					add_dynamic_modifier = {
-						modifier = UKR_collaborators_small
-						scope = SOV
-					}
-				}
 			}
 		}
 	}
@@ -9088,6 +9079,39 @@ focus_tree = {
 			add_to_variable = { UKR_WE_army_armor_speed_factor = 0.025 }
 
 			custom_effect_tooltip = UKR_training_tank_operators_tt
+		}
+	}
+
+	focus = {
+		id = UKR_western_training_on_ukrainian_soil
+		icon = GFX_focus_UKR_training_agreements_with_uk
+		x = 0
+		y = 3
+		
+		cost = 21
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_training_tank_operators }
+		relative_position_id = UKR_western_training
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			date > 2024.1.1
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { UKR_WE_experience_gain_army_factor = 0.01 }
+			add_war_support = 0.05
+
+			custom_effect_tooltip = UKR_western_training_on_ukrainian_soil_desc_tt
 		}
 	}
 	

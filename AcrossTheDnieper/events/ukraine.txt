@@ -3717,18 +3717,22 @@ country_event = {
 				scope = SOV
 			}
 
-			hidden_effect = {
-				every_state = {
-					limit = { OR = { state = 223 state = 214 } }
 
-					add_dynamic_modifier = {
-						modifier = UKR_collaborators_small
-						scope = SOV
-					}
+		}
+
+		hidden_effect = {
+			every_state = {
+				limit = { OR = { state = 223 state = 214 } }
+
+				add_dynamic_modifier = {
+					modifier = UKR_collaborators_small
+					scope = SOV
 				}
 			}
 		}
 	}
+
+	
 }
 
 #Even more protests
@@ -6023,7 +6027,7 @@ country_event = {
 	title = ukraine_hur.1.t
 	desc = ukraine_hur.1.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_maidan_protests
+	picture = GFX_report_event_UKR_incursion
 
 	immediate = {
 		hidden_effect = {
@@ -6051,7 +6055,111 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		set_variable = { ROOT.can_do_hur_mission = 1 } #temporary
+		set_temp_variable_to_random = {
+			var = UKR_incursion_lost_manpower
+			min = -100
+			max = 0
+			integer = yes
+		}
+
+		add_manpower = UKR_incursion_lost_manpower
+
+			SOV = {
+				set_temp_variable_to_random = {
+					var = SOV_incursion_lost_manpower
+					min = -100
+					max = 0
+					integer = yes
+				}
+		
+				add_manpower = SOV_incursion_lost_manpower
+				set_temp_variable_to_random = {
+					var = SOV_guns_lost
+					min = -200
+					max = -80
+					integer = yes
+				}
+				set_temp_variable_to_random = {
+					var = SOV_aa_lost
+					min = -50
+					max = -20
+					integer = yes
+				}
+				set_temp_variable_to_random = {
+					var = SOV_at_lost
+					min = -50
+					max = -10
+					integer = yes
+				}
+				set_temp_variable_to_random = {
+					var = SOV_support_equipment_lost
+					min = -150
+					max = -70
+					integer = yes
+				}
+				set_temp_variable_to_random = {
+					var = SOV_artillery_lost
+					min = -140
+					max = -50
+					integer = yes
+				}
+				set_temp_variable_to_random = {
+					var = SOV_trucks_lost
+					min = -100
+					max = -50
+					integer = yes
+				}
+		
+		
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = var:SOV_guns_lost
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_anti_air_equipment_1
+					amount = var:SOV_aa_lost
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_anti_tank_equipment_1
+					amount = var:SOV_at_lost
+				}
+				add_equipment_to_stockpile = { 
+					type = support_equipment_1
+					amount = var:SOV_support_equipment_lost
+				}
+				add_equipment_to_stockpile = { 
+					type = artillery_equipment_2
+					amount = var:SOV_artillery_lost
+		
+				}
+				add_equipment_to_stockpile = { 
+					type = motorized_equipment_1
+					amount = var:SOV_trucks_lost
+				}
+			}
+		
+
+		hidden_effect = {
+			SOV = { country_event = { id = ukraine_hur.3 days = 3 } }
+			if = {
+				limit = { has_country_flag = UKR_HUR_borisovka_selected }
+				set_variable = { ROOT.borisovka_controller = 1 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected }
+				set_variable = { ROOT.gorkovsky_tsapovka_shchetinovka_controller = 1 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_belgorod_selected }
+				set_variable = { ROOT.belgorod_controller = 1 }
+			}
+			else_if = {
+				limit = { has_country_flag = UKR_HUR_shebeniko_selected }
+				set_variable = { ROOT.shebeniko_controller = 1 }
+			}
+		}
+
+		
 	}
 
 	option = { 
@@ -6059,7 +6167,9 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		set_variable = { ROOT.can_do_hur_mission = 1 } #temporary
+		
+		add_command_power = -15
+		set_variable = { ROOT.can_do_hur_mission = 1 }
 	}
 }
 
@@ -6069,14 +6179,52 @@ country_event = {
 	title = ukraine_hur.2.t
 	desc = ukraine_hur.2.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_maidan_protests
+	picture = GFX_report_event_UKR_incursion_failed
 	
 	option = { 
 		name = ukraine_hur.2.a
 		ai_chance = {
 			base = 20
 		}
+		add_stability = -0.03
+		add_war_support = -0.02
+		set_temp_variable_to_random = {
+			var = UKR_incursion_lost_manpower
+			min = -100
+			max = -20
+			integer = yes
+		}
+
+		add_manpower = UKR_incursion_lost_manpower
 		set_variable = { ROOT.can_do_hur_mission = 1 }
 	}
 }
 
+#Incursion (RUSSIA)
+country_event = {
+	id = ukraine_hur.3
+	title = ukraine_hur.3.t
+	desc = ukraine_hur.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_incursion
+	
+	option = { 
+		name = ukraine_hur.3.a
+		ai_chance = {
+			base = 20
+		}
+		add_stability = -0.03
+		add_war_support = -0.02
+		set_temp_variable_to_random = {
+			var = UKR_incursion_lost_manpower
+			min = -100
+			max = -20
+			integer = yes
+		}
+
+		add_manpower = UKR_incursion_lost_manpower
+		hidden_effect = {
+			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
+		}
+	}
+}
