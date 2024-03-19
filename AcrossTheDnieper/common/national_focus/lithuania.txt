@@ -769,7 +769,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = absolute_monarchy_ideology
-				popularity = 0.05
+				popularity = 0.1
 			}
 			set_cosmetic_tag = PLF
 		}
@@ -816,9 +816,6 @@ focus_tree = {
 		ai_will_do = {
 		}
 
-		available = {
-			waldemar_tomaszewski_is_leader = yes
-		}
 
 		completion_reward = {
 			remove_power_balance = {
@@ -969,11 +966,10 @@ focus_tree = {
 
 			hidden_effect = {
 				create_country_leader = {
-					name = "Prince Inigo of Urach"
+					name = "The Noble Council"
 					desc = ""
-					picture = gfx/leaders/LIT/Portrait_Prince_Inigo.png
+					picture = gfx/leaders/LIT/Portrait_Urach_Council.png
 					ideology = generic_absolute_monarchy
-					traits = { SOV_royal_heir }
 				}
 			}
 		}
@@ -982,7 +978,7 @@ focus_tree = {
 	
 		
 	focus = {
-		id = LIT_meeting_with_inigo_of_urach
+		id = LIT_take_back_the_throne
 		icon = GFX_focus_LIT_2014_elections
 		x = 8
 		y = 9
@@ -1002,6 +998,180 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = LIT_take_back_the_throne_tt
+			hidden_effect = {
+				start_civil_war = {
+					ruling_party = absolute_monarchy_ideology
+					ideology = ROOT
+					size = 0.4
+					capital = 6
+					states = {
+						6 33 431 7 5 4
+					}
+					keep_political_leader = no
+					keep_political_party_members = yes
+	
+					
+				}
+	
+				ROOT = { set_cosmetic_tag = KOL }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_embrace_the_crown
+		icon = GFX_focus_LIT_embrace_the_crown
+		x = 15
+		y = 4
+
+		available = {
+			has_completed_focus = LIT_take_back_the_throne
+			has_war = no
+			has_government = absolute_monarchy_ideology
+		}
+
+		allow_branch = {
+			#has_completed_focus = LIT_take_back_the_throne
+		}
+		
+		cost = 35
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_support_prince_inigo
+		icon = GFX_focus_LIT_Support_Prince_Inigo_Of_Urach_Claim
+		x = -2
+		y = 1
+
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_embrace_the_crown }
+		mutually_exclusive = { focus = LIT_support_duke_wilhelm }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+
+		completion_reward = {
+			create_country_leader = {
+				name = "Prince Inigo Of Urach"
+				desc = ""
+				picture = gfx/leaders/LIT/Portrait_Prince_Inigo.png
+				ideology = generic_absolute_monarchy
+				traits = { LIT_ambitious_monarch }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_support_duke_wilhelm
+		icon = GFX_focus_LIT_Support_Prince_Wilhelm_Albert_Claim
+		x = 2
+		y = 1
+
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_embrace_the_crown }
+		mutually_exclusive = { focus = LIT_support_prince_inigo }
+
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			create_country_leader = {
+				name = "Prince Wilhelm Albert Of Urach"
+				desc = ""
+				picture = gfx/leaders/LIT/Portrait_Wilhelm_Albert_Von_Urach.png
+				ideology = generic_absolute_monarchy
+				traits = { LIT_headstrong_monarch }
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_constitutional_monarchy_focus
+		icon = GFX_focus_LIT_A_Constitutional_Monarchy
+		x = 0
+		y = 2
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_support_duke_wilhelm focus = LIT_support_prince_inigo }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = liberal_democracy
+				add_idea = constitutional_monarchy
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_partner_with_king_of_moroco
+		icon = GFX_focus_LIT_Partner_With_The_King_Of_Morocco
+		x = 2
+		y = 3
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
+		prerequisite = { focus = LIT_support_duke_wilhelm  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_ideas = LIT_moroccan_fuel
+		}
+	}
+	focus = {
+		id = LIT_move_to_green_energy
+		icon = GFX_focus_LIT_Move_To_A_Green_Energy
+		x = -2
+		y = 3
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
+		prerequisite = { focus = LIT_support_prince_inigo  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+
 		}
 	}
 }
