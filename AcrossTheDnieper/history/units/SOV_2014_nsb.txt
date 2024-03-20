@@ -116,7 +116,21 @@ division_template = {
 	}
 }
 
-
+division_template = {
+	name = "22nd Separate Guards Special Purpose Brigade"
+	division_names_group = SOV_INF_01
+	template_counter = 247
+	regiments = {
+		elite_special_forces = { x = 0 y = 0 }
+		elite_special_forces = { x = 0 y = 1 }
+		elite_special_forces = { x = 0 y = 2 }
+		elite_special_forces = { x = 0 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }  
+		logistics_company = { x = 0 y = 1 }
+	}
+}
 
 division_template = {
 	name = "1141st Guards Artillery Regiment"
@@ -140,10 +154,112 @@ division_template = {
 	}
 }
 
+division_template = {
+	name = "27th Separate Guards Motor Rifle Brigade"
+	division_names_group = SOV_INF_01
+	template_counter = 246
+	regiments = {
+		apc = { x = 0 y = 0 }
+		apc = { x = 0 y = 1 }
+		apc = { x = 0 y = 2 }
+		modern_armor_nsb = { x = 0 y = 3 }
+		rocket_artillery_brigade = { x = 0 y = 4 }
+		artillery_brigade = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+		logistics_company = { x = 0 y = 1 }  
+		signal_company = { x = 0 y = 2 }  
+		field_hospital = { x = 0 y = 3 }  
+	}
+}
+
+
+division_template = {
+	name = "336th Guards Naval Infantry Brigade"
+	division_names_group = SOV_INF_01
+	template_counter = 248
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 0 y = 3 }
+		modern_armor_nsb = { x = 0 y = 4 }
+		artillery_brigade = { x = 1 y = 0 }
+	}
+	support = {
+		anti_air = { x = 0 y = 0 }    
+		recon = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "34th Independent Motor Rifle Mountain Brigade"
+	division_names_group = SOV_INF_01
+	template_counter = 249
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		rocket_artillery_brigade = { x = 0 y = 3 }
+		mechanized = { x = 0 y = 4 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+	}
+	support = {
+		anti_air = { x = 0 y = 0 }    
+		recon = { x = 0 y = 1 } 
+	}
+}
 
 
 units = {
 	division = {
+		location = 19958
+		name = "1001st Separate Motor Rifle Battalion (Mountain)"
+		division_template = "34th Independent Motor Rifle Mountain Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 19958
+		name = "1021st Separate Motor Rifle Battalion (Mountain)"
+		division_template = "34th Independent Motor Rifle Mountain Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 19958
+		name = "1199th Separate Motor Rifle Battalion (Mountain)"
+		division_template = "34th Independent Motor Rifle Mountain Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 14841
+		name = "877th Naval Infantry Battalion"
+		division_template = "336th Guards Naval Infantry Brigade"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14841
+		name = "878th Naval Infantry Battalion"
+		division_template = "336th Guards Naval Infantry Brigade"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14841
+		name = "884th Naval Infantry Battalion"
+		division_template = "336th Guards Naval Infantry Brigade"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
 		location = 2652
 		name = "45th Guards Spetsnaz Battalion"
 		division_template = "45th Guards Spetsnaz Brigade"
@@ -173,8 +289,8 @@ units = {
 	}
 
 	division = {
-		location = 19747
-		name = "108th Guards Kuban Cossack Air Assault Battalion"
+		location = 14433
+		name = "108th Guards Air Assault Regiment"
 		division_template = "108th Guards Kuban Cossack Air Assault Regiment"
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.85
@@ -232,6 +348,38 @@ units = {
 		division_template = "1141st Guards Artillery Regiment"
 		start_experience_factor = 0.65
 		start_equipment_factor = 0.9
+	}
+
+	division = {
+		location = 471
+		name = "1st Motorized Rifle Battalion"
+		division_template = "27th Separate Guards Motor Rifle Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.85
+	}
+	
+	division = {
+		location = 471
+		name = "2nd Motorized Rifle Battalion"
+		division_template = "27th Separate Guards Motor Rifle Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.85
+	}
+		
+	division = {
+		location = 471
+		name = "3rd Motorized Rifle Battalion"
+		division_template = "27th Separate Guards Motor Rifle Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 155
+		name = "22nd Spetsnaz Battalion"
+		division_template = "22nd Separate Guards Special Purpose Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
 	}
 }
 

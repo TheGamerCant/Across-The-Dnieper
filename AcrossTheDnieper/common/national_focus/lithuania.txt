@@ -1154,6 +1154,52 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = LIT_arms_deal_with_morroco
+		icon = GFX_focus_LIT_2014_elections
+		x = 2
+		y = 5
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_partner_with_king_of_moroco  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment_1 
+				amount = 150
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1 
+				amount = 100
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_anti_air_equipment_1 
+				amount = 25
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_anti_tank_equipment_1 
+				amount = 25
+			}
+		}
+	}
+
+	focus = {
 		id = LIT_move_to_green_energy
 		icon = GFX_focus_LIT_Move_To_A_Green_Energy
 		x = -2
@@ -1171,7 +1217,160 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_ideas = LIT_sustainable_energy
+		}
+	}
 
+	focus = {
+		id = LIT_construct_solar_panels
+		icon = GFX_focus_LIT_2014_elections
+		x = -2
+		y = 5
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_move_to_green_energy  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = LIT_sustainable_energy
+				add_idea = LIT_sustainable_energy_2
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_sway_bundeswehr_soldiers
+		icon = GFX_focus_LIT_2014_elections
+		x = -4
+		y = 4
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_move_to_green_energy  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			army_experience = 50
+			add_manpower = 1500
+
+			division_template = {
+				name = "Bundeswehr Battalion"
+				template_counter = 250
+				division_names_group = LIT_ESF_01
+				is_locked = yes
+				regiments = {
+					elite_special_forces = { x = 0 y = 0 }
+					elite_special_forces = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					apc = { x = 1 y = 1 }
+					artillery_brigade = { x = 1 y = 2 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 } 
+					logistics_company  = { x = 0 y = 1 } 
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Bundeswehr Battalion\" division_template = \"Bundeswehr Battalion\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Bundeswehr Battalion\" division_template = \"Bundeswehr Battalion\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Bundeswehr Battalion\" division_template = \"Bundeswehr Battalion\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Bundeswehr Battalion\" division_template = \"Bundeswehr Battalion\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_invite_german_generals
+		icon = GFX_focus_LIT_2014_elections
+		x = -4
+		y = 5
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_sway_bundeswehr_soldiers  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_ideas = LIT_german_military_experience
+		}
+	}
+
+	focus = {
+		id = LIT_lithuanian_lessons
+		icon = GFX_focus_LIT_2014_elections
+		x = 0
+		y = 4
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
+
+		cost = 50
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_country_leader_trait = LIT_fleunt_in_lithuanian
+		}
+	}
+
+	focus = {
+		id = LIT_grandfathers_legacy
+		icon = GFX_focus_LIT_2014_elections
+		x = 0
+		y = 6
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_lithuanian_lessons  }
+
+		cost = 50
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			add_state_claim = 27
+			add_state_claim = 34
+			add_political_power = 15
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = absolute_monarchy_ideology
+				popularity = 0.05
+			}
 		}
 	}
 }
