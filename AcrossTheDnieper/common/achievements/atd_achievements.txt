@@ -185,3 +185,43 @@ special_statistics_operation = {
 		SOV = { casualties_inflicted_by = { opponent = UKR thousands > 1000 } }
     }    
 }
+
+great_tuvan_khanate = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		has_start_date < 2014.01.02
+		tag = SOV
+    }
+    
+    happened = {
+		sergey_shoigu_is_leader = yes
+		custom_trigger_tooltip={
+			tooltip = great_tuvan_khanate_ukraine_tt
+			all_state={ OR={ NOT = { OCCUPATION_is_central_ukraine_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_akarpatskia_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_crimea_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_chernivtsi_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_western_ukraine_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_north_west_ukraine_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_budzhak_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_eastern_ukraine_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+		}
+		
+		custom_trigger_tooltip={
+			tooltip = great_tuvan_khanate_belarus_tt
+			all_state={ OR={ NOT = { OCCUPATION_is_belarus_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+		}
+		
+		custom_trigger_tooltip={
+			tooltip = great_tuvan_khanate_russia_tt
+			all_state={ OR={ NOT = { OCCUPATION_is_central_russia_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_belgorod_trigger = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_north_caucuses = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_volga_don = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_kamlykia = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_southern_russia = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+			all_state={ OR={ NOT = { OCCUPATION_is_kaliningrad = yes } CONTROLLER={ OR={ tag = SOV is_puppet_of = SOV } } } }
+		}
+    }    
+}
