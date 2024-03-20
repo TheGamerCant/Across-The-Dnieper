@@ -56,6 +56,24 @@ defined_text = {
 }
 
 defined_text = {
+    name = GetMonarchGender
+	
+    text = {
+        trigger = {
+			#If we add a queen, replace "always = no" OR = { queen_lizzie_is_country_leader = yes }...
+			#is_female isn't scoped to character scope trigger  -> https://hoi4.paradoxwikis.com/Triggers#Character_scope
+            always = no
+			has_government = yes
+        }
+        localization_key = "queen_loc"
+    }
+	
+	text = {
+        localization_key = "king_loc"
+    }
+}
+
+defined_text = {
     name = get_super_event_music_status
 	
     text = {

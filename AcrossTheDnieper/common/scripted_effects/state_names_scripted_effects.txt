@@ -1,6 +1,17 @@
 #https://en.wikipedia.org/wiki/List_of_renamed_cities_in_Ukraine
 #https://zakon.rada.gov.ua/laws/show/v0180359-16#Text
 
+#Current documentation of state names:
+#Volyn Oblast: English, Ukrainian, Russian, Polish
+#Lviv Oblast: English, Ukrainian, Russian, Polish
+#Kyiv Oblast: English, Ukrainian, Russian, Polish
+#Donetsk Oblast: English, Ukrainian, Russian, Polish
+#Luhansk Oblast: English, Ukrainian, Russian, Polish
+#Donetsk Oblast: English, Ukrainian, Russian, Polish
+#Zakarpattya Oblast: English, Ukrainian, Russian, Polish, Hungarian, Slovak
+
+
+
 update_state_1_names={
 
 }
@@ -2122,7 +2133,87 @@ update_state_139_names={
 
 }
 update_state_140_names={
-
+	140={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_140_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_140_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_140_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_140_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_140_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 845 is_poland_tag = yes } }
+		set_province_name = { id = 845 name = VICTORY_POINTS_845_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 845 is_hungary_tag = yes } }
+		set_province_name = { id = 845 name = VICTORY_POINTS_845_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 845 is_slovakia_tag = yes } }
+		set_province_name = { id = 845 name = VICTORY_POINTS_845_SLO }
+	}
+	else={
+		reset_province_name = 845
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 4571 is_russia_tag = yes } }
+		set_province_name = { id = 4571 name = VICTORY_POINTS_4571_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4571 is_poland_tag = yes } }
+		set_province_name = { id = 4571 name = VICTORY_POINTS_4571_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4571 is_hungary_tag = yes } }
+		set_province_name = { id = 4571 name = VICTORY_POINTS_4571_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4571 is_slovakia_tag = yes } }
+		set_province_name = { id = 4571 name = VICTORY_POINTS_4571_SLO }
+	}
+	else={
+		reset_province_name = 4571
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17958 is_russia_tag = yes } }
+		set_province_name = { id = 17958 name = VICTORY_POINTS_17958_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17958 is_poland_tag = yes } }
+		set_province_name = { id = 17958 name = VICTORY_POINTS_17958_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17958 is_hungary_tag = yes } }
+		set_province_name = { id = 17958 name = VICTORY_POINTS_17958_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17958 is_slovakia_tag = yes } }
+		set_province_name = { id = 17958 name = VICTORY_POINTS_17958_SLO }
+	}
+	else={
+		reset_province_name = 17958
+	}
 }
 update_state_141_names={
 
@@ -2643,7 +2734,91 @@ update_state_146_names={
 	}
 }
 update_state_147_names={
-
+	147={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_147_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_147_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_147_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_147_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_147_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 7198 is_russia_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_poland_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_POL }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_hungary_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_HUN }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_slovakia_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_SLO }
+		}
+		else={
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 7198 is_russia_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_poland_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_POL }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_hungary_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_HUN }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 7198 is_slovakia_tag = yes } }
+			set_province_name = { id = 7198 name = VICTORY_POINTS_7198_SLO }
+		}
+		else={
+			reset_province_name = 7198
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 8861 is_poland_tag = yes } }
+		set_province_name = { id = 8861 name = VICTORY_POINTS_8861_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8861 is_hungary_tag = yes } }
+		set_province_name = { id = 8861 name = VICTORY_POINTS_8861_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8861 is_slovakia_tag = yes } }
+		set_province_name = { id = 8861 name = VICTORY_POINTS_8861_SLO }
+	}
+	else={
+		reset_province_name = 8861
+	}
 }
 update_state_148_names={
 
@@ -2859,7 +3034,59 @@ update_state_155_names={
 	}
 }
 update_state_156_names={
-
+	156={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_156_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_156_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_156_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_156_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_156_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13346 is_poland_tag = yes } }
+		set_province_name = { id = 13346 name = VICTORY_POINTS_13346_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13346 is_hungary_tag = yes } }
+		set_province_name = { id = 13346 name = VICTORY_POINTS_13346_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13346 is_slovakia_tag = yes } }
+		set_province_name = { id = 13346 name = VICTORY_POINTS_13346_SLO }
+	}
+	else={
+		reset_province_name = 13346
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 14375 OR = { is_poland_tag = yes is_slovakia_tag = yes } } }
+		set_province_name = { id = 14375 name = VICTORY_POINTS_14375_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14375 is_hungary_tag = yes } }
+		set_province_name = { id = 14375 name = VICTORY_POINTS_14375_HUN }
+	}
+	else={
+		reset_province_name = 14375
+	}
 }
 update_state_157_names={
 
@@ -3350,7 +3577,51 @@ update_state_168_names={
 
 }
 update_state_169_names={
-
+	169={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_169_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_169_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_169_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_169_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_169_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 11967 is_russia_tag = yes } }
+		set_province_name = { id = 11967 name = VICTORY_POINTS_11967_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11967 is_poland_tag = yes } }
+		set_province_name = { id = 11967 name = VICTORY_POINTS_11967_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11967 is_hungary_tag = yes } }
+		set_province_name = { id = 11967 name = VICTORY_POINTS_11967_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11967 is_slovakia_tag = yes } }
+		set_province_name = { id = 11967 name = VICTORY_POINTS_11967_SLO }
+	}
+	else={
+		reset_province_name = 11967
+	}
 }
 update_state_170_names={
 
@@ -3436,6 +3707,10 @@ update_state_174_names={
 			limit = { CONTROLLER={ is_russia_tag = yes } }
 			set_state_name = STATE_174_SOV
 		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_174_POL
+		}
 		else ={ 
 			reset_state_name = yes
 		}
@@ -3487,7 +3762,71 @@ update_state_174_names={
 	
 }
 update_state_175_names={
-
+	175={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_175_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_175_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_175_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_175_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_175_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 2061 is_russia_tag = yes } }
+		set_province_name = { id = 2061 name = VICTORY_POINTS_2061_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2061 is_poland_tag = yes } }
+		set_province_name = { id = 2061 name = VICTORY_POINTS_2061_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2061 is_hungary_tag = yes } }
+		set_province_name = { id = 2061 name = VICTORY_POINTS_2061_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2061 is_slovakia_tag = yes } }
+		set_province_name = { id = 2061 name = VICTORY_POINTS_2061_SLO }
+	}
+	else={
+		reset_province_name = 2061
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7138 is_russia_tag = yes } }
+		set_province_name = { id = 7138 name = VICTORY_POINTS_7138_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7138 is_poland_tag = yes } }
+		set_province_name = { id = 7138 name = VICTORY_POINTS_7138_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7138 is_hungary_tag = yes } }
+		set_province_name = { id = 7138 name = VICTORY_POINTS_7138_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7138 is_slovakia_tag = yes } }
+		set_province_name = { id = 7138 name = VICTORY_POINTS_7138_SLO }
+	}
+	else={
+		reset_province_name = 7138
+	}
 }
 update_state_176_names={
 
@@ -3505,7 +3844,71 @@ update_state_180_names={
 
 }
 update_state_181_names={
-
+	181={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_181_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_181_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_181_POL
+		}
+		else_if={
+			limit = { CONTROLLER={ is_hungary_tag = yes } }
+			set_state_name = STATE_181_HUN
+		}
+		else_if={
+			limit = { CONTROLLER={ is_slovakia_tag = yes } }
+			set_state_name = STATE_181_SLO
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 719 is_poland_tag = yes } }
+		set_province_name = { id = 719 name = VICTORY_POINTS_719_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 719 is_hungary_tag = yes } }
+		set_province_name = { id = 719 name = VICTORY_POINTS_719_HUN }
+	}
+	else={
+		reset_province_name = 719
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7212 is_hungary_tag = yes } }
+		set_province_name = { id = 7212 name = VICTORY_POINTS_7212_HUN }
+	}
+	else={
+		reset_province_name = 7212
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13879 is_russia_tag = yes } }
+		set_province_name = { id = 13879 name = VICTORY_POINTS_13879_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13879 is_poland_tag = yes } }
+		set_province_name = { id = 13879 name = VICTORY_POINTS_13879_POL }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13879 is_hungary_tag = yes } }
+		set_province_name = { id = 13879 name = VICTORY_POINTS_13879_HUN }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13879 is_slovakia_tag = yes } }
+		set_province_name = { id = 13879 name = VICTORY_POINTS_13879_SLO }
+	}
+	else={
+		reset_province_name = 13879
+	}
 }
 update_state_182_names={
 
@@ -6688,7 +7091,13 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 7178 name = VICTORY_POINTS_7178 }
 	set_province_name = { id = 7178 name = VICTORY_POINTS_7178 }
 	set_province_name = { id = 7186 name = VICTORY_POINTS_7186 }
-	set_province_name = { id = 7198 name = VICTORY_POINTS_7198 }
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		set_province_name = { id = 7198 name = VICTORY_POINTS_7198_RENAMED }
+	}
+	else={
+		set_province_name = { id = 7198 name = VICTORY_POINTS_7198 }
+	}
 	set_province_name = { id = 7209 name = VICTORY_POINTS_7209 }
 	set_province_name = { id = 7212 name = VICTORY_POINTS_7212 }
 	set_province_name = { id = 7231 name = VICTORY_POINTS_7231 }
