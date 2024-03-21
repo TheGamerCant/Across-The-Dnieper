@@ -225,3 +225,101 @@ great_tuvan_khanate = {
 		}
     }    
 }
+
+three_days_to_kiev = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		tag = SOV
+    }
+    
+    happened = {
+		has_global_flag = three_days_to_kiev_global_flag
+    }    
+}
+
+###Connected via adjacencies, can't find some combination of code to work lmao
+#greater_kaliningrad = {
+#    possible = {
+#        difficulty > 1
+#		normal_or_higher_achievement_trigger = yes
+#		tag = SOV
+#    }
+#    
+#    happened = {
+#		1={
+#			is_owned_by = SOV
+#			is_in_home_area = yes
+#		}
+#		
+#		always = no
+#    }    
+#}
+
+free_belarus = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		has_start_date < 2014.01.02
+		tag = BLR
+    }
+    
+    happened = {
+		has_completed_focus = BLR_free_at_last_2
+    }    
+}
+
+arise_donbass = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		has_start_date < 2014.01.02
+    }
+    
+    happened = {
+		is_donbass_country = yes
+		NOT = { has_global_flag = russia_has_invaded_ukraine_flag }
+		all_state={
+			OR={
+				is_owned_and_controlled_by = ROOT
+				NOT = { OR={ is_claimed_by = ROOT is_core_of = ROOT } }
+			}
+		}
+    }    
+}
+
+za_pobedu = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		tag = SOV
+    }
+    
+    happened = {
+		custom_trigger_tooltip={
+			tooltip = za_pobedu_tt
+			NOT = { has_global_flag = ukriane_completed_dishonour_before_death_flag }
+		}
+		NOT = { has_completed_focus = SOV_the_quagmire }
+		has_completed_focus = SOV_great_victors_2
+    }    
+}
+
+batko_nash_bandera = {
+    possible = {
+        difficulty > 1
+		normal_or_higher_achievement_trigger = yes
+		tag = UKR
+		has_start_date < 2014.01.02
+    }
+    
+    happened = {
+		custom_trigger_tooltip={
+			tooltip = batko_nash_bandera_tt
+			OR={
+				has_cosmetic_tag = UKR_red_black
+				has_cosmetic_tag = UKR_red_black_tryzub
+			}
+		}
+    }    
+}

@@ -5754,6 +5754,32 @@ country_event = {
     }
 }
 
+#Hidden event for achievement "Three days to Kiev"
+country_event = {
+    id = russia.1151
+    hidden = yes
+    is_triggered_only = yes
+
+    immediate = { 
+		if={
+			limit = { 
+				92={
+					CONTROLLER={
+						OR={
+							tag = SOV
+							is_in_faction_with = SOV
+							is_puppet_of = SOV
+						}
+					}
+				}
+				NOT = { has_global_flag = ukriane_completed_dishonour_before_death_flag }
+			}
+			
+			set_global_flag = three_days_to_kiev_global_flag
+		}
+	}
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
