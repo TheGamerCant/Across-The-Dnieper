@@ -971,6 +971,11 @@ focus_tree = {
 					picture = gfx/leaders/LIT/Portrait_Urach_Council.png
 					ideology = generic_absolute_monarchy
 				}
+
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.15
+				}
 			}
 		}
 	}
@@ -1134,13 +1139,14 @@ focus_tree = {
 		id = LIT_partner_with_king_of_moroco
 		icon = GFX_focus_LIT_Partner_With_The_King_Of_Morocco
 		x = 2
-		y = 3
+		y = 4
 
 		available = {
 			has_government = absolute_monarchy_ideology
 		}
 		relative_position_id = LIT_embrace_the_crown
-		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
+		prerequisite = { focus = LIT_grandfathers_legacy  }
+		prerequisite = { focus = LIT_lithuanian_lessons  }
 		prerequisite = { focus = LIT_support_duke_wilhelm  }
 
 		cost = 70
@@ -1154,9 +1160,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = LIT_arms_deal_with_morroco
+		id = LIT_form_royal_guard
 		icon = GFX_focus_LIT_2014_elections
-		x = 2
+		x = 4
 		y = 5
 
 		available = {
@@ -1164,6 +1170,72 @@ focus_tree = {
 		}
 		relative_position_id = LIT_embrace_the_crown
 		prerequisite = { focus = LIT_partner_with_king_of_moroco  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			army_experience = 20
+			add_manpower = 10000
+			
+			division_template = {
+				name = "Lithuanian Royal Guard"
+				template_counter = 251
+				division_names_group = LIT_ESF_01
+				is_locked = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					apc = { x = 1 y = 1 }
+					artillery_brigade = { x = 1 y = 2 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 } 
+					logistics_company  = { x = 0 y = 1 } 
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+				create_unit = {
+					division = "name = \"Lithuanian Royal Guard Battalion\" division_template = \"Lithuanian Royal Guard\" start_experience_factor = 0.35" 
+					owner = LIT
+				}
+			}
+		}
+	}
+	focus = {
+		id = LIT_arms_deal_with_morroco
+		icon = GFX_focus_LIT_2014_elections
+		x = 4
+		y = 6
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_form_royal_guard  }
 
 		cost = 70
 		ai_will_do = {
@@ -1200,16 +1272,43 @@ focus_tree = {
 	}
 
 	focus = {
-		id = LIT_move_to_green_energy
-		icon = GFX_focus_LIT_Move_To_A_Green_Energy
-		x = -2
-		y = 3
+		id = LIT_reinstate_taryba
+		icon = GFX_focus_LIT_2014_elections
+		x = 2
+		y = 6
 
 		available = {
 			has_government = absolute_monarchy_ideology
 		}
 		relative_position_id = LIT_embrace_the_crown
-		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
+		prerequisite = { focus = LIT_partner_with_king_of_moroco  }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = LIT_reinstate_taryba_tt
+			add_ideas = LIT_taryba
+
+			hidden_effect = {
+				set_country_flag = LIT_seimas_disabled
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_move_to_green_energy
+		icon = GFX_focus_LIT_Move_To_A_Green_Energy
+		x = -2
+		y = 4
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_grandfathers_legacy  }
+		prerequisite = { focus = LIT_lithuanian_lessons  }
 		prerequisite = { focus = LIT_support_prince_inigo  }
 
 		cost = 70
@@ -1225,7 +1324,7 @@ focus_tree = {
 		id = LIT_construct_solar_panels
 		icon = GFX_focus_LIT_2014_elections
 		x = -2
-		y = 5
+		y = 6
 
 		available = {
 			has_government = absolute_monarchy_ideology
@@ -1249,7 +1348,7 @@ focus_tree = {
 		id = LIT_sway_bundeswehr_soldiers
 		icon = GFX_focus_LIT_2014_elections
 		x = -4
-		y = 4
+		y = 5
 
 		available = {
 			has_government = absolute_monarchy_ideology
@@ -1308,7 +1407,7 @@ focus_tree = {
 		id = LIT_invite_german_generals
 		icon = GFX_focus_LIT_2014_elections
 		x = -4
-		y = 5
+		y = 6
 
 		available = {
 			has_government = absolute_monarchy_ideology
@@ -1328,8 +1427,8 @@ focus_tree = {
 	focus = {
 		id = LIT_lithuanian_lessons
 		icon = GFX_focus_LIT_2014_elections
-		x = 0
-		y = 4
+		x = -1
+		y = 3
 
 		available = {
 			has_government = absolute_monarchy_ideology
@@ -1349,14 +1448,14 @@ focus_tree = {
 	focus = {
 		id = LIT_grandfathers_legacy
 		icon = GFX_focus_LIT_2014_elections
-		x = 0
-		y = 6
+		x = 1
+		y = 3
 
 		available = {
 			has_government = absolute_monarchy_ideology
 		}
 		relative_position_id = LIT_embrace_the_crown
-		prerequisite = { focus = LIT_lithuanian_lessons  }
+		prerequisite = { focus = LIT_constitutional_monarchy_focus  }
 
 		cost = 50
 		ai_will_do = {
@@ -1365,12 +1464,90 @@ focus_tree = {
 		completion_reward = {
 			add_state_claim = 27
 			add_state_claim = 34
-			add_political_power = 15
 			add_war_support = 0.05
 			add_popularity = {
 				ideology = absolute_monarchy_ideology
 				popularity = 0.05
 			}
+		}
+	}
+
+	focus = {
+		id = LIT_restore_the_hetmanate_kingdom
+		icon = GFX_focus_LIT_2014_elections
+		x = 0
+		y = 5
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_grandfathers_legacy focus = LIT_lithuanian_lessons  }
+		prerequisite = { focus = LIT_partner_with_king_of_moroco focus = LIT_move_to_green_energy  }
+
+		cost = 50
+		ai_will_do = {
+		}
+
+		bypass = {
+			UKR = { has_government = absolute_monarchy_ideology }
+		}
+
+		completion_reward = {
+			unlock_decision_category_tooltip = LIT_support_ukrainian_monarchists
+			set_country_flag = LIT_support_ukrainian_monarchists_enabled
+			UKR = {
+				add_timed_idea = {
+					idea = LIT_monarchist_influence
+					days = 170
+				}
+
+				hidden_effect = {
+					create_country_leader = {
+						name = "Gregor Razumovsky"
+						desc = ""
+						picture = gfx/leaders/UKR/Portrait_Gregor_Razumovsky.png
+						ideology = generic_absolute_monarchy
+					}
+
+					set_party_name = {
+						ideology = absolute_monarchy_ideology
+						long_name = hemtanate_movement
+						name = hemtanate_movement
+					}
+				}
+			}
+
+			
+		}
+	}
+
+	focus = {
+		id = LIT_the_great_alliance
+		icon = GFX_focus_LIT_2014_elections
+		x = 0
+		y = 7
+
+		available = {
+			AND = {
+				has_government = absolute_monarchy_ideology
+				has_war = no
+				UKR = { has_government = absolute_monarchy_ideology has_war = no }
+			}
+
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_restore_the_hetmanate_kingdom   }
+
+		cost = 70
+		ai_will_do = {
+		}
+
+		completion_reward = {
+			create_faction = "Central Powers"
+			add_to_faction = UKR
+			add_opinion_modifier = { target = UKR modifier = medium_increase }
+			UKR = { add_opinion_modifier = { target = LIT modifier = medium_increase } }
 		}
 	}
 }

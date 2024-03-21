@@ -176,3 +176,150 @@ LIT_2014_elections_decision_category = {
 	}	
 
 }
+
+LIT_support_ukrainian_monarchists = {
+	LIT_overthrow_government = { 
+		priority = 200
+
+		available = {
+			UKR = { absolute_monarchy_ideology > 0.5 }
+		}
+
+		visible = {
+			NOT = { UKR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				UKR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 15
+		fire_only_once = yes
+
+		cost = 15
+
+		remove_effect = {
+			UKR = {
+				set_politics = {
+					ruling_party = absolute_monarchy_ideology
+					elections_allowed = no
+				}
+			}
+		}
+	}
+	LIT_promote_monarchism_ukraine = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { UKR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				UKR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 15
+		days_re_enable = 35
+
+		cost = 50
+
+		remove_effect = {
+			UKR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	LIT_monarchist_propaganda = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { UKR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				UKR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 15
+		days_re_enable = 35
+
+		cost = 50
+
+		remove_effect = {
+			UKR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	LIT_arm_monarchist_supporters = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { UKR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				UKR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 20
+		days_re_enable = 50
+
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 499 }
+		}
+		custom_cost_text = decision_cost_ie_500
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+
+			UKR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.1
+				}
+			}
+		}
+	}
+}

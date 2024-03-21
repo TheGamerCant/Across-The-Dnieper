@@ -6,9 +6,25 @@ LIT_2014_elections_decision_category = {
 	}
 	visible_when_empty = yes
 	visible = {
-		
+		NOT = { has_country_flag = LIT_seimas_disabled }
 	}
 	scripted_gui = LIT_seimas_gui
+}
+
+LIT_support_ukrainian_monarchists = {
+	icon = GFX_decision_category_power_struggle
+	priority = 200
+	allowed = {
+		original_tag = LIT
+	}
+	visible_when_empty = yes
+	visible = {
+		has_country_flag = LIT_support_ukrainian_monarchists_enabled
+		NOT = {
+			is_in_faction_with = UKR
+			UKR = { has_government = absolute_monarchy_ideology is_puppet = yes }
+		}
+	}
 }
 
 LIT_balance_of_power_category = {
