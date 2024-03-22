@@ -136,75 +136,85 @@ POL_make_PiS_government={
 }
 
 POL_get_president_popularities={
-	set_variable = { POL.poland_right_presidential_popularity = party_popularity@eastern_conservative }
-	multiply_variable = { POL.poland_right_presidential_popularity = 0.6 }
-	add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@fascist }
-	add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@ultranationalist }
-	add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@military_junta }
-	add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@populist }
-	add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@absolute_monarchy_ideology }
-	
-	
-	set_variable = { POL.poland_pis_presidential_popularity = party_popularity@neoconservative }
-	
-	set_variable = { POL.poland_po_presidential_popularity = party_popularity@neoliberal }
-	
-	set_variable = { POL.poland_psl_presidential_popularity = party_popularity@eastern_liberal}
-	
-	set_variable = { POL.poland_left_presidential_popularity = party_popularity@hardline_communist }
-	add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@moderate_communist }
-	add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@anarchism_ideology }
-	multiply_variable = { POL.poland_left_presidential_popularity = 0.65 }
-	add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@socialist }
-	add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@social_democracy }
-	
-	set_variable = { POL.theocracy_support = party_popularity@theocracy_ideology }
-	divide_variable = { POL.theocracy_support = 2 }
-	add_to_variable = { POL.poland_right_presidential_popularity = POL.theocracy_support }
-	add_to_variable = { POL.poland_pis_presidential_popularity = POL.theocracy_support }
-	clear_variable = POL.theocracy_support
-	
-	set_variable = { POL.libertarian_support = party_popularity@libertarian }
-	divide_variable = { POL.libertarian_support = 2 }
-	add_to_variable = { POL.poland_right_presidential_popularity = POL.libertarian_support }
-	add_to_variable = { POL.poland_po_presidential_popularity = POL.libertarian_support }
-	clear_variable = POL.libertarian_support
-	
-	set_variable = { POL.minor_candidates_support = 1 }
-	subtract_from_variable = { POL.minor_candidates_support = POL.poland_right_presidential_popularity }
-	subtract_from_variable = { POL.minor_candidates_support = POL.poland_pis_presidential_popularity }
-	subtract_from_variable = { POL.minor_candidates_support = POL.poland_po_presidential_popularity }
-	subtract_from_variable = { POL.minor_candidates_support = POL.poland_psl_presidential_popularity }
-	subtract_from_variable = { POL.minor_candidates_support = POL.poland_left_presidential_popularity }
-	
-	clamp_variable = { var = POL.poland_right_presidential_popularity min = 0 max = 1 }
-	clamp_variable = { var = POL.poland_pis_presidential_popularity min = 0 max = 1 }
-	clamp_variable = { var = POL.poland_po_presidential_popularity min = 0 max = 1 }
-	clamp_variable = { var = POL.poland_psl_presidential_popularity min = 0 max = 1 }
-	clamp_variable = { var = POL.poland_left_presidential_popularity min = 0 max = 1 }
-	clamp_variable = { var = POL.minor_candidates_support min = 0 max = 1 }
+	if={
+		limit = { NOT = { has_country_flag = POL_second_round_of_presidential_elections_flag } }
+		set_variable = { POL.poland_right_presidential_popularity = party_popularity@eastern_conservative }
+		multiply_variable = { POL.poland_right_presidential_popularity = 0.6 }
+		add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@fascist }
+		add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@ultranationalist }
+		add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@military_junta }
+		add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@populist }
+		add_to_variable = { POL.poland_right_presidential_popularity = party_popularity@absolute_monarchy_ideology }
+		
+		
+		set_variable = { POL.poland_pis_presidential_popularity = party_popularity@neoconservative }
+		
+		set_variable = { POL.poland_po_presidential_popularity = party_popularity@neoliberal }
+		
+		set_variable = { POL.poland_psl_presidential_popularity = party_popularity@eastern_liberal}
+		
+		set_variable = { POL.poland_left_presidential_popularity = party_popularity@hardline_communist }
+		add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@moderate_communist }
+		add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@anarchism_ideology }
+		multiply_variable = { POL.poland_left_presidential_popularity = 0.65 }
+		add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@socialist }
+		add_to_variable = { POL.poland_left_presidential_popularity = party_popularity@social_democracy }
+		
+		set_variable = { POL.theocracy_support = party_popularity@theocracy_ideology }
+		divide_variable = { POL.theocracy_support = 2 }
+		add_to_variable = { POL.poland_right_presidential_popularity = POL.theocracy_support }
+		add_to_variable = { POL.poland_pis_presidential_popularity = POL.theocracy_support }
+		clear_variable = POL.theocracy_support
+		
+		set_variable = { POL.libertarian_support = party_popularity@libertarian }
+		divide_variable = { POL.libertarian_support = 2 }
+		add_to_variable = { POL.poland_right_presidential_popularity = POL.libertarian_support }
+		add_to_variable = { POL.poland_po_presidential_popularity = POL.libertarian_support }
+		clear_variable = POL.libertarian_support
+		
+		set_variable = { POL.minor_candidates_support = 1 }
+		subtract_from_variable = { POL.minor_candidates_support = POL.poland_right_presidential_popularity }
+		subtract_from_variable = { POL.minor_candidates_support = POL.poland_pis_presidential_popularity }
+		subtract_from_variable = { POL.minor_candidates_support = POL.poland_po_presidential_popularity }
+		subtract_from_variable = { POL.minor_candidates_support = POL.poland_psl_presidential_popularity }
+		subtract_from_variable = { POL.minor_candidates_support = POL.poland_left_presidential_popularity }
+		
+		clamp_variable = { var = POL.poland_right_presidential_popularity min = 0 max = 1 }
+		clamp_variable = { var = POL.poland_pis_presidential_popularity min = 0 max = 1 }
+		clamp_variable = { var = POL.poland_po_presidential_popularity min = 0 max = 1 }
+		clamp_variable = { var = POL.poland_psl_presidential_popularity min = 0 max = 1 }
+		clamp_variable = { var = POL.poland_left_presidential_popularity min = 0 max = 1 }
+		clamp_variable = { var = POL.minor_candidates_support min = 0 max = 1 }
+	}
 }
 
 POL_get_results_of_first_round_elections={
 	POL_get_president_popularities = yes
+	
+	clear_array = POL.candidates_by_vote_share_array
+	add_to_array = { POL.candidates_by_vote_share_array = POL.poland_pis_presidential_popularity }
+	add_to_array = { POL.candidates_by_vote_share_array = POL.poland_po_presidential_popularity }
+	add_to_array = { POL.candidates_by_vote_share_array = POL.poland_right_presidential_popularity }
+	add_to_array = { POL.candidates_by_vote_share_array = POL.poland_left_presidential_popularity }
+	add_to_array = { POL.candidates_by_vote_share_array = POL.poland_psl_presidential_popularity }
 	
 	#Check if anyone got an outright majority
 	if={
 		limit = { check_variable = { var = POL.poland_pis_presidential_popularity value = 0.5 compare = greater_than } }
 		if={
 			limit = { has_country_flag = Kaczynski_PiS_candidate_flag }
-			POL_make_jaroslaw_kaczynski_president = yes
+			country_event = poland_election.1002
 		}
 		else_if={
 			limit = { has_country_flag = Duda_PiS_candidate_flag }
-			POL_make_andrzej_duda_president = yes
+			country_event = poland_election.1000
 		}
 	}
 	else_if={
 		limit = { check_variable = { var = POL.poland_po_presidential_popularity value = 0.5 compare = greater_than } }
 		if={
 			limit = { has_country_flag = Komowowski_PO_candidate_flag }
-			POL_make_bonislaw_komorowski_president = yes
+			country_event = poland_election.1100
 		}
 	}
 	else_if={
@@ -236,19 +246,72 @@ POL_get_results_of_first_round_elections={
 		#No candidate won outright
 		set_country_flag = POL_second_round_of_presidential_elections_flag
 		
-		clear_array = POL.candidates_by_vote_share_array
-		add_to_array = { POL.candidates_by_vote_share_array = POL.poland_pis_presidential_popularity }
-		add_to_array = { POL.candidates_by_vote_share_array = POL.poland_po_presidential_popularity }
-		add_to_array = { POL.candidates_by_vote_share_array = POL.poland_right_presidential_popularity }
-		add_to_array = { POL.candidates_by_vote_share_array = POL.poland_left_presidential_popularity }
-		add_to_array = { POL.candidates_by_vote_share_array = POL.poland_psl_presidential_popularity }
-		
 		find_highest_in_array = { array = POL.candidates_by_vote_share_array index = highest_vote_share }
 		set_variable = { POL.first_candidate = highest_vote_share }
 		remove_from_array = { array = POL.candidates_by_vote_share_array index = POL.first_candidate }
 		find_highest_in_array = { array = POL.candidates_by_vote_share_array index = second_highest_vote_share }
 		set_variable = { POL.second_candidate = second_highest_vote_share }
-		clear_array = POL.candidates_by_vote_share_array
+		
+		if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 0 } check_variable = { POL.second_candidate = 1 } } 
+				AND = { check_variable = { POL.first_candidate = 1 } check_variable = { POL.second_candidate = 0 } } } }
+			set_country_flag = POL_PiS_vs_PO_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 0 } check_variable = { POL.second_candidate = 2 } } 
+				AND = { check_variable = { POL.first_candidate = 2 } check_variable = { POL.second_candidate = 0 } } } }
+			set_country_flag = POL_PiS_vs_RIGHT_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 0 } check_variable = { POL.second_candidate = 3 } } 
+				AND = { check_variable = { POL.first_candidate = 3 } check_variable = { POL.second_candidate = 0 } } } }
+			set_country_flag = POL_PiS_vs_LEFT_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 0 } check_variable = { POL.second_candidate = 4 } } 
+				AND = { check_variable = { POL.first_candidate = 4 } check_variable = { POL.second_candidate = 0 } } } }
+			set_country_flag = POL_PiS_vs_PSL_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 1 } check_variable = { POL.second_candidate = 2 } } 
+				AND = { check_variable = { POL.first_candidate = 2 } check_variable = { POL.second_candidate = 1 } } } }
+			set_country_flag = POL_PO_vs_RIGHT_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 1 } check_variable = { POL.second_candidate = 3 } } 
+				AND = { check_variable = { POL.first_candidate = 3 } check_variable = { POL.second_candidate = 1 } } } }
+			set_country_flag = POL_PO_vs_LEFT_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 1 } check_variable = { POL.second_candidate = 4 } } 
+				AND = { check_variable = { POL.first_candidate = 4 } check_variable = { POL.second_candidate = 1 } } } }
+			set_country_flag = POL_PO_vs_PSL_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 2 } check_variable = { POL.second_candidate = 3 } } 
+				AND = { check_variable = { POL.first_candidate = 3 } check_variable = { POL.second_candidate = 2 } } } }
+			set_country_flag = POL_RIGHT_vs_LEFT_president_flag
+		}
+		else_if={
+			limit = { OR = { 	
+				AND = { check_variable = { POL.first_candidate = 2 } check_variable = { POL.second_candidate = 4 } } 
+				AND = { check_variable = { POL.first_candidate = 4 } check_variable = { POL.second_candidate = 2 } } } }
+			set_country_flag = POL_RIGHT_vs_PSL_president_flag
+		}
+		else={
+		#	limit = { OR = { 	
+		#		AND = { check_variable = { POL.first_candidate = 3 } check_variable = { POL.second_candidate = 4 } } 
+		#		AND = { check_variable = { POL.first_candidate = 4 } check_variable = { POL.second_candidate = 3 } } } }
+			set_country_flag = POL_LEFT_vs_PSL_president_flag
+		}
 	}
 }
 

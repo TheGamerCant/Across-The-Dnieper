@@ -3427,13 +3427,17 @@ country_event = {
 	title = poland_election.60.t
 	desc = poland_election.60.desc
 	is_triggered_only = yes
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
 	
+	timeout_days = 2
 
 	option = {
 		name = poland_election.60.a
 		ai_chance = { base = 1 }
 
-		
+		hidden_effect={
+			POL_get_results_of_first_round_elections = yes
+		}
 	}	
 }
 
@@ -3447,6 +3451,7 @@ country_event = {
 	immediate={
 		hidden_effect={
 			set_country_flag = POL_presidential_campaign_ongoing
+			country_event = { id = poland_election.60 days = 45 }
 		}
 	}
 
@@ -3455,6 +3460,129 @@ country_event = {
 		ai_chance = { base = 1 }
 		
 		unlock_decision_category_tooltip = POL_president_decisions_category
+	}	
+}
+
+#Duda wins presidential elections
+country_event = {
+	id = poland_election.1000
+	title = poland_election.1000.t
+	desc = poland_election.1000.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }		#26th August 2025
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1001 days = days_until_presidential_inauguration }
+		}
+	}
+
+	option = {
+		name = poland_election.1000.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Duda inaurgurated
+country_event = {
+	id = poland_election.1001
+	title = poland_election.1001.t
+	desc = poland_election.1001.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_duda
+
+	option = {
+		name = poland_election.1001.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_andrzej_duda_president = yes
+			news_event = { id = atd_news.71 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
+#Kaczyński wins presidential elections
+country_event = {
+	id = poland_election.1002
+	title = poland_election.1002.t
+	desc = poland_election.1002.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }		#26th August 2025
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1003 days = days_until_presidential_inauguration }
+		}
+	}
+
+	option = {
+		name = poland_election.1002.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Kaczyński inaurgurated
+country_event = {
+	id = poland_election.1003
+	title = poland_election.1003.t
+	desc = poland_election.1003.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_kaczynski
+
+	option = {
+		name = poland_election.1003.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_jaroslaw_kaczynski_president = yes
+			news_event = { id = atd_news.70 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
+#Komorowski wins presidential elections
+country_event = {
+	id = poland_election.1100
+	title = poland_election.1100.t
+	desc = poland_election.1100.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }		#26th August 2025
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1101 days = days_until_presidential_inauguration }
+		}
+	}
+
+	option = {
+		name = poland_election.1100.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Komorowski inaurgurated
+country_event = {
+	id = poland_election.1101
+	title = poland_election.1101.t
+	desc = poland_election.1101.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_kaczynski
+
+	option = {
+		name = poland_election.1101.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_bronislaw_komorowski_president = yes
+			news_event = { id = atd_news.72 hours = 2 random_hours = 6 }
+		}
 	}	
 }
 
