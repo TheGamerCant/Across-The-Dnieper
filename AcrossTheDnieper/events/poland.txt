@@ -1347,8 +1347,6 @@ country_event = {
 		hidden_effect={
 			set_country_flag = poland_election_campaigns_are_ongoing
 			country_event = { id = poland_election.38 days = 365 }		#election event
-			country_event = { id = atd_poland.2 days = 80 random_days = 100 }	#create united left
-			country_event = { id = atd_poland.8 days = 45 }	#local elections
 		}
 	}
 
@@ -3314,6 +3312,150 @@ country_event = {
 		ai_chance = { base = 1 }
 
 	}
+}
+
+#PiS presidential candidate 2015
+country_event = {
+	id = poland_election.55
+	title = poland_election.55.t
+	desc = poland_election.55.desc
+	is_triggered_only = yes
+	
+#	picture = GFX_report_event_POL_PiS_candidate_2015
+
+	option = {			#Andrzej Duda
+		name = poland_election.55.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Duda_PiS_candidate_flag
+		
+		add_popularity = { ideology = neoconservative popularity = 0.02 }
+	}
+	
+	option = {			#Jarosław Kaczyński
+		name = poland_election.55.b
+		ai_chance = { base = 0 }
+
+		set_country_flag = Kaczynski_PiS_candidate_flag
+		
+#		custom_effect_tooltip = kaczynski_not_very_popular_tt
+#		
+#		hidden_effect={
+#			every_state={
+#				limit = { POL_is_election_state = yes }
+#				multiply_variable = { THIS.PiS_popularity = 0.94 }
+#				POL_make_popularities_equal_100 = yes
+#			}
+#		}
+	}
+}
+
+#PO presidential candidate 2015
+country_event = {
+	id = poland_election.56
+	title = poland_election.56.t
+	desc = poland_election.56.desc
+	is_triggered_only = yes
+	
+
+	option = {
+		name = poland_election.56.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Komowowski_PO_candidate_flag
+	}	
+}
+
+#RIGHT presidential candidate 2015
+country_event = {
+	id = poland_election.57
+	title = poland_election.57.t
+	desc = poland_election.57.desc
+	is_triggered_only = yes
+	
+
+	option = {
+		name = poland_election.57.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Kukiz_RIGHT_candidate_flag
+	}	
+}
+
+#LEFT presidential candidate 2015
+country_event = {
+	id = poland_election.58
+	title = poland_election.58.t
+	desc = poland_election.58.desc
+	is_triggered_only = yes
+	
+
+	option = {
+		name = poland_election.58.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Ogorek_LEFT_candidate_flag
+	}
+	
+	option = {
+		name = poland_election.58.b
+		ai_chance = { base = 0 }
+
+		set_country_flag = Miller_LEFT_candidate_flag
+	}
+}
+
+#PSL presidential candidate 2015
+country_event = {
+	id = poland_election.59
+	title = poland_election.59.t
+	desc = poland_election.59.desc
+	is_triggered_only = yes
+	
+
+	option = {
+		name = poland_election.59.a
+		ai_chance = { base = 1 }
+
+		set_country_flag = Jarubas_PSL_candidate_flag
+	}	
+}
+
+#First round of voting
+country_event = {
+	id = poland_election.60
+	title = poland_election.60.t
+	desc = poland_election.60.desc
+	is_triggered_only = yes
+	
+
+	option = {
+		name = poland_election.60.a
+		ai_chance = { base = 1 }
+
+		
+	}	
+}
+
+#Candidates are in, start campaigning for president
+country_event = {
+	id = poland_election.61
+	title = poland_election.61.t
+	desc = poland_election.61.desc
+	is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			set_country_flag = POL_presidential_campaign_ongoing
+		}
+	}
+
+	option = {
+		name = poland_election.61.a
+		ai_chance = { base = 1 }
+		
+		unlock_decision_category_tooltip = POL_president_decisions_category
+	}	
 }
 
 #Constitutional crisis event
