@@ -3290,6 +3290,7 @@ country_event = {
 	title = ukraine.83.t
 	desc = ukraine.83.desc
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_more_soldiers
 
 	option = { 
 		name = ukraine.83.a
@@ -6019,6 +6020,98 @@ country_event = {
 		}
 	}
 	
+}
+
+#Grain blockade
+country_event = {
+	id = ukraine.148
+	title = ukraine.148.t
+	desc = ukraine.148.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_grain_blockade
+
+	trigger = {
+		has_war_with = SOV
+		269 = { is_controlled_by = ROOT }
+	}
+
+	option = { 
+		name = ukraine.148.a
+		add_stability = -0.05
+		if = {
+			limit = { has_idea = UKR_the_breadbasket_of_the_world  }
+			
+			remove_ideas = UKR_the_breadbasket_of_the_world
+		}
+		
+	}
+	
+}
+
+#Australia gives some equipment
+country_event = {
+	id = ukraine.149
+	title = ukraine.149.t
+	desc = ukraine.149.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_australia_aid
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.149.a
+
+		add_equipment_to_stockpile = { 
+			type = apc_equipment
+			variant_name = "M113 APC"
+			amount = 28
+		}
+		add_equipment_to_stockpile = { 
+			type = mechanized_equipment
+			amount = 60
+			variant_name = "Bushmaster"
+		}
+	}
+}
+
+#Ukraine asks for factories
+country_event = {
+	id = ukraine.150
+	title = ukraine.150.t
+	desc = ukraine.150.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_arms_factory
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.150.a
+		add_political_power = 2
+
+		UKR = { add_offsite_building = { type = arms_factory level = 1 } }
+	}
+}
+
+#Zelenskyy deepfake
+country_event = {
+	id = ukraine.151
+	title = ukraine.151.t
+	desc = ukraine.151.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_zelenskyy_deepfake
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.151.a
+		add_political_power = -10
+	}
 }
 
 #Successful Belgorod Incursion
