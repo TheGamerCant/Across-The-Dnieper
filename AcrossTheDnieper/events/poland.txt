@@ -3529,7 +3529,7 @@ country_event = {
 		ai_chance = { base = 1 }
 	}	
 }
-#Duda inaurgurated
+#Duda inaugurated
 country_event = {
 	id = poland_election.1001
 	title = poland_election.1001.t
@@ -3571,7 +3571,7 @@ country_event = {
 		ai_chance = { base = 1 }
 	}	
 }
-#Kaczyński inaurgurated
+#Kaczyński inaugurated
 country_event = {
 	id = poland_election.1003
 	title = poland_election.1003.t
@@ -3613,7 +3613,7 @@ country_event = {
 		ai_chance = { base = 1 }
 	}	
 }
-#Komorowski inaurgurated
+#Komorowski inaugurated
 country_event = {
 	id = poland_election.1101
 	title = poland_election.1101.t
@@ -3631,6 +3631,175 @@ country_event = {
 		}
 	}	
 }
+
+#Kukiz wins presidential elections
+country_event = {
+	id = poland_election.1200
+	title = poland_election.1200.t
+	desc = poland_election.1200.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1201 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
+		}
+	}
+
+	option = {
+		name = poland_election.1200.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Kukiz inaugurated
+country_event = {
+	id = poland_election.1201
+	title = poland_election.1201.t
+	desc = poland_election.1201.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_kukiz
+
+	option = {
+		name = poland_election.1201.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_pawel_kukiz_president = yes
+			news_event = { id = atd_news.79 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
+#Ogórek wins presidential elections
+country_event = {
+	id = poland_election.1300
+	title = poland_election.1300.t
+	desc = poland_election.1300.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1301 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
+		}
+	}
+
+	option = {
+		name = poland_election.1300.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Ogórek inaugurated
+country_event = {
+	id = poland_election.1301
+	title = poland_election.1301.t
+	desc = poland_election.1301.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_ogorek
+
+	option = {
+		name = poland_election.1301.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_magdalena_ogorek_president = yes
+			news_event = { id = atd_news.80 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
+#Miller wins presidential elections
+country_event = {
+	id = poland_election.1302
+	title = poland_election.1302.t
+	desc = poland_election.1302.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1303 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
+		}
+	}
+
+	option = {
+		name = poland_election.1302.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Miller inaugurated
+country_event = {
+	id = poland_election.1303
+	title = poland_election.1303.t
+	desc = poland_election.1303.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_miller
+
+	option = {
+		name = poland_election.1303.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_leszek_miller_president = yes
+			news_event = { id = atd_news.81 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
+#Jarubas wins presidential elections
+country_event = {
+	id = poland_election.1400
+	title = poland_election.1400.t
+	desc = poland_election.1400.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	immediate={
+		hidden_effect={
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
+			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
+			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
+			country_event = { id = poland_election.1401 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
+		}
+	}
+
+	option = {
+		name = poland_election.1400.a
+		ai_chance = { base = 1 }
+	}	
+}
+#Jarubas inaugurated
+country_event = {
+	id = poland_election.1401
+	title = poland_election.1401.t
+	desc = poland_election.1401.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_00_jarubas
+
+	option = {
+		name = poland_election.1401.a
+		ai_chance = { base = 1 }
+		hidden_effect={
+			POL_make_adam_jarubas_president = yes
+			news_event = { id = atd_news.82 hours = 2 random_hours = 6 }
+		}
+	}	
+}
+
 
 #Constitutional crisis event
 country_event = {

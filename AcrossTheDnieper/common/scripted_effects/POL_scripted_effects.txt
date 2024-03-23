@@ -148,6 +148,8 @@ POL_clear_all_presidential_election_flags={
 	clr_country_flag = POL_RIGHT_vs_LEFT_president_flag
 	clr_country_flag = POL_RIGHT_vs_PSL_president_flag
 	clr_country_flag = POL_LEFT_vs_PSL_president_flag
+	
+	clear_array = POL.candidates_by_vote_share_array
 }
 
 POL_set_candidate_popularities_to_one={
@@ -475,25 +477,25 @@ POL_get_results_of_presidential_elections={
 		limit = { check_variable = { var = POL.poland_right_presidential_popularity value = 0.5 compare = greater_than } }
 		if={
 			limit = { has_country_flag = Kukiz_RIGHT_candidate_flag }
-			POL_make_pawel_kukiz_president = yes
+			country_event = poland_election.1200
 		}
 	}
 	else_if={
 		limit = { check_variable = { var = POL.poland_left_presidential_popularity value = 0.5 compare = greater_than } }
 		if={
 			limit = { has_country_flag = Ogorek_LEFT_candidate_flag }
-			POL_make_magdalena_ogorek_president = yes
+			country_event = poland_election.1300
 		}
 		else_if={
 			limit = { has_country_flag = Miller_LEFT_candidate_flag }
-			POL_make_leszek_miller_president = yes
+			country_event = poland_election.1302
 		}
 	}
 	else_if={
 		limit = { check_variable = { var = POL.poland_psl_presidential_popularity value = 0.5 compare = greater_than } }
 		if={
 			limit = { has_country_flag = Jarubas_PSL_candidate_flag }
-			POL_make_adam_jarubas_president = yes
+			country_event = poland_election.1400
 		}
 	}
 	else={
@@ -974,21 +976,21 @@ POL_make_magdalena_ogorek_president={
 		name = "Magdalena Ogórek"
 		picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 		ideology = civic_platform
-		
+		female = yes
 		traits = {  }
 	}
 	create_country_leader = {
 		name = "Magdalena Ogórek"
 		picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 		ideology = poland_pis_party
-		
+		female = yes
 		traits = {  }
 	}
 	create_country_leader = {
 		name = "Magdalena Ogórek"
 		picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 		ideology = poland_PSL
-		
+		female = yes
 		traits = {  }
 	}
 	
@@ -998,7 +1000,7 @@ POL_make_magdalena_ogorek_president={
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_kukiz_15
-			
+			female = yes
 			traits = {  }
 		}
 	}
@@ -1008,21 +1010,21 @@ POL_make_magdalena_ogorek_president={
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_konfederacja_ultranat
-			
+			female = yes
 			traits = {  }
 		}
 		create_country_leader = {
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_konfederacja_populist
-			
+			female = yes
 			traits = {  }
 		}
 		create_country_leader = {
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_konfederacja_monarchist
-			
+			female = yes
 			traits = {  }
 		}
 	}
@@ -1033,7 +1035,7 @@ POL_make_magdalena_ogorek_president={
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_democratic_left_alliance
-			
+			female = yes
 			traits = {  }
 		}
 	}
@@ -1043,7 +1045,7 @@ POL_make_magdalena_ogorek_president={
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_united_left
-			
+			female = yes
 			traits = {  }
 		}
 	}
@@ -1053,14 +1055,14 @@ POL_make_magdalena_ogorek_president={
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_lewica_socdem
-			
+			female = yes
 			traits = {  }
 		}
 		create_country_leader = {
 			name = "Magdalena Ogórek"
 			picture = gfx/leaders/POL/Portrait_Magdalena_Ogórek.png
 			ideology = poland_lewica_socialist
-			
+			female = yes
 			traits = {  }
 		}
 	}
