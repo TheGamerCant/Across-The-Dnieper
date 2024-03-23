@@ -5972,27 +5972,6 @@ country_event = {
 	
 }
 
-#Hidden checker
-country_event = {
-	id = ukraine.146
-	hidden = yes
-	
-	fire_only_once = yes
-	is_triggered_only = yes
-	trigger = {
-		has_war_with = SOV
-	}
-	immediate = { 
-		if = {
-			limit = {
-				OR = { 264 = { is_controlled_by = UKR } 231 = { is_controlled_by = UKR } }
-			}
-
-
-		}
-	}
-}
-
 #South west operation successful
 country_event = {
 	id = ukraine.147
@@ -6003,6 +5982,8 @@ country_event = {
 
 	trigger = {
 		has_war_with = SOV
+
+		OR = { 264 = { is_controlled_by = UKR } 231 = { is_controlled_by = UKR } }
 	}
 
 	option = { 
@@ -6111,6 +6092,55 @@ country_event = {
 	option = { 
 		name = ukraine.151.a
 		add_political_power = -10
+	}
+}
+
+#Should we sell war bonds?
+country_event = {
+	id = ukraine.152
+	title = ukraine.152.t
+	desc = ukraine.152.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_war_bonds
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.152.a
+		add_political_power = -5
+		add_timed_idea = {
+			idea = UKR_selling_war_bonds
+			days = 50
+		}
+	}
+	option = { 
+		name = ukraine.152.b
+		add_political_power = 5
+	}
+}
+
+
+#Corrupt politicians
+country_event = {
+	id = ukraine.153
+	title = ukraine.153.t
+	desc = ukraine.153.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_pro_russian_politicians
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.153.a
+		add_political_power = 5
+		add_timed_idea = {
+			idea = UKR_investigating_politicians
+			days = 80
+		}
 	}
 }
 

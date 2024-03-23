@@ -634,6 +634,7 @@ focus_tree = {
 	continuous_focus_position = { x = -40 y = 1050 } 
 	country = {
 		factor = 0
+
 	}
 
 	focus = {
@@ -6084,10 +6085,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			subtract_from_variable = { UKR_afu_conscription_factor = 0.2 }
+			subtract_from_variable = { UKR_afu_conscription_factor = 0.25 }
 			subtract_from_variable = { UKR_afu_supply_consumption_factor = 0.06 }
 			subtract_from_variable = { UKR_afu_attrition = 0.1 }
-			add_to_variable = { UKR_afu_army_speed_factor = 0.2 }
+			add_to_variable = { UKR_afu_army_speed_factor = 0.08 }
 			custom_effect_tooltip = UKR_increase_logistical_personnel_tt
 		}
 	}
@@ -6209,7 +6210,7 @@ focus_tree = {
 		completion_reward = {
 			subtract_from_variable = { UKR_afu_supply_combat_penalties_on_core_factor = 0.1 }
 			add_to_variable = { UKR_afu_mobilization_speed = 0.15 }
-			add_to_variable = { UKR_afu_conscription_factor = 0.05 }
+			add_to_variable = { UKR_afu_conscription_factor = 0.03 }
 			add_to_variable = { UKR_afu_army_core_defence_factor = 0.04 }
 			custom_effect_tooltip = UKR_integrate_the_militias_tt
 			add_ideas = UKR_integrated_militias
@@ -9299,7 +9300,7 @@ focus_tree = {
 			custom_effect_tooltip = UKR_offensives_in_the_south_west_tt
 
 			hidden_effect={
-				country_event = { id = ukraine.146 days = 61 }
+				country_event = { id = ukraine.147 days = 61 }
 			}
 
 			effect_tooltip = {
@@ -9531,6 +9532,28 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			any_country={ original_tag = SOV has_war_with = ROOT }
 			92 = { is_controlled_by = ROOT }
+
+			OR = {
+				POL = {
+					has_opinion = {
+						target = UKR
+						value > 49
+					}
+				}
+				CZE = {
+					has_opinion = {
+						target = UKR
+						value > 49
+					}
+				}
+				SLO = {
+					has_opinion = {
+						target = UKR
+						value > 49
+					}
+				}
+			}
+
 		}
 		
 		
@@ -9647,15 +9670,22 @@ focus_tree = {
 		
 		
 		bypass = {
+			OR = {
+				has_government = fascist
+				has_government = ultranationalist
+			}
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_stability = -0.03
-			add_political_power = 50
+			add_stability = -0.05
+			add_political_power = 25
 			custom_effect_tooltip = UKR_ban_russian_tied_parties_tt
 			hidden_effect = {
+				set_party_name = { ideology = socialist long_name = generic_party_banned_long name = generic_party_banned }
+				set_party_name = { ideology = moderate_communist long_name = generic_party_banned_long name = generic_party_banned }
+				set_party_name = { ideology = eastern_conservative long_name = generic_party_banned_long name = generic_party_banned }
 				add_popularity = {
 					ideology = socialist
 					popularity = -1
@@ -9674,6 +9704,35 @@ focus_tree = {
 				}
 			}
 
+		}
+	}
+
+	focus = {
+		id = UKR_investigate_pro_russian_politicians
+		icon = GFX_focus_UKR_the_creation_of_partisan_channels
+		x = -3
+		y = 4
+		
+		cost = 10
+		ai_will_do = {
+		}
+		relative_position_id = UKR_stabilise_the_front 
+		prerequisite = { focus = UKR_ban_russian_tied_parties }
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			country_event = { id = ukraine.153 }
 		}
 	}
 	
