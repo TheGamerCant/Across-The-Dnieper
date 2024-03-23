@@ -3436,7 +3436,7 @@ country_event = {
 		ai_chance = { base = 1 }
 
 		hidden_effect={
-			POL_get_results_of_first_round_elections = yes
+			POL_get_results_of_presidential_elections = yes
 		}
 	}	
 }
@@ -3450,8 +3450,9 @@ country_event = {
 	
 	immediate={
 		hidden_effect={
+			POL_get_president_popularities = yes
 			set_country_flag = POL_presidential_campaign_ongoing
-			country_event = { id = poland_election.60 days = 45 }
+#			country_event = { id = poland_election.60 days = 45 }		#Not needed, fired in on actions
 		}
 	}
 
@@ -3460,6 +3461,48 @@ country_event = {
 		ai_chance = { base = 1 }
 		
 		unlock_decision_category_tooltip = POL_president_decisions_category
+	}	
+}
+
+#No clear winner
+country_event = {
+	id = poland_election.62
+	title = poland_election.62.t
+	desc = poland_election.62.desc
+	is_triggered_only = yes
+	
+	immediate={
+		hidden_effect={
+			country_event = { id = poland_election.63 days = 14 }
+		}
+	}
+	
+	picture = GFX_report_event_POL_sejm
+
+	option = {
+		name = poland_election.62.a
+		ai_chance = { base = 1 }
+		
+	}	
+}
+
+#Results of the runoff
+country_event = {
+	id = poland_election.63
+	title = poland_election.63.t
+	desc = poland_election.63.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_POL_pokemon_go_to_the_polls
+	
+	timeout_days = 2
+
+	option = {
+		name = poland_election.63.a
+		ai_chance = { base = 1 }
+
+		hidden_effect={
+			POL_get_results_of_presidential_elections = yes
+		}
 	}	
 }
 
@@ -3477,6 +3520,7 @@ country_event = {
 			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
 			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
 			country_event = { id = poland_election.1001 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
 		}
 	}
 
@@ -3514,10 +3558,11 @@ country_event = {
 	picture = GFX_report_event_POL_pokemon_go_to_the_polls
 	immediate={
 		hidden_effect={
-			set_temp_variable = { days_until_presidential_inauguration = 739361 }		#26th August 2025
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
 			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
 			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
 			country_event = { id = poland_election.1003 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
 		}
 	}
 
@@ -3555,10 +3600,11 @@ country_event = {
 	picture = GFX_report_event_POL_pokemon_go_to_the_polls
 	immediate={
 		hidden_effect={
-			set_temp_variable = { days_until_presidential_inauguration = 739361 }		#26th August 2025
+			set_temp_variable = { days_until_presidential_inauguration = 739361 }
 			subtract_from_temp_variable = { days_until_presidential_inauguration = global.num_days }
 			modulo_temp_variable = { days_until_presidential_inauguration = 365 }
 			country_event = { id = poland_election.1101 days = days_until_presidential_inauguration }
+			POL_clear_all_presidential_election_flags = yes
 		}
 	}
 
@@ -3574,7 +3620,7 @@ country_event = {
 	desc = poland_election.1101.desc
 	is_triggered_only = yes
 	
-	picture = GFX_report_event_POL_00_kaczynski
+	picture = GFX_report_event_POL_00_komorowski
 
 	option = {
 		name = poland_election.1101.a

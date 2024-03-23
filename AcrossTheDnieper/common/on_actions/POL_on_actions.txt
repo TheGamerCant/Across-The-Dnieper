@@ -14,12 +14,14 @@ on_actions={
 					country_event = { id = poland_election.1 days = 319 }					#Prepare for 2014 elections			#Was previously 298 days so the election would be held on 25th of october, but sejm doesn't get sworn in until 16th of november so i changed it
 					
 					#Presidential election stuff
-					country_event = { id = poland_election.55 days = 360 random_days = 90  }
-					country_event = { id = poland_election.56 days = 360 random_days = 90  }
-					country_event = { id = poland_election.57 days = 360 random_days = 90  }
-					country_event = { id = poland_election.58 days = 360 random_days = 90  }
-					country_event = { id = poland_election.59 days = 360 random_days = 90  }
-					country_event = { id = poland_election.60 days = 494  }	#2015 Presidential election first round
+					country_event = { id = poland_election.55 days = 360 random_days = 80  }
+					country_event = { id = poland_election.56 days = 360 random_days = 80  }
+					country_event = { id = poland_election.57 days = 360 random_days = 80  }
+					country_event = { id = poland_election.58 days = 360 random_days = 80  }
+					country_event = { id = poland_election.59 days = 360 random_days = 80  }
+					country_event = { id = poland_election.60 days = 494  }
+					country_event = { id = poland_election.61 days = 449  }
+					
 					#country_event = { id = atd_poland.4 days = 478 }						#2015 Presidential Election
 					
 					country_event = { id = poland_court_event.1 days = 674 }						#Appointing judges
@@ -55,6 +57,16 @@ on_actions={
 					amount = 600
 					producer = POL
 				}
+			}
+		}
+	}
+	
+	#Change to on_daily_POL when I make the graph
+	on_weekly_POL={
+		effect={
+			if={
+				limit = { has_country_flag = POL_presidential_campaign_ongoing }
+				POL_get_president_popularities = yes
 			}
 		}
 	}
