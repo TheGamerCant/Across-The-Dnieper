@@ -206,6 +206,12 @@ LIT_support_ukrainian_monarchists = {
 					ruling_party = absolute_monarchy_ideology
 					elections_allowed = no
 				}
+
+				hidden_effect = { load_focus_tree = generic_focus set_cosmetic_tag = TUH }
+			}
+
+			hidden_effect = {
+				country_event = { id = lithuania.60 hours = 2 }
 			}
 		}
 	}
@@ -315,6 +321,170 @@ LIT_support_ukrainian_monarchists = {
 			}
 
 			UKR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.1
+				}
+			}
+		}
+	}
+}
+
+LIT_support_belarusians_monarchists = {
+	LIT_perform_coup = { 
+		priority = 200
+
+		available = {
+			BLR = { absolute_monarchy_ideology > 0.5 }
+		}
+
+		visible = {
+			NOT = { BLR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				BLR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 15
+		fire_only_once = yes
+
+		cost = 15
+
+		remove_effect = {
+			BLR = {
+				set_politics = {
+					ruling_party = absolute_monarchy_ideology
+					elections_allowed = no
+				}
+
+				leave_faction = yes
+
+				hidden_effect = { load_focus_tree = generic_focus set_cosmetic_tag = WRH }
+			}
+
+
+
+			hidden_effect = {
+				country_event = { id = lithuania.59 hours = 2 }
+			}
+		}
+	}
+
+	LIT_fund_opposition = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { BLR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				BLR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		modifier = {
+			consumer_goods_expected_value = 0.1
+		}
+
+		days_remove = 15
+		days_re_enable = 35
+
+		cost = 35
+
+		remove_effect = {
+			BLR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	LIT_monarchist_propaganda_blr = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { BLR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				BLR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 15
+		days_re_enable = 35
+
+		cost = 50
+
+		remove_effect = {
+			BLR = {
+				add_popularity = {
+					ideology = absolute_monarchy_ideology
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	LIT_arm_monarchist_supporters_blr = { 
+		priority = 200
+
+		allowed = {
+			original_tag = LIT
+		}
+
+		available = {
+			hidden_effect = { always = no }
+		}
+
+		visible = {
+			NOT = { BLR = { has_government = absolute_monarchy_ideology } }
+		}
+
+		remove_trigger = {
+			hidden_trigger = {
+				BLR = { has_government = absolute_monarchy_ideology }
+			}
+		}
+
+		days_remove = 20
+		days_re_enable = 50
+
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 499 }
+		}
+		custom_cost_text = decision_cost_ie_500
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+
+			BLR = {
 				add_popularity = {
 					ideology = absolute_monarchy_ideology
 					popularity = 0.1

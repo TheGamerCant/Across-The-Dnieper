@@ -17,12 +17,28 @@ LIT_support_ukrainian_monarchists = {
 	allowed = {
 		original_tag = LIT
 	}
-	visible_when_empty = yes
+	visible_when_empty = no
 	visible = {
 		has_country_flag = LIT_support_ukrainian_monarchists_enabled
 		NOT = {
 			is_in_faction_with = UKR
 			UKR = { has_government = absolute_monarchy_ideology is_puppet = yes }
+		}
+	}
+}
+
+LIT_support_belarusians_monarchists = {
+	icon = GFX_decision_category_power_struggle
+	priority = 200
+	allowed = {
+		original_tag = LIT
+	}
+	visible_when_empty = no
+	visible = {
+		has_country_flag = LIT_support_belarusian_monarchists_enabled
+		NOT = {
+			is_in_faction_with = BLR
+			BLR = { has_government = absolute_monarchy_ideology is_puppet = yes }
 		}
 	}
 }

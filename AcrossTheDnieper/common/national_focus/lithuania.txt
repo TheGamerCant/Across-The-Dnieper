@@ -1523,10 +1523,35 @@ focus_tree = {
 	}
 
 	focus = {
+		id = LIT_meeting_with_belarusian_opposition
+		icon = GFX_focus_LIT_2014_elections
+		x = 1
+		y = 7
+
+		available = {
+			has_government = absolute_monarchy_ideology
+		}
+		relative_position_id = LIT_embrace_the_crown
+		prerequisite = { focus = LIT_restore_the_hetmanate_kingdom }
+
+		cost = 50
+		ai_will_do = {
+		}
+
+		bypass = {
+			BLR = { has_government = absolute_monarchy_ideology }
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.56 hours = 2 }
+		}
+	}
+
+	focus = {
 		id = LIT_the_great_alliance
 		icon = GFX_focus_LIT_2014_elections
 		x = 0
-		y = 7
+		y = 8
 
 		available = {
 			AND = {
@@ -1537,7 +1562,7 @@ focus_tree = {
 
 		}
 		relative_position_id = LIT_embrace_the_crown
-		prerequisite = { focus = LIT_restore_the_hetmanate_kingdom   }
+		prerequisite = { focus = LIT_restore_the_hetmanate_kingdom focus = LIT_meeting_with_belarusian_opposition }
 
 		cost = 70
 		ai_will_do = {
@@ -1545,9 +1570,30 @@ focus_tree = {
 
 		completion_reward = {
 			create_faction = "Central Powers"
-			add_to_faction = UKR
-			add_opinion_modifier = { target = UKR modifier = medium_increase }
-			UKR = { add_opinion_modifier = { target = LIT modifier = medium_increase } }
+
+			if = {
+				limit = {
+					UKR = {
+						is_in_faction = no
+						has_government = absolute_monarchy_ideology
+					}
+				}
+				custom_effect_tooltip = LIT_the_great_alliance_ukr
+				hidden_effect = { add_to_faction = UKR }
+			}
+
+			if = {
+				limit = {
+					BLR = {
+						is_in_faction = no
+						has_government = absolute_monarchy_ideology
+					}
+				}
+				custom_effect_tooltip = LIT_the_great_alliance_blr
+				hidden_effect = { add_to_faction = BLR }
+			}
+			
+
 		}
 	}
 }

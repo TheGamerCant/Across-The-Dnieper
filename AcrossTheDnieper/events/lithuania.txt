@@ -2039,7 +2039,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		country_event = { id = lithuania.57 days = 14 random_days = 10 }
+		country_event = { id = lithuania.58 days = 14 random_days = 10 }
 	}
 }
 
@@ -2055,5 +2055,96 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+
+		unlock_decision_category_tooltip = LIT_support_belarusians_monarchists
+		set_country_flag = LIT_support_belarusian_monarchists_enabled
+		BLR = {
+			add_timed_idea = {
+				idea = LIT_monarchist_influence
+				days = 200
+			}
+
+			hidden_effect = {
+				set_party_name = {
+					ideology = absolute_monarchy_ideology
+					long_name = LIT_urach_party
+					name = LIT_urach_party
+				}
+
+				if = {
+					limit = { has_completed_focus = LIT_support_duke_wilhelm }
+
+					create_country_leader = {
+						name = "Prince Inigo Of Urach"
+						desc = ""
+						picture = gfx/leaders/LIT/Portrait_Prince_Inigo.png
+						ideology = generic_absolute_monarchy
+						traits = { LIT_ambitious_monarch }
+					}
+				}
+
+				else = {
+					create_country_leader = {
+						name = "Prince Wilhelm Albert Of Urach"
+						desc = ""
+						picture = gfx/leaders/LIT/Portrait_Wilhelm_Albert_Von_Urach.png
+						ideology = generic_absolute_monarchy
+						traits = { LIT_headstrong_monarch }
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = lithuania.59
+	title = lithuania.59.t
+	desc = lithuania.59.desc
+	is_triggered_only = yes
+	picture = LIT_event_matchmaking
+	
+	option = { 
+		name = lithuania.59.a
+		ai_chance = {
+			base = 10
+		}
+
+		transfer_state = 27
+		27 = { add_core_of = ROOT }
+
+		if = {
+			limit = { is_in_faction = yes is_faction_leader = yes }
+
+			add_to_faction = BLR
+		}
+
+		add_opinion_modifier = { target = BLR modifier = medium_increase }
+		BLR = { add_opinion_modifier = { target = LIT modifier = medium_increase } }
+	}
+}
+
+country_event = {
+	id = lithuania.60
+	title = lithuania.60.t
+	desc = lithuania.60.desc
+	is_triggered_only = yes
+	picture = LIT_event_matchmaking
+	
+	option = { 
+		name = lithuania.60.a
+		ai_chance = {
+			base = 10
+		}
+
+
+		if = {
+			limit = { is_in_faction = yes is_faction_leader = yes UKR = { is_in_faction = no } }
+
+			add_to_faction = UKR
+		}
+
+		add_opinion_modifier = { target = UKR modifier = medium_increase }
+		UKR = { add_opinion_modifier = { target = LIT modifier = medium_increase } }
 	}
 }
