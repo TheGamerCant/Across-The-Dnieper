@@ -137,8 +137,27 @@ focus_tree = {
 		x = 0
 		y = 1
 	
+	}
+
+	focus = {
+		id = SER_Status_QUO
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_What_Is_Next_SNS
+		}
+		relative_position_id = SER_What_Is_Next_SNS
+		x = 0
+		y = 1
 	
-	
+		completion_reward = {
+			load_focus_tree = SPP
+			swap_ideas = {
+				remove_idea = bipolarist
+				add_idea = neutral
+			}
+		}
 	}
 
 	focus = {
@@ -1663,6 +1682,750 @@ focus_tree = {
 
 		x = 0
 		y = 7
+
+	}
+}
+
+
+
+focus_tree = {
+	id = SPP
+
+	country = {
+		factor = 0
+	}
+
+	default = no
+	
+	#foreign politics
+	focus = {
+		id = SER_SPP_balancing
+		icon = GFX_goal_unknown
+		cost = 35
+		x = 20
+		y = 0
+
+	}
+	focus = {
+		id = SER_SPP_Introduction_of_sanctions
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_balancing
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_non_introduction_sanctions
+		}
+
+		relative_position_id = SER_SPP_balancing
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_non_introduction_sanctions
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_balancing
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_Introduction_of_sanctions
+		}
+
+		relative_position_id = SER_SPP_balancing
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_lean_west
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_balancing
+		}
+		prerequisite = {
+			focus = SER_SPP_Introduction_of_sanctions
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_center
+			focus = SER_SPP_Lean_east
+		}
+
+		relative_position_id = SER_SPP_center
+
+		x = -2
+		y = 0
+
+	}
+	focus = {
+		id = SER_SPP_center
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_balancing
+			focus = SER_SPP_non_introduction_sanctions
+			focus = SER_SPP_Introduction_of_sanctions
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_lean_west
+			focus = SER_SPP_Lean_east
+		}
+
+		relative_position_id = SER_SPP_non_introduction_sanctions
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_Lean_east
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_balancing
+		}
+		prerequisite = {
+			focus = SER_SPP_non_introduction_sanctions
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_lean_west
+			focus = SER_SPP_center
+		}
+
+		relative_position_id = SER_SPP_non_introduction_sanctions
+
+		x = 1
+		y = 1
+
+	}
+
+	focus = {
+		id = SER_SPP_EU
+		icon = GFX_focus_generic_EU
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_lean_west
+		}
+		completion_reward = {
+			add_ideas = SER_eu_ambition
+		}
+
+		relative_position_id = SER_SPP_lean_west
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_Create_office_EU_integration
+		icon = GFX_goal_continuous_increase_nu
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_EU
+		}
+		completion_reward = {
+			add_ideas = SER_office_of_European_integration
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SPP_EU
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_start_reforms_EU
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_Create_office_EU_integration
+		}
+		completion_reward = {
+			add_ideas = SER_eu_reforms
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SPP_Create_office_EU_integration
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_laws_EU_rinciples
+		icon = GFX_focus_generic_treaty
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_Create_office_EU_integration
+		}
+		completion_reward = {
+			add_ideas = SER_eu_laws
+			add_stability = -0.05
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SPP_Create_office_EU_integration
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_improve_relations_EU_countries
+		icon = GFX_goal_generic_improve_relations
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_laws_EU_rinciples
+			focus = SER_SPP_start_reforms_EU
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = POL modifier = large_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = ROM modifier = large_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = BUL modifier = large_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = HUN modifier = large_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = SLO modifier = large_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = CZE modifier = large_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = CRO modifier = large_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = LIT modifier = large_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = large_increase} }
+		}
+
+		relative_position_id = SER_SPP_laws_EU_rinciples
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_attraction_EU_investments
+		icon = GFX_focus_generic_concessions
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_improve_relations_EU_countries
+		}
+		completion_reward = {
+			364 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			401 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			366 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			337 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			302 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		relative_position_id = SER_SPP_improve_relations_EU_countries
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_increase_trade_EU
+		icon = GFX_goal_generic_trade
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_improve_relations_EU_countries
+		}
+		completion_reward = {
+			add_ideas = SER_increase_trade
+		}
+
+		relative_position_id = SER_SPP_improve_relations_EU_countries
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_Join_EU
+		icon = GFX_focus_generic_EU
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_attraction_EU_investments
+		}
+		prerequisite = {
+			focus = SER_SPP_increase_trade_EU
+		}
+		completion_reward = {
+			add_ideas = eu_member
+
+			remove_ideas = SER_increase_export
+			remove_ideas = SER_eu_laws
+			remove_ideas = SER_eu_reforms
+			remove_ideas = SER_eu_ambition
+			remove_ideas = SER_office_of_European_integration
+		}
+
+		relative_position_id = SER_SPP_attraction_EU_investments
+
+		x = -1
+		y = 1
+
+	}
+
+
+	focus = {
+		id = SER_SPP_CSTO
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_Lean_east
+		}
+
+
+		relative_position_id = SER_SPP_Lean_east
+		x = 1
+		y = 1
+	}
+	focus = {
+		id = SER_SPP_support_Russia
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_CSTO
+		}
+		
+		relative_position_id = SER_SPP_CSTO
+		x = 0
+		y = 1
+	}
+	focus = {
+		id = SER_SPP_Buy_russian_weapons
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_support_Russia
+		}
+
+		relative_position_id = SER_SPP_support_Russia
+		x = 1
+		y = 1
+	}
+
+	focus = {
+		id = SER_SPP_joint_military_exercises
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_support_Russia
+		}
+
+
+
+		relative_position_id = SER_SPP_support_Russia
+		x = -1
+		y = 1
+	}
+
+	focus = {
+		id = SER_SPP_sending_volunteers_to_Donbass
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_joint_military_exercises
+		}
+		prerequisite = {
+			focus = SER_SPP_Buy_russian_weapons
+		}
+
+
+
+		relative_position_id = SER_SPP_support_Russia
+		x = 0
+		y = 2
+	}
+	focus = {
+		id = SER_SPP_Russian_investments
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_sending_volunteers_to_Donbass
+		}
+		relative_position_id = SER_SPP_sending_volunteers_to_Donbass
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SER_SPP_gas_discounts
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_sending_volunteers_to_Donbass
+		}
+		relative_position_id = SER_SPP_sending_volunteers_to_Donbass
+		x = 1
+		y = 1
+	}
+	focus = {
+		id = SER_SPP_Join_CSTO
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_gas_discounts
+		}
+		prerequisite = {
+			focus = SER_SPP_Russian_investments
+		}
+		relative_position_id = SER_SPP_gas_discounts
+		x = -1
+		y = 1
+	}
+
+	focus = {
+		id = SER_SPP_recognize_Crimea_as_Russian
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_Lean_east
+			focus = SER_SPP_center
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_condemn_Russias_actions_in_Ukraine
+		}
+
+		relative_position_id = SER_SPP_Lean_east
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SER_SPP_condemn_Russias_actions_in_Ukraine
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPP_lean_west
+			focus = SER_SPP_center
+		}
+
+		mutually_exclusive = {
+			focus = SER_SPP_recognize_Crimea_as_Russian
+		}
+
+		relative_position_id = SER_SPP_lean_west
+		x = 1
+		y = 1
+	}
+
+	#economics
+	focus = {
+		id = SER_SPP_reduce_the_key_rate
+		icon = GFX_goal_unknown
+		cost = 0
+		x = 6
+		y = 0
+
+	}
+
+	focus = {
+		id = SER_SPP_faster_debt_repayment
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_reduce_the_key_rate
+		}
+
+		relative_position_id = SER_SPP_reduce_the_key_rate
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_free_economic_zones
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_faster_debt_repayment
+		}
+
+		relative_position_id = SER_SPP_faster_debt_repayment
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_creating_attractive_environment_for_investment
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_free_economic_zones
+		}
+
+		relative_position_id = SER_SPP_free_economic_zones
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_protection_of_domestic_producers
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_creating_attractive_environment_for_investment
+		}
+
+		relative_position_id = SER_SPP_creating_attractive_environment_for_investment
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_fight_against_unemployment
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_reduce_the_key_rate
+		}
+
+		relative_position_id = SER_SPP_reduce_the_key_rate
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_PPS_infrastructure_update
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_faster_debt_repayment
+		}
+		prerequisite = {
+			focus = SER_SPP_fight_against_unemployment
+		}
+
+		relative_position_id = SER_SPP_reduce_the_key_rate
+
+		x = 0
+		y = 2
+
+	}
+	focus = {
+		id = SER_SPP_develop_own_energy_sources
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_PPS_infrastructure_update
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_expansion_Russian_gas_imports
+		}
+
+		relative_position_id = SER_PPS_infrastructure_update
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_expansion_Russian_gas_imports
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_PPS_infrastructure_update
+		}
+		mutually_exclusive = {
+			focus = SER_SPP_develop_own_energy_sources
+		}
+
+		relative_position_id = SER_PPS_infrastructure_update 
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_expansion_of_foreign_trade
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_develop_own_energy_sources
+			focus = SER_SPP_expansion_Russian_gas_imports
+		}
+
+		relative_position_id = SER_SPP_develop_own_energy_sources
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_empowerment_AntiCorruption_Drectorate
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_fight_against_unemployment
+		}
+
+		relative_position_id = SER_SPP_fight_against_unemployment
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_strengthening_police
+		icon = GFX_goal_unknown
+		cost = 0
+		prerequisite = {
+			focus = SER_SPP_empowerment_AntiCorruption_Drectorate
+		}
+
+		relative_position_id = SER_SPP_empowerment_AntiCorruption_Drectorate
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_burning_out_corruption _in_police
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_strengthening_police
+		}
+
+		relative_position_id = SER_SPP_strengthening_police
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SPP_growth_continues
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SPP_protection_of_domestic_producers
+		}
+		prerequisite = {
+			focus = SER_SPP_burning_out_corruption _in_police
+		}
+		prerequisite = {
+			focus = SER_SPP_expansion_of_foreign_trade
+		}
+
+		relative_position_id = SER_SPP_expansion_of_foreign_trade
+
+		x = 0
+		y = 1
+		
 
 	}
 }
