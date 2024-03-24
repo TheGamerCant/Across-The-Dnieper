@@ -52,7 +52,7 @@ focus_tree = {
 		icon = GFX_Land_Force_Doctrine_Reform
 		x = 7
 		y = 1
-		cost = 40
+		cost = 7
 
 		ai_will_do = { 
 			factor = 10 
@@ -157,7 +157,7 @@ focus_tree = {
 		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
 		x = 6
 		y = 4
-		cost = 15
+		cost = 14
 
 		ai_will_do = { 
 			factor = 10 
@@ -178,7 +178,7 @@ focus_tree = {
 		icon = GFX_Increase_Domestic_Production_Standards
 		x = 8
 		y = 4
-		cost = 15
+		cost = 40
 
 		ai_will_do = { 
 			factor = 10 
@@ -201,7 +201,7 @@ focus_tree = {
 		icon = GFX_Modernize_The_Airforce
 		x = 2
 		y = 1
-		cost = 15
+		cost = 7
 
 		ai_will_do = { 
 			factor = 10 
@@ -224,6 +224,54 @@ focus_tree = {
 		    }
 		 }
 	}
-		
+		focus = {
+		id =  Partcicipate_in_NATO_Exercises 
+		icon = GFX_Participate_in_nato_exercises
+		x = 1
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_3
+            add_idea = 3_Stage_Military_Restructuring_4
+		    }
+		 }
+	}
+	focus = {
+		id =  Humanitarian_and_Peacekeeping_Operations
+		icon = GFX_Humanitarian_and_Peacekeeping_operations
+		x = 3
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			add_political_power = -25
+			swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_4
+            add_idea = 3_Stage_Military_Restructuring_5
+		    }
+		}
+	}
 }
 
