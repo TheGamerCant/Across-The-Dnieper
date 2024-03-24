@@ -41,4 +41,83 @@ country_event = {
     complete_national_focus = The_coalltion_fails
 	add_idea = ROM_2014_elections
     }
-}	
+}
+	country_event = {
+    id = romania.3
+    title = romania.3.t
+    desc = romania.3.desc
+		picture = GFX_report_event_ROM_Crin_Antonescu_Resigns_As_President_Of_The_Senate
+		is_triggered_only = yes
+
+    option = {
+        name = romania.3.a
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = -0.02 }
+        add_popularity = { ideology = social_democracy popularity = -0.06 }
+        add_stability = -0.02
+        add_political_power = -50
+    } 
+}
+	country_event = {
+    id = romania.4
+    title = romania.4.t
+    desc = romania.4.desc
+		picture = GFX_report_event_ROM_Romanian_Elections
+		is_triggered_only = yes
+
+    option = {
+        name = romania.4.a
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = 0.08 }
+        add_popularity = { ideology = social_democracy popularity = 0.08 }
+        add_stability = 0.05
+        add_political_power = 20
+    } 
+}
+country_event = {
+    id = romania.5
+    title = romania.5.t
+    desc = romania.5.desc
+		picture = GFX_report_event_ROM_Romanian_Elections
+		is_triggered_only = yes
+
+    option = {
+        name = romania.5.a
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = neoconservative popularity = 0.04 }
+        add_popularity = { ideology = social_democracy popularity = 0.04 }
+        country_event = {id = romania.5.1}
+    } 
+    option = {
+        name = romania.5.b
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = neoliberal popularity = 0.04 }
+        add_popularity = { ideology = social_democracy popularity = 0.04 }
+        add_popularity = { ideology = eastern_liberal popularity = 0.02 }
+        add_popularity = { ideology = socialist popularity = 0.02 }
+        add_popularity = { ideology = moderate_communist popularity = 0.01 }
+        add_stability = -0.01
+        country_event = {id = romania.5.b.1}
+    } 
+    option = {
+        name = romania.5.c
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = 0.04 }
+        add_popularity = { ideology = neoconservative popularity = 0.04 }
+        add_popularity = { ideology = populist popularity = 0.02 }
+        add_popularity = { ideology = neoconservative popularity = 0.02 }
+        add_popularity = { ideology = ultranationalist popularity = 0.01 }
+        add_stability = -0.02
+        country_event = {id = romania.5.c.1}
+    } 
+}
