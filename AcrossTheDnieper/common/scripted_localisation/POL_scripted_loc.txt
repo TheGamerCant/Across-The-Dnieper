@@ -303,6 +303,40 @@ defined_text = {
 }
 
 defined_text = {
+	name = get_seat_threshold
+	text = {
+		trigger = {
+			OR={
+				AND={
+					check_variable = { sejm_seat_frame^seat_idx = 1 }
+					has_country_flag = POL_civic_coalition_alliance
+				}
+				check_variable = { sejm_seat_frame^seat_idx = 2 }
+				AND={
+					check_variable = { sejm_seat_frame^seat_idx = 3 }
+					has_country_flag = POL_rightist_party_is_konfederacja
+				}
+				check_variable = { sejm_seat_frame^seat_idx = 4 }
+				AND={
+					check_variable = { sejm_seat_frame^seat_idx = 5 }
+					has_country_flag = POL_polish_coalition_alliance
+				}
+				AND={
+					check_variable = { sejm_seat_frame^seat_idx = 5 }
+					has_country_flag = POL_third_way_alliance
+				}
+			}
+			
+		}
+		localization_key = "POL_eight_percent_threshold"
+	}
+	text = {
+		localization_key = "POL_five_percent_threshold"
+	}
+}
+
+
+defined_text = {
 	name = get_rightist_party
 	text = {
 		trigger = {

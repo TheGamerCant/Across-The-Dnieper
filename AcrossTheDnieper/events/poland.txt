@@ -1334,6 +1334,100 @@ country_event = {
 	}
 }
 
+#PSL to enter alliance talks
+country_event = {
+	id = atd_poland.25
+	title = atd_poland.25.t
+	desc = atd_poland.25.desc
+	is_triggered_only = yes
+
+	option = {
+		name = atd_poland.25.a
+		ai_chance = { base = 1 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PSL_popularity = 0.4 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_increase_PSL_popularity_tt
+		set_country_flag = POL_polish_coalition_alliance
+		custom_effect_tooltip = atd_poland.25.tt
+	}
+	
+	option = {
+		name = atd_poland.25.b
+		ai_chance = { base = 0 }
+	}
+}
+
+#PSL to enter alliance talks 2
+country_event = {
+	id = atd_poland.26
+	title = atd_poland.26.t
+	desc = atd_poland.26.desc
+	is_triggered_only = yes
+
+	option = {
+		name = atd_poland.26.a
+		ai_chance = { base = 1 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PSL_popularity = 3.5 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_increase_PSL_popularity_tt
+		
+		if={
+			limit = { has_country_flag = POL_polish_coalition_alliance }
+			clr_country_flag = POL_polish_coalition_alliance
+			set_country_flag = POL_third_way_alliance
+		}
+		else={
+			set_country_flag = POL_third_way_alliance
+			custom_effect_tooltip = atd_poland.25.tt
+		}
+	}
+	
+	option = {
+		name = atd_poland.26.b
+		ai_chance = { base = 0 }
+	}
+}
+
+#PO to enter alliance talks
+country_event = {
+	id = atd_poland.27
+	title = atd_poland.27.t
+	desc = atd_poland.27.desc
+	is_triggered_only = yes
+
+	option = {
+		name = atd_poland.27.a
+		ai_chance = { base = 1 }
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				add_to_variable = { THIS.PO_popularity = 1.9 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_increase_PO_popularity_tt
+		set_country_flag = POL_civic_coalition_alliance
+		custom_effect_tooltip = atd_poland.27.tt
+	}
+	
+	option = {
+		name = atd_poland.27.b
+		ai_chance = { base = 0 }
+	}
+}
 
 #Choose your party for election
 country_event = {

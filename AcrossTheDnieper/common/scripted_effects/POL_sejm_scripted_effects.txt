@@ -1729,25 +1729,44 @@ POL_get_sejm_seats_per_voivodeship={
 		clear_variable = THIS.OTHER_quotient_to_divide_by
 		
 		if={
-			limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than } }
+			limit = { check_variable = { var = THIS.PO_popularity value = 5 compare = less_than } NOT = { has_country_flag = POL_civic_coalition_alliance } }
 			set_variable = { THIS.PO_quotient = 0 }
 		}
+		else_if={
+			limit = { check_variable = { var = THIS.PO_popularity value = 8 compare = less_than } has_country_flag = POL_civic_coalition_alliance }
+			set_variable = { THIS.PO_quotient = 0 }
+		}
+		
 		if={
-			limit = { check_variable = { var = THIS.PiS_popularity value = 5 compare = less_than } }
+			limit = { check_variable = { var = THIS.PiS_popularity value = 8 compare = less_than } }
 			set_variable = { THIS.PiS_quotient = 0 }
 		}
+		
 		if={
-			limit = { check_variable = { var = THIS.RIGHT_popularity value = 5 compare = less_than } }
+			limit = { check_variable = { var = THIS.RIGHT_popularity value = 5 compare = less_than } NOT = { has_country_flag = POL_rightist_party_is_konfederacja } }
 			set_variable = { THIS.RIGHT_quotient = 0 }
 		}
+		else_if={
+			limit = { check_variable = { var = THIS.RIGHT_popularity value = 8 compare = less_than } has_country_flag = POL_rightist_party_is_konfederacja }
+			set_variable = { THIS.RIGHT_quotient = 0 }
+		}
+		
+		
 		if={
-			limit = { check_variable = { var = THIS.LEFT_popularity value = 5 compare = less_than } }
+			limit = { check_variable = { var = THIS.LEFT_popularity value = 8 compare = less_than } }
 			set_variable = { THIS.LEFT_quotient = 0 }
 		}
+		
 		if={
-			limit = { check_variable = { var = THIS.PSL_popularity value = 5 compare = less_than } }
+			limit = { check_variable = { var = THIS.PSL_popularity value = 5 compare = less_than } NOT = { OR = { has_country_flag = POL_polish_coalition_alliance has_country_flag = POL_third_way_alliance } } }
 			set_variable = { THIS.PSL_quotient = 0 }
 		}
+		else_if={
+			limit = { check_variable = { var = THIS.PSL_popularity value = 8 compare = less_than } OR = { has_country_flag = POL_polish_coalition_alliance has_country_flag = POL_third_way_alliance } }
+			set_variable = { THIS.PSL_quotient = 0 }
+		}
+		
+		
 		if={
 			limit = { check_variable = { var = THIS.OTHER_popularity value = 5 compare = less_than } }
 			set_variable = { THIS.OTHER_quotient = 0 }
