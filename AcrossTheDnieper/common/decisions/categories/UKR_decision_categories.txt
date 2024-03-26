@@ -94,10 +94,24 @@ UKR_hur_decisions = {
 		}
 	}
 	#scripted_gui = ukraine_hur_decisions
-	visible_when_empty = no
+	visible_when_empty = yes
 	visible = {
 		has_completed_focus = UKR_organisation_of_the_partisans
 		any_country = { has_war_with = ROOT original_tag = SOV }
 		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}
+
+UKR_miliary_aid_decision = {
+	priority = 600
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = UGE
+		}
+	}
+	scripted_gui = ukraine_miliary_aid_decisions
+	visible_when_empty = yes
+	visible = {
 	}
 }

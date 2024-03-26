@@ -1,4 +1,64 @@
 scripted_gui = {
+	ukraine_miliary_aid_decisions = {
+		context_type = decision_category
+		window_name = "ukraine_miliary_aid_decisions"
+		triggers = {
+		}
+		
+		effects={
+			UKR_germany_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+					set_country_flag = UKR_opened_country_aid_equipment
+				}
+			}
+			UKR_turkey_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+					set_country_flag = UKR_opened_country_aid_equipment
+				}
+			}
+			UKR_uk_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+					set_country_flag = UKR_opened_country_aid_equipment
+				}
+			}
+			UKR_usa_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+					set_country_flag = UKR_opened_country_aid_equipment
+				}
+			}
+		}
+		properties = { 
+
+		}
+	}
+
+	ukraine_miliary_aid_equipment = {
+		context_type = player_context
+		window_name = "ukraine_miliary_aid_equipment_gui"
+		triggers = {
+		}
+		
+		effects={
+			close_button_click = {
+				if={
+					limit = { has_country_flag = UKR_opened_country_aid_equipment }
+					clr_country_flag = UKR_opened_country_aid_equipment
+				}
+			}
+		}
+		properties = { 
+	
+		}
+
+		visible={
+			has_country_flag = UKR_opened_country_aid_equipment
+		}
+	}
+
 
 	ukraine_hur_decisions = {
 		context_type = decision_category
