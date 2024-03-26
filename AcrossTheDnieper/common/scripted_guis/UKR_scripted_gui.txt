@@ -7,24 +7,32 @@ scripted_gui = {
 		
 		effects={
 			UKR_germany_click = {
+				UKR_clear_military_aid_countries = yes
+				set_country_flag = UKR_ma_ger_selected
 				if={
 					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
 					set_country_flag = UKR_opened_country_aid_equipment
 				}
 			}
 			UKR_turkey_click = {
+				UKR_clear_military_aid_countries = yes
+				set_country_flag = UKR_ma_tur_selected
 				if={
 					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
 					set_country_flag = UKR_opened_country_aid_equipment
 				}
 			}
 			UKR_uk_click = {
+				UKR_clear_military_aid_countries = yes
+				set_country_flag = UKR_ma_uk_selected
 				if={
 					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
 					set_country_flag = UKR_opened_country_aid_equipment
 				}
 			}
 			UKR_usa_click = {
+				UKR_clear_military_aid_countries = yes
+				set_country_flag = UKR_ma_usa_selected
 				if={
 					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
 					set_country_flag = UKR_opened_country_aid_equipment
@@ -51,7 +59,9 @@ scripted_gui = {
 			}
 		}
 		properties = { 
-	
+			equipment_image = {
+				image = "[UKR_get_military_aid_equipment_image]"
+			}
 		}
 
 		visible={
@@ -164,6 +174,8 @@ scripted_gui = {
 					}
 				}
 			}
+
+
 		}
 		properties = { 
 			city_borisovka_button = {
@@ -272,8 +284,16 @@ scripted_gui = {
 		}
 		
 		effects={
+			prepare_assassination_button_click = {
+				if = {
+					limit = {check_variable = { ROOT.can_do_hur_mission = 1 }
 
+					log = "myVariable: [?HUR_assassination_array^0]"
+				}
+			}
 		}
+		}
+
 		properties = {
 			person_portrait = {
 				image = "[UKR_HUR_get_assassination_portrait]"
