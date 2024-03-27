@@ -653,57 +653,84 @@ get_country_real_gdp_growth={
 	subtract_from_variable = { ROOT.real_gdp_growth = ROOT.inflation_rate }
 }
 
+remove_all_inflation_ideas={
+	remove_ideas = ATD_inflation_1
+	remove_ideas = ATD_inflation_2
+	remove_ideas = ATD_inflation_3
+	remove_ideas = ATD_inflation_4
+	remove_ideas = ATD_inflation_5
+	remove_ideas = ATD_inflation_6
+	remove_ideas = ATD_inflation_7
+}
+remove_all_real_gdp_pc_ideas={
+	remove_ideas = ATD_real_gdp_pc_1
+	remove_ideas = ATD_real_gdp_pc_2
+	remove_ideas = ATD_real_gdp_pc_3
+	remove_ideas = ATD_real_gdp_pc_4
+	remove_ideas = ATD_real_gdp_pc_5
+	remove_ideas = ATD_real_gdp_pc_6
+	remove_ideas = ATD_real_gdp_pc_7
+}
+remove_all_gdp_pc_ideas={
+	remove_ideas = ATD_gdp_pc_1
+	remove_ideas = ATD_gdp_pc_2
+	remove_ideas = ATD_gdp_pc_3
+	remove_ideas = ATD_gdp_pc_4
+	remove_ideas = ATD_gdp_pc_5
+	remove_ideas = ATD_gdp_pc_6
+}
+
 get_effects_from_inflation={
 	if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = -5 compare = less_than }					#Major deflation
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.05 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.002 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_1
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 0 compare = less_than }					#Small deflation
 			check_variable = { var = ROOT.inflation_rate value = -5 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.02 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.001 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_2
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 1 compare = less_than }					#Stagnation
 			check_variable = { var = ROOT.inflation_rate value = 0 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.001 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_3
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 5.5 compare = less_than }					#Normal inflation
 			check_variable = { var = ROOT.inflation_rate value = 1 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = -0.01 }
-		set_variable = { ROOT.inflation_stability_weekly = 0 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_4
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 20 compare = less_than }					#High inflation
 			check_variable = { var = ROOT.inflation_rate value = 5.5 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.04 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.001 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_5
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.inflation_rate value = 75 compare = less_than }					#Extreme inflation
 			check_variable = { var = ROOT.inflation_rate value = 20 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.08 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.002 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_6
 	}
 	else={																									#Venezuela
-		set_variable = { ROOT.inflation_consumer_goods_expected_value = 0.2 }
-		set_variable = { ROOT.inflation_stability_weekly = -0.005 }
+		remove_all_inflation_ideas = yes
+		add_ideas = ATD_inflation_7
 	}
 }
 
@@ -712,20 +739,16 @@ get_effects_from_real_gdp_pc={
 		limit = {
 			check_variable = { var = ROOT.real_gdp_growth value = -15 compare = less_than }					#Massive decline
 		}
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = -0.25 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = -0.15 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = -0.2 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = -0.15 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_1
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.real_gdp_growth value = -5 compare = less_than }					#Major decline
 			check_variable = { var = ROOT.real_gdp_growth value = -15 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = -0.15 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = -0.05 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = -0.15 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = -0.08 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_2
 	}
 	else_if={
 		limit = {
@@ -736,42 +759,36 @@ get_effects_from_real_gdp_pc={
 		set_variable = { ROOT.real_gdp_pc_research_speed_factor = -0.01 }
 		set_variable = { ROOT.real_gdp_pc_stability_factor = -0.1 }
 		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = -0.04 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_3
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.real_gdp_growth value = 0.5 compare = less_than }					#Stagnation
 			check_variable = { var = ROOT.real_gdp_growth value = -0.5 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = -0.05 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = 0 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = -0.05 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = -0.01 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_4
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.real_gdp_growth value = 5 compare = less_than }					#Small growth
 			check_variable = { var = ROOT.real_gdp_growth value = 0.5 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = 0.05 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = 0.02 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = 0 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = 0.05 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_5
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.real_gdp_growth value = 15 compare = less_than }					#Major growth
 			check_variable = { var = ROOT.real_gdp_growth value = 5 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = 0.15 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = 0.05 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = 0.1 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = 0.1 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_6
 	}
 	else={																									#Economic boom
-		set_variable = { ROOT.real_gdp_pc_political_power_gain = 0.25 }
-		set_variable = { ROOT.real_gdp_pc_research_speed_factor = 0.1 }
-		set_variable = { ROOT.real_gdp_pc_stability_factor = 0.25 }
-		set_variable = { ROOT.real_gdp_pc_ruling_party_drift = 0.25 }
+		remove_all_real_gdp_pc_ideas = yes
+		add_ideas = ATD_real_gdp_pc_7
 	}
 }
 
@@ -780,56 +797,44 @@ get_effects_from_gdp_pc={
 		limit = {
 			check_variable = { var = ROOT.gdp_per_capita value = 40000 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.gdp_pc_stability_factor = 0.3 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = 0.2 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = 0.3 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = 0.1 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_1
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.gdp_per_capita value = 40000 compare = less_than }
 			check_variable = { var = ROOT.gdp_per_capita value = 30000 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.gdp_pc_stability_factor = 0.2 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = 0.175 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = 0.25 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = 0.075 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_2
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.gdp_per_capita value = 30000 compare = less_than }
 			check_variable = { var = ROOT.gdp_per_capita value = 20000 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.gdp_pc_stability_factor = 0.1 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = 0.125 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = 0.2 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = 0.05 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_3
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.gdp_per_capita value = 20000 compare = less_than }
 			check_variable = { var = ROOT.gdp_per_capita value = 10000 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.gdp_pc_stability_factor = 0.05 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = 0.05 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = 0.1 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = 0 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_4
 	}
 	else_if={
 		limit = {
 			check_variable = { var = ROOT.gdp_per_capita value = 10000 compare = less_than }
 			check_variable = { var = ROOT.gdp_per_capita value = 5000 compare = greater_than_or_equals }
 		}
-		set_variable = { ROOT.gdp_pc_stability_factor = -0.05 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = -0.05 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = 0 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = -0.05 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_5
 	}
 	else={
-		set_variable = { ROOT.gdp_pc_stability_factor = -0.2 }
-		set_variable = { ROOT.gdp_pc_production_speed_buildings_factor = -0.15 }
-		set_variable = { ROOT.gdp_pc_global_building_slots_factor = -0.15 }
-		set_variable = { ROOT.gdp_pc_research_speed_factor = -0.1 }
+		remove_all_gdp_pc_ideas = yes
+		add_ideas = ATD_gdp_pc_6
 	}
 }
 
