@@ -564,7 +564,111 @@ defined_text = {
             check_variable = { ROOT.UKR_ma_slot = 1 }
             has_country_flag = UKR_ma_usa_selected
         }
-        localization_key = "GFX_UKR_himars"
+        localization_key = "GFX_UKR_himars_gui"
     }
 
+}
+
+defined_text = {
+    name = UKR_hur_are_there_allies
+	
+    text = {
+        trigger = {
+            OR = {
+                has_completed_focus = UKR_russian_volunteer_corps
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = ""
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = "UKR_hur_alies_doesnt_have_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_rvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_rvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_frl_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = "UKR_hur_frl_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_rvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_rvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_frl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_frl_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = "UKR_hur_unit_frl_name"
+    }
 }
