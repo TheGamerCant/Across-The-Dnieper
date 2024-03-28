@@ -8627,6 +8627,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_category_tooltip = UKR_miliary_aid_decision
 			add_political_power = -50
 		}
 	}
@@ -9514,7 +9515,28 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = UKR_russian_volunteer_corps_tt
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 7 }
+			add_to_variable = { UKR.required_rifles_incursion = 100 }
+			add_to_variable = { UKR.required_manpower_incursion = 100 }
 			set_variable = { UKR.rvc_frame = 2 }
+
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = UKR_russian_defectors
+					}
+				}
+				custom_effect_tooltip = UKR_russian_defectors_2
+				add_to_variable = { UKR.UKR_rd_weekly_manpower = 35 }
+				add_to_variable = { UKR.UKR_rd_cp_gain = -0.025 }
+			}
+
+			else = {
+				add_dynamic_modifier = {
+					modifier = UKR_russian_defectors
+				}
+			}
 		}
 	}
 
@@ -9543,6 +9565,94 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			set_variable = { UKR.frl_frame = 2 }
+			custom_effect_tooltip = UKR_freedom_of_russian_legion_tt
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 4 }
+			add_to_variable = { UKR.required_apc_incursion = 2 }
+			add_to_variable = { UKR.required_rifles_incursion = 80 }
+			add_to_variable = { UKR.required_manpower_incursion = 80 }
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = UKR_russian_defectors
+					}
+				}
+				custom_effect_tooltip = UKR_russian_defectors_2
+				add_to_variable = { UKR.UKR_rd_weekly_manpower = 35 }
+				add_to_variable = { UKR.UKR_rd_cp_gain = -0.025 }
+			}
+			
+			else = {
+				add_dynamic_modifier = {
+					modifier = UKR_russian_defectors
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_belarusian_volunteer_corps
+		icon = GFX_focus
+		x = -1
+		y = 4
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_mighty_A3449 }
+		prerequisite = { focus = UKR_russian_volunteer_corps }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.bvc_frame = 2 }
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 1 }
+			add_to_variable = { UKR.required_rifles_incursion = 10 }
+			add_to_variable = { UKR.required_manpower_incursion = 10 }
+			custom_effect_tooltip = UKR_belarusian_volunteer_corps_tt
+			add_opinion_modifier = { target = BLR modifier = medium_increase }
+		}
+	}
+
+	focus = {
+		id = UKR_polish_volunteer_corps
+		icon = GFX_focus
+		x = -1
+		y = 5
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_belarusian_volunteer_corps }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.pvc_frame = 2 }
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 1 }
+			add_to_variable = { UKR.required_rifles_incursion = 10 }
+			add_to_variable = { UKR.required_manpower_incursion = 10 }
+			custom_effect_tooltip = UKR_polish_volunteer_corps_tt
+			add_opinion_modifier = { target = POL modifier = medium_increase }
 		}
 	}
 

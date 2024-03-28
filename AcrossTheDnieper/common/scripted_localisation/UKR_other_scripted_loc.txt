@@ -557,19 +557,6 @@ defined_text = {
 }
 
 defined_text = {
-    name = UKR_get_military_aid_equipment_image
-	
-    text = {
-        trigger = {
-            check_variable = { ROOT.UKR_ma_slot = 1 }
-            has_country_flag = UKR_ma_usa_selected
-        }
-        localization_key = "GFX_UKR_himars_gui"
-    }
-
-}
-
-defined_text = {
     name = UKR_hur_are_there_allies
 	
     text = {
@@ -634,6 +621,46 @@ defined_text = {
 }
 
 defined_text = {
+    name = UKR_hur_is_bvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_bvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_pvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_pvc_pre_tt"
+    }
+}
+
+defined_text = {
     name = UKR_hur_get_incursion_units_rvc
 	
     text = {
@@ -669,6 +696,264 @@ defined_text = {
                 has_completed_focus = UKR_freedom_of_russian_legion
             }
         }
-        localization_key = "UKR_hur_unit_frl_name"
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_bvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_bvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_pvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_pvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_rvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_rvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_frl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_frl_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_bvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_bvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_pvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_pvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_get_military_aid_equipment_image
+	
+    text = {
+        trigger = {
+            check_variable = { ROOT.UKR_ma_slot = 1 }
+            has_country_flag = UKR_ma_usa_selected
+        }
+        localization_key = "GFX_UKR_himars_gui"
+    }
+
+}
+
+defined_text = {
+    name = UKR_get_military_aid_equipment_name
+	
+    text = {
+        trigger = {
+            check_variable = { ROOT.UKR_ma_slot = 1 }
+            has_country_flag = UKR_ma_usa_selected
+        }
+        localization_key = "UKR_ma_himars"
+    }
+
+}
+
+defined_text = {
+    name = UKR_get_military_aid_equipment_owner_stats
+	
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_usa_selected
+        }
+        localization_key = "UKR_ma_usa"
+    }
+
+}
+
+defined_text = {
+    name = UKR_can_make_deal_military_aid
+	
+    text = {
+        trigger = {
+            OR = {
+                AND = {
+                    check_variable = { ROOT.UKR_ma_usa_variable > 60 }
+                    has_country_flag = UKR_ma_usa_selected
+                }
+
+                AND = {
+                    check_variable = { ROOT.UKR_ma_uk_variable > 60 }
+                    has_country_flag = UKR_ma_uk_selected
+                }
+
+                AND = {
+                    check_variable = { ROOT.UKR_ma_ger_variable > 60 }
+                    has_country_flag = UKR_ma_ger_selected
+                }
+
+                AND = {
+                    check_variable = { ROOT.UKR_ma_tur_variable > 60 }
+                    has_country_flag = UKR_ma_tur_selected
+                }
+            }
+        }
+        localization_key = "texticon_tick"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    AND = {
+                        check_variable = { ROOT.UKR_ma_usa_variable > 60 }
+                        has_country_flag = UKR_ma_usa_selected
+                    }
+    
+                    AND = {
+                        check_variable = { ROOT.UKR_ma_uk_variable > 60 }
+                        has_country_flag = UKR_ma_uk_selected
+                    }
+    
+                    AND = {
+                        check_variable = { ROOT.UKR_ma_ger_variable > 60 }
+                        has_country_flag = UKR_ma_ger_selected
+                    }
+    
+                    AND = {
+                        check_variable = { ROOT.UKR_ma_tur_variable > 60 }
+                        has_country_flag = UKR_ma_tur_selected
+                    }
+                }
+            }
+        }
+        localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = UKR_can_make_deal_military_aid_pp
+	
+    text = {
+        trigger = {
+            OR = {
+                has_political_power > 25
+                has_political_power = 25
+            }
+            
+        }
+        localization_key = "texticon_tick"
+    }
+
+    text = {
+        trigger = {
+            has_political_power < 25
+        }
+        localization_key = "texticon_cross"
+    }
+}
+
+defined_text = {
+    name = UKR_can_make_deal_military_aid_recent
+	
+    text = {
+        trigger = {
+            NOT = { has_country_flag = UKR_ma_done_deal_recently }
+        }
+        localization_key = "texticon_tick"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_done_deal_recently
+        }
+        localization_key = "texticon_cross"
     }
 }
