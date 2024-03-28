@@ -1138,7 +1138,7 @@ country_event = {
 
 	option = {
 		name = atd_poland.21.a
-		ai_chance = { base = 0 }
+		ai_chance = { base = 1 }
 		
 		trigger={
 			NOT = { has_country_flag = Kaczynski_PiS_candidate_flag }
@@ -1153,7 +1153,11 @@ country_event = {
 	
 	option = {
 		name = atd_poland.21.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 9999 }
+		
+		trigger={
+			NOT = { has_completed_focus = POL_a_euroeceptic_policy }
+		}
 		
 		POL_clear_PiS_party_leader_flags = yes
 		set_country_flag = POL_beata_szydlo_is_PiS_leader
@@ -1163,7 +1167,7 @@ country_event = {
 	
 	option = {
 		name = atd_poland.21.c
-		ai_chance = { base = 0 }
+		ai_chance = { base = 1 }
 		
 		POL_clear_PiS_party_leader_flags = yes
 		set_country_flag = POL_mateusz_morawiecki_is_PiS_leader
@@ -1458,6 +1462,33 @@ country_event = {
 		name = atd_poland.27.b
 		ai_chance = { base = 0 }
 	}
+}
+
+#Meeting with Hungolia
+country_event = {
+	id = atd_poland.28
+	title = atd_poland.28.t
+	desc = atd_poland.28.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_szydlo_and_orban
+
+	option = {
+		name = atd_poland.28.a
+		ai_chance = { base = 1 }
+		
+		add_political_power = 75
+		add_opinion_modifier = { target = HUN modifier = BLR_medium_positive }
+		HUN = { add_opinion_modifier = { target = POL modifier = BLR_medium_positive } }
+		every_other_country = {
+			limit = { 
+				has_idea = eu_member
+				has_western_government = yes
+			}
+			add_opinion_modifier = { target = POL modifier = POL_suspicious_of_eu_policy }
+		}
+	}
+
 }
 
 #Choose your party for election

@@ -591,6 +591,79 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = POL_working_within_europe
+		icon = GFX_focus_
+		x = -3
+		y = 1
+		cost = 14
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			OR={
+				has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
+				has_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+			}
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_a_euroeceptic_policy
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 14
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			has_country_flag = POL_beata_szydlo_is_current_pm_flag
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_voting_bloc_with_budapest
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 35
+		prerequisite = { focus = POL_a_euroeceptic_policy }
+		relative_position_id = POL_a_euroeceptic_policy
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			has_country_flag = POL_beata_szydlo_is_current_pm_flag
+			HUN = { has_illiberal_government = yes exists = yes }
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			country_event = { id = atd_poland.28 hours = 2 random_hours = 4 }
+		}
+	}
+	
+	focus = {
 		id = POL_the_consitutional_crisis
 		icon = GFX_focus_POL_the_consitutional_crisis
 		x = 3
@@ -2048,12 +2121,6 @@ shared_focus = {
 	dynamic = yes
 	icon = {
 		trigger = {
-			has_completed_focus = POL_law_and_justice
-		}
-		value = GFX_focus_POL_power_to_the_homeland_PiS
-	}
-	icon = {
-		trigger = {
 			OR={
 				has_far_right_government = yes
 				has_government = populist
@@ -2063,7 +2130,7 @@ shared_focus = {
 		value = GFX_focus_POL_power_to_the_homeland_konfederacja
 	}
 	icon = {
-		value = GFX_focus_
+		value = GFX_focus_POL_power_to_the_homeland_PiS
 	}
 	x = 3
 	y = 0
@@ -2087,12 +2154,6 @@ shared_focus = {
 	dynamic = yes
 	icon = {
 		trigger = {
-			has_completed_focus = POL_law_and_justice
-		}
-		value = GFX_focus_POL_the_small_media_law_focus_PiS
-	}
-	icon = {
-		trigger = {
 			OR={
 				has_far_right_government = yes
 				has_government = populist
@@ -2102,7 +2163,7 @@ shared_focus = {
 		value = GFX_focus_POL_the_small_media_law_focus_konfederacja
 	}
 	icon = {
-		value = GFX_focus_
+		value = GFX_focus_POL_the_small_media_law_focus_PiS
 	}
 	x = 0 
 	y = 1
