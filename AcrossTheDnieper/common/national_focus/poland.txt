@@ -82,7 +82,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				
-				random_select_amount = 5
+				random_select_amount = 4
 				
 				increase_state_gdp_growth_by_1 = yes
 			}
@@ -123,7 +123,7 @@ focus_tree = {
 				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 				set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
 				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_set_party_votes_for_the_bill_to_random = yes
 				POLAND_get_party_votes_for_the_bill = yes
 				
 				activate_mission = POL_strategy_for_energy_security_and_environment
@@ -203,7 +203,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_to_variable = { POL_public_institutions_monthly_population = 0.1 }
+			add_to_variable = { POL_public_institutions_monthly_population = 0.07 }
 			add_to_variable = { POL_public_institutions_experience_loss_factor = -0.1 }
 			custom_effect_tooltip = POL_healthcare_modernisation_plan_tt
 		}
@@ -555,6 +555,9 @@ focus_tree = {
 	}
 	
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+	shared_focus = POL_the_freer_the_markets_the_freer_the_people
+	shared_focus = POL_the_path_of_western_economics
+	shared_focus = POL_economic_interventionism
 }
 
 focus_tree = {
@@ -568,7 +571,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_law_and_justice
-		icon = GFX_focus_
+		icon = GFX_focus_POL_law_and_justice
 		x = 19
 		y = 0
 		cost = 40
@@ -587,10 +590,207 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = POL_the_consitutional_crisis
+		icon = GFX_focus_POL_the_consitutional_crisis
+		x = 3
+		y = 1
+		cost = 40
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger={
+				always = no
+			}
+			has_idea = POL_constitutional_crisis_idea
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_the_consitutional_tribunal_act
+		icon = GFX_focus_POL_the_consitutional_tribunal_act
+		x = 0
+		y = 1
+		cost = 15
+		prerequisite = { focus = POL_the_consitutional_crisis }
+		relative_position_id = POL_the_consitutional_crisis
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available={
+			has_idea = POL_constitutional_crisis_idea
+		}
+		bypass = {
+		}
+		
+		cancelable = no
+		select_effect={
+			hidden_effect = { country_event = { id = poland_court_event.5 random_days = 5 } }
+		}
+
+		completion_reward = {
+			hidden_effect={
+				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+				set_country_flag = POLAND_current_bill_in_sejm_is_the_consitutional_tribunal_act
+				POL_bill_needs_simple_majority = yes
+				POLAND_set_party_votes_for_the_bill_to_hard = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_the_consitutional_tribunal_act_decision
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_the_consitutional_tribunal_act_tt
+				POL_bill_needs_simple_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_constitutional_crisis_idea_2
+				}
+			}
+			
+			set_country_flag = POLAND_the_consitutional_tribunal_act_is_available
+		}
+	}
+	
+	focus = {
+		id = POL_reject_rzeplinskis_authority
+		icon = GFX_focus_POL_reject_rzeplinskis_authority
+		x = 0
+		y = 1
+		cost = 30
+		prerequisite = { focus = POL_the_consitutional_tribunal_act }
+		relative_position_id = POL_the_consitutional_tribunal_act
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available={
+			has_idea = POL_constitutional_crisis_idea_2
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			if={
+				limit = { has_idea = POL_constitutional_crisis_idea_2 }
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea_2
+					add_idea = POL_control_of_the_courts
+				}
+			}
+			else_if={		#Used for tooltip
+				limit = { has_idea = POL_constitutional_crisis_idea }
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_control_of_the_courts
+				}
+			}
+			
+			add_political_power = 100
+		}
+	}
+	
 	
 	shared_focus = POL_power_to_the_homeland
+	
+	
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+	shared_focus = POL_the_freer_the_markets_the_freer_the_people
+	shared_focus = POL_the_path_of_western_economics
+	shared_focus = POL_economic_interventionism
 }
+
+shared_focus = {
+	id = POL_the_freer_the_markets_the_freer_the_people
+	icon = GFX_focus_
+	x = 23
+	y = 6
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = POL_the_path_of_western_economics
+	icon = GFX_focus_
+	x = 25
+	y = 6
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_government = social_democracy
+			has_government = neoliberal
+			has_government = eastern_liberal
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = POL_economic_interventionism
+	icon = GFX_focus_
+	x = 27
+	y = 6
+	cost = 48
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_government = neoconservative
+			has_far_left_government = yes
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		
+	}
+}
+
 
 shared_focus = {
 	id = POL_oh_no_the_ruskies_invaded_crimea
@@ -1865,7 +2065,7 @@ shared_focus = {
 	icon = {
 		value = GFX_focus_
 	}
-	x = 5
+	x = 3
 	y = 0
 	cost = 14
 
@@ -1924,7 +2124,7 @@ shared_focus = {
 			set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 			set_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law
 			POL_bill_needs_simple_majority = yes
-			POLAND_set_party_votes_for_the_bill = yes
+			POLAND_set_party_votes_for_the_bill_to_hard = yes
 			POLAND_get_party_votes_for_the_bill = yes
 			
 			activate_mission = POL_the_small_media_law
