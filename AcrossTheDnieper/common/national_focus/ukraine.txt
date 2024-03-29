@@ -8617,7 +8617,7 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			any_country={ original_tag = SOV has_war_with = ROOT }
 			92 = { is_controlled_by = ROOT }
-			has_political_power > 49
+			has_political_power > 24
 		}
 		
 		
@@ -8628,7 +8628,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_category_tooltip = UKR_miliary_aid_decision
-			add_political_power = -50
+			add_political_power = -25
 		}
 	}
 	
@@ -9487,7 +9487,9 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-
+			add_manpower = 10000
+			add_command_power = 60
+			unlock_decision_category_tooltip = UKR_international_legion_decision
 		}
 	}
 
@@ -9590,6 +9592,74 @@ focus_tree = {
 	}
 
 	focus = {
+		id = UKR_kastus_kalinouski_regiment
+		icon = GFX_focus
+		x = 1
+		y = 4
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_organisation_of_the_partisans }
+		prerequisite = { focus = UKR_mighty_A3449 }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.kkr_frame = 2 }
+			custom_effect_tooltip = UKR_kastus_kalinouski_regiment_tt
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 3 }
+			add_to_variable = { UKR.required_mechanized_incursion = 2 }
+			add_to_variable = { UKR.required_rifles_incursion = 30 }
+			add_to_variable = { UKR.required_manpower_incursion = 30 }
+			add_opinion_modifier = { target = BLR modifier = medium_decrease }
+		}
+	}
+
+	focus = {
+		id = UKR_georgian_national_legion
+		icon = GFX_focus
+		x = 1
+		y = 5
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_kastus_kalinouski_regiment }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.gnl_frame = 2 }
+			custom_effect_tooltip = UKR_georgian_national_legion_tt
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 2 }
+			add_to_variable = { UKR.required_rifles_incursion = 15 }
+			add_to_variable = { UKR.required_manpower_incursion = 15 }
+			add_opinion_modifier = { target = GEO modifier = medium_increase }
+		}
+	}
+
+	focus = {
 		id = UKR_belarusian_volunteer_corps
 		icon = GFX_focus
 		x = -1
@@ -9619,7 +9689,7 @@ focus_tree = {
 			add_to_variable = { UKR.required_rifles_incursion = 10 }
 			add_to_variable = { UKR.required_manpower_incursion = 10 }
 			custom_effect_tooltip = UKR_belarusian_volunteer_corps_tt
-			add_opinion_modifier = { target = BLR modifier = medium_increase }
+			add_opinion_modifier = { target = BLR modifier = medium_decrease }
 		}
 	}
 
@@ -9653,6 +9723,38 @@ focus_tree = {
 			add_to_variable = { UKR.required_manpower_incursion = 10 }
 			custom_effect_tooltip = UKR_polish_volunteer_corps_tt
 			add_opinion_modifier = { target = POL modifier = medium_increase }
+		}
+	}
+
+	focus = {
+		id = UKR_german_volunteer_corps
+		icon = GFX_focus
+		x = -1
+		y = 6
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_polish_volunteer_corps }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.gvc_frame = 2 }
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 1 }
+			add_to_variable = { UKR.required_rifles_incursion = 10 }
+			add_to_variable = { UKR.required_manpower_incursion = 10 }
+			custom_effect_tooltip = UKR_german_volunteer_corps_tt
 		}
 	}
 
@@ -9901,6 +10003,35 @@ focus_tree = {
 			country_event = { id = ukraine.153 }
 		}
 	}
+
+	focus = {
+		id = UKR_wartime_tv_broadcasts
+		icon = GFX_focus_UKR_the_creation_of_partisan_channels
+		x = -1
+		y = 4
+		
+		cost = 10
+		ai_will_do = {
+		}
+		relative_position_id = UKR_stabilise_the_front 
+		prerequisite = { focus = UKR_ban_russian_tied_parties }
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = wartime_censorship
+		}
+	}
 	
 	focus = {
 		id = UKR_across_the_dnieper
@@ -10130,9 +10261,7 @@ focus_tree = {
 			get_party_votes_for_the_bill = yes
 			effect_tooltip={
 				custom_effect_tooltip = UKR_rada_effect_tt
-				
-				
-				#Radvils put effect here
+				custom_effect_tooltip = UKR_order_general_mobilization_tt
 			}
 		}
 	}
