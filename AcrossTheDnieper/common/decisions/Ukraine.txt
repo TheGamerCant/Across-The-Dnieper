@@ -1393,6 +1393,92 @@ UKR_the_verkhovna_rada={
 		}
 	}
 	
+	UKR_general_mobilisation = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_order_general_mobilization
+			NOT = { has_country_flag = UKR_general_mobilisation_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_general_mobilisation_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					
+					#Radvils put effect here
+					
+					set_country_flag = UKR_general_mobilisation_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+
+				#Radvils put effect here
+				
+				
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_general_mobilisation_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_general_mobilisation_has_been_completed
+			NOT = { has_country_flag = UKR_general_mobilisation_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_general_mobilisation_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+	
 	UKR_lobby_fatherland = { 
 
 		icon = generic_civil_support
