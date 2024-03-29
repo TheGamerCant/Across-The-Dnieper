@@ -1084,6 +1084,16 @@ focus_tree = {
 				country_event = { id = russia.1048 days = 2 }
 				news_event = { id = atd_news.55 hours = 1 }
 				add_named_threat = { threat = 60 name = russian_invasion_of_ukraine }
+				
+				if={
+					limit = {
+						vladimir_putin_is_leader = yes
+					}
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_War.png"
+					}
+					set_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
 			}
 		}
 	}

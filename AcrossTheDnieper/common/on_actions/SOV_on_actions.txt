@@ -358,6 +358,41 @@ on_actions={
 		}
 	}
 	
+	on_peace={
+		effect={
+			if={
+				limit = { 
+					THIS = { 
+						tag = SOV 
+						vladimir_putin_is_leader = yes
+					}  
+					has_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_Post_War.png"
+				}
+				clr_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+			}
+		}
+	}
+	on_capitulation = {
+		effect={
+			if={
+				limit = { 
+					FROM = { 
+						tag = SOV 
+						vladimir_putin_is_leader = yes
+					}  
+					has_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_Post_War.png"
+				}
+				clr_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+			}
+		}
+	}
+	
 	on_monthly_ZZZ={
 		effect={
 			if={

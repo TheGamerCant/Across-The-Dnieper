@@ -3412,7 +3412,7 @@ country_event = {
 	title = ukraine.89.t
 	desc = ukraine.89.desc
 	is_triggered_only = yes
-	picture = SOV_event_high_command
+	picture = SOV_high_command_event
 
 	option = { 
 		name = ukraine.89.a
@@ -3453,7 +3453,6 @@ country_event = {
 			SOV = { annex_country = { target = PREV transfer_troops = no } }
 		}
 		puppet = FROM
-		russify_city_names = yes
 		hidden_effect={
 			news_event = { id = atd_news.28 days = 1 }
 			if={
@@ -3462,6 +3461,17 @@ country_event = {
 					has_government = eastern_conservative
 				}
 				country_event = { id = russia.67 days = 5 }
+			}
+			
+			if={
+				limit = { 
+					vladimir_putin_is_leader = yes 
+					has_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_Post_War.png"
+				}
+				clr_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
 			}
 		}
 	}
