@@ -1488,7 +1488,56 @@ country_event = {
 			add_opinion_modifier = { target = POL modifier = POL_suspicious_of_eu_policy }
 		}
 	}
+}
 
+#Ministry of finance opposes childbirth subsidies
+country_event = {
+	id = atd_poland.29
+	title = atd_poland.29.t
+	desc = atd_poland.29.desc
+	is_triggered_only = yes
+	
+	timeout_days = 10
+
+	picture = GFX_report_event_POL_ministry_of_finance_building
+
+	option = {
+		name = atd_poland.29.a
+		ai_chance = { base = 1 }
+		
+		
+	}
+	
+	option = {
+		name = atd_poland.29.b
+		ai_chance = { base = 0 }
+		
+		set_country_flag = POLAND_NO_CHILDBIRTH_SUBSIDIES_FLAG
+		add_political_power = -50
+		
+		if={
+			limit = { has_government = neoconservative }
+			hidden_effect={
+				every_state={
+					limit = { POL_is_election_state = yes }
+					multiply_variable = { THIS.PiS_popularity = 0.9 }
+					POL_make_popularities_equal_100 = yes
+				}
+			}
+			custom_effect_tooltip = POL_decrease_PiS_popularity_tt
+		}
+		else_if={
+			limit = { OR = { has_government = social_democracy has_far_left_government = yes } }
+			hidden_effect={
+				every_state={
+					limit = { POL_is_election_state = yes }
+					multiply_variable = { THIS.LEFT_popularity = 0.9 }
+					POL_make_popularities_equal_100 = yes
+				}
+			}
+			custom_effect_tooltip = POL_decrease_LEFT_popularity_tt
+		}
+	}
 }
 
 #Choose your party for election

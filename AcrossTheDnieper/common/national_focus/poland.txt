@@ -787,9 +787,9 @@ focus_tree = {
 shared_focus = {
 	id = POL_the_freer_the_markets_the_freer_the_people
 	icon = GFX_focus_
-	x = 23
+	x = 25
 	y = 6
-	cost = 48
+	cost = 14
 
 	ai_will_do = { 
 		factor = 10 
@@ -814,9 +814,9 @@ shared_focus = {
 shared_focus = {
 	id = POL_the_path_of_western_economics
 	icon = GFX_focus_
-	x = 25
+	x = 30
 	y = 6
-	cost = 48
+	cost = 14
 
 	ai_will_do = { 
 		factor = 10 
@@ -840,10 +840,22 @@ shared_focus = {
 
 shared_focus = {
 	id = POL_economic_interventionism
-	icon = GFX_focus_
-	x = 27
+	dynamic = yes
+	icon = {
+		trigger = {
+			OR={
+				has_far_left_government = yes
+				has_government = social_democracy
+			}
+		}
+		value = GFX_focus_POL_economic_interventionism_LEFT
+	}
+	icon = {
+		value = GFX_focus_POL_economic_interventionism_PiS
+	}
+	x = 35
 	y = 6
-	cost = 48
+	cost = 14
 
 	ai_will_do = { 
 		factor = 10 
@@ -863,6 +875,66 @@ shared_focus = {
 		
 	}
 }
+
+shared_focus = {
+	id = POL_subsidies_for_childbirth
+	dynamic = yes
+	icon = {
+		trigger = {
+			OR={
+				has_far_left_government = yes
+				has_government = social_democracy
+			}
+		}
+		value = GFX_focus_POL_subsidies_for_childbirth_LEFT
+	}
+	icon = {
+		value = GFX_focus_POL_subsidies_for_childbirth_PiS
+	}
+	x = 1
+	y = 1
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_economic_interventionism }
+	relative_position_id = POL_economic_interventionism
+	available = {
+		OR={
+			has_government = neoconservative
+			has_far_left_government = yes
+		}
+	}
+	bypass = {
+	}
+	cancelable = no
+	select_effect={
+		country_event = { id = atd_poland.29 days = 4 random_days = 11 }
+	}
+
+	completion_reward = {
+		if={
+			limit = { NOT = { has_country_flag = POLAND_NO_CHILDBIRTH_SUBSIDIES_FLAG } }
+			add_timed_idea = { idea = POL_childbirth_subsidies days = 730 }
+			add_political_power = 75
+			
+			if={
+				limit = { has_government = neoconservative }
+				add_popularity = { ideology = neoconservative popularity = 0.03 }
+			}
+			else_if={
+				limit = { has_government = social_democracy }
+				add_popularity = { ideology = social_democracy popularity = 0.03 }
+			}
+			else_if={
+				limit = { has_government = socialist }
+				add_popularity = { ideology = socialist popularity = 0.03 }
+			}
+		}
+	}
+}
+
 
 
 shared_focus = {

@@ -21,7 +21,11 @@ POL_is_election_state={
 
 POL_are_president_and_pm_different_ideologies={
 	if={
-		limit = { bronislaw_komorowski_is_leader = yes }
+		limit = { 
+			OR={
+				bronislaw_komorowski_is_leader = yes 
+			}
+		}
 		NOT = { has_government = neoliberal }
 	}
 	else_if={
@@ -32,5 +36,30 @@ POL_are_president_and_pm_different_ideologies={
 			} 
 		}
 		NOT = { has_government = neoconservative }
+	}
+	else_if={
+		limit = { 
+			OR = {
+				pawel_kukiz_is_leader = yes
+			} 
+		}
+		NOT = { OR = { has_government = populist has_far_right_government = yes } }
+	}
+	else_if={
+		limit = { 
+			OR = {
+				magdalena_ogorek_is_leader = yes
+				leszek_miller_is_leader = yes
+			} 
+		}
+		NOT = { OR = { has_government = social_democracy has_far_left_government = yes } }
+	}
+	else_if={
+		limit = { 
+			OR = {
+				adam_jarubas_is_leader = yes
+			} 
+		}
+		NOT = { has_government = eastern_liberal }
 	}
 }
