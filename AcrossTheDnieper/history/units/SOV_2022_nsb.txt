@@ -279,6 +279,29 @@ division_template = {
 }
 
 division_template = {
+    name = "79th Guards Motor Rifle Regiment"
+	template_counter = 278
+    regiments = {
+		infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+
+        motorized = { x = 1 y = 0 }
+        motorized = { x = 1 y = 1 }
+        motorized = { x = 1 y = 2 }
+        motorized = { x = 1 y = 3 }
+
+		modern_armor_nsb = { x = 2 y = 0 }
+        modern_armor_nsb = { x = 2 y = 1 }
+    }
+
+	support = {
+		signal_company = {x = 0 y = 0}
+		engineer = {x = 0 y = 1}
+		maintenance_company = {x = 0 y = 2}
+    }
+}
+
+division_template = {
     name = "102nd Slonim-Pomeranian Motorized Rifle Regiment"
 	template_counter = 267
     regiments = {
@@ -339,6 +362,24 @@ division_template = {
 	name = "68th Guards Zhytomyr-Berlin Tank Regiment"
 	division_names_group = SOV_INF_01
 	template_counter = 268
+	regiments = {
+		modern_armor_nsb = { x = 0 y = 0 }
+		modern_armor_nsb = { x = 0 y = 1 }
+		modern_armor_nsb = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		rocket_artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }    
+		engineer = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+	}
+}
+
+division_template = {
+	name = "163rd Guards Tank Regiment"
+	division_names_group = SOV_INF_01
+	template_counter = 277
 	regiments = {
 		modern_armor_nsb = { x = 0 y = 0 }
 		modern_armor_nsb = { x = 0 y = 1 }
@@ -841,6 +882,41 @@ units = {
 		division_template = "68th Guards Zhytomyr-Berlin Tank Regiment"
 		start_experience_factor = 0.55
 		start_equipment_factor = 0.9
+	}
+
+	#163rd Guards Tank Regiment
+
+	division = {
+		location = 14455
+		name = "1st Guards Tank Regiment"
+		division_template = "163rd Guards Tank Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	division = {
+		location = 14455
+		name = "2nd Guards Tank Regiment"
+		division_template = "163rd Guards Tank Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	#79th Guards Motor Rifle Regiment
+
+	division = {
+		location = 14819
+		name = "1st Guards Motor Rifle Regiment"
+		division_template = "79th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14819
+		name = "2nd Guards Motor Rifle Regiment"
+		division_template = "79th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
 	}
 }
 
