@@ -131,6 +131,15 @@ ideas ={
 				industrial_capacity_dockyard = 0.05
 				political_power_gain = 0.27
 				research_speed_factor = 0.03
+				custom_modifier_tooltip = POL_continued_growth_tt
+			}
+			
+			on_remove={
+				if={
+					limit = { date < 2020.1.1 check_variable = { ROOT.country_gdp_growth_yearly < 1.00 } }
+					add_stability = -0.1
+					add_political_power = -50
+				}
 			}
 		}
 		

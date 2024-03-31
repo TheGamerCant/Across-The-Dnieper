@@ -1540,6 +1540,45 @@ country_event = {
 	}
 }
 
+#Public institutions get worse because you're a retarded libertarian :3
+country_event = {
+	id = atd_poland.30
+	title = atd_poland.30.t
+	desc = atd_poland.30.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_ministry_of_finance_building
+
+	option = {
+		name = atd_poland.30.a
+		ai_chance = { base = 1 }
+		
+		if={
+			limit = { has_completed_focus = POL_reduce_income_tax }
+			add_to_variable = { POL_public_institutions_political_power_cost = 0.05 }
+			add_to_variable = { POL_public_institutions_research_speed_factor = -0.03 }
+			custom_effect_tooltip = atd_poland.30.tt_1
+			add_stability = -0.02
+		}
+		else={
+			add_to_variable = { POL_public_institutions_political_power_cost = 0.05 }
+			add_to_variable = { POL_public_institutions_research_speed_factor = -0.05 }
+			add_to_variable = { POL_public_institutions_stability_weekly = -0.001 }
+			custom_effect_tooltip = atd_poland.30.tt_2
+			add_political_power = -20
+		}
+		
+		hidden_effect={
+			every_state={
+				limit = { POL_is_election_state = yes }
+				multiply_variable = { THIS.RIGHT_popularity = 0.92 }
+				POL_make_popularities_equal_100 = yes
+			}
+		}
+		custom_effect_tooltip = POL_decrease_RIGHT_popularity_tt
+	}
+}
+
 #Choose your party for election
 country_event = {
 	id = poland_election.1

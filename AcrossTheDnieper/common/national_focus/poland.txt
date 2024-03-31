@@ -786,7 +786,7 @@ focus_tree = {
 
 shared_focus = {
 	id = POL_the_freer_the_markets_the_freer_the_people
-	icon = GFX_focus_
+	icon = GFX_focus_POL_the_freer_the_markets_the_freer_the_people
 	x = 25
 	y = 6
 	cost = 14
@@ -807,7 +807,63 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		add_political_power = 25
+	}
+}
+
+shared_focus = {
+	id = POL_reduce_income_tax
+	icon = GFX_focus_POL_reduce_income_tax
+	x = 1
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	mutually_exclusive = { focus = POL_scrap_income_tax }
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
+	}
+}
+
+shared_focus = {
+	id = POL_scrap_income_tax
+	icon = GFX_focus_POL_scrap_income_tax
+	x = -1
+	y = 1
+	cost = 50
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	mutually_exclusive = { focus = POL_reduce_income_tax }
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
 	}
 }
 
@@ -834,7 +890,7 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		add_political_power = 25
 	}
 }
 
@@ -872,7 +928,7 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		add_political_power = 25
 	}
 }
 

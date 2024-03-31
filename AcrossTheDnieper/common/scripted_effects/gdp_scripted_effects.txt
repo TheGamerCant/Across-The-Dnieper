@@ -651,6 +651,14 @@ get_country_real_gdp_growth={
 	multiply_variable = { ROOT.real_gdp_growth = 100 }
 	set_variable = { ROOT.country_gdp_growth_yearly = ROOT.real_gdp_growth }
 	subtract_from_variable = { ROOT.real_gdp_growth = ROOT.inflation_rate }
+	
+	if={
+		limit = { 
+			has_idea = POL_continued_growth
+			check_variable = { var = ROOT.country_gdp_growth_yearly value = 1.00 compare = less_than }
+		}
+		remove_ideas = POL_continued_growth
+	}
 }
 
 remove_all_inflation_ideas={
