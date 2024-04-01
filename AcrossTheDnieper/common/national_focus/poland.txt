@@ -433,7 +433,7 @@ focus_tree = {
 		completion_reward = {
 			every_state={
 				limit = { is_controlled_by = POL }
-				increase_state_gdp_growth_by_1_5 = yes
+				increase_state_gdp_growth_by_1 = yes
 			}
 		}
 	}
@@ -812,11 +812,163 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = POL_slash_government_expenditure
+	icon = GFX_focus_
+	x = 2
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.035 }
+		add_to_variable = { POL.POL_economy_political_power_gain = -0.17 }
+		custom_effect_tooltip = POL_slash_government_expenditure_tt
+	}
+}
+
+shared_focus = {
+	id = POL_ease_of_doing_business_reforms
+	icon = GFX_focus_
+	x = 0
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		every_state={
+			limit = { is_controlled_by = POL }
+			increase_state_gdp_growth_by_2 = yes
+		}
+		add_political_power = -50
+	}
+}
+
+shared_focus = {
+	id = POL_scrap_taxes_on_gasoline
+	icon = GFX_focus_
+	x = 1
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		every_state={
+			limit = { is_controlled_by = POL }
+			increase_state_gdp_growth_by_0_5 = yes
+		}
+		custom_effect_tooltip = POL_scrap_taxes_on_gasoline_tt
+		country_event = { id = atd_poland.31 days = 170 random_days = 25 }
+		event_option_tooltip = atd_poland.31.a
+	}
+}
+
+shared_focus = {
+	id = POL_repeal_climate_regulations
+	icon = GFX_focus_
+	x = 0
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_ease_of_doing_business_reforms }
+	prerequisite = { focus = POL_scrap_taxes_on_gasoline }
+	relative_position_id = POL_ease_of_doing_business_reforms
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		if={
+			limit = { 67 = { is_controlled_by = ROOT } }
+			67={
+				add_resource={ type = oil amount = 21 }
+				hidden_effect={
+					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+					POL_make_popularities_equal_100 = yes
+				}
+				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+			}
+		}
+		if={
+			limit = { 62 = { is_controlled_by = ROOT } }
+			62={
+				add_resource={ type = oil amount = 12 }
+				hidden_effect={
+					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+					POL_make_popularities_equal_100 = yes
+				}
+				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+			}
+		}
+		
+		if={
+			limit = { has_idea = POL_cut_coal_subsidies }
+			remove_idea = POL_cut_coal_subsidies
+		}
+		
+		unlock_decision_tooltip = POL_invest_into_konin_coal_mine
+		unlock_decision_tooltip = POL_invest_into_bogdanka_coal_mine
+		unlock_decision_tooltip = POL_invest_into_belchatow_coal_mine
+		unlock_decision_tooltip = POL_invest_into_marchel_coal_mine
+	}
+}
+
+shared_focus = {
 	id = POL_reduce_income_tax
 	icon = GFX_focus_POL_reduce_income_tax
-	x = 1
-	y = 1
-	cost = 50
+	x = -1
+	y = 2
+	cost = 45
 
 	ai_will_do = { 
 		factor = 10 
@@ -836,15 +988,20 @@ shared_focus = {
 
 	completion_reward = {
 		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
+		
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.03 }
+		add_to_variable = { POL.POL_economy_ruling_party_drift = 0.02 }
+		add_to_variable = { POL.POL_economy_production_speed_buildings_factor = -0.03 }
+		custom_effect_tooltip = POL_reduce_income_tax_tt
 	}
 }
 
 shared_focus = {
 	id = POL_scrap_income_tax
 	icon = GFX_focus_POL_scrap_income_tax
-	x = -1
-	y = 1
-	cost = 50
+	x = -3
+	y = 2
+	cost = 60
 
 	ai_will_do = { 
 		factor = 10 
@@ -864,6 +1021,11 @@ shared_focus = {
 
 	completion_reward = {
 		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
+		
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.06 }
+		add_to_variable = { POL.POL_economy_ruling_party_drift = 0.05 }
+		add_to_variable = { POL.POL_economy_production_speed_buildings_factor = -0.1 }
+		custom_effect_tooltip = POL_scrap_income_tax_tt
 	}
 }
 

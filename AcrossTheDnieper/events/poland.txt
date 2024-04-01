@@ -393,10 +393,9 @@ country_event = {
 		
 		add_popularity = { ideology = neoliberal popularity = -0.05 }
 		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
-		set_variable = { ewa_kopacz_stability_weekly = 0 }
-		set_variable = { ewa_kopacz_political_power_gain = 0 }
 		custom_effect_tooltip = atd_poland.7.tt
 		hidden_effect={
+			remove_ideas = POL_ewa_kopacz_shoes_to_fill_hidden_idea
 			every_state={
 				limit = { POL_is_election_state = yes }
 				multiply_variable = { THIS.PO_popularity = 0.88 }
@@ -415,11 +414,9 @@ country_event = {
 		trigger = { NOT = { has_country_flag = poland_campaign_as_PO_flag } }
 		
 		add_popularity = { ideology = neoliberal popularity = -0.025 }
-		clr_country_flag = ewa_kopacz_shoes_to_fill_trait
-		set_variable = { ewa_kopacz_stability_weekly = 0 }
-		set_variable = { ewa_kopacz_political_power_gain = 0 }
 		custom_effect_tooltip = atd_poland.7.tt
 		hidden_effect={
+			remove_ideas = POL_ewa_kopacz_shoes_to_fill_hidden_idea
 			every_state={
 				limit = { POL_is_election_state = yes }
 				multiply_variable = { THIS.PO_popularity = 0.88 }
@@ -1576,6 +1573,39 @@ country_event = {
 			}
 		}
 		custom_effect_tooltip = POL_decrease_RIGHT_popularity_tt
+	}
+}
+
+#
+country_event = {
+	id = atd_poland.31
+	title = atd_poland.31.t
+	desc = atd_poland.31.desc
+	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_gas_prices
+
+	option = {
+		name = atd_poland.31.a
+		ai_chance = { base = 1 }
+		
+		every_owned_state={
+			random_select_amount = 3
+			add_resource={ type = oil amount = 5 }
+			hidden_effect={
+				add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+				POL_make_popularities_equal_100 = yes
+			}
+			custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+		}
+		
+		add_tech_bonus = {
+			name = POL_scrap_taxes_on_gasoline
+			bonus = 1.0
+			uses = 2
+			category = cat_synth_rubber
+			category = cat_synth_oil
+		}
 	}
 }
 

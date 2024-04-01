@@ -36,6 +36,59 @@ ideas ={
 				}
 			}
 		}
+		
+		POL_donald_tusk_hidden_idea={
+			name = POL_donald_tusk
+			
+			modifier={
+				neoliberal_drift = 0.1
+				political_power_factor = 0.15
+				political_advisor_cost_factor = -0.15
+				stability_factor = 0.1
+				western_acceptance = 50
+				improve_relations_maintain_cost_factor = -0.2
+			}
+		}
+		
+		POL_ewa_kopacz_shoes_to_fill_hidden_idea={
+			name = POL_ewa_kopacz
+			
+			modifier={
+				stability_weekly = -0.001
+				political_power_gain = -0.1
+			}
+		}
+		
+		POL_beata_szydlo_hidden_idea={
+			name = POL_beata_szydlo
+			
+			modifier={
+				political_power_gain = 0.15
+				neoconservative_drift = 0.08
+				war_support_factor = 0.1
+				stability_factor = -0.03
+			}
+		}
+		
+		POL_mateusz_morawiecki_hidden_idea={
+			name = POL_mateusz_morawiecki
+			
+			modifier={
+				consumer_goods_factor = -0.075
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		POL_jaroslaw_kaczynski_hidden_idea={
+			name = POL_jaroslaw_kaczynski
+			
+			modifier={
+				political_power_factor = 0.2
+				neoconservative_drift = 0.1
+				political_advisor_cost_factor = -0.25
+			}
+		}
 	}
 
 	country = {
@@ -116,7 +169,7 @@ ideas ={
 			
 			modifier = {
 				consumer_goods_factor = -0.04
-				production_speed_buildings_factor = 0.08
+				production_speed_buildings_factor = 0.06
 				production_speed_rail_way_factor = 0.1
 				production_speed_infrastructure_factor = 0.1
 			}
@@ -131,15 +184,6 @@ ideas ={
 				industrial_capacity_dockyard = 0.05
 				political_power_gain = 0.27
 				research_speed_factor = 0.03
-				custom_modifier_tooltip = POL_continued_growth_tt
-			}
-			
-			on_remove={
-				if={
-					limit = { date < 2020.1.1 check_variable = { ROOT.country_gdp_growth_yearly < 1.00 } }
-					add_stability = -0.1
-					add_political_power = -50
-				}
 			}
 		}
 		
