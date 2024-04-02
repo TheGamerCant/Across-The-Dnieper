@@ -1,5 +1,6 @@
 add_namespace = ukraine
 add_namespace = ukraine_hur
+add_namespace = ukraine_ma
 
 #Intro event
 country_event = {
@@ -5374,7 +5375,9 @@ country_event = { #Ukraine becomes more dependant on western equipment
 
 	option = { 
 		name = ukraine.129.a
-		add_ideas = UKR_dependant_on_western_equipment
+		add_dynamic_modifier = {
+			modifier = UKR_dependance_on_western_aid
+		}
 	}
 }
 
@@ -5568,10 +5571,14 @@ country_event = { #second year drag on
 
 	option = { 
 		name = ukraine.135.a
-		swap_ideas = {
-			remove_idea = UKR_dependant_on_western_equipment
-			add_idea = UKR_dependant_on_western_equipment_2
-		}
+
+		custom_effect_tooltip = "ukraine.135.tt"
+		add_to_variable = { UKR_dwa_experience_loss = 0.03 }
+		add_to_variable = { UKR_dwa_pp_cost = 0.02 }
+		add_to_variable = { UKR_dwa_efficiency_retention = -0.08 }
+		add_to_variable = { UKR_dwa_max_efficiency_gain = -0.05 }
+		add_to_variable = { UKR_dwa_efficiency_gain = -0.05 }
+		add_to_variable = { UKR_dwa_industrial_capacity = -0.03 }
 	}
 }
 
@@ -6358,6 +6365,23 @@ country_event = {
 		add_manpower = UKR_incursion_lost_manpower
 		hidden_effect = {
 			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
+		}
+	}
+}
+
+
+#USA military aid
+country_event = {
+	id = ukraine_ma.1
+	title = ukraine_ma.1.t
+	desc = ukraine_ma.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_incursion
+	
+	option = { 
+		name = ukraine_ma.1.a
+		ai_chance = {
+			base = 20
 		}
 	}
 }

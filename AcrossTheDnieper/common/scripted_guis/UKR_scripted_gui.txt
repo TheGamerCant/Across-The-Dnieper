@@ -7,36 +7,50 @@ scripted_gui = {
 		
 		effects={
 			UKR_germany_click = {
-				UKR_clear_military_aid_countries = yes
-				set_country_flag = UKR_ma_ger_selected
-				if={
-					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
-					set_country_flag = UKR_opened_country_aid_equipment
+				if = {
+					limit = { NOT = { has_country_flag = UKR_ma_done_deal_recently } }
+					UKR_clear_military_aid_countries = yes
+					set_country_flag = UKR_ma_ger_selected
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+						set_country_flag = UKR_opened_country_aid_equipment
+					}
 				}
 			}
 			UKR_turkey_click = {
-				UKR_clear_military_aid_countries = yes
-				set_country_flag = UKR_ma_tur_selected
-				if={
-					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
-					set_country_flag = UKR_opened_country_aid_equipment
+				if = {
+					limit = { NOT = { has_country_flag = UKR_ma_done_deal_recently } }
+					UKR_clear_military_aid_countries = yes
+					set_country_flag = UKR_ma_tur_selected
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+						set_country_flag = UKR_opened_country_aid_equipment
+					}
 				}
+
 			}
 			UKR_uk_click = {
-				UKR_clear_military_aid_countries = yes
-				set_country_flag = UKR_ma_uk_selected
-				if={
-					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
-					set_country_flag = UKR_opened_country_aid_equipment
+				if = {
+					limit = { NOT = { has_country_flag = UKR_ma_done_deal_recently } }
+					UKR_clear_military_aid_countries = yes
+					set_country_flag = UKR_ma_uk_selected
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+						set_country_flag = UKR_opened_country_aid_equipment
+					}
 				}
 			}
 			UKR_usa_click = {
-				UKR_clear_military_aid_countries = yes
-				set_country_flag = UKR_ma_usa_selected
-				if={
-					limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
-					set_country_flag = UKR_opened_country_aid_equipment
+				if = {
+					limit = { NOT = { has_country_flag = UKR_ma_done_deal_recently } }
+					UKR_clear_military_aid_countries = yes
+					set_country_flag = UKR_ma_usa_selected
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_country_aid_equipment } }
+						set_country_flag = UKR_opened_country_aid_equipment
+					}
 				}
+
 			}
 		}
 		properties = { 
@@ -87,11 +101,39 @@ scripted_gui = {
 					if = {
 						limit = { NOT = { has_country_flag = UKR_ma_done_deal_recently } }
 						
-						set_country_flag = { flag = UKR_ma_done_deal_recently days = 40 }
+						set_country_flag = { flag = UKR_ma_done_deal_recently days = 40  value = 1}
 
 						clr_country_flag = UKR_opened_country_aid_equipment
 
 
+						if = {
+							limit = {
+								AND = {
+									check_variable = { ROOT.UKR_ma_usa_variable > 60 }
+									has_country_flag = UKR_ma_usa_selected
+								}
+							}
+
+							set_temp_variable = { temp_chances_of_success = 100 }
+							subtract_from_temp_variable = { temp_chances_of_success = ROOT.UKR_ma_usa_variable }
+
+							random_list = {
+								UKR_ma_usa_variable = {
+									country_event = { id = ukraine_ma.1 days = 5 }
+								}
+
+								temp_chances_of_success = {
+
+								}
+							}
+
+
+							if = {
+								limit = { check_variable = { ROOT.UKR_ma_slot = 1 } }
+
+
+							}
+						}
 					}
 
 					
