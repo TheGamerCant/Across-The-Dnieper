@@ -589,7 +589,8 @@ focus_tree = {
 			set_global_flag = smo_eastern_front_open
 			set_global_flag = smo_donbass_front_open
 			set_global_flag = smo_southern_front_open
-			news_event = { id = atd_news.56 days = 17 }
+			
+			news_event = { id = atd_news.56 days = 10 random_days = 20 }
 			if = {
 				limit = {
 					country_exists = BLR
@@ -597,9 +598,16 @@ focus_tree = {
 						is_in_faction_with = BLR
 						BLR={ is_puppet_of = ROOT }
 					}
+					435 = { is_owned_and_controlled_by = BLR }
 				}
 				
-				country_event = { id = russia.88 days = 56 }
+				if={
+					limit = { 434 = { is_owned_and_controlled_by = BLR } }
+					country_event = { id = russia.88 days = 56 }
+				}
+			}
+			else={
+				set_global_flag = smo_western_front_open
 			}
 
 			every_country = {

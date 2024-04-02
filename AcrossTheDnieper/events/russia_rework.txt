@@ -1858,21 +1858,8 @@ country_event = {
 			base = 10
 		}
 		
-		clr_global_flag = smo_northern_front_open
 		add_command_power = 25
-		
-		if = {
-			limit = {
-				country_exists = BLR
-				OR={
-					is_in_faction_with = BLR
-					BLR={ is_puppet_of = ROOT }
-				}
-				434 = { is_owned_by = ROOT }
-			}
-			BLR = { transfer_state = 434 }
-			remove_state_claim = 434
-		}
+		SOV_close_northern_front_effect = yes
 		if={
 			limit = { 
 				NOT = { has_global_flag = smo_western_front_open }

@@ -8513,6 +8513,479 @@ SOV_load_KRP_mutiny={
 	}
 }
 
+SOV_remove_smo_tags_from_map={
+	if={
+		limit = { 445 = { is_controlled_by = SMC } }
+		331={ OWNER={ transfer_state = 445 } }
+	}
+	
+	if={
+		limit = { 435 = { is_controlled_by = SMA } }
+		45={ OWNER={ transfer_state = 435 } }
+	}
+	
+	if={
+		limit = { 434 = { is_controlled_by = SMA } }
+		46={ OWNER={ transfer_state = 434 } }
+	}
+	
+	if={
+		limit = { 446 = { is_controlled_by = SMB } }
+		39={ OWNER={ transfer_state = 446 } }
+	}
+	
+	if={
+		limit = { 447 = { is_controlled_by = SMB } }
+		50={ OWNER={ transfer_state = 447 } }
+	}
+	
+	if={
+		limit = { 448 = { is_controlled_by = SMB } }
+		66={ OWNER={ transfer_state = 448 } }
+	}
+	
+	if={
+		limit = { 449 = { is_controlled_by = SMB } }
+		66={ OWNER={ transfer_state = 449 } }
+	}
+	
+	if={
+		limit = { 450 = { is_controlled_by = SMB } }
+		66={ OWNER={ transfer_state = 450 } }
+	}
+	
+	if={
+		limit = { 451 = { is_controlled_by = SMB } }
+		52={ OWNER={ transfer_state = 451 } }
+	}
+	
+	if={
+		limit = { 452 = { is_controlled_by = SMB } }
+		430={ OWNER={ transfer_state = 452 } }
+	}
+	
+	every_state={
+		remove_core_of = SMA
+		remove_core_of = SMB
+		remove_core_of = SMC
+	}
+}
+
+SMO_load_SMA_leader={
+	BLR={ puppet = SMA end_puppet = SMA faction_leader  = { remove_from_faction = SMA } }
+	
+	SMA={
+		kill_country_leader = yes
+		
+		meta_effect = {
+			text = {
+				create_country_leader = {
+					name = "[COUNTRY_LEADER_NAME]"
+					picture = gfx/leaders/OTHER/Portrait_Kupalinka.png
+					ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+					traits = {  }
+				}
+			}
+			COUNTRY_LEADER_NAME = "[BLR.GetLeader]"
+			COUNTRY_LEADER_IDEOLOGY_GROUP = "[?BLR.country_leader.GetIdeologyGroup]"
+		}
+		
+		if={
+			limit = { has_war = yes }
+			every_enemy_country={
+				white_peace = PREV
+			}
+		}
+	}
+}
+
+SMO_load_SMB_leader={
+	SOV={ puppet = SMB end_puppet = SMB faction_leader  = { remove_from_faction = SMB } }
+	ZZZ={
+		kill_country_leader = yes
+		meta_effect = {
+			text = {
+				create_country_leader = {
+					name = "[COUNTRY_LEADER_NAME]"
+					picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+					ideology = generic_populist
+					traits = {  }
+				}
+			}
+			COUNTRY_LEADER_NAME = "[?SOV.country_leader.GetIdeologyGroup]"
+		}
+		
+		if={
+			limit = { has_country_leader = { name = "united_russia_ultranat_subideology, united_russia_subideology" ruling_only = yes } }
+			SMB={
+				kill_country_leader = yes
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_Khuylo.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[SOV.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "united_russia_ultranat_subideology"
+				}
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_Khuylo.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[SOV.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "united_russia_subideology"
+				}
+			}
+		}
+		else={
+			SMB={
+				kill_country_leader = yes
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_Khuylo.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[SOV.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "[?SOV.country_leader.GetIdeologyGroup]"
+				}
+			}
+		}
+		
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nigel Farage"
+			desc = ""
+			ideology = generic_populist
+			picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+			traits = { banished_to_the_shadow_realm }
+		}
+	}
+	
+	SMB={
+		if={
+			limit = { has_war = yes }
+			every_enemy_country={
+				white_peace = PREV
+			}
+		}
+	}
+}
+
+SMO_load_SMC_leader={
+	UKR={ puppet = SMC end_puppet = SMC faction_leader  = { remove_from_faction = SMC } }
+	ZZZ={
+		kill_country_leader = yes
+		meta_effect = {
+			text = {
+				create_country_leader = {
+					name = "[COUNTRY_LEADER_NAME]"
+					picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+					ideology = generic_populist
+					traits = {  }
+				}
+			}
+			COUNTRY_LEADER_NAME = "[?UKR.country_leader.GetIdeologyGroup]"
+		}
+		
+		if={
+			limit = { has_country_leader = { name = "Praviy Sektor - Svoboda koalitsiya, right_sector_subideology, Praviy Sektor - Svoboda koalitsiya" ruling_only = yes } }
+			SMC={
+				kill_country_leader = yes
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_AZOV_chan_.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[UKR.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "right_sector_svoboda_fascist_subideology"
+				}
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_AZOV_chan_.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[UKR.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "right_sector_svoboda_ultranationalist_subideology"
+				}
+			}
+		}
+		else={
+			SMC={
+				kill_country_leader = yes
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[COUNTRY_LEADER_NAME]"
+							picture = gfx/leaders/OTHER/Portrait_AZOV_chan_.png
+							ideology = [COUNTRY_LEADER_IDEOLOGY_GROUP]
+							traits = {  }
+						}
+					}
+					COUNTRY_LEADER_NAME = "[UKR.GetLeader]"
+					COUNTRY_LEADER_IDEOLOGY_GROUP = "[?UKR.country_leader.GetIdeologyGroup]"
+				}
+			}
+		}
+		
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nigel Farage"
+			desc = ""
+			ideology = generic_populist
+			picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+			traits = { banished_to_the_shadow_realm }
+		}
+	}
+	
+	SMC={
+		if={
+			limit = { has_war = yes }
+			every_enemy_country={
+				white_peace = PREV
+			}
+		}
+	}
+}
+
+SOV_close_western_front_effect={
+	clr_global_flag = smo_western_front_open
+	if={
+		limit = { 
+			BLR = { exists = yes OR = { is_puppet_of = SOV is_in_faction_with = SOV } } 
+			NOT = { 435 = { is_core_of = SOV } }
+		}
+		SMA={		
+			transfer_state = 435
+			add_state_core  = 435
+			
+			SMO_load_SMA_leader = yes
+			
+			give_military_access = SOV
+			SOV = { give_military_access = SMA }
+			give_military_access = BLR
+			BLR = { give_military_access = SMA }
+		}
+	}
+	else_if={
+		limit = { 
+			NOT={
+				any_state = { OCCUPATION_is_belarus_trigger = yes is_owned_by = BLR }
+			}
+			435 = { is_owned_by = SOV }
+		}
+		SMB={
+			transfer_state = 435
+			add_state_core  = 435
+			
+			SMO_load_SMB_leader = yes
+			
+			give_military_access = SOV
+			SOV = { give_military_access = SMB }
+			
+		}
+	}
+}
+
+SOV_close_northern_front_effect={
+	clr_global_flag = smo_northern_front_open
+	if={
+		limit = { 
+			BLR = { exists = yes OR = { is_puppet_of = SOV is_in_faction_with = SOV } } 
+			NOT = { 434 = { is_core_of = SOV } }
+		}
+		SMA={
+			transfer_state = 434
+			add_state_core  = 434
+			
+			SMO_load_SMA_leader = yes
+
+			give_military_access = SOV
+			SOV = { give_military_access = SMA }
+			give_military_access = BLR
+			BLR = { give_military_access = SMA }
+		}
+	}
+	else_if={
+		limit = { 
+			NOT={
+				any_state = { OCCUPATION_is_belarus_trigger = yes is_owned_by = BLR }
+			}
+			434 = { is_owned_by = SOV }
+		}
+		SMB={
+			transfer_state = 434
+			add_state_core  = 434
+			
+			SMO_load_SMB_leader = yes
+			
+			give_military_access = SOV
+			SOV = { give_military_access = SMB }
+		}
+	}
+	
+	SMB={
+		SMO_load_SMB_leader = yes
+		
+		transfer_state = 446
+		transfer_state = 447
+		transfer_state = 448
+		add_state_core = 446
+		add_state_core = 447
+		add_state_core = 448
+		
+		give_military_access = SOV
+		SOV = { give_military_access = SMB }
+	}
+}
+
+SOV_close_eastern_front_effect={
+	clr_global_flag = smo_eastern_front_open
+	SMB={
+		transfer_state = 449
+		add_state_core = 449
+
+		SMO_load_SMB_leader = yes
+		
+		give_military_access = SOV
+		SOV = { give_military_access = SMB }
+	}
+}
+
+SOV_close_donbass_front_effect={
+	clr_global_flag = smo_donbass_front_open
+	SMB={
+		transfer_state = 450
+		transfer_state = 451
+		transfer_state = 452
+		add_state_core = 450
+		add_state_core = 451
+		add_state_core = 452
+
+		SMO_load_SMB_leader = yes
+		
+		give_military_access = SOV
+		SOV = { give_military_access = SMB }
+	}
+}
+
+SOV_close_southern_front_effect={
+	clr_global_flag = smo_southern_front_open
+	SMC={
+		transfer_state = 445
+		add_state_core = 445
+		
+		SMO_load_SMC_leader = yes
+		
+		give_military_access = UKR
+		UKR = { give_military_access = SMC }
+	}
+}
+
+SOV_open_western_front_effect={
+	set_global_flag = smo_western_front_open
+	if={
+		limit={ SMA={ owns_state = 435 } }
+		SMA={remove_state_core = 435 }
+		SOV={ transfer_state = 435 add_state_claim = 435 }
+	}
+	else_if={
+		limit={ SMB={ owns_state = 435 } }
+		SMB={remove_state_core = 435 }
+		SOV={ transfer_state = 435 add_state_claim = 435 }
+	}
+}
+
+SOV_open_northern_front_effect={
+	set_global_flag = smo_northern_front_open
+	if={
+		limit={ SMA={ owns_state = 434 } }
+		SMA={remove_state_core = 434 }
+		SOV={ transfer_state = 434 add_state_claim = 434 }
+	}
+	else_if={
+		limit={ SMB={ owns_state = 434 } }
+		SMB={remove_state_core = 434 }
+		SOV={ transfer_state = 434 add_state_claim = 434 }
+	}
+	
+	if={
+		limit={ SMB={ owns_state = 446 } }
+		SMB={remove_state_core = 446 }
+		SOV={ transfer_state = 446 }
+	}
+	
+	if={
+		limit={ SMB={ owns_state = 447 } }
+		SMB={remove_state_core = 447 }
+		SOV={ transfer_state = 447 }
+	}
+	
+	if={
+		limit={ SMB={ owns_state = 448 } }
+		SMB={remove_state_core = 448 }
+		SOV={ transfer_state = 448 }
+	}
+}
+
+SOV_open_eastern_front_effect={
+	set_global_flag = smo_eastern_front_open
+	if={
+		limit={ SMB={ owns_state = 449 } }
+		SMB={remove_state_core = 449 }
+		SOV={ transfer_state = 449 }
+	}
+}
+
+SOV_open_donbass_front_effect={
+	set_global_flag = smo_donbass_front_open
+	if={
+		limit={ SMB={ owns_state = 450 } }
+		SMB={remove_state_core = 450 }
+		SOV={ transfer_state = 450 }
+	}
+	
+	if={
+		limit={ SMB={ owns_state = 451 } }
+		SMB={remove_state_core = 451 }
+		SOV={ transfer_state = 451 }
+	}
+	
+	if={
+		limit={ SMB={ owns_state = 452 } }
+		SMB={remove_state_core = 452 }
+		SOV={ transfer_state = 452 }
+	}
+}
+
+SOV_open_southern_front_effect={
+	set_global_flag = smo_eastern_front_open
+	if={
+		limit={ SMC={ owns_state = 445 } }
+		SMC={remove_state_core = 445 }
+		SOV={ transfer_state = 445 }
+	}
+}
+
 SOV_increase_nadezhdin_signatures = {
 	custom_effect_tooltip = SOV_stopping_boris_nadezhdin_add_signatures_tt
 	hidden_effect={
