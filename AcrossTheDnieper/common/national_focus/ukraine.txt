@@ -8940,9 +8940,18 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			set_technology = {
-				suicide_drone_tech = 1
+			if = {
+				limit = { NOT = { has_tech = suicide_drone_tech } }
+				set_technology = {
+				    suicide_drone_tech = 1
+			    }
 			}
+
+	        add_equipment_to_stockpile = {
+	        	type = kamikaze_drone_equipment
+	        	variant_name = "Suicide Drone"
+	        	amount = 50
+	        }
 		}
 	}
 
