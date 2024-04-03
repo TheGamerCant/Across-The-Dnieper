@@ -3793,7 +3793,7 @@ country_event = {
 		set_variable_to_random = {
 			var = western_troops_id
 			min = 1
-			max = 7
+			max = 9
 			integer = yes
 		}
 
@@ -4009,6 +4009,68 @@ country_event = {
 							elite_special_forces = { x = 0 y = 2 }
 							anti_air_brigade = { x = 0 y = 3 }
 							modern_armor_nsb = { x = 1 y = 0 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 8 } }
+
+				if = {
+					limit = { NOT = { has_template = "118th Mechanized Brigade" } }
+
+					division_template = {
+						name = "118th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 286
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 9 } }
+
+				if = {
+					limit = { NOT = { has_template = "117th Mechanized Brigade" } }
+
+					division_template = {
+						name = "117th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 287
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor_nsb = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
 						}
 						support = {
 							artillery = { x = 0 y = 0 }
@@ -6285,7 +6347,7 @@ country_event = {
 		
 
 		hidden_effect = {
-			SOV = { country_event = { id = ukraine_hur.3 days = 3 } }
+			SOV = { country_event = { id = ukraine_hur.3 days = 3 random_days = 5 } }
 			if = {
 				limit = { has_country_flag = UKR_HUR_borisovka_selected }
 				set_variable = { ROOT.borisovka_controller = 1 }
@@ -6314,7 +6376,7 @@ country_event = {
 		}
 		
 		add_command_power = -15
-		set_variable = { ROOT.can_do_hur_mission = 1 }
+		hidden_effect = { SOV = { country_event = { id = ukraine_hur.4 days = 3 random_days = 5 } } }
 	}
 }
 
@@ -6345,7 +6407,7 @@ country_event = {
 	}
 }
 
-#Incursion (RUSSIA)
+#Ukrainians withdrew from incursion (RUSSIA)
 country_event = {
 	id = ukraine_hur.3
 	title = ukraine_hur.3.t
@@ -6358,21 +6420,58 @@ country_event = {
 		ai_chance = {
 			base = 20
 		}
-		add_stability = -0.03
-		add_war_support = -0.02
-		set_temp_variable_to_random = {
-			var = UKR_incursion_lost_manpower
-			min = -100
-			max = -20
-			integer = yes
-		}
-
-		add_manpower = UKR_incursion_lost_manpower
+		add_command_power = -5
+		add_war_support = 0.015
 		hidden_effect = {
 			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
 		}
 	}
 }
+
+#Ukrainians move forward (RUSSIA)
+country_event = {
+	id = ukraine_hur.4
+	title = ukraine_hur.4.t
+	desc = ukraine_hur.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_incursion
+
+	immediate = {
+		hidden_effect = {
+			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
+		}
+	}
+	
+	option = { 
+		name = ukraine_hur.4.a
+		ai_chance = {
+			base = 2
+		}
+
+		add_command_power = -4
+		add_manpower = -500
+		custom_effect_tooltip = "ukraine_hur.4.a.tt"
+	}
+	option = { 
+		name = ukraine_hur.4.b
+		ai_chance = {
+			base = 17
+		}
+		add_command_power = -8
+		add_manpower = -1000
+		custom_effect_tooltip = "ukraine_hur.4.b.tt"
+	}
+	option = { 
+		name = ukraine_hur.4.c
+		ai_chance = {
+			base = 5
+		}
+		add_command_power = -13
+		add_manpower = -3000
+		custom_effect_tooltip = "ukraine_hur.4.c.tt"
+	}
+}
+
 
 
 #USA military aid
