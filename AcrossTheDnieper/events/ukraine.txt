@@ -1,6 +1,7 @@
 add_namespace = ukraine
 add_namespace = ukraine_hur
 add_namespace = ukraine_ma
+add_namespace = ukraine_partisan_activities
 
 #Intro event
 country_event = {
@@ -6560,6 +6561,156 @@ country_event = {
 		name = ukraine_ma.1.a
 		ai_chance = {
 			base = 20
+		}
+	}
+}
+
+#Pro Russians assassinated by partisans
+country_event = {
+	id = ukraine_partisan_activities.1
+	title = ukraine_partisan_activities.1.t
+	desc = ukraine_partisan_activities.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.1.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+
+		add_political_power = -3
+		
+		var:SOV_partisan_state = {
+			add_resistance = 3
+			add_manpower = -5
+		}
+	}
+}
+
+#Partisans damage railways
+country_event = {
+	id = ukraine_partisan_activities.2
+	title = ukraine_partisan_activities.2.t
+	desc = ukraine_partisan_activities.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.2.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+		
+		var:SOV_partisan_state = {
+			damage_building = {
+				type = supply_node
+				damage = 0.45
+			}
+		}
+	}
+}
+
+#Partisans damage mils
+country_event = {
+	id = ukraine_partisan_activities.3
+	title = ukraine_partisan_activities.3.t
+	desc = ukraine_partisan_activities.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.3.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+		
+		var:SOV_partisan_state = {
+			damage_building = {
+				type = arms_factory
+				damage = 0.35
+			}
 		}
 	}
 }

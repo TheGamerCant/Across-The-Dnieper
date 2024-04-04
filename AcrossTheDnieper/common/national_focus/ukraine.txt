@@ -9913,6 +9913,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			
 			if={
 				limit = {
 					volodymyr_zelenskyy_is_leader = yes
@@ -9926,6 +9927,21 @@ focus_tree = {
 				swap_ideas={
 					remove_idea = UKR_the_defence_of_ukraine_2
 					add_idea = UKR_the_defence_of_ukraine_3
+				}
+			}
+			custom_effect_tooltip = UKR_global_hero_tt
+
+			hidden_effect = {
+				random_list = {
+					20 = {
+						SOV = { country_event = { id = ukraine_partisan_activities.1 days = 35 random_days = 60 } }
+					}
+					20 = {
+						SOV = { country_event = { id = ukraine_partisan_activities.2 days = 35 random_days = 60} }
+					}
+					18 = {
+						SOV = { country_event = { id = ukraine_partisan_activities.3 days = 35 random_days = 60 } }
+					}
 				}
 			}
 		}
