@@ -123,6 +123,22 @@ division_template = {
 }
 
 division_template = {
+    name = "336th Separate Guards Bialystok Marine Brigade"
+	template_counter = 248
+    regiments = {
+        marine = { x = 0 y = 0 }
+        marine = { x = 0 y = 1 }
+        marine = { x = 1 y = 0 }
+        marine = { x = 1 y = 1 }
+    }
+
+	support = {
+		artillery = {x = 0 y = 0}
+		logistics_company = {x = 0 y = 1}
+    }
+}
+
+division_template = {
     name = "56th Guards Air Assault Regiment"
 	template_counter = 260
     regiments = {
@@ -629,8 +645,46 @@ division_template = {
 }
 
 division_template = {
+    name = "423rd Guards Yampolsky Motor Rifle Regiment"
+	template_counter = 278
+    regiments = {
+		infantry = { x = 0 y = 0 }
+
+        motorized = { x = 1 y = 0 }
+        motorized = { x = 1 y = 1 }
+
+		modern_armor_nsb = { x = 2 y = 0 }
+    }
+
+	support = {
+		signal_company = {x = 0 y = 0}
+		engineer = {x = 0 y = 1}
+		maintenance_company = {x = 0 y = 2}
+    }
+}
+
+division_template = {
     name = "102nd Slonim-Pomeranian Motorized Rifle Regiment"
 	template_counter = 267
+    regiments = {
+		infantry = { x = 1 y = 0 }
+
+        motorized = { x = 0 y = 0 }
+        motorized = { x = 0 y = 1 }
+
+		modern_armor_nsb = { x = 2 y = 0 }
+    }
+
+	support = {
+		logistics_company = {x = 0 y = 0}
+		engineer = {x = 0 y = 1}
+		signal_company = {x = 0 y = 2}
+    }
+}
+
+division_template = {
+    name = "7th Independent Guards Motorized Rifle Regiment"
+	template_counter = 288
     regiments = {
 		infantry = { x = 1 y = 0 }
 
@@ -721,6 +775,58 @@ division_template = {
 	}
 }
 
+division_template = {
+	name = "11th Tank Regiment"
+	division_names_group = SOV_INF_01
+	template_counter = 281
+	regiments = {
+		modern_armor_nsb = { x = 0 y = 0 }
+		modern_armor_nsb = { x = 0 y = 1 }
+		modern_armor_nsb = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		rocket_artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }    
+		engineer = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+	}
+}
+
+division_template = {
+	name = "12th Tank Regiment"
+	division_names_group = SOV_INF_01
+	template_counter = 278
+	regiments = {
+		modern_armor_nsb = { x = 0 y = 0 }
+		modern_armor_nsb = { x = 0 y = 1 }
+		modern_armor_nsb = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		rocket_artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }    
+		engineer = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+	}
+}
+
+division_template = {
+	name = "BARS"
+	division_names_group = SOV_INF_01
+	template_counter = 289
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }  
+	}
+}
+
 units = {
 	#16th Guards Spetsnaz Brigade
 
@@ -804,6 +910,21 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.85
 	}
+
+	division = {
+		location = 3753
+		name = "4th Motorized Rifle Battalion"
+		division_template = "27th Separate Guards Motor Rifle Brigade"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 3753
+		name = "5th Motorized Rifle Battalion"
+		division_template = "27th Separate Guards Motor Rifle Brigade"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
 	
 	#49th Anti-Aircraft Missile Brigade
 
@@ -835,7 +956,13 @@ units = {
 		start_experience_factor = 0.65
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 13334
+		name = "5th Separate Anti-Aircraft Missile Battalion"
+		division_template = "49th Anti-Aircraft Missile Brigade"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
 	#13th Guards Tank Regiment
 
 	division = {
@@ -855,6 +982,21 @@ units = {
 	division = {
 		location = 13334
 		name = "3rd Tank Battalion"
+		division_template = "13th Guards Tank Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 13334
+		name = "4th Tank Battalion"
+		division_template = "13th Guards Tank Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 13334
+		name = "5th Tank Battalion"
 		division_template = "13th Guards Tank Regiment"
 		start_experience_factor = 0.65
 		start_equipment_factor = 0.85
@@ -886,6 +1028,14 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 14220
+		name = "4th Air Assault Battalion"
+		division_template = "56th Guards Air Assault Regiment"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.9
+	}
+
 	#126th Coastal Defence Brigade
 
 	division = {
@@ -903,7 +1053,28 @@ units = {
 		start_experience_factor = 0.5
 		start_equipment_factor = 0.9
 	}
-
+	
+	division = {
+		location = 5104
+		name = "3rd Coastal Defence Battalion"
+		division_template = "126th Coastal Defence Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 5104
+		name = "4th Coastal Defence Battalion"
+		division_template = "126th Coastal Defence Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 5104
+		name = "5th Coastal Defence Battalion"
+		division_template = "126th Coastal Defence Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
 	#810th Guards Naval Infantry Brigade
 
 	division = {
@@ -921,7 +1092,22 @@ units = {
 		start_experience_factor = 0.7
 		start_equipment_factor = 0.9
 	}
+
+	division = {
+		location = 19538
+		name = "3rd Separate Marine Battalion"
+		division_template = "810th Guards Naval Infantry Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.9
+	}
 	
+	division = {
+		location = 19538
+		name = "4th Separate Marine Battalion"
+		division_template = "810th Guards Naval Infantry Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.9
+	}
 	#1141st Guards Artillery Regiment
 
 	division = {
@@ -940,6 +1126,20 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 13857
+		name = "3rd Guards Artillery Battalion"
+		division_template = "1141st Guards Artillery Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 13857
+		name = "4th Guards Artillery Battalion"
+		division_template = "1141st Guards Artillery Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
 	#104th Separate Tank Battalion
 
 	division = {
@@ -978,6 +1178,28 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 19747
+		name = "3rd Guards Kuban Cossack Air Assault Regiment"
+		division_template = "108th Guards Kuban Cossack Air Assault Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+
+	division = {
+		location = 19747
+		name = "4th Guards Kuban Cossack Air Assault Regiment"
+		division_template = "108th Guards Kuban Cossack Air Assault Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 19747
+		name = "5th Guards Kuban Cossack Air Assault Regiment"
+		division_template = "108th Guards Kuban Cossack Air Assault Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
 	#526th Separate Motor Rifle Brigade
 
 	division = {
@@ -1011,7 +1233,13 @@ units = {
 		start_experience_factor = 0.5
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 20209
+		name = "5th Separate Motor Rifle Battalion"
+		division_template = "526th Separate Motor Rifle Brigade"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.85
+	}
 	#34th Independent Motor Rifle Mountain Brigade
 
 	division = {
@@ -1033,6 +1261,14 @@ units = {
 	division = {
 		location = 3199
 		name = "1199th Separate Motor Rifle Battalion"
+		division_template = "34th Independent Motor Rifle Mountain Brigade"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+
+	division = {
+		location = 3199
+		name = "4th Separate Motor Rifle Battalion"
 		division_template = "34th Independent Motor Rifle Mountain Brigade"
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.9
@@ -1106,7 +1342,13 @@ units = {
 		start_experience_factor = 0.55
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 19424
+		name = "5th Artillery Battalion"
+		division_template = "238th Artillery Brigade"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.85
+	}
 	#227th Artillery Brigade
 
 	division = {
@@ -1140,7 +1382,13 @@ units = {
 		start_experience_factor = 0.55
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 19740
+		name = "5th Artillery Battalion"
+		division_template = "227th Artillery Brigade"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.85
+	}
 	#22nd Seperate Guards Spetsnaz Brigade
 
 	division = {
@@ -1175,6 +1423,14 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 5761
+		name = "5th Spetsnaz Detachment"
+		division_template = "22nd Seperate Guards Spetsnaz Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.9
+	}
+
 	#102nd Slonim-Pomeranian Motorized Rifle Regiment
 
 	division = {
@@ -1192,7 +1448,27 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.9
 	}
-
+	division = {
+		location = 4390
+		name = "3rd Slonim-Pomeranian Motorized Rifle Battalion"
+		division_template = "102nd Slonim-Pomeranian Motorized Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 4390
+		name = "4th Slonim-Pomeranian Motorized Rifle Battalion"
+		division_template = "102nd Slonim-Pomeranian Motorized Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 4390
+		name = "5th Slonim-Pomeranian Motorized Rifle Battalion"
+		division_template = "102nd Slonim-Pomeranian Motorized Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
 	#68th Guards Zhytomyr-Berlin Tank Regiment
 
 	division = {
@@ -1211,6 +1487,27 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 4390
+		name = "3rd Guards Zhytomyr-Berlin Tank Battalion"
+		division_template = "68th Guards Zhytomyr-Berlin Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 4390
+		name = "4th Guards Zhytomyr-Berlin Tank Battalion"
+		division_template = "68th Guards Zhytomyr-Berlin Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 4390
+		name = "5th Guards Zhytomyr-Berlin Tank Battalion"
+		division_template = "68th Guards Zhytomyr-Berlin Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.9
+	}
 	#163rd Guards Tank Regiment
 
 	division = {
@@ -1229,6 +1526,28 @@ units = {
 		start_equipment_factor = 0.9
 	}
 
+	division = {
+		location = 14455
+		name = "3rd Guards Tank Battalion"
+		division_template = "163rd Guards Tank Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	division = {
+		location = 14455
+		name = "4th Guards Tank Battalion"
+		division_template = "163rd Guards Tank Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 14455
+		name = "5th Guards Tank Battalion"
+		division_template = "163rd Guards Tank Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
 	#79th Guards Motor Rifle Regiment
 
 	division = {
@@ -1245,7 +1564,27 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 14819
+		name = "3rd Guards Motor Rifle Battalion"
+		division_template = "79th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14819
+		name = "4th Guards Motor Rifle Battalion"
+		division_template = "79th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14819
+		name = "5th Guards Motor Rifle Battalion"
+		division_template = "79th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
 	#488th Guards Simferopol Motor Rifle Regiment
 
 	division = {
@@ -1269,7 +1608,20 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 427
+		name = "4th Guards Simferopol Motor Rifle Battalion"
+		division_template = "488th Guards Simferopol Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 427
+		name = "5th Guards Simferopol Motor Rifle Battalion"
+		division_template = "488th Guards Simferopol Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
 	#254th Guards Motor Rifle Regiment
 
 	division = {
@@ -1282,6 +1634,20 @@ units = {
 	division = {
 		location = 16003
 		name = "2nd Guards Motor Rifle Battalion"
+		division_template = "254th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 16003
+		name = "3rd Guards Motor Rifle Battalion"
+		division_template = "254th Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 16003
+		name = "4th Guards Motor Rifle Battalion"
 		division_template = "254th Guards Motor Rifle Regiment"
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.85
@@ -1303,6 +1669,27 @@ units = {
 		start_experience_factor = 0.5
 		start_equipment_factor = 0.9
 	}
+	division = {
+		location = 14361
+		name = "3rd Guards Kobrinsky Self-Propelled Artillery Battalion"
+		division_template = "856th Guards Kobrinsky Self-Propelled Artillery Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 14361
+		name = "4th Guards Kobrinsky Self-Propelled Artillery Battalion"
+		division_template = "856th Guards Kobrinsky Self-Propelled Artillery Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 14361
+		name = "5th Guards Kobrinsky Self-Propelled Artillery Battalion"
+		division_template = "856th Guards Kobrinsky Self-Propelled Artillery Regiment"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
 	#752nd Guards Petrokovsky Volga Cossack Motor Rifle Regiment
 
 	division = {
@@ -1313,8 +1700,29 @@ units = {
 		start_equipment_factor = 0.9
 	}
 	division = {
+		location = 13058
+		name = "3rd Guards Petrokovsky Volga Cossack Motor Rifle Battalion"
+		division_template = "752nd Guards Petrokovsky Volga Cossack Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
 		location = 8988
 		name = "2nd Guards Petrokovsky Volga Cossack Motor Rifle Battalion"
+		division_template = "752nd Guards Petrokovsky Volga Cossack Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 8988
+		name = "4th Guards Petrokovsky Volga Cossack Motor Rifle Battalion"
+		division_template = "752nd Guards Petrokovsky Volga Cossack Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 8988
+		name = "5th Guards Petrokovsky Volga Cossack Motor Rifle Battalion"
 		division_template = "752nd Guards Petrokovsky Volga Cossack Motor Rifle Regiment"
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.9
@@ -1342,6 +1750,20 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.9
 	}
+	division = {
+		location = 14484
+		name = "4th Guards Motor Rifle Battalion"
+		division_template = "252nd Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 14484
+		name = "5th Guards Motor Rifle Battalion"
+		division_template = "252nd Guards Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
 	#137th Guards Ryazan Kuban Cossack Airborne Regiment
 
 	division = {
@@ -1365,6 +1787,20 @@ units = {
 		start_experience_factor = 0.75
 		start_equipment_factor = 0.85
 	}
+	division = {
+		location = 5120
+		name = "4th Guards Ryazan Kuban Cossack Airborne Battalion"
+		division_template = "137th Guards Ryazan Kuban Cossack Airborne Regiment"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 5120
+		name = "5th Guards Ryazan Kuban Cossack Airborne Battalion"
+		division_template = "137th Guards Ryazan Kuban Cossack Airborne Regiment"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
 
 	#51st Guards Airborne Regiment
 
@@ -1382,7 +1818,27 @@ units = {
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 683
+		name = "3rd Guards Airborne Battalion"
+		division_template = "51st Guards Airborne Regiment"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 683
+		name = "4th Guards Airborne Battalion"
+		division_template = "51st Guards Airborne Regiment"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 683
+		name = "5th Guards Airborne Battalion"
+		division_template = "51st Guards Airborne Regiment"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
 	#7th Krasnodar Separate Motor Rifle Regiment
 
 	division = {
@@ -1413,7 +1869,13 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.95
 	}
-
+	division = {
+		location = 20101
+		name = "5th Separate Motor Rifle Battalion"
+		division_template = "7th Krasnodar Separate Motor Rifle Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.95
+	}
 	#346th Seperate Guards Spetsnaz Brigade
 
 	division = {
@@ -1437,7 +1899,13 @@ units = {
 		start_experience_factor = 0.8
 		start_equipment_factor = 0.9
 	}
-
+	division = {
+		location = 5307
+		name = "Spetsnaz Detachment"
+		division_template = "346th Seperate Guards Spetsnaz Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
 	#205th Separate Cossack Motor Rifle Brigade
 
 	division = {
@@ -1461,7 +1929,20 @@ units = {
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.95
 	}
-
+	division = {
+		location = 19505
+		name = "4th Separate Cossack Motor Rifle Battalion"
+		division_template = "205th Separate Cossack Motor Rifle Brigade"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 19505
+		name = "5th Separate Cossack Motor Rifle Battalion"
+		division_template = "205th Separate Cossack Motor Rifle Brigade"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.95
+	}
 	#25th Seperate Guards Spetsnaz Brigade
 
 	division = {
@@ -1478,7 +1959,27 @@ units = {
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 8027
+		name = "3rd Separate Special Forces Company"
+		division_template = "25th Seperate Guards Spetsnaz Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 8027
+		name = "4th Separate Special Forces Company"
+		division_template = "25th Seperate Guards Spetsnaz Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 8027
+		name = "5th Separate Special Forces Company"
+		division_template = "25th Seperate Guards Spetsnaz Brigade"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.85
+	}
 	#255th Guards Stalingrad-Korsunsky Motor Rifle Regiment
 
 	division = {
@@ -1502,7 +2003,20 @@ units = {
 		start_experience_factor = 0.55
 		start_equipment_factor = 0.95
 	}
-
+	division = {
+		location = 17646
+		name = "4th Guards Stalingrad-Korsunsky Motor Rifle Battalion"
+		division_template = "255th Guards Stalingrad-Korsunsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 17646
+		name = "5th Guards Stalingrad-Korsunsky Motor Rifle Battalion"
+		division_template = "255th Guards Stalingrad-Korsunsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
 	#33rd Berlin Don Cossack Motor Rifle Regiment
 
 	division = {
@@ -1526,7 +2040,20 @@ units = {
 		start_experience_factor = 0.55
 		start_equipment_factor = 0.95
 	}
-
+	division = {
+		location = 13214
+		name = "4th Berlin Don Cossack Motor Rifle Battalion"
+		division_template = "33rd Berlin Don Cossack Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 13214
+		name = "5th Berlin Don Cossack Motor Rifle Battalion"
+		division_template = "33rd Berlin Don Cossack Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
 	#31st Separate Guards Air Assault Brigade
 
 	division = {
@@ -1557,7 +2084,13 @@ units = {
 		start_experience_factor = 0.7
 		start_equipment_factor = 0.85
 	}
-
+	division = {
+		location = 16150
+		name = "5th Separate Guards Air Assault Battalion"
+		division_template = "31st Separate Guards Air Assault Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.85
+	}
 	#3rd Separate Guards Warsaw-Berlin Spetsnaz Brigade
 
 	division = {
@@ -1581,7 +2114,20 @@ units = {
 		start_experience_factor = 0.8
 		start_equipment_factor = 0.85
 	}
-	
+	division = {
+		location = 2462
+		name = "4th Separate Spetsnaz Detachment"
+		division_template = "3rd Separate Guards Warsaw-Berlin Spetsnaz Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 2462
+		name = "5th Separate Spetsnaz Detachment"
+		division_template = "3rd Separate Guards Warsaw-Berlin Spetsnaz Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.85
+	}
 	#30th Separate Motor Rifle Brigade
 
 	division = {
@@ -1620,6 +2166,482 @@ units = {
 		division_template = "30th Separate Motor Rifle Brigade"
 		start_experience_factor = 0.6
 		start_equipment_factor = 0.9
+	}
+
+	#11th Tank Regiment
+
+	division = {
+		location = 11818
+		name = "1st Tank Battalion"
+		division_template = "11th Tank Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 11818
+		name = "2nd Tank Battalion"
+		division_template = "11th Tank Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 11818
+		name = "3rd Tank Battalion"
+		division_template = "11th Tank Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 11818
+		name = "4th Tank Battalion"
+		division_template = "11th Tank Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 11818
+		name = "5th Tank Battalion"
+		division_template = "11th Tank Regiment"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.85
+	}
+	#7th Independent Guards Motorized Rifle Regiment
+
+	division = {
+		location = 14907
+		name = "1st Independent Guards Motorized Rifle Battalion"
+		division_template = "7th Independent Guards Motorized Rifle Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 14907
+		name = "2nd Independent Guards Motorized Rifle Battalion"
+		division_template = "7th Independent Guards Motorized Rifle Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 14907
+		name = "3rd Independent Guards Motorized Rifle Battalion"
+		division_template = "7th Independent Guards Motorized Rifle Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14907
+		name = "4th Independent Guards Motorized Rifle Battalion"
+		division_template = "7th Independent Guards Motorized Rifle Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14907
+		name = "5th Independent Guards Motorized Rifle Battalion"
+		division_template = "7th Independent Guards Motorized Rifle Regiment"
+		start_experience_factor = 0.65
+		start_equipment_factor = 0.85
+	}
+	#336th Separate Guards Bialystok Marine Brigade
+
+	division = {
+		location = 14841
+		name = "1st Separate Guards Bialystok Marine Battalion"
+		division_template = "336th Separate Guards Bialystok Marine Brigade"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 14841
+		name = "2nd Separate Guards Bialystok Marine Battalion"
+		division_template = "336th Separate Guards Bialystok Marine Brigade"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+
+	division = {
+		location = 14841
+		name = "3rd Separate Guards Bialystok Marine Battalion"
+		division_template = "336th Separate Guards Bialystok Marine Brigade"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14841
+		name = "4th Separate Guards Bialystok Marine Battalion"
+		division_template = "336th Separate Guards Bialystok Marine Brigade"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+	division = {
+		location = 14841
+		name = "5th Separate Guards Bialystok Marine Battalion"
+		division_template = "336th Separate Guards Bialystok Marine Brigade"
+		start_experience_factor = 0.75
+		start_equipment_factor = 0.85
+	}
+	#423rd Guards Yampolsky Motor Rifle Regiment
+
+	division = {
+		location = 10308
+		name = "1st Guards Yampolsky Motor Rifle Battalion"
+		division_template = "423rd Guards Yampolsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "2nd Guards Yampolsky Motor Rifle Battalion"
+		division_template = "423rd Guards Yampolsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "3rd Guards Yampolsky Motor Rifle Battalion"
+		division_template = "423rd Guards Yampolsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 10308
+		name = "4th Guards Yampolsky Motor Rifle Battalion"
+		division_template = "423rd Guards Yampolsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 10308
+		name = "5th Guards Yampolsky Motor Rifle Battalion"
+		division_template = "423rd Guards Yampolsky Motor Rifle Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	#12th Tank Regiment
+
+	division = {
+		location = 10308
+		name = "1st Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "2nd Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "3rd Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "4th Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "5th Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	division = {
+		location = 10308
+		name = "6th Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+	division = {
+		location = 10308
+		name = "7th Tank Battalion"
+		division_template = "12th Tank Regiment"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.95
+	}
+
+	#BARS cuz theres not enough troops
+
+	division = {
+		location = 6687
+		name = "BARS-1"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14194
+		name = "BARS-2"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14194
+		name = "BARS-3"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14645
+		name = "BARS-4"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14645
+		name = "BARS-5"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 7612
+		name = "BARS-6"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 796
+		name = "BARS-7"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 796
+		name = "BARS-8"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 13959
+		name = "BARS-9"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14361
+		name = "BARS-10"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14361
+		name = "BARS-11"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 16178
+		name = "BARS-12"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 16178
+		name = "BARS-13"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1289
+		name = "BARS-14"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1289
+		name = "BARS-15"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}	
+	division = {
+		location = 14018
+		name = "BARS-16"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 14018
+		name = "BARS-17"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 18433
+		name = "BARS-18"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 18433
+		name = "BARS-19"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 12354
+		name = "BARS-20"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 12354
+		name = "BARS-21"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}	
+	division = {
+		location = 1289
+		name = "BARS-22"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+
+	division = {
+		location = 1289
+		name = "BARS-23 Eagle"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 2514
+		name = "BARS-24"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 2514
+		name = "BARS-25"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 380
+		name = "BARS-26"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 380
+		name = "BARS-27"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 4624
+		name = "BARS-28"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 8297
+		name = "BARS-29 Nevske"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 380
+		name = "BARS-30"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 12406
+		name = "BARS-31"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 8297
+		name = "BARS-32 Pavel Sudoplatov"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1465
+		name = "BARS-33 Vasyl Margelov"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1465
+		name = "BARS-Kherson"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1187
+		name = "BARS-35 Skif"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 1187
+		name = "BARS-Kaskad"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 12406
+		name = "BARS-Krym"
+		division_template = "BARS"
+		start_experience_factor = 0.55
+		start_equipment_factor = 1
 	}
 }
 
