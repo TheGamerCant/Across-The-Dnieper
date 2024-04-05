@@ -357,4 +357,161 @@ scripted_gui = {
 			}
 		}
 	}
+
+	UKR_HUR_belgorod_preperations_gui = {
+		context_type = player_context
+		window_name = "UKR_HUR_belgorod_preperations_gui"
+		triggers = {
+		}
+		
+		effects={
+			close_button_click = {
+				clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+			}
+
+			begin_incursion_button_click = {
+				if = {
+					limit = {
+						AND = {
+							check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+							check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+							check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+							check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+
+							command_power > ROOT.required_cp_incursion
+							check_variable = { ROOT.can_do_hur_mission = 1 }
+						}
+					}
+
+					clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					set_variable = { ROOT.can_do_hur_mission = 2 }
+
+
+
+
+					if = {
+						limit = { has_country_flag = UKR_HUR_borisovka_selected }
+						set_variable = { ROOT.city_done_operation_in = 1 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected }
+						set_variable = { ROOT.city_done_operation_in = 2 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_belgorod_selected }
+						set_variable = { ROOT.city_done_operation_in = 3 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_shebeniko_selected }
+						set_variable = { ROOT.city_done_operation_in= 4 }
+					}
+
+					set_temp_variable = { temp_var_cp = ROOT.required_cp_incursion }
+					multiply_temp_variable = { temp_var_cp = -1 }
+
+					add_command_power = temp_var_cp
+
+					set_variable = { ROOT.given_rifles_incursion = 0 }
+					set_variable = { ROOT.given_manpower_incursion = 0 }
+					set_variable = { ROOT.given_apc_incursion = 0 }
+					set_variable = { ROOT.given_mechanized_incursion = 0 }
+
+					UKR_HUR_belgorod_incursion_calculate = yes
+				}
+			}
+			fill_required_garrison_click = {
+				if = {
+					limit = { 
+						NOT = {
+							check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+							check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+							check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+							check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+						}
+					}
+
+					if = {
+						limit = {
+							AND = {
+								has_equipment = { infantry_equipment > ROOT.required_rifles_incursion }
+								has_equipment = { apc_equipment > ROOT.required_apc_incursion }
+								has_equipment = { mechanized_equipment > ROOT.required_mechanized_incursion }
+								has_manpower > ROOT.required_manpower_incursion
+							}
+						}
+
+						set_temp_variable = { temp_var_inf = ROOT.required_rifles_incursion }
+						multiply_temp_variable = { temp_var_inf = -1 }
+
+						set_temp_variable = { temp_var_apc = ROOT.required_apc_incursion }
+						multiply_temp_variable = { temp_var_apc = -1 }
+
+						set_temp_variable = { temp_var_mec = ROOT.required_mechanized_incursion }
+						multiply_temp_variable = { temp_var_mec = -1 }
+
+						set_temp_variable = { temp_var_man = ROOT.required_manpower_incursion }
+						multiply_temp_variable = { temp_var_man = -1 }
+
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = temp_var_inf
+						}
+						add_equipment_to_stockpile = {
+							type = apc_equipment
+							amount = temp_var_apc
+						}
+						add_equipment_to_stockpile = {
+							type = apc_equipment
+							amount = temp_var_mec
+						}
+
+						add_manpower = temp_var_man
+
+						set_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+						set_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+						set_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+						set_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+					}
+				}
+			}
+		}
+		properties = { 
+			UKR_HUR_ally_rvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_rvc"
+				frame = rvc_frame
+			}
+			UKR_HUR_ally_frl = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_frl"
+				frame = frl_frame
+			}
+			UKR_HUR_ally_pvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_pvc"
+				frame = pvc_frame
+			}
+			UKR_HUR_ally_bvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_bvc"
+				frame = bvc_frame
+			}
+			UKR_HUR_ally_gvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_gvc"
+				frame = gvc_frame
+			}
+			UKR_HUR_ally_kkr = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_kkr"
+				frame = kkr_frame
+			}
+			UKR_HUR_ally_gnl = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_gnl"
+				frame = gnl_frame
+			}
+		}
+
+		visible={
+			OR = { has_war_with = SOV has_country_flag = UKR_DEBUG_HUR_no_war_flag }
+			AND = {
+				has_country_flag = UKR_opened_hur_belgorod_prep_ui
+				has_country_flag = UKR_opened_hur_ui 
+			}
+		}
+	}
 }
