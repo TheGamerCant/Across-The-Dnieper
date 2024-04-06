@@ -1017,139 +1017,68 @@ defined_text = {
 }
 
 defined_text = {
-    name = UKR_get_military_aid_equipment_image
+    name = UKR_ma_get_equipment_name
 	
     text = {
         trigger = {
-            check_variable = { ROOT.UKR_ma_slot = 1 }
-            has_country_flag = UKR_ma_usa_selected
+            has_country_flag = UKR_ma_selected_himars
         }
-        localization_key = "GFX_UKR_himars_gui"
-    }
-
-}
-
-defined_text = {
-    name = UKR_get_military_aid_equipment_name
-	
-    text = {
-        trigger = {
-            check_variable = { ROOT.UKR_ma_slot = 1 }
-            has_country_flag = UKR_ma_usa_selected
-        }
-        localization_key = "UKR_ma_himars"
-    }
-
-}
-
-defined_text = {
-    name = UKR_get_military_aid_equipment_owner_stats
-	
-    text = {
-        trigger = {
-            has_country_flag = UKR_ma_usa_selected
-        }
-        localization_key = "UKR_ma_usa"
-    }
-
-}
-
-defined_text = {
-    name = UKR_can_make_deal_military_aid
-	
-    text = {
-        trigger = {
-            OR = {
-                AND = {
-                    check_variable = { ROOT.UKR_ma_usa_variable > 60 }
-                    has_country_flag = UKR_ma_usa_selected
-                }
-
-                AND = {
-                    check_variable = { ROOT.UKR_ma_uk_variable > 60 }
-                    has_country_flag = UKR_ma_uk_selected
-                }
-
-                AND = {
-                    check_variable = { ROOT.UKR_ma_ger_variable > 60 }
-                    has_country_flag = UKR_ma_ger_selected
-                }
-
-                AND = {
-                    check_variable = { ROOT.UKR_ma_tur_variable > 60 }
-                    has_country_flag = UKR_ma_tur_selected
-                }
-            }
-        }
-        localization_key = "texticon_tick"
+        localization_key = "UKR_himars_name"
     }
 
     text = {
         trigger = {
-            NOT = {
-                OR = {
-                    AND = {
-                        check_variable = { ROOT.UKR_ma_usa_variable > 60 }
-                        has_country_flag = UKR_ma_usa_selected
-                    }
-    
-                    AND = {
-                        check_variable = { ROOT.UKR_ma_uk_variable > 60 }
-                        has_country_flag = UKR_ma_uk_selected
-                    }
-    
-                    AND = {
-                        check_variable = { ROOT.UKR_ma_ger_variable > 60 }
-                        has_country_flag = UKR_ma_ger_selected
-                    }
-    
-                    AND = {
-                        check_variable = { ROOT.UKR_ma_tur_variable > 60 }
-                        has_country_flag = UKR_ma_tur_selected
-                    }
-                }
-            }
+            has_country_flag = UKR_ma_selected_abrams
         }
-        localization_key = "texticon_cross"
+        localization_key = "UKR_abrams_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_bradleys
+        }
+        localization_key = "UKR_bradleys_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_humvees
+        }
+        localization_key = "UKR_humvees_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_spartans
+        }
+        localization_key = "UKR_spartans_name"
     }
 }
-
 defined_text = {
-    name = UKR_can_make_deal_military_aid_pp
+    name = UKR_ma_get_equipment_sender
 	
     text = {
         trigger = {
-            OR = {
-                has_political_power > 25
-                has_political_power = 25
-            }
-            
+            has_country_flag = UKR_ma_receiving_from_usa
         }
-        localization_key = "texticon_tick"
+        localization_key = "UKR_usa_name"
     }
 
     text = {
         trigger = {
-            has_political_power < 25
+            has_country_flag = UKR_ma_receiving_from_uk
         }
-        localization_key = "texticon_cross"
-    }
-}
-
-defined_text = {
-    name = UKR_can_make_deal_military_aid_recent
-	
-    text = {
-        trigger = {
-            NOT = { has_country_flag = UKR_ma_done_deal_recently }
-        }
-        localization_key = "texticon_tick"
+        localization_key = "[ENG.GetName]"
     }
 
     text = {
         trigger = {
-            has_country_flag = UKR_ma_done_deal_recently
+            has_country_flag = UKR_ma_receiving_from_ger
         }
-        localization_key = "texticon_cross"
+        localization_key = "[GER.GetName]"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_receiving_from_tur
+        }
+        localization_key = "[UKR_turkey_name]"
     }
 }

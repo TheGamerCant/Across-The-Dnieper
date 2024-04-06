@@ -652,3 +652,340 @@ UKR_set_HUR_map_to_two={
 	set_variable = { UKR.UKR_HUR_belgorod_button_frame = 1 }
 	set_variable = { UKR.UKR_HUR_crimea_button_frame = 2 }
 }
+
+UKR_clear_military_aid_equipment = {
+	clr_country_flag = UKR_ma_selected_himars
+	clr_country_flag = UKR_ma_selected_abrams
+	clr_country_flag = UKR_ma_selected_bradleys
+	clr_country_flag = UKR_ma_selected_humvees
+}
+UKR_clear_military_aid_sender = {
+	clr_country_flag = UKR_ma_receiving_from_usa
+	clr_country_flag = UKR_ma_receiving_from_uk
+	clr_country_flag = UKR_ma_receiving_from_ger
+	clr_country_flag = UKR_ma_receiving_from_tur
+}
+
+UKR_calculate_military_aid = {
+	hidden_effect = {
+		activate_mission = UKR_ma_holding_talks
+		
+		#Set variable dependant on country 
+		if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_usa }
+	
+			set_temp_variable = { military_aid_added_up = UKR_ma_usa_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_usa_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_uk }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_uk_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_uk_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_ger }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_ger_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_ger_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_tur }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_tur_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_tur_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+		}
+
+		#Calculate if deal will be reached or not
+
+		if = {
+			limit = { check_variable = { military_aid_added_up < 15 } }
+	
+			random_list = {
+				15 = {
+					country_event = { id = ukraine_ma.1 days = 6 }
+				}
+				85 = {
+					country_event = { id = ukraine_ma.3 days = 6 }
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				AND = {
+					check_variable = { military_aid_added_up > 15 } 
+					check_variable = { military_aid_added_up < 45 } 
+				}
+				
+			}
+	
+			random_list = {
+				40 = {
+					country_event = { id = ukraine_ma.1 days = 6 }
+				}
+				60 = {
+					country_event = { id = ukraine_ma.3 days = 6 }
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				AND = {
+					check_variable = { military_aid_added_up > 45 } 
+					check_variable = { military_aid_added_up < 65 } 
+				}
+				
+			}
+	
+			random_list = {
+				65 = {
+					country_event = { id = ukraine_ma.1 days = 6 }
+				}
+				35 = {
+					country_event = { id = ukraine_ma.3 days = 6 }
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				check_variable = { military_aid_added_up > 64 } 
+			}
+	
+			random_list = {
+				85 = {
+					country_event = { id = ukraine_ma.1 days = 6 }
+				}
+				15 = {
+					country_event = { id = ukraine_ma.3 days = 6 }
+				}
+			}
+		}
+	}
+}
+
+UKR_give_military_aid = {
+	#hidden_effect = {
+		#Set variable dependant on country 
+
+		if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_usa }
+	
+			set_temp_variable = { military_aid_added_up = UKR_ma_usa_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_usa_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+			divide_temp_variable = { military_aid_added_up = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_uk }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_uk_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_uk_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+			divide_temp_variable = { military_aid_added_up = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_ger }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_ger_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_ger_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+			divide_temp_variable = { military_aid_added_up = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_tur }
+
+			set_temp_variable = { military_aid_added_up = UKR_ma_tur_success_variable }
+	
+			add_to_temp_variable = { military_aid_added_up = UKR_ma_tur_variable }
+			divide_temp_variable = { military_aid_added_up = 2 }
+			divide_temp_variable = { military_aid_added_up = 100 }
+		}
+
+		if = {
+			limit = { has_country_flag = UKR_ma_selected_himars }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_himars }
+
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				if = {
+					limit = { NOT = { has_tech = railway_gun } }
+					set_technology = { railway_gun = 1 }
+				}
+				for_loop_effect = {
+					end = military_aid_added_up
+					value = temp
+					create_railway_gun = {
+						equipment = railway_gun_equipment_1
+						name = "HIMARS"
+					}
+				}
+			}
+
+			else = {
+				multiply_temp_variable = { military_aid_added_up = 12 }
+				
+				add_equipment_to_stockpile = { 
+					type = artillery_equipment_3
+					amount = military_aid_added_up
+					producer = USA
+				}
+				add_equipment_to_stockpile = { 
+					type = motorized_rocket_equipment_2
+					amount = military_aid_added_up
+					producer = USA
+				}
+				add_equipment_to_stockpile = { 
+					type = rocket_artillery_equipment_1
+					amount = military_aid_added_up
+					producer = USA
+				}
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_abrams }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_abrams }
+
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = abrams_chasis
+					variant_name = "M1 Abrams"
+					amount = military_aid_added_up
+					producer = USA
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = m1_abrams_equipment
+					amount = military_aid_added_up
+					producer = USA
+				}
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_bradleys }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_bradleys }
+
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				variant_name = "M2A2 ODS Bradleys"
+				amount = military_aid_added_up
+				producer = USA
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_humvees }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_humvees }
+
+			add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				variant_name = "Humvee"
+				amount = military_aid_added_up
+				producer = USA
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_spartans }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_spartans }
+
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				variant_name = "FV103 Spartan"
+				amount = military_aid_added_up
+				producer = ENG
+			}
+		}
+
+		clr_country_flag = aid_deal_going_on
+	#}
+}
+
+UKR_ma_decrese_willingness_5 = {
+	custom_effect_tooltip = UKR_ma_decrese_willingness_5_tt
+	hidden_effect = {
+		if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_usa }
+	
+			add_to_variable = { UKR_ma_usa_variable = -5 }
+			clamp_variable = { var = UKR_ma_usa_variable min = 0 max = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_uk }
+	
+			add_to_variable = { UKR_ma_uk_variable = -5 }
+			clamp_variable = { var = UKR_ma_uk_variable min = 0 max = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_ger }
+	
+			add_to_variable = { UKR_ma_ger_variable = -5 }
+			clamp_variable = { var = UKR_ma_ger_variable min = 0 max = 100 }
+		}
+		else_if = {
+			limit = { has_country_flag = UKR_ma_receiving_from_tur }
+	
+			add_to_variable = { UKR_ma_tur_variable = -5 }
+			clamp_variable = { var = UKR_ma_tur_variable min = 0 max = 100 }
+		}
+	}
+}
+
+UKR_ma_decrese_willingness_5_all = {
+	custom_effect_tooltip = UKR_ma_decrese_willingness_5_all_tt
+	hidden_effect = {
+		add_to_variable = { UKR_ma_usa_variable = -5 }
+		add_to_variable = { UKR_ma_uk_variable = -5 }
+		add_to_variable = { UKR_ma_ger_variable = -5 }
+		add_to_variable = { UKR_ma_tur_variable = -5 }
+
+		clamp_variable = { var = UKR_ma_usa_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_uk_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_ger_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_tur_variable min = 0 max = 100 }
+	}
+}
+
+UKR_ma_increse_willingness_5_all = {
+	custom_effect_tooltip = UKR_ma_increse_willingness_5_all_tt
+	hidden_effect = {
+		add_to_variable = { UKR_ma_usa_variable = 5 }
+		add_to_variable = { UKR_ma_uk_variable = 5 }
+		add_to_variable = { UKR_ma_ger_variable = 5 }
+		add_to_variable = { UKR_ma_tur_variable = 5 }
+
+		clamp_variable = { var = UKR_ma_usa_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_uk_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_ger_variable min = 0 max = 100 }
+		clamp_variable = { var = UKR_ma_tur_variable min = 0 max = 100 }
+	}
+}
+
+UKR_ma_increse_willingness_5_usa = {
+	custom_effect_tooltip = UKR_ma_increse_willingness_5_usa_tt
+	hidden_effect = {
+		add_to_variable = { UKR_ma_usa_variable = 5 }
+		clamp_variable = { var = UKR_ma_usa_variable min = 0 max = 100 }
+	}
+}
