@@ -9048,6 +9048,9 @@ focus_tree = {
 			add_to_variable = { UKR_WE_motorized_attack_factor = 0.02 }
 			add_to_variable = { UKR_WE_motorized_defence_factor = 0.02 }
 
+			add_to_variable = { UKR_WE_mechanized_attack_factor = 0.02 }
+			add_to_variable = { UKR_WE_mechanized_defence_factor = 0.02 }
+
 			custom_effect_tooltip = UKR_training_vehicle_operators_tt
 		}
 	}
@@ -9076,7 +9079,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_to_variable = { UKR_WE_experience_gain_army_factor = 0.005 }
+			add_to_variable = { UKR_WE_experience_gain_air_factor = 0.005 }
 
 			add_to_variable = { UKR_WE_air_accidents_factor = -0.05 }
 			add_to_variable = { UKR_WE_air_attack_factor = 0.02 }
@@ -10326,6 +10329,35 @@ focus_tree = {
 				custom_effect_tooltip = UKR_rada_effect_tt
 				custom_effect_tooltip = UKR_order_general_mobilization_tt
 			}
+		}
+	}
+
+	focus = {
+		id = UKR_visit_frontline
+		icon = GFX_focus_UKR_Order_A_General_Mobilisation
+		x = -4
+		y = 3
+		
+		cost = 8
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_order_general_mobilization }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.07
+			custom_effect_tooltip = UKR_visit_frontline_tt
 		}
 	}
 	

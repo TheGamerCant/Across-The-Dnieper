@@ -2797,6 +2797,7 @@ UKR_war_in_donbass_decisions={
 					num_provinces = 4
 					on_win = ukraine.51
 					on_lose = ukraine.52
+
 					on_cancel = ukraine.53
 				}
 
@@ -5456,6 +5457,52 @@ UKR_international_legion_decision = {
 			
 			hidden_effect = {
 				add_command_power = -30
+			}
+		}
+	}
+}
+
+SOV_smo = {
+	UKR_visit_the_front = {
+		visible = {
+			has_completed_focus = UKR_visit_frontline
+		}
+		available = {
+			NOT = { has_country_flag = UKR_recently_been_to_front }
+			FROM = { frontage_full = yes  }
+		}
+		days_remove = 3
+		days_re_enable = 280
+		fire_only_once = no
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				AND = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+						is_core_of = UKR
+					}
+					any_neighbor_state = {
+						is_controlled_by = UKR
+						is_core_of = UKR
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		icon = generic_propaganda
+		cost = 20
+		remove_effect = {
+			set_country_flag = { flag = UKR_recently_been_to_front days = 100 value = 1 }
+			add_war_support = 0.05
+			add_stability = 0.008
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = UKR_state_morale_boost
+					scope = UKR
+					days = 24
+				}
 			}
 		}
 	}
