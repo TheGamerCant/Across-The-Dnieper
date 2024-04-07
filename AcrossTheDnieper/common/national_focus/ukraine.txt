@@ -8608,7 +8608,7 @@ focus_tree = {
 	focus = {
 		id = UKR_lobby_for_western_aid
 		icon = GFX_focus_UKR_Lobby_For_Western_Aid
-		x = -16
+		x = -22
 		y = 1
 		
 		cost = 2
@@ -8638,13 +8638,13 @@ focus_tree = {
 	focus = {
 		id = UKR_himars
 		icon = GFX_focus_UKR_Himars
-		x = 2
-		y = 1
+		x = 4
+		y = 4
 		
 		cost = 10
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_lobby_for_western_aid }
+		prerequisite = { focus = UKR_humvees }
 		relative_position_id = UKR_lobby_for_western_aid
 		available = {
 			NOT = { is_puppet_of = SOV }
@@ -8659,6 +8659,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_himars
 			if={
 				limit = { has_dlc = "No Step Back" }
 				if = {
@@ -8746,7 +8747,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UKR_bradleys
+		id = UKR_M113s
 		icon = GFX_focus_UKR_Bradleys
 		x = 4
 		y = 1
@@ -8769,6 +8770,41 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_m113
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				variant_name = "M113"
+				amount = 200
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_bradleys
+		icon = GFX_focus_UKR_Bradleys
+		x = 5
+		y = 3
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_M113s }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_bradleys
 			add_equipment_to_stockpile = { 
 				type = mechanized_equipment
 				variant_name = "M2A2 ODS Bradleys"
@@ -8777,11 +8813,91 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = UKR_leopards
+		icon = GFX_focus_UKR_Spartans
+		x = 10
+		y = 1
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_lobby_for_western_aid }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_leopards
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = leopard2_chasis
+					variant_name = "Leopard 2"
+					amount = 18
+					producer = GER
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = leopard_2_equipment
+					amount = 18
+					producer = GER
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_marders
+		icon = GFX_focus_UKR_Spartans
+		x = 10
+		y = 2
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_leopards }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_marders
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				variant_name = "Schützenpanzer Marder 1"
+				amount = 60
+				producer = GER
+			}
+		}
+	}
 	
 	focus = {
 		id = UKR_spartans
 		icon = GFX_focus_UKR_Spartans
-		x = -5
+		x = 7
 		y = 1
 		
 		cost = 5
@@ -8804,6 +8920,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_spartans
 			add_equipment_to_stockpile = { 
 				type = apc_equipment
 				variant_name = "FV103 Spartan"
@@ -8814,15 +8931,63 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UKR_abrams
-		icon = GFX_focus_UKR_Abrams
-		x = 4
+		id = UKR_challengers
+		icon = GFX_focus_UKR_Spartans
+		x = 7
 		y = 2
 		
 		cost = 5
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_bradleys }
+		prerequisite = { focus = UKR_spartans }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+			
+			has_country_flag = UKR_activate_british_aid_focuses
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_challengers
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = challenger2_chasis
+					variant_name = "Challenger 2"
+					amount = 14
+					producer = ENG
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = challenger_2_equipment
+					amount = 14
+					producer = ENG
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_abrams
+		icon = GFX_focus_UKR_Abrams
+		x = 3
+		y = 3
+		
+		cost = 5
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_M113s }
 		relative_position_id = UKR_lobby_for_western_aid
 		available = {
 			NOT = { is_puppet_of = SOV }
@@ -8837,6 +9002,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_abrams
 			if = {
 				limit = {
 					has_dlc = "No Step Back"
@@ -8862,12 +9028,12 @@ focus_tree = {
 		id = UKR_humvees
 		icon = GFX_focus_UKR_Humvees
 		x = 4
-		y = 3
+		y = 2
 		
 		cost = 5
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_abrams }
+		prerequisite = { focus = UKR_M113s }
 		relative_position_id = UKR_lobby_for_western_aid
 		available = {
 			NOT = { is_puppet_of = SOV }
@@ -8882,6 +9048,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_humvees
 			add_equipment_to_stockpile = { 
 				type = motorized_equipment_1
 				variant_name = "Humvee"

@@ -658,6 +658,11 @@ UKR_clear_military_aid_equipment = {
 	clr_country_flag = UKR_ma_selected_abrams
 	clr_country_flag = UKR_ma_selected_bradleys
 	clr_country_flag = UKR_ma_selected_humvees
+	clr_country_flag = UKR_ma_selected_m113
+	clr_country_flag = UKR_ma_selected_spartans
+	clr_country_flag = UKR_ma_selected_challengers
+	clr_country_flag = UKR_ma_selected_leopards
+	clr_country_flag = UKR_ma_selected_marders
 }
 UKR_clear_military_aid_sender = {
 	clr_country_flag = UKR_ma_receiving_from_usa
@@ -703,6 +708,7 @@ UKR_calculate_military_aid = {
 			add_to_temp_variable = { military_aid_added_up = UKR_ma_tur_variable }
 			divide_temp_variable = { military_aid_added_up = 2 }
 		}
+		
 
 		#Calculate if deal will be reached or not
 
@@ -915,6 +921,82 @@ UKR_give_military_aid = {
 				variant_name = "FV103 Spartan"
 				amount = military_aid_added_up
 				producer = ENG
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_m113 }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_m113 }
+
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				variant_name = "M113"
+				amount = military_aid_added_up
+				producer = USA
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_challengers }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_challengers }
+
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = challenger2_chasis
+					variant_name = "Challenger 2"
+					amount = military_aid_added_up
+					producer = ENG
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = challenger_2_equipment
+					amount = military_aid_added_up
+					producer = ENG
+				}
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_leopards }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_leopards }
+
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = leopard2_chasis
+					variant_name = "Leopard 2"
+					amount = military_aid_added_up
+					producer = GER
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = leopard_2_equipment
+					amount = military_aid_added_up
+					producer = GER
+				}
+			}
+		}
+
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_marders }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_marders }
+
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				variant_name = "Schützenpanzer Marder 1"
+				amount = military_aid_added_up
+				producer = GER
 			}
 		}
 
