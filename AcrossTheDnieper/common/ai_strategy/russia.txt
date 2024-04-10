@@ -7,23 +7,25 @@ russian_early_template_design = {
 		has_war = no
 	}
 	abort = {
-		date > 2018.1.1
-		has_war = yes
+		OR = {
+			date > 2018.1.1
+			has_war = yes
+		}
 	}
 
 	ai_strategy = {
-		type = template_prio
-		id = modern_armor
+		type = role_ratio
+		id = land_modern_tank
 		value = 5
 	}
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
 		id = armor
 		value = 5
 	}
 
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
 		id = infantry
 		value = 95
 	}
@@ -57,18 +59,18 @@ russian_midlate_template_design = {
 	}
 
 	ai_strategy = {
-		type = template_prio
-		id = modern_armor
+		type = role_ratio
+		id = land_modern_tank
 		value = 10
 	}
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
 		id = armor
 		value = 10
 	}
 
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
 		id = infantry
 		value = 90
 	}
@@ -87,9 +89,7 @@ russia_build_civs_early = {
 			original_tag = SOV
 		}
 	}
-	abort = {
-		date > 2016.1.1
-	}
+	abort = { date > 2016.1.1 }
 
 	ai_strategy = {
 	    type = building_target
@@ -116,9 +116,7 @@ russia_build_refs_early = {
 			original_tag = SOV
 		}
 	}
-	abort = {
-		date > 2014.6.1
-	}
+	abort = { date > 2014.6.1 }
 
 	ai_strategy = {
 	    type = building_target
@@ -142,17 +140,13 @@ russia_build_mils_late = {
 }
 
 russia_really_wants_a_large_army = {
-	enable = {
-		original_tag = SOV
-	}
-	abort = {
-		NOT = { original_tag = SOV }
-	}
+	enable = { original_tag = SOV }
+	abort = { NOT = { original_tag = SOV } }
 	
 	ai_strategy = {
 	    type = build_army
 	    id = infantry
-	    value = 140
+	    value = 240
 	}
 	ai_strategy = {
 	    type = build_army
@@ -214,6 +208,21 @@ belarus_russia_neutral_friend = {
 	}
 }
 
+SOV_belarus_is_fine_on_their_own = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		BLR = { has_war = no }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "BLR"
+		value = 500
+	}
+}
 
 ally_with_donbass = {
 	allowed = {
@@ -295,35 +304,27 @@ crimea_is_important = {
 			331 = { is_controlled_by = SOV }	#Kerch
 			354 = { is_controlled_by = SOV }	#Sevastopol
 			433 = { is_controlled_by = SOV }	#Sevastopol Port
+			date < 2015.1.1
 		}
-		date < 2015.1.1
 	}
-	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = area_priority
 		id = crimea
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = front_unit_request
-		area = crimea
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = front_unit_request
-		state = 433
-		value = 40
+		value = 100
 	}
 	ai_strategy = {
 		type = front_unit_request
-		tag = CRI
-		value = 1000
+		strategic_region = 7 #crimea
+		value = 200
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.15
+		area = 4 #crimea
+		subtract_fronts_from_need = no
 	}
 }
-
 
 hostile_to_ukraine_maidan = {
 	allowed = {
@@ -433,19 +434,16 @@ SOV_try_to_take_southern_ukraine = {
 	
 	ai_strategy = {
 		type = front_control
-		state_trigger = {
-			OR={
-				#has_state_flag = donetsk_oblast_flag
-				state = 230
-				state = 195
-
-				has_state_flag = luhansk_oblast_flag
-				has_state_flag = zaporizhia_oblast_flag
-				has_state_flag = kherson_oblast_flag
-				has_state_flag = crimea_oblast_flag
-			}
-		}
-		priority = 700
+		strategic_region = 19 #donbas
+		priority = 300
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = front_control
+		strategic_region = 20 #tavryia
+		priority = 300
 		ordertype = front
 		execution_type = rush
 		manual_attack = yes
@@ -453,17 +451,40 @@ SOV_try_to_take_southern_ukraine = {
 	
 	ai_strategy = {
 		type = front_unit_request
-		state_trigger = {
-			OR={
-				state = 230
-				state = 195
-
-				has_state_flag = kherson_oblast_flag
-				has_state_flag = zaporizhia_oblast_flag
-				has_state_flag = crimea_oblast_flag
-			}
-		}
+		strategic_region = 19 #donbas
 		value = 300
+	}
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 20 #tavryia
+		value = 300
+	}
+}
+
+SOV_try_to_take_southern_ukraine_from_crimea = {	# May need to use a state trigger to request units instead of strategic region
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR={
+			has_war_with = UKR
+			has_global_flag = russia_ukraine_war
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		strategic_region = 20 #tavryia
+		priority = 50
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 20 #tavryia
+		value = 50
 	}
 }
 
@@ -488,12 +509,6 @@ SOV_ignore_western_front = {
 		}
 		priority = -600
 	}
-	
-	ai_strategy = {
-		type = dont_defend_ally_borders
-		id = "BLR"
-		value = 500
-	}
 }
 
 SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garrison duty
@@ -510,10 +525,13 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	
 	ai_strategy = {
 		type = front_unit_request
-		country_trigger = {
-			tag = UKR
-		}
+		tag = UKR
 		value = 350
+	}
+
+	ai_strategy = {
+    	type = garrison
+    	value = -50
 	}
 	
 	ai_strategy = {
@@ -523,25 +541,25 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	}
 }
 
-SOV_try_to_take_dnipro_islands = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		OR={
-			has_war_with = UKR
-			has_global_flag = russia_ukraine_war
-		}
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			state = 449
-		}
-		priority = 450
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-}
+#SOV_try_to_take_dnipro_islands = {
+#	allowed = {
+#		original_tag = SOV
+#	}
+#	enable = {
+#		OR={
+#			has_war_with = UKR
+#			has_global_flag = russia_ukraine_war
+#		}
+#	}
+#	abort_when_not_enabled = yes
+#	ai_strategy = {
+#		type = front_control
+#		state_trigger = {
+#			state = 449
+#		}
+#		priority = 450
+#		ordertype = front
+#		execution_type = rush
+#		manual_attack = yes
+#	}
+#}
