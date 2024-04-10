@@ -3,7 +3,6 @@ equipments = {
 	small_plane_airframe = {
 		year = 1933
 
-
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_fighter_equipment
@@ -573,24 +572,24 @@ equipments = {
 		}
 
 		module_slots = {
+			
+			
 			fixed_main_weapon_slot = {
 				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
-					nav_bomber_weapon
-					kamikaze_bomber_weapon
 				}
 			}
 
 			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
 					nav_bomber_weapon
-					kamikaze_bomber_weapon
 				}
 			}
 
@@ -611,18 +610,6 @@ equipments = {
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
 					plane_special_module_defense_turret
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					plane_special_module_bomb_sights
-					plane_special_module_radio_navigation
-					plane_special_module_air_ground_radar
-					plane_special_module_air_air_radar
 				}
 			}
 		}
@@ -717,6 +704,32 @@ equipments = {
 			count < 2
 		}
 
+		module_count_limit = {
+			module = stealth_covering_1_small
+			count < 2
+		}
+		module_count_limit = {
+			module = stealth_covering_2_small
+			count < 2
+		}
+
+		module_count_limit = {
+			category = fighter_weapon
+			count < 2
+		}
+		module_count_limit = {
+			category = fighter_missile_aa1
+			count < 3
+		}
+		module_count_limit = {
+			category = fighter_missile_aa2
+			count < 3
+		}
+		module_count_limit = {
+			category = fighter_missile_aa3
+			count < 3
+		}
+
 		default_modules = {
 			fixed_main_weapon_slot = empty
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -766,24 +779,33 @@ equipments = {
 			rubber = 1
 		}
 		module_slots = {
+			
 			fixed_main_weapon_slot = {
 				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
-					nav_bomber_weapon
-					kamikaze_bomber_weapon
 				}
 			}
 
 			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
 					nav_bomber_weapon
-					kamikaze_bomber_weapon
+				}
+			}
+
+			fixed_auxiliary_weapon_slot_2 = { 
+				required = no
+				allowed_module_categories = {
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
+					cas_weapon
 				}
 			}
 
@@ -799,11 +821,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 
@@ -811,11 +833,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 		}
@@ -842,36 +864,41 @@ equipments = {
 			rubber = 1
 		}
 		module_slots = {
+			
 			fixed_main_weapon_slot = {
 				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
-					nav_bomber_weapon
-					kamikaze_bomber_weapon
 				}
 			}
 
 			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
 					nav_bomber_weapon
-					mine_warfare_offense
-					kamikaze_bomber_weapon
 				}
 			}
 			fixed_auxiliary_weapon_slot_2 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
-					nav_bomber_weapon
-					mine_warfare_offense
-					kamikaze_bomber_weapon
+				}
+			}
+			fixed_auxiliary_weapon_slot_3 = { 
+				required = no
+				allowed_module_categories = {
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
+					cas_weapon
 				}
 			}
 
@@ -880,8 +907,6 @@ equipments = {
 				allowed_module_categories = {
 					plane_engine_type
 					twin_plane_engine_type
-					plane_jet_engine_type
-					twin_plane_jet_engine_type
 				}
 			}
 
@@ -889,11 +914,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 
@@ -901,11 +926,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 
@@ -913,11 +938,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 		}
@@ -945,43 +970,51 @@ equipments = {
 			rubber = 1
 		}
 		module_slots = {
+			
 			fixed_main_weapon_slot = {
 				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
-					nav_bomber_weapon
-					kamikaze_bomber_weapon
 				}
 			}
 
 			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
 					nav_bomber_weapon
-					mine_warfare_offense
-					kamikaze_bomber_weapon
 				}
 			}
 			fixed_auxiliary_weapon_slot_2 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
-					nav_bomber_weapon
-					mine_warfare_offense
-					kamikaze_bomber_weapon
 				}
 			}
 
 			fixed_auxiliary_weapon_slot_3 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
+					cas_weapon
+				}
+			}
+
+			fixed_auxiliary_weapon_slot_4 = { 
+				required = no
+				allowed_module_categories = {
+					fighter_missile_aa1
+					fighter_missile_aa2
+					fighter_missile_aa3
 					cas_weapon
 				}
 			}
@@ -991,8 +1024,6 @@ equipments = {
 				allowed_module_categories = {
 					plane_engine_type
 					twin_plane_engine_type
-					plane_jet_engine_type
-					twin_plane_jet_engine_type
 				}
 			}
 
@@ -1000,11 +1031,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 
@@ -1012,22 +1043,33 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 			special_type_slot_3 = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
+				}
+			}
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_small
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 		}
@@ -1105,6 +1147,7 @@ equipments = {
 					twin_plane_engine_type
 					plane_jet_engine_type
 					twin_plane_jet_engine_type
+					plane_rocket_engine_type
 				}
 			}
 
@@ -1112,11 +1155,11 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 
@@ -1124,22 +1167,22 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 			special_type_slot_3 = {
 				required = no
 				allowed_module_categories = {
 					plane_special_module_small
-					plane_special_module_defense_turret
 					plane_special_module_bomb_sights
 					plane_special_module_radio_navigation
 					plane_special_module_air_ground_radar
 					plane_special_module_air_air_radar
+					plane_special_module_defense_turret
 				}
 			}
 		}
