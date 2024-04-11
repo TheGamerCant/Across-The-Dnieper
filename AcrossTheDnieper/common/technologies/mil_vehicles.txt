@@ -1,0 +1,479 @@
+technologies = {
+
+	apc = {
+
+		enable_equipments = {
+			apc_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = apc_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2014
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 7 y = 1 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment	
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 2
+			
+		}
+	}
+	
+	apc_2 = {
+
+		enable_equipments = {
+			apc_equipment_2
+		}
+		
+		path = {
+			leads_to_tech = apc_3
+			research_cost_coeff = 1
+		}
+
+
+		research_cost = 3
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 7 y = 4 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 2
+			
+		}
+	}
+	
+	apc_3 = {
+
+		enable_equipments = {
+			apc_equipment_3
+		}
+		
+		path = {
+			leads_to_tech = apc_3
+			research_cost_coeff = 1
+		}
+
+
+		research_cost = 3
+		start_year = 2018
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 7 y = 7 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 2
+			
+		}
+	}
+	
+	
+	
+	ifv = {
+
+		enable_equipments = {
+			mechanized_equipment_1
+		}
+
+		path = {
+			leads_to_tech = ifv_upgrade
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = better_ifvs_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 12 y = 1 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = USA
+				factor = 2
+			}
+		}
+	}
+	
+	ifv_upgrade = {
+
+		motorized = {
+			hardness = 0.1
+		}
+		mot_artillery_brigade = {
+			hardness = 0.1
+		}
+		mot_anti_tank_brigade = {
+			hardness = 0.1
+		}
+		mot_anti_air_brigade = {
+			hardness = 0.1
+		}
+		mot_rocket_artillery_brigade = {
+			hardness = 0.1
+		}
+		
+		mechanized = {
+			soft_attack = 0.04
+			hard_attack = 0.04
+		}
+		
+		path = {
+			leads_to_tech = ifv_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2014
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 13 y = 3 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	better_ifvs_1 = {
+		
+		mechanized = {
+			soft_attack = 0.04
+			hard_attack = 0.04
+			urban = {
+				attack = 0.04
+				defence = 0.04
+			}
+		}
+
+		path = {
+			leads_to_tech = ifv_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.75
+		start_year = 2014
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 11 y = 3 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ifv_2 = {
+	
+		dependencies = {
+			better_ifvs_1 = 1
+			ifv_upgrade = 1
+		}
+
+		enable_equipments = {
+			mechanized_equipment_2
+		}
+
+		mechanized = {
+			soft_attack = 0.10
+			hard_attack = 0.10
+		}
+		
+		path = {
+			leads_to_tech = ifv_upgrade_2
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = better_ifvs_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 12 y = 5 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ifv_upgrade_2 = {
+
+		motorized = {
+			hardness = 0.1
+		}
+		mot_artillery_brigade = {
+			hardness = 0.1
+		}
+		mot_anti_tank_brigade = {
+			hardness = 0.1
+		}
+		mot_anti_air_brigade = {
+			hardness = 0.1
+		}
+		mot_rocket_artillery_brigade = {
+			hardness = 0.1
+		}
+		
+		mechanized = {
+			soft_attack = 0.06
+			hard_attack = 0.06
+		}
+		
+		path = {
+			leads_to_tech = ifv_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 13 y = 7 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	better_ifvs_2 = {
+		
+		mechanized = {
+			soft_attack = 0.04
+			hard_attack = 0.04
+			urban = {
+				attack = 0.08
+				defence = 0.04
+			}
+		}
+		
+		path = {
+			leads_to_tech = ifv_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.75
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 11 y = 7 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ifv_3 = {
+	
+		dependencies = {
+			better_ifvs_2 = 1
+			ifv_upgrade_2 = 1
+		}
+
+		enable_equipments = {
+			mechanized_equipment_3
+		}
+
+		mechanized = {
+			soft_attack = 0.10
+			hard_attack = 0.10
+		}
+
+		research_cost = 3
+		start_year = 2018
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 12 y = 9 }
+		}
+	
+		path = {
+			leads_to_tech = better_ifvs_3
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	better_ifvs_3 = {
+		
+		mechanized = {
+			soft_attack = 0.04
+			hard_attack = 0.04
+			urban = {
+				attack = 0.08
+				defence = 0.04
+				movement = 0.1
+			}
+		}
+
+		research_cost = 1.75
+		start_year = 2020
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 12 y = 11 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			ifv_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	motorised_infantry = {
+
+		enable_subunits = {
+			motorized
+		}
+
+		enable_equipments = {
+			motorized_equipment_1
+		}
+
+
+		on_research_complete_limit = {
+			NOT = {
+				has_template_containing_unit = motorized
+			}
+		}
+		on_research_complete = {
+			hidden_effect = {
+				load_oob = "unlock_motorized"
+			}			
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+	
+		research_cost = 2
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 2 y = 1 }
+		}
+		
+		#folder = {
+		#	name = support_folder
+		#	position = { x = 7 y = 9 }
+		#}
+		
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "2015.1.1"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "2017.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+}

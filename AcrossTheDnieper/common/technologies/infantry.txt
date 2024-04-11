@@ -12,425 +12,6 @@ technologies = {
 	@2030 = 18
 	@2032 = 20
 	
-	
-	apc = {
-
-		enable_equipments = {
-			apc_equipment_1
-		}
-		
-		path = {
-			leads_to_tech = apc_2
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		start_year = 2014
-		folder = {
-			name = infantry_folder
-			position = { x = 6 y = 1 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment	
-			apc_cat
-		}
-		
-		ai_will_do = {
-			factor = 2
-			
-		}
-	}
-	
-	apc_2 = {
-
-		enable_equipments = {
-			apc_equipment_2
-		}
-		
-		path = {
-			leads_to_tech = apc_3
-			research_cost_coeff = 1
-		}
-
-
-		research_cost = 3
-		start_year = 2016
-		folder = {
-			name = infantry_folder
-			position = { x = 6 y = 4 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			apc_cat
-		}
-		
-		ai_will_do = {
-			factor = 2
-			
-		}
-	}
-	
-	apc_3 = {
-
-		enable_equipments = {
-			apc_equipment_3
-		}
-		
-		path = {
-			leads_to_tech = apc_3
-			research_cost_coeff = 1
-		}
-
-
-		research_cost = 3
-		start_year = 2018
-		folder = {
-			name = infantry_folder
-			position = { x = 6 y = 7 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			apc_cat
-		}
-		
-		ai_will_do = {
-			factor = 2
-			
-		}
-	}
-	
-	
-	
-	ifv = {
-
-		enable_equipments = {
-			mechanized_equipment_1
-		}
-
-		path = {
-			leads_to_tech = ifv_upgrade
-			research_cost_coeff = 1
-		}
-		
-		path = {
-			leads_to_tech = better_ifvs_1
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		start_year = 2010
-		folder = {
-			name = infantry_folder
-			position = { x = 8 y = 1 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 2
-			modifier = {
-				tag = USA
-				factor = 2
-			}
-		}
-	}
-	
-	ifv_upgrade = {
-
-		motorized = {
-			hardness = 0.1
-		}
-		mot_artillery_brigade = {
-			hardness = 0.1
-		}
-		mot_anti_tank_brigade = {
-			hardness = 0.1
-		}
-		mot_anti_air_brigade = {
-			hardness = 0.1
-		}
-		mot_rocket_artillery_brigade = {
-			hardness = 0.1
-		}
-		
-		mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-		}
-		
-		path = {
-			leads_to_tech = ifv_2
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		start_year = 2014
-		folder = {
-			name = infantry_folder
-			position = { x = 9 y = 3 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	
-	better_ifvs_1 = {
-		
-		mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-			urban = {
-				attack = 0.04
-				defence = 0.04
-			}
-		}
-
-		path = {
-			leads_to_tech = ifv_2
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1.75
-		start_year = 2014
-		folder = {
-			name = infantry_folder
-			position = { x = 7 y = 3 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	ifv_2 = {
-	
-		dependencies = {
-			better_ifvs_1 = 1
-			ifv_upgrade = 1
-		}
-
-		enable_equipments = {
-			mechanized_equipment_2
-		}
-
-		mechanized = {
-			soft_attack = 0.10
-			hard_attack = 0.10
-		}
-		
-		path = {
-			leads_to_tech = ifv_upgrade_2
-			research_cost_coeff = 1
-		}
-		
-		path = {
-			leads_to_tech = better_ifvs_2
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		start_year = 2016
-		folder = {
-			name = infantry_folder
-			position = { x = 8 y = 5 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	ifv_upgrade_2 = {
-
-		motorized = {
-			hardness = 0.1
-		}
-		mot_artillery_brigade = {
-			hardness = 0.1
-		}
-		mot_anti_tank_brigade = {
-			hardness = 0.1
-		}
-		mot_anti_air_brigade = {
-			hardness = 0.1
-		}
-		mot_rocket_artillery_brigade = {
-			hardness = 0.1
-		}
-		
-		mechanized = {
-			soft_attack = 0.06
-			hard_attack = 0.06
-		}
-		
-		path = {
-			leads_to_tech = ifv_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		start_year = 2016
-		folder = {
-			name = infantry_folder
-			position = { x = 9 y = 7 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	better_ifvs_2 = {
-		
-		mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-			urban = {
-				attack = 0.08
-				defence = 0.04
-			}
-		}
-		
-		path = {
-			leads_to_tech = ifv_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1.75
-		start_year = 2016
-		folder = {
-			name = infantry_folder
-			position = { x = 7 y = 7 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	ifv_3 = {
-	
-		dependencies = {
-			better_ifvs_2 = 1
-			ifv_upgrade_2 = 1
-		}
-
-		enable_equipments = {
-			mechanized_equipment_3
-		}
-
-		mechanized = {
-			soft_attack = 0.10
-			hard_attack = 0.10
-		}
-
-		research_cost = 3
-		start_year = 2018
-		folder = {
-			name = infantry_folder
-			position = { x = 8 y = 9 }
-		}
-	
-		path = {
-			leads_to_tech = better_ifvs_3
-			research_cost_coeff = 1
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	better_ifvs_3 = {
-		
-		mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-			urban = {
-				attack = 0.08
-				defence = 0.04
-				movement = 0.1
-			}
-		}
-
-		research_cost = 1.75
-		start_year = 2020
-		folder = {
-			name = infantry_folder
-			position = { x = 8 y = 11 }
-		}
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-			cat_mechanized_equipment
-			ifv_cat
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	
 	infantry_anti_tank = {
 
 
@@ -602,7 +183,7 @@ technologies = {
 		start_year = 2000
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 3 }
+			position = { x = 4 y = 1 }
 		}
 		
 		enable_equipments = {
@@ -627,7 +208,7 @@ technologies = {
 	infantry_anti_air_upgrade = {
 
 
-		research_cost = 1.5
+		research_cost = 1
 		start_year = 2017
 		folder = {
 			name = infantry_folder
@@ -636,6 +217,35 @@ technologies = {
 		
 		category_all_infantry = {
 			air_attack = 0.1
+		}
+		
+		path = {
+			leads_to_tech = infantry_anti_air_upgrade_2
+			research_cost_coeff = 1
+		}	
+	
+		categories = {
+			infantry_weapons
+			infantry_anti_air_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	infantry_anti_air_upgrade_2 = {
+
+
+		research_cost = 1.8
+		start_year = 2022
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = @2022 }
+		}
+		
+		category_all_infantry = {
+			air_attack = 0.25
 		}
 		
 		path = {
@@ -656,11 +266,11 @@ technologies = {
 	infantry_anti_air_2 = {
 
 
-		research_cost = 4
-		start_year = 2024
+		research_cost = 3.6
+		start_year = 2026
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = @2024 }
+			position = { x = 4 y = @2026 }
 		}
 		
 		enable_equipments = {
@@ -1983,197 +1593,6 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 0.7
-		}
-	}
-
-	jungle_warfare = {
-
-		research_cost = 1
-
-		# only from focus!!! #####
-		allow = {
-			always = no
-		}
-
-
-		#If you change these
-		#Change the custom tooltip too: RAJ_jungle_training_effect
-		marine = {
-			jungle = {
-				attack = 0.05 
-				movement = 0.1
-			}
-		}
-
-		mountaineers = {
-			jungle = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-
-		paratrooper = {
-			jungle = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-
-	}
-
-	SWI_mountaineer_paratroopers_tech = { #Unlocked in Swiss Focus SWI_mountaneer_paratroopers
-
-		research_cost = 1
-
-		allow = {
-			always = no
-		}
-
-		paratrooper = {  # CHANGE TOOLTIP WHEN NEEDED
-			mountain = {
-				attack = 0.35
-				defence = 0.1
-				movement = 0.2
-			}
-			hills = {
-				attack = 0.2
-				defence = 0.05
-				movement = 0.1
-			}
-		}
-
-	}
-
-	HUN_light_infantry_tech = {
-
-		research_cost = 1
-
-		# only from focus!!! #####
-		allow = {
-			always = no
-		}
-
-
-		#If you change these
-		#Change the custom tooltip too: HUN_light_infantry_divisions_doctrine_effect
-		infantry = {
-			forest = {
-				attack = 0.02
-				movement = 0.05
-			}
-
-			urban = {
-				attack = 0.05 
-				movement = 0.05
-			}
-		}
-	}
-
-	mountain_warfare = {
-
-		research_cost = 1
-
-		# only from focus!
-		allow = {
-			always = no
-		}
-
-
-		#If you change these
-		#Change the custom tooltip too: GRE_mountain_training_effect
-		infantry = {
-			mountain = {
-				defence = 0.05
-				movement = 0.05
-			}
-		}
-
-		marine = {
-			mountain = {
-				attack = 0.05 
-				movement = 0.1
-			}
-		}
-
-		mountaineers = {
-			mountain = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-		}
-
-		paratrooper = {
-			mountain = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-
-	}
-	
-	motorised_infantry = {
-
-		enable_subunits = {
-			motorized
-		}
-
-		enable_equipments = {
-			motorized_equipment_1
-		}
-
-
-		on_research_complete_limit = {
-			NOT = {
-				has_template_containing_unit = motorized
-			}
-		}
-		on_research_complete = {
-			hidden_effect = {
-				load_oob = "unlock_motorized"
-			}			
-			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
-		}
-	
-		research_cost = 2
-		start_year = 2010
-		folder = {
-			name = infantry_folder
-			position = { x = 4 y = 0 }
-		}
-		
-		folder = {
-			name = support_folder
-			position = { x = 7 y = 9 }
-		}
-		
-		
-		categories = {
-			motorized_equipment
-			infantry_tech
-		}
-		
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 2
-				date > "1937.1.1"
-			}
-			
-			modifier = {
-				factor = 2
-				date > "2015.1.1"
-			}
-			
-			modifier = {
-				factor = 2
-				date > "2017.1.1"
-			}
-			modifier = {
-				is_major = no
-				factor = 0.5
-			}
 		}
 	}
 
