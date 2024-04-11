@@ -426,19 +426,6 @@ technologies = {
 		enable_equipments = {
 			motorized_equipment_1
 		}
-
-
-		on_research_complete_limit = {
-			NOT = {
-				has_template_containing_unit = motorized
-			}
-		}
-		on_research_complete = {
-			hidden_effect = {
-				load_oob = "unlock_motorized"
-			}			
-			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
-		}
 	
 		research_cost = 2
 		start_year = 2010
@@ -446,12 +433,10 @@ technologies = {
 			name = mil_vehicles_folder
 			position = { x = 2 y = 1 }
 		}
-		
-		#folder = {
-		#	name = support_folder
-		#	position = { x = 7 y = 9 }
-		#}
-		
+		path = {
+			leads_to_tech = motorised_infantry_2
+			research_cost_coeff = 1
+		}
 		
 		categories = {
 			motorized_equipment
@@ -469,6 +454,44 @@ technologies = {
 			modifier = {
 				factor = 2
 				date > "2017.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	
+	motorised_infantry_2 = {
+
+		enable_equipments = {
+			motorized_equipment_2
+		}
+	
+		research_cost = 2
+		start_year = 2020
+		
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 2 y = 9 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "2020.1.1"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "2022.1.1"
 			}
 			modifier = {
 				is_major = no

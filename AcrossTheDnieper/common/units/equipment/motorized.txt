@@ -1,13 +1,9 @@
 equipments = {
 
 	motorized_equipment = {
-		year = 1936
+		year = 2010
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
+		can_be_produced = { NOT = { has_idea = no_producer } }
 
 		is_archetype = yes
 		picture = archetype_motorized_equipment		
@@ -41,16 +37,28 @@ equipments = {
 	}
 
 	motorized_equipment_1 = {
-		year = 1936
+		year = 2010
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
+		can_be_produced = { NOT = { has_idea = no_producer } }
 
 		archetype = motorized_equipment
+		priority = 30			
+	}
+
+	motorized_equipment_2 = {
+		year = 2020
+
+		archetype = motorized_equipment
+		parent = motorized_equipment_1
+
+		can_be_produced = { NOT = { has_idea = no_producer } }
+
+		reliability = 0.9
+		hardness = 0.2
+
+		breakthrough = 6
+		defense = 2
+
 		priority = 30			
 	}
 
