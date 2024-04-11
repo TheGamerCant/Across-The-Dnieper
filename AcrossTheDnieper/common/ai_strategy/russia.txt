@@ -47,6 +47,12 @@ russian_early_template_design = {
 		id = fighter
 		value = 25
 	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 10
+	}
 }
 
 russian_midlate_template_design = {
@@ -79,6 +85,12 @@ russian_midlate_template_design = {
 		type = unit_ratio
 		id = fighter
 		value = 25
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 10
 	}
 }
 
@@ -316,11 +328,11 @@ crimea_is_important = {
 	ai_strategy = {
 		type = front_unit_request
 		strategic_region = 7 #crimea
-		value = 200
+		value = 80
 	}
 	ai_strategy = {
 		type = put_unit_buffers
-		ratio = 0.15
+		ratio = 0.25
 		area = 4 #crimea
 		subtract_fronts_from_need = no
 	}
@@ -355,14 +367,14 @@ hostile_to_ukraine_maidan = {
 
 		state = 354
 
-		value = 150
+		value = 100
 	}
 	ai_strategy = {
 		type = front_unit_request
 
 		state = 433
 
-		value = 150
+		value = 100
 	}
 }
 
@@ -428,6 +440,8 @@ SOV_try_to_take_southern_ukraine = {
 		OR={
 			has_war_with = UKR
 			has_global_flag = russia_ukraine_war
+			
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
 		}
 	}
 	abort_when_not_enabled = yes
@@ -452,12 +466,12 @@ SOV_try_to_take_southern_ukraine = {
 	ai_strategy = {
 		type = front_unit_request
 		strategic_region = 19 #donbas
-		value = 300
+		value = 120
 	}
 	ai_strategy = {
 		type = front_unit_request
 		strategic_region = 20 #tavryia
-		value = 300
+		value = 120
 	}
 }
 
@@ -469,21 +483,36 @@ SOV_try_to_take_southern_ukraine_from_crimea = {	# May need to use a state trigg
 		OR={
 			has_war_with = UKR
 			has_global_flag = russia_ukraine_war
+
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
 		}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = front_control
-		strategic_region = 20 #tavryia
+		state_trigger = {
+			OR = {	# Basically all south ukraine near crimea
+				state = 282
+				state = 242
+				state = 255
+			}
+		}
 		priority = 50
 		ordertype = front
-		execution_type = rush
+		execution_type = balanced
 		manual_attack = yes
 	}
+	
 	ai_strategy = {
 		type = front_unit_request
-		strategic_region = 20 #tavryia
+		state_trigger = {
+			OR = {	# Basically all south ukraine near crimea
+				state = 282
+				state = 242
+				state = 255
+			}
+		}
 		value = 50
 	}
 }
@@ -507,7 +536,7 @@ SOV_ignore_western_front = {
 				has_state_flag = zhytomyr_oblast_flag
 			}
 		}
-		priority = -600
+		priority = -100
 	}
 }
 
@@ -516,6 +545,8 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 		OR={
 			has_war_with = UKR
 			has_global_flag = russia_ukraine_war
+			
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
 		}
 	}
 	enable = {
@@ -526,7 +557,7 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	ai_strategy = {
 		type = front_unit_request
 		tag = UKR
-		value = 350
+		value = 100
 	}
 
 	ai_strategy = {
