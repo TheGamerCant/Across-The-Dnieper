@@ -8856,6 +8856,71 @@ SOV_close_northern_front_effect={
 		give_military_access = SOV
 		SOV = { give_military_access = SMB }
 	}
+
+	UKR = {
+		every_state={
+            limit={
+                OR = {
+					state = 55
+					state = 56
+					state = 54
+					state = 53
+					state = 63
+					state = 70
+					state = 82
+
+					state = 39
+					state = 50
+					state = 66
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = UKR
+                }
+                to_state = 70
+            }
+        }
+	}
+	SOV = {
+		every_state={
+            limit={
+                OR = {
+					state = 55
+					state = 56
+					state = 54
+					state = 53
+					state = 63
+					state = 70
+					state = 82
+
+					state = 39
+					state = 50
+					state = 66
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = SOV
+                }
+                to_state = 50
+            }
+        }
+	}
+	UKR = {
+		transfer_state = 55
+		transfer_state = 56
+		transfer_state = 54
+		transfer_state = 53
+		transfer_state = 63
+		transfer_state = 70
+		transfer_state = 82
+	}
+	SOV = {
+		transfer_state = 39
+		transfer_state = 50
+		transfer_state = 66
+	}
 }
 
 SOV_close_eastern_front_effect={
@@ -8868,6 +8933,58 @@ SOV_close_eastern_front_effect={
 		
 		give_military_access = SOV
 		SOV = { give_military_access = SMB }
+	}
+	UKR = {
+		every_state={
+            limit={
+                OR = {
+					state = 82
+					state = 93
+					state = 94
+					state = 89
+					state = 95
+
+					state = 66
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = UKR
+                }
+                to_state = 94
+            }
+        }
+	}
+	SOV = {
+		every_state={
+            limit={
+                OR = {
+					state = 82
+					state = 93
+					state = 94
+					state = 89
+					state = 95
+
+					state = 66
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = SOV
+                }
+                to_state = 66
+            }
+        }
+	}
+	UKR = {
+		transfer_state = 82
+		transfer_state = 93
+		transfer_state = 94
+		transfer_state = 89
+		transfer_state = 95
+	}
+	SOV = {
+		transfer_state = 66
 	}
 }
 
@@ -8885,6 +9002,79 @@ SOV_close_donbass_front_effect={
 		
 		give_military_access = SOV
 		SOV = { give_military_access = SMB }
+	}
+	UKR = {
+		every_state={
+            limit={
+                OR = {
+		 			state = 103
+		 			state = 109
+		 			state = 136
+		 			state = 155
+		 			state = 230
+		 			state = 306
+		 			state = 166
+		 			state = 135
+		 			state = 146
+		 			state = 131
+					
+		 			state = 430
+		 			state = 88
+		 			state = 52
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = UKR
+                }
+                to_state = 166
+            }
+        }
+	}
+	SOV = {
+		every_state={
+            limit={
+                OR = {
+		 			state = 103
+		 			state = 109
+		 			state = 136
+		 			state = 155
+		 			state = 230
+		 			state = 306
+		 			state = 166
+		 			state = 135
+		 			state = 146
+		 			state = 131
+					
+		 			state = 430
+		 			state = 88
+		 			state = 52
+				}
+            }
+            teleport_armies = {
+                limit = {
+                    tag = SOV
+                }
+                to_state = 430
+            }
+        }
+	}
+	UKR = {
+		transfer_state = 103
+		transfer_state = 109
+		transfer_state = 136
+		transfer_state = 155
+		transfer_state = 230
+		transfer_state = 306
+		transfer_state = 166
+		transfer_state = 135
+		transfer_state = 146
+		transfer_state = 131
+	}
+	SOV = {
+		transfer_state = 430
+		transfer_state = 88
+		transfer_state = 52
 	}
 }
 
