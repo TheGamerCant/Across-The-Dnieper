@@ -5132,6 +5132,19 @@ country_event = {
 			idea = SOV_entrenchment_efforts
 			days = 400
 		}
+
+		every_state = {
+			limit = {
+				is_controlled_by = ROOT
+				OR = { state = 223 state = 214 }
+			}
+
+				
+			add_dynamic_modifier = {
+				modifier = UKR_heavily_entrenched_russians
+				scope = UKR
+			}
+		}
 		hidden_effect = {
 			every_state = {
 				limit = {
