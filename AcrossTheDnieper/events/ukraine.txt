@@ -5680,7 +5680,7 @@ country_event = { #EU Council addresses the nation
 	}
 }
 
-country_event = { #Ukrainains running away
+country_event = { #Ukrainains running away (the beginning of manpower issues)
 	id = ukraine.134
 	title = ukraine.134.t
 	desc = ukraine.134.desc
@@ -5691,10 +5691,15 @@ country_event = { #Ukrainains running away
 		has_war_with = SOV
 	}
 
-
 	option = { 
 		name = ukraine.134.a
+		add_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
 		add_timed_idea = { idea = UKR_migration_crisis days = 365 }
+
+		hidden_effect = {
+			country_event = { id = ukraine.154 days = 165  }
+			country_event = { id = ukraine.141 days = 400  }
+		}
 	}
 
 	
@@ -5993,8 +5998,8 @@ country_event = { #No manpower
 
 	option = { 
 		name = ukraine.141.a
-
-		add_ideas = UKR_manpower_shortage
+		custom_effect_tooltip = "ukraine.141.tt"
+		add_to_variable = { UKR_ms_conscription = -0.18 }
 	}
 }
 
@@ -6302,6 +6307,118 @@ country_event = {
 		add_timed_idea = {
 			idea = UKR_investigating_politicians
 			days = 80
+		}
+	}
+}
+
+#Draft dodging 
+country_event = {
+	id = ukraine.154
+	title = ukraine.154.t
+	desc = ukraine.154.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_cool_soldier
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.154.a
+
+		custom_effect_tooltip = "ukraine.154.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.05 }
+		add_to_variable = { UKR_ms_conscription = -0.15 }
+		add_to_variable = { UKR_ms_mobilization = -0.17 }
+		add_to_variable = { UKR_ms_consumer = 0.03 }
+
+		hidden_effect = {
+			country_event = { id = ukraine.156 days = 145 }
+		}
+	}
+}
+
+#Lowering conscription age
+country_event = {
+	id = ukraine.155
+	title = ukraine.155.t
+	desc = ukraine.155.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_soldiers_training
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.155.a
+
+		custom_effect_tooltip = "ukraine.155.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.02 }
+		add_to_variable = { UKR_ms_conscription = 0.05 }
+	}
+
+	option = { 
+		name = ukraine.155.c
+
+		add_war_support = -0.15
+		add_stability = -0.05
+		custom_effect_tooltip = "ukraine.155.c.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.04 }
+		add_to_variable = { UKR_ms_conscription = 0.1 }
+	}
+
+	option = { 
+		name = ukraine.155.b
+	}
+}
+
+#Increasing reluctance to join army
+country_event = {
+	id = ukraine.156
+	title = ukraine.156.t
+	desc = ukraine.156.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_cool_soldier
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.156.a
+
+		custom_effect_tooltip = "ukraine.156.tt"
+
+		add_to_variable = { UKR_ms_conscription = -0.07 }
+		add_to_variable = { UKR_ms_morale = -0.03 }
+		add_to_variable = { UKR_ms_planning = -0.02 }
+		add_to_variable = { UKR_ms_weekly_manpower = -10 }
+		add_to_variable = { UKR_ms_consumer = -0.05 }
+	}
+}
+
+#Rada problems
+country_event = {
+	id = ukraine.157
+	title = ukraine.157.t
+	desc = ukraine.157.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_rada
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.157.a
+
+		add_days_mission_timeout = {
+			mission = UKR_new_mobilization_law
+			days = 30
 		}
 	}
 }

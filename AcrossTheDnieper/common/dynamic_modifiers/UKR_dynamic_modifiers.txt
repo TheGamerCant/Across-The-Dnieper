@@ -389,3 +389,18 @@ UKR_state_morale_boost = {
 	army_speed_factor_for_controller = 0.06
 	local_manpower = 0.04
 }
+
+UKR_manpower_shortage_modifier = {
+	enable = { always = yes }
+	remove_trigger = { NOT = { has_war_with = SOV } }
+
+	icon = GFX_idea_UKR_Migration_Crisis
+
+	weekly_manpower = UKR_ms_weekly_manpower
+	conscription_factor = UKR_ms_conscription
+	mobilization_speed = UKR_ms_mobilization
+	training_time_factor = UKR_ms_training_time
+	consumer_goods_factor = UKR_ms_consumer
+	army_morale_factor = UKR_ms_morale
+	max_planning_factor = UKR_ms_planning
+}
