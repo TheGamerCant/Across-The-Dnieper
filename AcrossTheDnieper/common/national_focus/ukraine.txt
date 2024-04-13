@@ -10525,7 +10525,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_visit_frontline
-		icon = GFX_focus_UKR_Order_A_General_Mobilisation
+		icon = GFX_focus
 		x = -2
 		y = 3
 		
@@ -10554,7 +10554,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_lower_conscription_age
-		icon = GFX_focus_UKR_Order_A_General_Mobilisation
+		icon = GFX_focus
 		x = -5
 		y = 3
 		
@@ -10572,7 +10572,7 @@ focus_tree = {
 			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
 			casualties_inflicted_by = {
 				opponent = SOV
-				thousands > 10
+				thousands > 50
 			}
 		}
 		
@@ -10589,7 +10589,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_quality_over_quantity
-		icon = GFX_focus_UKR_Order_A_General_Mobilisation
+		icon = GFX_focus
 		x = -7
 		y = 3
 		
@@ -10607,7 +10607,7 @@ focus_tree = {
 			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
 			casualties_inflicted_by = {
 				opponent = SOV
-				thousands > 10
+				thousands > 50
 			}
 		}
 		
@@ -10625,10 +10625,73 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UKR_new_mobilization_law
-		icon = GFX_focus_UKR_Order_A_General_Mobilisation
-		x = -6
+		id = UKR_prevent_draft_dodging
+		icon = GFX_focus
+		x = -4
+		y = 4
+		
+		cost = 25
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_lower_conscription_age }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = -0.015
+			custom_effect_tooltip = UKR_prevent_draft_dodging_tt
+			add_to_variable = { UKR_ms_weekly_manpower = 35 }
+			add_to_variable = { UKR_ms_consumer = 0.02 }
+			add_to_variable = { UKR_ms_planning = 0.015 }
+		}
+	}
+
+	focus = {
+		id = UKR_tighten_border_control
+		icon = GFX_focus
+		x = -5
 		y = 5
+		
+		cost = 25
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_lower_conscription_age }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_manpower = -10000
+			custom_effect_tooltip = UKR_tighten_border_control_tt
+			add_to_variable = { UKR_ms_weekly_manpower = 15 }
+			add_to_variable = { UKR_ms_morale = 0.03 }
+		}
+	}
+
+	focus = {
+		id = UKR_new_mobilization_law
+		icon = GFX_focus
+		x = -6
+		y = 6
 		
 		cost = 25
 		ai_will_do = {
@@ -10643,7 +10706,7 @@ focus_tree = {
 			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
 			casualties_inflicted_by = {
 				opponent = SOV
-				thousands > 25
+				thousands > 300
 			}
 			date > 2023.12.1
 		}
