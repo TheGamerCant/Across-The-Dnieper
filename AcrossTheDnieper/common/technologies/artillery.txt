@@ -703,7 +703,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = motorized_rocket_unit
+			leads_to_tech = rocket_artillery3
 			research_cost_coeff = 1
 		}
 
@@ -730,43 +730,46 @@ technologies = {
 		}
 	}
 	
-	motorized_rocket_unit = {
+	rocket_artillery3 = {
 
-		enable_subunits = {
-			motorized_rocket_brigade
+		motorized_rocket_brigade = {
+			soft_attack = 0.3
 		}
+
 		enable_equipments = {
-			motorized_rocket_equipment_1
+			rocket_artillery_equipment_2
 		}
-		
+
+		research_cost = 1
+
+		start_year = 2018
+
 		folder = {
 			name = artillery_folder
 			position = { x = 6 y = 6 }
 		}
 		
 		path = {
-			leads_to_tech = rocket_artillery3
+			leads_to_tech = rocket_artillery4
 			research_cost_coeff = 1
 		}
 
-		
-		research_cost = 1.5
-		start_year = 2018	
+
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 2
 				tag = SOV
 			}
 		}
-		
+
 		categories = {
-			mot_rockets
+			rocketry
 		}
 	}
-	
-	rocket_artillery3 = {
+
+	rocket_artillery4 = {
 
 		rocket_artillery = {
 			soft_attack = 0.15
@@ -782,7 +785,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = rocket_artillery4
+			leads_to_tech = rocket_artillery5
 			research_cost_coeff = 1
 		}
 
@@ -808,15 +811,25 @@ technologies = {
 			rocketry
 		}
 	}
+	
+	rocket_artillery5 = {
 
-	rocket_artillery4 = {
-
+		rocket_artillery = {
+			soft_attack = 0.15
+		}
+		rocket_artillery_brigade = {
+			soft_attack = 0.15
+		}
+		mot_rocket_artillery_brigade = {
+			soft_attack = 0.15
+		}
 		motorized_rocket_brigade = {
-			soft_attack = 0.3
+			soft_attack = 0.15
 		}
 
-		enable_equipments = {
-			rocket_artillery_equipment_2
+		path = {
+			leads_to_tech = rocket_artillery6
+			research_cost_coeff = 1
 		}
 
 		research_cost = 1
@@ -827,9 +840,38 @@ technologies = {
 			name = artillery_folder
 			position = { x = 6 y = 10 }
 		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 2
+				tag = SOV
+			}
+		}
+
+		categories = {
+			rocketry
+		}
+	}
+	
+	rocket_artillery6 = {
+
+		enable_equipments = {
+			rocket_artillery_equipment_3
+		}
+
+		research_cost = 1
+
+		start_year = 2024
+
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 12 }
+		}
 		
 		path = {
-			leads_to_tech = mot_rocket_artillery_brigade_2
+			leads_to_tech = rocket_artillery4
 			research_cost_coeff = 1
 		}
 
@@ -847,34 +889,32 @@ technologies = {
 			rocketry
 		}
 	}
-	
-	mot_rocket_artillery_brigade_2 = {
-		research_cost = 1
 
-		start_year = 2024
+	motorized_rocket_unit = {
 
-		folder = {
-			name = artillery_folder
-			position = { x = 6 y = 12 }
+		enable_subunits = {
+			motorized_rocket_brigade
+		}
+		enable_equipments = {
+			motorized_rocket_equipment_1
+		}
+		path = {
+			leads_to_tech = rocket_artillery3
+			research_cost_coeff = 1
+		}
+
+		allow = {
+			always = no
+		}
+
+		
+		research_cost = 1.5
+		start_year = 2018	
+		ai_will_do = {
 		}
 		
-		enable_equipments = {
-			motorized_rocket_equipment_2
-		}
-
-		ai_will_do = {
-			factor = 1
-
-			modifier = {
-				factor = 2
-				tag = SOV
-			}
-		}
-
 		categories = {
-			rocketry
+			mot_rockets
 		}
 	}
-	
-
 }
