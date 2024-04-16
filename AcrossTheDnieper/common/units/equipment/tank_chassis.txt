@@ -19,83 +19,66 @@ equipments = {
 			main_armament_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_small_main_armament
 					tank_aa_main_armament
+					tank_at_main_armament
+					tank_arty_main_armament
 					tank_medium_main_armament
 				}
 			}
-
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_modern_turret_type
 				}
 			}
-
 			suspension_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_suspension_type
-					tank_non_tracked_suspension_type
 				}
 			}
-
 			armor_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_armor_type
 				}
 			}
-
 			engine_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_engine_type
 				}
 			}
-
-			special_type_slot_1 = {
-				required = no
+			special_type_slot_1 = {	#Optics Slot
+				required = yes
 				allowed_module_categories = {
-					tank_radio_module
+					tank_optics
 				}
 			}
-
-			special_type_slot_2 = {
-				required = no
+			special_type_slot_2 = {	#Comms Slot
+				required = yes
 				allowed_module_categories = {
-					tank_special_other_module
-					tank_special_breakthrough_module
-					tank_special_utility_module
-					tank_special_armor_module
-					tank_special_armor_era_module
+					tank_comms
 				}
 			}
-
-			special_type_slot_3 = {
+			special_type_slot_3 = {	#Electronics slot
 				required = no
 				allowed_module_categories = {
-					tank_special_other_module
-					tank_special_breakthrough_module
+					tank_electronics_module
+				}
+			}
+			special_type_slot_4 = {	# Utility (Radar / ATGM / Fuel / Dozer)
+				required = no
+				allowed_module_categories = {
 					tank_special_utility_module
 				}
 			}
-
-			special_type_slot_4 = {
+			special_type_slot_5 = {	# Special Armour Slot
 				required = no
 				allowed_module_categories = {
-					tank_special_other_module
-					tank_special_breakthrough_module
-					tank_special_utility_module
-					tank_secondary_turret
-				}
-			}
-
-			special_type_slot_5 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_armor_module
-					tank_special_armor_era_module
+					tank_aps_armor
+					tank_cage_armor
+					tank_era_armor
 				}
 			}
 		}
@@ -197,7 +180,7 @@ equipments = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
-		
+
 		fuel_consumption = 1.4
 		maximum_speed = 6.0
 		build_cost_ic = 28
