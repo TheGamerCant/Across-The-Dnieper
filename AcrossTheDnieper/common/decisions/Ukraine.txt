@@ -5521,7 +5521,7 @@ SOV_smo = {
 		}
 		available = {
 			NOT = { has_country_flag = UKR_recently_been_to_front }
-			FROM = { frontage_full = yes  }
+			FROM = { is_defender = yes  }
 		}
 		days_remove = 3
 		days_re_enable = 280
@@ -5530,6 +5530,7 @@ SOV_smo = {
 		target_array = UKR.controlled_states
 		target_trigger = {
 			FROM = {
+				is_controlled_by = UKR
 				AND = {
 					any_neighbor_state = {
 						is_controlled_by = SOV
