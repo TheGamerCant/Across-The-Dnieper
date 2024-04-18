@@ -9799,13 +9799,13 @@ focus_tree = {
 	focus = {
 		id = UKR_kastus_kalinouski_regiment
 		icon = GFX_focus_UKR_Kastus_Kalinouski_Regiment
-		x = 1
+		x = 2
 		y = 4
 		
 		cost = 20
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_organisation_of_the_partisans }
+		prerequisite = { focus = UKR_freedom_of_russian_legion }
 		prerequisite = { focus = UKR_mighty_A3449 }
 		relative_position_id = UKR_organisation_of_the_partisans
 		available = {
@@ -9863,11 +9863,41 @@ focus_tree = {
 			add_opinion_modifier = { target = GEO modifier = medium_increase }
 		}
 	}
-
+	focus = {
+		id = UKR_siberia_battalion
+		icon = GFX_focus
+		x = 3
+		y = 5
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_kastus_kalinouski_regiment }
+		relative_position_id = UKR_organisation_of_the_partisans
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			set_variable = { UKR.sob_frame = 2 }
+			custom_effect_tooltip = UKR_siberia_battalion_tt
+			add_to_variable = { UKR.executive_successful_operation_chance_modifier = 2 }
+			add_to_variable = { UKR.required_rifles_incursion = 15 }
+			add_to_variable = { UKR.required_manpower_incursion = 15 }
+		}
+	}
 	focus = {
 		id = UKR_belarusian_volunteer_corps
 		icon = GFX_focus_UKR_Belarussian_Volunteer_Corps
-		x = -1
+		x = -2
 		y = 4
 		
 		cost = 20
@@ -9934,13 +9964,14 @@ focus_tree = {
 	focus = {
 		id = UKR_german_volunteer_corps
 		icon = GFX_focus_UKR_German_Volunteer_Corps
-		x = -1
-		y = 6
+		x = -3
+		y = 5
 		
 		cost = 20
 		ai_will_do = {
 		}
-		prerequisite = { focus = UKR_polish_volunteer_corps }
+		prerequisite = { focus = UKR_belarusian_volunteer_corps }
+
 		relative_position_id = UKR_organisation_of_the_partisans
 		available = {
 			NOT = { is_puppet_of = SOV }
@@ -10282,10 +10313,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = UKR_no_negotiations_with_terrorists_tt #Whenever it exists lmao
+			#custom_effect_tooltip = UKR_no_negotiations_with_terrorists_tt 
 			add_timed_idea={
 				idea = UKR_anti_putin_sentiment
-				days = 50
+				days = 100
 			}
 		}
 	}
@@ -10562,7 +10593,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_lower_conscription_age
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Lower_Conscription_Age
 		x = -5
 		y = 3
 		
@@ -10597,7 +10628,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_quality_over_quantity
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Quality_Over_Quantity
 		x = -7
 		y = 3
 		
@@ -10634,7 +10665,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_prevent_draft_dodging
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Prevent_Draft_Dodging
 		x = -4
 		y = 4
 		
@@ -10665,8 +10696,40 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UKR_tighten_border_control
+		id = UKR_decrease_tour_of_duty
 		icon = GFX_focus
+		x = -8
+		y = 4
+		
+		cost = 25
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_quality_over_quantity }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.015
+			custom_effect_tooltip = UKR_decrease_tour_of_duty_tt
+			add_to_variable = { UKR_ms_morale = 0.08 }
+			add_to_variable = { UKR_ms_planning = 0.02 }
+			add_to_variable = { UKR_ms_conscription = -0.1 }
+		}
+	}
+
+	focus = {
+		id = UKR_tighten_border_control
+		icon = GFX_focus_UKR_Tighten_Border_Control
 		x = -5
 		y = 5
 		
@@ -10697,7 +10760,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_new_mobilization_law
-		icon = GFX_focus
+		icon = GFX_focus_UKR_New_Mobilisation_Law
 		x = -6
 		y = 6
 		
