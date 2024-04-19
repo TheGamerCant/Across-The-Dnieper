@@ -414,10 +414,10 @@ NDefines.NAI.NAVAL_PATROL_PLANES_PER_SHIP_ESCORTING = 20 --10.0		-- Amount of na
 
 
 
-NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 72				--base is 24
-NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 72				--base is 24
-NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 8					--base is 5
-NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.55					--base is 0.05
+NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 80				--base is 24
+NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 80				--base is 24
+NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 5					--base is 5
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.40					--base is 0.05
 NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.02			--base is 0.1
 NDefines.NMilitary.ATTRITION_DAMAGE_ORG = 0.02					--base is 0.08
 NDefines.NMilitary.ATTRITION_EQUIPMENT_PER_TYPE_LOSS_CHANCE = 0.02		--base is 0.1
@@ -493,6 +493,8 @@ NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2 -- two spies on
 
 NDefines.NInterface.MINIMAP_PING_DELAY_BETWEEN_PINGS = 1 --vanilla 0.30 -- delay between consecutive pings
 
+NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN = 6
+NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN_CORE = 4
 
 --Air Balance (designer stuff mainly but also some other stuff regarding air combat)
 
