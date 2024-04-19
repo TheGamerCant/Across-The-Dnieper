@@ -1,5 +1,173 @@
 technologies = {
+	basic_train = {
+		enable_equipments = {
+			train_equipment_1
+		}
 
+		research_cost = 1.5
+		start_year = 2000
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 1 }
+		}
+
+		path = {
+			leads_to_tech = convoy_highways_1
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				num_of_factories > 25
+				factor = 100 #might wanna get on that
+			}
+		}
+	}
+	
+	convoy_highways_1 = {
+		research_cost = 1.5
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 3 }
+		}
+
+		path = {
+			leads_to_tech = wartime_train
+			research_cost_coeff = 1
+		}
+
+		supply_node_range = 0.05
+		truck_attrition_factor = -0.05
+		production_speed_supply_node_factor = 0.10
+		production_speed_rail_way_factor = 0.10
+
+		categories = {
+			train_tech
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+	}
+
+	wartime_train = {
+		enable_equipments = {
+			train_equipment_2
+		}
+
+		research_cost = 1.5
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 5 }
+		}
+		
+		path = {
+			leads_to_tech = armored_train
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 2
+			
+		}
+	}
+
+	armored_train = {
+		enable_equipments = {
+			train_equipment_3
+		}
+
+		allow_branch = {
+			has_dlc = "No Step Back"
+		}
+
+		path = {
+			leads_to_tech = railway_gun
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 2018
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 7 }
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	railway_gun = {
+		enable_equipments = {
+			railway_gun_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = convoy_highways_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 2020
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 9 }
+		}
+		
+		categories = {
+			train_tech
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				is_major = yes
+				factor = 2
+			}
+
+		}
+	}
+	
+	convoy_highways_2 = {
+		research_cost = 1.5
+		start_year = 2022
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 11 }
+		}
+
+		supply_node_range = 0.05
+		truck_attrition_factor = -0.05
+		production_speed_supply_node_factor = 0.10
+		production_speed_rail_way_factor = 0.10
+
+		categories = {
+			train_tech
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
 	apc = {
 
 		enable_equipments = {
