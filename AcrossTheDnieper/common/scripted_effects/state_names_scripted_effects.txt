@@ -7,9 +7,9 @@
 #Kyiv Oblast: English, Ukrainian, Russian, Polish
 #Donetsk Oblast: English, Ukrainian, Russian, Polish
 #Luhansk Oblast: English, Ukrainian, Russian, Polish
-#Donetsk Oblast: English, Ukrainian, Russian, Polish
+#Dnipropetrovsk Oblast: English, Ukrainian, Russian, Polish
 #Zakarpattya Oblast: English, Ukrainian, Russian, Polish, Hungarian, Slovak
-
+#Kharkiv Oblast: English, Ukrainian, Russian, Polish
 
 
 update_state_1_names={
@@ -780,7 +780,83 @@ update_state_88_names={
 
 }
 update_state_89_names={
-
+	89={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_89_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_89_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_89_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 1652 is_ukraine_tag = yes } }
+		set_province_name = { id = 1652 name = VICTORY_POINTS_1652_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1652 is_russia_tag = yes } }
+		set_province_name = { id = 1652 name = VICTORY_POINTS_1652_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1652 is_poland_tag = yes } }
+		set_province_name = { id = 1652 name = VICTORY_POINTS_1652_POL }
+	}
+	else={
+		reset_province_name = 1652
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 2225 is_ukraine_tag = yes } }
+		set_province_name = { id = 2225 name = VICTORY_POINTS_2225_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2225 is_russia_tag = yes } }
+		set_province_name = { id = 2225 name = VICTORY_POINTS_2225_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2225 is_poland_tag = yes } }
+		set_province_name = { id = 2225 name = VICTORY_POINTS_2225_POL }
+	}
+	else={
+		reset_province_name = 2225
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17184 is_ukraine_tag = yes } }
+		set_province_name = { id = 17184 name = VICTORY_POINTS_17184_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17184 is_poland_tag = yes } }
+		set_province_name = { id = 17184 name = VICTORY_POINTS_17184_POL }
+	}
+	else={
+		reset_province_name = 17184
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17409 is_ukraine_tag = yes } }
+		set_province_name = { id = 17409 name = VICTORY_POINTS_17409_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17409 is_russia_tag = yes } }
+		set_province_name = { id = 17409 name = VICTORY_POINTS_17409_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17409 is_poland_tag = yes } }
+		set_province_name = { id = 17409 name = VICTORY_POINTS_17409_POL }
+	}
+	else={
+		reset_province_name = 17409
+	}
 }
 update_state_90_names={
 
@@ -884,13 +960,721 @@ update_state_92_names={
 	}
 }
 update_state_93_names={
-
+	93={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_93_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_93_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_93_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 8247 is_ukraine_tag = yes } }
+		set_province_name = { id = 8247 name = VICTORY_POINTS_8247_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8247 is_russia_tag = yes } }
+		set_province_name = { id = 8247 name = VICTORY_POINTS_8247_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8247 is_poland_tag = yes } }
+		set_province_name = { id = 8247 name = VICTORY_POINTS_8247_POL }
+	}
+	else={
+		reset_province_name = 8247
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 8492 is_russia_tag = yes } }
+		set_province_name = { id = 8492 name = VICTORY_POINTS_8492_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8492 is_poland_tag = yes } }
+		set_province_name = { id = 8492 name = VICTORY_POINTS_8492_POL }
+	}
+	else={
+		reset_province_name = 8492
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9745 is_russia_tag = yes } }
+		set_province_name = { id = 9745 name = VICTORY_POINTS_9745_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9745 is_poland_tag = yes } }
+		set_province_name = { id = 9745 name = VICTORY_POINTS_9745_POL }
+	}
+	else={
+		reset_province_name = 9745
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 11748 is_russia_tag = yes } }
+		set_province_name = { id = 11748 name = VICTORY_POINTS_11748_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11748 is_poland_tag = yes } }
+		set_province_name = { id = 11748 name = VICTORY_POINTS_11748_POL }
+	}
+	else={
+		reset_province_name = 11748
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13624 is_russia_tag = yes } }
+		set_province_name = { id = 13624 name = VICTORY_POINTS_13624_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13624 is_poland_tag = yes } }
+		set_province_name = { id = 13624 name = VICTORY_POINTS_13624_POL }
+	}
+	else={
+		reset_province_name = 13624
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 14564 is_ukraine_tag = yes } }
+		set_province_name = { id = 14564 name = VICTORY_POINTS_14564_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14564 is_russia_tag = yes } }
+		set_province_name = { id = 14564 name = VICTORY_POINTS_14564_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14564 is_poland_tag = yes } }
+		set_province_name = { id = 14564 name = VICTORY_POINTS_14564_POL }
+	}
+	else={
+		reset_province_name = 14564
+	}
 }
 update_state_94_names={
-
+	94={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_94_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_94_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_94_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 901 is_russia_tag = yes } }
+		set_province_name = { id = 901 name = VICTORY_POINTS_901_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 901 is_poland_tag = yes } }
+		set_province_name = { id = 901 name = VICTORY_POINTS_901_POL }
+	}
+	else={
+		reset_province_name = 901
+	}
+	
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 1440 is_ukraine_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_UKR_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 1440 is_russia_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_SOV_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 1440 is_poland_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_POL_RENAMED }
+		}
+		else={
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 1440 is_ukraine_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_UKR }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 1440 is_russia_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 1440 is_poland_tag = yes } }
+			set_province_name = { id = 1440 name = VICTORY_POINTS_1440_POL }
+		}
+		else={
+			reset_province_name = 1440
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 1656 is_ukraine_tag = yes } }
+		set_province_name = { id = 1656 name = VICTORY_POINTS_1656_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1656 is_russia_tag = yes } }
+		set_province_name = { id = 1656 name = VICTORY_POINTS_1656_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 1656 is_poland_tag = yes } }
+		set_province_name = { id = 1656 name = VICTORY_POINTS_1656_POL }
+	}
+	else={
+		reset_province_name = 1656
+	}
+	
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 2816 is_ukraine_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_UKR_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 2816 is_russia_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_SOV_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 2816 is_poland_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_POL_RENAMED }
+		}
+		else={
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 2816 is_ukraine_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_UKR }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 2816 is_russia_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 2816 is_poland_tag = yes } }
+			set_province_name = { id = 2816 name = VICTORY_POINTS_2816_POL }
+		}
+		else={
+			reset_province_name = 2816
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 5424 is_ukraine_tag = yes } }
+		set_province_name = { id = 5424 name = VICTORY_POINTS_5424_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 5424 is_russia_tag = yes } }
+		set_province_name = { id = 5424 name = VICTORY_POINTS_5424_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 5424 is_poland_tag = yes } }
+		set_province_name = { id = 5424 name = VICTORY_POINTS_5424_POL }
+	}
+	else={
+		reset_province_name = 5424
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7678 is_ukraine_tag = yes } }
+		set_province_name = { id = 7678 name = VICTORY_POINTS_7678_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7678 is_russia_tag = yes } }
+		set_province_name = { id = 7678 name = VICTORY_POINTS_7678_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7678 is_poland_tag = yes } }
+		set_province_name = { id = 7678 name = VICTORY_POINTS_7678_POL }
+	}
+	else={
+		reset_province_name = 7678
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7828 is_russia_tag = yes } }
+		set_province_name = { id = 7828 name = VICTORY_POINTS_7828_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7828 is_poland_tag = yes } }
+		set_province_name = { id = 7828 name = VICTORY_POINTS_7828_POL }
+	}
+	else={
+		reset_province_name = 7828
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7903 is_ukraine_tag = yes } }
+		set_province_name = { id = 7903 name = VICTORY_POINTS_7903_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7903 is_russia_tag = yes } }
+		set_province_name = { id = 7903 name = VICTORY_POINTS_7903_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7903 is_poland_tag = yes } }
+		set_province_name = { id = 7903 name = VICTORY_POINTS_7903_POL }
+	}
+	else={
+		reset_province_name = 7903
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 8172 is_russia_tag = yes } }
+		set_province_name = { id = 8172 name = VICTORY_POINTS_8172_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8172 is_poland_tag = yes } }
+		set_province_name = { id = 8172 name = VICTORY_POINTS_8172_POL }
+	}
+	else={
+		reset_province_name = 8172
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 8990 is_russia_tag = yes } }
+		set_province_name = { id = 8990 name = VICTORY_POINTS_8990_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 8990 is_poland_tag = yes } }
+		set_province_name = { id = 8990 name = VICTORY_POINTS_8990_POL }
+	}
+	else={
+		reset_province_name = 8990
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9516 is_ukraine_tag = yes } }
+		set_province_name = { id = 9516 name = VICTORY_POINTS_9516_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9516 is_russia_tag = yes } }
+		set_province_name = { id = 9516 name = VICTORY_POINTS_9516_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 9516 is_poland_tag = yes } }
+		set_province_name = { id = 9516 name = VICTORY_POINTS_9516_POL }
+	}
+	else={
+		reset_province_name = 9516
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 11848 OR = { is_ukraine_tag = yes is_russia_tag = yes } } }
+		set_province_name = { id = 11848 name = VICTORY_POINTS_11848_UKR}
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11848 is_poland_tag = yes } }
+		set_province_name = { id = 11848 name = VICTORY_POINTS_11848_POL }
+	}
+	else={
+		reset_province_name = 11848
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12384 is_russia_tag = yes } }
+		set_province_name = { id = 12384 name = VICTORY_POINTS_12384_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12384 is_poland_tag = yes } }
+		set_province_name = { id = 12384 name = VICTORY_POINTS_12384_POL }
+	}
+	else={
+		reset_province_name = 12384
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12623 is_ukraine_tag = yes } }
+		set_province_name = { id = 12623 name = VICTORY_POINTS_12623_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12623 is_russia_tag = yes } }
+		set_province_name = { id = 12623 name = VICTORY_POINTS_12623_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12623 is_poland_tag = yes } }
+		set_province_name = { id = 12623 name = VICTORY_POINTS_12623_POL }
+	}
+	else={
+		reset_province_name = 12623
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12861 is_russia_tag = yes } }
+		set_province_name = { id = 12861 name = VICTORY_POINTS_12861_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12861 is_poland_tag = yes } }
+		set_province_name = { id = 12861 name = VICTORY_POINTS_12861_POL }
+	}
+	else={
+		reset_province_name = 12861
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13316 is_russia_tag = yes } }
+		set_province_name = { id = 13316 name = VICTORY_POINTS_13316_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13316 is_poland_tag = yes } }
+		set_province_name = { id = 13316 name = VICTORY_POINTS_13316_POL }
+	}
+	else={
+		reset_province_name = 13316
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13658 is_russia_tag = yes } }
+		set_province_name = { id = 13658 name = VICTORY_POINTS_13658_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13658 is_poland_tag = yes } }
+		set_province_name = { id = 13658 name = VICTORY_POINTS_13658_POL }
+	}
+	else={
+		reset_province_name = 13658
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 14368 is_ukraine_tag = yes } }
+		set_province_name = { id = 14368 name = VICTORY_POINTS_14368_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14368 is_russia_tag = yes } }
+		set_province_name = { id = 14368 name = VICTORY_POINTS_14368_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14368 is_poland_tag = yes } }
+		set_province_name = { id = 14368 name = VICTORY_POINTS_14368_POL }
+	}
+	else={
+		reset_province_name = 14368
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 14559 is_russia_tag = yes } }
+		set_province_name = { id = 14559 name = VICTORY_POINTS_14559_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14559 is_poland_tag = yes } }
+		set_province_name = { id = 14559 name = VICTORY_POINTS_14559_POL }
+	}
+	else={
+		reset_province_name = 14559
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16255 is_ukraine_tag = yes } }
+		set_province_name = { id = 16255 name = VICTORY_POINTS_16255_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16255 is_russia_tag = yes } }
+		set_province_name = { id = 16255 name = VICTORY_POINTS_16255_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16255 is_poland_tag = yes } }
+		set_province_name = { id = 16255 name = VICTORY_POINTS_16255_POL }
+	}
+	else={
+		reset_province_name = 16255
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16294 is_russia_tag = yes } }
+		set_province_name = { id = 16294 name = VICTORY_POINTS_16294_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16294 is_poland_tag = yes } }
+		set_province_name = { id = 16294 name = VICTORY_POINTS_16294_POL }
+	}
+	else={
+		reset_province_name = 16294
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16478 is_russia_tag = yes } }
+		set_province_name = { id = 16478 name = VICTORY_POINTS_16478_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16478 is_poland_tag = yes } }
+		set_province_name = { id = 16478 name = VICTORY_POINTS_16478_POL }
+	}
+	else={
+		reset_province_name = 16478
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16606 is_russia_tag = yes } }
+		set_province_name = { id = 16606 name = VICTORY_POINTS_16606_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16606 is_poland_tag = yes } }
+		set_province_name = { id = 16606 name = VICTORY_POINTS_16606_POL }
+	}
+	else={
+		reset_province_name = 16606
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17241 is_russia_tag = yes } }
+		set_province_name = { id = 17241 name = VICTORY_POINTS_17241_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17241 is_poland_tag = yes } }
+		set_province_name = { id = 17241 name = VICTORY_POINTS_17241_POL }
+	}
+	else={
+		reset_province_name = 17241
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17254 is_russia_tag = yes } }
+		set_province_name = { id = 17254 name = VICTORY_POINTS_17254_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17254 is_poland_tag = yes } }
+		set_province_name = { id = 17254 name = VICTORY_POINTS_17254_POL }
+	}
+	else={
+		reset_province_name = 17254
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17312 is_ukraine_tag = yes } }
+		set_province_name = { id = 17312 name = VICTORY_POINTS_17312_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17312 is_russia_tag = yes } }
+		set_province_name = { id = 17312 name = VICTORY_POINTS_17312_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17312 is_poland_tag = yes } }
+		set_province_name = { id = 17312 name = VICTORY_POINTS_17312_POL }
+	}
+	else={
+		reset_province_name = 17312
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17330 is_ukraine_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17330 is_russia_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17330 is_poland_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_POL }
+	}
+	else={
+		reset_province_name = 17330
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17405 is_ukraine_tag = yes } }
+		set_province_name = { id = 17405 name = VICTORY_POINTS_17405_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17405 is_russia_tag = yes } }
+		set_province_name = { id = 17405 name = VICTORY_POINTS_17405_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17405 is_poland_tag = yes } }
+		set_province_name = { id = 17405 name = VICTORY_POINTS_17405_POL }
+	}
+	else={
+		reset_province_name = 17405
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17710 is_russia_tag = yes } }
+		set_province_name = { id = 17710 name = VICTORY_POINTS_17710_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17710 is_poland_tag = yes } }
+		set_province_name = { id = 17710 name = VICTORY_POINTS_17710_POL }
+	}
+	else={
+		reset_province_name = 17710
+	}
+	
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		if={
+			limit = { any_country = { controls_province = 17773 is_ukraine_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_UKR_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 17773 is_russia_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_SOV_RENAMED }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 17773 is_poland_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_POL_RENAMED }
+		}
+		else={
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_RENAMED }
+		}
+	}
+	else={
+		if={
+			limit = { any_country = { controls_province = 17773 is_ukraine_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_UKR }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 17773 is_russia_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_SOV }
+		}
+		else_if={
+			limit = { any_country = { controls_province = 17773 is_poland_tag = yes } }
+			set_province_name = { id = 17773 name = VICTORY_POINTS_17773_POL }
+		}
+		else={
+			reset_province_name = 17773
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 19794 is_ukraine_tag = yes } }
+		set_province_name = { id = 19794 name = VICTORY_POINTS_19794_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 19794 is_russia_tag = yes } }
+		set_province_name = { id = 19794 name = VICTORY_POINTS_19794_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 19794 is_poland_tag = yes } }
+		set_province_name = { id = 19794 name = VICTORY_POINTS_19794_POL }
+	}
+	else={
+		reset_province_name = 19794
+	}
 }
 update_state_95_names={
-
+	95={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_95_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_95_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_95_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 136 is_russia_tag = yes } }
+		set_province_name = { id = 136 name = VICTORY_POINTS_136_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 136 is_poland_tag = yes } }
+		set_province_name = { id = 136 name = VICTORY_POINTS_136_POL }
+	}
+	else={
+		reset_province_name = 136
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 9202 is_russia_tag = yes } }
+		set_province_name = { id = 9202 name = VICTORY_POINTS_9202_SOV }
+	}
+	else={
+		reset_province_name = 9202
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 10389 is_russia_tag = yes } }
+		set_province_name = { id = 10389 name = VICTORY_POINTS_10389_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 10389 is_poland_tag = yes } }
+		set_province_name = { id = 10389 name = VICTORY_POINTS_10389_POL }
+	}
+	else={
+		reset_province_name = 10389
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12396 is_russia_tag = yes } }
+		set_province_name = { id = 12396 name = VICTORY_POINTS_12396_SOV }
+	}
+	else={
+		reset_province_name = 12396
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13034 is_ukraine_tag = yes } }
+		set_province_name = { id = 13034 name = VICTORY_POINTS_13034_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13034 is_russia_tag = yes } }
+		set_province_name = { id = 13034 name = VICTORY_POINTS_13034_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13034 is_poland_tag = yes } }
+		set_province_name = { id = 13034 name = VICTORY_POINTS_13034_POL }
+	}
+	else={
+		reset_province_name = 13034
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17330 is_ukraine_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17330 is_russia_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17330 is_poland_tag = yes } }
+		set_province_name = { id = 17330 name = VICTORY_POINTS_17330_POL }
+	}
+	else={
+		reset_province_name = 17330
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17391 is_ukraine_tag = yes } }
+		set_province_name = { id = 17391 name = VICTORY_POINTS_17391_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17391 is_russia_tag = yes } }
+		set_province_name = { id = 17391 name = VICTORY_POINTS_17391_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17391 is_poland_tag = yes } }
+		set_province_name = { id = 17391 name = VICTORY_POINTS_17391_POL }
+	}
+	else={
+		reset_province_name = 17391
+	}
 }
 update_state_96_names={
 	96={
@@ -1759,10 +2543,134 @@ update_state_121_names={
 	}
 }
 update_state_122_names={
-
+	122={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_122_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_122_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_122_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 2429 is_russia_tag = yes } }
+		set_province_name = { id = 2429 name = VICTORY_POINTS_2429_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 2429 is_poland_tag = yes } }
+		set_province_name = { id = 2429 name = VICTORY_POINTS_2429_POL }
+	}
+	else={
+		reset_province_name = 2429
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 4215 is_russia_tag = yes } }
+		set_province_name = { id = 4215 name = VICTORY_POINTS_4215_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4215 is_poland_tag = yes } }
+		set_province_name = { id = 4215 name = VICTORY_POINTS_4215_POL }
+	}
+	else={
+		reset_province_name = 4215
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 11058 is_ukraine_tag = yes } }
+		set_province_name = { id = 11058 name = VICTORY_POINTS_11058_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11058 is_russia_tag = yes } }
+		set_province_name = { id = 11058 name = VICTORY_POINTS_11058_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 11058 is_poland_tag = yes } }
+		set_province_name = { id = 11058 name = VICTORY_POINTS_11058_POL }
+	}
+	else={
+		reset_province_name = 11058
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 16571 is_russia_tag = yes } }
+		set_province_name = { id = 16571 name = VICTORY_POINTS_16571_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 16571 is_poland_tag = yes } }
+		set_province_name = { id = 16571 name = VICTORY_POINTS_16571_POL }
+	}
+	else={
+		reset_province_name = 16571
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17634 is_russia_tag = yes } }
+		set_province_name = { id = 17634 name = VICTORY_POINTS_17634_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17634 is_poland_tag = yes } }
+		set_province_name = { id = 17634 name = VICTORY_POINTS_17634_POL }
+	}
+	else={
+		reset_province_name = 17634
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17718 is_russia_tag = yes } }
+		set_province_name = { id = 17718 name = VICTORY_POINTS_17718_SOV }
+	}
+	else={
+		reset_province_name = 17718
+	}
 }
 update_state_123_names={
-
+	123={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_123_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_123_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_123_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 335 is_russia_tag = yes } }
+		set_province_name = { id = 335 name = VICTORY_POINTS_335_SOV }
+	}
+	else={
+		reset_province_name = 335
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12684 is_russia_tag = yes } }
+		set_province_name = { id = 12684 name = VICTORY_POINTS_12684_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12684 is_poland_tag = yes } }
+		set_province_name = { id = 12684 name = VICTORY_POINTS_12684_POL }
+	}
+	else={
+		reset_province_name = 12684
+	}
 }
 update_state_124_names={
 
@@ -1823,13 +2731,133 @@ update_state_125_names={
 	}
 }
 update_state_126_names={
-
+	126={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_126_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_126_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_126_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 17589 is_russia_tag = yes } }
+		set_province_name = { id = 17589 name = VICTORY_POINTS_17589_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 17589 is_poland_tag = yes } }
+		set_province_name = { id = 17589 name = VICTORY_POINTS_17589_POL }
+	}
+	else={
+		reset_province_name = 17589
+	}
 }
 update_state_127_names={
 
 }
 update_state_128_names={
-
+	128={
+		if ={ 
+			limit = { CONTROLLER={ is_ukraine_tag = yes } }
+			set_state_name = STATE_128_UKR
+		}
+		else_if ={ 
+			limit = { CONTROLLER={ is_russia_tag = yes } }
+			set_state_name = STATE_128_SOV
+		}
+		else_if={
+			limit = { CONTROLLER={ is_poland_tag = yes } }
+			set_state_name = STATE_128_POL
+		}
+		else ={ 
+			reset_state_name = yes
+		}
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 741 is_russia_tag = yes } }
+		set_province_name = { id = 741 name = VICTORY_POINTS_741_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 741 is_poland_tag = yes } }
+		set_province_name = { id = 741 name = VICTORY_POINTS_741_POL }
+	}
+	else={
+		reset_province_name = 741
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 4864 is_russia_tag = yes } }
+		set_province_name = { id = 4864 name = VICTORY_POINTS_4864_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 4864 is_poland_tag = yes } }
+		set_province_name = { id = 4864 name = VICTORY_POINTS_4864_POL }
+	}
+	else={
+		reset_province_name = 4864
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 7772 is_ukraine_tag = yes } }
+		set_province_name = { id = 7772 name = VICTORY_POINTS_7772_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7772 is_russia_tag = yes } }
+		set_province_name = { id = 7772 name = VICTORY_POINTS_7772_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 7772 is_poland_tag = yes } }
+		set_province_name = { id = 7772 name = VICTORY_POINTS_7772_POL }
+	}
+	else={
+		reset_province_name = 7772
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 12761 is_russia_tag = yes } }
+		set_province_name = { id = 12761 name = VICTORY_POINTS_12761_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 12761 is_poland_tag = yes } }
+		set_province_name = { id = 12761 name = VICTORY_POINTS_12761_POL }
+	}
+	else={
+		reset_province_name = 12761
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 13904 is_ukraine_tag = yes } }
+		set_province_name = { id = 13904 name = VICTORY_POINTS_13904_UKR }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 13904 is_russia_tag = yes } }
+		set_province_name = { id = 13904 name = VICTORY_POINTS_13904_SOV }
+	}
+	else={
+		reset_province_name = 13904
+	}
+	
+	if={
+		limit = { any_country = { controls_province = 14507 is_russia_tag = yes } }
+		set_province_name = { id = 14507 name = VICTORY_POINTS_14507_SOV }
+	}
+	else_if={
+		limit = { any_country = { controls_province = 14507 is_poland_tag = yes } }
+		set_province_name = { id = 14507 name = VICTORY_POINTS_14507_POL }
+	}
+	else={
+		reset_province_name = 14507
+	}
 }
 update_state_129_names={
 
@@ -2277,8 +3305,8 @@ update_state_143_names={
 	}
 	
 	if={
-		limit = { any_country = { controls_province = 17869 is_ukraine_tag = yes } }
-		set_province_name = { id = 17869 name = VICTORY_POINTS_17869_UKR }
+		limit = { any_country = { controls_province = 17869 is_russia_tag = yes } }
+		set_province_name = { id = 17869 name = VICTORY_POINTS_17869_SOV }
 	}
 	else_if={
 		limit = { any_country = { controls_province = 17869 is_poland_tag = yes } }
@@ -5639,7 +6667,6 @@ update_state_447_names={
 
 }
 
-
 change_city_names={
 	ZZZ={
 		update_state_1_names=yes
@@ -6093,7 +7120,6 @@ change_city_names={
 }
 
 
-
 revert_city_names_to_original={			#Code isn't the most efficient space-wise but it's more efficient on the cpu than using meta effects
 	every_state={
 		reset_state_name = yes
@@ -6286,6 +7312,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 875 name = VICTORY_POINTS_875 }
 	set_province_name = { id = 880 name = VICTORY_POINTS_880 }
 	set_province_name = { id = 893 name = VICTORY_POINTS_893 }
+	set_province_name = { id = 901 name = VICTORY_POINTS_901 }
 	set_province_name = { id = 907 name = VICTORY_POINTS_907 }
 	set_province_name = { id = 912 name = VICTORY_POINTS_912 }
 	set_province_name = { id = 922 name = VICTORY_POINTS_922 }
@@ -6362,6 +7389,13 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 1414 name = VICTORY_POINTS_1414 }
 	set_province_name = { id = 1439 name = VICTORY_POINTS_1439 }
 	set_province_name = { id = 1439 name = VICTORY_POINTS_1439 }
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		set_province_name = { id = 1440 name = VICTORY_POINTS_1440_RENAMED }
+	}
+	else={
+		set_province_name = { id = 1440 name = VICTORY_POINTS_1440 }
+	}
 	set_province_name = { id = 1445 name = VICTORY_POINTS_1445 }
 	set_province_name = { id = 1450 name = VICTORY_POINTS_1450 }
 	set_province_name = { id = 1455 name = VICTORY_POINTS_1455 }
@@ -6386,6 +7420,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 1603 name = VICTORY_POINTS_1603 }
 	set_province_name = { id = 1630 name = VICTORY_POINTS_1630 }
 	set_province_name = { id = 1652 name = VICTORY_POINTS_1652 }
+	set_province_name = { id = 1656 name = VICTORY_POINTS_1656 }
 	set_province_name = { id = 1661 name = VICTORY_POINTS_1661 }
 	set_province_name = { id = 1668 name = VICTORY_POINTS_1668 }
 	set_province_name = { id = 1668 name = VICTORY_POINTS_1668 }
@@ -6453,6 +7488,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 2210 name = VICTORY_POINTS_2210 }
 	set_province_name = { id = 2215 name = VICTORY_POINTS_2215 }
 	set_province_name = { id = 2222 name = VICTORY_POINTS_2222 }
+	set_province_name = { id = 2225 name = VICTORY_POINTS_2225 }
 	set_province_name = { id = 2226 name = VICTORY_POINTS_2226 }
 	set_province_name = { id = 2235 name = VICTORY_POINTS_2235 }
 	set_province_name = { id = 2247 name = VICTORY_POINTS_2247 }
@@ -6487,6 +7523,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 2395 name = VICTORY_POINTS_2395 }
 	set_province_name = { id = 2420 name = VICTORY_POINTS_2420 }
 	set_province_name = { id = 2426 name = VICTORY_POINTS_2426 }
+	set_province_name = { id = 2429 name = VICTORY_POINTS_2429 }
 	set_province_name = { id = 2441 name = VICTORY_POINTS_2441 }
 	set_province_name = { id = 2454 name = VICTORY_POINTS_2454 }
 	set_province_name = { id = 2462 name = VICTORY_POINTS_2462 }
@@ -6531,6 +7568,13 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 2781 name = VICTORY_POINTS_2781 }
 	set_province_name = { id = 2795 name = VICTORY_POINTS_2795 }
 	set_province_name = { id = 2810 name = VICTORY_POINTS_2810 }
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		set_province_name = { id = 2816 name = VICTORY_POINTS_2816_RENAMED }
+	}
+	else={
+		set_province_name = { id = 2816 name = VICTORY_POINTS_2816 }
+	}
 	set_province_name = { id = 2845 name = VICTORY_POINTS_2845 }
 	set_province_name = { id = 2846 name = VICTORY_POINTS_2846 }
 	set_province_name = { id = 2846 name = VICTORY_POINTS_2846 }
@@ -6877,6 +7921,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 		set_province_name = { id = 5414 name = VICTORY_POINTS_5414 }
 	}
 	set_province_name = { id = 5423 name = VICTORY_POINTS_5423 }
+	set_province_name = { id = 5424 name = VICTORY_POINTS_5424 }
 	set_province_name = { id = 5439 name = VICTORY_POINTS_5439 }
 	set_province_name = { id = 5440 name = VICTORY_POINTS_5440 }
 	set_province_name = { id = 5447 name = VICTORY_POINTS_5447 }
@@ -7113,7 +8158,6 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 7297 name = VICTORY_POINTS_7297 }
 	set_province_name = { id = 7303 name = VICTORY_POINTS_7303 }
 	set_province_name = { id = 7311 name = VICTORY_POINTS_7311 }
-	set_province_name = { id = 7337 name = VICTORY_POINTS_7337 }
 	set_province_name = { id = 7340 name = VICTORY_POINTS_7340 }
 	set_province_name = { id = 7353 name = VICTORY_POINTS_7353 }
 	set_province_name = { id = 7353 name = VICTORY_POINTS_7353 }
@@ -7167,6 +8211,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 7669 name = VICTORY_POINTS_7669 }
 	set_province_name = { id = 7670 name = VICTORY_POINTS_7670 }
 	set_province_name = { id = 7674 name = VICTORY_POINTS_7674 }
+	set_province_name = { id = 7678 name = VICTORY_POINTS_7678 }
 	set_province_name = { id = 7688 name = VICTORY_POINTS_7688 }
 	set_province_name = { id = 7688 name = VICTORY_POINTS_7688 }
 	set_province_name = { id = 7702 name = VICTORY_POINTS_7702 }
@@ -7210,6 +8255,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 7884 name = VICTORY_POINTS_7884 }
 	set_province_name = { id = 7887 name = VICTORY_POINTS_7887 }
 	set_province_name = { id = 7902 name = VICTORY_POINTS_7902 }
+	set_province_name = { id = 7903 name = VICTORY_POINTS_7903 }
 	set_province_name = { id = 7905 name = VICTORY_POINTS_7905 }
 	set_province_name = { id = 7906 name = VICTORY_POINTS_7906 }
 	set_province_name = { id = 7921 name = VICTORY_POINTS_7921 }
@@ -7259,6 +8305,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 8149 name = VICTORY_POINTS_8149 }
 	set_province_name = { id = 8160 name = VICTORY_POINTS_8160 }
 	set_province_name = { id = 8169 name = VICTORY_POINTS_8169 }
+	set_province_name = { id = 8172 name = VICTORY_POINTS_8172 }
 	set_province_name = { id = 8177 name = VICTORY_POINTS_8177 }
 	set_province_name = { id = 8188 name = VICTORY_POINTS_8188 }
 	set_province_name = { id = 8199 name = VICTORY_POINTS_8199 }
@@ -7421,6 +8468,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 9472 name = VICTORY_POINTS_9472 }
 	set_province_name = { id = 9490 name = VICTORY_POINTS_9490 }
 	set_province_name = { id = 9514 name = VICTORY_POINTS_9514 }
+	set_province_name = { id = 9516 name = VICTORY_POINTS_9516 }
 	set_province_name = { id = 9524 name = VICTORY_POINTS_9524 }
 	set_province_name = { id = 9535 name = VICTORY_POINTS_9535 }
 	set_province_name = { id = 9541 name = VICTORY_POINTS_9541 }
@@ -7620,6 +8668,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 11045 name = VICTORY_POINTS_11045 }
 	set_province_name = { id = 11048 name = VICTORY_POINTS_11048 }
 	set_province_name = { id = 11049 name = VICTORY_POINTS_11049 }
+	set_province_name = { id = 11058 name = VICTORY_POINTS_11058 }
 	set_province_name = { id = 11069 name = VICTORY_POINTS_11069 }
 	set_province_name = { id = 11080 name = VICTORY_POINTS_11080 }
 	set_province_name = { id = 11093 name = VICTORY_POINTS_11093 }
@@ -7712,11 +8761,11 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 11815 name = VICTORY_POINTS_11815 }
 	set_province_name = { id = 11816 name = VICTORY_POINTS_11816 }
 	set_province_name = { id = 11817 name = VICTORY_POINTS_11817 }
-	set_province_name = { id = 11817 name = VICTORY_POINTS_11817 }
 	set_province_name = { id = 11818 name = VICTORY_POINTS_11818 }
 	set_province_name = { id = 11821 name = VICTORY_POINTS_11821 }
 	set_province_name = { id = 11831 name = VICTORY_POINTS_11831 }
 	set_province_name = { id = 11837 name = VICTORY_POINTS_11837 }
+	set_province_name = { id = 11848 name = VICTORY_POINTS_11848 }
 	set_province_name = { id = 11858 name = VICTORY_POINTS_11858 }
 	set_province_name = { id = 11859 name = VICTORY_POINTS_11859 }
 	set_province_name = { id = 11870 name = VICTORY_POINTS_11870 }
@@ -7790,6 +8839,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 12359 name = VICTORY_POINTS_12359 }
 	set_province_name = { id = 12363 name = VICTORY_POINTS_12363 }
 	set_province_name = { id = 12369 name = VICTORY_POINTS_12369 }
+	set_province_name = { id = 12384 name = VICTORY_POINTS_12384 }
 	set_province_name = { id = 12388 name = VICTORY_POINTS_12388 }
 	set_province_name = { id = 12390 name = VICTORY_POINTS_12390 }
 	set_province_name = { id = 12390 name = VICTORY_POINTS_12390 }
@@ -7830,10 +8880,12 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 12594 name = VICTORY_POINTS_12594 }
 	set_province_name = { id = 12596 name = VICTORY_POINTS_12596 }
 	set_province_name = { id = 12603 name = VICTORY_POINTS_12603 }
+	set_province_name = { id = 12623 name = VICTORY_POINTS_12623 }
 	set_province_name = { id = 12631 name = VICTORY_POINTS_12631 }
 	set_province_name = { id = 12631 name = VICTORY_POINTS_12631 }
 	set_province_name = { id = 12637 name = VICTORY_POINTS_12637 }
 	set_province_name = { id = 12680 name = VICTORY_POINTS_12680 }
+	set_province_name = { id = 12684 name = VICTORY_POINTS_12684 }
 	set_province_name = { id = 12686 name = VICTORY_POINTS_12686 }
 	set_province_name = { id = 12710 name = VICTORY_POINTS_12710 }
 	set_province_name = { id = 12722 name = VICTORY_POINTS_12722 }
@@ -7847,6 +8899,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 12838 name = VICTORY_POINTS_12838 }
 	set_province_name = { id = 12843 name = VICTORY_POINTS_12843 }
 	set_province_name = { id = 12859 name = VICTORY_POINTS_12859 }
+	set_province_name = { id = 12861 name = VICTORY_POINTS_12861 }
 	set_province_name = { id = 12864 name = VICTORY_POINTS_12864 }
 	set_province_name = { id = 12875 name = VICTORY_POINTS_12875 }
 	set_province_name = { id = 12876 name = VICTORY_POINTS_12876 }
@@ -7916,11 +8969,11 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 13292 name = VICTORY_POINTS_13292 }
 	set_province_name = { id = 13295 name = VICTORY_POINTS_13295 }
 	set_province_name = { id = 13301 name = VICTORY_POINTS_13301 }
-	set_province_name = { id = 13302 name = VICTORY_POINTS_13302 }
 	set_province_name = { id = 13305 name = VICTORY_POINTS_13305 }
 	set_province_name = { id = 13306 name = VICTORY_POINTS_13306 }
 	set_province_name = { id = 13309 name = VICTORY_POINTS_13309 }
 	set_province_name = { id = 13312 name = VICTORY_POINTS_13312 }
+	set_province_name = { id = 13316 name = VICTORY_POINTS_13316 }
 	set_province_name = { id = 13320 name = VICTORY_POINTS_13320 }
 	set_province_name = { id = 13334 name = VICTORY_POINTS_13334 }
 	set_province_name = { id = 13346 name = VICTORY_POINTS_13346 }
@@ -7964,6 +9017,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 13647 name = VICTORY_POINTS_13647 }
 	set_province_name = { id = 13648 name = VICTORY_POINTS_13648 }
 	set_province_name = { id = 13651 name = VICTORY_POINTS_13651 }
+	set_province_name = { id = 13658 name = VICTORY_POINTS_13658 }
 	set_province_name = { id = 13672 name = VICTORY_POINTS_13672 }
 	set_province_name = { id = 13675 name = VICTORY_POINTS_13675 }
 	set_province_name = { id = 13676 name = VICTORY_POINTS_13676 }
@@ -8059,6 +9113,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 14342 name = VICTORY_POINTS_14342 }
 	set_province_name = { id = 14360 name = VICTORY_POINTS_14360 }
 	set_province_name = { id = 14361 name = VICTORY_POINTS_14361 }
+	set_province_name = { id = 14368 name = VICTORY_POINTS_14368 }
 	set_province_name = { id = 14372 name = VICTORY_POINTS_14372 }
 	set_province_name = { id = 14372 name = VICTORY_POINTS_14372 }
 	set_province_name = { id = 14375 name = VICTORY_POINTS_14375 }
@@ -8083,6 +9138,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 14528 name = VICTORY_POINTS_14528 }
 	set_province_name = { id = 14537 name = VICTORY_POINTS_14537 }
 	set_province_name = { id = 14554 name = VICTORY_POINTS_14554 }
+	set_province_name = { id = 14559 name = VICTORY_POINTS_14559 }
 	set_province_name = { id = 14560 name = VICTORY_POINTS_14560 }
 	set_province_name = { id = 14562 name = VICTORY_POINTS_14562 }
 	set_province_name = { id = 14564 name = VICTORY_POINTS_14564 }
@@ -8196,11 +9252,12 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 16241 name = VICTORY_POINTS_16241 }
 	set_province_name = { id = 16242 name = VICTORY_POINTS_16242 }
 	set_province_name = { id = 16244 name = VICTORY_POINTS_16244 }
-	set_province_name = { id = 16244 name = VICTORY_POINTS_16244 }
 	set_province_name = { id = 16249 name = VICTORY_POINTS_16249 }
 	set_province_name = { id = 16254 name = VICTORY_POINTS_16254 }
+	set_province_name = { id = 16255 name = VICTORY_POINTS_16255 }
 	set_province_name = { id = 16258 name = VICTORY_POINTS_16258 }
 	set_province_name = { id = 16288 name = VICTORY_POINTS_16288 }
+	set_province_name = { id = 16294 name = VICTORY_POINTS_16294 }
 	set_province_name = { id = 16298 name = VICTORY_POINTS_16298 }
 	set_province_name = { id = 16298 name = VICTORY_POINTS_16298 }
 	set_province_name = { id = 16299 name = VICTORY_POINTS_16299 }
@@ -8218,6 +9275,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 16418 name = VICTORY_POINTS_16418 }
 	set_province_name = { id = 16418 name = VICTORY_POINTS_16418 }
 	set_province_name = { id = 16465 name = VICTORY_POINTS_16465 }
+	set_province_name = { id = 16478 name = VICTORY_POINTS_16478 }
 	set_province_name = { id = 16514 name = VICTORY_POINTS_16514 }
 	set_province_name = { id = 16522 name = VICTORY_POINTS_16522 }
 	set_province_name = { id = 16532 name = VICTORY_POINTS_16532 }
@@ -8225,6 +9283,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 16547 name = VICTORY_POINTS_16547 }
 	set_province_name = { id = 16558 name = VICTORY_POINTS_16558 }
 	set_province_name = { id = 16570 name = VICTORY_POINTS_16570 }
+	set_province_name = { id = 16571 name = VICTORY_POINTS_16571 }
 	set_province_name = { id = 16583 name = VICTORY_POINTS_16583 }
 	set_province_name = { id = 16607 name = VICTORY_POINTS_16607 }
 	set_province_name = { id = 16624 name = VICTORY_POINTS_16624 }
@@ -8278,13 +9337,14 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17232 name = VICTORY_POINTS_17232 }
 	set_province_name = { id = 17241 name = VICTORY_POINTS_17241 }
 	set_province_name = { id = 17249 name = VICTORY_POINTS_17249 }
+	set_province_name = { id = 17254 name = VICTORY_POINTS_17254 }
 	set_province_name = { id = 17268 name = VICTORY_POINTS_17268 }
 	set_province_name = { id = 17277 name = VICTORY_POINTS_17277 }
 	set_province_name = { id = 17279 name = VICTORY_POINTS_17279 }
 	set_province_name = { id = 17279 name = VICTORY_POINTS_17279 }
 	set_province_name = { id = 17294 name = VICTORY_POINTS_17294 }
+	set_province_name = { id = 17312 name = VICTORY_POINTS_17312 }
 	set_province_name = { id = 17326 name = VICTORY_POINTS_17326 }
-	set_province_name = { id = 17329 name = VICTORY_POINTS_17329 }
 	set_province_name = { id = 17329 name = VICTORY_POINTS_17329 }
 	set_province_name = { id = 17330 name = VICTORY_POINTS_17330 }
 	set_province_name = { id = 17338 name = VICTORY_POINTS_17338 }
@@ -8303,7 +9363,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17396 name = VICTORY_POINTS_17396 }
 	set_province_name = { id = 17398 name = VICTORY_POINTS_17398 }
 	set_province_name = { id = 17404 name = VICTORY_POINTS_17404 }
-	set_province_name = { id = 17404 name = VICTORY_POINTS_17404 }
+	set_province_name = { id = 17405 name = VICTORY_POINTS_17405 }
 	set_province_name = { id = 17407 name = VICTORY_POINTS_17407 }
 	set_province_name = { id = 17409 name = VICTORY_POINTS_17409 }
 	set_province_name = { id = 17412 name = VICTORY_POINTS_17412 }
@@ -8332,11 +9392,11 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17601 name = VICTORY_POINTS_17601 }
 	set_province_name = { id = 17602 name = VICTORY_POINTS_17602 }
 	set_province_name = { id = 17628 name = VICTORY_POINTS_17628 }
+	set_province_name = { id = 17633 name = VICTORY_POINTS_17633 }
 	set_province_name = { id = 17634 name = VICTORY_POINTS_17634 }
 	set_province_name = { id = 17641 name = VICTORY_POINTS_17641 }
 	set_province_name = { id = 17654 name = VICTORY_POINTS_17654 }
 	set_province_name = { id = 17660 name = VICTORY_POINTS_17660 }
-	set_province_name = { id = 17663 name = VICTORY_POINTS_17663 }
 	set_province_name = { id = 17666 name = VICTORY_POINTS_17666 }
 	set_province_name = { id = 17669 name = VICTORY_POINTS_17669 }
 	set_province_name = { id = 17676 name = VICTORY_POINTS_17676 }
@@ -8347,6 +9407,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17689 name = VICTORY_POINTS_17689 }
 	set_province_name = { id = 17699 name = VICTORY_POINTS_17699 }
 	set_province_name = { id = 17706 name = VICTORY_POINTS_17706 }
+	set_province_name = { id = 17710 name = VICTORY_POINTS_17710 }
 	set_province_name = { id = 17718 name = VICTORY_POINTS_17718 }
 	set_province_name = { id = 17756 name = VICTORY_POINTS_17756 }
 	set_province_name = { id = 17760 name = VICTORY_POINTS_17760 }
@@ -8355,8 +9416,14 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17770 name = VICTORY_POINTS_17770 }
 	set_province_name = { id = 17770 name = VICTORY_POINTS_17770 }
 	set_province_name = { id = 17771 name = VICTORY_POINTS_17771 }
+	if={
+		limit = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+		set_province_name = { id = 17773 name = VICTORY_POINTS_17773_RENAMED }
+	}
+	else={
+		set_province_name = { id = 17773 name = VICTORY_POINTS_17773 }
+	}
 	set_province_name = { id = 17774 name = VICTORY_POINTS_17774 }
-	set_province_name = { id = 17777 name = VICTORY_POINTS_17777 }
 	set_province_name = { id = 17777 name = VICTORY_POINTS_17777 }
 	set_province_name = { id = 17782 name = VICTORY_POINTS_17782 }
 	set_province_name = { id = 17797 name = VICTORY_POINTS_17797 }
@@ -8380,7 +9447,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17883 name = VICTORY_POINTS_17883 }
 	set_province_name = { id = 17884 name = VICTORY_POINTS_17884 }
 	set_province_name = { id = 17885 name = VICTORY_POINTS_17885 }
-	set_province_name = { id = 17894 name = VICTORY_POINTS_17894 }
+	set_province_name = { id = 17890 name = VICTORY_POINTS_17890 }
 	set_province_name = { id = 17894 name = VICTORY_POINTS_17894 }
 	set_province_name = { id = 17902 name = VICTORY_POINTS_17902 }
 	set_province_name = { id = 17903 name = VICTORY_POINTS_17903 }
@@ -8389,7 +9456,6 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 17929 name = VICTORY_POINTS_17929 }
 	set_province_name = { id = 17941 name = VICTORY_POINTS_17941 }
 	set_province_name = { id = 17941 name = VICTORY_POINTS_17941 }
-	set_province_name = { id = 17958 name = VICTORY_POINTS_17958 }
 	set_province_name = { id = 17958 name = VICTORY_POINTS_17958 }
 	set_province_name = { id = 17959 name = VICTORY_POINTS_17959 }
 	set_province_name = { id = 17963 name = VICTORY_POINTS_17963 }
@@ -8667,6 +9733,7 @@ revert_city_names_to_original={			#Code isn't the most efficient space-wise but 
 	set_province_name = { id = 19747 name = VICTORY_POINTS_19747 }
 	set_province_name = { id = 19758 name = VICTORY_POINTS_19758 }
 	set_province_name = { id = 19779 name = VICTORY_POINTS_19779 }
+	set_province_name = { id = 19794 name = VICTORY_POINTS_19794 }
 	set_province_name = { id = 19812 name = VICTORY_POINTS_19812 }
 	set_province_name = { id = 19817 name = VICTORY_POINTS_19817 }
 	set_province_name = { id = 19819 name = VICTORY_POINTS_19819 }

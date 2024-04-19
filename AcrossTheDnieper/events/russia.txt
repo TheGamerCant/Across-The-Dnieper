@@ -1263,6 +1263,23 @@ country_event = {
             }
 
             SKG = {
+                division_template = {
+                    name = "Infantry Division"
+                    division_names_group = UKR_INF_01
+                    regiments = {
+                        irregular_infantry = { x = 0 y = 0 }
+                        irregular_infantry = { x = 0 y = 1 }
+                        irregular_infantry = { x = 0 y = 2 }
+                        irregular_infantry = { x = 0 y = 3 }
+                        irregular_infantry = { x = 1 y = 0 }
+                        irregular_infantry = { x = 1 y = 1 }
+                        infantry = { x = 1 y = 2 }
+                        infantry = { x = 1 y = 3 }
+                        artillery_brigade = { x = 2 y = 0 }
+                        
+                    }
+                }
+
                 326 = {
                     create_unit = {
                         division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.02"
@@ -1312,6 +1329,23 @@ country_event = {
                 transfer_state = 309
     
                 set_capital = {state = 299}
+
+                division_template = {
+                    name = "Infantry Division"
+                    division_names_group = UKR_INF_01
+                    regiments = {
+                        irregular_infantry = { x = 0 y = 0 }
+                        irregular_infantry = { x = 0 y = 1 }
+                        irregular_infantry = { x = 0 y = 2 }
+                        irregular_infantry = { x = 0 y = 3 }
+                        irregular_infantry = { x = 1 y = 0 }
+                        irregular_infantry = { x = 1 y = 1 }
+                        infantry = { x = 1 y = 2 }
+                        infantry = { x = 1 y = 3 }
+                        artillery_brigade = { x = 2 y = 0 }
+                        
+                    }
+                }
     
                 299 = {
                     create_unit = {
@@ -1373,6 +1407,23 @@ country_event = {
                 transfer_state = 330
     
                 set_capital = {state = 323}
+
+                division_template = {
+                    name = "Infantry Division"
+                    division_names_group = UKR_INF_01
+                    regiments = {
+                        irregular_infantry = { x = 0 y = 0 }
+                        irregular_infantry = { x = 0 y = 1 }
+                        irregular_infantry = { x = 0 y = 2 }
+                        irregular_infantry = { x = 0 y = 3 }
+                        irregular_infantry = { x = 1 y = 0 }
+                        irregular_infantry = { x = 1 y = 1 }
+                        infantry = { x = 1 y = 2 }
+                        infantry = { x = 1 y = 3 }
+                        artillery_brigade = { x = 2 y = 0 }
+                        
+                    }
+                }
                
                 323 = {
                     create_unit = {
@@ -1434,6 +1485,23 @@ country_event = {
             load_focus_tree = crimea_cw_russia
 
             set_capital = {state = 344}
+
+            division_template = {
+                name = "Infantry Division"
+                division_names_group = UKR_INF_01
+                regiments = {
+                    irregular_infantry = { x = 0 y = 0 }
+                    irregular_infantry = { x = 0 y = 1 }
+                    irregular_infantry = { x = 0 y = 2 }
+                    irregular_infantry = { x = 0 y = 3 }
+                    irregular_infantry = { x = 1 y = 0 }
+                    irregular_infantry = { x = 1 y = 1 }
+                    infantry = { x = 1 y = 2 }
+                    infantry = { x = 1 y = 3 }
+                    artillery_brigade = { x = 2 y = 0 }
+                    
+                }
+            }
            
             354 = {
                 create_unit = {
@@ -2530,10 +2598,14 @@ country_event = {
 		add_political_power = 100
 		if={
 			limit={
-				russia_rework_trigger = yes
 				has_idea = SOV_the_crimean_burden_rework
 			}
 			remove_ideas = SOV_the_crimean_burden_rework
+		}
+		
+		build_railway = {
+			level = 3
+			path = { 4758 21874 8207 19617 13340 11998 13857 11960 19646 10301 }
 		}
     }
 }
@@ -3394,9 +3466,7 @@ country_event = {
 			base = 0
 		}
 
-        UKR = {
-            country_event = { days = 2 id = russia.76 }
-        }
+        add_to_faction = UKR
     }
 }
 
@@ -3932,14 +4002,13 @@ country_event = {
 	
 	immediate={
 		hidden_effect={
-			if={
-				limit = { russia_rework_trigger = yes }
-				set_global_flag = russia_ukraine_war
-				set_global_flag = smo_northern_front_open
-				set_global_flag = smo_eastern_front_open
-				set_global_flag = smo_donbass_front_open
-				set_global_flag = smo_southern_front_open
-			}
+			set_global_flag = russia_ukraine_war
+			set_global_flag = smo_northern_front_open
+			set_global_flag = smo_eastern_front_open
+			set_global_flag = smo_donbass_front_open
+			set_global_flag = smo_southern_front_open
+			
+			SOV_close_western_front_effect = yes
 		}
 	}
 
@@ -3969,6 +4038,12 @@ country_event = {
         name = russia.88.b
         ai_chance = {
 			base = 0
+		}
+		hidden_effect={
+			SMA = {
+				transfer_state = 434
+				add_state_core = 434
+			}
 		}
 		
 		if={
@@ -4326,654 +4401,6 @@ country_event = {
             }
 
             add_resistance = 40
-        }
-    }
-}
-
-#GENNADY MOBILIZES
-country_event = {
-    id = russia_civil_war.1
-    title = russia_civil_war.1.t
-    desc = russia_civil_war.1.desc
-    picture = SOV_cw_gennedy
-    is_triggered_only = yes
-
-    immediate = {
-        hidden_effect = {
-            set_global_flag = russian_civil_war_begun
-
-            set_cosmetic_tag = SOV_legitimate_government
-
-            spawn_zyuganov = yes
-        }
-    }
-
-
-    option = {
-        name = russia_civil_war.1.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.1.b
-		ai_chance = {
-			base = 0
-		}
-        
-        RFR = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#DUGIN
-country_event = {
-    id = russia_civil_war.2
-    title = russia_civil_war.2.t
-    desc = russia_civil_war.2.desc
-    picture = SOV_cw_dugin
-    is_triggered_only = yes
-
-    immediate = {
-        spawn_dugin = yes
-    }
-
-    option = {
-        name = russia_civil_war.2.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.2.b
-		ai_chance = {
-			base = 0
-		}
-        
-        SOE = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#Shoigu Flees
-country_event = {
-    id = russia_civil_war.3
-    title = russia_civil_war.3.t
-    desc = russia_civil_war.3.desc
-    picture = SOV_cw_shoigu
-    is_triggered_only = yes
-
-    immediate = {
-        spawn_shoigu = yes
-    }
-
-    option = {
-        name = russia_civil_war.3.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.3.b
-		ai_chance = {
-			base = 0
-		}
-        
-        RMJ = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#Volga Rise Up
-country_event = {
-    id = russia_civil_war.4
-    title = russia_civil_war.4.t
-    desc = russia_civil_war.4.desc
-    picture = SOV_cw_rogozin
-    is_triggered_only = yes
-
-    immediate = {
-        spawn_volga_warlords = yes
-    }
-
-    option = {
-        name = russia_civil_war.4.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.4.b
-		ai_chance = {
-			base = 0
-		}
-        
-        TSR = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.4.c
-		ai_chance = {
-			base = 0
-		}
-        
-        PFN = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.4.d
-		ai_chance = {
-			base = 0
-		}
-        
-        MSR = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.4.e
-		ai_chance = {
-			base = 0
-		}
-        
-        RCC = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#Central Russia Rise Up
-country_event = {
-    id = russia_civil_war.5
-    title = russia_civil_war.5.t
-    desc = russia_civil_war.5.desc
-    picture = SOV_cw_kirill
-    is_triggered_only = yes
-
-    immediate = {
-        spawn_central_russian_warlords = yes
-    }
-
-    option = {
-        name = russia_civil_war.5.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.5.b
-		ai_chance = {
-			base = 0
-		}
-        
-        RSE = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.5.c
-		ai_chance = {
-			base = 0
-		}
-        
-        RNS = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.5.d
-		ai_chance = {
-			base = 0
-		}
-        
-        RSS = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.5.e
-		ai_chance = {
-			base = 0
-		}
-        
-        RSR = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.5.f
-		ai_chance = {
-			base = 0
-		}
-        
-        UCR = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.5.g
-		ai_chance = {
-			base = 0
-		}
-        
-        FSR = {
-            change_tag_from = ROOT
-        }
-    }
-    
-    option = {
-        name = russia_civil_war.5.g
-		ai_chance = {
-			base = 0
-		}
-        
-        RLC = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#South Russia Rise Up
-country_event = {
-    id = russia_civil_war.6
-    title = russia_civil_war.6.t
-    desc = russia_civil_war.6.desc
-    picture = SOV_cw_khodorkovsky
-    is_triggered_only = yes
-
-    immediate = {
-        spawn_south_russia_warlords = yes
-    }
-
-    option = {
-        name = russia_civil_war.6.a
-		ai_chance = {
-			base = 10
-		}
-		
-    }
-
-    option = {
-        name = russia_civil_war.6.b
-		ai_chance = {
-			base = 0
-		}
-        
-        RTF = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.6.c
-		ai_chance = {
-			base = 0
-		}
-        
-        RRE = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.6.d
-		ai_chance = {
-			base = 0
-		}
-        
-        HYF = {
-            change_tag_from = ROOT
-        }
-    }
-
-    option = {
-        name = russia_civil_war.6.e
-		ai_chance = {
-			base = 0
-		}
-        
-        RSU = {
-            change_tag_from = ROOT
-        }
-    }
-
-    
-    option = {
-        name = russia_civil_war.6.f
-		ai_chance = {
-			base = 0
-		}
-        
-        AHO = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-#Eastern Anarchy
-country_event = {
-    id = russia_civil_war.7
-    title = russia_civil_war.7.t
-    desc = russia_civil_war.7.desc
-    picture = SOV_cw_volkov
-    is_triggered_only = yes
-
-    option = {
-        name = russia_civil_war.7.a
-		ai_chance = {
-			base = 10
-		}
-		
-        remove_ideas = SOV_wide_is_my_motherland
-    }
-}
-
-
-
-
-country_event = {
-    id = russia_civil_war_events.1
-    title = russia_civil_war_events.1.t
-    desc = russia_civil_war_events.1.desc
-    picture = GFX_report_event_SOV_donetsk_burned
-    is_triggered_only = yes
-
-
-    option = {
-        name = russia_civil_war_events.1.a
-		ai_chance = {
-			base = 10
-		}
-        complete_national_focus = SOV_vyacheslav_volodin
-    }
-    option = {
-        name = russia_civil_war_events.1.b
-		ai_chance = {
-			base = 50
-		}
-        complete_national_focus = SOV_dmitry_medvedev
-    }
-    option = {
-        name = russia_civil_war_events.1.c
-		ai_chance = {
-			base = 10
-		}
-        complete_national_focus = SOV_mikhail_mishustin
-    }
-}
-
-country_event = {
-    id = russia_civil_war_events.2
-    title = russia_civil_war_events.2.t
-    desc = russia_civil_war_events.2.desc
-    picture = SOV_samara_clashes
-    is_triggered_only = yes
-
-    immediate = {
-        hidden_effect = {
-
-            create_dynamic_country = {
-                original_tag = SOV
-                set_politics = {
-                    ruling_party = military_junta
-                }
-                add_popularity = {
-                    ideology = military_junta
-                    popularity = 1
-                }
-
-                set_party_name = {
-                    ideology = military_junta
-                    long_name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
-                    name = "Sovet Bezopasnosti Rossiyskoy Federatsii"
-                }
-                set_cosmetic_tag = SOV_bortnikov
-                set_research_slots = 1
-
-                create_country_leader = {
-                    name = "Alexander Bortnikov"
-                    desc = ""
-                    picture = gfx/leaders/SOV/Portrait_Alexander_Bortnikov.png
-                    ideology = generic_military_junta
-                    traits = {  }
-                }
-
-                load_focus_tree = russian_civil_war_bortnikov
-
-                add_ideas = {
-                    extensive_conscription 
-                    authoritarian_democracy
-                    centrally_planned_economy 
-                    state_controlled_press
-                    unions_restricted
-                    bipolarist
-                    womens_rights_traditional_values
-                    lgbtq_rights_banned 
-                    minority_rights_minor_inequality
-                    religion_law_religious
-                    nationalism_laws_jingoistic
-                }
-
-                transfer_state  = 59
-
-                every_state={
-					limit={
-						is_controlled_by = FPR
-					}
-					teleport_armies = {
-						limit = {
-                            OR = {
-                                NOT = { tag = FPR }
-                            }
-							
-						}
-						to_state_array = owned_controlled_states
-					}
-				}
-
-                division_template = {
-                    name = "Russian Funded Militias"
-                    division_names_group = SOV_INF_01
-                    regiments = {
-                        irregular_infantry = { x = 0 y = 0 }
-                        irregular_infantry = { x = 0 y = 1 }
-                        irregular_infantry = { x = 0 y = 2 }
-                        irregular_infantry = { x = 0 y = 3 }
-                        irregular_infantry = { x = 1 y = 0 }
-                        irregular_infantry = { x = 1 y = 1 }
-                        artillery_brigade = { x = 2 y = 0 }		
-                    }
-                }
-                
-                for_loop_effect = {
-                    end = 24
-                    value = temp
-                    random_owned_controlled_state = {
-                        create_unit = {
-                            division = "name = \"Funded Militia\" division_template = \"Russian Funded Militias\" start_experience_factor = 0.1" 
-                            owner = FPR
-                        }
-                    }
-                }
-
-                declare_war_on = {
-                    target = RMJ
-                    type = civil_war
-                }
-                add_civil_war_target = RMJ
-
-            }
-
-            SOV = {
-                SOV_alexander_bortnikov  = { 
-                    set_nationality = FPR
-                }
-                SOV_alexander_bortnikov_rework  = { 
-                    set_nationality = FPR
-                }
-            }
-        }
-    }
-
-
-    option = {
-        name = russia_civil_war_events.2.a
-		ai_chance = {
-			base = 10
-		}
-        add_war_support = 0.05
-    }
-    option = {
-        name = russia_civil_war_events.2.b
-		ai_chance = {
-			base = 0
-		}
-        RMJ = {
-            change_tag_from = ROOT
-        }
-    }
-}
-
-country_event = {
-    id = russia_civil_war_events.3
-    title = russia_civil_war_events.3.t
-    desc = russia_civil_war_events.3.desc
-    picture = SOV_samara_clashes
-    is_triggered_only = yes
-
-    immediate = {
-        hidden_effect = {
-
-            create_dynamic_country = {
-                original_tag = SOV
-                set_politics = {
-                    ruling_party = military_junta
-                }
-                add_popularity = {
-                    ideology = military_junta
-                    popularity = 1
-                }
-
-                set_party_name = {
-                    ideology = military_junta
-                    long_name = "Federalnaya Sluzhba Voysk Natsionalnoy Gvardii Rossiyskoy Federatsii"
-                    name = "Rosgvardiya"
-                }
-                set_cosmetic_tag = SOV_zolotov
-                set_research_slots = 1
-
-                create_country_leader = {
-                    name = "Viktor Zolotov"
-                    desc = ""
-                    picture = gfx/leaders/SOV/Portrait_Viktor_Zolotov.png
-                    ideology = generic_military_junta
-                    traits = {  }
-                }
-
-                load_focus_tree = russian_civil_war_zolotov
-
-                add_ideas = {
-                    extensive_conscription 
-                    authoritarian_democracy
-                    centrally_planned_economy 
-                    state_controlled_press
-                    unions_restricted
-                    bipolarist
-                    womens_rights_traditional_values
-                    lgbtq_rights_banned 
-                    minority_rights_minor_inequality
-                    religion_law_religious
-                    nationalism_laws_jingoistic
-                }
-
-                transfer_state  = 42
-
-                every_state={
-					limit={
-						is_controlled_by = RGJ
-					}
-					teleport_armies = {
-						limit = {
-                            NOT = { tag = RGJ }
-							
-						}
-						to_state_array = owned_controlled_states
-					}
-				}
-
-                division_template = {
-                    name = "Russian National Guard"
-                    division_names_group = SOV_INF_01
-                    regiments = {
-                        irregular_infantry = { x = 0 y = 0 }
-                        irregular_infantry = { x = 0 y = 1 }
-                        irregular_infantry = { x = 0 y = 2 }
-                        irregular_infantry = { x = 0 y = 3 }
-                        irregular_infantry = { x = 1 y = 0 }
-                        irregular_infantry = { x = 1 y = 1 }
-                        artillery_brigade = { x = 2 y = 0 }		
-                    }
-                }
-                
-                for_loop_effect = {
-                    end = 13
-                    value = temp
-                    random_owned_controlled_state = {
-                        create_unit = {
-                            division = "name = \"National Guard\" division_template = \"Russian National Guard\" start_experience_factor = 0.09" 
-                            owner = RGJ
-                        }
-                    }
-                }
-
-                declare_war_on = {
-                    target = RMJ
-                    type = civil_war
-                }
-                add_civil_war_target = RMJ
-
-            }
-        }
-    }
-
-
-    option = {
-        name = russia_civil_war_events.3.a
-		ai_chance = {
-			base = 10
-		}
-        add_war_support = 0.05
-    }
-    option = {
-        name = russia_civil_war_events.3.b
-		ai_chance = {
-			base = 0
-		}
-        RGJ = {
-            change_tag_from = ROOT
         }
     }
 }

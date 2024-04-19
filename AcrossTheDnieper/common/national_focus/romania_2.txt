@@ -12,7 +12,7 @@ focus_tree = {
 	focus = {
 		id = military_modernazition
 		icon = GFX_military_modernazition
-		x = 7
+		x = 13
 		y = 0
 		cost = 70
 
@@ -50,7 +50,7 @@ focus_tree = {
 		focus = {
 		id = land_force_doctrine_reform
 		icon = GFX_Land_Force_Doctrine_Reform
-		x = 7
+		x = 13
 		y = 1
 		cost = 7
 
@@ -81,7 +81,7 @@ focus_tree = {
 			focus = {
 		id = increase_equipment_producement_standard
 		icon = GFX_Increase_Equipment_Procurement_Standards
-		x = 6
+		x = 14
 		y = 2
 		cost = 40
 
@@ -106,7 +106,7 @@ focus_tree = {
 		focus = {
 		id = Rigorous_Military_Training
 		icon = GFX_Rigorous_Military_Training
-		x = 8
+		x = 12
 		y = 2
 		cost = 40
 
@@ -130,7 +130,7 @@ focus_tree = {
 		focus = {
 		id = increase_randd_standards
 		icon = GFX_Increase_R_and_D_standards
-		x = 7
+		x = 13
 		y = 3
 		cost = 40
 
@@ -155,7 +155,7 @@ focus_tree = {
 		focus = {
 		id = Partnership_With_Swiss_Defensive_Corporations
 		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
-		x = 6
+		x = 12
 		y = 4
 		cost = 14
 
@@ -176,7 +176,7 @@ focus_tree = {
 		focus = {
 		id = Increase_Domestic_Production_standards
 		icon = GFX_Increase_Domestic_Production_Standards
-		x = 8
+		x = 14
 		y = 4
 		cost = 40
 
@@ -199,7 +199,7 @@ focus_tree = {
 		focus = {
 		id = Modernize_The_Airforce
 		icon = GFX_Modernize_The_Airforce
-		x = 2
+		x = 8
 		y = 1
 		cost = 7
 
@@ -227,7 +227,7 @@ focus_tree = {
 		focus = {
 		id =  Partcicipate_in_NATO_Exercises 
 		icon = GFX_Participate_in_nato_exercises
-		x = 1
+		x = 7
 		y = 2
 		cost = 40
 
@@ -251,7 +251,7 @@ focus_tree = {
 	focus = {
 		id =  Humanitarian_and_Peacekeeping_Operations
 		icon = GFX_Humanitarian_and_Peacekeeping_operations
-		x = 3
+		x = 9
 		y = 2
 		cost = 40
 
@@ -271,6 +271,86 @@ focus_tree = {
             remove_idea = 3_Stage_Military_Restructuring_4
             add_idea = 3_Stage_Military_Restructuring_5
 		    }
+		}
+	}
+	focus = {
+		id =  Modernization_Programs
+		icon = GFX_Modernization_programs
+		x = 8
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Partcicipate_in_NATO_Exercises }
+		prerequisite = { focus = Humanitarian_and_Peacekeeping_Operations }
+
+		completion_reward = {
+			swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_5
+            add_idea = 3_Stage_Military_Restructuring_6
+			 add_tech_bonus = {
+                name = ROM_air
+                bonus = 1.0
+                uses = 1
+                category = air_equipment
+            }	
+		    }
+		}
+	}
+	focus = {
+		id =  Collaboration_with_Industry_and_Research_Institutions
+		icon = GFX_Collaboration_with_Industry_and_research_intitutions
+		x = 7
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas={
+            remove_idea = Romanian_Military_Industry_3
+            add_idea = Romanian_Military_Industry_4
+		    }
+		}
+	}
+	focus = {
+		id =  Strategic_Planning_and_Force_Structure_Review
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 9
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_6
+            add_idea = 3_Stage_Military_Restructuring_7
+		    }
+            air_experience = 50
 		}
 	}
 }

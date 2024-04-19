@@ -593,7 +593,7 @@ ideas ={
 				conscription = 0.001
 				political_power_factor = -0.08
 				eastern_liberal_drift = 0.1
-				army_core_defence_factor = 0.03
+				army_core_defence_factor = 0.04
 				political_advisor_cost_factor = -0.1
 				consumer_goods_expected_value = -0.03
 			}
@@ -730,7 +730,8 @@ ideas ={
 			
 			modifier = {
 				command_power_gain_mult = -0.5
-				political_power_factor = -0.05
+				political_power_factor = 0.1
+				army_core_defence_factor = -0.2
 			}
 		}
 
@@ -804,7 +805,7 @@ ideas ={
 			
 			modifier = {
 				conscription = 0.006
-				mobilization_speed = 0.8
+				mobilization_speed = 0.7
 				training_time_factor = -0.05
 				
 				modifier_army_sub_unit_irregular_infantry_speed_factor = 0.05
@@ -1489,7 +1490,7 @@ ideas ={
 		UKR_attitional_war_idea = {
 			removal_cost = -1
 
-			picture = UKR_commander_in_chief
+			picture = UKR_Atritional_War
 				
 			available = { }
 
@@ -1508,7 +1509,7 @@ ideas ={
 		UKR_breakthrough_idea = {
 			removal_cost = -1
 
-			picture = UKR_commander_in_chief
+			picture = UKR_Ukrainian_Blitzkrieg
 				
 			available = { }
 
@@ -1528,7 +1529,7 @@ ideas ={
 		UKR_low_morale = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency
+			picture = UKR_Low_Morale
 				
 			available = { NOT = { is_puppet_of = SOV } }
 
@@ -1549,7 +1550,7 @@ ideas ={
 		UKR_intensified_shelling = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency
+			picture = UKR_Intensified_Shelling
 				
 			available = { NOT = { is_puppet_of = SOV } has_war_with = SOV }
 
@@ -1572,7 +1573,7 @@ ideas ={
 		UKR_intensified_shelling_2 = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency
+			picture = UKR_Intensified_Shelling
 				
 			available = { NOT = { is_puppet_of = SOV } has_war_with = SOV }
 
@@ -1593,75 +1594,25 @@ ideas ={
 			}
 		}
 
-		UKR_dependant_on_western_equipment = {
-			removal_cost = -1
-
-			picture = UKR_western_equipment
-				
-			available = { NOT = { is_puppet_of = SOV } has_war_with = SOV }
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				industrial_capacity_factory = -0.1
-				production_factory_efficiency_gain_factor = -0.05
-				production_factory_max_efficiency_factor = -0.42
-				production_factory_start_efficiency_factor = -0.15
-				line_change_production_efficiency_factor = -0.33
-				political_power_cost = 0.03
-				army_attack_factor = -0.14
-				army_defence_factor = -0.1
-				breakthrough_factor = -0.1
-				weekly_manpower = -700 
-			}
-		}
-
-		UKR_dependant_on_western_equipment_2 = {
-			removal_cost = -1
-
-			picture = UKR_western_equipment
-				
-			available = { NOT = { is_puppet_of = SOV } has_war_with = SOV }
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				industrial_capacity_factory = -0.18
-				production_factory_efficiency_gain_factor = -0.08
-				production_factory_max_efficiency_factor = -0.45
-				production_factory_start_efficiency_factor = -0.18
-				line_change_production_efficiency_factor = -0.35
-				political_power_cost = 0.05
-				army_attack_factor = -0.2
-				army_defence_factor = -0.1
-				breakthrough_factor = -0.18
-				weekly_manpower = -1500 
-			}
-		}
-
 		UKR_migration_crisis = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency #too lazy 
+			picture = UKR_Migration_Crisis
  
 			allowed_civil_war = {
 				always = yes
 			}
 			
 			modifier = {
-				monthly_population = -0.25
-                                war_support_factor = -0.15
+				monthly_population = -0.36
+                war_support_factor = -0.1
 			}
 		}
 
 		UKR_starlink_internet = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency #too lazy 
+			picture = UKR_Starlink_Services
  
 			allowed_civil_war = {
 				always = yes
@@ -1678,7 +1629,7 @@ ideas ={
 		UKR_selling_war_bonds = {
 			removal_cost = -1
 
-			picture = SOV_state_of_emergency
+			picture = UKR_Selling_War_Bonds
  
 			allowed_civil_war = {
 				always = yes
@@ -1689,6 +1640,25 @@ ideas ={
 				production_factory_efficiency_gain_factor = 0.08
 				production_factory_start_efficiency_factor = 0.08
 				stability_factor = -0.04
+			}
+		}
+
+		UKR_anti_putin_sentiment = {
+			removal_cost = -1
+
+			picture = UKR_Anti-Putinist_Sentiment
+ 
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				political_power_factor = 0.05
+				army_core_defence_factor = 0.07
+				army_core_attack_factor = 0.04
+				army_morale_factor = 0.03
+				stability_factor = -0.035
+				war_support_factor = 0.02
 			}
 		}
 

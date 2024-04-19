@@ -1,100 +1,187 @@
-russian_early_template_design = {
-	enable = {
-		AND = {
-			date < 2018.1.1
-			original_tag = SOV
-		}
-		has_war = no
-	}
-	abort = {
-		date > 2018.1.1
-		has_war = yes
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = modern_armor
-		value = 5
-	}
-	ai_strategy = {
-		type = template_prio
-		id = armor
-		value = 5
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = infantry
-		value = 95
-	}
-
-	ai_strategy = {
-	    type = build_army
-	    id = infantry
-	    value = -25
-	}
-	ai_strategy = {
-	    type = build_army
-	    id = armor
-	    value = -50
-	}
-
+russian_uint_production = {
+	allowed = { original_tag = SOV }
+	enable = { always = yes }
+	abort = { always = no }
 	
 	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 25
-	}
-}
-
-russian_midlate_template_design = {
-	enable = {
-		AND = {
-			date > 2018.1.1
-			original_tag = SOV
-		}
-		has_war = yes
+		type = role_ratio
+		id = garrison
+		value = 4
 	}
 
 	ai_strategy = {
-		type = template_prio
-		id = modern_armor
-		value = 10
+		type = role_ratio
+		id = paratroopers
+		value = 2
 	}
+
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
+		id = mountaineers
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
 		id = armor
 		value = 10
 	}
 
 	ai_strategy = {
-		type = template_prio
+		type = role_ratio
 		id = infantry
-		value = 90
+		value = 75 #88 to 70
 	}
-	
+
+	# Naval unit factors
 	ai_strategy = {
 		type = unit_ratio
-		id = fighter
-		value = 25
+		id = capital_ship
+		value = 20
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 15
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 20
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -50
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 5 #30 to 50
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_tank
+		value = 10
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_air
+		value = 15
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 40
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 10
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = motorized
+		value = 5
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories #Build these up over time, don't stall
+		id = anti_air
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = artillery
+		value = 2
+	}
+
+	ai_strategy = { #added to railway gun define (set to 0 by default, increased in default strategies)
+		type = railway_gun_divisions_ratio
+		value = 1
 	}
 }
+
+russian_template_design = {
+	allowed = { original_tag = SOV }
+	enable = { date < 2025.1.1 } # Basically never 
+	abort = { date > 2025.1.1 }
+
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 30
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = artillery
+		value = 2
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = motorized
+		value = 3
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = cavalry
+		value = -100
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 30
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratroopers
+		value = 5
+	}
+}
+
 
 russia_build_civs_early = {
+	allowed = { original_tag = SOV }
 	enable = {
-		AND = {
-			date < 2016.1.1
-			original_tag = SOV
-		}
+		date < 2016.1.1
+		has_war = no
 	}
-	abort = {
-		date > 2016.1.1
-	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 	    type = building_target
 	    id = industrial_complex
-	    value = 56
+	    value = 59
 	}
 
 	ai_strategy = {
@@ -110,29 +197,24 @@ russia_build_civs_early = {
 }
 
 russia_build_refs_early = {
+	allowed = { original_tag = SOV }
 	enable = {
-		AND = {
-			date < 2014.6.1
-			original_tag = SOV
-		}
+		date > 2014.9.1
+		has_war = no
 	}
-	abort = {
-		date > 2014.6.1
-	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 	    type = building_target
 	    id = synthetic_refinery
-	    value = 48
+	    value = 16
 	}
 }
 
 russia_build_mils_late = {
+	allowed = { original_tag = SOV }
 	enable = {
-		AND = {
-			date > 2016.1.1
-			original_tag = SOV
-		}
+		date > 2016.1.1
 	}
 
 	ai_strategy = {
@@ -141,18 +223,30 @@ russia_build_mils_late = {
 	}
 }
 
-russia_really_wants_a_large_army = {
+russia_trade_with_belarus = {
+	allowed = { original_tag = SOV }
 	enable = {
-		original_tag = SOV
+		BLR = { is_ally_with = SOV }
 	}
-	abort = {
-		NOT = { original_tag = SOV }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_market_trade_desire
+		id = BLR
+		value = 60
 	}
+}
+
+
+russia_really_wants_a_large_army = {
+	allowed = { original_tag = SOV }
+	enable = { always = yes }
+	abort = { always = no }
 	
 	ai_strategy = {
 	    type = build_army
 	    id = infantry
-	    value = 140
+	    value = 300
 	}
 	ai_strategy = {
 	    type = build_army
@@ -167,6 +261,35 @@ russia_really_wants_a_large_army = {
 	}
 }
 
+russia_really_wants_a_huge_army = {
+	allowed = { original_tag = SOV }
+	enable = { UKR = { is_ai = no } }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	    type = build_army
+	    id = infantry
+	    value = 60
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = modern_armor
+	    value = 10
+	}
+}
+
+russia_have_some_train_production = {
+	allowed = { original_tag = SOV }
+	enable = { date > 1936.7.1 }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = train
+		value = 1  # Always have some production of trains
+	}
+}
+
 abkhazia_is_fren = {
 	enable = {
 		original_tag = SOV
@@ -177,6 +300,11 @@ abkhazia_is_fren = {
 	
 	ai_strategy = {
 		type = befriend
+		id = "ABK"
+		value = 80
+	}
+	ai_strategy = {
+		type = protect
 		id = "ABK"
 		value = 80
 	}
@@ -214,6 +342,32 @@ belarus_russia_neutral_friend = {
 	}
 }
 
+SOV_belarus_is_fine_on_their_own = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		BLR = { has_war = no }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "BLR"
+		value = 500
+	}
+}
+
+SOV_our_security_forces_are_enough_to_keep_mainland_safe = {
+	allowed = { original_tag = SOV }
+	enable = { always = yes }
+	abort = { always = no }
+	
+	ai_strategy = {
+		type = garrison
+		value = -80
+	}
+}
 
 ally_with_donbass = {
 	allowed = {
@@ -295,35 +449,27 @@ crimea_is_important = {
 			331 = { is_controlled_by = SOV }	#Kerch
 			354 = { is_controlled_by = SOV }	#Sevastopol
 			433 = { is_controlled_by = SOV }	#Sevastopol Port
+			date < 2015.1.1
 		}
-		date < 2015.1.1
 	}
-	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = area_priority
 		id = crimea
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = front_unit_request
-		area = crimea
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = front_unit_request
-		state = 433
-		value = 40
+		value = 100
 	}
 	ai_strategy = {
 		type = front_unit_request
-		tag = CRI
-		value = 1000
+		strategic_region = 7 #crimea
+		value = 90
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		area = 4 #crimea
+		subtract_fronts_from_need = no
 	}
 }
-
 
 hostile_to_ukraine_maidan = {
 	allowed = {
@@ -354,14 +500,14 @@ hostile_to_ukraine_maidan = {
 
 		state = 354
 
-		value = 150
+		value = 100
 	}
 	ai_strategy = {
 		type = front_unit_request
 
 		state = 433
 
-		value = 150
+		value = 100
 	}
 }
 
@@ -427,43 +573,138 @@ SOV_try_to_take_southern_ukraine = {
 		OR={
 			has_war_with = UKR
 			has_global_flag = russia_ukraine_war
+			
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
 		}
 	}
 	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = front_control
-		state_trigger = {
-			OR={
-				#has_state_flag = donetsk_oblast_flag
-				state = 230
-				state = 195
-
-				has_state_flag = luhansk_oblast_flag
-				has_state_flag = zaporizhia_oblast_flag
-				has_state_flag = kherson_oblast_flag
-				has_state_flag = crimea_oblast_flag
-			}
-		}
-		priority = 700
+		strategic_region = 19 #donbas
+		priority = 300
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = front_control
+		strategic_region = 20 #tavryia
+		priority = 320
 		ordertype = front
 		execution_type = rush
 		manual_attack = yes
 	}
 	
 	ai_strategy = {
-		type = front_unit_request
-		state_trigger = {
-			OR={
-				state = 230
-				state = 195
+		type = area_priority
+		id = 3
+		value = 100
+	}
 
-				has_state_flag = kherson_oblast_flag
-				has_state_flag = zaporizhia_oblast_flag
-				has_state_flag = crimea_oblast_flag
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 19 #donbas
+		value = 120
+	}
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 20 #tavryia
+		value = 125
+	}
+}
+
+SOV_try_to_take_southern_ukraine_from_crimea = {	# May need to use a state trigger to request units instead of strategic region
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR={
+			has_war_with = UKR
+			has_global_flag = russia_ukraine_war
+
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			OR = {	# Basically all south ukraine near crimea
+				state = 282
+				state = 242
+				state = 255
 			}
 		}
-		value = 300
+		priority = 200
+		ordertype = front
+		execution_type = rush_weak
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {	# Basically all south ukraine near crimea
+				state = 282
+				state = 242
+				state = 255
+			}
+		}
+		value = 115
+	}
+}
+
+SOV_kherson_is_cool_but_dont_die_there = {
+	allowed = { original_tag = SOV }
+	enable = {
+		AND={
+			has_war_with = UKR
+			26 = { is_controlled_by = SOV } #Dnipro Delta Islands
+		}
+	}
+	abort_when_not_enabled = yes
+
+	
+	ai_strategy = {
+		type = front_control
+		strategic_region = 33 #prychoronomorya
+		priority = 330
+		ordertype = front
+		execution_type = careful
+		manual_attack = yes
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 33 #prychoronomorya
+		value = 50
+	}
+}
+
+SOV_keep_some_units_for_defence_in_depth = {
+	allowed = { original_tag = SOV }
+	enable = {
+		AND={
+			has_war_with = UKR
+			26 = { is_controlled_by = SOV } #Dnipro Delta Islands
+		}
+	}
+	abort_when_not_enabled = yes
+
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = {
+			264
+			269
+			242
+			223
+			214
+		}
+		subtract_fronts_from_need = no
 	}
 }
 
@@ -486,13 +727,7 @@ SOV_ignore_western_front = {
 				has_state_flag = zhytomyr_oblast_flag
 			}
 		}
-		priority = -600
-	}
-	
-	ai_strategy = {
-		type = dont_defend_ally_borders
-		id = "BLR"
-		value = 500
+		priority = -100
 	}
 }
 
@@ -501,6 +736,8 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 		OR={
 			has_war_with = UKR
 			has_global_flag = russia_ukraine_war
+			
+			focus_progress = { focus = SOV_movements_on_the_border progress > 0.5 }
 		}
 	}
 	enable = {
@@ -510,10 +747,14 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	
 	ai_strategy = {
 		type = front_unit_request
-		country_trigger = {
-			tag = UKR
-		}
-		value = 350
+		tag = UKR
+		value = 160
+	}
+
+	ai_strategy = {	#So the AI has the possibilty to invade ukraine but isn't forced to
+		type = invade
+		id = UKR
+		value = 1
 	}
 	
 	ai_strategy = {
@@ -523,25 +764,166 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	}
 }
 
-SOV_try_to_take_dnipro_islands = {
-	allowed = {
-		original_tag = SOV
-	}
-	enable = {
-		OR={
-			has_war_with = UKR
-			has_global_flag = russia_ukraine_war
-		}
-	}
+#SOV_try_to_take_dnipro_islands = {
+#	allowed = {
+#		original_tag = SOV
+#	}
+#	enable = {
+#		OR={
+#			has_war_with = UKR
+#			has_global_flag = russia_ukraine_war
+#		}
+#	}
+#	abort_when_not_enabled = yes
+#	ai_strategy = {
+#		type = front_control
+#		state_trigger = {
+#			state = 449
+#		}
+#		priority = 450
+#		ordertype = front
+#		execution_type = rush
+#		manual_attack = yes
+#	}
+#}
+
+russian_bba_air_prod_1 = {
+	allowed = { original_tag = SOV }
+	enable = { date < 1940.1.1 }
 	abort_when_not_enabled = yes
+
+	# Air unit factors
 	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			state = 449
-		}
-		priority = 450
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
+		type = unit_ratio
+		id = fighter
+		value = 200
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 15
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = 6  # Russia needs a minimum production of fighters
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 25 # because doctrine this = 15
+	}
+
+ 	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 10
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = 3  # Russia needs a minimum production of CAS planes
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = naval_bomber
+		value = 5
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 1
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = 1
+	}
+
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = large_plane_airframe
+		value = 1
+	}
+}
+
+russian_bba_air_prod_2 = {
+	allowed = { original_tag = SOV }
+	enable = { date > 1940.1.1 }
+	abort_when_not_enabled = yes
+
+	#Air unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 300
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 25
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = 8
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 20
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 15
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = 3
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 1
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = 1
+	}
+
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = large_plane_airframe
+		value = 1
+	}
+}
+
+
+russia_bomber_production = {
+	allowed = { original_tag = SOV }
+	enable = { num_of_military_factories > 30 }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = 1
 	}
 }

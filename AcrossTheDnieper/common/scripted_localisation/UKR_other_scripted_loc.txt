@@ -314,6 +314,20 @@ defined_text = {
         }
         localization_key = "82nd Air Assault"
     }
+
+    text = {
+        trigger = {
+            check_variable = { western_troops_id = 8 }
+        }
+        localization_key = "118th Mechanized"
+    }
+
+    text = {
+        trigger = {
+            check_variable = { western_troops_id = 9 }
+        }
+        localization_key = "117th Mechanized"
+    }
 }
 
 defined_text = {
@@ -553,5 +567,601 @@ defined_text = {
             check_variable = { ROOT.city_done_operation_in = 4 }
         }
        localization_key = "UKR_hur_belgorod_shebeniko_city"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_are_there_allies
+	
+    text = {
+        trigger = {
+            OR = {
+                has_completed_focus = UKR_russian_volunteer_corps
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = ""
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = "UKR_hur_alies_doesnt_have_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_rvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_rvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_frl_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = "UKR_hur_frl_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_bvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_bvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_pvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_pvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_gvc_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_german_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_german_volunteer_corps
+            }
+        }
+        localization_key = "UKR_hur_gvc_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_gnl_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_georgian_national_legion
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_georgian_national_legion
+            }
+        }
+        localization_key = "UKR_hur_gnl_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_kkr_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_kastus_kalinouski_regiment
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_kastus_kalinouski_regiment
+            }
+        }
+        localization_key = "UKR_hur_kkr_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_is_sob_enabled
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_siberia_battalion
+        }
+        localization_key = "UKR_hur_unit_enabled_tt"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_siberia_battalion
+            }
+        }
+        localization_key = "UKR_hur_sob_pre_tt"
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_rvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_rvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_gnl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_georgian_national_legion
+        }
+        localization_key = "UKR_hur_unit_gnl_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_georgian_national_legion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_kkr
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_kastus_kalinouski_regiment
+        }
+        localization_key = "UKR_hur_unit_kkr_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_kastus_kalinouski_regiment
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_frl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_frl_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_bvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_bvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_pvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_pvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_gvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_german_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_gvc_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_german_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_sob
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_siberia_battalion
+        }
+        localization_key = "UKR_hur_unit_sob_name"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_siberia_battalion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_rvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_russian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_rvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_russian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_frl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_freedom_of_russian_legion
+        }
+        localization_key = "UKR_hur_unit_frl_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_freedom_of_russian_legion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_bvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_belarusian_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_bvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_belarusian_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_pvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_polish_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_pvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_polish_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_gvc
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_german_volunteer_corps
+        }
+        localization_key = "UKR_hur_unit_gvc_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_german_volunteer_corps
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_kkr
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_kastus_kalinouski_regiment
+        }
+        localization_key = "UKR_hur_unit_kkr_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_kastus_kalinouski_regiment
+            }
+        }
+        localization_key = ""
+    }
+}
+
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_gnl
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_georgian_national_legion
+        }
+        localization_key = "UKR_hur_unit_gnl_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_georgian_national_legion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_hur_get_incursion_units_effects_sob
+	
+    text = {
+        trigger = {
+             has_completed_focus = UKR_siberia_battalion
+        }
+        localization_key = "UKR_hur_unit_sob_effects"
+    }
+
+    text = {
+        trigger = {
+            NOT = {
+                has_completed_focus = UKR_siberia_battalion
+            }
+        }
+        localization_key = ""
+    }
+}
+
+defined_text = {
+    name = UKR_ma_get_equipment_name
+	
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_himars
+        }
+        localization_key = "UKR_himars_name"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_abrams
+        }
+        localization_key = "UKR_abrams_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_bradleys
+        }
+        localization_key = "UKR_bradleys_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_humvees
+        }
+        localization_key = "UKR_humvees_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_m113
+        }
+        localization_key = "UKR_m113_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_spartans
+        }
+        localization_key = "UKR_spartans_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_challengers
+        }
+        localization_key = "UKR_challengers_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_leopards
+        }
+        localization_key = "UKR_leopards_name"
+    }
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_selected_marders
+        }
+        localization_key = "UKR_marders_name"
+    }
+}
+defined_text = {
+    name = UKR_ma_get_equipment_sender
+	
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_receiving_from_usa
+        }
+        localization_key = "UKR_usa_name"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_receiving_from_uk
+        }
+        localization_key = "UKR_uk_name"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_receiving_from_ger
+        }
+        localization_key = "[GER.GetName]"
+    }
+
+    text = {
+        trigger = {
+            has_country_flag = UKR_ma_receiving_from_tur
+        }
+        localization_key = "[UKR_turkey_name]"
     }
 }

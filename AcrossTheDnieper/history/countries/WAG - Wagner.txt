@@ -1,63 +1,11 @@
 ﻿capital = 342
 
-set_oob = "WAG_2014"
-
 load_pmc_doctrine = yes
-
-give_military_access = SOV
-add_opinion_modifier = { target = SOV modifier = huge_increase }
-diplomatic_relation = {
-	country = SOV
-	relation = non_aggression_pact
-}
-SOV = {
-	add_opinion_modifier = { target = WAG modifier = huge_increase }
-	give_military_access = WAG
-
-	ai_strategy = {
-		type = send_lend_lease_desire
-		id = WAG
-		value = 500
-	}
-	ai_strategy = {
-		type = support
-		id = WAG
-		value = 1000
-	}
-	give_guarantee = WAG
-}
 
 recruit_character = WAG_alexey_nagin
 recruit_character = WAG_musician
 recruit_character = WAG_dober
 recruit_character = WAG_humpbacked
-
-
-2022.1.1 = {
-	set_oob = "WAG_2022"
-
-	add_manpower = 3000
-
-	complete_national_focus = WAG_putins_orders
-	complete_national_focus = WAG_first_ingrediant
-	complete_national_focus = WAG_crimea_is_russia
-	complete_national_focus = WAG_russias_only_ally
-	complete_national_focus = WAG_chefs_special
-	complete_national_focus = WAG_chefs_cooking_tools
-	complete_national_focus = WAG_our_brothers_in_luhansk
-	complete_national_focus = WAG_our_brothers_in_donetsk
-	complete_national_focus = WAG_reverse_side_of_the_medal
-	complete_national_focus = WAG_begin_2014_recruitment_program
-	complete_national_focus = WAG_telegram
-	complete_national_focus = WAG_boot_camps
-	complete_national_focus = WAG_vladlen_tatarsky
-	complete_national_focus = WAG_well_known_in_russia
-	complete_national_focus = WAG_expanding_high_command
-	complete_national_focus = WAG_wagner_guerilla_warfare_tactics
-	complete_national_focus = WAG_finishing_touches
-	complete_national_focus = WAG_the_kremlins_wagner_orchestra
-}
-
 
 # Starting tech
 set_technology = {
@@ -99,10 +47,7 @@ if = {
 		t64_chasis_tech = 1
 		t72_chasis_tech = 1
 		t80_chasis_tech = 1
-		armor_tech_1 = 1
-		engine_tech_1 = 1
-		gun_tech_1 = 1
-		tank_module_tech_1 = 1
+		basic_tank_building = 1
 	}
 }
 
@@ -207,10 +152,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -225,11 +171,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -245,10 +192,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -264,11 +212,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -284,11 +233,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -303,12 +253,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_2
-			special_type_slot_2 = armor_era
-			special_type_slot_3 = smoke_launchers
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9

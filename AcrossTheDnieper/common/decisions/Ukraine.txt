@@ -26,6 +26,29 @@ debug_decisions = {
 			}
 		}
 	}	
+	UKR_HUR_no_war = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			has_dlc = "No Step Back"
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = UKR_DEBUG_HUR_no_war_flag
+		}
+	}	
 }
 
 UKR_state_of_the_nation_decisions={	
@@ -123,6 +146,10 @@ UKR_state_of_the_nation_decisions={
 					every_country={
 						limit = { OR = { original_tag = DON original_tag = SOV original_tag = UKR } }
 						country_event = { id = donetsk.5 days = 22 }
+					}
+					every_country = {
+						limit = { OR = { original_tag = DON original_tag = LHK original_tag = ODS original_tag = KHK } }
+						country_event = { id = donbass_mutual.3 days = 5 }
 					}
 					if={
 						limit = { 
@@ -1390,6 +1417,178 @@ UKR_the_verkhovna_rada={
 				limit = { is_ai = no }
 				multiply_variable = { cost_of_lobby_decisions = 2.5 }
 			}
+		}
+	}
+	
+	UKR_general_mobilisation = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_order_general_mobilization
+			NOT = { has_country_flag = UKR_general_mobilisation_has_been_completed }
+		}
+		
+		days_mission_timeout = 15	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_general_mobilisation_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					
+					add_to_variable = { UKR_afu_conscription_factor = 0.05 }
+					
+					set_country_flag = UKR_general_mobilisation_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+
+				custom_effect_tooltip = UKR_order_general_mobilization_tt
+				
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_general_mobilisation_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_general_mobilisation_has_been_completed
+			NOT = { has_country_flag = UKR_general_mobilisation_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_general_mobilisation_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+
+	UKR_new_mobilization_law = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_new_mobilization_law
+			#NOT = { has_country_flag = UKR_mobilisation_legislation_has_been_completed }
+		}
+		
+		days_mission_timeout = 31	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_mobilisation_legislation_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					
+					add_to_variable = { UKR_ms_conscription = 0.15 }
+					add_to_variable = { UKR_ms_mobilization = 0.1 }
+					add_to_variable = { UKR_ms_consumer = 0.07 }
+					
+					set_country_flag = UKR_general_mobilisation_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+
+				custom_effect_tooltip = UKR_new_mobilization_law_tt
+				
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+
+	UKR_put_mobilisation_legislation_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_mobilisation_legislation_has_been_completed
+			NOT = { has_country_flag = UKR_general_mobilisation_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_mobilisation_legislation_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
 		}
 	}
 	
@@ -2685,6 +2884,7 @@ UKR_war_in_donbass_decisions={
 					num_provinces = 4
 					on_win = ukraine.51
 					on_lose = ukraine.52
+
 					on_cancel = ukraine.53
 				}
 
@@ -4767,6 +4967,1000 @@ UKR_hur_decisions={
 					SOV = { country_event = { hours = 2 id = ukraine.132 } }
 				}
 			}
+		}
+	}
+}
+
+UKR_international_legion_decision = {
+	UKR_1st_battalion = {
+
+		icon = GFX_div_templ_269_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		visible = {
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "1st Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 269
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"1st Battalion\" division_template = \"1st Battalion\" start_experience_factor = 0.5 start_equipment_factor = 0.79" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_2nd_battalion = {
+
+		icon = GFX_div_templ_270_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		visible = {
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "2nd Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 270
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"2nd Battalion\" division_template = \"2nd Battalion\" start_experience_factor = 0.5 start_equipment_factor = 0.79" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_3rd_battalion = {
+
+		icon = GFX_div_templ_271_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		visible = {
+		}
+
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "3rd Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 271
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"3rd Battalion\" division_template = \"3rd Battalion\" start_experience_factor = 0.85 start_equipment_factor = 0.79" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_4th_battalion = {
+
+		icon = GFX_div_templ_272_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		visible = {
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "4th Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 272
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"4th Battalion\" division_template = \"4th Battalion\" start_experience_factor = 0.9 start_equipment_factor = 0.85" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_dzhokhar_dudayev_battalion = {
+
+		icon = GFX_div_templ_273_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		visible = {
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "Dzhokhar Dudayev Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 273
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"Dzhokhar Dudayev Battalion\" division_template = \"Dzhokhar Dudayev Battalion\" start_experience_factor = 0.4 start_equipment_factor = 0.85" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_khamzat_gelayev_detachment = {
+
+		icon = GFX_div_templ_274_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		visible = {
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "Khamzat Gelayev Detachment"
+				division_names_group = UKR_INF_01
+				template_counter = 274
+				is_locked = yes
+				regiments = {
+					elite_special_forces = { x = 0 y = 0 }
+					elite_special_forces = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"Khamzat Gelayev Detachment\" division_template = \"Khamzat Gelayev Detachment\" start_experience_factor = 0.6 start_equipment_factor = 0.85" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_imam_shamil_dagestan_battalion = {
+
+		icon = GFX_div_templ_275_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		visible = {
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "Imam Shamil Dagestan Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 275
+				is_locked = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"Imam Shamil Dagestan Battalion\" division_template = \"Imam Shamil Dagestan Battalion\" start_experience_factor = 0.45 start_equipment_factor = 0.8" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_karelian_national_battalion = {
+
+		icon = GFX_div_templ_110_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+
+		visible = {
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "Karelian National Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 110
+				is_locked = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"Karelian National Battalion\" division_template = \"Karelian National Battalion\" start_experience_factor = 0.5 start_equipment_factor = 0.75" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+
+	UKR_bolivar_battalion = {
+
+		icon = GFX_div_templ_276_large
+
+		priority = 200
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		visible = {
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				command_power > 30
+			}
+		}
+
+		modifier = {
+			weekly_manpower = -20
+			command_power_gain = -0.02 
+		}
+
+		days_remove = 31
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+
+		remove_effect={
+			division_template = {
+				name = "Bolívar Battalion"
+				division_names_group = UKR_INF_01
+				template_counter = 276
+				is_locked = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }   
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 92 }
+				create_unit = {
+					division = "name = \"Bolívar Battalion\" division_template = \"Bolívar Battalion\" start_experience_factor = 0.7 start_equipment_factor = 0.7" 
+					owner = UKR
+				}
+			}
+
+
+			
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+	}
+}
+
+SOV_smo = {
+	UKR_visit_the_front = {
+		visible = {
+			has_completed_focus = UKR_visit_frontline
+		}
+		available = {
+			NOT = { has_country_flag = UKR_recently_been_to_front }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 35
+				has_political_power > 25
+			}
+		}
+		days_remove = 3
+		days_re_enable = 280
+		fire_only_once = no
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				is_controlled_by = UKR
+				AND = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+						is_core_of = UKR
+					}
+					any_neighbor_state = {
+						is_controlled_by = UKR
+						is_core_of = UKR
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		icon = generic_propaganda
+		cost = 20
+		remove_effect = {
+			set_country_flag = { flag = UKR_recently_been_to_front days = 100 value = 1 }
+			add_war_support = 0.05
+			add_stability = 0.008
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = UKR_state_morale_boost
+					scope = UKR
+					days = 24
+				}
+			}
+		}
+	}
+}
+
+UKR_miliary_aid_decision = {
+	UKR_ma_delivering = { #Only For Visuals
+		activation = { 
+			hidden_trigger = { always = no }
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			hidden_trigger = { always = no }
+		}
+		icon = GFX_decision_category_usa_congress
+		is_good = yes
+		days_mission_timeout = 24
+	}
+
+	UKR_ma_holding_talks = { #Only For Visuals
+		activation = {
+			hidden_trigger = { always = no }
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			hidden_trigger = { always = no }
+		}
+		icon = GFX_decision_category_usa_congress
+		is_good = yes
+		days_mission_timeout = 6
+	}
+
+	select_country = {
+
+		priority = 200
+
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = UKR_ma_ger_selected
+					has_country_flag = UKR_ma_tur_selected
+					has_country_flag = UKR_ma_usa_selected
+					has_country_flag = UKR_ma_uk_selected
+				}
+			}
+		}
+	}
+
+	UKR_purchase_himars = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_artillery
+
+		available = {
+			has_completed_focus = UKR_himars
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_himars
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_abrams = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_tank
+
+		available = {
+			has_completed_focus = UKR_abrams
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_abrams
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_bradleys = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_ifv
+
+		available = {
+			has_completed_focus = UKR_bradleys
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_bradleys
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_m113 = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_ifv
+
+		available = {
+			has_completed_focus = UKR_M113s
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_m113
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_humvees = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_vehicle
+
+		available = {
+			has_completed_focus = UKR_humvees
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_humvees
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+	
+	UKR_purchase_challengers = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_tank
+
+		available = {
+			has_completed_focus = UKR_challengers
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_uk_enough_willingness		
+				check_variable = { UKR_ma_uk_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_uk_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_uk
+			set_country_flag = UKR_ma_selected_challengers
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_spartans = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_ifv
+
+		available = {
+			has_completed_focus = UKR_spartans
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_uk_enough_willingness		
+				check_variable = { UKR_ma_uk_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_uk_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_uk
+			set_country_flag = UKR_ma_selected_spartans
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
+	UKR_purchase_leopards = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_tank
+
+		available = {
+			has_completed_focus = UKR_leopards
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_ger_enough_willingness		
+				check_variable = { UKR_ma_ger_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_ger_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_ger
+			set_country_flag = UKR_ma_selected_leopards
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+	UKR_purchase_marders = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_ifv
+
+		available = {
+			has_completed_focus = UKR_marders
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_ger_enough_willingness		
+				check_variable = { UKR_ma_ger_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_ger_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_ger
+			set_country_flag = UKR_ma_selected_marders
+
+			UKR_calculate_military_aid = yes
 		}
 	}
 }

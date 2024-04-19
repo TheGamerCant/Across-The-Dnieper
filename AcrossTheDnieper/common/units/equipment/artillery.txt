@@ -3,12 +3,6 @@ equipments = {
 	artillery_equipment = {
 		year = 1934
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
 
 		is_archetype = yes
 		picture = archetype_artillery_equipment		
@@ -20,6 +14,8 @@ equipments = {
 		group_by = archetype
 		
 		interface_category = interface_category_land
+		
+		maximum_speed = 10
 
 		#Misc Abilities
 		reliability = 0.8
@@ -49,13 +45,6 @@ equipments = {
 	artillery_equipment_1 = {
 		year = 1934
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
-
 		archetype = artillery_equipment
 		priority = 50
 		visual_level = 0
@@ -83,13 +72,6 @@ equipments = {
 	artillery_equipment_3 = {
 		year = 1942
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
-
 		archetype = artillery_equipment
 		parent = artillery_equipment_2
 		priority = 50
@@ -110,13 +92,6 @@ equipments = {
 	rocket_artillery_equipment = {
 		year = 1940
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
-
 		is_archetype = yes
 		picture = archetype_rocket_artillery_equipment		
 		type = { 
@@ -127,6 +102,8 @@ equipments = {
 		group_by = archetype
 		
 		interface_category = interface_category_land
+		
+		maximum_speed = 10
 		
 		#Misc Abilities
 		reliability = 0.8
@@ -154,12 +131,6 @@ equipments = {
 		year = 1940
 
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
 		archetype = rocket_artillery_equipment
 		priority = 60
 		visual_level = 0
@@ -168,23 +139,36 @@ equipments = {
 	rocket_artillery_equipment_2 = {
 		year = 1943
 
-		can_be_produced = {
-			NOT = {
-				has_idea = no_producer
-			}
-		}
-
-
 		archetype = rocket_artillery_equipment
 		parent = rocket_artillery_equipment_1
 		priority = 60
 		visual_level = 1
 		
-		defense = 15
+		defense = 12
 		breakthrough = 20
 		soft_attack = 50
 		
 		build_cost_ic = 6
+		resources = {
+			tungsten = 2
+			steel = 1
+		}
+	}
+	
+	rocket_artillery_equipment_3 = {
+		year = 1945
+
+
+		archetype = rocket_artillery_equipment
+		parent = rocket_artillery_equipment_2
+		priority = 60
+		visual_level = 1
+		
+		defense = 15
+		breakthrough = 26
+		soft_attack = 60
+		
+		build_cost_ic = 7
 		resources = {
 			tungsten = 2
 			steel = 1

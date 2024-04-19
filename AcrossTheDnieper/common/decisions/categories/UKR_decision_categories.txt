@@ -86,6 +86,7 @@ UKR_rebuilding_ukraine = {
 }
 
 UKR_hur_decisions = {
+	icon = GFX_hur_category
 	priority = 500
 	allowed = {
 		OR={
@@ -93,10 +94,48 @@ UKR_hur_decisions = {
 			original_tag = UGE
 		}
 	}
-	#scripted_gui = ukraine_hur_decisions
-	visible_when_empty = no
+	scripted_gui = ukraine_hur_decisions
+	visible_when_empty = yes
 	visible = {
-		has_completed_focus = UKR_organisation_of_the_partisans
+		OR={
+			AND={
+				has_completed_focus = UKR_organisation_of_the_partisans
+				any_country = { has_war_with = ROOT original_tag = SOV }
+			}
+			has_country_flag = UKR_DEBUG_HUR_no_war_flag
+		}
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}
+
+UKR_miliary_aid_decision = {
+	priority = 600
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = UGE
+		}
+	}
+	scripted_gui = ukraine_miliary_aid_decisions
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = UKR_lobby_for_western_aid
+		any_country = { has_war_with = ROOT original_tag = SOV }
+		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
+	}
+}
+
+UKR_international_legion_decision = {
+	icon = GFX_international_legion_category
+	priority = 500
+	allowed = {
+		OR={
+			original_tag = UKR
+			original_tag = UGE
+		}
+	}
+	visible = {
+		has_completed_focus = UKR_create_international_legion
 		any_country = { has_war_with = ROOT original_tag = SOV }
 		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
 	}

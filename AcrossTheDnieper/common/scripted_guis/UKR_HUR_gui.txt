@@ -1,0 +1,521 @@
+scripted_gui = {
+	ukraine_hur_decisions = {
+		context_type = decision_category
+		window_name = "UKR_HUR_decision"
+		triggers = {
+		}
+		
+		effects={
+			UKR_HUR_decision_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_hur_ui } }
+					set_country_flag = UKR_opened_hur_ui
+				}
+				else={
+					clr_country_flag = UKR_opened_hur_ui
+				}
+			}
+		}
+		properties = { 
+				
+		}
+	}
+	
+	UKR_HUR_main_gui = {
+		context_type = player_context
+		window_name = "UKR_HUR_main_gui"
+		
+		visible = { 
+			OR = { has_war_with = SOV has_country_flag = UKR_DEBUG_HUR_no_war_flag }
+			has_country_flag = UKR_opened_hur_ui 
+		}
+		
+		triggers={
+			UKR_intro_animation_bg_visible={
+				has_country_flag = UKR_has_initiailised_HUR_flag
+			}
+			UKR_HUR_underscore_visible={
+				has_country_flag = UKR_has_initiailised_HUR_flag
+			}
+			UKR_HUR_underscore_overlay_visible={
+				has_country_flag = UKR_has_initiailised_HUR_flag
+			}
+			
+			UKR_HUR_init_anim_icon_1_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_2_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_3_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_4_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_5_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_6_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_7_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_8_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_9_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_10_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_11_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_12_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_13_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_14_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_15_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_16_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_17_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_18_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_19_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_20_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_21_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_22_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_23_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_24_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_25_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_26_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_27_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_28_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			UKR_HUR_init_anim_icon_29_visible={ has_country_flag = UKR_has_initiailised_HUR_flag }
+			
+			
+			BELGOROD_title_text_box_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			belgorod_map_bg_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_borisovka_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_borisovka_button_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_gorkovsky_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_gorkovsky_tsapovka_shchetinovka_button_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_tsapovka_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_shchetinovka_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_belgorod_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_belgorod_button_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_shebeniko_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			city_shebeniko_button_visible = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+			
+			crimea_map_bg_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+			CRIMEA_title_text_box_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+			UKR_HUR_mayak_and_olenivka_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+			UKR_HUR_sevastopol_port_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+			UKR_HUR_kerch_button_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+			UKR_HUR_kerch_bridge_visible = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+		}
+		
+		
+		effects={
+			keypress_enter_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_space_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_exclamation_mark_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_lbracket_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_rbracket_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_asterix_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_plus_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_comma_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_hyphen_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_dot_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_slash_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_colon_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_semicolon_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_lesser_than_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_equal_to_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_greater_than_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_question_mark_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_at_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_0_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_1_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_2_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_3_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_4_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_5_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_6_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_7_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_8_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_9_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_A_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_B_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_C_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_D_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_E_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_F_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_G_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_H_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_I_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_J_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_K_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_L_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_M_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_N_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_O_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_P_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_Q_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_R_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_S_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_T_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_U_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_V_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_W_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_X_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_Y_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_shift_Z_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_a_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_b_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_c_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_d_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_e_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_f_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_g_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_h_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_i_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_j_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_k_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_l_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_m_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_n_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_o_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_p_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_q_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_r_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_s_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_t_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_u_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_v_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_w_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_x_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_y_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			keypress_z_click={ clr_country_flag = UKR_has_initiailised_HUR_flag }
+			
+			belgorod_select_button_click={
+				if={
+					limit = { check_variable = { UKR.UKR_HUR_current_tab = 1 } }
+					UKR_set_HUR_map_to_zero = yes
+				}
+				else={
+					UKR_set_HUR_map_to_one = yes
+				}
+			}
+			
+			crimea_select_button_click={
+				if={
+					limit = { check_variable = { UKR.UKR_HUR_current_tab = 2 } }
+					UKR_set_HUR_map_to_zero = yes
+				}
+				else={
+					UKR_set_HUR_map_to_two = yes
+				}
+			}
+			
+			prepare_assassination_button_click = {
+				if = {
+					limit = {check_variable = { ROOT.can_do_hur_mission = 1 } }
+					log = "myVariable: [?HUR_assassination_array^0]"
+				}
+			}
+			
+			open_moscow_view_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = UKR_opened_hur_moscow_ui } check_variable = { ROOT.can_do_hur_mission = 1 } }
+					set_country_flag = UKR_opened_hur_moscow_ui
+				}
+				else={
+					clr_country_flag = UKR_opened_hur_moscow_ui
+				}
+			}
+			city_borisovka_button_click = {
+				if = {
+					limit = { check_variable = { UKR.borisovka_controller = 1  } }
+
+					UKR_HUR_belgorod_clear_flags = yes
+					set_country_flag = UKR_HUR_borisovka_selected
+	
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_hur_belgorod_prep_ui } check_variable = { ROOT.can_do_hur_mission = 1 } }
+						set_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+					else={
+						clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+				}
+
+			}
+			city_gorkovsky_tsapovka_shchetinovka_button_click = {
+				if = {
+					limit = { check_variable = { UKR.gorkovsky_tsapovka_shchetinovka_controller = 1  } }
+					UKR_HUR_belgorod_clear_flags = yes
+					set_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected
+	
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_hur_belgorod_prep_ui } check_variable = { ROOT.can_do_hur_mission = 1 } }
+						set_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+					else={
+						clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+				}
+
+			}
+			city_belgorod_button_click = {
+				if = {
+					limit = { check_variable = { UKR.belgorod_controller = 1  } }
+
+					UKR_HUR_belgorod_clear_flags = yes
+					set_country_flag = UKR_HUR_belgorod_selected
+	
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_hur_belgorod_prep_ui } check_variable = { ROOT.can_do_hur_mission = 1 } }
+						set_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+					else={
+						clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+				}
+
+			}
+			city_shebeniko_button_click = {
+				if = {
+					limit = { check_variable = { UKR.shebeniko_controller = 1  } }
+
+					UKR_HUR_belgorod_clear_flags = yes
+					set_country_flag = UKR_HUR_shebeniko_selected
+	
+					if={
+						limit = { NOT = { has_country_flag = UKR_opened_hur_belgorod_prep_ui } check_variable = { ROOT.can_do_hur_mission = 1 } }
+						set_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+					else={
+						clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					}
+				}
+			}
+			
+			close_button_click={
+				clr_country_flag = UKR_opened_hur_ui
+			}
+		}
+
+		properties = {
+			UKR_HUR_mayak_and_olenivka = {
+				image = "GFX_decision_UKR_hur_crimea_button"
+				frame = can_do_hur_mission
+			}
+			UKR_HUR_sevastopol_port = {
+				image = "GFX_decision_UKR_hur_crimea_button_2"
+				frame = can_do_hur_mission
+			}
+			UKR_HUR_kerch_button = {
+				image = "GFX_decision_UKR_hur_crimea_button_2"
+				frame = can_do_hur_mission
+			}
+			
+			person_portrait = {
+				image = "[UKR_HUR_get_assassination_portrait]"
+			}
+			
+			city_borisovka_button = {
+				image = "GFX_decision_UKR_hur_belgorod_button"
+				frame = can_do_hur_mission
+			}
+			city_gorkovsky_tsapovka_shchetinovka_button = {
+				image = "GFX_decision_UKR_hur_belgorod_button"
+				frame = can_do_hur_mission
+			}
+			city_belgorod_button = {
+				image = "GFX_decision_UKR_hur_belgorod_button"
+				frame = can_do_hur_mission
+			}
+			city_shebeniko_button = {
+				image = "GFX_decision_UKR_hur_belgorod_button"
+				frame = can_do_hur_mission
+			}
+
+
+			city_borisovka = {
+				frame = ROOT.borisovka_controller
+			}
+			city_gorkovsky = {
+				frame = ROOT.gorkovsky_tsapovka_shchetinovka_controller
+			}
+			city_tsapovka = {
+				frame = ROOT.gorkovsky_tsapovka_shchetinovka_controller
+			}
+			city_shchetinovka = {
+				frame = ROOT.gorkovsky_tsapovka_shchetinovka_controller
+			}
+			city_belgorod = {
+				frame = ROOT.belgorod_controller
+			}
+			city_shebeniko = {
+				frame = ROOT.shebeniko_controller
+			}
+			
+			belgorod_select_button={
+				frame = UKR.UKR_HUR_belgorod_button_frame
+			}
+			crimea_select_button={
+				frame = UKR.UKR_HUR_crimea_button_frame
+			}
+		}
+
+		dynamic_lists = {
+			assassination_grid_box = {
+				array = HUR_assassination_array
+				value = v
+				index = i
+				change_scope = yes
+				entry_container = "assassination_array"
+			}
+		}
+	}
+
+	UKR_HUR_belgorod_preperations_gui = {
+		context_type = player_context
+		window_name = "UKR_HUR_belgorod_preperations_gui"
+		triggers = {
+		}
+		
+		effects={
+			close_button_click = {
+				clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+			}
+
+			begin_incursion_button_click = {
+				if = {
+					limit = {
+						AND = {
+							check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+							check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+							check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+							check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+
+							command_power > ROOT.required_cp_incursion
+							check_variable = { ROOT.can_do_hur_mission = 1 }
+						}
+					}
+
+					clr_country_flag = UKR_opened_hur_belgorod_prep_ui
+					set_variable = { ROOT.can_do_hur_mission = 2 }
+
+
+
+
+					if = {
+						limit = { has_country_flag = UKR_HUR_borisovka_selected }
+						set_variable = { ROOT.city_done_operation_in = 1 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_gorkovsky_tsapovka_shchetinovka_selected }
+						set_variable = { ROOT.city_done_operation_in = 2 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_belgorod_selected }
+						set_variable = { ROOT.city_done_operation_in = 3 }
+					}
+					else_if = {
+						limit = { has_country_flag = UKR_HUR_shebeniko_selected }
+						set_variable = { ROOT.city_done_operation_in= 4 }
+					}
+
+					set_temp_variable = { temp_var_cp = ROOT.required_cp_incursion }
+					multiply_temp_variable = { temp_var_cp = -1 }
+
+					add_command_power = temp_var_cp
+
+					set_variable = { ROOT.given_rifles_incursion = 0 }
+					set_variable = { ROOT.given_manpower_incursion = 0 }
+					set_variable = { ROOT.given_apc_incursion = 0 }
+					set_variable = { ROOT.given_mechanized_incursion = 0 }
+
+					UKR_HUR_belgorod_incursion_calculate = yes
+				}
+			}
+			fill_required_garrison_click = {
+				if = {
+					limit = { 
+						NOT = {
+							check_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+							check_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+							check_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+							check_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+						}
+					}
+
+					if = {
+						limit = {
+							AND = {
+								has_equipment = { infantry_equipment > ROOT.required_rifles_incursion }
+								has_equipment = { apc_equipment > ROOT.required_apc_incursion }
+								has_equipment = { mechanized_equipment > ROOT.required_mechanized_incursion }
+								has_manpower > ROOT.required_manpower_incursion
+							}
+						}
+
+						set_temp_variable = { temp_var_inf = ROOT.required_rifles_incursion }
+						multiply_temp_variable = { temp_var_inf = -1 }
+
+						set_temp_variable = { temp_var_apc = ROOT.required_apc_incursion }
+						multiply_temp_variable = { temp_var_apc = -1 }
+
+						set_temp_variable = { temp_var_mec = ROOT.required_mechanized_incursion }
+						multiply_temp_variable = { temp_var_mec = -1 }
+
+						set_temp_variable = { temp_var_man = ROOT.required_manpower_incursion }
+						multiply_temp_variable = { temp_var_man = -1 }
+
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = temp_var_inf
+						}
+						add_equipment_to_stockpile = {
+							type = apc_equipment
+							amount = temp_var_apc
+						}
+						add_equipment_to_stockpile = {
+							type = apc_equipment
+							amount = temp_var_mec
+						}
+
+						add_manpower = temp_var_man
+
+						set_variable = { ROOT.given_rifles_incursion = ROOT.required_rifles_incursion }
+						set_variable = { ROOT.given_manpower_incursion = ROOT.required_manpower_incursion }
+						set_variable = { ROOT.given_apc_incursion = ROOT.required_apc_incursion }
+						set_variable = { ROOT.given_mechanized_incursion = ROOT.required_mechanized_incursion }
+					}
+				}
+			}
+		}
+		properties = { 
+			UKR_HUR_ally_rvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_rvc"
+				frame = rvc_frame
+			}
+			UKR_HUR_ally_frl = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_frl"
+				frame = frl_frame
+			}
+			UKR_HUR_ally_pvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_pvc"
+				frame = pvc_frame
+			}
+			UKR_HUR_ally_bvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_bvc"
+				frame = bvc_frame
+			}
+			UKR_HUR_ally_gvc = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_gvc"
+				frame = gvc_frame
+			}
+			UKR_HUR_ally_kkr = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_kkr"
+				frame = kkr_frame
+			}
+			UKR_HUR_ally_gnl = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_gnl"
+				frame = gnl_frame
+			}
+			UKR_HUR_ally_sob = {
+				image = "GFX_decision_UKR_hur_russian_collaborators_sob"
+				frame = sob_frame
+			}
+		}
+
+		visible={
+			OR = { has_war_with = SOV has_country_flag = UKR_DEBUG_HUR_no_war_flag }
+			AND = {
+				has_country_flag = UKR_opened_hur_belgorod_prep_ui
+				has_country_flag = UKR_opened_hur_ui 
+			}
+		}
+	}
+}

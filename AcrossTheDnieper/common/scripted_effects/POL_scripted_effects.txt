@@ -1,44 +1,57 @@
-POL_clear_prime_minister_flags={
-	clr_country_flag = POL_donald_tusk_is_current_pm_flag
-	clr_country_flag = POL_ewa_kopacz_is_current_pm_flag
-	clr_country_flag = POL_beata_szydlo_is_current_pm_flag
-	clr_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
-	clr_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+POL_clear_prime_minister_flags_and_ideas={
+	hidden_effect={
+		clr_country_flag = POL_donald_tusk_is_current_pm_flag
+		clr_country_flag = POL_ewa_kopacz_is_current_pm_flag
+		clr_country_flag = POL_beata_szydlo_is_current_pm_flag
+		clr_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
+		clr_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+		
+		remove_ideas = POL_donald_tusk_hidden_idea
+		remove_ideas = POL_ewa_kopacz_shoes_to_fill_hidden_idea
+		remove_ideas = POL_beata_szydlo_hidden_idea
+		remove_ideas = POL_mateusz_morawiecki_hidden_idea
+		remove_ideas = POL_jaroslaw_kaczynski_hidden_idea
+	}
 }
 
 POL_make_donald_tusk_pm={
-	POL_clear_prime_minister_flags = yes
-	set_country_flag = POL_donald_tusk_is_current_pm_flag
-	
+	POL_clear_prime_minister_flags_and_ideas = yes
 	custom_effect_tooltip = POL_make_donald_tusk_pm_tt
+	
+	set_country_flag = POL_donald_tusk_is_current_pm_flag
+	add_ideas = POL_donald_tusk_hidden_idea
 }
 
 POL_make_ewa_kopacz_pm={
-	POL_clear_prime_minister_flags = yes
-	set_country_flag = POL_ewa_kopacz_is_current_pm_flag
-	
+	POL_clear_prime_minister_flags_and_ideas = yes
 	custom_effect_tooltip = POL_make_ewa_kopacz_pm_tt
+	
+	set_country_flag = POL_ewa_kopacz_is_current_pm_flag
+	add_ideas = POL_ewa_kopacz_shoes_to_fill_hidden_idea
 }
 
 POL_make_beata_szydlo_pm={
-	POL_clear_prime_minister_flags = yes
-	set_country_flag = POL_beata_szydlo_is_current_pm_flag
-	
+	POL_clear_prime_minister_flags_and_ideas = yes
 	custom_effect_tooltip = POL_make_beata_szydlo_pm_tt
+	
+	set_country_flag = POL_beata_szydlo_is_current_pm_flag
+	add_ideas = POL_beata_szydlo_hidden_idea
 }
 
 POL_make_mateusz_morawiecki_pm={
-	POL_clear_prime_minister_flags = yes
-	set_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
-	
+	POL_clear_prime_minister_flags_and_ideas = yes
 	custom_effect_tooltip = POL_make_mateusz_morawiecki_pm_tt
+	
+	set_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
+	add_ideas = POL_mateusz_morawiecki_hidden_idea
 }
 
 POL_make_jaroslaw_kaczynski_pm={
-	POL_clear_prime_minister_flags = yes
-	set_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
-	
+	POL_clear_prime_minister_flags_and_ideas = yes
 	custom_effect_tooltip = POL_make_jaroslaw_kaczynski_pm_tt
+	
+	set_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+	add_ideas = POL_jaroslaw_kaczynski_hidden_idea
 }
 
 POL_clear_PO_party_leader_flags={
@@ -783,21 +796,21 @@ POL_make_andrzej_duda_president={
 		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 		ideology = civic_platform
 		
-		traits = {  }
+		traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 	}
 	create_country_leader = {
 		name = "Andrzej Duda"
 		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 		ideology = poland_pis_party
 		
-		traits = {  }
+		traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 	}
 	create_country_leader = {
 		name = "Andrzej Duda"
 		picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 		ideology = poland_PSL
 		
-		traits = {  }
+		traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 	}
 	
 	if={
@@ -807,7 +820,7 @@ POL_make_andrzej_duda_president={
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_kukiz_15
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 	}
 	else_if={
@@ -817,21 +830,21 @@ POL_make_andrzej_duda_president={
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_konfederacja_ultranat
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 		create_country_leader = {
 			name = "Andrzej Duda"
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_konfederacja_populist
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 		create_country_leader = {
 			name = "Andrzej Duda"
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_konfederacja_monarchist
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 	}
 	
@@ -842,7 +855,7 @@ POL_make_andrzej_duda_president={
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_democratic_left_alliance
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 	}
 	else_if={
@@ -852,7 +865,7 @@ POL_make_andrzej_duda_president={
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_united_left
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 	}
 	else_if={
@@ -862,14 +875,14 @@ POL_make_andrzej_duda_president={
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_lewica_socdem
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 		create_country_leader = {
 			name = "Andrzej Duda"
 			picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
 			ideology = poland_lewica_socialist
 			
-			traits = {  }
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
 	}
 }

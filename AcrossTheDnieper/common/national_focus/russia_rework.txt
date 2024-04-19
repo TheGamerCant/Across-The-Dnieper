@@ -589,7 +589,29 @@ focus_tree = {
 			set_global_flag = smo_eastern_front_open
 			set_global_flag = smo_donbass_front_open
 			set_global_flag = smo_southern_front_open
-			news_event = { id = atd_news.56 days = 17 }
+			
+			news_event = { id = atd_news.56 days = 10 random_days = 20 }
+
+			UKR = {
+				add_intel = {
+					target = DON
+					army_intel = 60
+				}
+				add_intel = {
+					target = LHK
+					army_intel = 60
+				}
+				add_intel = {
+					target = SOV
+					army_intel = 60
+				}
+			}
+
+			add_intel = {
+				target = UKR
+				army_intel = 60
+			}
+
 			if = {
 				limit = {
 					country_exists = BLR
@@ -597,9 +619,16 @@ focus_tree = {
 						is_in_faction_with = BLR
 						BLR={ is_puppet_of = ROOT }
 					}
+					435 = { is_owned_and_controlled_by = BLR }
 				}
 				
-				country_event = { id = russia.88 days = 56 }
+				if={
+					limit = { 434 = { is_owned_and_controlled_by = BLR } }
+					country_event = { id = russia.88 days = 56 }
+				}
+			}
+			else={
+				set_global_flag = smo_western_front_open
 			}
 
 			every_country = {
@@ -673,7 +702,7 @@ focus_tree = {
 			custom_effect_tooltip = SOV_movements_on_the_border_tt
 			hidden_effect={
 				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 221 } country_event = { id = russia.1149 days = 108 } country_event = { id = russia.1150 days = 41 } }
-				UKR = { country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.137 days = 330 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } }
+				UKR = { country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } }
 				POL = { country_event = { id = atd_poland.24 days = 265 } }
 
 				news_event = { id = atd_news.73 days = 84 } 
@@ -733,7 +762,7 @@ focus_tree = {
 					add_dynamic_modifier = {
 						modifier = UKR_heavily_defended_area
 						scope = SOV
-						days = 100
+						days = 365
 					}
 				}
 				every_state={ #can be moved to an event if you want
@@ -771,6 +800,7 @@ focus_tree = {
 							has_state_flag = crimea_oblast_flag
 
 							state = 230
+							state = 306
 							state = 451
 						}
 						NOT = { state = 196 }
@@ -1084,6 +1114,16 @@ focus_tree = {
 				country_event = { id = russia.1048 days = 2 }
 				news_event = { id = atd_news.55 hours = 1 }
 				add_named_threat = { threat = 60 name = russian_invasion_of_ukraine }
+				
+				if={
+					limit = {
+						vladimir_putin_is_leader = yes
+					}
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_War.png"
+					}
+					set_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
 			}
 		}
 	}
@@ -3146,6 +3186,8 @@ focus_tree = {
 					scope = UKR
 				}
 			}
+
+			custom_effect_tooltip = SOV_secure_the_land_bridge_tt
 		}
 	}
 
@@ -3611,7 +3653,7 @@ focus_tree = {
 
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment_1
-				amount = 15000
+				amount = 35000
 				producer = SOV
 			}
 			add_equipment_to_stockpile = { 

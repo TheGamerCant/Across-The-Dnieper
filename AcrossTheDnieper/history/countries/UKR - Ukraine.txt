@@ -345,11 +345,18 @@ set_variable = { UKR_WE_army_infantry_defence_factor = 0 }
 set_variable = { UKR_WE_motorized_attack_factor = 0 }
 set_variable = { UKR_WE_motorized_defence_factor = 0 } 
 
+set_variable = { UKR_WE_mechanized_attack_factor = 0 }
+set_variable = { UKR_WE_mechanized_defence_factor = 0 } 
+
 set_variable = { UKR_WE_experience_gain_army_factor = 0.02 } 
+set_variable = { UKR_WE_experience_gain_air_factor = 0 } 
 
 set_variable = { UKR_WE_air_accidents_factor = 0 }
 set_variable = { UKR_WE_air_attack_factor = 0 } 
 set_variable = { UKR_WE_air_defence_factor = 0 } 
+
+
+set_variable = { UKR.UKR_HUR_current_tab = 0 }
 
 2019.5.29 = {
 	load_focus_tree = ukraine_post_donbass_tree
@@ -627,8 +634,6 @@ set_variable = { UKR_WE_air_defence_factor = 0 }
 		basic_torpedo = 1
 		basic_naval_mines = 1
 		
-		early_fighter = 1
-		
 		four_g_satellite = 1
 		radio = 1
 		radio_detection = 1
@@ -664,6 +669,7 @@ set_variable = { UKR_WE_air_defence_factor = 0 }
 			increase_infantry_support = 1
 		}
 	}
+
 	if = {
 		limit = {
 			has_dlc = "No Step Back"
@@ -671,10 +677,11 @@ set_variable = { UKR_WE_air_defence_factor = 0 }
 		set_technology = {
 			armor_tech_2 = 1
 			engine_tech_2 = 1
-			gun_tech_2 = 1
-			at_tech_1 = 1
-			aa_tech_1 = 1
-			tank_module_tech_2 = 1
+			main_weapon_tech_2 = 1
+			sp_weapon_tech_2 = 1
+			electronics_tech_2 = 1
+			optics_tech_2 = 1
+			comms_tech_2 = 1
 		}
 	}
 	
@@ -843,10 +850,7 @@ if = {
 		t72_chasis_tech = 1
 		t80_chasis_tech = 1
 		t90_chasis_tech = 1
-		armor_tech_1 = 1
-		engine_tech_1 = 1
-		gun_tech_1 = 1
-		tank_module_tech_1 = 1
+		basic_tank_building = 1
 	}
 }
 
@@ -885,10 +889,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -903,11 +908,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -923,10 +929,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -942,11 +949,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -962,11 +970,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -981,12 +990,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_2
-			special_type_slot_2 = armor_era
-			special_type_slot_3 = smoke_launchers
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -1001,12 +1010,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_2
-			special_type_slot_2 = armor_era
-			special_type_slot_3 = smoke_launchers
+			special_type_slot_1 = improved_optics_module
+			special_type_slot_2 = improved_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -1944,7 +1953,44 @@ get_party_votes_for_anti_protest_laws = yes
 get_party_votes_for_the_bill = yes
 set_variable = { UKR_required_votes = 226 }	
 
+UKR_setup_military_aid_variables = yes
+UKR_HUR_setup = yes
 
+set_variable = { UKR_rd_weekly_manpower = 15 }	
+set_variable = { UKR_rd_cp_gain = -0.025 }	
+
+set_variable = { UKR_dwa_efficiency_gain = -0.3 }	
+set_variable = { UKR_dwa_max_efficiency_gain = -0.4 }	
+set_variable = { UKR_dwa_start_efficiency_gain = -0.35 }	
+set_variable = { UKR_dwa_efficiency_retention = -0.25 }	
+set_variable = { UKR_dwa_upkeep = 0.15 }	
+set_variable = { UKR_dwa_industrial_capacity = -0.42 }	
+set_variable = { UKR_dwa_pp_cost = 0.03 }	
+set_variable = { UKR_dwa_experience_loss = 0.1 }	
+set_variable = { UKR_dwa_morale = -0.1 }	
+set_variable = { UKR_dwa_breakthrough = -0.1 }	
+set_variable = { UKR_dwa_max_planning = -0.08 }	
+set_variable = { UKR_dwa_weekly_mp = -500 }	
+
+set_variable = { UKR_military_aid_decision_cost_artillery = 100 }	
+set_variable = { UKR_military_aid_decision_cost_tank = 80 }	
+set_variable = { UKR_military_aid_decision_cost_ifv = 65 }	
+set_variable = { UKR_military_aid_decision_cost_vehicle = 30 }	
+set_variable = { UKR_military_aid_decision_cost_other = 25 }	
+
+set_variable = { UKR_max_himars = 10 }	
+set_variable = { UKR_max_abrams = 35 }	
+set_variable = { UKR_max_bradleys = 55 }
+set_variable = { UKR_max_humvees = 200 }
+set_variable = { UKR_max_spartans = 110 }
+set_variable = { UKR_max_m113 = 170 }
+set_variable = { UKR_max_challengers = 34 }	
+set_variable = { UKR_max_leopards = 37 }	
+set_variable = { UKR_max_marders = 60 }
+
+set_variable = { UKR_ms_conscription = -0.08 }
+set_variable = { UKR_ms_mobilization = -0.02 }
+set_variable = { UKR_ms_weekly_manpower = -250 }
 
 #PLANES
 

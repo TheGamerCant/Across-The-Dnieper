@@ -1858,21 +1858,8 @@ country_event = {
 			base = 10
 		}
 		
-		clr_global_flag = smo_northern_front_open
 		add_command_power = 25
-		
-		if = {
-			limit = {
-				country_exists = BLR
-				OR={
-					is_in_faction_with = BLR
-					BLR={ is_puppet_of = ROOT }
-				}
-				434 = { is_owned_by = ROOT }
-			}
-			BLR = { transfer_state = 434 }
-			remove_state_claim = 434
-		}
+		SOV_close_northern_front_effect = yes
 		if={
 			limit = { 
 				NOT = { has_global_flag = smo_western_front_open }
@@ -2077,27 +2064,27 @@ country_event = {
 		remove_dynamic_modifier = { modifier = SOV_effects_from_media }
 		
 		hidden_effect={
-			kill_country_leader = yes
+			#kill_country_leader = yes
 			
-			if = {
-				limit = { has_dlc = "La Resistance" }
-				create_country_leader = {
-					name = "Vladimir Putin"
-					desc = "vladimir_putin_desc"
-					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin_hat.png
-					ideology = united_russia_ultranat_subideology
-					traits = { SOV_retired_kgb_agent_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
-				}
-			}
-			else={
-				create_country_leader = {
-					name = "Vladimir Putin"
-					desc = "vladimir_putin_desc"
-					picture = gfx/leaders/SOV/Portrait_Vladimir_Putin_hat.png
-					ideology = united_russia_ultranat_subideology
-					traits = { SOV_retired_kgb_agent_no_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
-				}
-			}		
+			#if = {
+			#	limit = { has_dlc = "La Resistance" }
+			#	create_country_leader = {
+			#		name = "Vladimir Putin"
+			#		desc = "vladimir_putin_desc"
+			#		picture = gfx/leaders/SOV/Portrait_Vladimir_Putin_hat.png
+			#		ideology = united_russia_ultranat_subideology
+			#		traits = { SOV_retired_kgb_agent_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
+			#	}
+			#}
+			#else={
+			#	create_country_leader = {
+			#		name = "Vladimir Putin"
+			#		desc = "vladimir_putin_desc"
+			#		picture = gfx/leaders/SOV/Portrait_Vladimir_Putin_hat.png
+			#		ideology = united_russia_ultranat_subideology
+			#		traits = { SOV_retired_kgb_agent_no_lar SOV_geopolitical_grandmaster_trait_ultranationalist SOV_the_great_helmsman_trait_ultranationalist }
+			#	}
+			#}		
 			
 			remove_trait = {
 				character = SOV_sergey_lavrov_rework
@@ -5145,6 +5132,19 @@ country_event = {
 			idea = SOV_entrenchment_efforts
 			days = 400
 		}
+
+		every_state = {
+			limit = {
+				is_controlled_by = ROOT
+				OR = { state = 223 state = 214 }
+			}
+
+				
+			add_dynamic_modifier = {
+				modifier = UKR_heavily_entrenched_russians
+				scope = UKR
+			}
+		}
 		hidden_effect = {
 			every_state = {
 				limit = {
@@ -5619,7 +5619,10 @@ country_event = {
     desc = russia.1146.desc
     picture = SOV_alexandrgarden_protest
     is_triggered_only = yes
-    fire_only_once = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
 
     option = {
         name = russia.1146.a
@@ -5676,6 +5679,11 @@ country_event = {
     picture = SOV_storm_ossetia
     is_triggered_only = yes
 
+	trigger = {
+		has_war_with = UKR
+	}
+
+
     option = {
         name = russia.1149.a
 		ai_chance = {
@@ -5715,6 +5723,10 @@ country_event = {
     desc = russia.1150.desc
     picture = SOV_rusich
     is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
 
     option = {
         name = russia.1150.a

@@ -1,49 +1,3 @@
-#Prime Ministers
-
-POL_donald_tusk_dynamic_modifier = { 
-	enable = { has_country_flag = POL_donald_tusk_is_current_pm_flag }
-
-	neoliberal_drift = 0.1
-	political_power_factor = 0.15
-	political_advisor_cost_factor = -0.15
-	stability_factor = 0.1
-	western_acceptance = 50
-	improve_relations_maintain_cost_factor = -0.2
-}
-
-POL_ewa_kopacz_dynamic_modifier = { 
-	enable = { has_country_flag = POL_ewa_kopacz_is_current_pm_flag }
-
-	stability_weekly = ewa_kopacz_stability_weekly
-	political_power_gain = ewa_kopacz_political_power_gain
-}
-
-POL_beata_szydlo_dynamic_modifier = { 
-	enable = { has_country_flag = POL_beata_szydlo_is_current_pm_flag }
-
-	political_power_gain = 0.15
-	neoconservative_drift = 0.08
-	war_support_factor = 0.1
-	stability_factor = -0.03
-}
-
-POL_mateusz_morawiecki_dynamic_modifier = { 
-	enable = { has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag }
-
-	consumer_goods_factor = -0.075
-	production_factory_max_efficiency_factor = 0.1
-	production_speed_buildings_factor = 0.1
-}
-
-POL_jaroslaw_kaczynski_dynamic_modifier = { 
-	enable = { has_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag }
-
-	political_power_factor = 0.2
-	neoconservative_drift = 0.1
-	political_advisor_cost_factor = -0.25
-}
-
-
 #National Spirits
 
 POL_ineffective_public_institutions_modifier = { 
@@ -112,4 +66,19 @@ POL_outdated_air_force_modifier = {
 	army_bonus_air_superiority_factor = POL_air_force_army_bonus_air_superiority_factor
 	air_cas_efficiency = POL_air_force_air_cas_efficiency
 	static_anti_air_damage_factor = POL_air_force_static_anti_air_damage_factor
+}
+
+POL_economy_dynamic_modifier = { 
+	icon = GFX_idea_POL_economy_idea
+	enable = { always = yes }
+
+	industrial_capacity_factory = POL_economy_industrial_capacity_factory
+	industrial_capacity_dockyard = POL_economy_industrial_capacity_dockyard
+	political_power_gain = POL_economy_political_power_gain
+	research_speed_factor = POL_economy_research_speed_factor
+	production_speed_buildings_factor = POL_economy_production_speed_buildings_factor
+	
+	consumer_goods_expected_value = POL_economy_consumer_goods_expected_value
+	ruling_party_drift = POL_economy_ruling_party_drift
+	local_resources_factor = POL_economy_local_resources_factor
 }

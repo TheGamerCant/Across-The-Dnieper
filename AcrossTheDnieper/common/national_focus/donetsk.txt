@@ -574,9 +574,9 @@ shared_focus = {
 		    	division_names_group = DON_INF_01
 				template_counter = 216
 		    	regiments = {
-		    		modern_armor_nsb = { x = 0 y = 0 }
-		    		modern_armor_nsb = { x = 0 y = 1 }
-		    		modern_armor_nsb = { x = 0 y = 2 }
+		    		modern_armor = { x = 0 y = 0 }
+		    		modern_armor = { x = 0 y = 1 }
+		    		modern_armor = { x = 0 y = 2 }
 		    		mechanized = { x = 1 y = 0 }
 		    		apc = { x = 1 y = 1 }
 		    		apc = { x = 1 y = 2 }
@@ -1119,15 +1119,15 @@ shared_focus = {
 					division_template = {
 						name = "Foreign Volunteers"
 						division_names_group = DON_INF_01
+						is_locked = yes
 						template_counter = 210
 						regiments = {
 							irregular_infantry = { x = 0 y = 0 }
 							irregular_infantry = { x = 0 y = 1 }
 							irregular_infantry = { x = 0 y = 2 }
-							
 						}
 						support = {
-							artillery = { x = 0 y = 0 } 
+							recon = { x = 0 y = 0 } 
 						}
 					}
 				}
@@ -1138,23 +1138,7 @@ shared_focus = {
 
 					random_owned_controlled_state = {
 						create_unit = {
-							division = "name = \"Atomwaffen Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
-							owner = DON
-						}
-					}
-
-					add_popularity = {
-						ideology = ultranationalist
-						popularity = 0.02
-					}
-				}
-
-				random = {
-					chance = 50
-
-					random_owned_controlled_state = {
-						create_unit = {
-							division = "name = \"Der Dritte Weg Foreign Volunteers\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
+							division = "name = \"Rusich Group\" division_template = \"Foreign Volunteers\" start_experience_factor = 0.01" 
 							owner = DON
 						}
 					}
@@ -1276,11 +1260,6 @@ shared_focus = {
 						popularity = 0.02
 					}
 				}
-
-				set_division_template_lock = {
-					division_template = "Foreign Volunteers"
-					is_locked = yes
-				}
 			}
 		}
 	}
@@ -1319,6 +1298,7 @@ shared_focus = {
 					division_template = {
 						name = "Foreign Volunteers"
 						template_counter = 210
+						is_locked = yes
 						division_names_group = DON_INF_01
 						regiments = {
 							irregular_infantry = { x = 0 y = 0 }
@@ -1326,7 +1306,7 @@ shared_focus = {
 							irregular_infantry = { x = 0 y = 2 }
 						}
 						support = {
-							artillery = { x = 0 y = 0 } 
+							recon = { x = 0 y = 0 } 
 						}
 					}
 				}
@@ -1411,11 +1391,6 @@ shared_focus = {
 						ideology = hardline_communist
 						popularity = 0.02
 					}
-				}
-
-				set_division_template_lock = {
-					division_template = "Foreign Volunteers"
-					is_locked = yes
 				}
 			}
 		}

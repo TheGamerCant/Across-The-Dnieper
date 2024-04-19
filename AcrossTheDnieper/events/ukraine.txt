@@ -1,5 +1,7 @@
 add_namespace = ukraine
 add_namespace = ukraine_hur
+add_namespace = ukraine_ma
+add_namespace = ukraine_partisan_activities
 
 #Intro event
 country_event = {
@@ -1270,47 +1272,23 @@ country_event = {
 		}
 		custom_effect_tooltip = ukraine.29.tt
 		hidden_effect={
-			if={
-				limit = { has_dlc = "No Step Back" }
-				division_template = {
-					name = "Little Green Men"
-					division_names_group = SOV_INF_01
-					is_locked = yes
-					template_counter = 181
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						artillery_brigade = { x = 2 y = 0 }
-						artillery_brigade = { x = 2 y = 1 }
-						artillery_brigade = { x = 2 y = 2 }
-						modern_armor_nsb = { x = 3 y = 0 }
-						apc = { x = 3 y = 1 }
-					}
-				}
-			}
-			else={
-				division_template = {
-					name = "Zelyonye Chelovechki"
-					division_names_group = SOV_INF_01
-					is_locked = yes
-					template_counter = 181
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						artillery_brigade = { x = 2 y = 0 }
-						artillery_brigade = { x = 2 y = 1 }
-						artillery_brigade = { x = 2 y = 2 }
-						modern_armor = { x = 3 y = 0 }
-						apc = { x = 3 y = 1 }
-					}
+			division_template = {
+				name = "Zelyonye Chelovechki"
+				division_names_group = SOV_INF_01
+				is_locked = yes
+				template_counter = 181
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					artillery_brigade = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+					artillery_brigade = { x = 2 y = 2 }
+					modern_armor = { x = 3 y = 0 }
+					apc = { x = 3 y = 1 }
 				}
 			}
 			if={
@@ -1868,6 +1846,80 @@ country_event = {
 	
 	immediate={
 		hidden_effect={
+			UKR = {
+				if = {
+					limit = { has_completed_focus = UKR_counter_terrorism_operations }
+	
+					delete_unit_template_and_units = {
+						division_template = "Artemivsk Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Dnipro-1 Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Luhansk Assault Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Lviv Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Mykolaiv Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Myrotvorets Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Poltava Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Shakhtarsk Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Shtorm Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Skif Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Vinnytsya Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Bohdan Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Chernihiv Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Ivano-Frankivsk Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Kherson Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Kryvbas Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Sicheslav Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Sumy Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Svityaz Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Svyatoslav Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Ternopil Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "National Guard Unit"
+						disband = yes
+					}
+				}
+			}
+
 			set_global_flag = minsk_ii_has_been_signed
 			every_state={
 				limit = { is_controlled_by = UKR NOT = { is_owned_by = UKR } }
@@ -3033,6 +3085,11 @@ country_event = {
 			base = 10
 		}
 		66 = { add_claim_by = ROOT }
+		448 = { add_claim_by = ROOT }
+		449 = { add_claim_by = ROOT }
+		450 = { add_claim_by = ROOT }
+		88 = { add_claim_by = ROOT }
+		452 = { add_claim_by = ROOT }
 		430 = { add_claim_by = ROOT }
 		256 = { add_claim_by = ROOT }
 		25 = { add_claim_by = ROOT }
@@ -3304,7 +3361,7 @@ country_event = {
 			add_ideas = martial_law
 			set_global_flag = ukraine_rada_disbanded
 		}
-		add_ideas = wartime_censorship
+		
 		hidden_effect={
 			division_template = {
 				name = "Emergency National Guard"
@@ -3412,7 +3469,7 @@ country_event = {
 	title = ukraine.89.t
 	desc = ukraine.89.desc
 	is_triggered_only = yes
-	picture = SOV_event_high_command
+	picture = SOV_high_command_event
 
 	option = { 
 		name = ukraine.89.a
@@ -3453,7 +3510,6 @@ country_event = {
 			SOV = { annex_country = { target = PREV transfer_troops = no } }
 		}
 		puppet = FROM
-		russify_city_names = yes
 		hidden_effect={
 			news_event = { id = atd_news.28 days = 1 }
 			if={
@@ -3462,6 +3518,17 @@ country_event = {
 					has_government = eastern_conservative
 				}
 				country_event = { id = russia.67 days = 5 }
+			}
+			
+			if={
+				limit = { 
+					vladimir_putin_is_leader = yes 
+					has_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
+				}
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/SOV/Portrait_Vladimir_Putin_Post_War.png"
+				}
+				clr_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
 			}
 		}
 	}
@@ -3777,7 +3844,7 @@ country_event = {
 		set_variable_to_random = {
 			var = western_troops_id
 			min = 1
-			max = 7
+			max = 9
 			integer = yes
 		}
 
@@ -3804,8 +3871,8 @@ country_event = {
 						regiments = {
 							mechanized = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
-							modern_armor_nsb = { x = 0 y = 3 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
@@ -3835,8 +3902,8 @@ country_event = {
 						regiments = {
 							mechanized = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
-							modern_armor_nsb = { x = 0 y = 3 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
@@ -3866,8 +3933,8 @@ country_event = {
 						regiments = {
 							mechanized = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
-							modern_armor_nsb = { x = 0 y = 3 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							infantry = { x = 1 y = 2 }
@@ -3897,8 +3964,8 @@ country_event = {
 						regiments = {
 							mechanized = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
-							modern_armor_nsb = { x = 0 y = 3 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
@@ -3928,8 +3995,8 @@ country_event = {
 						regiments = {
 							mechanized = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
-							modern_armor_nsb = { x = 0 y = 3 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
@@ -3959,7 +4026,7 @@ country_event = {
 						regiments = {
 							anti_air_brigade = { x = 0 y = 0 }
 							mechanized = { x = 0 y = 1 }
-							modern_armor_nsb = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 2 }
 							apc = { x = 0 y = 3 }
 							marine = { x = 1 y = 0 }
 							marine = { x = 1 y = 1 }
@@ -3992,7 +4059,69 @@ country_event = {
 							elite_special_forces = { x = 0 y = 1 }
 							elite_special_forces = { x = 0 y = 2 }
 							anti_air_brigade = { x = 0 y = 3 }
-							modern_armor_nsb = { x = 1 y = 0 }
+							modern_armor = { x = 1 y = 0 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 8 } }
+
+				if = {
+					limit = { NOT = { has_template = "118th Mechanized Brigade" } }
+
+					division_template = {
+						name = "118th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 286
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 9 } }
+
+				if = {
+					limit = { NOT = { has_template = "117th Mechanized Brigade" } }
+
+					division_template = {
+						name = "117th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 287
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							elite_special_forces = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
 						}
 						support = {
 							artillery = { x = 0 y = 0 }
@@ -4711,16 +4840,16 @@ country_event = { #Minor weapons shipment
 						}
 					}
 					random_list={
-						10 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						60 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						30 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						10 = { country_event = { id = ukraine.122 days = 50 random_days = 15 } }
+						60 = { country_event = { id = ukraine.123 days = 50 random_days = 15 } }
+						30 = { country_event = { id = ukraine.124 days = 50 random_days = 15 } }
 					}
 				}
 				else={
 					random_list={
-						40 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						40 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						20 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						42 = { country_event = { id = ukraine.122 days = 60 random_days = 50 } }
+						40 = { country_event = { id = ukraine.123 days = 60 random_days = 50 } }
+						18 = { country_event = { id = ukraine.124 days = 60 random_days = 50 } }
 					}
 				}
 			}
@@ -4740,8 +4869,8 @@ country_event = { #Minor weapons shipment
 		
 		set_temp_variable_to_random = {
 			var = UKR_nato_guns_gained
-			min = 400
-			max = 900
+			min = 250
+			max = 750
 			integer = yes
 		}
 		set_temp_variable_to_random = {
@@ -4764,14 +4893,14 @@ country_event = { #Minor weapons shipment
 		}
 		set_temp_variable_to_random = {
 			var = UKR_nato_artillery_gained
-			min = 140
-			max = 275
+			min = 25
+			max = 190
 			integer = yes
 		}
 		set_temp_variable_to_random = {
 			var = UKR_nato_trucks_gained
 			min = 100
-			max = 200
+			max = 165
 			integer = yes
 		}
 		
@@ -4827,16 +4956,16 @@ country_event = { #Good weapons shipment
 						}
 					}
 					random_list={
-						10 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						60 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						30 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						10 = { country_event = { id = ukraine.122 days = 50 random_days = 15 } }
+						60 = { country_event = { id = ukraine.123 days = 50 random_days = 15 } }
+						30 = { country_event = { id = ukraine.124 days = 50 random_days = 15 } }
 					}
 				}
 				else={
 					random_list={
-						40 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						40 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						20 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						42 = { country_event = { id = ukraine.122 days = 60 random_days = 50 } }
+						40 = { country_event = { id = ukraine.123 days = 60 random_days = 50 } }
+						18 = { country_event = { id = ukraine.124 days = 60 random_days = 50 } }
 					}
 				}
 			}
@@ -4985,16 +5114,16 @@ country_event = { #Substantial weapons shipment
 						}
 					}
 					random_list={
-						10 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						60 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						30 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						10 = { country_event = { id = ukraine.122 days = 50 random_days = 15 } }
+						60 = { country_event = { id = ukraine.123 days = 50 random_days = 15 } }
+						30 = { country_event = { id = ukraine.124 days = 50 random_days = 15 } }
 					}
 				}
 				else={
 					random_list={
-						40 = { country_event = { id = ukraine.122 days = 50 random_days = 10 } }
-						40 = { country_event = { id = ukraine.123 days = 50 random_days = 10 } }
-						20 = { country_event = { id = ukraine.124 days = 50 random_days = 10 } }
+						42 = { country_event = { id = ukraine.122 days = 60 random_days = 50 } }
+						40 = { country_event = { id = ukraine.123 days = 60 random_days = 50 } }
+						18 = { country_event = { id = ukraine.124 days = 60 random_days = 50 } }
 					}
 				}
 			}
@@ -5044,32 +5173,32 @@ country_event = { #Substantial weapons shipment
 		}
 		set_temp_variable_to_random = {
 			var = UKR_nato_trucks_gained
-			min = 400
-			max = 700
+			min = 300
+			max = 600
 			integer = yes
 		}
 		set_temp_variable_to_random = {
 			var = UKR_nato_mechanised_gained
-			min = 10
-			max = 25
+			min = 8
+			max = 23
 			integer = yes
 		}
 		set_temp_variable_to_random = {
 			var = UKR_nato_apcs_gained
-			min = 25
-			max = 45
-			integer = yes
-		}
-		set_temp_variable_to_random = {
-			var = UKR_nato_leopards_gained
-			min = 20
+			min = 15
 			max = 50
 			integer = yes
 		}
 		set_temp_variable_to_random = {
+			var = UKR_nato_leopards_gained
+			min = 0
+			max = 40
+			integer = yes
+		}
+		set_temp_variable_to_random = {
 			var = UKR_nato_T_72s_gained
-			min = 40
-			max = 100
+			min = 0
+			max = 80
 			integer = yes
 		}
 		
@@ -5364,7 +5493,10 @@ country_event = { #Ukraine becomes more dependant on western equipment
 
 	option = { 
 		name = ukraine.129.a
-		add_ideas = UKR_dependant_on_western_equipment
+		add_dynamic_modifier = {
+			modifier = UKR_dependance_on_western_aid
+		}
+		UKR_ma_decrese_willingness_5_all = yes
 	}
 }
 
@@ -5524,7 +5656,7 @@ country_event = { #EU Council addresses the nation
 	}
 }
 
-country_event = { #Ukrainains running away
+country_event = { #Ukrainains running away (the beginning of manpower issues)
 	id = ukraine.134
 	title = ukraine.134.t
 	desc = ukraine.134.desc
@@ -5535,10 +5667,15 @@ country_event = { #Ukrainains running away
 		has_war_with = SOV
 	}
 
-
 	option = { 
 		name = ukraine.134.a
+		add_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
 		add_timed_idea = { idea = UKR_migration_crisis days = 365 }
+
+		hidden_effect = {
+			country_event = { id = ukraine.154 days = 165  }
+			country_event = { id = ukraine.141 days = 400  }
+		}
 	}
 
 	
@@ -5558,10 +5695,15 @@ country_event = { #second year drag on
 
 	option = { 
 		name = ukraine.135.a
-		swap_ideas = {
-			remove_idea = UKR_dependant_on_western_equipment
-			add_idea = UKR_dependant_on_western_equipment_2
-		}
+
+		custom_effect_tooltip = "ukraine.135.tt"
+		add_to_variable = { UKR_dwa_experience_loss = 0.03 }
+		add_to_variable = { UKR_dwa_pp_cost = 0.02 }
+		add_to_variable = { UKR_dwa_efficiency_retention = -0.08 }
+		add_to_variable = { UKR_dwa_max_efficiency_gain = -0.05 }
+		add_to_variable = { UKR_dwa_efficiency_gain = -0.05 }
+		add_to_variable = { UKR_dwa_industrial_capacity = -0.03 }
+		UKR_ma_decrese_willingness_5_all = yes
 	}
 }
 
@@ -5832,8 +5974,8 @@ country_event = { #No manpower
 
 	option = { 
 		name = ukraine.141.a
-
-		add_ideas = UKR_manpower_shortage
+		custom_effect_tooltip = "ukraine.141.tt"
+		add_to_variable = { UKR_ms_conscription = -0.18 }
 	}
 }
 
@@ -6086,6 +6228,7 @@ country_event = {
 	picture = GFX_report_event_UKR_zelenskyy_deepfake
 
 	trigger = {
+		volodymyr_zelenskyy_is_leader = yes
 		has_war_with = SOV
 	}
 
@@ -6144,6 +6287,118 @@ country_event = {
 	}
 }
 
+#Draft dodging 
+country_event = {
+	id = ukraine.154
+	title = ukraine.154.t
+	desc = ukraine.154.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_cool_soldier
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.154.a
+
+		custom_effect_tooltip = "ukraine.154.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.05 }
+		add_to_variable = { UKR_ms_conscription = -0.15 }
+		add_to_variable = { UKR_ms_mobilization = -0.17 }
+		add_to_variable = { UKR_ms_consumer = 0.03 }
+
+		hidden_effect = {
+			country_event = { id = ukraine.156 days = 145 }
+		}
+	}
+}
+
+#Lowering conscription age
+country_event = {
+	id = ukraine.155
+	title = ukraine.155.t
+	desc = ukraine.155.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_soldiers_training
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.155.a
+
+		custom_effect_tooltip = "ukraine.155.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.02 }
+		add_to_variable = { UKR_ms_conscription = 0.05 }
+	}
+
+	option = { 
+		name = ukraine.155.c
+
+		add_war_support = -0.15
+		add_stability = -0.05
+		custom_effect_tooltip = "ukraine.155.c.tt"
+
+		add_to_variable = { UKR_ms_morale = -0.04 }
+		add_to_variable = { UKR_ms_conscription = 0.1 }
+	}
+
+	option = { 
+		name = ukraine.155.b
+	}
+}
+
+#Increasing reluctance to join army
+country_event = {
+	id = ukraine.156
+	title = ukraine.156.t
+	desc = ukraine.156.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_cool_soldier
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.156.a
+
+		custom_effect_tooltip = "ukraine.156.tt"
+
+		add_to_variable = { UKR_ms_conscription = -0.07 }
+		add_to_variable = { UKR_ms_morale = -0.03 }
+		add_to_variable = { UKR_ms_planning = -0.02 }
+		add_to_variable = { UKR_ms_weekly_manpower = -10 }
+		add_to_variable = { UKR_ms_consumer = -0.05 }
+	}
+}
+
+#Rada problems
+country_event = {
+	id = ukraine.157
+	title = ukraine.157.t
+	desc = ukraine.157.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_rada
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.157.a
+
+		add_days_mission_timeout = {
+			mission = UKR_new_mobilization_law
+			days = 15
+		}
+	}
+}
+
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1
@@ -6198,8 +6453,8 @@ country_event = {
 				add_manpower = SOV_incursion_lost_manpower
 				set_temp_variable_to_random = {
 					var = SOV_guns_lost
-					min = -200
-					max = -80
+					min = SOV_incursion_lost_manpower
+					max = 0
 					integer = yes
 				}
 				set_temp_variable_to_random = {
@@ -6263,7 +6518,7 @@ country_event = {
 		
 
 		hidden_effect = {
-			SOV = { country_event = { id = ukraine_hur.3 days = 3 } }
+			SOV = { country_event = { id = ukraine_hur.3 days = 3 random_days = 5 } }
 			if = {
 				limit = { has_country_flag = UKR_HUR_borisovka_selected }
 				set_variable = { ROOT.borisovka_controller = 1 }
@@ -6292,7 +6547,7 @@ country_event = {
 		}
 		
 		add_command_power = -15
-		set_variable = { ROOT.can_do_hur_mission = 1 }
+		hidden_effect = { SOV = { country_event = { id = ukraine_hur.4 days = 3 random_days = 5 } } }
 	}
 }
 
@@ -6323,7 +6578,7 @@ country_event = {
 	}
 }
 
-#Incursion (RUSSIA)
+#Ukrainians withdrew from incursion (RUSSIA)
 country_event = {
 	id = ukraine_hur.3
 	title = ukraine_hur.3.t
@@ -6336,18 +6591,321 @@ country_event = {
 		ai_chance = {
 			base = 20
 		}
-		add_stability = -0.03
-		add_war_support = -0.02
-		set_temp_variable_to_random = {
-			var = UKR_incursion_lost_manpower
-			min = -100
-			max = -20
-			integer = yes
-		}
-
-		add_manpower = UKR_incursion_lost_manpower
+		add_command_power = -5
+		add_war_support = 0.015
 		hidden_effect = {
 			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
+		}
+	}
+}
+
+#Ukrainians move forward (RUSSIA)
+country_event = {
+	id = ukraine_hur.4
+	title = ukraine_hur.4.t
+	desc = ukraine_hur.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_incursion
+
+	immediate = {
+		hidden_effect = {
+			UKR = { set_variable = { ROOT.can_do_hur_mission = 1 } }
+		}
+	}
+	
+	option = { 
+		name = ukraine_hur.4.a
+		ai_chance = {
+			base = 2
+		}
+
+		add_command_power = -4
+		add_manpower = -500
+		custom_effect_tooltip = "ukraine_hur.4.a.tt"
+	}
+	option = { 
+		name = ukraine_hur.4.b
+		ai_chance = {
+			base = 17
+		}
+		add_command_power = -8
+		add_manpower = -1000
+		custom_effect_tooltip = "ukraine_hur.4.b.tt"
+	}
+	option = { 
+		name = ukraine_hur.4.c
+		ai_chance = {
+			base = 5
+		}
+		add_command_power = -13
+		add_manpower = -3000
+		custom_effect_tooltip = "ukraine_hur.4.c.tt"
+	}
+}
+
+
+
+#dynamic accepted military aid event
+country_event = {
+	id = ukraine_ma.1
+	title = ukraine_ma.1.t
+	desc = ukraine_ma.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_preparing_aid
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	immediate = {
+		hidden_effect = { remove_mission = UKR_ma_holding_talks }
+	}
+	
+	option = { 
+		name = ukraine_ma.1.a
+		ai_chance = {
+			base = 20
+		}
+
+		custom_effect_tooltip = "ukraine_ma.1.tt"
+		hidden_effect = { country_event = { id = ukraine_ma.2 days = 14 random_days = 7 } activate_mission = UKR_ma_delivering }
+
+	}
+}
+
+#dynamic delivered military aid event
+country_event = {
+	id = ukraine_ma.2
+	title = ukraine_ma.2.t
+	desc = ukraine_ma.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_aid_is_here
+	
+	trigger = {
+		has_war_with = SOV
+	}
+
+	immediate = {
+		hidden_effect = { remove_mission = UKR_ma_delivering }
+	}
+
+	option = { 
+		name = ukraine_ma.2.a
+		ai_chance = {
+			base = 20
+		}
+
+		UKR_give_military_aid = yes
+		UKR_ma_decrese_willingness_5 = yes
+	}
+}
+
+#dynamic declined military aid event
+country_event = {
+	id = ukraine_ma.3
+	title = ukraine_ma.3.t
+	desc = ukraine_ma.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_preparing_aid
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	immediate = {
+		hidden_effect = { remove_mission = UKR_ma_holding_talks }
+	}
+
+	option = { 
+		name = ukraine_ma.3.a
+		ai_chance = {
+			base = 20
+		}
+		clr_country_flag = aid_deal_going_on
+	}
+}
+
+
+#Pro Russians assassinated by partisans
+country_event = {
+	id = ukraine_partisan_activities.1
+	title = ukraine_partisan_activities.1.t
+	desc = ukraine_partisan_activities.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	trigger = {
+		AND = {
+			any_controlled_state = {
+				is_core_of = UKR
+				NOT = { is_core_of = SOV }
+			}
+
+			has_war_with = UKR
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.1.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+
+		add_political_power = -3
+		
+		var:SOV_partisan_state = {
+			add_resistance = 3
+			add_manpower = -5
+		}
+	}
+}
+
+#Partisans damage railways
+country_event = {
+	id = ukraine_partisan_activities.2
+	title = ukraine_partisan_activities.2.t
+	desc = ukraine_partisan_activities.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	trigger = {
+		AND = {
+			any_controlled_state = {
+				is_core_of = UKR
+				NOT = { is_core_of = SOV }
+			}
+
+			has_war_with = UKR
+		}
+	}
+
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.2.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+		
+		var:SOV_partisan_state = {
+			damage_building = {
+				type = supply_node
+				damage = 0.45
+			}
+		}
+	}
+}
+
+#Partisans damage mils
+country_event = {
+	id = ukraine_partisan_activities.3
+	title = ukraine_partisan_activities.3.t
+	desc = ukraine_partisan_activities.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_partisans
+
+	trigger = {
+		AND = {
+			any_controlled_state = {
+				is_core_of = UKR
+				NOT = { is_core_of = SOV }
+			}
+
+			has_war_with = UKR
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_controlled_state = {
+				limit = { 
+					is_core_of = UKR
+					NOT = { is_core_of = SOV }
+				}
+	
+				ROOT = {set_variable = { SOV_partisan_state = PREV }}  
+			}	
+		}
+	}
+	
+	option = { 
+		name = ukraine_partisan_activities.3.a
+		ai_chance = {
+			base = 20
+		}
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.1 days = 31 random_days = 60 } }
+				}
+				20 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.2 days = 31 random_days = 60} }
+				}
+				18 = {
+					SOV = { country_event = { id = ukraine_partisan_activities.3 days = 31 random_days = 60 } }
+				}
+			}
+		}
+		
+		var:SOV_partisan_state = {
+			damage_building = {
+				type = arms_factory
+				damage = 0.35
+			}
 		}
 	}
 }

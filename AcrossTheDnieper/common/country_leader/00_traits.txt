@@ -72,7 +72,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		
-		absolute_monarchy_ideology_drift = 0.1
+		absolute_monarchy_ideology_drift = 0.04
 		stability_factor = -0.1
 		war_support_factor = 0.1
 		political_power_gain = 0.15
@@ -82,8 +82,8 @@ leader_traits = {
 		sprite = 13
 
 		political_power_gain = 0.18
-		ruling_party_drift = 0.05
-		eastern_liberal_drift = 0.05
+		ruling_party_drift = 0.02
+		eastern_liberal_drift = 0.03
 		party_popularity_stability_factor = 0.1
 	}
 	POL_minister_of_economy_PSL = {
@@ -91,7 +91,7 @@ leader_traits = {
 		sprite = 13
 
 		research_speed_factor = 0.05
-		eastern_liberal_drift = 0.06
+		eastern_liberal_drift = 0.04
 		line_change_production_efficiency_factor = 0.06
 	}
 	POL_second_in_command_PO = {
@@ -99,18 +99,32 @@ leader_traits = {
 		sprite = 13
 
 		political_power_factor = 0.1
-		neoliberal_drift = 0.1
-		political_advisor_cost_factor = -0.1
+		neoliberal_drift = 0.05
+		political_advisor_cost_factor = -0.05
 	}
 	POL_catholic_ultraconservative={
 		random = no
 		sprite = 13
 		
 		political_power_gain = 0.12
-		neoconservative_drift = 0.1
+		neoconservative_drift = 0.04
 		populist_drift = 0.02
 	}
-
+	POL_conservative_compromiser={
+		random = no
+		sprite = 13
+		
+		political_power_gain = 0.08
+		war_support_factor = 0.08
+		neoconservative_drift = 0.06
+	}
+	POL_puppet_of_kaczynski={
+		random = no
+		sprite = 13
+		
+		political_advisor_cost_factor = 0.05
+		stability_factor = -0.05
+	}
 
 	NATO_sec_gen = {
 		random = no
@@ -1085,7 +1099,7 @@ leader_traits = {
 		custom_modifier_tooltip = BLR_eternal_president_desc
     }
 	BLR_potato_farmer = {
-        consumer_goods_expected_value = -0.025
+        consumer_goods_factor = -0.05
         industrial_capacity_factory = 0.025
 
 		custom_modifier_tooltip = BLR_potato_farmer_desc
@@ -1107,19 +1121,19 @@ leader_traits = {
 
 
 	BLR_PM_myasnikovich = {
-        consumer_goods_expected_value = 0.08
+        consumer_goods_factor = 0.20
         production_speed_buildings_factor = 0.10
         political_power_factor = 0.15
         political_advisor_cost_factor = 0.334
     }
     BLR_PM_kobyakov = {
-        consumer_goods_expected_value = 0.04
+        consumer_goods_factor = 0.10
         production_speed_industrial_complex_factor = 0.15
         political_power_factor = -0.10
         industrial_capacity_factory = 0.05
     }
     BLR_PM_rumas = {
-        consumer_goods_expected_value = 0.04
+        consumer_goods_factor = 0.10
         political_power_factor = -0.10
         experience_gain_army = 0.05
         experience_gain_air = 0.05
@@ -1128,7 +1142,7 @@ leader_traits = {
     }
     BLR_PM_golovchenko = {
         political_power_factor = -0.10
-        consumer_goods_expected_value = 0.04
+        consumer_goods_factor = 0.10
         industrial_capacity_factory = 0.10
         production_speed_arms_factory_factor = 0.15
     }
@@ -1140,15 +1154,15 @@ leader_traits = {
         conscription_factor = 0.04
         experience_gain_army = 0.05
         political_power_factor = -0.15
-        consumer_goods_expected_value = 0.04
+        consumer_goods_factor = 0.10
     }
     BLR_minister_of_economy = {
         production_speed_industrial_complex_factor = 0.10
-        consumer_goods_expected_value = -0.04
+        consumer_goods_factor = -0.10
         political_power_factor = -0.05
     }
     BLR_minister_of_finance = {
-        consumer_goods_expected_value = -0.08
+        consumer_goods_factor = -0.20
         production_speed_buildings_factor = 0.05
         political_power_factor = -0.10
     }
@@ -1166,13 +1180,13 @@ leader_traits = {
     BLR_minister_of_education = {
         political_power_factor = -0.10
         research_speed_factor = 0.08
-        consumer_goods_expected_value = 0.04
+        consumer_goods_factor = 0.10
     }
     BLR_minister_of_culture = {
         political_power_factor = -0.05
         research_speed_factor = 0.04
         stability_factor = 0.10
-        consumer_goods_expected_value = 0.03
+        consumer_goods_factor = 0.10
     }
     BLR_minister_of_transport = {
         political_power_factor = 0.05
@@ -1184,7 +1198,7 @@ leader_traits = {
         political_power_factor = -0.05
         research_speed_factor = 0.03
         monthly_population = 0.17
-        consumer_goods_expected_value = -0.025
+        consumer_goods_factor = -0.05
     }
 
 	###################WAG#########################

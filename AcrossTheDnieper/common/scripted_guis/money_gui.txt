@@ -100,7 +100,7 @@ scripted_gui = {
 			
 			click_me_icon_visible={
 				NOT = { has_country_flag = money_gui_topbar_off }
-				NOT = { has_country_flag = clicked_money_button_for_the_first_time }
+				has_country_flag = click_me_trigger_flag_1
 			}
 		}
 		
@@ -114,10 +114,7 @@ scripted_gui = {
 					clr_country_flag = opened_gdp_mechanics
 				}
 				
-				if={
-					NOT = { has_country_flag = clicked_money_button_for_the_first_time }
-					set_country_flag = clicked_money_button_for_the_first_time
-				}
+				clr_country_flag = click_me_trigger_flag_1
 			}
 		}
 	}
@@ -226,7 +223,7 @@ scripted_gui = {
 						increase_state_gdp_growth_by_0_5 = yes
 					}
 				}	
-				add_political_power = 50
+				add_political_power = -50
 				add_to_variable = { ROOT.inflation_rate = 0.5 }
 				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
 				get_effects_from_inflation = yes
@@ -249,7 +246,7 @@ scripted_gui = {
 						decrease_state_gdp_growth_by_0_5 = yes
 					}
 				}
-				add_political_power = 50
+				add_political_power = -50
 				subtract_from_variable = { ROOT.inflation_rate = 0.5 }
 				set_country_flag = { flag = has_recently_modified_inflation_rate value = 1 days = 119 }
 				get_effects_from_inflation = yes

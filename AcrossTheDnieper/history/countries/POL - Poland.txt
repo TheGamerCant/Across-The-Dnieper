@@ -18,15 +18,7 @@ add_offsite_building = { type = arms_factory level = 2 }
 
 load_nato_doctrine = yes
 
-set_country_flag = POL_donald_tusk_is_current_pm_flag
-add_dynamic_modifier = { modifier = POL_donald_tusk_dynamic_modifier }
-add_dynamic_modifier = { modifier = POL_ewa_kopacz_dynamic_modifier }
-add_dynamic_modifier = { modifier = POL_beata_szydlo_dynamic_modifier }
-add_dynamic_modifier = { modifier = POL_mateusz_morawiecki_dynamic_modifier }
-add_dynamic_modifier = { modifier = POL_jaroslaw_kaczynski_dynamic_modifier }
-
-set_variable = { ewa_kopacz_stability_weekly = -0.001 }
-set_variable = { ewa_kopacz_political_power_gain = -0.1 }
+POL_make_donald_tusk_pm = yes
 set_country_flag = ewa_kopacz_shoes_to_fill_trait
 
 if = {
@@ -58,6 +50,17 @@ if = {
 		}
 	}
 }
+
+
+set_variable = { POL.POL_economy_industrial_capacity_factory = 0.05 }
+set_variable = { POL.POL_economy_industrial_capacity_dockyard = 0.05 }
+set_variable = { POL.POL_economy_political_power_gain = 0.27 }
+set_variable = { POL.POL_economy_research_speed_factor = 0.02 }
+set_variable = { POL.POL_economy_production_speed_buildings_factor = 0.05 }
+set_variable = { POL.POL_economy_consumer_goods_expected_value = 0 }
+set_variable = { POL.POL_economy_ruling_party_drift = 0 }
+set_variable = { POL.POL_economy_local_resources_factor = 0 }
+add_dynamic_modifier = { modifier = POL_economy_dynamic_modifier }
 
 set_variable = { POL_public_institutions_monthly_population = -0.2 }
 set_variable = { POL_public_institutions_political_power_cost = 0.15 }
@@ -186,6 +189,7 @@ recruit_character = POL_grzegorz_schetyna
 recruit_character = POL_jaroslaw_kaczynski
 recruit_character = POL_mateusz_morawiecki
 recruit_character = POL_antoni_macierewicz
+recruit_character = POL_andrzej_duda
 
 #RIGHT
 recruit_character = POL_grzegorz_braun
@@ -205,16 +209,13 @@ recruit_character = POL_stanislaw_koziej
 recruit_character = POL_piotr_trytek
 
 
-add_ideas = POL_mieczyslaw_gocul
-
 add_ideas = {
 	eu_member
 	SLO_visegrad_member
-	POL_continued_growth
 	POL_religious_population
 	POL_progressive_youth
 	
-#	POL_recovered_territories			#missing GFX
+#	POL_recovered_territories
 	
 	POL_PO_PSL_coalition
 	
@@ -233,7 +234,6 @@ add_ideas = {
 	firearm_laws_restricted
 	alchohol_narcotics_laws_largely_regulated
 }
-
 
 set_research_slots = 3
 set_stability = 0.05
@@ -260,6 +260,7 @@ set_technology = {
 
 	gw_artillery = 1
 	rocket_artillery = 1
+	interwar_antiair = 1
 
 	fuel_silos = 1
 	synth_oil_experiments = 1
@@ -304,10 +305,7 @@ if = {
 		t80_chasis_tech = 1
 		t90_chasis_tech = 1
 		leopard2_chasis_tech = 1
-		armor_tech_1 = 1
-		engine_tech_1 = 1
-		gun_tech_1 = 1
-		tank_module_tech_1 = 1
+		basic_tank_building = 1
 	}
 }
 
@@ -353,10 +351,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -371,11 +370,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -391,10 +391,11 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -410,11 +411,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -430,11 +432,12 @@ if = {
 			main_armament_slot = tank_modern_cannon
 			turret_type_slot = tank_modern_tank_turret
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -449,12 +452,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_2
-			special_type_slot_2 = armor_era
-			special_type_slot_3 = smoke_launchers
+			special_type_slot_1 = basic_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -469,11 +472,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret2
 			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_diesel_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = armor_era
+			special_type_slot_1 = improved_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_5 = armor_era
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -488,12 +492,12 @@ if = {
 			main_armament_slot = tank_modern_cannon2
 			turret_type_slot = tank_modern_tank_turret3
 			suspension_type_slot = tank_interleaved_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
+			armor_type_slot = tank_ceramics_armor
+			engine_type_slot = tank_gasoline_engine
 
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = stabilizer
-			special_type_slot_3 = smoke_launchers
+			special_type_slot_1 = improved_optics_module
+			special_type_slot_2 = basic_comms_module
+			special_type_slot_3 = stabilizer
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 9
@@ -557,7 +561,7 @@ if = {
 			fixed_main_weapon_slot = medium_mg
 			fixed_auxiliary_weapon_slot_1 = fox2_1
 			fixed_auxiliary_weapon_slot_2 = fox3_1
-			engine_type_slot = engine_1_2x
+			engine_type_slot = engine_2_1x
 			special_type_slot_1 = air_air_radar_1
 		}
 		obsolete = no
@@ -651,165 +655,3 @@ set_country_flag = POL_leftist_party_is_democratic_left_alliance
 	
 	load_focus_tree = generic_focus
 }
-
-# http://electionresources.org/pl/maps.php?election=2011
-
-#MASOVIA
-set_variable = { 427.PO_popularity = 38.5 }
-set_variable = { 427.PiS_popularity = 32.4 }
-set_variable = { 427.LEFT_popularity = 7.1 }
-set_variable = { 427.RIGHT_popularity = 1.2 }
-set_variable = { 427.PSL_popularity = 8.5 }
-set_variable = { 427.OTHER_popularity = 12.3 }
-set_variable = { 427.electoral_map_frame = 1 }
-set_variable = { 427.number_of_seats_in_sejm = 63 }
-
-#PODLASKIE
-set_variable = { 34.PO_popularity = 29.7 }
-set_variable = { 34.PiS_popularity = 37.0 }
-set_variable = { 34.LEFT_popularity = 9.5 }
-set_variable = { 34.RIGHT_popularity = 1.9 }
-set_variable = { 34.PSL_popularity = 11.0 }
-set_variable = { 34.OTHER_popularity = 10.9 }
-set_variable = { 34.electoral_map_frame = 1 }
-set_variable = { 34.number_of_seats_in_sejm = 14 }
-
-#WARMIA-MASURIA
-set_variable = { 31.PO_popularity = 42.0 }
-set_variable = { 31.PiS_popularity = 23.1 }
-set_variable = { 31.LEFT_popularity = 8.4 }
-set_variable = { 31.RIGHT_popularity = 0.7 }
-set_variable = { 31.PSL_popularity = 12.0 }
-set_variable = { 31.OTHER_popularity = 13.8 }
-set_variable = { 31.electoral_map_frame = 1 }
-set_variable = { 31.number_of_seats_in_sejm = 18 }
-
-#LUBLIN
-set_variable = { 51.PO_popularity = 23.0 }
-set_variable = { 51.PiS_popularity = 38.8 }
-set_variable = { 51.LEFT_popularity = 7.0 }
-set_variable = { 51.RIGHT_popularity = 1.3 }
-set_variable = { 51.PSL_popularity = 14.8 }
-set_variable = { 51.OTHER_popularity = 15.1 }
-set_variable = { 51.electoral_map_frame = 1 }
-set_variable = { 51.number_of_seats_in_sejm = 27 }
-
-#POMERANIA
-set_variable = { 19.PO_popularity = 50.5 }
-set_variable = { 19.PiS_popularity = 24.8 }
-set_variable = { 19.LEFT_popularity = 7.1 }
-set_variable = { 19.RIGHT_popularity = 0.3 }
-set_variable = { 19.PSL_popularity = 5.2 }
-set_variable = { 19.OTHER_popularity = 12.1 }
-set_variable = { 19.electoral_map_frame = 1 }
-set_variable = { 19.number_of_seats_in_sejm = 26 }
-
-#KUYAVIA-POMERANIA
-set_variable = { 38.PO_popularity = 41.7 }
-set_variable = { 38.PiS_popularity = 23.9 }
-set_variable = { 38.LEFT_popularity = 10.2 }
-set_variable = { 38.RIGHT_popularity = 1.9 }
-set_variable = { 38.PSL_popularity = 8.9 }
-set_variable = { 38.OTHER_popularity = 13.4 }
-set_variable = { 38.electoral_map_frame = 1 }
-set_variable = { 38.number_of_seats_in_sejm = 25 }
-
-#LODZ
-set_variable = { 47.PO_popularity = 35.8 }
-set_variable = { 47.PiS_popularity = 31.5 }
-set_variable = { 47.LEFT_popularity = 9.2 }
-set_variable = { 47.RIGHT_popularity = 1.1 }
-set_variable = { 47.PSL_popularity = 9.1 }
-set_variable = { 47.OTHER_popularity = 13.3 }
-set_variable = { 47.electoral_map_frame = 1 }
-set_variable = { 47.number_of_seats_in_sejm = 31 }
-
-#WEST POMERANIA
-set_variable = { 22.PO_popularity = 46.6 }
-set_variable = { 22.PiS_popularity = 21.5 }
-set_variable = { 22.LEFT_popularity = 11.2 }
-set_variable = { 22.RIGHT_popularity = 1.3 }
-set_variable = { 22.PSL_popularity = 5.1 }
-set_variable = { 22.OTHER_popularity = 14.3 }
-set_variable = { 22.electoral_map_frame = 1 }
-set_variable = { 22.number_of_seats_in_sejm = 20 }
-
-#GREATER POLAND
-set_variable = { 36.PO_popularity = 42.8 }
-set_variable = { 36.PiS_popularity = 22.3 }
-set_variable = { 36.LEFT_popularity = 10.9 }
-set_variable = { 36.RIGHT_popularity = 0.7 }
-set_variable = { 36.PSL_popularity = 9.5 }
-set_variable = { 36.OTHER_popularity = 13.8 }
-set_variable = { 36.electoral_map_frame = 1 }
-set_variable = { 36.number_of_seats_in_sejm = 40 }
-
-#LUBUSZ
-set_variable = { 40.PO_popularity = 44.8 }
-set_variable = { 40.PiS_popularity = 21.7 }
-set_variable = { 40.LEFT_popularity = 10.3 }
-set_variable = { 40.RIGHT_popularity = 1.5 }
-set_variable = { 40.PSL_popularity = 7.7 }
-set_variable = { 40.OTHER_popularity = 14.0 }
-set_variable = { 40.electoral_map_frame = 1 }
-set_variable = { 40.number_of_seats_in_sejm = 12 }
-
-#HOLY CROSS
-set_variable = { 64.PO_popularity = 25.4 }
-set_variable = { 64.PiS_popularity = 31.9 }
-set_variable = { 64.LEFT_popularity = 9.7 }
-set_variable = { 64.RIGHT_popularity = 2.1 }
-set_variable = { 64.PSL_popularity = 19.8 }
-set_variable = { 64.OTHER_popularity = 11.1 }
-set_variable = { 64.electoral_map_frame = 1 }
-set_variable = { 64.number_of_seats_in_sejm = 16 }
-
-#LOWER SILESIA
-set_variable = { 49.PO_popularity = 46.0 }
-set_variable = { 49.PiS_popularity = 26.0 }
-set_variable = { 49.LEFT_popularity = 8.7 }
-set_variable = { 49.RIGHT_popularity = 1.1 }
-set_variable = { 49.PSL_popularity = 5.0 }
-set_variable = { 49.OTHER_popularity = 13.2 }
-set_variable = { 49.electoral_map_frame = 1 }
-set_variable = { 49.number_of_seats_in_sejm = 34 }
-
-#OPOLE
-set_variable = { 62.PO_popularity = 44.0 }
-set_variable = { 62.PiS_popularity = 20.6 }
-set_variable = { 62.LEFT_popularity = 7.7 }
-set_variable = { 62.RIGHT_popularity = 0.5 }
-set_variable = { 62.PSL_popularity = 5.9 }
-set_variable = { 62.OTHER_popularity = 21.3 }
-set_variable = { 62.electoral_map_frame = 1 }
-set_variable = { 62.number_of_seats_in_sejm = 12 }
-
-#SILESIA
-set_variable = { 67.PO_popularity = 44.5 }
-set_variable = { 67.PiS_popularity = 26.0 }
-set_variable = { 67.LEFT_popularity = 8.4 }
-set_variable = { 67.RIGHT_popularity = 1.0 }
-set_variable = { 67.PSL_popularity = 5.0 }
-set_variable = { 67.OTHER_popularity = 14.1 }
-set_variable = { 67.electoral_map_frame = 1 }
-set_variable = { 67.number_of_seats_in_sejm = 55 }
-
-#LESSER POLAND
-set_variable = { 81.PO_popularity = 36.3 }
-set_variable = { 81.PiS_popularity = 39.3 }
-set_variable = { 81.LEFT_popularity = 5.4 }
-set_variable = { 81.RIGHT_popularity = 1.8 }
-set_variable = { 81.PSL_popularity = 6.4 }
-set_variable = { 81.OTHER_popularity = 10.8 }
-set_variable = { 81.electoral_map_frame = 1 }
-set_variable = { 81.number_of_seats_in_sejm = 41 }
-
-#SUBCARPATHIA
-set_variable = { 76.PO_popularity = 24.8 }
-set_variable = { 76.PiS_popularity = 46.7 }
-set_variable = { 76.LEFT_popularity = 5.8 }
-set_variable = { 76.RIGHT_popularity = 2.2 }
-set_variable = { 76.PSL_popularity = 11.3 }
-set_variable = { 76.OTHER_popularity = 9.2 }
-set_variable = { 76.electoral_map_frame = 1 }
-set_variable = { 76.number_of_seats_in_sejm = 26 }

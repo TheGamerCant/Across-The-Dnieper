@@ -82,7 +82,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				
-				random_select_amount = 5
+				random_select_amount = 4
 				
 				increase_state_gdp_growth_by_1 = yes
 			}
@@ -123,7 +123,7 @@ focus_tree = {
 				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 				set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
 				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_set_party_votes_for_the_bill_to_random = yes
 				POLAND_get_party_votes_for_the_bill = yes
 				
 				activate_mission = POL_strategy_for_energy_security_and_environment
@@ -203,7 +203,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_to_variable = { POL_public_institutions_monthly_population = 0.1 }
+			add_to_variable = { POL_public_institutions_monthly_population = 0.07 }
 			add_to_variable = { POL_public_institutions_experience_loss_factor = -0.1 }
 			custom_effect_tooltip = POL_healthcare_modernisation_plan_tt
 		}
@@ -363,7 +363,7 @@ focus_tree = {
 			custom_effect_tooltip = POL_intervention_in_donbass_tt
 			if={
 				limit = { has_country_flag = POL_the_eagle_soars_flag }
-				add_political_power = -60
+				add_political_power = -90
 			}
 			else={
 				add_political_power = -120
@@ -433,7 +433,7 @@ focus_tree = {
 		completion_reward = {
 			every_state={
 				limit = { is_controlled_by = POL }
-				increase_state_gdp_growth_by_1_5 = yes
+				increase_state_gdp_growth_by_1 = yes
 			}
 		}
 	}
@@ -555,6 +555,9 @@ focus_tree = {
 	}
 	
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+	shared_focus = POL_the_freer_the_markets_the_freer_the_people
+	shared_focus = POL_the_path_of_western_economics
+	shared_focus = POL_economic_interventionism
 }
 
 focus_tree = {
@@ -568,7 +571,7 @@ focus_tree = {
 	
 	focus = {
 		id = POL_law_and_justice
-		icon = GFX_focus_
+		icon = GFX_focus_POL_law_and_justice
 		x = 19
 		y = 0
 		cost = 40
@@ -587,10 +590,570 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = POL_working_within_europe
+		icon = GFX_focus_
+		x = -3
+		y = 1
+		cost = 14
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			OR={
+				has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag
+				has_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag
+			}
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_a_euroeceptic_policy
+		icon = GFX_focus_
+		x = 0
+		y = 1
+		cost = 14
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			has_country_flag = POL_beata_szydlo_is_current_pm_flag
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_voting_bloc_with_budapest
+		icon = GFX_focus_
+		x = 1
+		y = 1
+		cost = 35
+		prerequisite = { focus = POL_a_euroeceptic_policy }
+		relative_position_id = POL_a_euroeceptic_policy
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			has_country_flag = POL_beata_szydlo_is_current_pm_flag
+			HUN = { has_illiberal_government = yes exists = yes }
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			country_event = { id = atd_poland.28 hours = 2 random_hours = 4 }
+		}
+	}
+	
+	focus = {
+		id = POL_the_consitutional_crisis
+		icon = GFX_focus_POL_the_consitutional_crisis
+		x = 3
+		y = 1
+		cost = 40
+		prerequisite = { focus = POL_law_and_justice }
+		relative_position_id = POL_law_and_justice
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger={
+				always = no
+			}
+			has_idea = POL_constitutional_crisis_idea
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_the_consitutional_tribunal_act
+		icon = GFX_focus_POL_the_consitutional_tribunal_act
+		x = 0
+		y = 1
+		cost = 15
+		prerequisite = { focus = POL_the_consitutional_crisis }
+		relative_position_id = POL_the_consitutional_crisis
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available={
+			has_idea = POL_constitutional_crisis_idea
+		}
+		bypass = {
+		}
+		
+		cancelable = no
+		select_effect={
+			hidden_effect = { country_event = { id = poland_court_event.5 random_days = 5 } }
+		}
+
+		completion_reward = {
+			hidden_effect={
+				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+				set_country_flag = POLAND_current_bill_in_sejm_is_the_consitutional_tribunal_act
+				POL_bill_needs_simple_majority = yes
+				POLAND_set_party_votes_for_the_bill_to_hard = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_the_consitutional_tribunal_act_decision
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_the_consitutional_tribunal_act_tt
+				POL_bill_needs_simple_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_constitutional_crisis_idea_2
+				}
+			}
+			
+			set_country_flag = POLAND_the_consitutional_tribunal_act_is_available
+		}
+	}
+	
+	focus = {
+		id = POL_reject_rzeplinskis_authority
+		icon = GFX_focus_POL_reject_rzeplinskis_authority
+		x = 0
+		y = 1
+		cost = 30
+		prerequisite = { focus = POL_the_consitutional_tribunal_act }
+		relative_position_id = POL_the_consitutional_tribunal_act
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available={
+			has_idea = POL_constitutional_crisis_idea_2
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			if={
+				limit = { has_idea = POL_constitutional_crisis_idea_2 }
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea_2
+					add_idea = POL_control_of_the_courts
+				}
+			}
+			else_if={		#Used for tooltip
+				limit = { has_idea = POL_constitutional_crisis_idea }
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_control_of_the_courts
+				}
+			}
+			
+			add_political_power = 100
+		}
+	}
+	
 	
 	shared_focus = POL_power_to_the_homeland
+	
+	
 	shared_focus = POL_oh_no_the_ruskies_invaded_crimea
+	shared_focus = POL_the_freer_the_markets_the_freer_the_people
+	shared_focus = POL_the_path_of_western_economics
+	shared_focus = POL_economic_interventionism
 }
+
+shared_focus = {
+	id = POL_the_freer_the_markets_the_freer_the_people
+	icon = GFX_focus_POL_the_freer_the_markets_the_freer_the_people
+	x = 25
+	y = 6
+	cost = 14
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_political_power = 25
+	}
+}
+
+shared_focus = {
+	id = POL_slash_government_expenditure
+	icon = GFX_focus_POL_slash_government_expenditure
+	x = 2
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.035 }
+		add_to_variable = { POL.POL_economy_political_power_gain = -0.17 }
+		custom_effect_tooltip = POL_slash_government_expenditure_tt
+	}
+}
+
+shared_focus = {
+	id = POL_ease_of_doing_business_reforms
+	icon = GFX_focus_POL_the_freer_the_markets_the_freer_the_people
+	x = 0
+	y = 1
+	cost = 35
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		every_state={
+			limit = { is_controlled_by = POL }
+			increase_state_gdp_growth_by_2 = yes
+		}
+		add_political_power = -50
+	}
+}
+
+shared_focus = {
+	id = POL_scrap_taxes_on_gasoline
+	icon = GFX_focus_POL_scrap_taxes_on_gasoline
+	x = 1
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		every_state={
+			limit = { is_controlled_by = POL }
+			increase_state_gdp_growth_by_0_5 = yes
+		}
+		custom_effect_tooltip = POL_scrap_taxes_on_gasoline_tt
+		country_event = { id = atd_poland.31 days = 170 random_days = 25 }
+		event_option_tooltip = atd_poland.31.a
+	}
+}
+
+shared_focus = {
+	id = POL_repeal_climate_regulations
+	icon = GFX_focus_POL_repeal_climate_regulations
+	x = 0
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_ease_of_doing_business_reforms }
+	prerequisite = { focus = POL_scrap_taxes_on_gasoline }
+	relative_position_id = POL_ease_of_doing_business_reforms
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {	
+		if={
+			limit = { 67 = { is_controlled_by = ROOT } }
+			67={
+				add_resource={ type = oil amount = 21 }
+				hidden_effect={
+					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+					POL_make_popularities_equal_100 = yes
+				}
+				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+			}
+		}
+		if={
+			limit = { 62 = { is_controlled_by = ROOT } }
+			62={
+				add_resource={ type = oil amount = 12 }
+				hidden_effect={
+					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
+					POL_make_popularities_equal_100 = yes
+				}
+				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+			}
+		}
+		
+		if={
+			limit = { has_idea = POL_cut_coal_subsidies }
+			remove_idea = POL_cut_coal_subsidies
+		}
+		
+		unlock_decision_tooltip = POL_invest_into_konin_coal_mine
+		unlock_decision_tooltip = POL_invest_into_bogdanka_coal_mine
+		unlock_decision_tooltip = POL_invest_into_belchatow_coal_mine
+		unlock_decision_tooltip = POL_invest_into_marchel_coal_mine
+	}
+}
+
+shared_focus = {
+	id = POL_reduce_income_tax
+	icon = GFX_focus_POL_reduce_income_tax
+	x = -1
+	y = 2
+	cost = 45
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	mutually_exclusive = { focus = POL_scrap_income_tax }
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
+		
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.03 }
+		add_to_variable = { POL.POL_economy_ruling_party_drift = 0.02 }
+		add_to_variable = { POL.POL_economy_production_speed_buildings_factor = -0.03 }
+		custom_effect_tooltip = POL_reduce_income_tax_tt
+	}
+}
+
+shared_focus = {
+	id = POL_scrap_income_tax
+	icon = GFX_focus_POL_scrap_income_tax
+	x = -3
+	y = 2
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_the_freer_the_markets_the_freer_the_people }
+	relative_position_id = POL_the_freer_the_markets_the_freer_the_people
+	mutually_exclusive = { focus = POL_reduce_income_tax }
+	available = {
+		OR={
+			has_far_right_government = yes
+			has_government = populist
+			has_government = libertarian
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = { country_event = { id = atd_poland.30 days = 30 random_days = 150 } }
+		
+		add_to_variable = { POL.POL_economy_consumer_goods_expected_value = -0.06 }
+		add_to_variable = { POL.POL_economy_ruling_party_drift = 0.05 }
+		add_to_variable = { POL.POL_economy_production_speed_buildings_factor = -0.1 }
+		custom_effect_tooltip = POL_scrap_income_tax_tt
+	}
+}
+
+shared_focus = {
+	id = POL_the_path_of_western_economics
+	icon = GFX_focus_
+	x = 30
+	y = 6
+	cost = 14
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_government = social_democracy
+			has_government = neoliberal
+			has_government = eastern_liberal
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_political_power = 25
+	}
+}
+
+shared_focus = {
+	id = POL_economic_interventionism
+	dynamic = yes
+	icon = {
+		trigger = {
+			OR={
+				has_far_left_government = yes
+				has_government = social_democracy
+			}
+		}
+		value = GFX_focus_POL_economic_interventionism_LEFT
+	}
+	icon = {
+		value = GFX_focus_POL_economic_interventionism_PiS
+	}
+	x = 35
+	y = 6
+	cost = 14
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+	}
+	available = {
+		OR={
+			has_government = neoconservative
+			has_far_left_government = yes
+		}
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_political_power = 25
+	}
+}
+
+shared_focus = {
+	id = POL_subsidies_for_childbirth
+	dynamic = yes
+	icon = {
+		trigger = {
+			OR={
+				has_far_left_government = yes
+				has_government = social_democracy
+			}
+		}
+		value = GFX_focus_POL_subsidies_for_childbirth_LEFT
+	}
+	icon = {
+		value = GFX_focus_POL_subsidies_for_childbirth_PiS
+	}
+	x = 1
+	y = 1
+	cost = 60
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	prerequisite = { focus = POL_economic_interventionism }
+	relative_position_id = POL_economic_interventionism
+	available = {
+		OR={
+			has_government = neoconservative
+			has_far_left_government = yes
+		}
+	}
+	bypass = {
+	}
+	cancelable = no
+	select_effect={
+		country_event = { id = atd_poland.29 days = 4 random_days = 11 }
+	}
+
+	completion_reward = {
+		if={
+			limit = { NOT = { has_country_flag = POLAND_NO_CHILDBIRTH_SUBSIDIES_FLAG } }
+			add_timed_idea = { idea = POL_childbirth_subsidies days = 730 }
+			add_political_power = 75
+			
+			if={
+				limit = { has_government = neoconservative }
+				add_popularity = { ideology = neoconservative popularity = 0.03 }
+			}
+			else_if={
+				limit = { has_government = social_democracy }
+				add_popularity = { ideology = social_democracy popularity = 0.03 }
+			}
+			else_if={
+				limit = { has_government = socialist }
+				add_popularity = { ideology = socialist popularity = 0.03 }
+			}
+		}
+	}
+}
+
+
 
 shared_focus = {
 	id = POL_oh_no_the_ruskies_invaded_crimea
@@ -1848,12 +2411,6 @@ shared_focus = {
 	dynamic = yes
 	icon = {
 		trigger = {
-			has_completed_focus = POL_law_and_justice
-		}
-		value = GFX_focus_POL_power_to_the_homeland_PiS
-	}
-	icon = {
-		trigger = {
 			OR={
 				has_far_right_government = yes
 				has_government = populist
@@ -1863,9 +2420,9 @@ shared_focus = {
 		value = GFX_focus_POL_power_to_the_homeland_konfederacja
 	}
 	icon = {
-		value = GFX_focus_
+		value = GFX_focus_POL_power_to_the_homeland_PiS
 	}
-	x = 5
+	x = 3
 	y = 0
 	cost = 14
 
@@ -1887,12 +2444,6 @@ shared_focus = {
 	dynamic = yes
 	icon = {
 		trigger = {
-			has_completed_focus = POL_law_and_justice
-		}
-		value = GFX_focus_POL_the_small_media_law_focus_PiS
-	}
-	icon = {
-		trigger = {
 			OR={
 				has_far_right_government = yes
 				has_government = populist
@@ -1902,7 +2453,7 @@ shared_focus = {
 		value = GFX_focus_POL_the_small_media_law_focus_konfederacja
 	}
 	icon = {
-		value = GFX_focus_
+		value = GFX_focus_POL_the_small_media_law_focus_PiS
 	}
 	x = 0 
 	y = 1
@@ -1924,7 +2475,7 @@ shared_focus = {
 			set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 			set_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law
 			POL_bill_needs_simple_majority = yes
-			POLAND_set_party_votes_for_the_bill = yes
+			POLAND_set_party_votes_for_the_bill_to_hard = yes
 			POLAND_get_party_votes_for_the_bill = yes
 			
 			activate_mission = POL_the_small_media_law

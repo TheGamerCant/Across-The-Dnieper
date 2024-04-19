@@ -20,7 +20,9 @@ debug_decisions = {
 		}
 
 		complete_effect = {
+			clr_country_flag = POL_its_all_chill_in_da_hood
 			load_focus_tree = poland_2015_PO_tree
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	
@@ -45,7 +47,9 @@ debug_decisions = {
 		}
 
 		complete_effect = {
+			clr_country_flag = POL_its_all_chill_in_da_hood
 			load_focus_tree = poland_2015_PiS_tree
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 }
@@ -1220,7 +1224,7 @@ POL_parliament_vote_on_bill_decision_category={
 			always = no
 		}
 		
-		days_mission_timeout = 60	
+		days_mission_timeout = 30	
 
 		fire_only_once = no
 
@@ -1279,7 +1283,7 @@ POL_parliament_vote_on_bill_decision_category={
 				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 				set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
 				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_set_party_votes_for_the_bill_to_random = yes
 				POLAND_get_party_votes_for_the_bill = yes
 				
 				activate_mission = POL_strategy_for_energy_security_and_environment
@@ -1310,7 +1314,7 @@ POL_parliament_vote_on_bill_decision_category={
 			always = no
 		}
 		
-		days_mission_timeout = 60	
+		days_mission_timeout = 30	
 
 		fire_only_once = no
 
@@ -1350,7 +1354,7 @@ POL_parliament_vote_on_bill_decision_category={
 		visible = {
 			has_country_flag = POLAND_the_small_media_law_is_available
 			NOT = { has_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law }
-			NOT = { has_country_flag = POL_the_small_media_law }
+			NOT = { has_country_flag = POL_the_small_media_law_has_passed }
 		}
 
 		cost = 10
@@ -1368,7 +1372,7 @@ POL_parliament_vote_on_bill_decision_category={
 				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
 				set_country_flag = POLAND_current_bill_in_sejm_is_the_small_media_law
 				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill = yes
+				POLAND_set_party_votes_for_the_bill_to_hard = yes
 				POLAND_get_party_votes_for_the_bill = yes
 				
 				activate_mission = POL_the_small_media_law
@@ -1378,6 +1382,100 @@ POL_parliament_vote_on_bill_decision_category={
 				POL_bill_needs_simple_majority = yes
 				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
 				country_event = atd_poland.23
+			}
+		}
+	}
+	
+	POL_the_consitutional_tribunal_act_decision = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			hidden_trigger={ always = no }
+		}
+		
+		allowed = { 
+			tag = POL
+		}
+		
+		activation = {
+			always = no
+		}
+		
+		days_mission_timeout = 30	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = POLAND_votes_for_the_bill value = POLAND_required_votes compare = greater_than_or_equals } }
+					country_event = atd_poland.22
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				country_event = atd_poland.22
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_constitutional_crisis_idea_2
+				}
+			}
+		}
+	}
+	
+	POL_put_the_consitutional_tribunal_act_in_sejm = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = POL
+		}
+
+		available = {
+			NOT = { has_country_flag = POLAND_there_is_legislation_in_the_sejm_flag }
+		}
+
+		visible = {
+			has_country_flag = POLAND_the_consitutional_tribunal_act_is_available
+			NOT = { has_country_flag = POLAND_current_bill_in_sejm_is_the_consitutional_tribunal_act }
+			NOT = { has_country_flag = POL_the_consitutional_tribunal_act_has_passed }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			hidden_effect={
+				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
+				set_country_flag = POLAND_current_bill_in_sejm_is_the_consitutional_tribunal_act
+				POL_bill_needs_simple_majority = yes
+				POLAND_set_party_votes_for_the_bill_to_hard = yes
+				POLAND_get_party_votes_for_the_bill = yes
+				
+				activate_mission = POL_the_consitutional_tribunal_act_decision
+			}
+			effect_tooltip={
+				custom_effect_tooltip = POL_the_consitutional_tribunal_act_tt
+				POL_bill_needs_simple_majority = yes
+				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
+				swap_ideas={
+					remove_idea = POL_constitutional_crisis_idea
+					add_idea = POL_constitutional_crisis_idea_2
+				}
 			}
 		}
 	}
@@ -2471,6 +2569,380 @@ POL_president_decisions_category={
 				1 = { add_popularity = { ideology = eastern_liberal popularity = 0.02 } }
 				1 = { add_popularity = { ideology = neoconservative popularity = 0.03 } }
 			}
+		}
+	}
+}
+
+POL_economy_decisions_category={
+	POL_invest_into_konin_coal_mine = { 
+		priority = 200
+
+		icon = oil
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 36
+			}
+		}
+		
+		days_remove = 90
+		
+		modifier={
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			owns_state = 36
+			controls_state = 36
+			has_completed_focus = POL_repeal_climate_regulations
+		}
+		
+		fire_only_once = yes
+		
+		cost = 40
+
+		remove_effect = {
+			36={
+				add_resource = {
+					type = oil
+					amount = 18
+				}
+				
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PSL_popularity_in_state_tt
+				}
+			}
+			
+			add_to_variable = { POL.POL_economy_local_resources_factor = 0.02 }
+			custom_effect_tooltip = POLAND_increase_resource_factor_by_two_percent_tt
+		}
+	}
+	
+	POL_invest_into_bogdanka_coal_mine = { 
+		priority = 200
+
+		icon = oil
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 51
+			}
+		}
+		
+		days_remove = 90
+		
+		modifier={
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			owns_state = 51
+			controls_state = 51
+			has_completed_focus = POL_repeal_climate_regulations
+		}
+		
+		fire_only_once = yes
+		
+		cost = 40
+
+		remove_effect = {
+			51={
+				add_resource = {
+					type = oil
+					amount = 12
+				}
+				
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PSL_popularity_in_state_tt
+				}
+			}
+			
+			add_to_variable = { POL.POL_economy_local_resources_factor = 0.02 }
+			custom_effect_tooltip = POLAND_increase_resource_factor_by_two_percent_tt
+		}
+	}
+	
+	POL_invest_into_belchatow_coal_mine = { 
+		priority = 200
+
+		icon = oil
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 47
+			}
+		}
+		
+		days_remove = 90
+		
+		modifier={
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			owns_state = 47
+			controls_state = 47
+			has_completed_focus = POL_repeal_climate_regulations
+		}
+		
+		fire_only_once = yes
+		
+		cost = 40
+
+		remove_effect = {
+			47={
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+				
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PSL_popularity_in_state_tt
+				}
+			}
+			
+			add_to_variable = { POL.POL_economy_local_resources_factor = 0.02 }
+			custom_effect_tooltip = POLAND_increase_resource_factor_by_two_percent_tt
+		}
+	}
+	
+	POL_invest_into_marchel_coal_mine = { 
+		priority = 200
+
+		icon = oil
+
+		allowed = {
+			original_tag = POL
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 67
+			}
+		}
+		
+		days_remove = 90
+		
+		modifier={
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			owns_state = 67
+			controls_state = 67
+			has_completed_focus = POL_repeal_climate_regulations
+		}
+		
+		fire_only_once = yes
+		
+		cost = 40
+
+		remove_effect = {
+			67={
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+				
+				if={
+					limit = { POL = { has_country_flag = PO_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PO_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PO_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PiS_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PiS_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PiS_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = RIGHT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.RIGHT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = LEFT_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.LEFT_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_LEFT_popularity_in_state_tt
+				}
+				if={
+					limit = { POL = { has_country_flag = PSL_in_power } }
+					hidden_effect={
+						add_to_variable = { THIS.PSL_popularity = 2.0 }
+						POL_make_popularities_equal_100 = yes
+					}
+					custom_effect_tooltip = POL_increase_PSL_popularity_in_state_tt
+				}
+			}
+			
+			add_to_variable = { POL.POL_economy_local_resources_factor = 0.02 }
+			custom_effect_tooltip = POLAND_increase_resource_factor_by_two_percent_tt
 		}
 	}
 }

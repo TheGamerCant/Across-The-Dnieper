@@ -1,0 +1,256 @@
+############################################################################################################
+# Fighter
+############################################################################################################
+
+generic_fighter = {
+	category = air
+	roles = { air_fighter }
+	priority = {
+		base = 0
+		modifier = {
+			add = 5
+			has_tech = aa_lmg
+		}
+		modifier = {
+			add = 5
+			OR = {
+				original_tag = POL
+				original_tag = SOV
+				original_tag = UKR
+			}
+		}
+		modifier = {
+			factor = 1.25
+			date > 2015.01.01
+		}
+		modifier = {
+			factor = 1.5
+			date > 2017.01.01
+		}
+		modifier = {
+			factor = 1.75
+			date > 2019.01.01
+		}
+		modifier = {
+			factor = 2
+			is_major = yes
+		}
+		modifier = {
+			factor = 0
+			num_of_factories < 50
+		}
+	}
+
+	##################
+	### INTERWAR
+	##################
+
+	INTERWAR_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100 
+				has_tech = iw_small_airframe 
+			}
+			modifier = { 
+				add = -500 
+				has_tech = basic_small_airframe
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_0
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				engine_type_slot > engine_1_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
+		}
+	}
+
+	##################
+	### BASIC
+	##################
+
+	BASIC_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100 
+				has_tech = basic_small_airframe 
+			}
+			modifier = { 
+				add = -500 
+				has_tech = improved_small_airframe
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_1
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				engine_type_slot > engine_1_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
+		}
+	}
+
+	##################
+	### IMPROVED
+	##################
+
+	IMPROVED_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100
+				has_tech = improved_small_airframe 
+			}
+			modifier = { 
+				add = -500
+				has_tech = advanced_small_airframe 
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_2
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				fixed_auxiliary_weapon_slot_2 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				engine_type_slot > engine_2_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+				special_type_slot_2 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
+		}
+	}
+
+	##################
+	### ADVANCED
+	##################
+
+	ADVANCED_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100 	
+				has_tech = advanced_small_airframe 
+			}
+			modifier = { 
+				add = -500 
+				has_tech = modern_small_airframe 
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_3
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				fixed_auxiliary_weapon_slot_2 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				fixed_auxiliary_weapon_slot_3 = { module = fox2_3 module = fox2_2 module = fox2_1 }
+				engine_type_slot > engine_3_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+				special_type_slot_2 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+				special_type_slot_3 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
+		}
+	}
+
+	##################
+	### MODERN
+	##################
+
+	MODERN_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100 	
+				has_tech = modern_small_airframe
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_4
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				fixed_auxiliary_weapon_slot_2 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				fixed_auxiliary_weapon_slot_3 = { module = fox2_3 module = fox2_2 module = fox2_1 }
+				fixed_auxiliary_weapon_slot_4 = { module = fox2_3 module = fox2_2 module = fox2_1 }
+				engine_type_slot > engine_3_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+				special_type_slot_2 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+				special_type_slot_3 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+				special_type_slot_4 = { module = stealth_covering_2_small module = stealth_covering_1_small module = fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
+		}
+	}
+}
