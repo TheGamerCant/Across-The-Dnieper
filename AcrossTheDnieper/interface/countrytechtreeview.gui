@@ -3313,7 +3313,7 @@ guiTypes = {
 				name = "tech_info_special_description"
 				position = { x = 0 y = 0 }
 				textureFile = ""
-				font = "hoi4_typewriter16_inverted"
+				font = "OCR_A_12"
 				borderSize = {x = 0 y = 0}
 				text = "BABALKBLLALBLAL"
 				maxWidth = 495
@@ -3352,7 +3352,7 @@ guiTypes = {
 		iconType ={
 			name ="tech_info_top_win"
 			spriteType = "GFX_tech_info_top_win"
-			position = { x= 1 y = 1 }
+			position = { x= 0 y = 1 }
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -3361,17 +3361,18 @@ guiTypes = {
 			name = "close"
 			quadTextureSprite = "GFX_closebutton"
 			buttonFont = "vic_18"
-			position = { x=-43 y=10 }
+			position = { x=-42 y=7 }
 			shortcut = "ESCAPE"
 			Orientation = "UPPER_RIGHT"
 			pdx_tooltip = "CLOSE"
 			clicksound = click_close
+			scale = 1.04
 		}
 
 		iconType ={
 			name ="tech_icon"
-			spriteType = "GFX_tiled_window_transparent"
-			position = { x= 45 y = 47 }
+			spriteType = "GFX_tiled_window_transparent"		#This only shows up for small researches, so I can't get a bg for them and not equipment icons
+			position = { x= 9999 y = 9999 }
 			Orientation = "UPPER_LEFT"
 		}
 
@@ -3379,7 +3380,7 @@ guiTypes = {
 			name = "tech_info_title"
 			position = { x = 40 y = 15 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "OCR_A_16"
 			borderSize = {x = 0 y = 0}
 			text = ""
 			maxWidth = 450
@@ -3451,13 +3452,13 @@ guiTypes = {
 		iconType = {
 			name = "research_progressbar_frame"
 			spriteType = "GFX_production_progressbar_frame2"
-			position = { x=188 y=59 }
+			position = { x=9999 y=9999 }
 		}
 
 		instantTextboxType = {
 			name = "researchtime_label"
-			position = { x = 182 y = 62 }
-			font = "hoi_20b"
+			position = { x = 182 y = 64 }
+			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
 			text = ""
 			maxWidth = 185
@@ -3478,7 +3479,7 @@ guiTypes = {
 			instantTextboxType = {
 				name = "tech_info_special_description"
 				position = { x = 10 y = 14 }
-				font = "hoi4_typewriter16_blue"
+				font = "OCR_A_12"
 				maxWidth = 464
 			}
 
@@ -5004,6 +5005,14 @@ guiTypes = {
 			max_slots_vertical = 1
 			format = "UPPER_LEFT"
 		}
+		
+		iconType = {
+			name = "unit_icon_bg"
+			position = { x = 240 y = 40 }
+			spriteType = "GFX_01_tech_large_underlay_white"
+			centerposition = yes
+			alwaystransparent = yes
+		}
 
 		iconType = {
 			name = "unit_icon"
@@ -5016,9 +5025,9 @@ guiTypes = {
 		instantTextboxType = {
 			name = "production_resources"
 			position = { x= 5 y= 12 }
-			font = "hoi_18mbs"
-			maxWidth = 140
-			maxHeight = 25
+			font = "OCR_A_16"
+			maxWidth = 50
+			maxHeight = 36
 			pdx_tooltip = "PRODUCTION_RESOURCE_DESC"
 			format = left
 		}
@@ -5278,7 +5287,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "subunit_name"
 			position = { x = 160 y = 25 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_14"
 			text = "Where is the name?"
 			maxWidth = 300
 			maxHeight = 20
@@ -5326,7 +5335,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "label"
 			position = { x = 55 y = 25 }
-			font = "hoi_18mbs_blue"
+			font = "OCR_A_18"
 			text = ""
 			maxWidth = 380
 			maxHeight = 20
@@ -5413,28 +5422,28 @@ guiTypes = {
 		instantTextboxType = {
 			name = "name"
 			position = { x = -5 y = 12 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_12"
 			text = "name"
-			maxWidth = 160
+			maxWidth = 180
 			maxHeight = 20
-			fixedsize = yes
+			fixedsize = no
 			format = left
 		}
 
 		instantTextboxType = {
 			name = "amount"
 			position = { x = 110 y = 12 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_10"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
 			format = right
 		}
 
-		instantTextboxType = {
+		instantTextboxType = {			#Not entirely sure what this is tbh, best just to keep it as-is i guess
 			name = "diff"
 			position = { x = 195 y = 0 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_12"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
@@ -5513,7 +5522,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "name"
 			position = { x = -30 y = 2 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_12"
 			text = "name"
 			maxWidth = 290
 			maxHeight = 20
@@ -5523,7 +5532,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "amount"
 			position = { x = 220 y = 2 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_10"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
@@ -5555,7 +5564,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "name"
 			position = { x = -5 y = 12 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_12"
 			text = "name"
 			maxWidth = 165
 			maxHeight = 20
@@ -5566,7 +5575,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "amount"
 			position = { x = 110 y = 12 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_10"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
@@ -5576,7 +5585,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "diff"
 			position = { x = 195 y = 0 }
-			font = "hoi4_typewriter16_blue"
+			font = "OCR_A_12"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
@@ -5667,7 +5676,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "header"
 			position = { x = 130 y = 18 }
-			font = "hoi4_typewriter22_blue"
+			font = "OCR_A_18"
 			text = "category:"
 			maxWidth = 201
 			maxHeight = 20
