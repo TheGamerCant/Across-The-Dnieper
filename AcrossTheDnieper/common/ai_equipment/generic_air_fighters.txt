@@ -20,15 +20,15 @@ generic_fighter = {
 			}
 		}
 		modifier = {
-			add = 2
+			factor = 1.25
 			date > 2015.01.01
 		}
 		modifier = {
-			add = 2
+			factor = 1.5
 			date > 2017.01.01
 		}
 		modifier = {
-			add = 2
+			factor = 1.75
 			date > 2019.01.01
 		}
 		modifier = {
@@ -38,6 +38,47 @@ generic_fighter = {
 		modifier = {
 			factor = 0
 			num_of_factories < 50
+		}
+	}
+
+	##################
+	### INTERWAR
+	##################
+
+	INTERWAR_FIGHTER_VARIANT_A = { # Normal type
+		priority = {
+			base = 0
+			modifier = { 
+				add = 100 
+				has_tech = iw_small_airframe 
+			}
+			modifier = { 
+				add = -500 
+				has_tech = basic_small_airframe
+			}
+		}
+
+		target_variant = {
+			type = small_plane_airframe_0
+			match_value = 1
+			
+			modules = {
+				fixed_main_weapon_slot = { module = medium_mg module = light_mg }
+				fixed_auxiliary_weapon_slot_1 = { module = fox3_3 module = fox3_2 module = fox3_1 }
+				engine_type_slot > engine_1_1x
+				special_type_slot_1 = { module = stealth_covering_2_small module = stealth_covering_1_small module = self_sealing_fuel_tanks_small }
+			}
+		}
+
+		allowed_modules = {
+			plane_engine_type
+			fighter_weapon
+			fighter_missile_aa1
+			fighter_missile_aa2
+			fighter_missile_aa3
+
+			plane_special_module_small
+			plane_special_module_electronics
 		}
 	}
 
