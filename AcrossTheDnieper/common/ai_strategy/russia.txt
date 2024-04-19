@@ -358,6 +358,17 @@ SOV_belarus_is_fine_on_their_own = {
 	}
 }
 
+SOV_our_security_forces_are_enough_to_keep_mainland_safe = {
+	allowed = { original_tag = SOV }
+	enable = { always = yes }
+	abort = { always = no }
+	
+	ai_strategy = {
+		type = garrison
+		value = -80
+	}
+}
+
 ally_with_donbass = {
 	allowed = {
 		original_tag = SOV
@@ -599,7 +610,7 @@ SOV_try_to_take_southern_ukraine = {
 	ai_strategy = {
 		type = front_unit_request
 		strategic_region = 20 #tavryia
-		value = 120
+		value = 125
 	}
 }
 
@@ -626,9 +637,9 @@ SOV_try_to_take_southern_ukraine_from_crimea = {	# May need to use a state trigg
 				state = 255
 			}
 		}
-		priority = 100
+		priority = 200
 		ordertype = front
-		execution_type = rush
+		execution_type = rush_weak
 		manual_attack = yes
 	}
 	
@@ -641,7 +652,59 @@ SOV_try_to_take_southern_ukraine_from_crimea = {	# May need to use a state trigg
 				state = 255
 			}
 		}
-		value = 90
+		value = 115
+	}
+}
+
+SOV_kherson_is_cool_but_dont_die_there = {
+	allowed = { original_tag = SOV }
+	enable = {
+		AND={
+			has_war_with = UKR
+			26 = { is_owned_by = SOV } #Dnipro Delta Islands
+		}
+	}
+	abort_when_not_enabled = yes
+
+	
+	ai_strategy = {
+		type = front_control
+		strategic_region = 33 #prychoronomorya
+		priority = 330
+		ordertype = front
+		execution_type = careful
+		manual_attack = yes
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		strategic_region = 33 #prychoronomorya
+		value = 50
+	}
+}
+
+SOV_keep_some_units_for_defence_in_depth = {
+	allowed = { original_tag = SOV }
+	enable = {
+		AND={
+			has_war_with = UKR
+			26 = { is_owned_by = SOV } #Dnipro Delta Islands
+		}
+	}
+	abort_when_not_enabled = yes
+
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = {
+			264
+			269
+			242
+			223
+			214
+		}
+		subtract_fronts_from_need = no
 	}
 }
 
@@ -685,12 +748,13 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 	ai_strategy = {
 		type = front_unit_request
 		tag = UKR
-		value = 100
+		value = 160
 	}
 
 	ai_strategy = {
-    	type = garrison
-    	value = -30
+		type = invade
+		id = UKR
+		value = 5
 	}
 	
 	ai_strategy = {
