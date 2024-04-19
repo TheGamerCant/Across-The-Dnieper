@@ -1,0 +1,78 @@
+technologies = {
+	DONBASS_urban_warfare_tech = { #From Donbass focus tree
+		
+		allow = {
+			always = no
+		}
+
+		research_cost = 1
+		start_year = 2010
+
+		infantry = {
+			urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+			dense_urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+			sub_urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+		}
+		
+		irregular_infantry = {
+			urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+			dense_urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+			sub_urban = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.1
+			}
+		}
+	}
+	
+	no_motorised_arty_units = {		#Here to make it so players can't use motorised arty units
+									#Best to keep their code in the game but make it so the player and AI can't access them to avoid errors
+		enable_subunits = {	
+			mot_artillery_brigade
+		}
+		enable_equipments = {
+			motorized_rocket_equipment_1
+		}
+		enable_equipments = {
+			motorized_rocket_equipment_2
+		}
+		enable_subunits = {
+			motorized_rocket_brigade
+		}
+		enable_subunits = {
+			mot_rocket_artillery_brigade
+		}
+		enable_subunits = {
+			mot_anti_air_brigade
+		}
+		enable_subunits = {
+			mot_anti_tank_brigade
+		}
+		allow = {
+			always = no
+		}
+
+		research_cost = 1
+		start_year = 2010
+	}
+}
