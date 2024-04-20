@@ -661,7 +661,7 @@ SOV_kherson_is_cool_but_dont_die_there = {
 	enable = {
 		AND={
 			has_war_with = UKR
-			26 = { is_controlled_by = SOV } #Dnipro Delta Islands
+			264 = { is_controlled_by = SOV } #Kherson
 		}
 	}
 	abort_when_not_enabled = yes
@@ -688,7 +688,7 @@ SOV_keep_some_units_for_defence_in_depth = {
 	enable = {
 		AND={
 			has_war_with = UKR
-			26 = { is_controlled_by = SOV } #Dnipro Delta Islands
+			264 = { is_controlled_by = SOV } #Kherson
 		}
 	}
 	abort_when_not_enabled = yes
@@ -705,6 +705,34 @@ SOV_keep_some_units_for_defence_in_depth = {
 			214
 		}
 		subtract_fronts_from_need = no
+	}
+}
+
+SOV_invade_snake_island = {
+	allowed = { original_tag = SOV }
+	enable = {
+		AND={
+			has_war_with = UKR
+			282 = { is_controlled_by = SOV } #Skadovsk
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		state = 444
+		priority = 100
+		ratio = 0.2
+		ordertype = invasion
+		execution_type = rush_weak
+		manual_attack = yes
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = invade
+		id = UKR
+		value = 2
 	}
 }
 
@@ -749,12 +777,6 @@ SOV_focus_on_ukraine = {		#Used to prevent AI putting lots of it's divs on garri
 		type = front_unit_request
 		tag = UKR
 		value = 160
-	}
-
-	ai_strategy = {	#So the AI has the possibilty to invade ukraine but isn't forced to
-		type = invade
-		id = UKR
-		value = 1
 	}
 	
 	ai_strategy = {
