@@ -1,0 +1,98 @@
+focus_tree = {
+	id = montenegro
+	continuous_focus_position = { x = -40 y = 1300 } 
+	country = {
+		factor = 0
+		#modifier = {
+		#	add = 10
+		#	tag = MNT
+		#}
+	}
+
+	focus = {
+		id = MNT_increase_funding
+		icon = GFX_focus_generic_supply_line
+		x = 15
+		y = 0
+		cost = 35
+		search_filters = {
+			
+		}
+		completion_reward={
+			custom_effect_tooltip = MNT_increase_funding_tt
+			add_to_variable = { MNT_mm_consumer_goods = 0.03 }
+			add_to_variable = { MNT_mm_stability = 0.05 }
+			add_to_variable = { MNT_mm_factory = 0.03 }
+
+			every_owned_state = {
+				increase_state_gdp_growth_by_0_5 = yes
+			} 
+		}
+	}
+	focus = {
+		id = MNT_new_infrastructure_projects
+		icon = GFX_focus_generic_energy
+		x = 1
+		y = 1
+		cost = 60
+		relative_position_id = MNT_increase_funding
+		prerequisite = { focus = MNT_increase_funding }
+		search_filters = {
+			
+		}
+		completion_reward={
+			custom_effect_tooltip = MNT_new_infrastructure_projects_tt
+			add_to_variable = { MNT_mm_consumer_goods = -0.04 }
+			add_to_variable = { MNT_mm_stability = 0.02 }
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MNT_deal_with_floods
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -1
+		y = 1
+		cost = 60
+		relative_position_id = MNT_increase_funding
+		prerequisite = { focus = MNT_increase_funding }
+		search_filters = {
+			
+		}
+		bypass = {
+			any_state = {
+				NOT = {
+					has_dynamic_modifier = { modifier = MNT_river_floods }
+				}
+			}
+		}
+		completion_reward={
+			custom_effect_tooltip = MNT_deal_with_floods_tt
+			add_to_variable = { MNT_mm_consumer_goods = 0.02 }
+			every_controlled_state = {
+				limit = { has_dynamic_modifier = { modifier = MNT_river_floods } }
+
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				remove_dynamic_modifier = { modifier = MNT_river_floods }
+			}
+		}
+	}
+}

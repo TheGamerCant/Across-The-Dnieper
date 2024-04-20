@@ -4413,6 +4413,13 @@ country_event = {
 			base = 10
 		}
 
+		if = {
+			limit = { NOT = { has_tech = suicide_drone_tech } }
+			set_technology = {
+				suicide_drone_tech = 1
+			}
+		}
+
 		if={
 			limit = { OR = { tag = UKR has_completed_focus = SOV_drone_infantry_integration } }
 			add_ideas = SOV_drone_warfare_better
@@ -4888,6 +4895,20 @@ country_event = {
 		add_equipment_to_stockpile = { 
 			type = support_equipment
 			amount = 400
+		}
+		add_equipment_to_stockpile = { 
+			type = infantry_equipment_2
+			amount = 150
+		}
+
+		if = {
+			limit = { has_completed_focus = SOV_combat_drone_tech }
+
+	        add_equipment_to_stockpile = {
+	        	type = kamikaze_drone_equipment
+	        	variant_name = "HESA Shahed 136"
+	        	amount = 20
+	        }
 		}
 	}
 }
