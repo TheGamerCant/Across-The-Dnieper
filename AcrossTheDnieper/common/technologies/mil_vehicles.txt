@@ -601,8 +601,17 @@ technologies = {
 			name = mil_vehicles_folder
 			position = { x = 2 y = 1 }
 		}
+		
 		path = {
-			leads_to_tech = motorised_infantry_2
+			leads_to_tech = better_wheels_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = better_engines_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = improved_haulage
 			research_cost_coeff = 1
 		}
 		
@@ -630,10 +639,172 @@ technologies = {
 		}
 	}
 	
+	improved_haulage = {
+	
+		research_cost = 1
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 2 y = 5 }
+		}
+		
+		path = {
+			leads_to_tech = motorised_infantry_2
+			research_cost_coeff = 1
+		}
+		
+		motorized = {
+			soft_attack = 0.05
+			hardness = -0.02
+			max_strength = 0.05
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	better_wheels_1 = {
+	
+		research_cost = 0.9
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 3 y = 3 }
+		}
+		
+		path = {
+			leads_to_tech = better_wheels_2
+			research_cost_coeff = 1
+		}
+		
+		
+		show_effect_as_desc = yes
+		
+		on_research_complete = {
+			hidden_effect={
+				add_ideas = ATD_motorised_reliability_tech_idea_1
+			}
+			custom_effect_tooltip = better_wheels_1_tt
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	better_wheels_2 = {
+	
+		research_cost = 1
+		start_year = 2018
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 3 y = 7 }
+		}
+		
+		path = {
+			leads_to_tech = motorised_infantry_2
+			research_cost_coeff = 1
+		}
+		
+		show_effect_as_desc = yes
+		
+		on_research_complete = {
+			hidden_effect={
+				add_ideas = ATD_motorised_reliability_tech_idea_2
+			}
+			custom_effect_tooltip = better_wheels_2_tt
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	better_engines_1 = {
+	
+		research_cost = 0.9
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 1 y = 3 }
+		}
+		
+		path = {
+			leads_to_tech = better_engines_2
+			research_cost_coeff = 1
+		}
+		
+		motorized = {
+			maximum_speed = 0.05
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	better_engines_2 = {
+	
+		research_cost = 1
+		start_year = 2018
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 1 y = 7 }
+		}
+		
+		path = {
+			leads_to_tech = motorised_infantry_2
+			research_cost_coeff = 1
+		}
+		
+		motorized = {
+			maximum_speed = 0.07
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	motorised_infantry_2 = {
 
 		enable_equipments = {
 			motorized_equipment_2
+		}
+		
+		allow={
+			count_triggers = {
+				amount = 2
+				has_tech = better_engines_2
+				has_tech = better_wheels_2
+				has_tech = improved_haulage
+			}
 		}
 	
 		research_cost = 2
