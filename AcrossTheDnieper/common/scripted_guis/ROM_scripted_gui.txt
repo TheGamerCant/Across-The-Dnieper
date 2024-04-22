@@ -1,0 +1,41 @@
+scripted_gui = {
+	ROM_parliament_gui = {
+		window_name = "ROM_parliament_decision_tab"
+		context_type = decision_category
+
+		visible = {
+			tag = ROM
+		}
+
+		dynamic_lists = {
+			ROM_lower_house_diagram_container = {
+				array = ROM_lower_house_x
+				change_scope = no
+				entry_container = ROM_lower_house_seat_container
+				index = seat_idx
+			}
+		}
+		
+		dynamic_lists = {
+			ROM_upper_house_diagram_container = {
+				array = ROM_upper_house_x
+				change_scope = no
+				entry_container = ROM_upper_house_seat_container
+				index = seat_idx
+			}
+		}
+		
+		properties = {
+			ROM_lower_house_seat_icon = {
+				x = ROM_lower_house_x^seat_idx
+				y = ROM_lower_house_y^seat_idx
+				frame = ROM_lower_house_frame^seat_idx
+			}
+			ROM_upper_house_seat_icon = {
+				x = ROM_upper_house_x^seat_idx
+				y = ROM_upper_house_y^seat_idx
+				frame = ROM_upper_house_frame^seat_idx
+			}
+		}
+	}
+}

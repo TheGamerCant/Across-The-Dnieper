@@ -1,0 +1,61 @@
+defined_text = {
+    name = ROM_does_lower_house_seat_support_government
+	
+    text = {
+        trigger = {
+			check_variable = { ROM_lower_house_frame^seat_idx = 1 }
+        }
+        localization_key = "ROM_parliament_seat_is_friendly"
+    }
+	
+    text = {
+       localization_key = "ROM_parliament_seat_is_unfriendly"
+    }
+}
+
+defined_text = {
+    name = ROM_does_upper_house_seat_support_government
+	
+    text = {
+        trigger = {
+			check_variable = { ROM_upper_house_frame^seat_idx = 1 }
+        }
+        localization_key = "ROM_parliament_seat_is_friendly"
+    }
+	
+    text = {
+       localization_key = "ROM_parliament_seat_is_unfriendly"
+    }
+}
+
+defined_text = {
+    name = ROM_is_there_a_majority_in_the_lower_house
+    text = {
+        trigger = {
+			set_temp_variable = { ROM_lower_house_seat_count_half = ROM_lower_house_seat_count }
+			divide_temp_variable = { ROM_lower_house_seat_count_half = 2 }
+			check_variable = { ROM_lower_house_friendly_seats > ROM_lower_house_seat_count_half }
+        }
+        localization_key = "ROM_majority"
+    }
+	
+    text = {
+       localization_key = "ROM_minority"
+    }
+}
+
+defined_text = {
+    name = ROM_is_there_a_majority_in_the_upper_house
+    text = {
+        trigger = {
+			set_temp_variable = { ROM_upper_house_seat_count_half = ROM_upper_house_seat_count }
+			divide_temp_variable = { ROM_upper_house_seat_count_half = 2 }
+			check_variable = { ROM_upper_house_friendly_seats > ROM_upper_house_seat_count_half }
+        }
+        localization_key = "ROM_majority"
+    }
+	
+    text = {
+       localization_key = "ROM_minority"
+    }
+}

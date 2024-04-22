@@ -1,0 +1,1642 @@
+ROM_setup_parliament = {
+	clamp_variable = {
+		var = ROM_lower_house_friendly_seats
+		min = 0
+		max = ROM_lower_house_seat_count
+	}
+
+	set_temp_variable = { t1 = ROM_lower_house_friendly_seats }
+	set_temp_variable = { t2 = ROM_lower_house_seat_count }
+
+	add_to_temp_variable = { t2 = t1 }
+
+	clear_array = ROM_lower_house_frame
+
+	resize_array = {
+		array = ROM_lower_house_frame
+		value = 1
+		size = t1
+	}
+	resize_array = {
+		array = ROM_lower_house_frame
+		value = 2
+		size = t2
+	}
+	
+	clamp_variable = {
+		var = ROM_upper_house_friendly_seats
+		min = 0
+		max = ROM_upper_house_seat_count
+	}
+
+	set_temp_variable = { t1 = ROM_upper_house_friendly_seats }
+	set_temp_variable = { t2 = ROM_upper_house_seat_count }
+
+	add_to_temp_variable = { t2 = t1 }
+
+	clear_array = ROM_upper_house_frame
+
+	resize_array = {
+		array = ROM_upper_house_frame
+		value = 1
+		size = t1
+	}
+	resize_array = {
+		array = ROM_upper_house_frame
+		value = 2
+		size = t2
+	}
+}
+
+ROM_add_set_amount_of_friendly_seats_to_lower_house={
+	add_to_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_add_set_amount_of_friendly_seats_to_upper_house={
+	add_to_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_small_lower_house_increase={
+	custom_effect_tooltip = ROM_small_lower_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 0 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 1 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 2 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 3 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 4 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 6 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 7 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 8 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 9 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+		}
+	}
+	
+	add_to_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_medium_lower_house_increase={
+	custom_effect_tooltip = ROM_medium_lower_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 11 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 12 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 13 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 14 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 15 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 16 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 17 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 18 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 19 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 20 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 21 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 22 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 23 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 24 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 25 } }
+		}
+	}
+	
+	add_to_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_large_lower_house_increase={
+	custom_effect_tooltip = ROM_large_lower_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 25 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 26 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 27 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 28 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 29 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 30 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 31 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 32 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 33 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 34 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 35 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 36 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 37 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 38 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 39 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 40 } }
+		}
+	}
+	
+	add_to_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_small_lower_house_decrease={
+	custom_effect_tooltip = ROM_small_lower_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 0 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 1 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 2 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 3 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 4 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 6 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 7 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 8 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 9 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_medium_lower_house_decrease={
+	custom_effect_tooltip = ROM_medium_lower_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 11 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 12 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 13 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 14 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 15 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 16 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 17 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 18 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 19 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 20 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 21 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 22 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 23 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 24 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 25 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_large_lower_house_decrease={
+	custom_effect_tooltip = ROM_large_lower_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 25 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 26 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 27 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 28 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 29 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 30 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 31 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 32 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 33 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 34 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 35 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 36 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 37 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 38 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 39 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 40 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_lower_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_small_upper_house_increase={
+	custom_effect_tooltip = ROM_small_upper_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 0 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 1 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 2 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 3 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 4 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+		}
+	}
+	
+	add_to_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_medium_upper_house_increase={
+	custom_effect_tooltip = ROM_medium_upper_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 6 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 7 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 8 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 9 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+		}
+	}
+	
+	add_to_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_large_upper_house_increase={
+	custom_effect_tooltip = ROM_large_upper_house_increase_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 11 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 12 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 13 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 14 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 15 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 16 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 17 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 18 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 19 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 20 } }
+		}
+	}
+	
+	add_to_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_small_upper_house_decrease={
+	custom_effect_tooltip = ROM_small_upper_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 0 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 1 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 2 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 3 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 4 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_medium_upper_house_decrease={
+	custom_effect_tooltip = ROM_medium_upper_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 5 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 6 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 7 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 8 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 9 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_large_upper_house_decrease={
+	custom_effect_tooltip = ROM_large_upper_house_decrease_tt
+	hidden_effect={
+		random_list={
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 10 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 11 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 12 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 13 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 14 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 15 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 16 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 17 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 18 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 19 } }
+			1={ set_variable = { ROM.ROM_friendly_seats_to_add = 20 } }
+		}
+	}
+	
+	subtract_from_variable = { ROM_upper_house_friendly_seats = ROM.ROM_friendly_seats_to_add }
+	clear_variable = ROM.ROM_friendly_seats_to_add
+	ROM_setup_parliament= yes
+}
+
+ROM_load_upper_house_176_seats={
+	set_variable = { ROM_upper_house_seat_count = 176 }
+	clear_array = ROM_upper_house_x
+	clear_array = ROM_upper_house_y
+	
+	add_to_array = { ROM_upper_house_x = 0 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 14 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 29 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 43 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 58 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 72 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 87 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 2 }
+	add_to_array = { ROM_upper_house_y = 179 }
+	add_to_array = { ROM_upper_house_x = 16 }
+	add_to_array = { ROM_upper_house_y = 178 }
+	add_to_array = { ROM_upper_house_x = 31 }
+	add_to_array = { ROM_upper_house_y = 177 }
+	add_to_array = { ROM_upper_house_x = 46 }
+	add_to_array = { ROM_upper_house_y = 177 }
+	add_to_array = { ROM_upper_house_x = 61 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 5 }
+	add_to_array = { ROM_upper_house_y = 161 }
+	add_to_array = { ROM_upper_house_x = 76 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 20 }
+	add_to_array = { ROM_upper_house_y = 159 }
+	add_to_array = { ROM_upper_house_x = 35 }
+	add_to_array = { ROM_upper_house_y = 159 }
+	add_to_array = { ROM_upper_house_x = 91 }
+	add_to_array = { ROM_upper_house_y = 174 }
+	add_to_array = { ROM_upper_house_x = 51 }
+	add_to_array = { ROM_upper_house_y = 158 }
+	add_to_array = { ROM_upper_house_x = 10 }
+	add_to_array = { ROM_upper_house_y = 144 }
+	add_to_array = { ROM_upper_house_x = 67 }
+	add_to_array = { ROM_upper_house_y = 156 }
+	add_to_array = { ROM_upper_house_x = 26 }
+	add_to_array = { ROM_upper_house_y = 141 }
+	add_to_array = { ROM_upper_house_x = 42 }
+	add_to_array = { ROM_upper_house_y = 140 }
+	add_to_array = { ROM_upper_house_x = 16 }
+	add_to_array = { ROM_upper_house_y = 127 }
+	add_to_array = { ROM_upper_house_x = 83 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 58 }
+	add_to_array = { ROM_upper_house_y = 139 }
+	add_to_array = { ROM_upper_house_x = 34 }
+	add_to_array = { ROM_upper_house_y = 124 }
+	add_to_array = { ROM_upper_house_x = 100 }
+	add_to_array = { ROM_upper_house_y = 153 }
+	add_to_array = { ROM_upper_house_x = 24 }
+	add_to_array = { ROM_upper_house_y = 110 }
+	add_to_array = { ROM_upper_house_x = 75 }
+	add_to_array = { ROM_upper_house_y = 138 }
+	add_to_array = { ROM_upper_house_x = 50 }
+	add_to_array = { ROM_upper_house_y = 123 }
+	add_to_array = { ROM_upper_house_x = 43 }
+	add_to_array = { ROM_upper_house_y = 107 }
+	add_to_array = { ROM_upper_house_x = 68 }
+	add_to_array = { ROM_upper_house_y = 122 }
+	add_to_array = { ROM_upper_house_x = 93 }
+	add_to_array = { ROM_upper_house_y = 136 }
+	add_to_array = { ROM_upper_house_x = 34 }
+	add_to_array = { ROM_upper_house_y = 95 }
+	add_to_array = { ROM_upper_house_x = 61 }
+	add_to_array = { ROM_upper_house_y = 106 }
+	add_to_array = { ROM_upper_house_x = 86 }
+	add_to_array = { ROM_upper_house_y = 120 }
+	add_to_array = { ROM_upper_house_x = 54 }
+	add_to_array = { ROM_upper_house_y = 92 }
+	add_to_array = { ROM_upper_house_x = 44 }
+	add_to_array = { ROM_upper_house_y = 80 }
+	add_to_array = { ROM_upper_house_x = 112 }
+	add_to_array = { ROM_upper_house_y = 134 }
+	add_to_array = { ROM_upper_house_x = 80 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 73 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 106 }
+	add_to_array = { ROM_upper_house_y = 119 }
+	add_to_array = { ROM_upper_house_x = 66 }
+	add_to_array = { ROM_upper_house_y = 77 }
+	add_to_array = { ROM_upper_house_x = 56 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 100 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 93 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 87 }
+	add_to_array = { ROM_upper_house_y = 77 }
+	add_to_array = { ROM_upper_house_x = 69 }
+	add_to_array = { ROM_upper_house_y = 54 }
+	add_to_array = { ROM_upper_house_x = 80 }
+	add_to_array = { ROM_upper_house_y = 64 }
+	add_to_array = { ROM_upper_house_x = 128 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 122 }
+	add_to_array = { ROM_upper_house_y = 104 }
+	add_to_array = { ROM_upper_house_x = 115 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 109 }
+	add_to_array = { ROM_upper_house_y = 78 }
+	add_to_array = { ROM_upper_house_x = 83 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 102 }
+	add_to_array = { ROM_upper_house_y = 65 }
+	add_to_array = { ROM_upper_house_x = 95 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 99 }
+	add_to_array = { ROM_upper_house_y = 33 }
+	add_to_array = { ROM_upper_house_x = 111 }
+	add_to_array = { ROM_upper_house_y = 42 }
+	add_to_array = { ROM_upper_house_x = 118 }
+	add_to_array = { ROM_upper_house_y = 55 }
+	add_to_array = { ROM_upper_house_x = 125 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 133 }
+	add_to_array = { ROM_upper_house_y = 80 }
+	add_to_array = { ROM_upper_house_x = 140 }
+	add_to_array = { ROM_upper_house_y = 93 }
+	add_to_array = { ROM_upper_house_x = 147 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 114 }
+	add_to_array = { ROM_upper_house_y = 24 }
+	add_to_array = { ROM_upper_house_x = 128 }
+	add_to_array = { ROM_upper_house_y = 34 }
+	add_to_array = { ROM_upper_house_x = 136 }
+	add_to_array = { ROM_upper_house_y = 47 }
+	add_to_array = { ROM_upper_house_x = 143 }
+	add_to_array = { ROM_upper_house_y = 59 }
+	add_to_array = { ROM_upper_house_x = 131 }
+	add_to_array = { ROM_upper_house_y = 17 }
+	add_to_array = { ROM_upper_house_x = 151 }
+	add_to_array = { ROM_upper_house_y = 71 }
+	add_to_array = { ROM_upper_house_x = 160 }
+	add_to_array = { ROM_upper_house_y = 84 }
+	add_to_array = { ROM_upper_house_x = 146 }
+	add_to_array = { ROM_upper_house_y = 28 }
+	add_to_array = { ROM_upper_house_x = 168 }
+	add_to_array = { ROM_upper_house_y = 96 }
+	add_to_array = { ROM_upper_house_x = 154 }
+	add_to_array = { ROM_upper_house_y = 40 }
+	add_to_array = { ROM_upper_house_x = 148 }
+	add_to_array = { ROM_upper_house_y = 12 }
+	add_to_array = { ROM_upper_house_x = 162 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 171 }
+	add_to_array = { ROM_upper_house_y = 66 }
+	add_to_array = { ROM_upper_house_x = 164 }
+	add_to_array = { ROM_upper_house_y = 23 }
+	add_to_array = { ROM_upper_house_x = 166 }
+	add_to_array = { ROM_upper_house_y = 8 }
+	add_to_array = { ROM_upper_house_x = 173 }
+	add_to_array = { ROM_upper_house_y = 36 }
+	add_to_array = { ROM_upper_house_x = 180 }
+	add_to_array = { ROM_upper_house_y = 78 }
+	add_to_array = { ROM_upper_house_x = 182 }
+	add_to_array = { ROM_upper_house_y = 49 }
+	add_to_array = { ROM_upper_house_x = 183 }
+	add_to_array = { ROM_upper_house_y = 20 }
+	add_to_array = { ROM_upper_house_x = 191 }
+	add_to_array = { ROM_upper_house_y = 92 }
+	add_to_array = { ROM_upper_house_x = 184 }
+	add_to_array = { ROM_upper_house_y = 5 }
+	add_to_array = { ROM_upper_house_x = 192 }
+	add_to_array = { ROM_upper_house_y = 63 }
+	add_to_array = { ROM_upper_house_x = 192 }
+	add_to_array = { ROM_upper_house_y = 34 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 48 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 77 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 19 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 5 }
+	add_to_array = { ROM_upper_house_x = 212 }
+	add_to_array = { ROM_upper_house_y = 34 }
+	add_to_array = { ROM_upper_house_x = 212 }
+	add_to_array = { ROM_upper_house_y = 63 }
+	add_to_array = { ROM_upper_house_x = 220 }
+	add_to_array = { ROM_upper_house_y = 5 }
+	add_to_array = { ROM_upper_house_x = 213 }
+	add_to_array = { ROM_upper_house_y = 92 }
+	add_to_array = { ROM_upper_house_x = 221 }
+	add_to_array = { ROM_upper_house_y = 20 }
+	add_to_array = { ROM_upper_house_x = 222 }
+	add_to_array = { ROM_upper_house_y = 49 }
+	add_to_array = { ROM_upper_house_x = 223 }
+	add_to_array = { ROM_upper_house_y = 78 }
+	add_to_array = { ROM_upper_house_x = 231 }
+	add_to_array = { ROM_upper_house_y = 36 }
+	add_to_array = { ROM_upper_house_x = 238 }
+	add_to_array = { ROM_upper_house_y = 8 }
+	add_to_array = { ROM_upper_house_x = 240 }
+	add_to_array = { ROM_upper_house_y = 23 }
+	add_to_array = { ROM_upper_house_x = 233 }
+	add_to_array = { ROM_upper_house_y = 66 }
+	add_to_array = { ROM_upper_house_x = 241 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 256 }
+	add_to_array = { ROM_upper_house_y = 12 }
+	add_to_array = { ROM_upper_house_x = 250 }
+	add_to_array = { ROM_upper_house_y = 40 }
+	add_to_array = { ROM_upper_house_x = 236 }
+	add_to_array = { ROM_upper_house_y = 96 }
+	add_to_array = { ROM_upper_house_x = 258 }
+	add_to_array = { ROM_upper_house_y = 28 }
+	add_to_array = { ROM_upper_house_x = 244 }
+	add_to_array = { ROM_upper_house_y = 84 }
+	add_to_array = { ROM_upper_house_x = 252 }
+	add_to_array = { ROM_upper_house_y = 71 }
+	add_to_array = { ROM_upper_house_x = 273 }
+	add_to_array = { ROM_upper_house_y = 17 }
+	add_to_array = { ROM_upper_house_x = 260 }
+	add_to_array = { ROM_upper_house_y = 59 }
+	add_to_array = { ROM_upper_house_x = 268 }
+	add_to_array = { ROM_upper_house_y = 47 }
+	add_to_array = { ROM_upper_house_x = 276 }
+	add_to_array = { ROM_upper_house_y = 34 }
+	add_to_array = { ROM_upper_house_x = 289 }
+	add_to_array = { ROM_upper_house_y = 24 }
+	add_to_array = { ROM_upper_house_x = 257 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 264 }
+	add_to_array = { ROM_upper_house_y = 93 }
+	add_to_array = { ROM_upper_house_x = 271 }
+	add_to_array = { ROM_upper_house_y = 80 }
+	add_to_array = { ROM_upper_house_x = 278 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 286 }
+	add_to_array = { ROM_upper_house_y = 55 }
+	add_to_array = { ROM_upper_house_x = 293 }
+	add_to_array = { ROM_upper_house_y = 42 }
+	add_to_array = { ROM_upper_house_x = 305 }
+	add_to_array = { ROM_upper_house_y = 33 }
+	add_to_array = { ROM_upper_house_x = 309 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 302 }
+	add_to_array = { ROM_upper_house_y = 65 }
+	add_to_array = { ROM_upper_house_x = 320 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 295 }
+	add_to_array = { ROM_upper_house_y = 78 }
+	add_to_array = { ROM_upper_house_x = 289 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 282 }
+	add_to_array = { ROM_upper_house_y = 104 }
+	add_to_array = { ROM_upper_house_x = 276 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 324 }
+	add_to_array = { ROM_upper_house_y = 64 }
+	add_to_array = { ROM_upper_house_x = 335 }
+	add_to_array = { ROM_upper_house_y = 54 }
+	add_to_array = { ROM_upper_house_x = 317 }
+	add_to_array = { ROM_upper_house_y = 77 }
+	add_to_array = { ROM_upper_house_x = 311 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 304 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 348 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 338 }
+	add_to_array = { ROM_upper_house_y = 77 }
+	add_to_array = { ROM_upper_house_x = 298 }
+	add_to_array = { ROM_upper_house_y = 119 }
+	add_to_array = { ROM_upper_house_x = 331 }
+	add_to_array = { ROM_upper_house_y = 91 }
+	add_to_array = { ROM_upper_house_x = 324 }
+	add_to_array = { ROM_upper_house_y = 105 }
+	add_to_array = { ROM_upper_house_x = 292 }
+	add_to_array = { ROM_upper_house_y = 134 }
+	add_to_array = { ROM_upper_house_x = 360 }
+	add_to_array = { ROM_upper_house_y = 80 }
+	add_to_array = { ROM_upper_house_x = 350 }
+	add_to_array = { ROM_upper_house_y = 92 }
+	add_to_array = { ROM_upper_house_x = 318 }
+	add_to_array = { ROM_upper_house_y = 120 }
+	add_to_array = { ROM_upper_house_x = 343 }
+	add_to_array = { ROM_upper_house_y = 106 }
+	add_to_array = { ROM_upper_house_x = 370 }
+	add_to_array = { ROM_upper_house_y = 95 }
+	add_to_array = { ROM_upper_house_x = 311 }
+	add_to_array = { ROM_upper_house_y = 136 }
+	add_to_array = { ROM_upper_house_x = 336 }
+	add_to_array = { ROM_upper_house_y = 122 }
+	add_to_array = { ROM_upper_house_x = 361 }
+	add_to_array = { ROM_upper_house_y = 107 }
+	add_to_array = { ROM_upper_house_x = 354 }
+	add_to_array = { ROM_upper_house_y = 123 }
+	add_to_array = { ROM_upper_house_x = 329 }
+	add_to_array = { ROM_upper_house_y = 138 }
+	add_to_array = { ROM_upper_house_x = 380 }
+	add_to_array = { ROM_upper_house_y = 110 }
+	add_to_array = { ROM_upper_house_x = 304 }
+	add_to_array = { ROM_upper_house_y = 153 }
+	add_to_array = { ROM_upper_house_x = 370 }
+	add_to_array = { ROM_upper_house_y = 124 }
+	add_to_array = { ROM_upper_house_x = 346 }
+	add_to_array = { ROM_upper_house_y = 139 }
+	add_to_array = { ROM_upper_house_x = 321 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 388 }
+	add_to_array = { ROM_upper_house_y = 127 }
+	add_to_array = { ROM_upper_house_x = 362 }
+	add_to_array = { ROM_upper_house_y = 140 }
+	add_to_array = { ROM_upper_house_x = 378 }
+	add_to_array = { ROM_upper_house_y = 141 }
+	add_to_array = { ROM_upper_house_x = 337 }
+	add_to_array = { ROM_upper_house_y = 156 }
+	add_to_array = { ROM_upper_house_x = 394 }
+	add_to_array = { ROM_upper_house_y = 144 }
+	add_to_array = { ROM_upper_house_x = 353 }
+	add_to_array = { ROM_upper_house_y = 158 }
+	add_to_array = { ROM_upper_house_x = 313 }
+	add_to_array = { ROM_upper_house_y = 174 }
+	add_to_array = { ROM_upper_house_x = 368 }
+	add_to_array = { ROM_upper_house_y = 159 }
+	add_to_array = { ROM_upper_house_x = 384 }
+	add_to_array = { ROM_upper_house_y = 159 }
+	add_to_array = { ROM_upper_house_x = 328 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 399 }
+	add_to_array = { ROM_upper_house_y = 161 }
+	add_to_array = { ROM_upper_house_x = 343 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 358 }
+	add_to_array = { ROM_upper_house_y = 177 }
+	add_to_array = { ROM_upper_house_x = 373 }
+	add_to_array = { ROM_upper_house_y = 177 }
+	add_to_array = { ROM_upper_house_x = 387 }
+	add_to_array = { ROM_upper_house_y = 178 }
+	add_to_array = { ROM_upper_house_x = 402 }
+	add_to_array = { ROM_upper_house_y = 179 }
+	add_to_array = { ROM_upper_house_x = 317 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 332 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 346 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 361 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 375 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 389 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 404 }
+	add_to_array = { ROM_upper_house_y = 197 }
+}
+
+ROM_load_upper_house_136_seats={
+	set_variable = { ROM_upper_house_seat_count = 136 }
+	clear_array = ROM_upper_house_x
+	clear_array = ROM_upper_house_y
+	
+	add_to_array = { ROM_upper_house_x = 0 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 19 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 38 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 57 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 76 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 96 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 2 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 21 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 41 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 60 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 6 }
+	add_to_array = { ROM_upper_house_y = 156 }
+	add_to_array = { ROM_upper_house_x = 80 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 26 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 100 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 46 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 12 }
+	add_to_array = { ROM_upper_house_y = 137 }
+	add_to_array = { ROM_upper_house_x = 67 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 34 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 87 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 55 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 20 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 109 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 76 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 43 }
+	add_to_array = { ROM_upper_house_y = 116 }
+	add_to_array = { ROM_upper_house_x = 30 }
+	add_to_array = { ROM_upper_house_y = 100 }
+	add_to_array = { ROM_upper_house_x = 65 }
+	add_to_array = { ROM_upper_house_y = 116 }
+	add_to_array = { ROM_upper_house_x = 98 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 55 }
+	add_to_array = { ROM_upper_house_y = 98 }
+	add_to_array = { ROM_upper_house_x = 42 }
+	add_to_array = { ROM_upper_house_y = 83 }
+	add_to_array = { ROM_upper_house_x = 88 }
+	add_to_array = { ROM_upper_house_y = 117 }
+	add_to_array = { ROM_upper_house_x = 78 }
+	add_to_array = { ROM_upper_house_y = 99 }
+	add_to_array = { ROM_upper_house_x = 122 }
+	add_to_array = { ROM_upper_house_y = 136 }
+	add_to_array = { ROM_upper_house_x = 68 }
+	add_to_array = { ROM_upper_house_y = 81 }
+	add_to_array = { ROM_upper_house_x = 55 }
+	add_to_array = { ROM_upper_house_y = 68 }
+	add_to_array = { ROM_upper_house_x = 113 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 103 }
+	add_to_array = { ROM_upper_house_y = 101 }
+	add_to_array = { ROM_upper_house_x = 93 }
+	add_to_array = { ROM_upper_house_y = 84 }
+	add_to_array = { ROM_upper_house_x = 70 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 84 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 139 }
+	add_to_array = { ROM_upper_house_y = 121 }
+	add_to_array = { ROM_upper_house_x = 129 }
+	add_to_array = { ROM_upper_house_y = 104 }
+	add_to_array = { ROM_upper_house_x = 86 }
+	add_to_array = { ROM_upper_house_y = 41 }
+	add_to_array = { ROM_upper_house_x = 120 }
+	add_to_array = { ROM_upper_house_y = 87 }
+	add_to_array = { ROM_upper_house_x = 111 }
+	add_to_array = { ROM_upper_house_y = 70 }
+	add_to_array = { ROM_upper_house_x = 101 }
+	add_to_array = { ROM_upper_house_y = 54 }
+	add_to_array = { ROM_upper_house_x = 104 }
+	add_to_array = { ROM_upper_house_y = 30 }
+	add_to_array = { ROM_upper_house_x = 120 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 129 }
+	add_to_array = { ROM_upper_house_y = 60 }
+	add_to_array = { ROM_upper_house_x = 139 }
+	add_to_array = { ROM_upper_house_y = 76 }
+	add_to_array = { ROM_upper_house_x = 148 }
+	add_to_array = { ROM_upper_house_y = 93 }
+	add_to_array = { ROM_upper_house_x = 158 }
+	add_to_array = { ROM_upper_house_y = 109 }
+	add_to_array = { ROM_upper_house_x = 122 }
+	add_to_array = { ROM_upper_house_y = 21 }
+	add_to_array = { ROM_upper_house_x = 139 }
+	add_to_array = { ROM_upper_house_y = 35 }
+	add_to_array = { ROM_upper_house_x = 149 }
+	add_to_array = { ROM_upper_house_y = 51 }
+	add_to_array = { ROM_upper_house_x = 141 }
+	add_to_array = { ROM_upper_house_y = 14 }
+	add_to_array = { ROM_upper_house_x = 159 }
+	add_to_array = { ROM_upper_house_y = 68 }
+	add_to_array = { ROM_upper_house_x = 169 }
+	add_to_array = { ROM_upper_house_y = 85 }
+	add_to_array = { ROM_upper_house_x = 160 }
+	add_to_array = { ROM_upper_house_y = 29 }
+	add_to_array = { ROM_upper_house_x = 180 }
+	add_to_array = { ROM_upper_house_y = 102 }
+	add_to_array = { ROM_upper_house_x = 161 }
+	add_to_array = { ROM_upper_house_y = 9 }
+	add_to_array = { ROM_upper_house_x = 170 }
+	add_to_array = { ROM_upper_house_y = 46 }
+	add_to_array = { ROM_upper_house_x = 180 }
+	add_to_array = { ROM_upper_house_y = 63 }
+	add_to_array = { ROM_upper_house_x = 181 }
+	add_to_array = { ROM_upper_house_y = 25 }
+	add_to_array = { ROM_upper_house_x = 181 }
+	add_to_array = { ROM_upper_house_y = 6 }
+	add_to_array = { ROM_upper_house_x = 191 }
+	add_to_array = { ROM_upper_house_y = 81 }
+	add_to_array = { ROM_upper_house_x = 191 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 100 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 62 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 24 }
+	add_to_array = { ROM_upper_house_x = 202 }
+	add_to_array = { ROM_upper_house_y = 5 }
+	add_to_array = { ROM_upper_house_x = 213 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 213 }
+	add_to_array = { ROM_upper_house_y = 81 }
+	add_to_array = { ROM_upper_house_x = 222 }
+	add_to_array = { ROM_upper_house_y = 6 }
+	add_to_array = { ROM_upper_house_x = 223 }
+	add_to_array = { ROM_upper_house_y = 25 }
+	add_to_array = { ROM_upper_house_x = 224 }
+	add_to_array = { ROM_upper_house_y = 63 }
+	add_to_array = { ROM_upper_house_x = 234 }
+	add_to_array = { ROM_upper_house_y = 46 }
+	add_to_array = { ROM_upper_house_x = 243 }
+	add_to_array = { ROM_upper_house_y = 9 }
+	add_to_array = { ROM_upper_house_x = 224 }
+	add_to_array = { ROM_upper_house_y = 102 }
+	add_to_array = { ROM_upper_house_x = 244 }
+	add_to_array = { ROM_upper_house_y = 29 }
+	add_to_array = { ROM_upper_house_x = 235 }
+	add_to_array = { ROM_upper_house_y = 85 }
+	add_to_array = { ROM_upper_house_x = 245 }
+	add_to_array = { ROM_upper_house_y = 68 }
+	add_to_array = { ROM_upper_house_x = 263 }
+	add_to_array = { ROM_upper_house_y = 14 }
+	add_to_array = { ROM_upper_house_x = 255 }
+	add_to_array = { ROM_upper_house_y = 51 }
+	add_to_array = { ROM_upper_house_x = 265 }
+	add_to_array = { ROM_upper_house_y = 35 }
+	add_to_array = { ROM_upper_house_x = 282 }
+	add_to_array = { ROM_upper_house_y = 21 }
+	add_to_array = { ROM_upper_house_x = 246 }
+	add_to_array = { ROM_upper_house_y = 109 }
+	add_to_array = { ROM_upper_house_x = 255 }
+	add_to_array = { ROM_upper_house_y = 93 }
+	add_to_array = { ROM_upper_house_x = 265 }
+	add_to_array = { ROM_upper_house_y = 76 }
+	add_to_array = { ROM_upper_house_x = 275 }
+	add_to_array = { ROM_upper_house_y = 60 }
+	add_to_array = { ROM_upper_house_x = 284 }
+	add_to_array = { ROM_upper_house_y = 43 }
+	add_to_array = { ROM_upper_house_x = 300 }
+	add_to_array = { ROM_upper_house_y = 30 }
+	add_to_array = { ROM_upper_house_x = 303 }
+	add_to_array = { ROM_upper_house_y = 54 }
+	add_to_array = { ROM_upper_house_x = 293 }
+	add_to_array = { ROM_upper_house_y = 70 }
+	add_to_array = { ROM_upper_house_x = 284 }
+	add_to_array = { ROM_upper_house_y = 87 }
+	add_to_array = { ROM_upper_house_x = 318 }
+	add_to_array = { ROM_upper_house_y = 41 }
+	add_to_array = { ROM_upper_house_x = 275 }
+	add_to_array = { ROM_upper_house_y = 104 }
+	add_to_array = { ROM_upper_house_x = 265 }
+	add_to_array = { ROM_upper_house_y = 121 }
+	add_to_array = { ROM_upper_house_x = 320 }
+	add_to_array = { ROM_upper_house_y = 67 }
+	add_to_array = { ROM_upper_house_x = 334 }
+	add_to_array = { ROM_upper_house_y = 53 }
+	add_to_array = { ROM_upper_house_x = 310 }
+	add_to_array = { ROM_upper_house_y = 84 }
+	add_to_array = { ROM_upper_house_x = 301 }
+	add_to_array = { ROM_upper_house_y = 101 }
+	add_to_array = { ROM_upper_house_x = 291 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 349 }
+	add_to_array = { ROM_upper_house_y = 68 }
+	add_to_array = { ROM_upper_house_x = 335 }
+	add_to_array = { ROM_upper_house_y = 81 }
+	add_to_array = { ROM_upper_house_x = 282 }
+	add_to_array = { ROM_upper_house_y = 136 }
+	add_to_array = { ROM_upper_house_x = 326 }
+	add_to_array = { ROM_upper_house_y = 99 }
+	add_to_array = { ROM_upper_house_x = 316 }
+	add_to_array = { ROM_upper_house_y = 117 }
+	add_to_array = { ROM_upper_house_x = 362 }
+	add_to_array = { ROM_upper_house_y = 83 }
+	add_to_array = { ROM_upper_house_x = 349 }
+	add_to_array = { ROM_upper_house_y = 98 }
+	add_to_array = { ROM_upper_house_x = 305 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 339 }
+	add_to_array = { ROM_upper_house_y = 116 }
+	add_to_array = { ROM_upper_house_x = 374 }
+	add_to_array = { ROM_upper_house_y = 100 }
+	add_to_array = { ROM_upper_house_x = 361 }
+	add_to_array = { ROM_upper_house_y = 116 }
+	add_to_array = { ROM_upper_house_x = 328 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 295 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 384 }
+	add_to_array = { ROM_upper_house_y = 118 }
+	add_to_array = { ROM_upper_house_x = 349 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 316 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 370 }
+	add_to_array = { ROM_upper_house_y = 135 }
+	add_to_array = { ROM_upper_house_x = 337 }
+	add_to_array = { ROM_upper_house_y = 154 }
+	add_to_array = { ROM_upper_house_x = 392 }
+	add_to_array = { ROM_upper_house_y = 137 }
+	add_to_array = { ROM_upper_house_x = 357 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 304 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 378 }
+	add_to_array = { ROM_upper_house_y = 155 }
+	add_to_array = { ROM_upper_house_x = 324 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 398 }
+	add_to_array = { ROM_upper_house_y = 156 }
+	add_to_array = { ROM_upper_house_x = 343 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 363 }
+	add_to_array = { ROM_upper_house_y = 175 }
+	add_to_array = { ROM_upper_house_x = 382 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 402 }
+	add_to_array = { ROM_upper_house_y = 176 }
+	add_to_array = { ROM_upper_house_x = 308 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 327 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 347 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 366 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 385 }
+	add_to_array = { ROM_upper_house_y = 197 }
+	add_to_array = { ROM_upper_house_x = 404 }
+	add_to_array = { ROM_upper_house_y = 197 }
+}
+
+ROM_load_lower_house_330_seats={
+	set_variable = { ROM_lower_house_seat_count = 330 }
+	clear_array = ROM_lower_house_x
+	clear_array = ROM_lower_house_y
+	
+	add_to_array = { ROM_lower_house_x = 0 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 12 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 23 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 35 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 46 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 58 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 69 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 81 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 93 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 104 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 1 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 13 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 24 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 36 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 48 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 60 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 71 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 3 }
+	add_to_array = { ROM_lower_house_y = 176 }
+	add_to_array = { ROM_lower_house_x = 83 }
+	add_to_array = { ROM_lower_house_y = 189 }
+	add_to_array = { ROM_lower_house_x = 15 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 27 }
+	add_to_array = { ROM_lower_house_y = 176 }
+	add_to_array = { ROM_lower_house_x = 95 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 39 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 107 }
+	add_to_array = { ROM_lower_house_y = 189 }
+	add_to_array = { ROM_lower_house_x = 51 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 7 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 63 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 19 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 75 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 31 }
+	add_to_array = { ROM_lower_house_y = 162 }
+	add_to_array = { ROM_lower_house_x = 43 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 87 }
+	add_to_array = { ROM_lower_house_y = 174 }
+	add_to_array = { ROM_lower_house_x = 11 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 55 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 99 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 23 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 67 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 35 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 112 }
+	add_to_array = { ROM_lower_house_y = 174 }
+	add_to_array = { ROM_lower_house_x = 80 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 48 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 16 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 29 }
+	add_to_array = { ROM_lower_house_y = 133 }
+	add_to_array = { ROM_lower_house_x = 61 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 93 }
+	add_to_array = { ROM_lower_house_y = 160 }
+	add_to_array = { ROM_lower_house_x = 41 }
+	add_to_array = { ROM_lower_house_y = 135 }
+	add_to_array = { ROM_lower_house_x = 73 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 22 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 105 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 54 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 35 }
+	add_to_array = { ROM_lower_house_y = 120 }
+	add_to_array = { ROM_lower_house_x = 86 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 68 }
+	add_to_array = { ROM_lower_house_y = 133 }
+	add_to_array = { ROM_lower_house_x = 48 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 29 }
+	add_to_array = { ROM_lower_house_y = 108 }
+	add_to_array = { ROM_lower_house_x = 119 }
+	add_to_array = { ROM_lower_house_y = 160 }
+	add_to_array = { ROM_lower_house_x = 80 }
+	add_to_array = { ROM_lower_house_y = 135 }
+	add_to_array = { ROM_lower_house_x = 100 }
+	add_to_array = { ROM_lower_house_y = 146 }
+	add_to_array = { ROM_lower_house_x = 61 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 43 }
+	add_to_array = { ROM_lower_house_y = 108 }
+	add_to_array = { ROM_lower_house_x = 55 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 37 }
+	add_to_array = { ROM_lower_house_y = 96 }
+	add_to_array = { ROM_lower_house_x = 113 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 94 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 76 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 51 }
+	add_to_array = { ROM_lower_house_y = 95 }
+	add_to_array = { ROM_lower_house_x = 70 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 88 }
+	add_to_array = { ROM_lower_house_y = 123 }
+	add_to_array = { ROM_lower_house_x = 45 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 109 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 64 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 128 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 85 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 103 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 60 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 79 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 122 }
+	add_to_array = { ROM_lower_house_y = 136 }
+	add_to_array = { ROM_lower_house_x = 55 }
+	add_to_array = { ROM_lower_house_y = 73 }
+	add_to_array = { ROM_lower_house_x = 98 }
+	add_to_array = { ROM_lower_house_y = 111 }
+	add_to_array = { ROM_lower_house_x = 74 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 70 }
+	add_to_array = { ROM_lower_house_y = 73 }
+	add_to_array = { ROM_lower_house_x = 95 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 119 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 65 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 89 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 114 }
+	add_to_array = { ROM_lower_house_y = 112 }
+	add_to_array = { ROM_lower_house_x = 84 }
+	add_to_array = { ROM_lower_house_y = 76 }
+	add_to_array = { ROM_lower_house_x = 138 }
+	add_to_array = { ROM_lower_house_y = 136 }
+	add_to_array = { ROM_lower_house_x = 108 }
+	add_to_array = { ROM_lower_house_y = 101 }
+	add_to_array = { ROM_lower_house_x = 133 }
+	add_to_array = { ROM_lower_house_y = 125 }
+	add_to_array = { ROM_lower_house_x = 81 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 76 }
+	add_to_array = { ROM_lower_house_y = 53 }
+	add_to_array = { ROM_lower_house_x = 106 }
+	add_to_array = { ROM_lower_house_y = 88 }
+	add_to_array = { ROM_lower_house_x = 101 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 95 }
+	add_to_array = { ROM_lower_house_y = 67 }
+	add_to_array = { ROM_lower_house_x = 131 }
+	add_to_array = { ROM_lower_house_y = 112 }
+	add_to_array = { ROM_lower_house_x = 125 }
+	add_to_array = { ROM_lower_house_y = 102 }
+	add_to_array = { ROM_lower_house_x = 120 }
+	add_to_array = { ROM_lower_house_y = 92 }
+	add_to_array = { ROM_lower_house_x = 93 }
+	add_to_array = { ROM_lower_house_y = 54 }
+	add_to_array = { ROM_lower_house_x = 87 }
+	add_to_array = { ROM_lower_house_y = 44 }
+	add_to_array = { ROM_lower_house_x = 118 }
+	add_to_array = { ROM_lower_house_y = 79 }
+	add_to_array = { ROM_lower_house_x = 151 }
+	add_to_array = { ROM_lower_house_y = 127 }
+	add_to_array = { ROM_lower_house_x = 112 }
+	add_to_array = { ROM_lower_house_y = 69 }
+	add_to_array = { ROM_lower_house_x = 107 }
+	add_to_array = { ROM_lower_house_y = 59 }
+	add_to_array = { ROM_lower_house_x = 145 }
+	add_to_array = { ROM_lower_house_y = 116 }
+	add_to_array = { ROM_lower_house_x = 105 }
+	add_to_array = { ROM_lower_house_y = 46 }
+	add_to_array = { ROM_lower_house_x = 99 }
+	add_to_array = { ROM_lower_house_y = 36 }
+	add_to_array = { ROM_lower_house_x = 144 }
+	add_to_array = { ROM_lower_house_y = 104 }
+	add_to_array = { ROM_lower_house_x = 138 }
+	add_to_array = { ROM_lower_house_y = 94 }
+	add_to_array = { ROM_lower_house_x = 132 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 119 }
+	add_to_array = { ROM_lower_house_y = 51 }
+	add_to_array = { ROM_lower_house_x = 125 }
+	add_to_array = { ROM_lower_house_y = 61 }
+	add_to_array = { ROM_lower_house_x = 131 }
+	add_to_array = { ROM_lower_house_y = 71 }
+	add_to_array = { ROM_lower_house_x = 112 }
+	add_to_array = { ROM_lower_house_y = 29 }
+	add_to_array = { ROM_lower_house_x = 118 }
+	add_to_array = { ROM_lower_house_y = 39 }
+	add_to_array = { ROM_lower_house_x = 158 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 164 }
+	add_to_array = { ROM_lower_house_y = 119 }
+	add_to_array = { ROM_lower_house_x = 145 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 151 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 132 }
+	add_to_array = { ROM_lower_house_y = 45 }
+	add_to_array = { ROM_lower_house_x = 138 }
+	add_to_array = { ROM_lower_house_y = 54 }
+	add_to_array = { ROM_lower_house_x = 157 }
+	add_to_array = { ROM_lower_house_y = 97 }
+	add_to_array = { ROM_lower_house_x = 125 }
+	add_to_array = { ROM_lower_house_y = 22 }
+	add_to_array = { ROM_lower_house_x = 144 }
+	add_to_array = { ROM_lower_house_y = 64 }
+	add_to_array = { ROM_lower_house_x = 131 }
+	add_to_array = { ROM_lower_house_y = 32 }
+	add_to_array = { ROM_lower_house_x = 146 }
+	add_to_array = { ROM_lower_house_y = 39 }
+	add_to_array = { ROM_lower_house_x = 139 }
+	add_to_array = { ROM_lower_house_y = 17 }
+	add_to_array = { ROM_lower_house_x = 159 }
+	add_to_array = { ROM_lower_house_y = 71 }
+	add_to_array = { ROM_lower_house_x = 152 }
+	add_to_array = { ROM_lower_house_y = 49 }
+	add_to_array = { ROM_lower_house_x = 145 }
+	add_to_array = { ROM_lower_house_y = 27 }
+	add_to_array = { ROM_lower_house_x = 172 }
+	add_to_array = { ROM_lower_house_y = 103 }
+	add_to_array = { ROM_lower_house_x = 165 }
+	add_to_array = { ROM_lower_house_y = 81 }
+	add_to_array = { ROM_lower_house_x = 158 }
+	add_to_array = { ROM_lower_house_y = 59 }
+	add_to_array = { ROM_lower_house_x = 172 }
+	add_to_array = { ROM_lower_house_y = 91 }
+	add_to_array = { ROM_lower_house_x = 179 }
+	add_to_array = { ROM_lower_house_y = 113 }
+	add_to_array = { ROM_lower_house_x = 152 }
+	add_to_array = { ROM_lower_house_y = 13 }
+	add_to_array = { ROM_lower_house_x = 159 }
+	add_to_array = { ROM_lower_house_y = 35 }
+	add_to_array = { ROM_lower_house_x = 159 }
+	add_to_array = { ROM_lower_house_y = 23 }
+	add_to_array = { ROM_lower_house_x = 166 }
+	add_to_array = { ROM_lower_house_y = 45 }
+	add_to_array = { ROM_lower_house_x = 173 }
+	add_to_array = { ROM_lower_house_y = 67 }
+	add_to_array = { ROM_lower_house_x = 173 }
+	add_to_array = { ROM_lower_house_y = 55 }
+	add_to_array = { ROM_lower_house_x = 180 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 166 }
+	add_to_array = { ROM_lower_house_y = 9 }
+	add_to_array = { ROM_lower_house_x = 174 }
+	add_to_array = { ROM_lower_house_y = 31 }
+	add_to_array = { ROM_lower_house_x = 187 }
+	add_to_array = { ROM_lower_house_y = 99 }
+	add_to_array = { ROM_lower_house_x = 173 }
+	add_to_array = { ROM_lower_house_y = 19 }
+	add_to_array = { ROM_lower_house_x = 187 }
+	add_to_array = { ROM_lower_house_y = 88 }
+	add_to_array = { ROM_lower_house_x = 180 }
+	add_to_array = { ROM_lower_house_y = 42 }
+	add_to_array = { ROM_lower_house_x = 194 }
+	add_to_array = { ROM_lower_house_y = 110 }
+	add_to_array = { ROM_lower_house_x = 188 }
+	add_to_array = { ROM_lower_house_y = 64 }
+	add_to_array = { ROM_lower_house_x = 181 }
+	add_to_array = { ROM_lower_house_y = 7 }
+	add_to_array = { ROM_lower_house_x = 187 }
+	add_to_array = { ROM_lower_house_y = 52 }
+	add_to_array = { ROM_lower_house_x = 188 }
+	add_to_array = { ROM_lower_house_y = 29 }
+	add_to_array = { ROM_lower_house_x = 188 }
+	add_to_array = { ROM_lower_house_y = 17 }
+	add_to_array = { ROM_lower_house_x = 195 }
+	add_to_array = { ROM_lower_house_y = 75 }
+	add_to_array = { ROM_lower_house_x = 195 }
+	add_to_array = { ROM_lower_house_y = 40 }
+	add_to_array = { ROM_lower_house_x = 195 }
+	add_to_array = { ROM_lower_house_y = 5 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 97 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 86 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 51 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 28 }
+	add_to_array = { ROM_lower_house_x = 202 }
+	add_to_array = { ROM_lower_house_y = 16 }
+	add_to_array = { ROM_lower_house_x = 210 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 210 }
+	add_to_array = { ROM_lower_house_y = 74 }
+	add_to_array = { ROM_lower_house_x = 210 }
+	add_to_array = { ROM_lower_house_y = 39 }
+	add_to_array = { ROM_lower_house_x = 210 }
+	add_to_array = { ROM_lower_house_y = 5 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 16 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 28 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 51 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 86 }
+	add_to_array = { ROM_lower_house_x = 217 }
+	add_to_array = { ROM_lower_house_y = 97 }
+	add_to_array = { ROM_lower_house_x = 224 }
+	add_to_array = { ROM_lower_house_y = 5 }
+	add_to_array = { ROM_lower_house_x = 224 }
+	add_to_array = { ROM_lower_house_y = 40 }
+	add_to_array = { ROM_lower_house_x = 225 }
+	add_to_array = { ROM_lower_house_y = 75 }
+	add_to_array = { ROM_lower_house_x = 232 }
+	add_to_array = { ROM_lower_house_y = 17 }
+	add_to_array = { ROM_lower_house_x = 232 }
+	add_to_array = { ROM_lower_house_y = 29 }
+	add_to_array = { ROM_lower_house_x = 232 }
+	add_to_array = { ROM_lower_house_y = 52 }
+	add_to_array = { ROM_lower_house_x = 239 }
+	add_to_array = { ROM_lower_house_y = 7 }
+	add_to_array = { ROM_lower_house_x = 232 }
+	add_to_array = { ROM_lower_house_y = 64 }
+	add_to_array = { ROM_lower_house_x = 225 }
+	add_to_array = { ROM_lower_house_y = 110 }
+	add_to_array = { ROM_lower_house_x = 239 }
+	add_to_array = { ROM_lower_house_y = 42 }
+	add_to_array = { ROM_lower_house_x = 233 }
+	add_to_array = { ROM_lower_house_y = 88 }
+	add_to_array = { ROM_lower_house_x = 246 }
+	add_to_array = { ROM_lower_house_y = 19 }
+	add_to_array = { ROM_lower_house_x = 232 }
+	add_to_array = { ROM_lower_house_y = 99 }
+	add_to_array = { ROM_lower_house_x = 246 }
+	add_to_array = { ROM_lower_house_y = 31 }
+	add_to_array = { ROM_lower_house_x = 253 }
+	add_to_array = { ROM_lower_house_y = 9 }
+	add_to_array = { ROM_lower_house_x = 240 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 247 }
+	add_to_array = { ROM_lower_house_y = 55 }
+	add_to_array = { ROM_lower_house_x = 246 }
+	add_to_array = { ROM_lower_house_y = 67 }
+	add_to_array = { ROM_lower_house_x = 254 }
+	add_to_array = { ROM_lower_house_y = 45 }
+	add_to_array = { ROM_lower_house_x = 261 }
+	add_to_array = { ROM_lower_house_y = 23 }
+	add_to_array = { ROM_lower_house_x = 260 }
+	add_to_array = { ROM_lower_house_y = 35 }
+	add_to_array = { ROM_lower_house_x = 267 }
+	add_to_array = { ROM_lower_house_y = 13 }
+	add_to_array = { ROM_lower_house_x = 241 }
+	add_to_array = { ROM_lower_house_y = 113 }
+	add_to_array = { ROM_lower_house_x = 248 }
+	add_to_array = { ROM_lower_house_y = 91 }
+	add_to_array = { ROM_lower_house_x = 261 }
+	add_to_array = { ROM_lower_house_y = 59 }
+	add_to_array = { ROM_lower_house_x = 254 }
+	add_to_array = { ROM_lower_house_y = 81 }
+	add_to_array = { ROM_lower_house_x = 247 }
+	add_to_array = { ROM_lower_house_y = 103 }
+	add_to_array = { ROM_lower_house_x = 275 }
+	add_to_array = { ROM_lower_house_y = 27 }
+	add_to_array = { ROM_lower_house_x = 268 }
+	add_to_array = { ROM_lower_house_y = 49 }
+	add_to_array = { ROM_lower_house_x = 260 }
+	add_to_array = { ROM_lower_house_y = 71 }
+	add_to_array = { ROM_lower_house_x = 281 }
+	add_to_array = { ROM_lower_house_y = 17 }
+	add_to_array = { ROM_lower_house_x = 274 }
+	add_to_array = { ROM_lower_house_y = 39 }
+	add_to_array = { ROM_lower_house_x = 288 }
+	add_to_array = { ROM_lower_house_y = 32 }
+	add_to_array = { ROM_lower_house_x = 275 }
+	add_to_array = { ROM_lower_house_y = 64 }
+	add_to_array = { ROM_lower_house_x = 295 }
+	add_to_array = { ROM_lower_house_y = 22 }
+	add_to_array = { ROM_lower_house_x = 262 }
+	add_to_array = { ROM_lower_house_y = 97 }
+	add_to_array = { ROM_lower_house_x = 281 }
+	add_to_array = { ROM_lower_house_y = 54 }
+	add_to_array = { ROM_lower_house_x = 287 }
+	add_to_array = { ROM_lower_house_y = 45 }
+	add_to_array = { ROM_lower_house_x = 268 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 274 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 255 }
+	add_to_array = { ROM_lower_house_y = 119 }
+	add_to_array = { ROM_lower_house_x = 261 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 302 }
+	add_to_array = { ROM_lower_house_y = 39 }
+	add_to_array = { ROM_lower_house_x = 308 }
+	add_to_array = { ROM_lower_house_y = 29 }
+	add_to_array = { ROM_lower_house_x = 289 }
+	add_to_array = { ROM_lower_house_y = 71 }
+	add_to_array = { ROM_lower_house_x = 295 }
+	add_to_array = { ROM_lower_house_y = 61 }
+	add_to_array = { ROM_lower_house_x = 300 }
+	add_to_array = { ROM_lower_house_y = 51 }
+	add_to_array = { ROM_lower_house_x = 287 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 282 }
+	add_to_array = { ROM_lower_house_y = 94 }
+	add_to_array = { ROM_lower_house_x = 276 }
+	add_to_array = { ROM_lower_house_y = 104 }
+	add_to_array = { ROM_lower_house_x = 320 }
+	add_to_array = { ROM_lower_house_y = 36 }
+	add_to_array = { ROM_lower_house_x = 315 }
+	add_to_array = { ROM_lower_house_y = 46 }
+	add_to_array = { ROM_lower_house_x = 274 }
+	add_to_array = { ROM_lower_house_y = 116 }
+	add_to_array = { ROM_lower_house_x = 313 }
+	add_to_array = { ROM_lower_house_y = 59 }
+	add_to_array = { ROM_lower_house_x = 307 }
+	add_to_array = { ROM_lower_house_y = 69 }
+	add_to_array = { ROM_lower_house_x = 269 }
+	add_to_array = { ROM_lower_house_y = 127 }
+	add_to_array = { ROM_lower_house_x = 302 }
+	add_to_array = { ROM_lower_house_y = 79 }
+	add_to_array = { ROM_lower_house_x = 332 }
+	add_to_array = { ROM_lower_house_y = 44 }
+	add_to_array = { ROM_lower_house_x = 327 }
+	add_to_array = { ROM_lower_house_y = 54 }
+	add_to_array = { ROM_lower_house_x = 300 }
+	add_to_array = { ROM_lower_house_y = 92 }
+	add_to_array = { ROM_lower_house_x = 294 }
+	add_to_array = { ROM_lower_house_y = 102 }
+	add_to_array = { ROM_lower_house_x = 289 }
+	add_to_array = { ROM_lower_house_y = 112 }
+	add_to_array = { ROM_lower_house_x = 325 }
+	add_to_array = { ROM_lower_house_y = 67 }
+	add_to_array = { ROM_lower_house_x = 319 }
+	add_to_array = { ROM_lower_house_y = 77 }
+	add_to_array = { ROM_lower_house_x = 314 }
+	add_to_array = { ROM_lower_house_y = 88 }
+	add_to_array = { ROM_lower_house_x = 344 }
+	add_to_array = { ROM_lower_house_y = 53 }
+	add_to_array = { ROM_lower_house_x = 338 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 286 }
+	add_to_array = { ROM_lower_house_y = 125 }
+	add_to_array = { ROM_lower_house_x = 311 }
+	add_to_array = { ROM_lower_house_y = 101 }
+	add_to_array = { ROM_lower_house_x = 281 }
+	add_to_array = { ROM_lower_house_y = 136 }
+	add_to_array = { ROM_lower_house_x = 336 }
+	add_to_array = { ROM_lower_house_y = 76 }
+	add_to_array = { ROM_lower_house_x = 306 }
+	add_to_array = { ROM_lower_house_y = 112 }
+	add_to_array = { ROM_lower_house_x = 330 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 355 }
+	add_to_array = { ROM_lower_house_y = 63 }
+	add_to_array = { ROM_lower_house_x = 300 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 325 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 349 }
+	add_to_array = { ROM_lower_house_y = 73 }
+	add_to_array = { ROM_lower_house_x = 346 }
+	add_to_array = { ROM_lower_house_y = 87 }
+	add_to_array = { ROM_lower_house_x = 322 }
+	add_to_array = { ROM_lower_house_y = 111 }
+	add_to_array = { ROM_lower_house_x = 365 }
+	add_to_array = { ROM_lower_house_y = 73 }
+	add_to_array = { ROM_lower_house_x = 297 }
+	add_to_array = { ROM_lower_house_y = 136 }
+	add_to_array = { ROM_lower_house_x = 340 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 359 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 316 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 335 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 292 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 356 }
+	add_to_array = { ROM_lower_house_y = 98 }
+	add_to_array = { ROM_lower_house_x = 311 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 374 }
+	add_to_array = { ROM_lower_house_y = 84 }
+	add_to_array = { ROM_lower_house_x = 331 }
+	add_to_array = { ROM_lower_house_y = 123 }
+	add_to_array = { ROM_lower_house_x = 350 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 368 }
+	add_to_array = { ROM_lower_house_y = 95 }
+	add_to_array = { ROM_lower_house_x = 344 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 325 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 307 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 383 }
+	add_to_array = { ROM_lower_house_y = 96 }
+	add_to_array = { ROM_lower_house_x = 364 }
+	add_to_array = { ROM_lower_house_y = 109 }
+	add_to_array = { ROM_lower_house_x = 377 }
+	add_to_array = { ROM_lower_house_y = 108 }
+	add_to_array = { ROM_lower_house_x = 358 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 319 }
+	add_to_array = { ROM_lower_house_y = 146 }
+	add_to_array = { ROM_lower_house_x = 339 }
+	add_to_array = { ROM_lower_house_y = 135 }
+	add_to_array = { ROM_lower_house_x = 301 }
+	add_to_array = { ROM_lower_house_y = 160 }
+	add_to_array = { ROM_lower_house_x = 391 }
+	add_to_array = { ROM_lower_house_y = 108 }
+	add_to_array = { ROM_lower_house_x = 372 }
+	add_to_array = { ROM_lower_house_y = 122 }
+	add_to_array = { ROM_lower_house_x = 352 }
+	add_to_array = { ROM_lower_house_y = 133 }
+	add_to_array = { ROM_lower_house_x = 333 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 384 }
+	add_to_array = { ROM_lower_house_y = 120 }
+	add_to_array = { ROM_lower_house_x = 365 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 314 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 398 }
+	add_to_array = { ROM_lower_house_y = 121 }
+	add_to_array = { ROM_lower_house_x = 347 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 379 }
+	add_to_array = { ROM_lower_house_y = 135 }
+	add_to_array = { ROM_lower_house_x = 327 }
+	add_to_array = { ROM_lower_house_y = 160 }
+	add_to_array = { ROM_lower_house_x = 359 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 391 }
+	add_to_array = { ROM_lower_house_y = 133 }
+	add_to_array = { ROM_lower_house_x = 404 }
+	add_to_array = { ROM_lower_house_y = 134 }
+	add_to_array = { ROM_lower_house_x = 372 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 340 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 308 }
+	add_to_array = { ROM_lower_house_y = 174 }
+	add_to_array = { ROM_lower_house_x = 384 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 352 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 396 }
+	add_to_array = { ROM_lower_house_y = 147 }
+	add_to_array = { ROM_lower_house_x = 320 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 364 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 409 }
+	add_to_array = { ROM_lower_house_y = 148 }
+	add_to_array = { ROM_lower_house_x = 332 }
+	add_to_array = { ROM_lower_house_y = 174 }
+	add_to_array = { ROM_lower_house_x = 377 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 389 }
+	add_to_array = { ROM_lower_house_y = 162 }
+	add_to_array = { ROM_lower_house_x = 345 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 401 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 357 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 413 }
+	add_to_array = { ROM_lower_house_y = 161 }
+	add_to_array = { ROM_lower_house_x = 369 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 313 }
+	add_to_array = { ROM_lower_house_y = 189 }
+	add_to_array = { ROM_lower_house_x = 381 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 325 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 393 }
+	add_to_array = { ROM_lower_house_y = 176 }
+	add_to_array = { ROM_lower_house_x = 404 }
+	add_to_array = { ROM_lower_house_y = 175 }
+	add_to_array = { ROM_lower_house_x = 336 }
+	add_to_array = { ROM_lower_house_y = 189 }
+	add_to_array = { ROM_lower_house_x = 416 }
+	add_to_array = { ROM_lower_house_y = 176 }
+	add_to_array = { ROM_lower_house_x = 348 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 360 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 372 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 383 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 395 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 407 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 418 }
+	add_to_array = { ROM_lower_house_y = 190 }
+	add_to_array = { ROM_lower_house_x = 315 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 327 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 338 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 350 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 362 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 373 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 385 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 396 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 408 }
+	add_to_array = { ROM_lower_house_y = 205 }
+	add_to_array = { ROM_lower_house_x = 420 }
+	add_to_array = { ROM_lower_house_y = 205 }
+}
