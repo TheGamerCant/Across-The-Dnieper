@@ -175,7 +175,12 @@ technologies = {
 		}
 		
 		path = {
-			leads_to_tech = apc_2
+			leads_to_tech = apc_wheel_upgrade_1
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = apc_armour_upgrade_1
 			research_cost_coeff = 1
 		}
 
@@ -199,6 +204,128 @@ technologies = {
 		}
 	}
 	
+	apc_armour_upgrade_1 = {
+		
+		apc = {
+			max_organisation  = 3
+			hardness = 0.03
+		}
+
+		path = {
+			leads_to_tech = apc_armour_upgrade_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 0.8
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 8 y = 3 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	apc_armour_upgrade_2 = {
+		
+		apc = {
+			max_organisation  = 5
+			hardness = 0.05
+		}
+		
+		path = {
+			leads_to_tech = apc_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 8 y = 5 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	apc_wheel_upgrade_1 = {
+		
+		apc = {
+			maximum_speed = 0.05
+		}
+
+		path = {
+			leads_to_tech = apc_wheel_upgrade_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 0.8
+		start_year = 2010
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 6 y = 3 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	apc_wheel_upgrade_2 = {
+		
+		apc = {
+			maximum_speed = 0.07
+		}
+
+		research_cost = 1
+		start_year = 2016
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = 6 y = 5 }
+		}
+		
+		path = {
+			leads_to_tech = apc_2
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			apc_cat
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	apc_2 = {
 
 		enable_equipments = {
@@ -212,10 +339,10 @@ technologies = {
 
 
 		research_cost = 3
-		start_year = 2016
+		start_year = 2018
 		folder = {
 			name = mil_vehicles_folder
-			position = { x = 7 y = 4 }
+			position = { x = 7 y = 7 }
 		}
 		
 		categories = {
@@ -244,10 +371,10 @@ technologies = {
 
 
 		research_cost = 3
-		start_year = 2018
+		start_year = 2022
 		folder = {
 			name = mil_vehicles_folder
-			position = { x = 7 y = 7 }
+			position = { x = 7 y = 11 }
 		}
 		
 		categories = {
@@ -332,7 +459,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 3
+		research_cost = 1.6
 		start_year = 2014
 		folder = {
 			name = mil_vehicles_folder
@@ -368,7 +495,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.75
+		research_cost = 1.4
 		start_year = 2014
 		folder = {
 			name = mil_vehicles_folder
@@ -460,7 +587,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 3
+		research_cost = 1.8
 		start_year = 2016
 		folder = {
 			name = mil_vehicles_folder
@@ -495,7 +622,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.75
+		research_cost = 1.6
 		start_year = 2016
 		folder = {
 			name = mil_vehicles_folder
@@ -566,7 +693,7 @@ technologies = {
 			}
 		}
 
-		research_cost = 1.75
+		research_cost = 1.8
 		start_year = 2020
 		folder = {
 			name = mil_vehicles_folder
