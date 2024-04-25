@@ -74,11 +74,11 @@ country_event = {
 		}
 		add_popularity = { ideology = libertarian popularity = 0.08 }
         add_popularity = { ideology = social_democracy popularity = 0.08 }
-        add_stability = 0.05
-        add_political_power = 20
+        add_stability = 0.02
+        country_event = {id = romania.4.1}
     } 
 }
-country_event = {
+    country_event = {
     id = romania.5
     title = romania.5.t
     desc = romania.5.desc
@@ -93,9 +93,14 @@ country_event = {
 		add_popularity = { ideology = neoconservative popularity = 0.04 }
         add_popularity = { ideology = social_democracy popularity = 0.04 }
         country_event = {id = romania.5.1}
+        set_variable = { ROM_lower_house_friendly_seats = 277 }
+        set_variable = { ROM_upper_house_friendly_seats = 129 }
     } 
     option = {
         name = romania.5.b
+        if={ 
+               limit = {has_completed_focus = Left_Wave}
+            }
         ai_chance = {
 			base = 10
 		}
@@ -104,20 +109,101 @@ country_event = {
         add_popularity = { ideology = eastern_liberal popularity = 0.02 }
         add_popularity = { ideology = socialist popularity = 0.02 }
         add_popularity = { ideology = moderate_communist popularity = 0.01 }
+        ruling_party = social_democracy
+		elections_allowed = yes
         add_stability = -0.01
-        country_event = {id = romania.5.b.1}
-    } 
+        country_event = {id = romania.Lvictory2014}
+    }}
     option = {
         name = romania.5.c
+        if={ 
+               limit = {has_completed_focus = Right_Wave}
+            }
         ai_chance = {
 			base = 10
 		}
 		add_popularity = { ideology = libertarian popularity = 0.04 }
         add_popularity = { ideology = neoconservative popularity = 0.04 }
         add_popularity = { ideology = populist popularity = 0.02 }
-        add_popularity = { ideology = neoconservative popularity = 0.02 }
+        add_popularity = { ideology = eastern_conservative popularity = 0.02 }
         add_popularity = { ideology = ultranationalist popularity = 0.01 }
+        ruling_party = neoconservative
+		elections_allowed = yes
         add_stability = -0.02
-        country_event = {id = romania.5.c.1}
+        country_event = {id = romania.Rvictory2014}
+    } 
+    country_event = {
+    id = romania.5.1
+    title = romania.5.1.t
+    desc = romania.5.1.desc
+		picture = GFX_report_event_ROM_Romanian_Elections
+		is_triggered_only = yes
+    option = {
+        name = romania.5.1.a
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = neoliberal popularity = 0.04 }
+        add_popularity = { ideology = social_democracy popularity = 0.06 }
+        ruling_party = social_democracy
+		elections_allowed = yes
+        country_event = {id = romania.Lvictory2014}
+    } 
+    option = {
+        name = romania.5.1.b
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = 0.04 }
+        add_popularity = { ideology = neoconservative popularity = 0.06 }
+        ruling_party = neoconservative
+		elections_allowed = yes
+        country_event = {id = romania.Rvictory2014}
+    } 
+
+    }
+
+country_event = {
+    id = romania.Lvictory2014
+    title = romania.Lvictory2014.t
+    desc = romania.Lvictory2014.desc
+		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.Lvictory2014.a
+        ai_chance = {
+			base = 10
+		}
+    } 
+}
+
+country_event = {
+    id = romania.Rvictory2014
+    title = romania.Rvictory2014.t
+    desc = romania.Rvictory2014.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.Rvictory2014.a
+        ai_chance = {
+			base = 10
+		}
+    } 
+}
+
+    country_event = {
+    id = romania.4.1
+    title = romania.4.1.t
+    desc = romania.4.1.desc
+		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.4.1.a
+        ai_chance = {
+			base = 10
+		}
     } 
 }
