@@ -5725,6 +5725,35 @@ UKR_miliary_aid_decision = {
 		}
 	}
 
+	UKR_purchase_f16s = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = UKR_military_aid_decision_cost_jets
+
+		available = {
+			NOT = { has_country_flag = aid_deal_going_on }
+			custom_trigger_tooltip = {
+				tooltip = UKR_ma_usa_enough_willingness		
+				check_variable = { UKR_ma_usa_variable > 60 }
+			}
+		}
+
+		visible = {
+			has_country_flag = UKR_ma_usa_selected
+		}
+
+		complete_effect = {
+			set_country_flag = aid_deal_going_on
+			UKR_clear_military_aid_equipment = yes
+			UKR_clear_military_aid_sender = yes
+			set_country_flag = UKR_ma_receiving_from_usa
+			set_country_flag = UKR_ma_selected_f16
+
+			UKR_calculate_military_aid = yes
+		}
+	}
+
 	UKR_purchase_abrams = {
 		icon = GFX_decision_category_usa_congress
 		priority = 200

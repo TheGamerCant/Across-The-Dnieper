@@ -3844,7 +3844,7 @@ country_event = {
 		set_variable_to_random = {
 			var = western_troops_id
 			min = 1
-			max = 9
+			max = 10
 			integer = yes
 		}
 
@@ -4089,8 +4089,8 @@ country_event = {
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
-							elite_special_forces = { x = 2 y = 0 }
-							irregular_infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
 						}
 						support = {
 							artillery = { x = 0 y = 0 }
@@ -4120,8 +4120,39 @@ country_event = {
 							apc = { x = 1 y = 0 }
 							apc = { x = 1 y = 1 }
 							anti_air_brigade = { x = 1 y = 2 }
-							elite_special_forces = { x = 2 y = 0 }
-							irregular_infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 }
+							recon  = { x = 0 y = 1 }
+							engineer = {x = 0 y = 2}
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { check_variable = { western_troops_id = 10 } }
+
+				if = {
+					limit = { NOT = { has_template = "115th Mechanized Brigade" } }
+
+					division_template = {
+						name = "115th Mechanized Brigade"
+						division_names_group = UKR_INF_01
+						is_locked = yes
+						template_counter = 302
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							modern_armor = { x = 0 y = 2 }
+							modern_armor = { x = 0 y = 3 }
+							apc = { x = 1 y = 0 }
+							apc = { x = 1 y = 1 }
+							anti_air_brigade = { x = 1 y = 2 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
 						}
 						support = {
 							artillery = { x = 0 y = 0 }
@@ -6396,6 +6427,57 @@ country_event = {
 			mission = UKR_new_mobilization_law
 			days = 15
 		}
+	}
+}
+
+#Go to africa?
+country_event = {
+	id = ukraine.158
+	title = ukraine.158.t
+	desc = ukraine.158.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_wagner_in_sudan
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.158.a
+
+		set_temp_variable = { temp_var = UKR.executive_successful_operation_chance_modifier }
+		add_to_temp_variable = { temp_var = executive_forces_morale_modifier }
+		add_to_temp_variable = { temp_var = executive_strategy_modifier }
+
+		divide_temp_variable = { temp_var = 3 }
+
+		set_temp_variable = { temp_var_2 = 100 }
+		subtract_from_temp_variable  = { temp_var_2 = temp_var }
+
+		random_list = {
+			temp_var = {
+				add_command_power = 15
+				army_experience = 20
+				add_offsite_building = { type = industrial_complex level = 1 } 
+				hidden_effect = { SOV = { country_event = { id = russia.1152 days = 14 } } }
+			}
+
+			temp_var_2 = {
+				add_manpower = -100
+				add_command_power = -3
+			}
+		}
+
+
+
+		
+
+	}
+
+	option = { 
+		name = ukraine.158.b
+
+		add_war_support = -0.025
 	}
 }
 

@@ -999,6 +999,33 @@ UKR_give_military_aid = {
 			}
 		}
 
+		else_if = {
+			limit = { has_country_flag = UKR_ma_selected_f16 }
+
+			multiply_temp_variable = { military_aid_added_up = UKR_max_f16 }
+
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_airframe_0
+					variant_name = "F-16"
+					amount = military_aid_added_up
+					producer = USA
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = fighter_equipment_0
+					amount = military_aid_added_up
+					producer = USA
+				}
+			}
+
+
+		}
+
 		clr_country_flag = aid_deal_going_on
 	#}
 }
