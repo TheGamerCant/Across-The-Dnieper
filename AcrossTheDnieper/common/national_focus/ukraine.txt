@@ -11259,6 +11259,48 @@ focus_tree = {
 	}
 
 	focus = {
+		id = UKR_expand_power_of_supreme_commander_in_chief
+
+		icon = GFX_focus
+		x = -3
+		y = 4
+		
+		cost = 19
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_visit_frontline }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			volodymyr_zelenskyy_is_leader = yes
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = { has_ideas = UKR_commander_in_chief }
+
+				swap_ideas = {
+					remove_idea = UKR_commander_in_chief
+					add_idea = UKR_supreme_commander_in_chief
+				}
+			}
+
+			custom_effect_tooltip = UKR_expand_power_of_supreme_commander_in_chief_tt
+			
+			
+		}
+	}
+
+	focus = {
 		id = UKR_lower_conscription_age
 		icon = GFX_focus_UKR_Lower_Conscription_Age
 		x = 1
