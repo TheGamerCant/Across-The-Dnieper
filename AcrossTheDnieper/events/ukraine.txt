@@ -6006,7 +6006,7 @@ country_event = { #No manpower
 	option = { 
 		name = ukraine.141.a
 		custom_effect_tooltip = "ukraine.141.tt"
-		add_to_variable = { UKR_ms_conscription = -0.18 }
+		add_to_variable = { UKR_ms_conscription = -0.2 }
 	}
 }
 
@@ -6405,6 +6405,10 @@ country_event = {
 		add_to_variable = { UKR_ms_planning = -0.02 }
 		add_to_variable = { UKR_ms_weekly_manpower = -10 }
 		add_to_variable = { UKR_ms_consumer = -0.05 }
+
+		hidden_effect = {
+			country_event = { id = ukraine.159 days = 69 }
+		}
 	}
 }
 
@@ -6478,6 +6482,26 @@ country_event = {
 		name = ukraine.158.b
 
 		add_war_support = -0.025
+	}
+}
+
+#An Ageing Army
+country_event = {
+	id = ukraine.159
+	title = ukraine.159.t
+	desc = ukraine.159.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_cool_soldier
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.159.a
+		custom_effect_tooltip = "ukraine.159.tt"
+		add_to_variable = { UKR_ms_morale = -0.02 }
+		add_to_variable = { UKR_ms_experience_loss = 0.1 }
 	}
 }
 

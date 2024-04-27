@@ -3148,8 +3148,10 @@ focus_tree = {
 			146 = {
 				any_neighbor_state = {
 					CONTROLLER={
-						is_puppet_of = SOV
-						original_tag = SOV
+						OR = {
+							is_puppet_of = SOV
+							original_tag = SOV
+						}
 					}
 				}
 			}
@@ -3720,6 +3722,7 @@ focus_tree = {
 				}
 			}
 
+			add_offsite_building = { type = arms_factory level = 5 }
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment_1
 				amount = 35000
@@ -3851,7 +3854,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_Combat_Drone_Technology
 		x = 2
 		y = 1
-		cost = 35
+		cost = 30
 		search_filters = {
 			
 		}
