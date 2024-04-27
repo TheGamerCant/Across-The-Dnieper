@@ -3130,6 +3130,75 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SOV_push_for_bakhmut
+		icon = GFX_focus_SOV_offensives_in_donbass_2
+		x = -3
+		y = 4
+		cost = 30
+
+		prerequisite = { focus = SOV_offensives_in_donbass_2 }
+		mutually_exclusive = { focus = SOV_the_push_to_odessa }
+		relative_position_id = SOV_the_quagmire
+		
+		available={
+			has_war_with = UKR
+			has_global_flag = smo_donbass_front_open
+
+			NOT = { 146 = { is_controlled_by = SOV } }
+			146 = {
+				any_neighbor_state = {
+					CONTROLLER={
+						is_puppet_of = SOV
+						original_tag = SOV
+					}
+				}
+			}
+		}
+		
+		completion_reward={
+			
+			hidden_effect={
+				country_event = { id = russia.1153 days = 130 }
+			}
+
+			if = {
+				limit = { has_global_flag = Wagner_mutiny_happened_flag }
+				146={
+					add_dynamic_modifier = {
+						modifier = SOV_local_offensive_modifier
+						scope = SOV
+						days = 130
+					}
+				}
+			}
+			else = {
+				146={
+					add_dynamic_modifier = {
+						modifier = UKR_minor_wagner_offensive
+						scope = SOV
+						days = 130
+					}
+				}
+			}
+
+			custom_effect_tooltip = SOV_push_for_bakhmut_tt
+
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						state = 146
+					}
+	
+					add_dynamic_modifier = {
+						modifier = UKR_heavily_entrenched_russians
+						scope = UKR
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = SOV_secure_the_land_bridge
 		icon = GFX_focus_SOV_Secure_The_Land_Bridge
 		x = -4

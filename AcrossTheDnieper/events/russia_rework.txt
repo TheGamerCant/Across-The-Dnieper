@@ -5836,6 +5836,40 @@ country_event = {
     }
 }
 
+#Bakhmut offensive success
+country_event = {
+    id = russia.1153
+    title = russia.1153.t
+    desc = russia.1153.desc
+    picture = SOV_wagner_fall
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+
+		146 = { is_controlled_by = SOV }
+	}
+
+    option = {
+        name = russia.1153.a
+		ai_chance = {
+			base = 10
+		}
+
+		every_state = {
+			limit = {
+				is_controlled_by = SOV
+				state = 146
+			}
+
+			add_dynamic_modifier = {
+				modifier = UKR_heavily_entrenched_russians
+				scope = UKR
+			}
+		}
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
