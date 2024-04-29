@@ -13,7 +13,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 1.35
 		start_year = 2010
 		folder = {
 			name = electronics_folder
@@ -39,17 +39,21 @@ technologies = {
 
 		# units with radios can more efficiently join combats when there is room
 		land_reinforce_rate = 0.05
-		coordination_bonus = 0.01
+		coordination_bonus = 0.03
 		army_intel_to_others = -2.0
 		navy_intel_to_others = -2.0
 		airforce_intel_to_others = -2.0
 		
 		path = {
-			leads_to_tech = radio_detection 
+			leads_to_tech = radar_building_1 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = radio_upgrades_1 
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 1.35
 		
 		folder = {
 			name = electronics_folder
@@ -84,24 +88,209 @@ technologies = {
 		}
 	}
 	
-	radio_detection = {
+	radio_upgrades_1 = {
+
+		path = {
+			leads_to_tech = radio_upgrades_2 
+			research_cost_coeff = 1
+		}
+		land_reinforce_rate = 0.01
+		coordination_bonus = 0.02
+		
+		army_org_factor = 0.02
+		
+		research_cost = 1.2
+		
+		
+		start_year = 2014
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radio_upgrades_2 = {
+
+		path = {
+			leads_to_tech = radio_upgrades_3 
+			research_cost_coeff = 1
+		}
+		land_reinforce_rate = 0.01
+		coordination_bonus = 0.02
+		
+		army_org_factor = 0.02
+		
+		research_cost = 1.2
+		
+		
+		start_year = 2016
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radio_upgrades_3 = {
+
+		path = {
+			leads_to_tech = radio_upgrades_4
+			research_cost_coeff = 1
+		}
+		land_reinforce_rate = 0.01
+		coordination_bonus = 0.02
+		
+		army_org_factor = 0.02
+		
+		research_cost = 1.2
+		
+		
+		start_year = 2018
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radio_upgrades_4 = {
+
+		path = {
+			leads_to_tech = radio_upgrades_5
+			research_cost_coeff = 1
+		}
+		land_reinforce_rate = 0.02
+		coordination_bonus = 0.035
+		
+		army_org_factor = 0.05
+		
+		research_cost = 1.5
+		
+		
+		start_year = 2020
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radio_upgrades_5 = {
+
+		path = {
+			leads_to_tech = radio_upgrades_6
+			research_cost_coeff = 1
+		}
+		land_reinforce_rate = 0.02
+		coordination_bonus = 0.035
+		
+		army_org_factor = 0.05
+		
+		research_cost = 1.5
+		
+		
+		start_year = 2022
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radio_upgrades_6 = {
+
+		land_reinforce_rate = 0.02
+		coordination_bonus = 0.04
+		
+		army_org_factor = 0.05
+		
+		research_cost = 1.5
+		
+		
+		start_year = 2024
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+		}
+	}
+	
+	radar_building_1 = {
 
 		# 
 		enable_building = {
 			building = radar_station
 			level = 1
 		}
-		coordination_bonus = 0.01
 		path = {
-			leads_to_tech = decimetric_radar 
+			leads_to_tech = radar_building_2 
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.75
+		start_year = 2014
+		
+		anti_air = {
+			air_attack = 0.03
+		}
+		anti_air_brigade = {
+			air_attack = 0.03
+		}
+		static_anti_air_hit_chance_factor = 0.05
+		
+		research_cost = 1
 		
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 4 }
+			position = { x = -3 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -118,21 +307,28 @@ technologies = {
 		}
 	}
 	
-	decimetric_radar = {
+	radar_building_2 = {
 
 		# can build radars/radar boost in air/sea combat depends on radar level
 
 		path = {
-			leads_to_tech = improved_decimetric_radar 
+			leads_to_tech = radar_building_3 
 			research_cost_coeff = 1
 		}
-		coordination_bonus = 0.01
-		research_cost = 1.25
+		research_cost =1
 		start_year = 2016
+		
+		anti_air = {
+			air_attack = 0.03
+		}
+		anti_air_brigade = {
+			air_attack = 0.03
+		}
+		static_anti_air_hit_chance_factor = 0.05
 	
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 6 }
+			position = { x = -3 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -161,27 +357,34 @@ technologies = {
 		}
 	}
 	
-	improved_decimetric_radar = {
+	radar_building_3 = {
 
 		# radar boost in air/sea combat depends on radar level
 		enable_building = {
 			building = radar_station
 			level = 3
 		}
-		coordination_bonus = 0.01
 
 
 		path = {
-			leads_to_tech = centimetric_radar 
+			leads_to_tech = radar_building_4 
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.25
+		anti_air = {
+			air_attack = 0.03
+		}
+		anti_air_brigade = {
+			air_attack = 0.03
+		}
+		static_anti_air_hit_chance_factor = 0.05
+		
+		research_cost = 1
 		start_year = 2018
 		
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 8 }
+			position = { x = -3 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -205,29 +408,33 @@ technologies = {
 		}
 	}
 	
-	centimetric_radar = {
+	radar_building_4 = {
 
 		# radar boost in air/sea combat depends on radar level
 		enable_building = {
 			building = radar_station
 			level = 4
 		}
-		coordination_bonus = 0.01
 
-
+		anti_air = {
+			air_attack = 0.08
+		}
+		anti_air_brigade = {
+			air_attack = 0.08
+		}
 		static_anti_air_hit_chance_factor = 0.2
 		
 		path = {
-			leads_to_tech = improved_centimetric_radar 
+			leads_to_tech = radar_building_5 
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.25
+		research_cost = 1.3
 		start_year = 2020
 		
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 10 }
+			position = { x = -3 y = 10 }
 		}
 		
 		ai_will_do = {
@@ -251,27 +458,32 @@ technologies = {
 		}
 	}
 	
-	improved_centimetric_radar = {
+	radar_building_5 = {
 
 		# radar boost in air/sea combat depends on radar level
 		enable_building = {
 			building = radar_station
 			level = 5
 		}
-		coordination_bonus = 0.01
+		anti_air = {
+			air_attack = 0.08
+		}
+		anti_air_brigade = {
+			air_attack = 0.08
+		}
 		static_anti_air_hit_chance_factor = 0.2
 		
 		path = {
-			leads_to_tech = advanced_centimetric_radar 
+			leads_to_tech = radar_building_6 
 			research_cost_coeff = 1
 		}
-		
-		research_cost = 1.25
+
+		research_cost = 1.3
 		start_year = 2022
 		
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 12 }
+			position = { x = -3 y = 12 }
 		}
 		
 		ai_will_do = {
@@ -295,23 +507,28 @@ technologies = {
 		}
 	}
 	
-	advanced_centimetric_radar = {
+	radar_building_6 = {
 
 		# radar boost in air/sea combat depends on radar level
 		enable_building = {
 			building = radar_station
 			level = 6
 		}
-		coordination_bonus = 0.01
 		
+		anti_air = {
+			air_attack = 0.08
+		}
+		anti_air_brigade = {
+			air_attack = 0.08
+		}
 		static_anti_air_hit_chance_factor = 0.2
 		
-		research_cost = 1.25
+		research_cost = 1.3
 		start_year = 2024
 		
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 14 }
+			position = { x = -3 y = 14 }
 		}
 		
 		ai_will_do = {
@@ -347,7 +564,7 @@ technologies = {
 		}
 		
 		
-		start_year = 2015
+		start_year = 2014
 		research_cost = 2.0
 		
 		folder = {
