@@ -7,7 +7,6 @@ focus_tree = {
 			add  = 100
 			tag = SOV
 		}
-
 	}
 	
 	focus = {
@@ -348,6 +347,7 @@ focus_tree = {
 	continuous_focus_position = { x = 80 y = 2280 } 
 	country = {
 		factor = 0
+
 	}
 	
 	focus = {
@@ -654,6 +654,7 @@ focus_tree = {
 					division_template = {
 						name = "Russian Regular Forces"
 						division_names_group = SOV_INF_01
+						template_counter = 185
 						regiments = {
 							infantry = { x = 0 y = 0 }
 							infantry = { x = 0 y = 1 }
@@ -702,7 +703,7 @@ focus_tree = {
 			custom_effect_tooltip = SOV_movements_on_the_border_tt
 			hidden_effect={
 				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 221 } country_event = { id = russia.1149 days = 108 } country_event = { id = russia.1150 days = 41 } }
-				UKR = { country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } }
+				UKR = { country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } country_event = { id = ukraine.160 days = 64 }  }
 				POL = { country_event = { id = atd_poland.24 days = 265 } }
 
 				news_event = { id = atd_news.73 days = 84 } 
@@ -723,6 +724,17 @@ focus_tree = {
 					add_dynamic_modifier = {
 						modifier = not_allowed_to_attack_here
 						scope = UKR
+					}
+				}
+
+				230 = {
+					add_province_modifier = {
+						static_modifiers = { UKR_loyal_defenders_mariupol }
+						province = {
+							id = 6470
+							id = 6609
+							id = 12002
+						}
 					}
 				}
 				
@@ -995,12 +1007,7 @@ focus_tree = {
 					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 30 } 
 				}
 				
-				146 = {
-					add_province_modifier = {
-						static_modifiers = { wagner_in_bakhmut }
-						province = 17988
-					}
-				}
+
 
 
 
@@ -2872,7 +2879,7 @@ focus_tree = {
 			
 		}
 		available={
-			hidden_trigger = { always = no }
+			
 		}
 		bypass={
 			has_war_with = UKR
@@ -2898,6 +2905,7 @@ focus_tree = {
 		
 		
 		completion_reward={
+			custom_effect_tooltip = SOV_the_quagmire_tt_2
 		}
 	}
 	
@@ -2920,12 +2928,12 @@ focus_tree = {
 		
 		completion_reward={
 			add_to_variable = { SOV_raspizdyaystvo_supply_node_range = 0.1 }
-			subtract_from_variable = { SOV_raspizdyaystvo_attrition = 0.06 }
+			subtract_from_variable = { SOV_raspizdyaystvo_attrition = 0.08 }
 			custom_effect_tooltip = SOV_fix_our_logistics_tt
 			
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = 200
+				amount = 500
 			}
 		}
 	}
@@ -3059,11 +3067,11 @@ focus_tree = {
 	focus = {
 		id = SOV_offensives_in_donbass_2
 		icon = GFX_focus_SOV_offensives_in_donbass_2
-		x = -3
-		y = 2
-		cost = 24
+		x = -4
+		y = 3
+		cost = 20
 
-		prerequisite = { focus = SOV_the_quagmire }
+		prerequisite = { focus = SOV_secure_the_land_bridge }
 		mutually_exclusive = { focus = SOV_the_push_to_odessa }
 		relative_position_id = SOV_the_quagmire
 		
@@ -3136,8 +3144,7 @@ focus_tree = {
 		y = 4
 		cost = 30
 
-		prerequisite = { focus = SOV_offensives_in_donbass_2 }
-		mutually_exclusive = { focus = SOV_the_push_to_odessa }
+		prerequisite = { focus = SOV_secure_the_land_bridge }
 		relative_position_id = SOV_the_quagmire
 		
 		available={
@@ -3145,6 +3152,7 @@ focus_tree = {
 			has_global_flag = smo_donbass_front_open
 
 			NOT = { 146 = { is_controlled_by = SOV } }
+			has_completed_focus = SOV_utilise_wagner
 			146 = {
 				any_neighbor_state = {
 					CONTROLLER={
@@ -3161,6 +3169,13 @@ focus_tree = {
 			
 			hidden_effect={
 				country_event = { id = russia.1153 days = 130 }
+
+				146 = {
+					add_province_modifier = {
+						static_modifiers = { wagner_in_bakhmut }
+						province = 17988
+					}
+				}
 			}
 
 			if = {
@@ -3203,16 +3218,16 @@ focus_tree = {
 	focus = {
 		id = SOV_secure_the_land_bridge
 		icon = GFX_focus_SOV_Secure_The_Land_Bridge
-		x = -4
-		y = 3
-		cost = 20
+		x = -3
+		y = 2
+		cost = 22
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
 
 		
 		relative_position_id = SOV_the_quagmire
-		prerequisite = { focus = SOV_offensives_in_donbass_2 }
+		prerequisite = { focus = SOV_the_quagmire }
 
 		available={
 			has_war_with = UKR
@@ -3272,7 +3287,7 @@ focus_tree = {
 			
 		}
 
-		prerequisite = { focus = SOV_offensives_in_donbass_2 }
+		prerequisite = { focus = SOV_secure_the_land_bridge }
 		relative_position_id = SOV_the_quagmire
 		available={
 			has_war_with = UKR
@@ -3309,7 +3324,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_push_to_odessa
 		x = 3
 		y = 2
-		cost = 24
+		cost = 22
 		search_filters = {
 			
 		}

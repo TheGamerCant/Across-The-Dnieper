@@ -6505,6 +6505,59 @@ country_event = {
 	}
 }
 
+#USA revives lend-lease factories
+country_event = {
+	id = ukraine.160
+	title = ukraine.160.t
+	desc = ukraine.160.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_usa
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.160.a
+		add_political_power = 5
+		custom_effect_tooltip = "ukraine.160.tt"
+
+		hidden_effect = {
+			subtract_from_variable = { UKR_military_aid_decision_cost_artillery = 5 }
+			subtract_from_variable = { UKR_military_aid_decision_cost_jets = 5 }
+			subtract_from_variable = { UKR_military_aid_decision_cost_tank = 5 }
+			subtract_from_variable = { UKR_military_aid_decision_cost_ifv = 5 }
+			subtract_from_variable = { UKR_military_aid_decision_cost_vehicle = 5 }
+			subtract_from_variable = { UKR_military_aid_decision_cost_other = 5 }
+
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_artillery
+                min = 5
+            }
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_jets
+                min = 5
+            }
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_tank
+                min = 5
+            }
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_ifv
+                min = 5
+            }
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_vehicle
+                min = 5
+            }
+			clamp_variable = {
+                var = UKR_military_aid_decision_cost_other
+                min = 5
+            }
+		}
+	}
+}
+
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1

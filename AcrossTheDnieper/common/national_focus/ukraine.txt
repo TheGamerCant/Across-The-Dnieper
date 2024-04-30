@@ -5988,10 +5988,22 @@ focus_tree = {
 				}
 				retire_character = UKR_volodymyr_zamana
 			}
-			add_timed_idea={
-				idea = UKR_high_command_purged
-				days = 180
+			if = {
+				limit = {
+					SOV = { is_ai = yes }
+				}
+				add_timed_idea={
+					idea = UKR_high_command_purged
+					days = 180
+				}
 			}
+			else = {
+				add_timed_idea={
+					idea = UKR_high_command_purged_ai
+					days = 180
+				}
+			}
+
 		}
 	}
 	
@@ -7705,7 +7717,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = limited_conscription
+			if = {
+				limit = { NOT = { has_ideas = limited_conscription } }
+				add_ideas = limited_conscription
+			}
 			custom_effect_tooltip = UKR_mobilise_the_national_guard_tt
 			hidden_effect={
 				division_template = {
@@ -7716,11 +7731,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7735,11 +7747,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7754,11 +7763,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7773,11 +7779,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7792,11 +7795,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7811,11 +7811,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7830,11 +7827,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7849,11 +7843,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7868,11 +7859,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7887,11 +7875,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7906,11 +7891,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7926,11 +7908,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7945,11 +7924,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7964,11 +7940,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -7983,11 +7956,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						modern_armor = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
@@ -8003,11 +7973,8 @@ focus_tree = {
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
-						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 1 }
 						irregular_infantry = { x = 1 y = 0 }
-						apc = { x = 1 y = 1 }
-						mechanized = { x = 1 y = 2 }	
-						mechanized = { x = 2 y = 0 }
 					}
 					support = {
 						artillery = { x = 0 y = 0 }
