@@ -217,6 +217,7 @@ focus_tree = {
 				name = ROM_doctrine_air
 				uses = 1
 				category = air_doctrine
+				cost_reduction = 0.5
 			}
             swap_ideas={
             remove_idea = 3_Stage_Military_Restructuring_2
@@ -351,6 +352,62 @@ focus_tree = {
             add_idea = 3_Stage_Military_Restructuring_7
 		    }
             air_experience = 50
+		}
+	}
+	focus = {
+		id =  Black_Sea_Capability_Expansion
+		icon = GFX_Black_Sea_Capability_Expansion
+		x = 18
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_navy
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+            naval_experience = 50
+		}
+	}
+	focus = {
+		id =  Nato_Naval_Operations
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 17
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Black_Sea_Capability_Expansion }
+
+		completion_reward = {
+			swap_ideas={
+            remove_idea = 3_Stage_Military_Restructuring_7
+            add_idea = 3_Stage_Military_Restructuring_8
+		    }
+			swap_ideas={
+            remove_idea = Romanian_Military_Industry_4
+            add_idea = Romanian_Military_Industry_5
+		    }
+            naval_experience = 25
 		}
 	}
 }
