@@ -2675,29 +2675,6 @@ country_event = {
 				set_capital = { state = 25 }
 			}
 		}
-
-		if = {
-			limit = {
-				146 = {
-					AND = {
-						any_neighbor_state = {
-							OR = {
-								is_controlled_by = SOV
-								is_controlled_by = DON
-								is_controlled_by = LHK
-							}
-						}
-	
-						NOT = { is_controlled_by = SOV }
-					}
-				}
-			}
-
-			remove_province_modifier = {
-				static_modifiers = { wagner_in_bakhmut }
-				province = 17988
-			}
-		}
     }
 }
 
