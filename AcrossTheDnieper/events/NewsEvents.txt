@@ -2572,3 +2572,52 @@ news_event = {	#Adam Jarubas becomes president of poland
 		}
 	}
 }
+
+news_event = {	#putin warns about west sending equipment
+	id = atd_news.83
+	title = atd_news.83.t
+	desc = atd_news.83.desc
+	picture = GFX_news_event_putin_mobilization
+	major = yes
+	
+	is_triggered_only = yes
+
+	trigger={
+		UKR = { has_war_with = SOV }
+	}
+
+	option = {
+		name = atd_news.83.a
+		trigger = {
+			OR={
+				TAG = SOV
+				is_in_faction_with = SOV
+				is_puppet_of = SOV
+			}
+			
+		}
+
+		effect_tooltip = { UKR = { UKR_ma_decrese_willingness_3_all = yes } }
+	}
+	option = {
+		name = atd_news.83.b
+		trigger = {
+			has_idea = eu_member
+		}
+		effect_tooltip = { UKR = { UKR_ma_decrese_willingness_3_all = yes } }
+	}
+	option = {
+		name = atd_news.83.c
+		trigger = {
+			NOT = {
+				OR={
+					has_idea = eu_member
+					TAG = SOV
+					is_in_faction_with = SOV
+					is_puppet_of = SOV
+				}
+			}
+		}
+		effect_tooltip = { UKR = { UKR_ma_decrese_willingness_3_all = yes } }
+	}
+}

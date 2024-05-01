@@ -2927,10 +2927,13 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_aleksandr_vladimirovich_dvornikov_rework = {
+				add_planning = 1
+				gain_xp = 350
+			}
 			add_to_variable = { SOV_raspizdyaystvo_supply_node_range = 0.1 }
 			subtract_from_variable = { SOV_raspizdyaystvo_attrition = 0.08 }
 			custom_effect_tooltip = SOV_fix_our_logistics_tt
-			
 			add_equipment_to_stockpile = {
 				type = train_equipment
 				amount = 500
@@ -2943,7 +2946,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_Combat_Drone_Technology
 		x = 4
 		y = 5
-		cost = 35
+		cost = 25
 		search_filters = {
 			
 		}
@@ -2955,6 +2958,35 @@ focus_tree = {
 		
 		completion_reward={
 			country_event = { id = russia.1115 random_hours = 5 }
+		}
+	}
+
+	focus = {
+		id = SOV_warn_the_west
+		icon = GFX_focus
+		x = 6
+		y = 5
+		cost = 10
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_announce_the_draft }
+		relative_position_id = SOV_the_quagmire
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			add_political_power = 15
+			hidden_effect = { news_event = { days = 3 id = atd_news.83 } }
+			UKR = {
+				UKR_ma_decrese_willingness_3_all = yes
+			}
+			every_country = {
+				limit = { has_idea = eu_member }
+
+				add_opinion_modifier = { target = SOV modifier = medium_decrease }
+			}
 		}
 	}
 
@@ -2976,8 +3008,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_political_power = -5
-			add_stability = -0.005
+
 			effect_tooltip = {
 				if = {
 					limit = { UKR = { has_idea = UKR_intensified_shelling } }
@@ -2996,6 +3027,7 @@ focus_tree = {
 			hidden_effect = {
 				UKR = { country_event = { id = russia.1121 random_hours = 12 } }
 			}
+			add_stability = -0.005
 		}
 	}
 
@@ -3017,8 +3049,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_war_support = 0.03
-			add_stability = -0.04
+
 			effect_tooltip = {
 				if = {
 					limit = { UKR = { has_idea = UKR_intensified_shelling } }
@@ -3037,6 +3068,7 @@ focus_tree = {
 			hidden_effect = {
 				UKR = { country_event = { id = russia.1122 random_hours = 12 } }
 			}
+			add_war_support = 0.03
 		}
 	}
 
@@ -3139,7 +3171,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_push_for_bakhmut
-		icon = GFX_focus_SOV_offensives_in_donbass_2
+		icon = GFX_focus
 		x = -3
 		y = 4
 		cost = 30
@@ -3866,7 +3898,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_state_of_our_economy
-		icon = GFX_focus_SOV_Combat_Drone_Technology
+		icon = GFX_focus
 		x = 2
 		y = 1
 		cost = 30
@@ -3918,7 +3950,7 @@ focus_tree = {
 	
 	focus = {
 		id = SOV_expanding_the_nation
-		icon = GFX_focus_SOV_expanding_the_nation
+		icon = GFX_focus
 		x = -2
 		y = 2
 		cost = 30
