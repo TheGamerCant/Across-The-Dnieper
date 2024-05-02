@@ -72,7 +72,7 @@ focus_tree = {
 				uses = 2
 				category = land_doctrine
 			}
-             swap_ideas={
+             swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring
             add_idea = 3_Stage_Military_Restructuring_1
 		    }
@@ -96,7 +96,7 @@ focus_tree = {
 		prerequisite = { focus = land_force_doctrine_reform }
 
 		completion_reward = {
-             swap_ideas={
+             swap_ideas = {
             remove_idea = romanian_military_industry
             add_idea = romanian_military_industry_2
 
@@ -121,7 +121,7 @@ focus_tree = {
 		prerequisite = { focus = land_force_doctrine_reform }
 
 		completion_reward = {
-             swap_ideas={
+             swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_1
             add_idea = 3_Stage_Military_Restructuring_2
 		    }
@@ -146,7 +146,7 @@ focus_tree = {
 		prerequisite = { focus = Rigorous_Military_Training }
 
 		completion_reward = {
-             swap_ideas={
+             swap_ideas = {
             remove_idea = Romanian_Military_Industry_2
             add_idea = Romanian_Military_Industry_3
 		    }
@@ -190,7 +190,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = increase_randd_standards }
 		completion_reward = {
-            swap_ideas={
+            swap_ideas = {
             remove_idea = Romanian_Military_Industry_2
             add_idea = Romanian_Military_Industry_3
 		    }
@@ -219,7 +219,7 @@ focus_tree = {
 				category = air_doctrine
 				cost_reduction = 0.5
 			}
-            swap_ideas={
+            swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_2
             add_idea = 3_Stage_Military_Restructuring_3
 		    }
@@ -243,7 +243,7 @@ focus_tree = {
 		prerequisite = { focus = Modernize_The_Airforce }
 		completion_reward = {
 			air_experience = 50
-			swap_ideas={
+			swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_3
             add_idea = 3_Stage_Military_Restructuring_4
 		    }
@@ -268,7 +268,7 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 50
 			add_political_power = -25
-			swap_ideas={
+			swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_4
             add_idea = 3_Stage_Military_Restructuring_5
 		    }
@@ -293,9 +293,10 @@ focus_tree = {
 		prerequisite = { focus = Humanitarian_and_Peacekeeping_Operations }
 
 		completion_reward = {
-			swap_ideas={
+			swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_5
             add_idea = 3_Stage_Military_Restructuring_6
+		    }
 			 add_tech_bonus = {
                 name = ROM_air
                 bonus = 1.0
@@ -304,7 +305,6 @@ focus_tree = {
             }	
 		    }
 		}
-	}
 	focus = {
 		id =  Collaboration_with_Industry_and_Research_Institutions
 		icon = GFX_Collaboration_with_Industry_and_research_intitutions
@@ -323,7 +323,7 @@ focus_tree = {
 		prerequisite = { focus = Modernization_Programs }
 
 		completion_reward = {
-			swap_ideas={
+			swap_ideas = {
             remove_idea = Romanian_Military_Industry_3
             add_idea = Romanian_Military_Industry_4
 		    }
@@ -347,7 +347,7 @@ focus_tree = {
 		prerequisite = { focus = Modernization_Programs }
 
 		completion_reward = {
-			swap_ideas={
+			swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_6
             add_idea = 3_Stage_Military_Restructuring_7
 		    }
@@ -399,11 +399,11 @@ focus_tree = {
 		prerequisite = { focus = Black_Sea_Capability_Expansion }
 
 		completion_reward = {
-			swap_ideas={
+			swap_ideas = {
             remove_idea = 3_Stage_Military_Restructuring_7
             add_idea = 3_Stage_Military_Restructuring_8
 		    }
-			swap_ideas={
+			swap_ideas = {
             remove_idea = Romanian_Military_Industry_4
             add_idea = Romanian_Military_Industry_5
 		    }
@@ -470,7 +470,7 @@ focus_tree = {
 		completion_reward = {
         add_stability = 0.05
 		add_popularity = { ideology = social_democracy popularity= 0.04}
-		swap_ideas={
+		swap_ideas = {
             remove_idea = ROM_Pontas_allience
             add_idea = ROM_Pontas_allience_2
 		    }
@@ -622,7 +622,7 @@ focus_tree = {
 		completion_reward = {
         add_stability = 0.04
 		add_popularity = { ideology = social_democracy popularity= 0.05}
-		swap_ideas={
+		swap_ideas = {
             remove_idea = ROM_Pontas_allience_2
             add_idea = ROM_Pontas_allience_3
 		    }
@@ -645,7 +645,7 @@ focus_tree = {
         prerequisite = {  focus = address_social_issues}
 		completion_reward = {
         add_stability = 0.08
-		swap_ideas={
+		swap_ideas = {
             remove_idea = ROM_Pontas_allience_3
             add_idea = ROM_Pontas_allience_4
 		    }
@@ -666,10 +666,239 @@ focus_tree = {
 		bypass = {
 		}
         prerequisite = {  focus = address_social_issues}
+		prerequisite = {  focus = Ensure_the_financial_well_being_of_Romanians}
+		prerequisite = {  focus = A_free_Democratic_press}
 		completion_reward = {
         add_stability = 0.05
         add_war_support = 0.03
 		add_popularity = { ideology = social_democracy popularity= 0.04}
+		}
+	}
+	focus = {
+		id = Counterterrorism_and_counter_crime_effort
+		icon = GFX_Counterterrorism_effort
+		x = 40
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Ponta_victory}
+		completion_reward = {
+        add_political_power = 50
+        add_war_support = 0.03
+		}
+	}
+	focus = {
+		id = Strengthening_Intelligence_and_Law_Enforcement
+		icon = GFX_Strengthening_Intelligence_and_Law_Enforcement
+		x = 39
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Counterterrorism_and_counter_crime_effort}
+		completion_reward = {
+        add_war_support	= 0.025
+        add_stability = 0.05
+		}
+	}
+	focus = {
+		id = improving_law_enforcement_equipment
+		icon = GFX_improving_law_enforcement_equipment
+		x = 39
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Strengthening_Intelligence_and_Law_Enforcement}
+		completion_reward = {
+		add_tech_bonus = {
+                name = ROM_military
+                bonus = 1.0
+                uses = 1
+                category = infantry_weapons
+                category = ship_modules_tech
+                category = support_tech
+                category = armor
+                category = artillery
+                category = air_equipment
+                category = infantry_anti_air_cat
+                category = ifv_cat
+                category = apc_cat
+					add_doctrine_cost_reduction = {
+				name = ROM_doctrine_reform211213
+				cost_reduction = 0.3
+				uses = 1
+				category = land_doctrine
+			}
+            }	
+		}
+	}
+	focus = {
+		id = border_security_measures
+		icon = GFX_da
+		x = 39
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = improving_law_enforcement_equipment}
+		completion_reward = {
+        add_war_support	= 0.03
+        add_stability = 0.08
+		add_popularity = { ideology = social_democracy popularity = 0.015}
+		}
+	}
+	focus = {
+		id = prioritize_intelligence_gathering
+		icon = GFX_da
+		x = 39
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = border_security_measures}
+		completion_reward = {
+        add_war_support	= 0.025
+        root_out_resistance_effectiveness_factor = 0.3
+		operative_slot = 1
+		}
+	}
+	focus = {
+		id = Monitor_extremist_groups
+		icon = GFX_da
+		x = 41
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Counterterrorism_and_counter_crime_effort}
+		completion_reward = {
+        add_war_support	= 0.02
+        add_political_power = 50
+		add_stability = 0.04
+		add_popularity = { ideology = hardline_communist popularity = -0.02}
+		add_popularity = { ideology = ultranationalist popularity = -0.02 }
+		}
+	}
+	focus = {
+		id = Combat_Theft
+		icon = GFX_da
+		x = 41
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Monitor_extremist_groups}
+		completion_reward = {
+        add_war_support	= 0.02
+        add_political_power = 25
+		add_stability = 0.08
+		}
+	}
+	focus = {
+		id = Engage_Local_Communities
+		icon = GFX_da
+		x = 41
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Combat_Theft}
+		completion_reward = {
+		add_stability = 0.04
+		add_popularity = { ideology = social_democracy popularity = 0.05}
+		}
+	}
+	focus = {
+		id =  Implement_Restorative_Justice_Practices
+		icon = GFX_da
+		x = 41
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Engage_Local_Communities}
+		completion_reward = {
+		add_stability = 0.03
+		add_war_support = -0.01
+		add_political_power = 25
+		}
+	}
+	focus = {
+		id =  Safe_streets
+		icon = GFX_da
+		x = 40
+		y = 6
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Implement_Restorative_Justice_Practices}
+		prerequisite = {  focus = prioritize_intelligence_gathering}
+		completion_reward = {
+		add_stability = 0.05
+		add_war_support = 0.05
+        add_ideas = Safe_streets
 		}
 	}
 }
