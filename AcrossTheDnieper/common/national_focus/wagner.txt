@@ -34,7 +34,7 @@ focus_tree = {
 		icon = GFX_focus_begin_purge
 		x = 10
 		y = 0
-		cost = 25
+		cost = 5
 		search_filters = {
 			
 		}
@@ -43,20 +43,10 @@ focus_tree = {
 		}
 
 		select_effect = {
-			random = {
-				chance = 50
-				if={
-					limit = { NOT = { has_country_flag = selected_purge_focus_already } }
-					country_event = { id = wagner.2 days = 6 }
-				}
-			}
-			set_country_flag = selected_purge_focus_already
+			country_event = { id = wagner.2 days = 6 }
 		}
 
 		available = {
-			hidden_trigger = {
-				NOT = { has_country_flag = shoigu_angred }
-			}
 		}
 
 		cancel_if_invalid = yes
@@ -77,11 +67,72 @@ focus_tree = {
 	}
 
 	focus = {
+		id = WAG_silence_the_critics
+		icon = GFX_focus_begin_purge
+		x = 10
+		y = 2
+		cost = 14
+		search_filters = {
+			
+		}
+		allow_branch = {
+			tag = SOV
+		}
+
+		cancel_if_invalid = yes
+		prerequisite = { focus = WAG_begin_the_purge }
+		completion_reward={
+			add_political_power = 50
+			retire_character = SOV_dmitry_medvedev_rework
+			retire_character = SOV_alexander_bortnikov_rework
+			retire_character = SOV_sergey_lavrov_rework
+			retire_character = SOV_mikhail_mishustin_rework
+			retire_character = SOV_ramzan_kadyrov_rework
+		}
+	}
+
+	focus = {
+		id = WAG_reward_loyal
+		icon = GFX_focus_begin_purge
+		x = 10
+		y = 3
+		cost = 20
+		search_filters = {
+			
+		}
+		allow_branch = {
+			tag = SOV
+		}
+
+		cancel_if_invalid = yes
+		prerequisite = { focus = WAG_silence_the_critics }
+		completion_reward={
+			add_political_power = 25
+			if = {
+				limit = { has_idea = SOV_rampant_oligarchy }
+
+				swap_ideas = {
+					remove_idea = SOV_rampant_oligarchy
+					add_idea = SOV_specialized_oligarchy
+				}
+			}
+			else_if = {
+				limit = { has_idea = SOV_rampant_oligarchy_2 }
+
+				swap_ideas = {
+					remove_idea = SOV_rampant_oligarchy_2
+					add_idea = SOV_specialized_oligarchy
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = WAG_continue_operations_in_ukraine
 		icon = GFX_focus_continue_operations_ukraine
 		x = 8
 		y = 1
-		cost = 40
+		cost = 25
 		search_filters = {
 			
 		}
@@ -91,9 +142,6 @@ focus_tree = {
 
 		prerequisite = { focus = WAG_begin_the_purge }
 		available = {
-			hidden_trigger = {
-				NOT = { has_country_flag = shoigu_angred }
-			}
 		}
 
 		bypass = {
