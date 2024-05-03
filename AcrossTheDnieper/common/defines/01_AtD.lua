@@ -33,19 +33,20 @@ NDefines.NAI.MAX_MICRO_ATTACKS_PER_ORDER = 5    --3 (might improve the AI's abil
 --------------------------------------------------------------------------------------------------------------
 -- Research
 --------------------------------------------------------------------------------------------------------------
-NDefines.NAI.RESEARCH_LAND_DOCTRINE_NEED_GAIN_FACTOR = 0                      	-- Multiplies value based on relative military industry size / country size.
+NDefines.NAI.RESEARCH_DAYS_BETWEEN_WEIGHT_UPDATE = 3
+
+NDefines.NAI.RESEARCH_LAND_DOCTRINE_NEED_GAIN_FACTOR = 0                          -- Multiplies value based on relative military industry size / country size.
 NDefines.NAI.RESEARCH_NAVAL_DOCTRINE_NEED_GAIN_FACTOR = 0                       -- Multiplies value based on relative naval industry size / country size.
 NDefines.NAI.RESEARCH_AIR_DOCTRINE_NEED_GAIN_FACTOR = 0                         -- Multiplies value based on relative number of air base / country size.
 NDefines.NAI.RESEARCH_NEW_DOCTRINE_RANDOM_FACTOR = 0
 
-NDefines.NAI.MAX_AHEAD_RESEARCH_PENALTY = 10
-NDefines.NAI.RESEARCH_NEW_WEIGHT_FACTOR = 0			                            -- Impact of previously unexplored tech weights. Higher means more random exploration.
-NDefines.NAI.RESEARCH_BONUS_FACTOR = 3 				                       		-- To which extent AI should care about bonuses to research
-NDefines.NAI.RESEARCH_AHEAD_OF_TIME_FACTOR = 0		                            -- To which extent AI should care about ahead of time penalties to research
-NDefines.NAI.RESEARCH_BASE_DAYS = 0					                            -- AI adds a base number of days when weighting completion time for techs to ensure it doesn't only research quick techs
-NDefines.NAI.RESEARCH_MULTI_DOCTRINE_SCORE = 0
-NDefines.NAI.XP_RATIO_REQUIRED_TO_RESEARCH_WITH_XP = 3.0		-- AI will at least need this amount of xp compared to cost of a tech to reserch it with XP			
-NDefines.NAI.RESEARCH_WITH_XP_AI_WEIGHT_MULT = 1.5 				-- AI will bump score of a research with this mult if it can use XP
+NDefines.NAI.MAX_AHEAD_RESEARCH_PENALTY = 4                                        -- Max ahead of time penalty AI will ever consider (this also includes BASE_YEAR_AHEAD_PENALTY_FACTOR, so not the raw time)
+NDefines.NAI.RESEARCH_BONUS_FACTOR = 5                                                -- To which extent AI should care about bonuses to research
+NDefines.NAI.RESEARCH_YEARS_BEHIND_FACTOR = 0.2                                    -- To which extent AI should care about not falling behind (i.e. increase weight for old tech)
+NDefines.NAI.RESEARCH_AHEAD_OF_TIME_FACTOR = 2.0                                -- To which extent AI should care about ahead of time penalties to research
+NDefines.NAI.RESEARCH_BASE_DAYS = 40                                            -- AI adds a base number of days when weighting completion time for techs to ensure it doesn't only research quick techs
+NDefines.NAI.XP_RATIO_REQUIRED_TO_RESEARCH_WITH_XP = 3.0        -- AI will at least need this amount of xp compared to cost of a tech to reserch it with XP
+NDefines.NAI.RESEARCH_WITH_XP_AI_WEIGHT_MULT = 1.5                 -- AI will bump score of a research with this mult if it can use XP
 --------------------------------------------------------------------------------------------------------------
 -- DESIGNS
 --------------------------------------------------------------------------------------------------------------
