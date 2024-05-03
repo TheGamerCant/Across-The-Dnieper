@@ -656,7 +656,7 @@ focus_tree = {
 		icon = GFX_
 		x = 33
 		y = 6
-		cost = 7
+		cost = 14
 
 		ai_will_do = { 
 			factor = 10 
@@ -699,7 +699,7 @@ focus_tree = {
 		icon = GFX_Strengthening_Intelligence_and_Law_Enforcement
 		x = 39
 		y = 2
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -757,7 +757,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 39
 		y = 4
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -778,7 +778,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 39
 		y = 5
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -799,7 +799,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 41
 		y = 2
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -822,7 +822,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 41
 		y = 3
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -843,7 +843,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 41
 		y = 4
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -863,7 +863,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 41
 		y = 5
-		cost = 14
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -884,7 +884,7 @@ focus_tree = {
 		icon = GFX_da
 		x = 40
 		y = 6
-		cost = 7
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
@@ -899,6 +899,171 @@ focus_tree = {
 		add_stability = 0.05
 		add_war_support = 0.05
         add_ideas = Safe_streets
+		}
+	}
+	focus = {
+		id =  Continue_Pontas_foreign_policy
+		icon = GFX_da
+		x = 26
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Ponta_victory}
+		completion_reward = {
+        add_political_power = 100
+		}
+	}
+	focus = {
+		id =  Empower_the_EU
+		icon = GFX_da
+		x = 27
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Continue_Pontas_foreign_policy}
+		completion_reward = {
+        add_stability = 0.03
+		add_opinion_modifier = { target = POL modifier = BLR_small_positive }
+		add_opinion_modifier = { target = HUN modifier = BLR_small_positive }
+		add_opinion_modifier = { target = CZE modifier = BLR_small_positive }
+		add_opinion_modifier = { target = SLO modifier = BLR_small_positive }
+		add_opinion_modifier = { target = BUL modifier = BLR_small_positive }
+		add_opinion_modifier = { target = CRO modifier = BLR_small_positive }
+		add_opinion_modifier = { target = LIT modifier = BLR_small_positive }
+		}
+	}
+	focus = {
+		id =  Stronger_ties_with_NATO_partners
+		icon = GFX_da
+		x = 27
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Empower_the_EU}
+		completion_reward = {
+        add_stability = 0.03
+		add_opinion_modifier = { target = POL modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = HUN modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = CZE modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = SLO modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = BUL modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = CRO modifier = BLR_medium_positive }
+		add_opinion_modifier = { target = LIT modifier = BLR_medium_positive }
+	    army_experience = 30
+		navy_experience = 30
+		air_experience = 30		
+		}
+	}
+	focus = {
+		id =  Enhance_economic_cooperation_with_the_Schegen_Area
+		icon = GFX_da
+		x = 29
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Empower_the_EU}
+		completion_reward = {
+        add_stability = 0.03
+		add_political_power = 15
+        add_opinion_modifier = { target = POL modifier = BLR_small_positive }
+		add_opinion_modifier = { target = HUN modifier = BLR_small_positive }
+		add_opinion_modifier = { target = CZE modifier = BLR_small_positive }
+		add_opinion_modifier = { target = SLO modifier = BLR_small_positive }
+		add_opinion_modifier = { target = BUL modifier = BLR_small_positive }
+		add_opinion_modifier = { target = CRO modifier = BLR_small_positive }
+		add_opinion_modifier = { target = LIT modifier = BLR_small_positive }
+		}
+	}
+	focus = {
+		id =  Balkan_politics
+		icon = GFX_da
+		x = 25
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Continue_Pontas_foreign_policy}
+		completion_reward = {
+        add_war_support = 0.02
+		add_political_power = 50
+		}
+	}
+	focus = {
+		id =  Balkan_Cooperation
+		icon = GFX_da
+		x = 25
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Balkan_politics}
+		completion_reward = {
+		add_political_power = 50
+		add_opinion_modifier = { target = SER modifier = BLR_small_positive }
+		add_opinion_modifier = { target = MNT modifier = BLR_small_positive }
+		add_opinion_modifier = { target = BOS modifier = BLR_small_positive }
+		add_opinion_modifier = { target = CRO modifier = BLR_small_positive }
+		add_opinion_modifier = { target = BOS modifier = BLR_small_positive }
+		add_opinion_modifier = { target = BUL modifier = BLR_small_positive }
+		}
+	}
+	focus = {
+		id =  Help_Montenegro_and_Macedonia_join_NATO
+		icon = GFX_da
+		x = 23
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Balkan_politics}
+		completion_reward = {
+		add_opinion_modifier = { target = MNT modifier = BLR_medium_positive }
 		}
 	}
 }
