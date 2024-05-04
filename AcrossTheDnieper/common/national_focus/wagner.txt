@@ -43,7 +43,7 @@ focus_tree = {
 		}
 
 		select_effect = {
-			country_event = { id = wagner.2 days = 6 }
+			country_event = { id = wagner.2 days = 2 }
 		}
 
 		available = {
@@ -83,6 +83,10 @@ focus_tree = {
 		prerequisite = { focus = WAG_begin_the_purge }
 		completion_reward={
 			add_political_power = 50
+			add_power_balance_value = {
+				id = SOV_wagner_power_balance
+				value = -0.1
+			}
 			retire_character = SOV_dmitry_medvedev_rework
 			retire_character = SOV_alexander_bortnikov_rework
 			retire_character = SOV_sergey_lavrov_rework
@@ -108,6 +112,10 @@ focus_tree = {
 		prerequisite = { focus = WAG_silence_the_critics }
 		completion_reward={
 			add_political_power = 25
+			add_power_balance_value = {
+				id = SOV_wagner_power_balance
+				value = -0.1
+			}
 			if = {
 				limit = { has_idea = SOV_rampant_oligarchy }
 
