@@ -8808,7 +8808,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_leopards
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Leopards
 		x = 11
 		y = 1
 		
@@ -8858,7 +8858,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_marders
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Marders
 		x = 11
 		y = 2
 		
@@ -8896,7 +8896,7 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_spartans
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Spartans
 		x = 13
 		y = 1
 		
@@ -8937,7 +8937,7 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_challengers
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Challengers
 		x = 13
 		y = 2
 		
@@ -9172,7 +9172,7 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_future_of_warfare
-		icon = GFX_focus_UKR_Future_Of_Warfare
+		icon =  GFX_focus_UKR_Suicide_Drones
 		x = 6
 		y = 1
 		
@@ -9200,7 +9200,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_suicide_drones
-		icon = GFX_focus_UKR_Suicide_Drones
+		icon = GFX_focus
 		x = 6
 		y = 2
 		
@@ -9222,24 +9222,32 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			if = {
-				limit = { NOT = { has_tech = suicide_drone_tech } }
-				set_technology = {
-				    suicide_drone_tech = 1
-			    }
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 
-	        add_equipment_to_stockpile = {
-	        	type = kamikaze_drone_equipment
-	        	variant_name = "Suicide Drone"
-	        	amount = 50
-	        }
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			custom_effect_tooltip = UKR_suicide_drones_tt
+			hidden_effect = { set_technology = { UKR_drone_tech_buff_1 = 1 popup = no } }
 		}
 	}
 
 	focus = {
 		id = UKR_form_drone_operator_companies
-		icon = GFX_focus
+		icon =  GFX_focus_UKR_Future_Of_Warfare
 		x = 6
 		y = 3
 		
@@ -9261,10 +9269,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			swap_ideas={
-				remove_idea = SOV_drone_warfare_better
-				add_idea = UKR_drone_warfare_idea
-			}
+			custom_effect_tooltip = UKR_form_drone_operator_companies_tt
+			hidden_effect = { set_technology = { UKR_drone_tech_buff_2 = 1 popup = no } }
 		}
 	}
 
@@ -11228,7 +11234,7 @@ focus_tree = {
 	focus = {
 		id = UKR_expand_power_of_supreme_commander_in_chief
 
-		icon = GFX_focus
+		icon = GFX_focus_UKR_Expand_The_Supreme_Commander_Power
 		x = -3
 		y = 4
 		
