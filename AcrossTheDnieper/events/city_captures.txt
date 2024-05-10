@@ -695,6 +695,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				TAG = SOV
+				TAG = UKR
 			}
 		}
 	}
@@ -702,6 +703,44 @@ news_event = {
 		name = city_captures.22.b
 		trigger = { TAG = SOV }
 	}
+	option = {
+		name = city_captures.22.c
+		trigger = { TAG = UKR }
+	}
 }
 
+news_event = {
+    id = city_captures.24
+    title = city_captures.24.t
+    desc = city_captures.24.d
+    picture = city_event_belgorod_fall
+    major = yes
 
+    immediate = {
+        set_global_flag = fall_belgorod
+    }
+
+    trigger = { 
+		UKR = { has_war_with = SOV }
+		UKR = {controls_province = 14194} 
+	    NOT = { has_global_flag = fall_belgorod }
+	}
+
+	option = {
+		name = city_captures.22.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = UKR
+			}
+		}
+	}
+	option = {
+		name = city_captures.22.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = city_captures.22.c
+		trigger = { TAG = UKR }
+	}
+}
