@@ -1,80 +1,170 @@
-ukrainen_early_template_design = {
-	enable = {
-		AND = {
-			date < 2018.1.1
-			original_tag = UKR
-		}
-		has_war = no
-	}
-	abort = {
-		date > 2018.1.1
-		has_war = yes
+ukrainian_uint_production = {
+	allowed = { original_tag = UKR }
+	enable = { always = yes }
+	abort = { always = no }
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 5
 	}
 
 	ai_strategy = {
 		type = role_ratio
-		id = land_modern_tank
-		value = 5
+		id = paratroopers
+		value = -1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = 2
 	}
 
 	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 5
+		value = 7
 	}
 
 	ai_strategy = {
 		type = role_ratio
 		id = infantry
-		value = 95
+		value = 80 #88 to 70
 	}
-	
+
+	# Naval unit factors
 	ai_strategy = {
 		type = unit_ratio
-		id = fighter
+		id = capital_ship
+		value = 2
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 10
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
 		value = 25
 	}
+
 	ai_strategy = {
-		type = unit_ratio
-		id = cas
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -100
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 5 #30 to 50
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_tank
+		value = 10
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_air
+		value = 15
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 35
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 10
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = motorized
 		value = 5
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories #Build these up over time, don't stall
+		id = anti_air
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = artillery
+		value = 1
+	}
+
+	ai_strategy = { #added to railway gun define (set to 0 by default, increased in default strategies)
+		type = railway_gun_divisions_ratio
+		value = 1
 	}
 }
 
-ukrainen_midlate_template_design = {
-	enable = {
-		AND = {
-			date > 2018.1.1
-			original_tag = UKR
-		}
-		has_war = yes
-	}
+ukrainian_template_design = {
+	allowed = { original_tag = UKR }
+	enable = { date < 2030.1.1 } # Basically never 
+	abort = { date > 2030.1.1 }
 
 	ai_strategy = {
-		type = role_ratio
-		id = land_modern_tank
-		value = 10
-	}
-	ai_strategy = {
-		type = role_ratio
-		id = armor
-		value = 10
-	}
-
-	ai_strategy = {
-		type = role_ratio
+		type = template_prio
 		id = infantry
-		value = 90
+		value = 50
 	}
-	
+
 	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 25
+		type = template_prio
+		id = artillery
+		value = 2
 	}
+
 	ai_strategy = {
-		type = unit_ratio
-		id = cas
+		type = template_prio
+		id = motorized
+		value = 3
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = cavalry
+		value = -100
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 30
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratroopers
 		value = 5
 	}
 }
@@ -152,17 +242,35 @@ ukraine_really_wants_a_large_army = {
 	ai_strategy = {
 	    type = build_army
 	    id = infantry
-	    value = 180
+	    value = 240
 	}
 	ai_strategy = {
 	    type = build_army
 	    id = modern_armor
 	    value = 40
 	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 20
+	}
+}
+
+ukraine_really_wants_a_huge_army = {
+	allowed = { original_tag = UKR }
+	enable = { SOV = { is_ai = no } }
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 	    type = build_army
-	    id = armor
-	    value = 40
+	    id = infantry
+	    value = 70
+	}
+	ai_strategy = {
+	    type = build_army
+	    id = modern_armor
+	    value = 10
 	}
 }
 
@@ -216,7 +324,7 @@ UKR_put_loads_of_units_in_donbass_but_dont_get_encircled_like_a_retard = {
 				tag = NOV
 			}	
 		}
-		value = 600
+		value = 500
 	}
 }
 
@@ -239,7 +347,6 @@ UKR_SOV_ignore_demilitarised_zones = {
 		}
 		priority = -1000
 	}
-	
 }
 
 UKR_be_cautious_normally_but_attack_when_offensive = {
@@ -306,9 +413,8 @@ UKR_secure_kyiv = {
 				has_state_flag = chernihiv_oblast_flag
 			}
 		}
-		priority = 80
+		value = 100
 	}
-	
 }
 
 UKR_ignore_the_south_initially = {
@@ -334,7 +440,7 @@ UKR_ignore_the_south_initially = {
 				has_state_flag = crimea_oblast_flag
 			}
 		}
-		priority = -300
+		value = -100
 	}
 }
 
@@ -403,7 +509,7 @@ UKR_dont_ignore_donbass = {
 				has_state_flag = luhansk_oblast_flag
 			}
 		}
-		priority = 600
+		value = 600
 	}
 }
 
@@ -429,7 +535,18 @@ UKR_less_garrison_troops = {
 
 	ai_strategy = {
 		type = garrison_reinforcement_priority
-		value = -200
+		value = -5
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = {
+			269
+			291
+			236
+			264
+		}
 	}
 }
 
