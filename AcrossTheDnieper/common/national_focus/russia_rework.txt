@@ -347,7 +347,6 @@ focus_tree = {
 	continuous_focus_position = { x = 80 y = 2280 } 
 	country = {
 		factor = 0
-
 	}
 	
 	focus = {
@@ -876,6 +875,7 @@ focus_tree = {
 				set_global_flag = { flag = russia_ukraine_war_started_recently value = 1 days = 30 }
 				set_global_flag = { flag = russia_ukraine_war_countdown_until_frontlines_solidify value = 1 days = 55 }
 				set_global_flag = { flag = russia_ukraine_war_less_than_one_year value = 1 days = 365 }
+				set_global_flag = { flag = russia_ukraine_war_less_than_two_years value = 1 days = 730 }
 				UKR = { country_event = { id = ukraine.129 days = 365 }  }
 				
 				declare_war_on = {
@@ -3893,6 +3893,33 @@ focus_tree = {
 		
 		completion_reward={
 			add_ideas = SOV_no_option_but_victory_idea
+		}
+	}
+
+	focus = {
+		id = SOV_draft_new_cabinet
+		icon = GFX_focus
+		x = 0
+		y = 1
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_no_option_but_victory }
+		relative_position_id = SOV_no_option_but_victory
+
+		available={
+			has_war_with = UKR
+			NOT = { has_global_flag = russia_ukraine_war_less_than_two_years }		
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_draft_new_cabinet_tt
+			add_stability = 0.05
+			add_political_power = 15
+			hidden_effect = { country_event = { id = russia.1154 days = 1 } }
+			
 		}
 	}
 

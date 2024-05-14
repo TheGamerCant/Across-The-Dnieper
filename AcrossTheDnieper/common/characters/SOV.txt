@@ -911,6 +911,34 @@ characters={
 		}	
 	}
 
+	SOV_andrei_belousov_rework = {
+		name = SOV_andrei_belousov_rework
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Andrei_Belousov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = SOV_andrei_belousov_rework
+
+			available = { NOT = { has_idea = SOV_sergey_shoygu_rework } }
+			
+			can_be_fired = no
+			cost = 100
+			traits = {
+				belousov_army_trait
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
 	SOV_alexander_bortnikov_rework = {
 		name = SOV_alexander_bortnikov_rework
 		portraits = {

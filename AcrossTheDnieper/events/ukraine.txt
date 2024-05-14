@@ -4334,7 +4334,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		add_political_power = 25
+		add_political_power = 30
 	}
 }
 
@@ -6580,6 +6580,9 @@ country_event = {
 
 	option = { 
 		name = ukraine.161.a
+		ai_chance = {
+			base = 1
+		}
 		add_stability = -0.1
 		custom_effect_tooltip = "ukraine.161.tt"
 		hidden_effect = {
@@ -6597,6 +6600,9 @@ country_event = {
 
 	option = { 
 		name = ukraine.161.b
+		ai_chance = {
+			base = 11
+		}
 		add_war_support = -0.05
 	}
 }
@@ -6786,12 +6792,45 @@ country_event = {
 	option = { 
 		name = ukraine.163.a
 		add_war_support = 0.1
-		
+		add_manpower = 100000
+		army_experience = 100
+		custom_effect_tooltip = "ukraine.163.tt"
+		hidden_effect = { country_event = { id = ukraine.164 days = 30 } }
 	}
 
 	option = { 
 		name = ukraine.163.b
+		add_stability = 0.04
+	}
+}
 
+#nato interventions (for russia pt 2)
+country_event = {
+	id = ukraine.164
+	title = ukraine.164.t
+	desc = ukraine.164.desc
+	picture = GFX_report_event_UKR_nato_2
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			BUL = {
+				annex_country = {
+					target = NIT
+					transfer_troops = no
+				}
+			}
+
+			load_ww3 = yes
+			NAT = { add_to_faction = UKR }
+		}
+	}
+
+	option = { 
+		name = ukraine.164.a
+		declare_war_on = {
+			target = NAT
+		}
 	}
 }
 

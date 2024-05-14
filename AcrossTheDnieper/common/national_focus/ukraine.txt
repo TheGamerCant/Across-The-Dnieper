@@ -7413,11 +7413,6 @@ focus_tree = {
 			}
 			hidden_effect = { 
 				news_event = { id = atd_news.75 hours = 1 }
-				
-				if={
-					limit ={ NOT = { has_global_flag = medvedchuck_is_dead } }
-					country_event = { id = ukraine.104 days = 72 } 
-				}
 				country_event = { id = ukraine.107 days = 365 } 
 			}
 		}
@@ -10110,8 +10105,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_stability = -0.04
-			add_manpower = 2000
-			add_command_power = 10
+			add_manpower = 10000
+			add_command_power = 25
 		}
 	}
 
@@ -10618,6 +10613,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			country_event = { id = ukraine.153 }
+
+			hidden_effect = {
+				if={
+					limit ={ NOT = { has_global_flag = medvedchuck_is_dead } }
+					country_event = { id = ukraine.104 days = 3 } 
+				}
+			}
 		}
 	}
 

@@ -5843,6 +5843,128 @@ country_event = {
     }
 }
 
+#Fate of shoigu
+country_event = {
+    id = russia.1154
+    title = russia.1154.t
+    desc = russia.1154.desc
+    picture = SOV_shoigu_angry
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+		vladimir_putin_is_leader = yes
+		has_idea = SOV_sergey_shoygu_rework
+	}
+
+    option = {
+        name = russia.1154.a
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = -0.05
+		SOV_decrease_siloviki_faction_medium = yes
+		retire_character = SOV_sergey_shoygu_rework
+		activate_advisor = SOV_andrei_belousov_rework
+
+		hidden_effect = { country_event = { id = russia.1156 } }
+    }
+
+	option = {
+        name = russia.1154.b
+		ai_chance = {
+			base = 10
+		}
+		add_stability = -0.05
+		SOV_decrease_siloviki_faction_small = yes
+		deactivate_advisor = SOV_sergey_shoygu_rework
+		activate_advisor = SOV_andrei_belousov_rework
+
+		hidden_effect = { country_event = { id = russia.1156 } }
+    }
+}
+
+#Fate of lavrov
+country_event = {
+    id = russia.1155
+    title = russia.1155.t
+    desc = russia.1155.desc
+    picture = GFX_report_event_SOV_putin_desk
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+		vladimir_putin_is_leader = yes
+		has_idea = SOV_sergey_lavrov_rework
+	}
+
+    option = {
+        name = russia.1155.a
+		ai_chance = {
+			base = 0
+		}
+
+		SOV_increase_putinist_faction_small = yes
+		add_political_power = -15
+
+		hidden_effect = { country_event = { id = russia.1155 } }
+    }
+
+	option = {
+        name = russia.1155.b
+		ai_chance = {
+			base = 10
+		}
+		SOV_decrease_putinist_faction_small = yes
+		add_stability = 0.05
+		retire_character = SOV_sergey_lavrov_rework
+
+		hidden_effect = { country_event = { id = russia.1155 } }
+    }
+}
+
+#Fate of patrushev
+country_event = {
+    id = russia.1156
+    title = russia.1156.t
+    desc = russia.1156.desc
+    picture = GFX_report_event_SOV_patrushev
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+		vladimir_putin_is_leader = yes
+	}
+
+    option = {
+        name = russia.1156.a
+		ai_chance = {
+			base = 0
+		}
+		SOV_decrease_siloviki_faction_medium = yes
+
+		SOV_nikolai_patrushev = {
+			remove_trait = {
+				slot = political_advisor
+				trait = SOV_head_of_the_security_council
+			}
+
+			add_trait = {
+				trait = SOV_head_of_the_siloviks
+			}
+		}
+    }
+
+	option = {
+        name = russia.1156.b
+		ai_chance = {
+			base = 10
+		}
+		SOV_increase_siloviki_faction_medium = yes
+		add_political_power = -20
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
