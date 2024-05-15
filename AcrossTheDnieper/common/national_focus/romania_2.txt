@@ -1190,6 +1190,135 @@ focus_tree = {
 		add_ideas = Corruption_Eradicated
 		}
 	}
+	focus = {
+		id =  Bring_Romania_into_the_21th_Century
+
+		icon = GFX_da
+		x = 60
+		y = 0
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	focus = {
+		id =  Invest_in_Infrastructure
+		icon = GFX_da
+		x = 65
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	focus = {
+		id =  Invest_In_Social_Infrastructure
+		icon = GFX_da
+		x = 65
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.05
+		production_speed_infrastructure_factor = 0.05
+		consumer_goods_factor = 0.06
+		}
+	}
+	focus = {
+		id =  Improve_the_quality_of_healthcare_services
+		icon = GFX_da
+		x = 65
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_In_Social_Infrastructure}
+		completion_reward = {
+        monthly_population = 0.04
+		add_stability = 0.03
+		}
+	}
+	focus = {
+		id = Invest_in_public_housing_infrastructure
+		icon = GFX_da
+		x = 65
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Improve_the_quality_of_healthcare_services}
+		completion_reward = {
+        production_speed_infrastructure_factor = 0.05
+		add_stability = 0.04
+		}
+	}
+	focus = {
+		id = modernize_educational_facilities
+		icon = GFX_da
+		x = 65
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_public_housing_infrastructure}
+		completion_reward = {
+        production_speed_infrastructure_factor = 0.05
+		add_stability = 0.07
+		research_bonus = { industry = 0.15 }
+		research_speed_factor = 0.08
+		research_bonus = {
+			name = ROM_POLITICS
+				bonus = 1
+				uses = 2
+				category = electronics
+				category = industry
+            }
+		}
+	}
 }
 
 
