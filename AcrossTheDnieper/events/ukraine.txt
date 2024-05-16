@@ -6834,6 +6834,41 @@ country_event = {
 	}
 }
 
+#forcing ukraine to retreat from kherson and such
+country_event = {
+	id = ukraine.165
+	title = ukraine.165.t
+	desc = ukraine.165.desc
+	picture = GFX_report_event_UKR_injured_soldier
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SOV
+		OR = {
+			SOV = { is_ai = yes }
+			is_on_impossible_mode = yes
+		}
+	}
+
+	option = { 
+		name = ukraine.165.a
+
+		every_state = {
+			limit = {
+				is_controlled_by = UKR
+				has_state_flag = kherson_oblast_flag
+				NOT = { state = 264 state = 231 state = 236 state = 211 }
+			}
+
+			add_dynamic_modifier = {
+				modifier = UKR_disorganized_army
+				scope = UKR
+				days = 100
+			}
+		}
+	}
+}
+
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1
