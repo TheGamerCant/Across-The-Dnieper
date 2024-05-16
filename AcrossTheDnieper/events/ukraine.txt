@@ -6856,7 +6856,12 @@ country_event = {
 		every_state = {
 			limit = {
 				is_controlled_by = UKR
-				has_state_flag = kherson_oblast_flag
+				OR = {
+					has_state_flag = kherson_oblast_flag
+					state = 223
+					state = 214
+				}
+				
 				NOT = { state = 264 state = 231 state = 236 state = 211 }
 			}
 
