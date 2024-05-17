@@ -9436,6 +9436,47 @@ focus_tree = {
 	}
 
 	focus = {
+		id = UKR_adopt_nato_doctrine
+		icon = GFX_
+		x = 1
+		y = 4
+		
+		cost = 35
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_western_training_on_ukrainian_soil}
+		relative_position_id = UKR_western_training
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea={
+				idea = UKR_adopting_nato_doctrine
+				days = 80
+			}
+
+			custom_effect_tooltip = UKR_adopt_nato_doctrine_tt
+
+			effect_tooltip = {
+				load_nato_doctrine = yes
+			}
+
+			hidden_effect={
+				country_event = { id = ukraine.166 days = 80 }
+			}
+		}
+	}
+
+	focus = {
 		id = UKR_hello_biden2
 		icon = GFX_focus_UKR_Hello_Biden
 		x = 3
