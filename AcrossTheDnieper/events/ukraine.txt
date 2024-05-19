@@ -884,24 +884,24 @@ country_event = {
 		effect_tooltip = { remove_ideas = UKR_sevastopol_lease }
 		CRI = { 
 			change_tag_from = ROOT 
+		}
+		if = {
+			limit = {
+				SOV = {
+					is_ai = yes
+				}
+			}
 			if = {
 				limit = {
-					SOV = {
-						is_ai = yes
-					}
+					has_dlc = "No Step Back"
 				}
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					load_oob = "CRI_2014_nsb"
+				CRI = {load_oob = "CRI_2014_nsb"}
+			}
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
 				}
-				if = {
-					limit = {
-						NOT = { has_dlc = "No Step Back" }
-					}
-					load_oob = "CRI_2014"
-				}
+				CRI = {load_oob = "CRI_2014"}
 			}
 		}
 	}
@@ -6900,6 +6900,30 @@ country_event = {
 
 		load_nato_doctrine = yes
 		army_experience = 100
+	}
+}
+
+#fall of lviv
+country_event = {
+	id = ukraine.167
+	title = ukraine.167.t
+	desc = ukraine.167.desc
+	picture = GFX_report_event_UKR_fall_lviv
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+	option = { 
+		name = ukraine.167.a
+
+		custom_effect_tooltip = "ukraine.167.tt"
+		add_to_variable = { UKR_dwa_efficiency_retention = -0.05 }
+		add_to_variable = { UKR_dwa_max_efficiency_gain = -0.03 }
+		add_to_variable = { UKR_dwa_efficiency_gain = -0.04 }
+		add_to_variable = { UKR_dwa_industrial_capacity = -0.08 }
+		UKR_ma_decrese_willingness_10_all = yes
 	}
 }
 

@@ -386,6 +386,19 @@ on_actions={
 			}
 			news_event = { id = city_captures.22 }
 		}
+		else_if = {	#Fall of lviv
+			limit = {
+				OR = {
+					tag = SOV
+					is_puppet_of = SOV
+				}
+				SOV={ has_war_with = UKR } 
+				FROM.FROM = { state = 96 }
+				NOT={ has_global_flag = fall_lviv }
+			}
+			news_event = { id = city_captures.25 }
+			UKR = { country_event = { id = ukraine.167 days = 1 } }
+		}
 		}
 	}
 	on_peace={
