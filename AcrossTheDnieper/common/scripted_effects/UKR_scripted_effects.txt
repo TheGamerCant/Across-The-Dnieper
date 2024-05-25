@@ -1,3 +1,229 @@
+UKR_spawn_donbass_countries={
+	if={
+		limit = {
+			OR={
+				has_country_flag = UKR_historical_path_for_gov 
+				has_country_flag = UKR_appeasing_the_russians
+				AND={
+					is_historical_focus_on = yes
+					is_ai = yes
+					NOT={
+						OR={
+							UKR_is_yarosh_ultranat_ai = yes
+							UKR_is_yarosh_fascist_ai = yes
+						}
+					}
+				}
+			}
+		}
+		every_state={
+			limit = { has_state_flag = donetsk_oblast_flag }
+			add_core_of = DON
+			
+			DON = { transfer_state = PREV }
+		}
+		every_state={
+			limit = { has_state_flag = luhansk_oblast_flag }
+			add_core_of = LHK
+			
+			LHK = { transfer_state = PREV }
+		}
+		if = {
+			limit = { DON = { is_ai = yes } }
+
+			every_state={
+				limit = { OR = { state = 208 state = 186 state = 173 } }
+
+				add_dynamic_modifier = {
+					modifier = DONBASS_heavily_defended_area
+					scope = UKR
+					days = 150
+				}
+			}
+		}
+
+		DON = { 
+			if={
+				limit = { has_dlc = "No Step Back" }
+				load_oob = DON_moderate_nsb
+			}
+			else={
+				load_oob = DON_moderate
+			}
+#						unlock_national_focus = DON_storm_the_rsa
+#						unlock_national_focus = DON_appoint_new_leadership
+#						unlock_national_focus = DON_hold_referendum_rallies
+#						unlock_national_focus = DON_demand_russian_peacekeeping_troops
+#						complete_national_focus = DON_glory_to_the_republic
+		}
+		LHK = { 
+			load_oob = LHK_moderate
+		}
+		every_country={
+			limit = { OR = { original_tag = DON original_tag = SOV original_tag = UKR } }
+			country_event = { id = donetsk.5 days = 22 }
+		}
+		every_country = {
+			limit = { OR = { original_tag = DON original_tag = LHK original_tag = ODS original_tag = KHK } }
+			country_event = { id = donbass_mutual.3 days = 5 }
+		}
+		if={
+			limit = { 
+				army_manpower_in_state = { state = 89 amount < 7500 } 
+				army_manpower_in_state = { state = 94 amount < 7500 }
+				is_ai = no
+			}
+			every_state={
+				limit = { has_state_flag = kharkiv_oblast_flag }
+				add_core_of = KHK
+				
+				KHK = { transfer_state = PREV }
+			}
+			KHK = { 
+				load_oob = KHK_moderate
+			}
+		}
+		if={
+			limit = { 
+				army_manpower_in_state = { state = 199 amount < 7500 } 
+				army_manpower_in_state = { state = 269 amount < 7500 }
+				is_ai = no
+			}	
+			every_state={
+				limit = { has_state_flag = odessa_oblast_flag }
+				add_core_of = ODS
+			}
+			ODS = { 
+				transfer_state = 269
+				transfer_state = 320
+				transfer_state = 287
+				transfer_state = 291
+				transfer_state = 322
+				load_oob = ODS_moderate
+			}
+		}
+	}
+	else={				#Novorossiya
+		every_state={
+			limit = {
+				OR={
+					has_state_flag = donetsk_oblast_flag
+					has_state_flag = zaporizhia_oblast_flag
+					has_state_flag = luhansk_oblast_flag
+				}	
+			}
+			add_core_of = NOV
+			
+			NOV = { transfer_state = PREV }
+		}
+		
+		NOV = {
+			transfer_state = 152
+			transfer_state = 174
+			transfer_state = 159
+			transfer_state = 186
+			transfer_state = 173
+			if={
+				limit = { has_dlc = "No Step Back" }
+				load_oob = DON_moderate_nsb
+			}
+			else={
+				load_oob = DON_moderate
+			}
+			load_oob = LHK_moderate
+			load_oob = NOV_rebel
+		}
+		UKR={
+			set_province_controller = 18302
+			set_province_controller = 1166
+			set_province_controller = 4771
+			set_province_controller = 13399
+			set_province_controller = 11188
+			set_province_controller = 200
+			set_province_controller = 7395
+			
+			set_province_controller = 12187
+			set_province_controller = 13190
+			set_province_controller = 4359
+			set_province_controller = 2851
+			set_province_controller = 6231
+			set_province_controller = 5649
+		}
+		174 = { set_state_controller_to = UKR }
+		159 = { set_state_controller_to = UKR }
+		173 = { set_state_controller_to = UKR }
+		every_state={
+			limit = {
+				OR={
+					has_state_flag = dnipro_oblast_flag
+					has_state_flag = kherson_oblast_flag
+					has_state_flag = mykolaiv_oblast_flag
+					has_state_flag = odessa_oblast_flag
+					has_state_flag = kirovohrad_oblast_flag
+					has_state_flag = kharkiv_oblast_flag
+				}	
+			}
+			add_claim_by = NOV
+		}
+		DON = { every_unit_leader = { set_nationality = NOV } }
+		LHK = { every_unit_leader = { set_nationality = NOV } }
+		NOV={
+			create_country_leader = {
+				name = "Pavel Gubarev"
+				desc = ""
+				ideology = donetsk_party
+				picture = gfx/leaders/DON/Portrait_Pavel_Gubarev.png
+				traits = {  }
+			}
+			
+			add_dynamic_modifier = { modifier = NOVOROSSIYA_secret_start_boost days = 6 }
+		}
+		if={
+			limit = { 
+				army_manpower_in_state = { state = 89 amount < 7500 } 
+				army_manpower_in_state = { state = 94 amount < 7500 }
+				is_ai = no
+			}
+			NOV = { 
+				load_oob = KHK_moderate
+			}
+			UKR={
+				set_province_controller = 7182
+				set_province_controller = 10013
+				set_province_controller = 13115
+				set_province_controller = 3279
+				set_province_controller = 17405
+				set_province_controller = 12384
+				set_province_controller = 9708
+				set_province_controller = 8990
+				set_province_controller = 17241
+				set_province_controller = 953
+				set_province_controller = 4234
+			}
+		}
+		if={
+			limit = { 
+				army_manpower_in_state = { state = 199 amount < 7500 } 
+				army_manpower_in_state = { state = 269 amount < 7500 }
+				is_ai = no
+			}
+			every_state={
+				limit = { has_state_flag = odessa_oblast_flag }
+				add_core_of = ODS
+			}
+			ODS = { 
+				transfer_state = 269
+				transfer_state = 320
+				transfer_state = 287
+				transfer_state = 291
+				transfer_state = 322
+				load_oob = ODS_moderate
+			}
+			
+		}
+	}
+}
+
 make_borders_look_nice={
 	set_variable = { global.donbass_countries_states_owned = 0 }
 	every_state={
