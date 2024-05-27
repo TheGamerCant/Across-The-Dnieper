@@ -5965,6 +5965,47 @@ country_event = {
     }
 }
 
+#NATO mobilizes (after putin won in ukraine)
+country_event = {
+    id = russia.1157
+    title = russia.1157.t
+    desc = russia.1157.desc
+    picture = GFX_report_event_SOV_test_the_waters_successful
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			load_ww3 = yes
+		}
+	}
+
+    option = {
+        name = russia.1157.a
+		ai_chance = {
+			base = 10
+		}
+		add_war_support = 0.1
+		
+		SOV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = NAT
+			}
+		}
+    }
+
+	option = {
+        name = russia.1157.b
+		ai_chance = {
+			base = 0
+		}
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
