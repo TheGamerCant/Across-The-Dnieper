@@ -6927,6 +6927,164 @@ country_event = {
 	}
 }
 
+#spawn russian liberation forces
+country_event = {
+	id = ukraine.168
+	title = ukraine.168.t
+	desc = ukraine.168.desc
+	picture = GFX_report_event_UKR_incursion
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SOV
+	}
+
+
+	option = { 
+		name = ukraine.168.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			create_dynamic_country = {
+				original_tag = SOV
+	
+				create_country_leader = {
+					name = "Ilya Ponomarev"
+					picture = gfx/leaders/OTHER/Portrait_RLF_Ilya_Ponomarev.png
+					ideology = generic_eastern_liberal
+				}
+	
+				set_politics = {
+					ruling_party = eastern_liberal
+				}
+	
+				set_popularities = {
+					eastern_liberal = 100
+				}
+		
+				set_cosmetic_tag = RLF
+	
+				division_template = {
+					name = "Freedom Fighters"
+					division_names_group = SOV_INF_01
+					template_counter = 295
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+					}
+					support = {
+						logistics_company = { x = 0 y = 1 }  
+					}
+				}
+			}
+	
+			
+	
+			every_state = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { is_core_of = UKR }
+					is_core_of = SOV
+				}
+	
+				transfer_state_to = RLF
+				create_unit = {
+					division = "name = \"Freedom Fighters\" division_template = \"Freedom Fighters\" start_experience_factor = 0.1 start_equipment_factor = 0.65" 
+					owner = RLF
+					count = 7
+				}
+			}
+	
+			RLF = {
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+	
+				give_military_access = UKR
+			}
+			give_military_access = RLF
+		}
+	}
+
+	option = { 
+		name = ukraine.168.b
+		ai_chance = {
+			base = 0
+		}
+		hidden_effect = {
+			create_dynamic_country = {
+				original_tag = SOV
+	
+				create_country_leader = {
+					name = "Ilya Ponomarev"
+					picture = gfx/leaders/OTHER/Portrait_RLF_Ilya_Ponomarev.png
+					ideology = generic_eastern_liberal
+				}
+	
+				set_politics = {
+					ruling_party = eastern_liberal
+				}
+	
+				set_popularities = {
+					eastern_liberal = 100
+				}
+		
+				set_cosmetic_tag = RLF
+	
+				division_template = {
+					name = "Freedom Fighters"
+					division_names_group = SOV_INF_01
+					template_counter = 295
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+					}
+					support = {
+						logistics_company = { x = 0 y = 1 }  
+					}
+				}
+			}
+	
+			
+	
+			every_state = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { is_core_of = UKR }
+					is_core_of = SOV
+				}
+	
+				transfer_state_to = RLF
+				create_unit = {
+					division = "name = \"Freedom Fighters\" division_template = \"Freedom Fighters\" start_experience_factor = 0.1 start_equipment_factor = 0.65" 
+					owner = RLF
+					count = 7
+				}
+			}
+	
+			RLF = {
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+	
+				give_military_access = UKR
+			}
+			give_military_access = RLF
+
+
+		}
+
+		RLF = { 
+			change_tag_from = ROOT 
+		}
+	}
+}
+
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1
