@@ -399,6 +399,17 @@ on_actions={
 			news_event = { id = city_captures.25 }
 			UKR = { country_event = { id = ukraine.167 days = 1 } }
 		}
+		else_if = {	#liberation of lviv
+		limit = {
+			SOV={ has_war_with = UKR } 
+			tag = UKR
+			FROM.FROM = { state = 96 }
+			NOT={ has_global_flag = lib_lviv }
+			has_global_flag = fall_lviv
+		}
+		set_global_flag = lib_lviv
+		UKR = { country_event = { id = ukraine.169 days = 1 } }
+	}
 		else_if = {	#Spawn russian liberation forces country
 			limit = {
 				SOV={ has_war_with = UKR } 
