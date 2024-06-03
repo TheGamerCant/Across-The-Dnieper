@@ -315,32 +315,6 @@ on_actions={
 						instant_build = yes
 					}
 				}
-				
-				#Has to load in via on_actions for the 2022 focus to start while being done. No idea why as when I put this in the history file like a normal country and change the 2022 focus to any other focus it works fine, it's just "Movements on the border" that doesn't work. I <3 Paradox :)
-				if={
-					limit={
-						NOT={ has_dlc = "No Step Back" }
-						has_start_date < 2022.01.01
-					}
-					load_oob = "SOV_2014"
-				}
-				else_if={
-					limit={
-						has_dlc = "No Step Back"
-						has_start_date < 2022.01.01
-					}
-					load_oob = "SOV_2014_nsb"
-				}
-				else_if={
-					limit={
-						NOT={ has_dlc = "No Step Back" }
-						has_start_date > 2022.01.01
-					}
-					load_oob = "SOV_2022"
-				}
-				else={
-					load_oob = "SOV_2022_nsb"
-				}
 			}
 		}
 	}

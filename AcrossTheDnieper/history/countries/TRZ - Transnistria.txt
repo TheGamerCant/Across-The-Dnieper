@@ -1,8 +1,6 @@
 ﻿capital = 268
 
 load_soviet_doctrine = yes
-
-set_oob = "TRZ_2014"
 create_country_leader = {
 	name = "Yevgeny Shevchuk"
 	desc = "Test Transnistria"
@@ -24,55 +22,6 @@ set_research_slots = 3
 set_stability = 0.6
 set_war_support = 0.6
 
-set_variable = {
-	gdp = 1.002
-}
-
-# Starting tech
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	support_weapons = 1
-	motorised_infantry = 1
-	infantry_anti_tank = 1
-	infantry_anti_air = 1
-
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	basic_train = 1
-
-	modern_tank_doctrine = 1
-	ifv = 1
-
-	gw_artillery = 1
-	rocket_artillery = 1
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		t_64 = 1
-		t_64av = 1
-		t_72 = 1
-		t_72b = 1
-		t_80 = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		t64_chasis_tech = 1
-		t72_chasis_tech = 1
-		t80_chasis_tech = 1
-		basic_tank_building = 1
-	}
-}
-
 add_ideas = {
 	extensive_conscription
 	state_controlled_press
@@ -92,7 +41,7 @@ add_ideas = {
 	TRZ_the_eternal_occupation
 }
 
-set_convoys = 10
+set_convoys = 0
 
 give_military_access = SOV
 
@@ -108,131 +57,4 @@ set_popularities = {
 	populist = 5
 	social_democracy = 10
 	eastern_conservative = 75
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	create_equipment_variant = {
-		name = "T-64"
-		type = t64_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 0
-		}
-	}
-	create_equipment_variant = {
-		name = "T-64av"
-		type = t64_chasis
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 4
-		}
-	}
-	create_equipment_variant = {
-		name = "T-72"
-		type = t72_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 0
-		}
-	}
-	create_equipment_variant = {
-		name = "T-72b"
-		type = t72_chasis
-		obsolete = no
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret2
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 4
-		}
-	}
-	create_equipment_variant = {
-		name = "T-80"
-		type = t80_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 5
-		}
-	}
-	create_equipment_variant = {
-		name = "T-80bv"
-		type = t80_chasis
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon2
-			turret_type_slot = tank_modern_tank_turret2
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 5
-		}
-	}
 }

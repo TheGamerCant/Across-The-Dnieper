@@ -441,6 +441,7 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30   --10 (lets you not pick a focus 
 
 NDefines.NSupply.NODE_INITIAL_SUPPLY_FLOW = 5.6		--base is 2.8
 
+--------------------------------------------------------------------------------------------------------------
 -- These make on-map GUIs and indicators show up when zoomed out further
 NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = {500, 1000, 2250}			--base is 150, 250, 500
 NDefines_Graphics.NGraphics.VICTORY_POINTS_DISTANCE_CUTOFF = {750, 1250, 2250}			--base is 250, 500, 1000
@@ -448,7 +449,7 @@ NDefines_Graphics.NGraphics.AIRBASE_ICON_DISTANCE_CUTOFF = 1800						--base is 9
 NDefines_Graphics.NGraphics.NAVALBASE_ICON_DISTANCE_CUTOFF = 1800						--base is 900
 NDefines_Graphics.NGraphics.RADAR_ICON_DISTANCE_CUTOFF = 2000						--base is 1100
 NDefines_Graphics.NGraphics.RESOURCE_MAP_ICON_TEXT_CUTOFF = 2500						--base is 800
-NDefines_Graphics.NGraphics.UNITS_DISTANCE_CUTOFF = 400							--base is 120
+NDefines_Graphics.NGraphics.UNITS_DISTANCE_CUTOFF = 1200							--base is 120
 NDefines_Graphics.NGraphics.SHIPS_DISTANCE_CUTOFF = 720							--base is 240
 NDefines_Graphics.NGraphics.LAND_COMBAT_DISTANCE_CUTOFF = 2250						--base is 1500
 NDefines_Graphics.NGraphics.PROV_CONSTRUCTION_ICON_DISTANCE_CUTOFF = 1200				--base is 400

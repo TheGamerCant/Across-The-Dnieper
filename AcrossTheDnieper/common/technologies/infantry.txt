@@ -109,7 +109,7 @@ technologies = {
 			position = { x = 2 y = @2020 }
 		}
 		path = {
-			leads_to_tech = infantry_anti_tank_3
+			leads_to_tech = infantry_anti_tank_upgrade_2
 			research_cost_coeff = 1
 		}
 		category_all_infantry = {
@@ -408,21 +408,6 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 2
-			
-			modifier = {
-				factor = 5
-
-				OR = {
-					tag = CHI
-					tag = PRC
-					tag = XSM
-					tag = SIK
-					tag = GXC
-					tag = SHX
-					tag = YUN
-				}
-			}
-
 			modifier = {
 				factor = 5
 				date > "2017.1.1"
@@ -462,17 +447,6 @@ technologies = {
 				num_of_military_factories < 50
 				factor = 0.5
 			}
-			#modifier = {
-			#	factor = 0
-			#	tag = SOV
-			#	OR = {
-			#		date < "2028.1.1" # stock up on lots of rifles, we got the manpower
-			#		AND = {
-			#			date > "2026.1.1"
-			#			surrender_progress < 0.1 # if we arent losing badly its ok
-			#		}
-			#	}
-			#}
 		}
 	}
 	improved_infantry_weapons_2 = {

@@ -2,18 +2,6 @@
 
 load_nato_doctrine = yes
 
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_oob = "ROM_2014_nsb"
-}
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_oob = "ROM_2014"
-}
 #Characters
 
 recruit_character = ROM_liviu_dragnea
@@ -86,61 +74,6 @@ recruit_character = ROM_lucian_foca
 
 set_country_flag = ponta_cabinet_ii #this is for cabinet assignment
 
-# Starting tech
-set_technology = {
-
-	infantry_weapons = 1
-	support_weapons = 1
-	motorised_infantry = 1
-	infantry_anti_tank = 1
-	infantry_anti_air = 1
-        infantry_anti_air_equipment_1 = 1
-	elite_special_forces_tech = 1
-
-	tech_support = 1
-	tech_engineers = 1
-	tech_logistics_company = 1
-	tech_maintenance_company = 1
-	tech_signal_company = 1
-	basic_train = 1
-
-	modern_tank_doctrine = 1
-	ifv = 1
-	apc = 1
-
-	gw_artillery = 1
-	rocket_artillery = 1
-
-	early_coastal_patrol_ship = 1
-	basic_battery = 1
-	basic_torpedo = 1
-	mtg_transport = 1
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		t_64 = 1
-		t_64av = 1
-		t_72 = 1
-		t_72b = 1
-		t_80 = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		t64_chasis_tech = 1
-		t72_chasis_tech = 1
-		t80_chasis_tech = 1
-		basic_tank_building = 1
-	}
-}
-
  2018.1.1 = {
 
 	set_politics = {
@@ -171,23 +104,10 @@ set_war_support = 0.75
 
 set_convoys = 56
 
-#DONT REMOVE
-
-#set_variable = { pro_eu = 59 }
-#set_variable = { sce_eu =  18 }
-#set_variable = { neu_eu =  24 }
-#clamp_variable = { var = pro_eu min = 0 max = 100 }
-#clamp_variable = { var = sce_eu min = 0 max = 100 }
-#clamp_variable = { var = neu_eu min = 0 max = 100 }
-set_variable = {
-	gdp = 189.790
-}
-
-
 add_ai_strategy = {
     type = alliance
     id = "POL"
-    value = 200
+    value = 100
 }
 
 set_politics = {
@@ -210,188 +130,6 @@ set_popularities = {
 	libertarian = 40
 	absolute_monarchy_ideology = 4
 }
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	create_equipment_variant = {
-		name = "T-64"
-		type = t64_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 0
-		}
-	}
-	create_equipment_variant = {
-		name = "T-64av"
-		type = t64_chasis
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 4
-		}
-	}
-	create_equipment_variant = {
-		name = "T-72"
-		type = t72_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 0
-		}
-	}
-	create_equipment_variant = {
-		name = "T-72b"
-		type = t72_chasis
-		obsolete = no
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret2
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 4
-		}
-	}
-	create_equipment_variant = {
-		name = "T-80"
-		type = t80_chasis
-		obsolete = yes
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_modern_cannon
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 5
-		}
-	}
-	create_equipment_variant = {
-		name = "T-80bv"
-		type = t80_chasis
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_modern_cannon2
-			turret_type_slot = tank_modern_tank_turret2
-			suspension_type_slot = tank_torsion_bar_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_diesel_engine
-
-			special_type_slot_1 = basic_optics_module
-			special_type_slot_2 = basic_comms_module
-			special_type_slot_5 = armor_era
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 9
-			tank_nsb_armor_upgrade = 5
-		}
-	}
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
-	}
-
-	set_technology = {
-		early_fighter = 1
-	}
-
-	add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 46 }
-}
-
-if = {
-	limit = {
-		has_dlc = "By Blood Alone"
-	}
-
-	set_technology = {
-		iw_small_airframe = 1
-		iw_large_airframe = 1
-		bombs1 = 1
-		aa_lmg = 1
-		aa_mmg = 1
-		aa_am1 = 1
-		range_improvements = 1
-	}
-}
-
-
-if = {
-	limit = {
-		has_dlc = "By Blood Alone"
-	}
-
-	create_equipment_variant = {
-		name = "Su-27SM"
-		type = small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = medium_mg
-			fixed_auxiliary_weapon_slot_1 = fox2_1
-			engine_type_slot = engine_1_2x
-			special_type_slot_1 = air_air_radar_1
-		}
-		obsolete = no
-	}
-
-	add_equipment_to_stockpile = {
-		type = small_plane_airframe_0
-		variant_name = "Su-27SM"
-		amount = 46
-		producer = SOV
-	}
-}
-
 
 ROM_load_lower_house_330_seats = yes
 ROM_load_upper_house_176_seats = yes

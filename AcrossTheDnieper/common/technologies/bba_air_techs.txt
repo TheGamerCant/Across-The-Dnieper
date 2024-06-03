@@ -19,10 +19,12 @@ technologies = {
 		
 		research_cost = 2
 		start_year = 2014
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 2 }
-		}
+		
+						#Removed temporarily
+		#folder = {
+		#	name = bba_air_techs_folder
+		#	position = { x = 0 y = 2 }
+		#}
 		
 		categories = {
 			light_air
@@ -509,11 +511,8 @@ technologies = {
 	bombs1 = {
 
 		enable_equipment_modules = {
-			bomb_locks
-			small_bomb_bay
+			air_to_surface_missile_1
 			large_bomb_bay
-			rocket_rails
-			torpedo_mounting
 		}
 		
 		research_cost = 1.5
@@ -543,19 +542,15 @@ technologies = {
 	bombs2 = {
 
 		enable_equipment_modules = {
-			bomb_locks2
-			small_bomb_bay2
-			large_bomb_bay2
-			tank_buster_1
-			guided_anti_ship_missile
+			air_to_surface_missile_2
 		}
 		
 		research_cost = 1.5
-		start_year = 2018
+		start_year = 2015
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 6 }
+			position = { x = 0 y = 4 }
 		}
 
 		path = {
@@ -577,8 +572,38 @@ technologies = {
 	bombs3 = {
 
 		enable_equipment_modules = {
-			bomb_locks3
-			tank_buster_2
+			air_to_surface_missile_3
+			large_bomb_bay2
+		}
+		
+		research_cost = 2
+		start_year = 2018
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		path = {
+			leads_to_tech = bombs4
+			research_cost_coeff = 1
+		}
+
+		categories = {
+			air_equipment
+			plane_modules_tech
+		}
+		
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}	
+	
+	bombs4 = {
+
+		enable_equipment_modules = {
+			air_to_surface_missile_4
 		}
 		
 		research_cost = 2
@@ -620,11 +645,6 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = aa_am1
-			research_cost_coeff = 1
-		}
-
 		categories = {
 			air_equipment
 			plane_modules_tech
@@ -640,17 +660,15 @@ technologies = {
 	aa_am1 = {
 
 		enable_equipment_modules = {
-			fox1_1
-			fox2_1
-			fox3_1
+			air_to_air_missile_1
 		}
 		
 		research_cost = 1
-		start_year = 2015
+		start_year = 2014
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = -2 y = 4 }
+			position = { x = -2 y = 2 }
 		}
 
 		categories = {
@@ -674,17 +692,15 @@ technologies = {
 	aa_am2 = {
 
 		enable_equipment_modules = {
-			fox1_2
-			fox2_2
-			fox3_2
+			air_to_air_missile_2
 		}
 		
 		research_cost = 1.5
-		start_year = 2018
+		start_year = 2015
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = -2 y = 6 }
+			position = { x = -2 y = 4 }
 		}
 
 		categories = {
@@ -708,12 +724,37 @@ technologies = {
 	aa_am3 = {
 
 		enable_equipment_modules = {
-			fox1_3
-			fox2_3
-			fox3_3
-			fox1_3s
-			fox2_3s
-			fox3_3s
+			air_to_air_missile_3
+		}
+		
+		research_cost = 2
+		start_year = 2018
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = -2 y = 6 }
+		}
+
+		categories = {
+			air_equipment
+			plane_modules_tech
+			cat_air_guns
+		}
+		
+		path = {
+			leads_to_tech = aa_am4
+			research_cost_coeff = 1
+		}
+				
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	aa_am4 = {
+
+		enable_equipment_modules = {
+			air_to_air_missile_4
 		}
 		
 		research_cost = 2
