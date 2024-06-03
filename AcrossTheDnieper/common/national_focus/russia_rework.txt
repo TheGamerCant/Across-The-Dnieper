@@ -737,8 +737,10 @@ focus_tree = {
 						}
 					}
 				}
-				
-				every_state = {
+
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+					every_state = {
 					limit ={
 						OR = {
 							is_controlled_by = DON
@@ -777,7 +779,7 @@ focus_tree = {
 						days = 365
 					}
 				}
-				every_state={ #can be moved to an event if you want
+				every_state={ 
 					limit = {
 						is_controlled_by = UKR
 						OR = {
@@ -803,6 +805,10 @@ focus_tree = {
 						scope = SOV
 					}
 				}
+				}
+				
+				
+				
 				
 				every_state={
 					limit={
@@ -3115,7 +3121,11 @@ focus_tree = {
 		
 		completion_reward={
 			hidden_effect = {
-				every_state = {
+
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+					
+					every_state = {
 					limit = {
 						has_dynamic_modifier = {
 							modifier = UKR_heavily_defended_area
@@ -3125,9 +3135,12 @@ focus_tree = {
 	
 					remove_dynamic_modifier = { modifier = UKR_heavily_defended_area }
 				}
+				}
+				
 			}
-
-			every_state={
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+				every_state={
 				limit={
 					AND = {
 						OR={
@@ -3146,6 +3159,8 @@ focus_tree = {
 					scope = UKR
 				}
 			}
+			}
+			
 
 			every_state={
 				limit={
@@ -3231,7 +3246,12 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = SOV_push_for_bakhmut_tt
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+
+				custom_effect_tooltip = SOV_push_for_bakhmut_tt
+
+
 
 			effect_tooltip = {
 				every_state = {
@@ -3245,6 +3265,9 @@ focus_tree = {
 					}
 				}
 			}
+			}
+
+			
 		}
 	}
 
@@ -3293,7 +3316,10 @@ focus_tree = {
 				}
 			}
 
-			every_state = {
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+
+				every_state = {
 				limit = {
 					AND = {
 						is_controlled_by = SOV
@@ -3306,6 +3332,8 @@ focus_tree = {
 					scope = UKR
 				}
 			}
+			}
+			
 
 			custom_effect_tooltip = SOV_secure_the_land_bridge_tt
 		}

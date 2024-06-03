@@ -6161,7 +6161,10 @@ country_event = {
 
 	option = { 
 		name = ukraine.147.a
-		every_state = {
+
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+			every_state = {
 			limit = {
 				is_controlled_by = UKR
 				OR = { state = 264 state = 231 }
@@ -6172,6 +6175,8 @@ country_event = {
 				scope = SOV
 			}
 		}
+		}
+		
 	}
 	
 }

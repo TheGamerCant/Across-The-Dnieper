@@ -7443,7 +7443,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+
+				if = {
 				limit = { UKR = { is_ai = yes } }
+
+
 
 				every_state = {
 					limit ={
@@ -7480,6 +7485,8 @@ focus_tree = {
 					}
 				}
 			}
+			}
+
 
 
 			85 = {
@@ -9653,7 +9660,9 @@ focus_tree = {
 			}
 
 			effect_tooltip = {
-				every_state = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+					every_state = {
 					limit = {
 						OR = { state = 264 state = 231 }
 					}
@@ -9663,6 +9672,8 @@ focus_tree = {
 						scope = SOV
 					}
 				}
+				}
+				
 			}
 			hidden_effect = {
 				if = {
@@ -9768,7 +9779,9 @@ focus_tree = {
 		
 		
 		bypass = {
-			
+			hidden_trigger = {
+				has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT }
+			}
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
