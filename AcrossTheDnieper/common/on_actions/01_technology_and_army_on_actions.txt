@@ -540,6 +540,28 @@ on_actions={
 						}
 					}
 					create_equipment_variant = {
+						name = "M1A1 Abrams"
+						type = abrams_chasis
+						parent_version = 0
+						icon = "GFX_ABR_M1A1"
+						modules = {
+							main_armament_slot = tank_modern_cannon3
+							turret_type_slot = tank_modern_tank_turret3
+							suspension_type_slot = tank_hydropneumatic_suspension
+							armor_type_slot = tank_composite_armor
+							engine_type_slot = tank_gas_turbine_engine
+
+							special_type_slot_1 = improved_optics_module
+							special_type_slot_2 = improved_comms_module
+							special_type_slot_3 = stabilizer
+							special_type_slot_5 = basic_aps_armour
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 11
+							tank_nsb_armor_upgrade = 14
+						}
+					}
+					create_equipment_variant = {
 						name = "M1A2 Abrams"
 						type = abrams_chasis
 						parent_version = 0
@@ -557,8 +579,8 @@ on_actions={
 							special_type_slot_5 = basic_aps_armour
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 15
-							tank_nsb_armor_upgrade = 15
+							tank_nsb_engine_upgrade = 14
+							tank_nsb_armor_upgrade = 14
 						}
 					}
 				}
@@ -615,7 +637,7 @@ on_actions={
 						range_improvements = 1
 					}
 					create_equipment_variant = {
-						name = "Su-29" 
+						name = "SU-29" 
 						type = small_plane_airframe_0
 						icon = "GFX_SU_29"
 						modules = {
@@ -626,7 +648,7 @@ on_actions={
 						obsolete = no
 					}
 					create_equipment_variant = {
-						name = "Su-27" 
+						name = "SU-27" 
 						type = small_plane_airframe_0
 						icon = "GFX_SU_27"
 						modules = {
@@ -649,7 +671,7 @@ on_actions={
 					}
 					
 					create_equipment_variant = {
-						name = "Su-34" 
+						name = "SU-34" 
 						type = small_plane_airframe_1
 						icon = "GFX_SU_34"
 						modules = {
@@ -662,7 +684,19 @@ on_actions={
 						obsolete = no
 					}
 					create_equipment_variant = {
-						name = "Tu-160" 
+						name = "SU-30" 
+						type = small_plane_airframe_1
+						icon = "GFX_SU_30"
+						modules = {
+							fixed_main_weapon_slot = air_to_air_missile_2
+							fixed_auxiliary_weapon_slot_1 = secondary_machine_guns_1
+							fixed_auxiliary_weapon_slot_2 = air_to_surface_missile_2
+							engine_type_slot = engine_2_2x
+						}
+						obsolete = no
+					}
+					create_equipment_variant = {
+						name = "TU-160" 
 						type = large_plane_airframe_0
 						icon = "GFX_TU_160"
 						modules = {
@@ -697,6 +731,101 @@ on_actions={
 						aa_shmg = 1
 						aircraft_construction = 1
 						survivability_studies = 1
+					}
+					
+					create_equipment_variant = {
+						name = "F-16C" 
+						type = small_plane_airframe_1
+						icon = "GFX_F_16"
+						modules = {
+							fixed_main_weapon_slot = air_to_air_missile_2
+							fixed_auxiliary_weapon_slot_1 = air_to_air_missile_1
+							fixed_auxiliary_weapon_slot_2 = secondary_machine_guns_1
+							engine_type_slot = engine_3_1x
+							
+							special_type_slot_1 = air_air_radar_1
+						}
+						obsolete = no
+					}
+					create_equipment_variant = {
+						name = "F-35B" 
+						type = small_plane_airframe_3
+						icon = "GFX_F_35"
+						modules = {
+							fixed_main_weapon_slot = air_to_air_missile_4
+							fixed_auxiliary_weapon_slot_1 = air_to_air_missile_3
+							fixed_auxiliary_weapon_slot_2 = secondary_machine_guns_2
+							fixed_auxiliary_weapon_slot_3 = air_to_surface_missile_3
+							engine_type_slot = engine_4_2x		#The F-35 is actually single-engine but I don't care
+							
+							special_type_slot_1 = stealth_covering_2_small
+							special_type_slot_2 = air_air_radar_2
+						}
+						obsolete = no
+					}
+				}
+				
+				UKR={
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_0
+						variant_name = "SU-27"
+						amount = 25
+						producer = UKR
+					}
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_0
+						variant_name = "SU-29"
+						amount = 48
+						producer = UKR
+					}
+				}
+				
+				SOV={
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_0
+						variant_name = "SU-27"
+						amount = 262
+						producer = SOV
+					}
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_0
+						variant_name = "SU-29"
+						amount = 250
+						producer = SOV
+					}
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_1
+						variant_name = "SU-34"
+						amount = 107
+						producer = SOV
+					}
+					add_equipment_to_stockpile = { 
+						type = small_plane_airframe_1
+						variant_name = "SU-30"
+						amount = 6
+						producer = SOV
+					}
+					add_equipment_to_stockpile = { 		#Technically the actual breakdown is x15 TU-160s, x58 TU-22Ms and x47 TU-95s, but as it's early bombers I just lumped them all together
+						type = large_plane_airframe_0
+						variant_name = "TU-160" 
+						amount = 110
+						producer = SOV
+					}
+					
+					if={
+						limit = { has_start_date > 2022.1.1 }
+						add_equipment_to_stockpile = { 
+							type = small_plane_airframe_1
+							variant_name = "SU-34"
+							amount = 22
+							producer = SOV
+						}
+						add_equipment_to_stockpile = { 
+							type = small_plane_airframe_1
+							variant_name = "SU-30"
+							amount = 94
+							producer = SOV
+						}
 					}
 				}
 			}
