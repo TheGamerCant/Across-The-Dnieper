@@ -589,6 +589,9 @@ on_actions={
 					set_technology = {
 						popup = no
 						
+						
+						nineties_tank_tech = 1
+						noughties_tank_tech = 1
 						tens_tank_tech = 1
 						twenties_tank_tech = 1
 					}
@@ -616,8 +619,8 @@ on_actions={
 						type = small_plane_airframe_0
 						icon = "GFX_SU_29"
 						modules = {
-							fixed_main_weapon_slot = light_mg
-							fixed_auxiliary_weapon_slot_1 = air_to_air_missile_1
+							fixed_main_weapon_slot = air_to_air_missile_1
+							fixed_auxiliary_weapon_slot_1 = secondary_machine_guns_1
 							engine_type_slot = engine_1_2x
 						}
 						obsolete = no
@@ -627,8 +630,8 @@ on_actions={
 						type = small_plane_airframe_0
 						icon = "GFX_SU_27"
 						modules = {
-							fixed_main_weapon_slot = light_mg
-							fixed_auxiliary_weapon_slot_1 = air_to_air_missile_1
+							fixed_main_weapon_slot = air_to_air_missile_1
+							fixed_auxiliary_weapon_slot_1 = secondary_machine_guns_1
 							engine_type_slot = engine_1_2x
 							special_type_slot_1 = drop_tanks
 						}
@@ -650,10 +653,23 @@ on_actions={
 						type = small_plane_airframe_1
 						icon = "GFX_SU_34"
 						modules = {
-							fixed_main_weapon_slot = medium_mg
-							fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
-							engine_type_slot = engine_1_2x
+							fixed_main_weapon_slot = air_to_air_missile_2
+							fixed_auxiliary_weapon_slot_1 = secondary_machine_guns_1
+							fixed_auxiliary_weapon_slot_2 = air_to_surface_missile_1
+							engine_type_slot = engine_2_2x
 							special_type_slot_1 = drop_tanks
+						}
+						obsolete = no
+					}
+					create_equipment_variant = {
+						name = "Tu-160" 
+						type = large_plane_airframe_0
+						icon = "GFX_TU_160"
+						modules = {
+							fixed_main_weapon_slot = large_bomb_bay
+							fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+							engine_type_slot = engine_1_4x
+							special_type_slot_1 = fuel_tanks_large
 						}
 						obsolete = no
 					}
@@ -679,6 +695,8 @@ on_actions={
 						aa_mmg = 1
 						aa_hmg = 1
 						aa_shmg = 1
+						aircraft_construction = 1
+						survivability_studies = 1
 					}
 				}
 			}
