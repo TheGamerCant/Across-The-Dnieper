@@ -547,6 +547,18 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	else_if={
+		limit = {
+			FROM = {
+				tag = SOV
+			}
+			SOV={ has_war_with = WAG vladimir_putin_is_leader = yes }
+		}
+		custom_trigger_tooltip = {
+			tooltip = ATD_CANNOT_JOIN_THIS_WAR
+			always = no
+		}
+	}
 }
 DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 	if = { 
@@ -588,6 +600,18 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 			SOV={ has_war_with = UKR OR = { vladimir_putin_is_leader = yes igor_girkin_is_leader = yes } }
 		}
 		custom_trigger_tooltip = {
+			always = no
+		}
+	}
+	else_if={
+		limit = {
+			FROM = {
+				tag = SOV
+			}
+			SOV={ has_war_with = WAG vladimir_putin_is_leader = yes }
+		}
+		custom_trigger_tooltip = {
+			tooltip = ATD_CANNOT_JOIN_THIS_WAR
 			always = no
 		}
 	}
