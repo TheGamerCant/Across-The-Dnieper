@@ -72,6 +72,10 @@ technologies = {
 			leads_to_tech = armored_train
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = convoy_highways_2_no_NSB
+			research_cost_coeff = 1
+		}
 		
 		categories = {
 			train_tech
@@ -158,6 +162,32 @@ technologies = {
 		truck_attrition_factor = -0.05
 		production_speed_supply_node_factor = 0.10
 		production_speed_rail_way_factor = 0.10
+
+		categories = {
+			train_tech
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	convoy_highways_2_no_NSB = {
+		research_cost = 1.5
+		start_year = 2022
+		folder = {
+			name = mil_vehicles_folder
+			position = { x = -3 y = 11 }
+		}
+
+		supply_node_range = 0.05
+		truck_attrition_factor = -0.05
+		production_speed_supply_node_factor = 0.10
+		production_speed_rail_way_factor = 0.10
+
+		allow_branch = {
+			NOT = { has_dlc = "No Step Back" }
+		}
 
 		categories = {
 			train_tech
