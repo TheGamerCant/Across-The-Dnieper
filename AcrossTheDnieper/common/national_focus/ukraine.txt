@@ -10048,6 +10048,10 @@ focus_tree = {
 			}
 		}
 		
+		allow_branch = {			#Remove this because I'm gonna change parts of it
+			always = no
+		}
+		
 		
 		bypass = {
 		}
@@ -11194,7 +11198,11 @@ focus_tree = {
 			if={
 				limit = { is_ai = no }
 				get_party_votes_player = yes
+				if={
+					limit = { volodymyr_zelenskyy_is_leader = yes }
+					set_variable = { UKR_rada_european_solidarity_votes = 0 }
 				}
+			}
 			else={
 				get_party_votes_ai = yes
 			}
