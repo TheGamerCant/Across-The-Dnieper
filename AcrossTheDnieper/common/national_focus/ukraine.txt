@@ -1542,7 +1542,6 @@ focus_tree = {
 				division_template = {
 					name = "Territorial Battalion Of Donbas"
 					division_names_group = UKR_INF_01
-					is_locked = yes
 					template_counter = 163
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
@@ -8494,7 +8493,7 @@ focus_tree = {
 	focus = {
 		id = UKR_stabilise_the_front
 		icon = GFX_focus_UKR_stabilise_the_front
-		x = -14
+		x = -12
 		y = 1
 		
 		cost = 22
@@ -8785,21 +8784,22 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = UKR_purchase_leopards
+
 			if = {
 				limit = {
 					has_dlc = "No Step Back"
 				}
 				add_equipment_to_stockpile = { 
 					type = leopard2_chasis
-					variant_name = "Leopard 2"
-					amount = 18
+					variant_name = "Leopard 2A5"
+					amount = 20
 					producer = GER
 				}
 			}
 			else={
 				add_equipment_to_stockpile = { 
 					type = leopard_2_equipment
-					amount = 18
+					amount = 20
 					producer = GER
 				}
 			}
@@ -8922,14 +8922,14 @@ focus_tree = {
 				add_equipment_to_stockpile = { 
 					type = challenger2_chasis
 					variant_name = "Challenger 2"
-					amount = 14
+					amount = 15
 					producer = ENG
 				}
 			}
 			else={
 				add_equipment_to_stockpile = { 
 					type = challenger_2_equipment
-					amount = 14
+					amount = 15
 					producer = ENG
 				}
 			}
@@ -8971,7 +8971,7 @@ focus_tree = {
 				}
 				add_equipment_to_stockpile = { 
 					type = abrams_chasis
-					variant_name = "M1 Abrams"
+					variant_name = "M1A1 Abrams"
 					amount = 31
 					producer = USA
 				}
@@ -9772,7 +9772,7 @@ focus_tree = {
 					state = 163
 					state = 115
 				}
-				CONTROLLER = { has_war_with = ROOT }
+				CONTROLLER = ROOT
 			}
 		}
 		
@@ -9829,7 +9829,7 @@ focus_tree = {
 					state = 163
 					state = 115
 				}
-				CONTROLLER = { has_war_with = ROOT }
+				CONTROLLER = ROOT
 			}
 		}
 		
@@ -10486,7 +10486,7 @@ focus_tree = {
 	focus = {
 		id = UKR_rally_the_west
 		icon = GFX_focus_UKR_Rally_The_West
-		x = 31
+		x = 29
 		y = 0
 		
 		cost = 2
@@ -10507,14 +10507,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			add_political_power = 25
+			UKR_ma_increse_willingness_5_all = yes
 			every_country={
 				limit = { has_idea = eu_member}
 
 				add_opinion_modifier = { target = UKR modifier = medium_increase }
-				add_political_power = 15
 			}
-			add_political_power = 25
-			UKR_ma_increse_willingness_5_all = yes
 		}
 	}
 
@@ -10543,7 +10542,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			custom_effect_tooltip = UKR_global_hero_tt
 			if={
 				limit = {
 					volodymyr_zelenskyy_is_leader = yes
@@ -10559,7 +10558,7 @@ focus_tree = {
 					add_idea = UKR_the_defence_of_ukraine_3
 				}
 			}
-			custom_effect_tooltip = UKR_global_hero_tt
+			
 
 			hidden_effect = {
 				random_list = {
@@ -10606,7 +10605,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_stability = -0.05
-			add_political_power = 25
+			add_political_power = 35
 			custom_effect_tooltip = UKR_ban_russian_tied_parties_tt
 			hidden_effect = {
 				set_party_name = { ideology = socialist long_name = generic_party_banned_long name = generic_party_banned }
@@ -11198,10 +11197,6 @@ focus_tree = {
 			if={
 				limit = { is_ai = no }
 				get_party_votes_player = yes
-				if={
-					limit = { volodymyr_zelenskyy_is_leader = yes }
-					set_variable = { UKR_rada_european_solidarity_votes = 0 }
-				}
 			}
 			else={
 				get_party_votes_ai = yes
@@ -11726,6 +11721,10 @@ focus_tree = {
 			if={
 				limit = { is_ai = no }
 				get_party_votes_player = yes
+				if={
+					limit = { volodymyr_zelenskyy_is_leader = yes }
+					set_variable = { UKR_rada_european_solidarity_votes = 0 }
+				}
 				}
 			else={
 				get_party_votes_ai = yes
