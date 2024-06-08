@@ -940,19 +940,24 @@ on_actions={
 				meta_effect = {
 					text = {
 						if={
-							limit = { has_start_date > 2022.1.1 has_dlc = "No Step Back" }
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } has_start_date > 2022.1.1 has_dlc = "No Step Back" }
 							load_oob = [COUNTRY_TAG]_2022_nsb
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
 						else_if={
-							limit = { has_start_date > 2022.1.1 NOT = { has_dlc = "No Step Back" } }
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } has_start_date > 2022.1.1 NOT = { has_dlc = "No Step Back" } }
 							load_oob = [COUNTRY_TAG]_2022
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
 						else_if={
-							limit = { has_start_date < 2022.1.1 has_dlc = "No Step Back" }
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } has_start_date < 2022.1.1 has_dlc = "No Step Back" }
 							load_oob = [COUNTRY_TAG]_2014_nsb
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
-						else={
-							load_oob = [COUNTRY_TAG]_2014
+						else_if={
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } has_start_date < 2022.1.1 NOT = { has_dlc = "No Step Back" } }
+							load_oob = [COUNTRY_TAG]_2014 
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
 					}
 					COUNTRY_TAG = "[THIS.GetTag]"
@@ -964,11 +969,14 @@ on_actions={
 				meta_effect = {
 					text = {
 						if={
-							limit = { has_dlc = "No Step Back" }
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } has_dlc = "No Step Back" }
 							load_oob = [COUNTRY_TAG]_2014_nsb
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
-						else={
+						else_if={
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } NOT = { has_dlc = "No Step Back" } }
 							load_oob = [COUNTRY_TAG]_2014
+							set_country_flag = COUNTRY_OOBS_LOADED
 						}
 					}
 					COUNTRY_TAG = "[THIS.GetTag]"
@@ -979,7 +987,11 @@ on_actions={
 				limit = { OR = { tag = BOS tag = BUL tag = CHN tag = CRO tag = GEO tag = KOS tag = LIT tag = MNT tag = MOL tag = TRZ } }
 				meta_effect = {
 					text = {
-						load_oob = [COUNTRY_TAG]_2014
+						if={
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } }
+							load_oob = [COUNTRY_TAG]_2014
+							set_country_flag = COUNTRY_OOBS_LOADED
+						}
 					}
 					COUNTRY_TAG = "[THIS.GetTag]"
 				}
@@ -989,7 +1001,11 @@ on_actions={
 				limit = { OR = { tag = DON tag = LHK } }
 				meta_effect = {
 					text = {
-						load_oob = [COUNTRY_TAG]_2022
+						if={
+							limit = { NOT = { has_country_flag = COUNTRY_OOBS_LOADED } }
+							load_oob = [COUNTRY_TAG]_2022
+							set_country_flag = COUNTRY_OOBS_LOADED
+						}
 					}
 					COUNTRY_TAG = "[THIS.GetTag]"
 				}
