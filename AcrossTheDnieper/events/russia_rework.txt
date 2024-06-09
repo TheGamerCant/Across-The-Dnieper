@@ -2662,9 +2662,10 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		delete_unit = {
-			division_template = "Wagner PMC"
-		}
+		delete_unit_template_and_units = {
+            division_template = "Wagner PMC"
+            disband = no
+        }
 
 		add_stability = -0.05
 		hidden_effect={
@@ -2791,6 +2792,11 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+		add_stability = -0.1
+		add_political_power = -50
+		add_manpower = -15000
+		declare_war_on = { target = WAG type = take_state_focus }
+
 		hidden_effect={
 			retire_character = SOV_yevgeny_prigozhin_rework
 			retire_character = SOV_dmitry_utkin
@@ -2804,10 +2810,7 @@ country_event = {
 
 			country_event = { id = super.4 }
 		}
-		add_stability = -0.1
-		add_political_power = -50
-		add_manpower = -15000
-		declare_war_on = { target = WAG type = take_state_focus }
+
 	}
 
 	option = {
@@ -2832,8 +2835,6 @@ country_event = {
 				
 				WAG = { army_experience = 350 load_oob = "WAG_mutiny" country_event = { id = russia.1071 days = 1 } }
 				country_event = { id = russia.1071 days = 1 }
-
-				
 			}
 		}
 
