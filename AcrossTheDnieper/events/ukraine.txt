@@ -989,6 +989,8 @@ country_event = {
 		}
 		name = ukraine.26.b
 		DON = { change_tag_from = ROOT }
+
+		hidden_effect = { country_event = { id = ukraine.170 hours = 1 } }
 	}
 	option = { 
 		trigger = {
@@ -997,6 +999,8 @@ country_event = {
 		}
 		name = ukraine.26.c
 		LHK = { change_tag_from = ROOT }
+
+		hidden_effect = { country_event = { id = ukraine.170 hours = 1 } }
 	}
 	option = { 
 		trigger = {
@@ -1005,6 +1009,9 @@ country_event = {
 		}
 		name = ukraine.26.d
 		KHK = { change_tag_from = ROOT }
+
+		hidden_effect = { country_event = { id = ukraine.170 hours = 1 } }
+
 	}
 	option = { 
 		trigger = {
@@ -1013,6 +1020,8 @@ country_event = {
 		}
 		name = ukraine.26.e
 		ODS = { change_tag_from = ROOT }
+
+		hidden_effect = { country_event = { id = ukraine.170 hours = 1 } }
 	}
 	option = { 
 		trigger = {
@@ -1021,6 +1030,8 @@ country_event = {
 		}
 		name = ukraine.26.f
 		NOV = { change_tag_from = ROOT }
+
+		hidden_effect = { country_event = { id = ukraine.170 hours = 1 } }
 	}
 }
 
@@ -7148,6 +7159,40 @@ country_event = {
 	}
 }
 
+
+country_event = {
+	id = ukraine.170
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate={
+		if = {
+			limit = { UKR = { is_ai = yes } }
+
+			if = {
+				limit = { ODS = { is_ai = yes exists = yes } }
+
+				UKR = {
+					annex_country = {
+						target = ODS
+						transfer_troops = no
+					}
+				}
+			}
+
+			if = {
+				limit = { KHK = { is_ai = yes exists = yes } }
+
+				UKR = {
+					annex_country = {
+						target = KHK
+						transfer_troops = no
+					}
+				}
+			}
+		}
+	}
+}
 #Successful Belgorod Incursion
 country_event = {
 	id = ukraine_hur.1
