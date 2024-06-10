@@ -1699,7 +1699,7 @@ guiTypes = {
 			name = "speed"
 			position = { x = 155 y = 31 }
 			textureFile = ""
-			font = "OCR_A_14"
+			font = "OCR_A_14_outline"
 			text = "--"
 			maxWidth = 120
 			maxHeight = 20
@@ -2517,9 +2517,8 @@ guiTypes = {
 
 		background = {
 			name = "Background"
-			quadTextureSprite ="GFX_naval_production_item_bg_strip"
+			quadTextureSprite ="GFX_production_item"
 			pdx_tooltip = "PRODUCTION_DRAG_N_DROP"
-			frame = 1
 		}
 
 		iconType = {
@@ -2531,7 +2530,7 @@ guiTypes = {
 		iconType = {
 			name ="production_line_selected"
 			spriteType = "GFX_production_line_selected"
-			position = { x= 2 y = 0 }
+			position = { x= 0 y = 0 }
 		}
 
 		iconType = {
@@ -2557,7 +2556,7 @@ guiTypes = {
 			name = "priority"
 			position = { x = 3 y = 6 }
 			textureFile = ""
-			font = "hoi_16mbs"
+			font = "hoi4_typewriter16_blue"
 			maxWidth = 25
 			maxHeight = 20
 			text = "7"
@@ -2567,18 +2566,17 @@ guiTypes = {
 
 		buttonType = {
 			name = "equipment_button"
-			position = { x=0 y=27 }
-			quadTextureSprite = "GFX_prod_naval_equipment_item_large"
+			position = { x=1 y=27 }
+			quadTextureSprite = "GFX_prod_land_equipment_item_large"
 			clicksound = click_default
 		}
 
 		iconType = {
 			name ="outdated_equipment_overlay"
-			spriteType = "GFX_outdated_equipment_overlay"
-			position = { x=4 y=31 }
+			spriteType = "GFX_production_equipment_is_outdated"
+			position = {  x=1 y=27 }
 			alwaystransparent = yes
 		}
-
 		iconType = {
 			name = "need_state_icon"
 			position = { x=245 y=78 }
@@ -2613,14 +2611,7 @@ guiTypes = {
 			scale = 1
 			pdx_tooltip = "INDUSTRIAL_ORG_TOOLTIP_UPGRADE_ALREADY_ASSIGNED_MIO_DELAYED"
 		}
-
-		iconType = {
-			name ="equipment_role"
-			spriteType = "GFX_naval_equipment_role_icons"
-			position = { x = 25 y = 49 }
-			alwaystransparent = yes
-		}
-
+		
 		iconType = {
 			name = "creator_flag"
 			quadTextureSprite ="GFX_flag_small"
@@ -2629,18 +2620,20 @@ guiTypes = {
 
 		buttonType = {
 			name = "increase_amount"
-			position = { x=282 y=26 }
-			quadTextureSprite = "GFX_naval_increase_amount"
+			position = { x=288 y=32 }
+			quadTextureSprite = "GFX_ATD_add"
 			pdx_tooltip = "NAVAL_SERIES_INCREASE_DESC"
 			clicksound = click_default
+			scale = 0.5
 		}
 
 		buttonType = {
 			name = "decrease_amount"
-			position = { x=282 y=74 }
-			quadTextureSprite = "GFX_naval_decrease_amount"
+			position = { x=288 y=76 }
+			quadTextureSprite = "GFX_ATD_subtract"
 			pdx_tooltip = "NAVAL_SERIES_DECREASE_DESC"
 			clicksound = click_default
+			scale = 0.5
 		}
 
 		buttonType = {
@@ -2654,7 +2647,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "amount"
 			position = { x = 283 y = 56 }
-			font = "hoi_18b"
+			font = "OCR_A_16"
 			text = "INFINITY"
 			maxWidth = 30
 			maxHeight = 18
@@ -2662,13 +2655,18 @@ guiTypes = {
 			pdx_tooltip = "NAVAL_SERIES_AMOUNT_DESC"
 		}
 
-
 		iconType = {
 			name ="equipment_icon"
 			spriteType = "GFX_technology_medium"
-			position = { x=158 y=76 }
-			scale=0.8
+			position = { x=90 y=68 }
 			centerposition = yes
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name ="equipment_role"
+			spriteType = "GFX_naval_equipment_role_icons"
+			position = { x = 188 y = 69 }
 			alwaystransparent = yes
 		}
 
@@ -2692,7 +2690,7 @@ guiTypes = {
 			name = "speed"
 			position = { x = 157 y = 32 }
 			textureFile = ""
-			font = "hoi_18mbs"
+			font = "OCR_A_14_outline"
 			text = "--"
 			maxWidth = 120
 			maxHeight = 20
@@ -2738,9 +2736,10 @@ guiTypes = {
 
 		iconType = {
 			name = "deploy_icon"
-			position = { x=230 y=-2 }
+			position = { x=233 y=2 }
 			spriteType = "GFX_deploy_port_fleet_icons"
 			alwaystransparent = yes
+			scale = 0.9
 		}
 
 		instantTextboxType = {
@@ -2820,11 +2819,12 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "name"
-			position = { x = 40 y = 4 }
-			font = "hoi_18mbs"
+			position = { x = 43 y = 9 }
+			textureFile = ""
+			font = "OCR_A_10"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 154
-			maxHeight = 19
+			maxHeight = 20
 			multiline = no
 			format = left
 			alwaystransparent = yes
@@ -2832,7 +2832,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "general_name"
-			position = { x = 12 y = 32 }
+			position = { x = 9999 y = 9999 }
 			font = "hoi_16mbs"
 			maxWidth = 150
 			maxHeight = 33
@@ -2844,11 +2844,11 @@ guiTypes = {
 
 		buttonType = {
 			name = "expand"
-			position = { x=13 y=8 }
-			quadTextureSprite = "GFX_division_list_column_button"
-			frame = 8
+			position = { x=20 y=13 }
+			quadTextureSprite = "GFX_production_toggle_button"
+			frame = 1
 			clicksound = click_default
-			scale = 1.4
+			scale = 0.65
 		}
 
 		buttonType = {
@@ -2862,7 +2862,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "increase_priority"
-			position = { x=4 y=48 }
+			position = { x=9999 y=9999 }
 			quadTextureSprite = "GFX_arrow_up_small"
 			pdx_tooltip = "PRODUCTION_INCREASE_PRIORITY_LABEL"
 			clicksound = click_default
@@ -2870,7 +2870,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "decrease_priority"
-			position = { x=4 y=75	 }
+			position = { x=9999 y=9999 }
 			quadTextureSprite = "GFX_arrow_down_small"
 			pdx_tooltip = "PRODUCTION_DECREASE_PRIORITY_LABEL"
 			pdx_tooltip_delayed = "PRODUCTION_PRIORITY_DELAYED"
@@ -4285,13 +4285,18 @@ guiTypes = {
 		iconType = {
 			name = "equipment_button"
 			position = { x=1 y=27 }
-			spriteType = "GFX_prod_naval_equipment_item_large"
+			spriteType = "GFX_prod_land_equipment_item_large"
+		}
+		iconType = {
+			name = "equipment_button_add_new"
+			position = { x=3 y=30 }
+			spriteType = "GFX_prod_add_new_item"
 		}
 
 		iconType = {
 			name ="equipment_icon"
 			spriteType = "GFX_technology_medium"
-			position = { x=140 y=68 }
+			position = { x=9999 y=9999 }
 			scale=0.8
 			centerposition = yes
 			alwaystransparent = yes
@@ -4299,18 +4304,20 @@ guiTypes = {
 
 		buttonType = {
 			name = "increase_amount"
-			position = { x=282 y=26 }
-			quadTextureSprite = "GFX_naval_increase_amount"
+			position = { x=288 y=32 }
+			quadTextureSprite = "GFX_ATD_add"
 			pdx_tooltip = "NAVAL_SERIES_INCREASE_DESC"
 			clicksound = click_default
+			scale = 0.5
 		}
 
 		buttonType = {
 			name = "decrease_amount"
-			position = { x=282 y=74 }
-			quadTextureSprite = "GFX_naval_decrease_amount"
+			position = { x=288 y=76 }
+			quadTextureSprite = "GFX_ATD_subtract"
 			pdx_tooltip = "NAVAL_SERIES_DECREASE_DESC"
 			clicksound = click_default
+			scale = 0.5
 		}
 
 		instantTextboxType = {
@@ -4594,50 +4601,55 @@ guiTypes = {
 	containerWindowType = {
 		name = "naval_equipment_info_entry"
 		position = { x=0 y=0 }
-		size = { width=461 height= 75 }
+		size = { width=342 height= 80 }
 		clipping = no
 
 		buttonType = {
 			name = "equipment_button"
-			position = { x=10 y=4 }
-			quadTextureSprite = "GFX_naval_equipment_item_large"
+			position = { x=5 y=4 }
+			quadTextureSprite = "GFX_equipment_item_large_02"
 			clicksound = click_default
 			frame = 1
 		}
-
+		
+		iconType = {
+			name ="equipment_button_overlay_no_shine"
+			spriteType = "GFX_equipment_item_large_02"
+			position = { x=5 y=4 }
+			alwaystransparent = yes
+		}
+		
 		iconType = {
 			name ="outdated_equipment_overlay"
-			spriteType = "GFX_outdated_naval_equipment_overlay"
-			position = { x=15 y=7 }
+			spriteType = "GFX_02_tech_large_underlay_red"
+			position = { x=7 y=5 }
 			alwaystransparent = yes
 		}
 
 		iconType = {
 			name = "prod_line_glow"
-			position = { x = 14 y = 7 }
-			spriteType = "GFX_new_naval_equipment_glow"
+			position = { x = 7 y = 7 }
+			spriteType = "GFX_new_equipment_glow_large"
 			alwaystransparent = yes
 		}
 
 		iconType = {
 			name ="equipment_icon"
 			spriteType = "GFX_technology_medium"
-			position = { x=205 y=49 }
-			centerposition = yes
-			scale = 0.9
+			position = { x=7 y=5 }
 			alwaystransparent = yes
 		}
 
 		iconType = {
 			name = "creator_flag"
 			quadTextureSprite ="GFX_flag_small"
-			position = { x = 347 y = 25 }
+			position = { x = 342 y = 25 }
 		}
-
+		
 		iconType = {
 			name ="equipment_designer"
 			spriteType = "GFX_tech_idea_bg"
-			position = { x = 54 y = 35 }
+			position = { x = 15 y = 34 }
 			scale = 0.5
 			alwaystransparent = yes
 		}
@@ -4645,47 +4657,51 @@ guiTypes = {
 		iconType = {
 			name ="equipment_designer_can_upgrade"
 			spriteType = "GFX_refitting"
-			position = { x = 78 y = 42 }
+			position = { x = 42 y = 42 }
 			scale = 1
 			pdx_tooltip = "INDUSTRIAL_ORG_TOOLTIP_UPGRADE_ALREADY_ASSIGNED_MIO_DELAYED"
 		}
 
 		iconType = {
-			name ="equipment_role"
-			spriteType = "GFX_naval_equipment_role_icons"
-			position = { x = 25 y = 35 }
-			scale = 0.865
+			name ="sub_tech"
+			spriteType = "GFX_land_equipment_role_icons"
+			position = { x=9999 y=40 }
+			frame = 1
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "carrier_fighter_icon"
+			position = { x = 342 y = 15 }
+			spriteType = "GFX_airwing_carrier_icon"
 			alwaystransparent = yes
 		}
 
 		instantTextboxType = {
 			name = "name"
-			position = { x = 28 y = 6 }
-			textureFile = ""
-			font = "hoi_18mbs"
-			borderSize = {x = 0 y = 0}
+			position = { x = 186 y = 8 }
+			font = "OCR_A_12"
 			text = "Maus"
-			maxWidth = 308
+			maxWidth = 180
 			maxHeight = 19
 			multiline = no
-			format = left
+			format = right
 			alwaystransparent = yes
 		}
 
 		instantTextboxType = {
 			name = "general_name"
-			position = { x = 30 y = 22 }
-			textureFile = ""
+			position = { x = 20 y = 22 }
 			font = "hoi_16mbs"
-			borderSize = {x = 0 y = 0}
 			text = "Perkele-tankki"
 			maxWidth = 308
 			maxHeight = 17
 			multiline = no
 			format = left
 			alwaystransparent = yes
+			hide = yes
 		}
-		
+
 		containerWindowType = { #Currently unused, but we might put something in here eventually.
 			name = "missions"
 			position = { x = 72 y = 58 }
@@ -4705,10 +4721,10 @@ guiTypes = {
 				format = "UPPER_LEFT"
 			}
 		}
-		
+
 		gridBoxType = {
 			name = "resources_grid"
-			position = { x = 376 y = 8 }
+			position = { x = 370 y = 10 }
 			size = { width = 48 height = 150 }
 			slotsize = { width = 35 height = 23 }
 			max_slots_vertical = 6
@@ -4718,41 +4734,42 @@ guiTypes = {
 
 		buttonType = {
 			name = "variant"
-			position = { x=419 y=37 }
+			position = { x=417 y=37 }
 			spriteType = "GFX_create_variants_button"
 			clicksound = click_default
-			frame = 2
+			frame = 1
 		}
 
 		buttonType = {
 			name = "obsolete"
-			position = { x=428 y=14 }
+			position = { x=426 y=15 }
 			spriteType = "GFX_toggle_obsolete_button"
 			clicksound = click_default
 		}
 
 		instantTextboxType = {
 			name = "naval_production_cost"
-			position = { x = 15 y = 61 }
-			font = "hoi_18mbs"
+			position = { x = 207 y = 61 }
+			font = "OCR_A_12"
 			text = "cost 9001"
 			maxWidth = 160
 			maxHeight = 30
-			format = left
+			format = right
+			orientation = right
 			alwaystransparent = yes
 		}
 
 		iconType = {
 			name ="design_invalid"
 			spriteType = "GFX_design_not_valid"
-			position = { x = 348 y = 52 }
+			position = { x = 341 y = 52 }
 			alwaystransparent = yes
 		}
 
 		iconType = {
 			name ="blueprint_icon"
 			spriteType = "GFX_blueprint"
-			position = { x = 341 y = 52 }
+			position = { x = 341 y = 33 }
 			alwaystransparent = yes
 		}
 	}
