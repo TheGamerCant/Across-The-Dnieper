@@ -987,6 +987,27 @@ focus_tree = {
 			add_stability = 0.05
 			add_command_power = -20
 			add_political_power = -20
+
+			every_state = {
+				limit = {
+					OR = {
+						state = 166
+						state = 135
+						state = 146
+						state = 131
+						state = 136
+						state = 195
+						state = 306
+						state = 230
+					}
+				}
+
+				add_dynamic_modifier = {
+					modifier = UKR_offensive
+					scope = UKR
+					days = 80
+				}
+			}
 			hidden_effect={
 				division_template = {
 					name = "Artemivsk Battalion"
