@@ -12,6 +12,11 @@ Achievements are preficed with 1-3 stars, one being least likely to make and 3 b
 *Bakhmut holds!: As Ukraine starting in 2014, never lose control of Bakhmut province (Note to self: DON and NOV start with units in Bakhmut in 2014, change this)
 *Broken but not defeated: As Ukraine win against Russia after losing Kyiv earlier in the war
 
+Radvils picks:
+**Shoigu! Gerasimov!: Lead Wagner as Prigozhin and survive until both Shoigu and Gerasimov are removed from their roles in the Russian Army
+*Cyborgs at Little Stalingrad: As Ukraine, don't lose Donetsk airport during the donbass war
+
 
 Later date:
 ***We are the knights without horror and without death(famous UPA song): As Yarosh's Ukraine, manage to fullfill dream of Ukraine "Від Сяну по Кавказ"(From the San to the Caucasus)
+***It's Bilhorod, not Belgorod: As Ukraine, do at least 5 Belgorod incursions and never fail
