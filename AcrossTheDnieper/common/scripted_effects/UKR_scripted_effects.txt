@@ -521,6 +521,14 @@ make_borders_look_nice={
 		UKR = { annex_country = { target = NOV transfer_troops = no } }
 	}
 	clear_variable = global.donbass_countries_states_owned
+	
+	every_country={
+		limit = { OR = { tag = DON tag = LHK tag = KHK tag = ODS tag = NOV } }
+		if={
+			{ limit = { is_subject = no } }
+			SOV = { puppet = PREV }
+		}
+	}
 }
 
 load_russian_occupation={
