@@ -8645,6 +8645,56 @@ focus_tree = {
 	}
 
 	focus = {
+		id = UKR_f16s
+		icon = GFX_focus_UKR_F16
+		x = 9
+		y = 5
+		
+		cost = 20
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_himars }
+		relative_position_id = UKR_lobby_for_western_aid
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			NOT = { has_country_flag = UKR_recently_did_equipment_focus }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = UKR_purchase_f16s
+			set_country_flag = { flag = UKR_recently_did_equipment_focus days = 30 value = 1 }
+
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_airframe_1
+					variant_name = "F-16C"
+					amount = 6
+					producer = USA
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = fighter_equipment_1
+					amount = 6
+					producer = USA
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = UKR_M113s
 		icon = GFX_focus_UKR_M113s
 		x = 9
