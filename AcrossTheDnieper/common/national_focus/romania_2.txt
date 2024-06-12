@@ -1212,7 +1212,7 @@ focus_tree = {
 	focus = {
 		id =  Invest_in_Infrastructure
 		icon = GFX_da
-		x = 65
+		x = 62
 		y = 1
 		cost = 14
 
@@ -1231,7 +1231,7 @@ focus_tree = {
 	focus = {
 		id =  Invest_In_Social_Infrastructure
 		icon = GFX_da
-		x = 65
+		x = 61
 		y = 2
 		cost = 14
 
@@ -1253,7 +1253,7 @@ focus_tree = {
 	focus = {
 		id =  Improve_the_quality_of_healthcare_services
 		icon = GFX_da
-		x = 65
+		x = 61
 		y = 3
 		cost = 14
 
@@ -1273,7 +1273,7 @@ focus_tree = {
 	focus = {
 		id = Invest_in_public_housing_infrastructure
 		icon = GFX_da
-		x = 65
+		x = 61
 		y = 4
 		cost = 14
 
@@ -1293,7 +1293,7 @@ focus_tree = {
 	focus = {
 		id = modernize_educational_facilities
 		icon = GFX_da
-		x = 65
+		x = 61
 		y = 5
 		cost = 14
 
@@ -1319,6 +1319,264 @@ focus_tree = {
             }
 		}
 	}
+	focus = {
+		id = invest_water_sanitiation
+		icon = GFX_da
+		x = 64
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure }
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	focus = {
+		id = invest_energy_infra
+		icon = GFX_da
+		x = 64
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_water_sanitiation }
+		completion_reward = {
+		add_stability = 0.02
+		resources = {
+            fuel: { oil = 10 }
+        }
+		modifier = {
+        synthetic_refinery_construction_speed = 0.10
+    	}
+		}
+	}
+	focus = {
+		id = develop_rene_energy
+		icon = GFX_da
+		x = 64
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_energy_infra }
+		completion_reward = {
+		add_stability = 0.1
+		370 = {
+		add_building_construction = {
+			type = synthetic_refinery
+			level = 1
+			instant_build = yes
+		}
+		}
+		}
+	}
+	focus = {
+		id = develop_smart_grid
+		icon = GFX_da
+		x = 64
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = develop_rene_energy }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = invest_transpo_infra
+		icon = GFX_da
+		x = 67
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure }
+		completion_reward = {
+		modifier = {
+			air_base_construction_speed = 0.05
+			naval_base_construction_speed = 0.05
+			railway_construction_speed = 0.05
+		}
+		}
+	}
+	focus = {
+		id = invest_const_roads
+		icon = GFX_da
+		x = 67
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_transpo_infra }
+		completion_reward = {
+		modifier = {
+			railway_construction_speed = 0.1
+		}
+		}
+	}
+	focus = {
+		id = invest_const_airports
+		icon = GFX_da
+		x = 67
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_const_roads }
+		completion_reward = {
+			air_base_construction_speed = 0.1
+		358 = {
+		add_building_construction = {
+                type = air_base
+                level = 1
+                instant_build = yes
+            }
+		}
+		}
+	}
+	focus = {
+		id = dev_ports_maritime
+		icon = GFX_da
+		x = 67
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_const_airports }
+		completion_reward = {
+		modifier = {
+			naval_base_construction_speed = 0.1
+		}
+		340 = {
+		add_building_construction = {
+                type = naval_base
+                level = 1
+                instant_build = yes
+                province = 4165
+            }
+		}
+		360 = {
+		add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+		}
+		}
+	}
+	focus = {
+		id = dev_ports_maritime
+		icon = GFX_da
+		x = 67
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_const_airports }
+		completion_reward = {
+		modifier = {
+			naval_base_construction_speed = 0.1
+		}
+		add_building_construction = {
+                type = naval_base
+                level = 1
+                instant_build = yes
+                province = 4165
+		}
+		add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+                state = 360
+		}
+		}
+	}
+	focus = {
+		id = 21_century_infra
+		icon = GFX_da
+		x = 64
+		y = 7
+		days = 7
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = dev_ports_maritime }
+		prerequisite = { focus = develop_smart_grid }
+		prerequisite = { focus = modernize_educational_facilities }
+		completion_reward = {
+			remove_ideas = ROM_Outdated_infrastructure
+			add_stability = 0.06
+			add_war_support = 0.04
+		every_owned_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		}
+	}
+	
 }
 
 
