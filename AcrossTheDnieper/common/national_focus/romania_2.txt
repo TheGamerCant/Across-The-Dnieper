@@ -1194,7 +1194,7 @@ focus_tree = {
 		id =  Bring_Romania_into_the_21th_Century
 
 		icon = GFX_da
-		x = 60
+		x = 56
 		y = 0
 		cost = 14
 
@@ -1207,6 +1207,415 @@ focus_tree = {
 		}
 		completion_reward = {
 		add_political_power = 200
+		}
+	}
+	focus = {
+		id = Promote_Investment
+		icon = GFX_da
+		x = 56
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+		add_political_power = -25
+		273 = {
+        add_building_construction = {
+            type = industrial_complex
+            level = 2
+            instant_build = yes
+        }
+   		}
+		}
+	}
+	focus = {
+		id = Fiscal_Policy
+		icon = GFX_da
+		x = 48
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+			add_political_power = -25
+		}
+	}
+	focus = {
+		id = Prioritise_Public_Exp
+		icon = GFX_da
+		x = 49
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Policy}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = Allocate_Edu_Funding
+		icon = GFX_da
+		x = 49
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Prioritise_Public_Exp}
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Invest_In_Healthcare
+		icon = GFX_da
+		x = 49
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Allocate_Edu_Funding}
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = Fund_Social_Welfare_Prog
+		icon = GFX_da
+		x = 49
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_In_Healthcare}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			
+		}
+	}
+	focus = {
+		id = Fiscal_Discipline
+		icon = GFX_da
+		x = 51
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Policy}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Tax_Reforms
+		icon = GFX_da
+		x = 51
+		y = 3
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Discipline}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = Improve_Eff_Gov_Exp
+		icon = GFX_da
+		x = 51
+		y = 4
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Tax_Reforms}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Improve_Business_Env
+		icon = GFX_da
+		x = 54
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Promote_Investment}
+		completion_reward = {
+		239 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		273 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		358 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		281 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		333 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		325 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		}
+	}
+	focus = {
+		id = Offer_Range_Of_Investment
+		icon = GFX_da
+		x = 58
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Promote_Investment}
+		completion_reward = {
+		add_political_power = -50
+		
+		}
+	}
+	focus = {
+		id = Renew_Public_Partnerships
+		icon = GFX_da
+		x = 58
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Offer_Range_Of_Investment}
+		completion_reward = {
+		add_political_power = 25
+		add_stability = 0.025
+		
+		}
+	}
+	focus = {
+		id = Deincentivise_Immigration
+		icon = GFX_da
+		x = 54
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Improve_Business_Env}
+		completion_reward = {
+		add_political_power = -100
+		add_stability = -0.05
+		
+		}
+	}
+	focus = {
+		id = Encourage_Innovation_Entrepreneur
+		icon = GFX_da
+		x = 54
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Deincentivise_Immigration}
+		completion_reward = {
+		add_stability = 0.02
+		add_tech_bonus = {
+			name = engineering_bonus
+			bonus = 0.5
+				ahead_reduction = 1
+			uses = 2
+			category = engineering
+		}
+		
+		}
+	}
+	focus = {
+		id = Investors_Dream_Country
+		icon = GFX_da
+		x = 56
+		y = 5
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Encourage_Innovation_Entrepreneur}
+		prerequisite = {  focus = Renew_Public_Partnerships}
+		completion_reward = {
+		
+		
+		}
+	}
+	focus = {
+		id = Attract_Workers
+		icon = GFX_da
+		x = 56
+		y = 6
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Investors_Dream_Country}
+		completion_reward = {
+		
+		
 		}
 	}
 	focus = {
@@ -1509,6 +1918,7 @@ focus_tree = {
                 type = dockyard
                 level = 1
                 instant_build = yes
+		}
 		}
 		}
 	}
