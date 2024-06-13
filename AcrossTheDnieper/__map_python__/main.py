@@ -604,17 +604,16 @@ for state in statesArray:
                 if provincesArray[prov].buildings[0] != 0:
                     for i in range(0,len(provincesArray[prov].buildings)):
                         print ("\t\t\t" + str(provincesArray[prov].ID) + " = { " +  str(provincesArray[prov].buildings[i][0]) + " = " +  str(provincesArray[prov].buildings[i][1]) + " }", file=f)
-            
-            if state.buildings[0] != 0:
-                for i in range(0,len(state.buildings)):
-                    print("\t\t\t" + str(state.buildings[i][0])+ " = " + str(state.buildings[i][1]), file=f)
-            
+            if state.buildings:
+                if state.buildings[0] != 0:
+                    for i in range(0,len(state.buildings)):
+                        print("\t\t\t" + str(state.buildings[i][0])+ " = " + str(state.buildings[i][1]), file=f)
             print ("\t\t}", file=f)
             if state.dateInfo[0] != 0:
                 print ("\t\t" + str(state.dateInfo[0]), file=f)
             print ("\t}\n\tprovinces={\n\t\t", end="", file=f)
             for prov in state.provinces:
                 print (str(prov), end=" ", file=f)
-            print("\t}\n\tmanpower-"\
+            print("\n\t}\n\tmanpower="\
             + str(state.population) + "\n\tbuildings_max_level_factor=1.000\n\tstate_category="\
             + str(state.category) + "\n}", file=f)
