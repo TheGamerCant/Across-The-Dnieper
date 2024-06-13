@@ -36,7 +36,7 @@ class provinceClass:
         return f"Province(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, type={self.type}, coastal={self.coastal}, terrain={self.terrain}, stateID={self.stateID}, victoryPoints={self.victoryPoints}, names={self.names}, buildings={self.buildings})"
     
 class stateClass:
-    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags):
+    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
         self.ID = int(ID)
         self.population = int(population)
         self.category = str(category)
@@ -49,9 +49,10 @@ class stateClass:
         self.cores = cores if isinstance(cores, list) else [cores]
         self.claims = claims if isinstance(claims, list) else [claims]
         self.stateFlags = stateFlags if isinstance(stateFlags, list) else [stateFlags]
+        self.impassable = int(impassable)
     
     def __repr__(self):
-        return f"State(ID={self.ID}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}"
+        return f"State(ID={self.ID}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
     
 
 def parse_buildings_string(buildings_string):
@@ -134,7 +135,7 @@ provincesArray.sort(key=lambda x: x.ID)
 history_states_folder_path = os.path.join(base_directory, "history", "states")
 os.chdir(history_states_folder_path) 
 statesArray = []
-statesArray.append(stateClass(0,0,"","",0,0,0,0,0,0,0,0))
+statesArray.append(stateClass(0,0,"","",0,0,0,0,0,0,0,0,-1))
 
 def return_state_file_values(file_path): 
     with open(file_path, 'r', errors='ignore') as f: 
@@ -142,12 +143,13 @@ def return_state_file_values(file_path):
         stateData = re.sub(r'\s+', ' ', stateData).strip()
         stateData.lower()                                   #Read the file, collapse into a single string and convert to lower case
 
-
         id_match = re.search(r'id\s*=\s*(\d+)', stateData)
         if id_match:
             ID = id_match.group(1)
         else:
             ID = None
+
+        impassable = stateData.find('impassable')
 
         manpower_match = re.search(r'manpower\s*=\s*(\d+)', stateData)
         if manpower_match:
@@ -270,7 +272,7 @@ def return_state_file_values(file_path):
             stateFlags = [0]
 
         
-        return stateClass(int(ID), int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags)
+        return stateClass(int(ID), int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags, impassable)
 
 
 for file in os.listdir(): 
@@ -409,10 +411,13 @@ class ImageCanvas(tk.Canvas):
         self.enterProvinceIDButton.place(relx=1.00,x=-50,y=25,anchor="ne")
 
         self.loadProvFromIDTitle = tk.Label(master, text = "Current province:", font=('Helvetica',20))
-        self.loadProvFromIDTitle.place(relx=0.67,x=0,y=100,anchor="nw")
+        self.loadProvFromIDTitle.place(relx=0.67,x=0,y=72,anchor="w")
+
+        self.provinceNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE)
+        self.provinceNamesListbox.place(relx=1.00,x=-50,y=150,anchor="ne")
 
     def load_province(self, provID):
-        self.loadProvFromIDTitle.config(text=f"Current province: {provID}")
+        self.loadProvFromIDTitle.config(text=f"Current province: {provID}\nVictoryPoints = {provincesArray[provID].victoryPoints}\nState = {provincesArray[provID].stateID}")
 
     def load_province_from_ID(self):
         provinceIDToSend = self.enterProvinceID.get()
@@ -427,6 +432,8 @@ class ImageCanvas(tk.Canvas):
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
         #self.original_dimensions_label.config(text=f"Original width ={self.original_width},Original height ={self.original_height}")
+
+    
 
     def on_start_drag(self, event):
         self.start_x = event.x
@@ -602,8 +609,10 @@ for state in statesArray:
             print ("\t\tbuildings={", file=f)
             for prov in state.provinces:
                 if provincesArray[prov].buildings[0] != 0:
+                    print ("\t\t\t" + str(provincesArray[prov].ID) + " = { ", end="", file=f)
                     for i in range(0,len(provincesArray[prov].buildings)):
-                        print ("\t\t\t" + str(provincesArray[prov].ID) + " = { " +  str(provincesArray[prov].buildings[i][0]) + " = " +  str(provincesArray[prov].buildings[i][1]) + " }", file=f)
+                        print (str(provincesArray[prov].buildings[i][0]) + " = " +  str(provincesArray[prov].buildings[i][1]), end="", file=f)
+                    print (" }", file=f)
             if state.buildings:
                 if state.buildings[0] != 0:
                     for i in range(0,len(state.buildings)):
@@ -614,6 +623,10 @@ for state in statesArray:
             print ("\t}\n\tprovinces={\n\t\t", end="", file=f)
             for prov in state.provinces:
                 print (str(prov), end=" ", file=f)
+            if state.impassable != -1:
+                impassableString = "\n\timpassable=yes"
+            else:
+                impassableString = ""
             print("\n\t}\n\tmanpower="\
-            + str(state.population) + "\n\tbuildings_max_level_factor=1.000\n\tstate_category="\
+            + str(state.population) + "\n\tbuildings_max_level_factor=1.000" + impassableString + "\n\tstate_category="\
             + str(state.category) + "\n}", file=f)
