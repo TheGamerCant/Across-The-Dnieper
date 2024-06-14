@@ -1,4 +1,4 @@
-is_ukraine_tag={
+IS_UKRAINE_TAG={
 	OR={
 		AND={
 			OR={
@@ -16,9 +16,31 @@ is_ukraine_tag={
 		is_subject_of = AZV
 		is_subject_of = SVO
 	}
+	NOT = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
 }
 
-is_russia_tag={
+IS_UKRAINE_TAG_2016_DECOM={
+	OR={
+		AND={
+			OR={
+				original_tag = UKR
+				original_tag = UGE
+				original_tag = FTU
+				original_tag = AZV
+				original_tag = SVO
+			}
+			is_subject = no
+		}
+		is_subject_of = UKR
+		is_subject_of = UGE
+		is_subject_of = FTU
+		is_subject_of = AZV
+		is_subject_of = SVO
+	}
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
+}
+
+IS_RUSSIA_TAG={
 	OR={
 		AND={
 			OR={
@@ -38,9 +60,33 @@ is_russia_tag={
 		is_subject_of = ODS
 		is_subject_of = NOV
 	}
+	NOT = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
 }
 
-is_poland_tag={
+IS_RUSSIA_TAG_2016_DECOM={
+	OR={
+		AND={
+			OR={
+				original_tag = SOV
+				original_tag = DON
+				original_tag = LHK
+				original_tag = KHK
+				original_tag = ODS
+				original_tag = NOV
+			}
+			is_subject = no
+		}
+		is_subject_of = SOV
+		is_subject_of = DON
+		is_subject_of = LHK
+		is_subject_of = KHK
+		is_subject_of = ODS
+		is_subject_of = NOV
+	}
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
+}
+
+IS_POLAND_TAG={
 	OR={
 		AND={
 			original_tag = POL
@@ -48,9 +94,21 @@ is_poland_tag={
 		}
 		is_subject_of = POL
 	}
+	NOT = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
 }
 
-is_hungary_tag={
+IS_POLAND_TAG_2016_DECOM={
+	OR={
+		AND={
+			original_tag = POL
+			is_subject = no
+		}
+		is_subject_of = POL
+	}
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
+}
+
+IS_HUNGARY_TAG={
 	OR={
 		AND={
 			original_tag = HUN
@@ -58,9 +116,21 @@ is_hungary_tag={
 		}
 		is_subject_of = HUN
 	}
+	NOT = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
 }
 
-is_slovakia_tag={
+IS_HUNGARY_TAG_2016_DECOM={
+	OR={
+		AND={
+			original_tag = HUN
+			is_subject = no
+		}
+		is_subject_of = HUN
+	}
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
+}
+
+IS_SLOVAKIA_TAG={
 	OR={
 		AND={
 			original_tag = SLO
@@ -68,4 +138,20 @@ is_slovakia_tag={
 		}
 		is_subject_of = SLO
 	}
+	NOT = { has_global_flag = UKRAINE_CITIES_RENAMED_FLAG }
+}
+
+IS_SLOVAKIA_TAG_2016_DECOM={
+	OR={
+		AND={
+			original_tag = SLO
+			is_subject = no
+		}
+		is_subject_of = SLO
+	}
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
+}
+
+IS_2016_DECOM={
+	has_global_flag = UKRAINE_CITIES_RENAMED_FLAG
 }

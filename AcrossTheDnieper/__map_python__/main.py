@@ -18,7 +18,7 @@ except ImportError:
 
 
 class provinceClass:
-    def __init__(self, ID, red, green, blue, type, coastal, terrain, continent, stateID, victoryPoints, names, buildings):
+    def __init__(self, ID, red, green, blue, type, coastal, terrain, continent, stateID, victoryPoints, strategicRegion, names, buildings):
         self.ID = int(ID)
         self.red = int(red)
         self.green = int(green)
@@ -29,11 +29,12 @@ class provinceClass:
         self.continent = int(continent)
         self.stateID = int(stateID)
         self.victoryPoints = int(victoryPoints)
+        self.strategicRegion = int(strategicRegion)
         self.names = names if isinstance(names, list) else [names]
         self.buildings = buildings if isinstance(buildings, list) else [buildings]
 
     def __repr__(self):
-        return f"Province(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, type={self.type}, coastal={self.coastal}, terrain={self.terrain}, stateID={self.stateID}, victoryPoints={self.victoryPoints}, names={self.names}, buildings={self.buildings})"
+        return f"Province(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, type={self.type}, coastal={self.coastal}, terrain={self.terrain}, stateID={self.stateID}, victoryPoints={self.victoryPoints}, strategicRegion={self.strategicRegion}, names={self.names}, buildings={self.buildings})"
     
 class stateClass:
     def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
@@ -54,6 +55,11 @@ class stateClass:
     def __repr__(self):
         return f"State(ID={self.ID}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
     
+class strategicRegionClass:
+    def __init__(self, ID, name, provinces):
+        self.ID = int(ID)
+        self.name = str(name)
+        self.provinces = provinces if isinstance(provinces, list) else [provinces]
 
 def parse_buildings_string(buildings_string):
     # Find all key=value pairs in the string and convert to 2d string
@@ -118,6 +124,9 @@ map_folder_path = os.path.join(base_directory, "map")
 #AcrossTheDnieper/map/definition.csv
 definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 
+#AcrossTheDnieper/map/strategicregions
+strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
+
 #Load provinces
 provincesArray = []
 with open(definitions_csv_file_path, 'r') as file:
@@ -126,7 +135,7 @@ with open(definitions_csv_file_path, 'r') as file:
         # and parts[0] != "0"       <-- Add this to the line below if you don't want an initial province class with everything set to 0
         if len(parts) >= 4:
             ID, red, green, blue, type, coastal, terrain = parts[:7]
-            province = provinceClass(ID, red, green, blue, type, coastal, terrain, 1, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
+            province = provinceClass(ID, red, green, blue, type, coastal, terrain, 1, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
             provincesArray.append(province)
 
 provincesArray.sort(key=lambda x: x.ID)
@@ -280,11 +289,49 @@ for file in os.listdir():
         file_path = f"{history_states_folder_path}\{file}"
   
         state_obj  = return_state_file_values(file_path)
-        statesArray.append(state_obj)
-
-        
+        statesArray.append(state_obj)     
 
 statesArray.sort(key=lambda x: x.ID)
+
+os.chdir(strategic_regions_folder_path) 
+strategicRegionsArray = []
+strategicRegionsArray.append(strategicRegionClass(0,"",0))
+
+def return_strategic_region_file_values(file_path): 
+    with open(file_path, 'r', errors='ignore') as f: 
+        strategicRegionData = f.read()
+        strategicRegionData = re.sub(r'\s+', ' ', strategicRegionData).strip()
+        strategicRegionData.lower()                                   #Read the file, collapse into a single string and convert to lower case
+
+
+        id_match = re.search(r'id\s*=\s*(\d+)', strategicRegionData)
+        if id_match:
+            ID = id_match.group(1)
+        else:
+            ID = None
+
+        name_match = re.search(r'name=\"(.*?)\"', strategicRegionData)
+        if name_match:
+            name = name_match.group(1)
+        else:
+            name = None
+
+        provinces_match = re.search(r'provinces=\{(.*?)\}', strategicRegionData, re.DOTALL)
+        if provinces_match:
+            provinces = re.findall(r'(\d+)', provinces_match.group(1))
+        else:
+            provinces = []
+
+
+        return strategicRegionClass(int(ID),str(name),list(map(int, provinces)))
+
+
+for file in os.listdir(): 
+    if file.endswith(".txt"): 
+        file_path = f"{strategic_regions_folder_path}\{file}"
+  
+        strategic_regions_obj  = return_strategic_region_file_values(file_path)
+        strategicRegionsArray.append(strategic_regions_obj)  
 
 
 #Assign stateIDs to province types
@@ -292,6 +339,12 @@ for state in statesArray:
     for prov in range(0,len(state.provinces)):
         currentProv = int(state.provinces[prov])
         provincesArray[currentProv].stateID = state.ID
+
+#Assign Strategic Regions to province types
+for strategicRegion in strategicRegionsArray:
+    for prov in range(0,len(strategicRegion.provinces)):
+        currentProv = int(strategicRegion.provinces[prov])
+        provincesArray[currentProv].strategicRegion = strategicRegion.ID
 
 #AcrossTheDnieper/localisation/english
 english_loc_path = os.path.join(base_directory, "localisation", "english")
@@ -406,22 +459,23 @@ class ImageCanvas(tk.Canvas):
         self.loadProvFromIDTitle = tk.Label(master, text = "Load province by ID")
         self.loadProvFromIDTitle.place(relx=1.00,x=-50,y=0,anchor="ne")
         self.enterProvinceID = tk.Entry(master)
-        self.enterProvinceID.place(relx=1.00,x=-86,y=26,anchor="ne")
+        self.enterProvinceID.place(relx=0.95,x=-86,y=26,anchor="ne")
         self.enterProvinceIDButton = tk.Button(master, text="load", command=self.load_province_from_ID)
         self.enterProvinceIDButton.place(relx=1.00,x=-50,y=25,anchor="ne")
 
         self.loadProvFromIDTitle = tk.Label(master, text = "Current province:", font=('Helvetica',20))
         self.loadProvFromIDTitle.place(relx=0.67,x=0,y=72,anchor="w")
 
-        self.provinceNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE)
-        self.provinceNamesListbox.place(relx=1.00,x=-50,y=150,anchor="ne")
+        self.provinceNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE, width = 90)
+        self.provinceNamesListbox.place(relx=1.00,x=-30,y=150,anchor="ne")
 
     def load_province(self, provID):
+        self.populate_vp_name_listbox(provID)
         self.loadProvFromIDTitle.config(text=f"Current province: {provID}\nVictoryPoints = {provincesArray[provID].victoryPoints}\nState = {provincesArray[provID].stateID}")
 
     def load_province_from_ID(self):
         provinceIDToSend = self.enterProvinceID.get()
-        self.load_province(provinceIDToSend)
+        self.load_province(int(provinceIDToSend))
 
     def display_image(self, image):
         self._image = image
@@ -433,7 +487,11 @@ class ImageCanvas(tk.Canvas):
         #self.original_height = int(self._image.height)
         #self.original_dimensions_label.config(text=f"Original width ={self.original_width},Original height ={self.original_height}")
 
-    
+    def populate_vp_name_listbox(self, provID):
+        self.provinceNamesListbox.delete(0, tk.END)
+        if self.loadProvFromIDTitle.cget("text") != "Current province:":        #If a province has been loaded, load names
+            for prov in provincesArray[provID].names:
+                self.provinceNamesListbox.insert(tk.END, prov)
 
     def on_start_drag(self, event):
         self.start_x = event.x
@@ -533,15 +591,16 @@ for item in os.listdir(current_directory):
     if os.path.isdir(item_path):
         shutil.rmtree(item_path)
 
-foldersToCreate = ["localisation/english", "common/on_actions", "history/states", "map"]
+foldersToCreate = ["localisation/english", "common/scripted_effects", "history/states", "map", "map/strategicregions"]
 for folder_name in foldersToCreate:
     folder_path = os.path.join(current_directory, folder_name)
     os.makedirs(folder_path, exist_ok=True)
 
 history_states_folder_path = os.path.join(current_directory, "history", "states")
-common_on_actions_folder_path = os.path.join(current_directory, "common", "on_actions")
+common_scripted_effects_folder_path = os.path.join(current_directory, "common", "scripted_effects")
 localisation_english_folder_path = os.path.join(current_directory, "localisation", "english")
 map_folder_path = os.path.join(current_directory, "map")
+strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
 
 definitions_csv_file_path = os.path.join(map_folder_path, "definitions.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
@@ -570,8 +629,67 @@ with open(state_names_file_path, 'w', encoding='utf-8-sig') as f:
                 else:
                     print(" STATE_" + str(i.ID) + "_" + str(i.names[j][0]) + ":0 \"" + str(i.names[j][1] + "\""), file=f)
 
+state_names_scripted_effects_file_path = os.path.join(common_scripted_effects_folder_path, "state_and_province_names_scripted_effects.txt")
+with open(state_names_scripted_effects_file_path, 'w', encoding='utf-8') as f:
+    for state in statesArray:
+        if state.ID !=0:
+            print ("update_state_" + str(state.ID) + "_names={\t\t#" + str(state.names[0][1]), file=f)
+            if len(state.names) != 1:
+                print ("\t" + str(state.ID) + "={", file=f)
+                print ("\t\tif={\n\t\t\tlimit = { CONTROLLER = { " + str(state.names[1][0]) + " = yes } }"\
+                    "\n\t\t\tset_state_name = STATE_" + str(state.ID) + "_" + str(state.names[1][0]), "\n\t\t}", file=f)
+                if len(state.names) > 2:
+                    for i in range(2,len(state.names)):
+                        print ("\t\telse_if={\n\t\t\tlimit = { CONTROLLER = { " + str(state.names[i][0]) + " = yes } }"\
+                            "\n\t\t\tset_state_name = STATE_" + str(state.ID) + "_" + str(state.names[i][0]), "\n\t\t}", file=f)
 
-#Keep this as the last file done, just makes life easier as you have to change the directory
+                print ("\t\telse={\n\t\t\treset_state_name=yes\n\t\t}\n\t}", file=f)
+            
+            for prov in state.provinces:
+                if len(provincesArray[prov].names) > 1:
+                    print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                        + str(provincesArray[prov].names[1][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                        + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                        + str(provincesArray[prov].names[1][0]) + " }\n\t}",file=f)
+                    if len(provincesArray[prov].names) > 2:
+                        for i in range(2,len(provincesArray[prov].names)):
+                            print ("\telse_if={\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                                + str(provincesArray[prov].names[i][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                                + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                                + str(provincesArray[prov].names[i][0]) + " }\n\t}",file=f)
+                    
+                    print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
+
+            print ("}", file=f)
+    print ("}\n\nchange_city_names={\n\tZZZ={", file=f)
+    for i in range (1,len(statesArray)):
+        print ("\t\tupdate_state_" + str(i) + "_names=yes", file=f)
+    print ("\t}\n}\nrevert_city_names_to_original={\n\tevery_state = { reset_state_name=yes }", file=f)
+    for state in statesArray:
+        for i in range(0,len(state.names)):
+            if str(state.names[i][0]) == "IS_2016_DECOM":       #Can add more in the future if there's the option to change city names
+                print ("\t" + str(state.ID) + "={\n\t\tif={\n\t\t\tlimit={ "\
+                    + str(state.names[i][0]) + " = yes }\n\t\t\tset_state_name = STATE_"\
+                    + str(state.ID) + "_" + str(state.names[i][0])\
+                    + "\n\t\t}\n\t\telse={ reset_state_name = yes }\n\t}",file=f)
+    
+    for prov in provincesArray:
+        if prov.victoryPoints !=0:
+            hasUniqueDefaultName = False
+            for i in range(0,len(prov.names)):
+                if str(prov.names[i][0]) == "IS_2016_DECOM":
+                    hasUniqueDefaultName = True
+                    print ("\tif={\n\t\tlimit = { " + str(prov.names[i][0]) + " = yes }\n\t\tset_province_name = { id = "\
+                        + str(prov.ID) + " name = VICTORY_POINTS_" + str(prov.ID) + "_" + str(prov.names[i][0])\
+                        + " }\n\t}\n\telse={\n\t\tset_province_name = { id = " + str(prov.ID) + " name = VICTORY_POINTS_" + str(prov.ID) + " }\n\t}", file=f)
+                    
+                elif i == (len(prov.names)-1) and hasUniqueDefaultName == False:
+                    print ("\tset_province_name = { id = " + str(prov.ID) + " name = VICTORY_POINTS_" + str(prov.ID) + " }", file=f)
+
+    print ("}", file=f)
+
+
+#Keep these as the last file done, just makes life easier as you have to change the directory
 os.chdir(history_states_folder_path) 
 for state in statesArray:
     if state.ID !=0:
@@ -611,8 +729,8 @@ for state in statesArray:
                 if provincesArray[prov].buildings[0] != 0:
                     print ("\t\t\t" + str(provincesArray[prov].ID) + " = { ", end="", file=f)
                     for i in range(0,len(provincesArray[prov].buildings)):
-                        print (str(provincesArray[prov].buildings[i][0]) + " = " +  str(provincesArray[prov].buildings[i][1]), end="", file=f)
-                    print (" }", file=f)
+                        print (str(provincesArray[prov].buildings[i][0]) + " = " +  str(provincesArray[prov].buildings[i][1]), end=" ", file=f)
+                    print ("}", file=f)
             if state.buildings:
                 if state.buildings[0] != 0:
                     for i in range(0,len(state.buildings)):
@@ -630,3 +748,14 @@ for state in statesArray:
             print("\n\t}\n\tmanpower="\
             + str(state.population) + "\n\tbuildings_max_level_factor=1.000" + impassableString + "\n\tstate_category="\
             + str(state.category) + "\n}", file=f)
+
+os.chdir(strategic_regions_folder_path) 
+for strategicRegion in strategicRegionsArray:
+    if strategicRegion.ID !=0:
+        filename = f'{strategicRegion.ID}-{strategicRegion.name}.txt'
+        with open(filename, 'w', encoding='utf-8') as f:
+            print("strategic_region={\n\tid=" + str(strategicRegion.ID)\
+            + "\n\tname = \"" + str(strategicRegion.name) + "\"\n\tprovinces={\n\t\t", end="", file=f)
+            for prov in strategicRegion.provinces:
+                print (str(prov), end=" ", file=f)
+            print("\n\t}\n\tweather={\n\t}\n}", file=f)
