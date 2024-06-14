@@ -135,7 +135,13 @@ with open(definitions_csv_file_path, 'r') as file:
         # and parts[0] != "0"       <-- Add this to the line below if you don't want an initial province class with everything set to 0
         if len(parts) >= 4:
             ID, red, green, blue, type, coastal, terrain = parts[:7]
-            province = provinceClass(ID, red, green, blue, type, coastal, terrain, 1, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
+            
+            if terrain == "ocean" or terrain == "unknown" or terrain == "lakes" or terrain == "water_fjords" or terrain == "water_shallow_sea" or terrain == "water_deep_ocean":
+                continent = 0
+            else:
+                continent = 1       #1 for Europe, as AtD only has one continent
+                                    #Continents don't really do much tho tbh
+            province = provinceClass(ID, red, green, blue, type, coastal, terrain, continent, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
             provincesArray.append(province)
 
 provincesArray.sort(key=lambda x: x.ID)
@@ -310,7 +316,7 @@ def return_strategic_region_file_values(file_path):
         else:
             ID = None
 
-        name_match = re.search(r'name=\"(.*?)\"', strategicRegionData)
+        name_match = re.search(r'name\s*=\s*\"(.*?)\"', strategicRegionData)
         if name_match:
             name = name_match.group(1)
         else:
@@ -602,7 +608,7 @@ localisation_english_folder_path = os.path.join(current_directory, "localisation
 map_folder_path = os.path.join(current_directory, "map")
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
 
-definitions_csv_file_path = os.path.join(map_folder_path, "definitions.csv")
+definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
     for i in provincesArray:
         print(str(i.ID) + ";" + str(i.red) + ";" + str(i.green) + ";" + str(i.blue) + ";" + i.type + ";" + i.coastal + ";" + i.terrain + ";" + str(i.continent), file=f)
@@ -644,7 +650,7 @@ with open(state_names_scripted_effects_file_path, 'w', encoding='utf-8') as f:
                             "\n\t\t\tset_state_name = STATE_" + str(state.ID) + "_" + str(state.names[i][0]), "\n\t\t}", file=f)
 
                 print ("\t\telse={\n\t\t\treset_state_name=yes\n\t\t}\n\t}", file=f)
-            
+
             for prov in state.provinces:
                 if len(provincesArray[prov].names) > 1:
                     print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
@@ -661,7 +667,7 @@ with open(state_names_scripted_effects_file_path, 'w', encoding='utf-8') as f:
                     print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
 
             print ("}", file=f)
-    print ("}\n\nchange_city_names={\n\tZZZ={", file=f)
+    print ("\n\nchange_city_names={\n\tZZZ={", file=f)
     for i in range (1,len(statesArray)):
         print ("\t\tupdate_state_" + str(i) + "_names=yes", file=f)
     print ("\t}\n}\nrevert_city_names_to_original={\n\tevery_state = { reset_state_name=yes }", file=f)
