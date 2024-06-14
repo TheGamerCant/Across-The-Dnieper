@@ -352,6 +352,16 @@ def return_strategic_region_file_values(file_path):
         provinces_match = re.search(r'provinces=\{(.*?)\}', strategicRegionData, re.DOTALL)
         if provinces_match:
             provinces = re.findall(r'(\d+)', provinces_match.group(1))
+
+            final_prov = len(provinces)-1
+            current_prov = 0
+            while current_prov != final_prov:
+                if provinces[current_prov] == provinces[current_prov-1]:
+                    provinces.pop(current_prov)
+                    final_prov-=1
+                else:
+                    current_prov+=1
+
         else:
             provinces = []
 
@@ -656,7 +666,7 @@ if __name__ == "__main__":
     main()
 
 #User has closed the window, now create files
-print (current_directory)
+print ("Writing to files - do not close.")
 
 #Removes all folders in the current directory (AcrossTheDnieper/__map_python__), while leaving any files.
 for item in os.listdir(current_directory):
