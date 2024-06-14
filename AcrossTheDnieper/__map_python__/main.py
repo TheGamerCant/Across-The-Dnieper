@@ -2,6 +2,7 @@ import os
 import subprocess
 import re
 import tkinter as tk
+from tkinter import ttk
 import shutil
 import codecs
 
@@ -126,6 +127,32 @@ definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 
 #AcrossTheDnieper/map/strategicregions
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
+
+#AcrossTheDnieper/map
+scripted_triggers_file_path = os.path.join(base_directory, "common", "scripted_triggers", "state_controller_scripted_triggers.txt")
+
+#Load triggers
+validNameTriggers = ['DEFAULT']
+with open(scripted_triggers_file_path, 'r') as file:
+    triggerData = file.read()
+    triggerData = re.sub(r'\s+', ' ', triggerData).strip()
+    triggerData.lower() 
+
+    openBracketLocation = triggerData.find('{')
+    while openBracketLocation != -1:
+        string_to_remove = return_close_bracket_location_string(openBracketLocation, triggerData)
+        triggerData = triggerData.replace(string_to_remove, '')
+        openBracketLocation = triggerData.find('{')
+
+    triggerData = triggerData.split('=}')
+    for trigger in triggerData:
+        trigger = re.sub(r'\s+', ' ', trigger).strip()
+        validNameTriggers.append(trigger)
+
+for i in range(0, len(validNameTriggers)):
+    if validNameTriggers[i] == '':
+        validNameTriggers.pop(i)
+
 
 #Load provinces
 provincesArray = []
@@ -452,6 +479,7 @@ class ImageCanvas(tk.Canvas):
         self.current_colour_b = None
         self.image_top_left_x = 0
         self.image_top_left_y = 0
+        self.currentProvID = None
 
         self.current_colour_label = tk.Label(master, text="Current Colour: (0, 0, 0)", bg="white")
         self.current_colour_label.pack(side="top", anchor = "nw")
@@ -474,6 +502,12 @@ class ImageCanvas(tk.Canvas):
 
         self.provinceNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE, width = 90)
         self.provinceNamesListbox.place(relx=1.00,x=-30,y=150,anchor="ne")
+        self.enterProvinceName = tk.Entry(master)
+        self.enterProvinceName.place(relx=0.97,x=-86,y=320,anchor="ne")
+        self.possibleProvinceTriggers = ttk.Combobox(state="readonly",values=validNameTriggers)
+        self.possibleProvinceTriggers.place(relx=0.97,x=-232,y=320,anchor="ne")
+        self.addNewProvinceNameButtons = tk.Button(master, text="Add name", command=self.add_province_name)
+        self.addNewProvinceNameButtons.place(relx=1.00,x=-50,y=318,anchor="ne")
 
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
@@ -481,7 +515,21 @@ class ImageCanvas(tk.Canvas):
 
     def load_province_from_ID(self):
         provinceIDToSend = self.enterProvinceID.get()
-        self.load_province(int(provinceIDToSend))
+        if provinceIDToSend:
+            self.load_province(int(provinceIDToSend))
+
+    def add_province_name(self):
+        provinceName = self.enterProvinceName.get()
+        provinceNameTrigger = self.possibleProvinceTriggers.get()
+
+        if provincesArray[self.currentProvID].names:
+            provincesArray[self.currentProvID].names.append([str(provinceNameTrigger), str(provinceName)])
+        else:
+            provincesArray[self.currentProvID].names.clear()
+            provincesArray[self.currentProvID].names.append([str(provinceNameTrigger), str(provinceName)])
+        #print (self.currentProvID, provinceName, provinceNameTrigger)
+
+        self.populate_vp_name_listbox(self.currentProvID)
 
     def display_image(self, image):
         self._image = image
@@ -551,7 +599,8 @@ class ImageCanvas(tk.Canvas):
     def on_left_click(self, event):
         for i in provincesArray:
             if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
-                self.load_province(i.ID)
+                self.currentProvID = i.ID
+                self.load_province(self.currentProvID)
 
         
         
