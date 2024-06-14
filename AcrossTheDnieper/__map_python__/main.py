@@ -491,7 +491,7 @@ class ImageCanvas(tk.Canvas):
         #self.listbox = tk.Listbox(master, selectmode=tk.SINGLE,)
         #self.listbox.place(relx=1.0,y=0,anchor="ne")
         self.loadProvFromIDTitle = tk.Label(master, text = "Load province by ID")
-        self.loadProvFromIDTitle.place(relx=1.00,x=-50,y=0,anchor="ne")
+        self.loadProvFromIDTitle.place(relx=1.00,x=-18,y=0,anchor="ne")
         self.enterProvinceID = tk.Entry(master)
         self.enterProvinceID.place(relx=0.95,x=-86,y=26,anchor="ne")
         self.enterProvinceIDButton = tk.Button(master, text="load", command=self.load_province_from_ID)
@@ -509,14 +509,32 @@ class ImageCanvas(tk.Canvas):
         self.addNewProvinceNameButtons = tk.Button(master, text="Add name", command=self.add_province_name)
         self.addNewProvinceNameButtons.place(relx=1.00,x=-50,y=318,anchor="ne")
 
+        self.victoryPointsEntryBox = tk.Entry(master)
+        self.victoryPointsEntryBox.place(relx=0.97,x=-125,y=350,anchor="ne")
+        self.victoryPointsButton = tk.Button(master, text="Update Victory points", command=self.updateVPs)
+        self.victoryPointsButton.place(relx=1.00,x=-50,y=348,anchor="ne")
+
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
-        self.loadProvFromIDTitle.config(text=f"Current province: {provID}\nVictoryPoints = {provincesArray[provID].victoryPoints}\nState = {provincesArray[provID].stateID}")
+        self.victoryPointsEntryBox.delete(0,tk.END)
+        self.victoryPointsEntryBox.insert(0,str(provincesArray[provID].victoryPoints))
+        self.loadProvFromIDTitle.config(text=f"Current province: {provID}\nState = {provincesArray[provID].stateID}")
+
+    def updateVPs(self):
+        vpValue = self.victoryPointsEntryBox.get()
+        vpValue = int(vpValue)
+
+        try:
+            vpValue = int(vpValue)
+            provincesArray[int(self.currentProvID)].victoryPoints = vpValue
+        except:
+            pass
+        
 
     def load_province_from_ID(self):
-        provinceIDToSend = self.enterProvinceID.get()
-        if provinceIDToSend:
-            self.load_province(int(provinceIDToSend))
+        self.currentProvID = self.enterProvinceID.get()
+        if self.currentProvID:
+            self.load_province(int(self.currentProvID))
 
     def add_province_name(self):
         provinceName = self.enterProvinceName.get()
@@ -543,7 +561,7 @@ class ImageCanvas(tk.Canvas):
 
     def populate_vp_name_listbox(self, provID):
         self.provinceNamesListbox.delete(0, tk.END)
-        if self.loadProvFromIDTitle.cget("text") != "Current province:":        #If a province has been loaded, load names
+        if self.currentProvID != None:        #If a province has been loaded, load names
             for prov in provincesArray[provID].names:
                 self.provinceNamesListbox.insert(tk.END, prov)
 
