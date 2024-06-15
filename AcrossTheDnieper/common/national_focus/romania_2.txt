@@ -585,26 +585,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = Open_the_topic_of_Moldova
-		icon = GFX_
-		x = 33
-		y = 5
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-        prerequisite = {  focus = Ensure_Transylvanian_security}
-		completion_reward = {
-		add_opinion_modifier = { target = MOL modifier = BLR_small_positive }	
-        load_focus_tree = romania_moldova_tree
-		}
-	}
-	focus = {
 		id = Promoting_media_freedom_and_pluralism
 		icon = GFX_
 		x = 31
@@ -618,7 +598,7 @@ focus_tree = {
         }
 		bypass = {
 		}
-        prerequisite = {  focus = address_social_issues}
+        prerequisite = { focus = address_social_issues}
 		completion_reward = {
         add_stability = 0.04
 		add_popularity = { ideology = social_democracy popularity= 0.05}
@@ -2401,6 +2381,30 @@ focus_tree = {
 			add_stability = -0.2
 			add_war_support = 0.02
 			add_political_power = -50
+		}
+	}
+		focus = {
+		id = Union_With_Moldova
+		icon = GFX_da
+		x = 42
+		y = 9
+		cost = 1
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = Paradise}
+		prerequisite = {focus = Safe_streets}
+		prerequisite = {focus = Prudent_Fiscal_Policy}
+		prerequisite = {focus = Attract_Workers}
+		prerequisite = {focus = 21_century_infra}
+		completion_reward = {
+			load_focus_tree = romania_moldova_tree
 		}
 	}
 	
