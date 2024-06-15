@@ -1349,7 +1349,7 @@ focus_tree = {
 		id = Prudent_Fiscal_Policy
 		icon = GFX_da
 		x = 48	
-		y = 6
+		y = 7
 		cost = 35
 
 		ai_will_do = { 
@@ -1790,7 +1790,7 @@ focus_tree = {
 		id = Attract_Workers
 		icon = GFX_da
 		x = 56
-		y = 6
+		y = 7
 		cost = 70
 
 		ai_will_do = { 
@@ -2135,6 +2135,272 @@ focus_tree = {
 				instant_build = yes
 			}
 		}
+		}
+	}
+
+	focus = {
+		id = start_of_russian_invasion
+		icon = GFX_da
+		x = 13
+		y = 6
+		cost = 2
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			any_country={ original_tag = SOV has_war_with = UKR }
+        }
+		bypass = {
+		}
+		completion_reward = {
+			add_stability = -0.15
+			add_war_support = -0.05
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ukraines_side
+		icon = GFX_da
+		x = 10
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = start_of_russian_invasion}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = helping_the_refugees
+		icon = GFX_da
+		x = 8
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = ukraines_side}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = stopping_the_inflation_growth
+		icon = GFX_da
+		x = 12
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = ukraines_side}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = secret_volunteer_corps
+		icon = GFX_da
+		x = 12
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = stopping_the_inflation_growth}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = military_aid_for_ukraine
+		icon = GFX_da
+		x = 8
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = helping_the_refugees}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+
+				type = infantry_equipment
+
+				amount = -1000
+
+			}
+			add_equipment_to_stockpile = {
+
+				type = artillery_equipment
+
+				amount = -100
+
+			}
+			add_equipment_to_stockpile = {
+
+				type = modern_tank_equipment
+
+				amount = -50
+
+			}
+		}
+	}
+
+	focus = {
+		id = dock_perm_ukr
+		icon = GFX_da
+		x = 12
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = secret_volunteer_corps}
+		completion_reward = {
+			diplomatic_relation = {
+				country = UKR
+				relation = docking_rights
+				active = yes
+			}
+		}
+	}
+
+	focus = {
+		id = humanitarian_aid
+		icon = GFX_da
+		x = 10
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = secret_volunteer_corps}
+		prerequisite = {focus = military_aid_for_ukraine}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = send_jets
+		icon = GFX_da
+		x = 8
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = military_aid_for_ukraine}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = our_ukrainian_brothers
+		icon = GFX_da
+		x = 10
+		y = 14
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = dock_perm_ukr}
+		prerequisite = {focus = humanitarian_aid}
+		prerequisite = {focus = send_jets}
+		completion_reward = {
+			send_volunteer_divisions_required = 8
+			set_rule = { can_send_volunteers = yes }
+		}
+	}
+
+	focus = {
+		id = russias_side
+		icon = GFX_da
+		x = 16
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = ukraines_side }
+		prerequisite = {focus = start_of_russian_invasion}
+		completion_reward = {
+			add_stability = -0.2
+			add_war_support = 0.02
+			add_political_power = -50
 		}
 	}
 	
