@@ -368,13 +368,14 @@ def return_strategic_region_file_values(file_path):
 
         return strategicRegionClass(int(ID),str(name),list(map(int, provinces)))
 
-
 for file in os.listdir(): 
     if file.endswith(".txt"): 
         file_path = f"{strategic_regions_folder_path}\{file}"
   
         strategic_regions_obj  = return_strategic_region_file_values(file_path)
         strategicRegionsArray.append(strategic_regions_obj)  
+
+strategicRegionsArray.sort(key=lambda x: x.ID)
 
 
 #Assign stateIDs to province types
@@ -487,9 +488,16 @@ class ImageCanvas(tk.Canvas):
         self.current_colour_r = None
         self.current_colour_g = None
         self.current_colour_b = None
+        self.realImageCoordsX = 0
+        self.realImageCoordsY = 0
         self.image_top_left_x = 0
         self.image_top_left_y = 0
+        self.image_width = None
+        self.image_height = None
         self.currentProvID = None
+        self.currentStateID = None
+        self.provinces_image_array = None
+        self.display_image()
 
         self.current_colour_label = tk.Label(master, text="Current Colour: (0, 0, 0)", bg="white")
         self.current_colour_label.pack(side="top", anchor = "nw")
@@ -500,35 +508,70 @@ class ImageCanvas(tk.Canvas):
 
         #self.listbox = tk.Listbox(master, selectmode=tk.SINGLE,)
         #self.listbox.place(relx=1.0,y=0,anchor="ne")
-        self.loadProvFromIDTitle = tk.Label(master, text = "Load province by ID")
-        self.loadProvFromIDTitle.place(relx=1.00,x=-18,y=0,anchor="ne")
         self.enterProvinceID = tk.Entry(master)
-        self.enterProvinceID.place(relx=0.95,x=-86,y=26,anchor="ne")
-        self.enterProvinceIDButton = tk.Button(master, text="load", command=self.load_province_from_ID)
-        self.enterProvinceIDButton.place(relx=1.00,x=-50,y=25,anchor="ne")
-
-        self.loadProvFromIDTitle = tk.Label(master, text = "Current province:", font=('Helvetica',20))
-        self.loadProvFromIDTitle.place(relx=0.67,x=0,y=72,anchor="w")
+        self.enterProvinceID.place(relx=0.95,x=-86,y=52,anchor="ne")
+        self.enterProvinceIDButton = tk.Button(master, text="Load province from ID", command=self.load_province_from_ID)
+        self.enterProvinceIDButton.place(relx=1.00,x=-50,y=51,anchor="ne")
+        self.currentProvinceTitle = tk.Label(master, text = "Current province:", font=('Helvetica',20))
+        self.currentProvinceTitle.place(relx=0.67,x=0,y=72,anchor="w")
 
         self.provinceNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE, width = 90)
         self.provinceNamesListbox.place(relx=1.00,x=-30,y=150,anchor="ne")
         self.enterProvinceName = tk.Entry(master)
-        self.enterProvinceName.place(relx=0.97,x=-86,y=320,anchor="ne")
+        self.enterProvinceName.place(relx=0.97,x=-98,y=320,anchor="ne")
         self.possibleProvinceTriggers = ttk.Combobox(state="readonly",values=validNameTriggers)
         self.possibleProvinceTriggers.place(relx=0.97,x=-232,y=320,anchor="ne")
         self.addNewProvinceNameButtons = tk.Button(master, text="Add name", command=self.add_province_name)
         self.addNewProvinceNameButtons.place(relx=1.00,x=-50,y=318,anchor="ne")
-
         self.victoryPointsEntryBox = tk.Entry(master)
         self.victoryPointsEntryBox.place(relx=0.97,x=-125,y=350,anchor="ne")
         self.victoryPointsButton = tk.Button(master, text="Update Victory points", command=self.updateVPs)
         self.victoryPointsButton.place(relx=1.00,x=-50,y=348,anchor="ne")
 
+
+        self.enterStateID = tk.Entry(master)
+        self.enterStateID.place(relx=0.95,x=-98,y=501,anchor="ne")
+        self.enterStateIDButton = tk.Button(master, text="Load state from ID", command=self.load_state_from_ID)
+        self.enterStateIDButton.place(relx=1.00,x=-50,y=500,anchor="ne")
+        self.currentStateTitle = tk.Label(master, text = "Current state:", font=('Helvetica',20))
+        self.currentStateTitle.place(relx=0.67,x=0,y=522,anchor="w")
+
+        self.stateNamesListbox = tk.Listbox(master, selectmode=tk.SINGLE, width = 90)
+        self.stateNamesListbox.place(relx=1.00,x=-30,y=600,anchor="ne")
+        self.enterStateName = tk.Entry(master)
+        self.enterStateName.place(relx=0.97,x=-98,y=770,anchor="ne")
+        self.possibleStateTriggers = ttk.Combobox(state="readonly",values=validNameTriggers)
+        self.possibleStateTriggers.place(relx=0.97,x=-232,y=770,anchor="ne")
+        self.addNewStateNameButtons = tk.Button(master, text="Add name", command=self.add_state_name)
+        self.addNewStateNameButtons.place(relx=1.00,x=-50,y=768,anchor="ne")
+
+        self.provinceToMerge1Label = tk.Label(master, text = "Province 1:")
+        self.provinceToMerge1Label.place(relx=0.0, rely=0.75,x=10,y=0,anchor="w")
+        self.provinceToMerge2Label = tk.Label(master, text = "Province 2:")
+        self.provinceToMerge2Label.place(relx=0.0, rely=0.75,x=10,y=30,anchor="w")
+
+        self.provinceToMerge1Entry = tk.Entry(master)
+        self.provinceToMerge1Entry.place(relx=0.0, rely=0.75,x=100,y=0,anchor="w")
+        self.provinceToMerge2Entry = tk.Entry(master)
+        self.provinceToMerge2Entry.place(relx=0.0, rely=0.75,x=100,y=30,anchor="w")
+        self.mergeProvincesButton = tk.Button(master, text="Merge (2 gets eaten by 1)", command=self.merge_provinces)
+        self.mergeProvincesButton.place(relx=0.0, rely=0.75,x=242,y=28,anchor="w")
+
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
         self.victoryPointsEntryBox.delete(0,tk.END)
         self.victoryPointsEntryBox.insert(0,str(provincesArray[provID].victoryPoints))
-        self.loadProvFromIDTitle.config(text=f"Current province: {provID}\nState = {provincesArray[provID].stateID}")
+        self.currentProvinceTitle.config(text=f"Current province: {provID}")
+
+        self.currentStateID = int(provincesArray[provID].stateID)
+        self.load_state(int(provincesArray[provID].stateID))
+
+    def load_state(self, stateID):
+        self.populate_state_name_listbox(stateID)
+        self.currentStateTitle.config(text=f"Current state: {stateID}")
+
+    def load_provinces_image_array(self, img):
+        self.provinces_image_array = np.array(img)
 
     def updateVPs(self):
         vpValue = self.victoryPointsEntryBox.get()
@@ -539,12 +582,105 @@ class ImageCanvas(tk.Canvas):
             provincesArray[int(self.currentProvID)].victoryPoints = vpValue
         except:
             pass
+
+    def merge_provinces(self):
+        
+            prov1 = int(self.provinceToMerge1Entry.get())
+            prov2 = int(self.provinceToMerge2Entry.get())
+           
+            red1 = provincesArray[prov1].red
+            green1 = provincesArray[prov1].green
+            blue1 = provincesArray[prov1].blue
+            red2 = provincesArray[prov2].red
+            green2 = provincesArray[prov2].green
+            blue2 = provincesArray[prov2].blue
+            finalProvID = int(len(provincesArray)-1)
+
+            for h in range (0, self.image_height):
+                for w in range (0, self.image_width):
+                    if int(self.provinces_image_array[h][w][0]) == red2 and int(self.provinces_image_array[h][w][1]) == green2 and int(self.provinces_image_array[h][w][2]) == blue2:
+                        #print ("Found pixel at " + str(w) + ", " + str(h))
+                        self.provinces_image_array[h][w] = [int(red1), int(green1), int(blue1)]
+
+
+            #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
+
+            finalProvStateID = int(provincesArray[finalProvID].stateID)
+            prop2StateID = int(provincesArray[prov2].stateID)
+            finalProvSR = int(provincesArray[finalProvID].strategicRegion)
+            prov2SR = int(provincesArray[prov2].strategicRegion)
+            while1Trigger = False
+            while2Trigger = False
+
+
+            if provincesArray[prov2].stateID !=0:
+                i = 0
+                while while1Trigger == False:
+                    if int(statesArray[prop2StateID].provinces[i]) == prov2:
+                        statesArray[prop2StateID].provinces.pop(i)
+                        while1Trigger = True
+                    else:
+                        i+=1
+
+            if provincesArray[finalProvID].stateID !=0:     #Replace ID of the last province with the one that's being replaced
+                statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
+                statesArray[finalProvStateID].provinces.append(prov2)
+                statesArray[finalProvStateID].provinces.sort()
+
+            i = 0
+            while while2Trigger == False:
+                if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
+                    strategicRegionsArray[prov2SR].provinces.pop(i)
+                    while2Trigger = True
+                else:
+                    i+=1
+                #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
+
+
+            strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
+            strategicRegionsArray[finalProvSR].provinces.append(prov2)
+            strategicRegionsArray[finalProvSR].provinces.sort()
+
+                
+
+            print ("States and strategic regions updated")
+
+
+            #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
+            provincesArray[prov2].red = provincesArray[finalProvID].red
+            provincesArray[prov2].green = provincesArray[finalProvID].green
+            provincesArray[prov2].blue = provincesArray[finalProvID].blue
+            provincesArray[prov2].type = provincesArray[finalProvID].type
+            provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
+            provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
+            provincesArray[prov2].continent = provincesArray[finalProvID].continent
+            provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
+            provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
+            provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
+            provincesArray[prov2].names = provincesArray[finalProvID].names
+            provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
+            provincesArray.pop()
+
+            print ("Provinces updated")
+
+            temp = Image.fromarray(self.provinces_image_array)
+            temp.save(self.provinces_bmp_path)
+            temp.close()
+            #Display updated image
+            self.display_image()
+        
         
 
     def load_province_from_ID(self):
         self.currentProvID = self.enterProvinceID.get()
         if self.currentProvID:
             self.load_province(int(self.currentProvID))
+
+    def load_state_from_ID(self):
+        self.currentStateID = self.enterStateID.get()
+        if self.currentStateID:
+            self.load_state(self.currentStateID)
+
 
     def add_province_name(self):
         provinceName = self.enterProvinceName.get()
@@ -555,15 +691,31 @@ class ImageCanvas(tk.Canvas):
         else:
             provincesArray[self.currentProvID].names.clear()
             provincesArray[self.currentProvID].names.append([str(provinceNameTrigger), str(provinceName)])
-        #print (self.currentProvID, provinceName, provinceNameTrigger)
 
         self.populate_vp_name_listbox(self.currentProvID)
 
-    def display_image(self, image):
-        self._image = image
-        self._photo_image = ImageTk.PhotoImage(self._image)
-        self.create_image(0, 0, anchor=tk.NW, image=self._photo_image)
+    def add_state_name(self):
+        stateName = self.enterStateName.get()
+        stateNameTrigger = self.possibleStateTriggers.get()
+
+        if statesArray[self.currentStateID].names:
+            statesArray[self.currentStateID].names.append([str(stateNameTrigger), str(stateName)])
+        else:
+            statesArray[self.currentStateID].names.clear()
+            statesArray[self.currentStateID].names.append([str(stateNameTrigger), str(stateName)])
+
+        self.populate_state_name_listbox(self.currentStateID)
+
+    def display_image(self):
+        self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
+        self.provinces_bmp_image = Image.open(self.provinces_bmp_path)
+        self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
+        self.create_image(self.realImageCoordsX, self.realImageCoordsY, anchor=tk.NW, image=self._photo_image)
         self.config(scrollregion=self.bbox(tk.ALL))
+
+        self.load_provinces_image_array(self.provinces_bmp_image)
+
+        self.image_width, self.image_height = self.provinces_bmp_image.size
 
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
@@ -574,6 +726,12 @@ class ImageCanvas(tk.Canvas):
         if self.currentProvID != None:        #If a province has been loaded, load names
             for prov in provincesArray[provID].names:
                 self.provinceNamesListbox.insert(tk.END, prov)
+
+    def populate_state_name_listbox(self, stateID):
+        self.stateNamesListbox.delete(0, tk.END)
+        if self.currentStateID != None:
+            for state in statesArray[stateID].names:
+                self.stateNamesListbox.insert(tk.END, state)
 
     def on_start_drag(self, event):
         self.start_x = event.x
@@ -612,12 +770,12 @@ class ImageCanvas(tk.Canvas):
     
 
     def on_mouse_motion(self, event):
-        realImageCoordsX = event.x - self.image_top_left_x
-        realImageCoordsY = event.y - self.image_top_left_y
+        self.realImageCoordsX = event.x - self.image_top_left_x
+        self.realImageCoordsY = event.y - self.image_top_left_y
 
-        if self._image:
+        if self.provinces_bmp_image:
             try:
-                pixel_color = self._image.getpixel((realImageCoordsX, realImageCoordsY))
+                pixel_color = self.provinces_bmp_image.getpixel((self.realImageCoordsX, self.realImageCoordsY))
                 self.current_colour_r, self.current_colour_g, self.current_colour_b = pixel_color
                 self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})")
 
@@ -637,12 +795,23 @@ class ImageCanvas(tk.Canvas):
 #Main loop to allow for Tkinter
 
 def main():
-    #load provinces.bmp
-    #map_folder_path is already defined
-    provinces_bmp_path = os.path.join(map_folder_path, "provinces.bmp")
-    provinces_bmp_image = Image.open(provinces_bmp_path)
+    #Removes all folders in the current directory (AcrossTheDnieper/__map_python__), while leaving any files.
+    for item in os.listdir(current_directory):
+        item_path = os.path.join(current_directory, item)
+        if os.path.isdir(item_path):
+            shutil.rmtree(item_path)
 
-    original_width, original_height = provinces_bmp_image.size
+    foldersToCreate = ["localisation/english", "common/scripted_effects", "history/states", "map", "map/strategicregions"]
+    for folder_name in foldersToCreate:
+        folder_path = os.path.join(current_directory, folder_name)
+        os.makedirs(folder_path, exist_ok=True)
+
+    #Make new provinces.bmp file in __map_python__/map directory
+    provinces_bmp_file_path = os.path.join(map_folder_path, "provinces.bmp")
+    provinces_bmp_outfile_path = os.path.join(current_directory, "map", "provinces.bmp")
+    temp = Image.open(provinces_bmp_file_path)
+    temp.save(provinces_bmp_outfile_path)
+    temp.close
 
     root = tk.Tk()
     screen_width = root.winfo_screenwidth()
@@ -657,9 +826,6 @@ def main():
     canvas = ImageCanvas(root, width=display_width, height=display_height)
     canvas.pack(side="top", anchor = "nw")
 
-    # Display the image on the canvas
-    canvas.display_image(provinces_bmp_image)
-
     root.mainloop()
 
 if __name__ == "__main__":
@@ -668,22 +834,16 @@ if __name__ == "__main__":
 #User has closed the window, now create files
 print ("Writing to files - do not close.")
 
-#Removes all folders in the current directory (AcrossTheDnieper/__map_python__), while leaving any files.
-for item in os.listdir(current_directory):
-    item_path = os.path.join(current_directory, item)
-    if os.path.isdir(item_path):
-        shutil.rmtree(item_path)
-
-foldersToCreate = ["localisation/english", "common/scripted_effects", "history/states", "map", "map/strategicregions"]
-for folder_name in foldersToCreate:
-    folder_path = os.path.join(current_directory, folder_name)
-    os.makedirs(folder_path, exist_ok=True)
-
 history_states_folder_path = os.path.join(current_directory, "history", "states")
 common_scripted_effects_folder_path = os.path.join(current_directory, "common", "scripted_effects")
 localisation_english_folder_path = os.path.join(current_directory, "localisation", "english")
 map_folder_path = os.path.join(current_directory, "map")
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
+
+provinces_bmp_file_path = os.path.join(map_folder_path, "provinces.bmp")
+with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
+    for i in provincesArray:
+        print(str(i.ID) + ";" + str(i.red) + ";" + str(i.green) + ";" + str(i.blue) + ";" + i.type + ";" + i.coastal + ";" + i.terrain + ";" + str(i.continent), file=f)
 
 definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
