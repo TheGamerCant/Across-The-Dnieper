@@ -488,8 +488,8 @@ class ImageCanvas(tk.Canvas):
         self.current_colour_r = None
         self.current_colour_g = None
         self.current_colour_b = None
-        self.realImageCoordsX = 0
-        self.realImageCoordsY = 0
+        self.realMouseCoordsX = 0
+        self.realMouseCoordsY = 0
         self.image_top_left_x = 0
         self.image_top_left_y = 0
         self.image_width = None
@@ -710,7 +710,7 @@ class ImageCanvas(tk.Canvas):
         self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
         self.provinces_bmp_image = Image.open(self.provinces_bmp_path)
         self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
-        self.create_image(self.realImageCoordsX, self.realImageCoordsY, anchor=tk.NW, image=self._photo_image)
+        self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._photo_image)
         self.config(scrollregion=self.bbox(tk.ALL))
 
         self.load_provinces_image_array(self.provinces_bmp_image)
@@ -767,15 +767,17 @@ class ImageCanvas(tk.Canvas):
 
             self.image_top_left_x += delta_x
             self.image_top_left_y += delta_y
+
+            print (self.image_top_left_x, self.image_top_left_y)
     
 
     def on_mouse_motion(self, event):
-        self.realImageCoordsX = event.x - self.image_top_left_x
-        self.realImageCoordsY = event.y - self.image_top_left_y
+        self.realMouseCoordsX = event.x - self.image_top_left_x
+        self.realMouseCoordsY = event.y - self.image_top_left_y
 
         if self.provinces_bmp_image:
             try:
-                pixel_color = self.provinces_bmp_image.getpixel((self.realImageCoordsX, self.realImageCoordsY))
+                pixel_color = self.provinces_bmp_image.getpixel((self.realMouseCoordsX, self.realMouseCoordsY))
                 self.current_colour_r, self.current_colour_g, self.current_colour_b = pixel_color
                 self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})")
 
@@ -841,9 +843,6 @@ map_folder_path = os.path.join(current_directory, "map")
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
 
 provinces_bmp_file_path = os.path.join(map_folder_path, "provinces.bmp")
-with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
-    for i in provincesArray:
-        print(str(i.ID) + ";" + str(i.red) + ";" + str(i.green) + ";" + str(i.blue) + ";" + i.type + ";" + i.coastal + ";" + i.terrain + ";" + str(i.continent), file=f)
 
 definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
