@@ -478,6 +478,7 @@ class ImageCanvas(tk.Canvas):
         self.bind("<ButtonPress-2>", self.on_start_drag)
         self.bind("<B2-Motion>", self.on_drag,)
         self.bind("<ButtonPress-1>", self.on_left_click)
+        self.bind("<ButtonPress-3>", self.on_right_click)
         #self.bind("<MouseWheel>", self.on_zoom)
         self.bind("<Motion>", self.on_mouse_motion)
         self.start_x = None
@@ -641,9 +642,6 @@ class ImageCanvas(tk.Canvas):
             strategicRegionsArray[finalProvSR].provinces.append(prov2)
             strategicRegionsArray[finalProvSR].provinces.sort()
 
-                
-
-            print ("States and strategic regions updated")
 
 
             #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
@@ -660,8 +658,6 @@ class ImageCanvas(tk.Canvas):
             provincesArray[prov2].names = provincesArray[finalProvID].names
             provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
             provincesArray.pop()
-
-            print ("Provinces updated")
 
             temp = Image.fromarray(self.provinces_image_array)
             temp.save(self.provinces_bmp_path)
@@ -710,12 +706,16 @@ class ImageCanvas(tk.Canvas):
         self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
         self.provinces_bmp_image = Image.open(self.provinces_bmp_path)
         self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
-        self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._photo_image)
+        self.create_image(0, 0, anchor=tk.NW, image=self._photo_image)
         self.config(scrollregion=self.bbox(tk.ALL))
 
         self.load_provinces_image_array(self.provinces_bmp_image)
 
         self.image_width, self.image_height = self.provinces_bmp_image.size
+        self.realMouseCoordsX = 0
+        self.realMouseCoordsY = 0
+        self.image_top_left_x = 0
+        self.image_top_left_y = 0
 
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
@@ -767,8 +767,6 @@ class ImageCanvas(tk.Canvas):
 
             self.image_top_left_x += delta_x
             self.image_top_left_y += delta_y
-
-            print (self.image_top_left_x, self.image_top_left_y)
     
 
     def on_mouse_motion(self, event):
@@ -789,6 +787,19 @@ class ImageCanvas(tk.Canvas):
             if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
                 self.currentProvID = i.ID
                 self.load_province(self.currentProvID)
+
+    def on_right_click(self, event):
+        if self.provinceToMerge1Entry.get():
+            for i in provincesArray:
+                if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
+                    self.provinceToMerge2Entry.insert(tk.END, i.ID)
+                    self.merge_provinces()
+                    self.provinceToMerge2Entry.delete(0, tk.END)
+                
+        else:
+            for i in provincesArray:
+                if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
+                    self.provinceToMerge1Entry.insert(tk.END, i.ID)
 
         
         
@@ -848,6 +859,11 @@ definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
     for i in provincesArray:
         print(str(i.ID) + ";" + str(i.red) + ";" + str(i.green) + ";" + str(i.blue) + ";" + i.type + ";" + i.coastal + ";" + i.terrain + ";" + str(i.continent), file=f)
+
+rocketsites_file_path = os.path.join(map_folder_path, "rocketsites.txt")
+with open(rocketsites_file_path, 'w', encoding='utf-8') as f:
+    for state in statesArray:
+        print(str(state.ID) + "={" + str(state.provinces[0]) + "}", file=f)
 
 victory_point_names_file_path = os.path.join(localisation_english_folder_path, "victory_points_l_english.yml")
 with open(victory_point_names_file_path, 'w', encoding='utf-8-sig') as f:
