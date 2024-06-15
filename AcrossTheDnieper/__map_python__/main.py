@@ -383,12 +383,15 @@ for state in statesArray:
     for prov in range(0,len(state.provinces)):
         currentProv = int(state.provinces[prov])
         provincesArray[currentProv].stateID = state.ID
+    state.provinces.sort()
 
 #Assign Strategic Regions to province types
 for strategicRegion in strategicRegionsArray:
     for prov in range(0,len(strategicRegion.provinces)):
         currentProv = int(strategicRegion.provinces[prov])
         provincesArray[currentProv].strategicRegion = strategicRegion.ID
+
+    strategicRegion.provinces.sort()
 
 #AcrossTheDnieper/localisation/english
 english_loc_path = os.path.join(base_directory, "localisation", "english")
@@ -589,81 +592,84 @@ class ImageCanvas(tk.Canvas):
             prov1 = int(self.provinceToMerge1Entry.get())
             prov2 = int(self.provinceToMerge2Entry.get())
            
-            red1 = provincesArray[prov1].red
-            green1 = provincesArray[prov1].green
-            blue1 = provincesArray[prov1].blue
-            red2 = provincesArray[prov2].red
-            green2 = provincesArray[prov2].green
-            blue2 = provincesArray[prov2].blue
-            finalProvID = int(len(provincesArray)-1)
+            if prov1 != prov2:
+                red1 = provincesArray[prov1].red
+                green1 = provincesArray[prov1].green
+                blue1 = provincesArray[prov1].blue
+                red2 = provincesArray[prov2].red
+                green2 = provincesArray[prov2].green
+                blue2 = provincesArray[prov2].blue
+                finalProvID = int(len(provincesArray)-1)
 
-            for h in range (0, self.image_height):
-                for w in range (0, self.image_width):
-                    if int(self.provinces_image_array[h][w][0]) == red2 and int(self.provinces_image_array[h][w][1]) == green2 and int(self.provinces_image_array[h][w][2]) == blue2:
-                        #print ("Found pixel at " + str(w) + ", " + str(h))
-                        self.provinces_image_array[h][w] = [int(red1), int(green1), int(blue1)]
-
-
-            #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
-
-            finalProvStateID = int(provincesArray[finalProvID].stateID)
-            prop2StateID = int(provincesArray[prov2].stateID)
-            finalProvSR = int(provincesArray[finalProvID].strategicRegion)
-            prov2SR = int(provincesArray[prov2].strategicRegion)
-            while1Trigger = False
-            while2Trigger = False
+                for h in range (0, self.image_height):
+                    for w in range (0, self.image_width):
+                        if int(self.provinces_image_array[h][w][0]) == red2 and int(self.provinces_image_array[h][w][1]) == green2 and int(self.provinces_image_array[h][w][2]) == blue2:
+                            #print ("Found pixel at " + str(w) + ", " + str(h))
+                            self.provinces_image_array[h][w] = [int(red1), int(green1), int(blue1)]
 
 
-            if provincesArray[prov2].stateID !=0:
+                #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
+
+                finalProvStateID = int(provincesArray[finalProvID].stateID)
+                prov2StateID = int(provincesArray[prov2].stateID)
+                finalProvSR = int(provincesArray[finalProvID].strategicRegion)
+                prov2SR = int(provincesArray[prov2].strategicRegion)
+                while1Trigger = False
+                while2Trigger = False
+
+                if prov2StateID !=0:
+                    i = 0
+                    while while1Trigger == False:
+                        if int(statesArray[prov2StateID].provinces[i]) == prov2:
+                            statesArray[prov2StateID].provinces.pop(i)
+                            while1Trigger = True
+                        else:
+                            i+=1
+
+                if finalProvStateID !=0:     #Replace ID of the last province with the one that's being replaced
+                    statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
+                    statesArray[finalProvStateID].provinces.append(prov2)
+                    statesArray[finalProvStateID].provinces.sort()
+
                 i = 0
-                while while1Trigger == False:
-                    if int(statesArray[prop2StateID].provinces[i]) == prov2:
-                        statesArray[prop2StateID].provinces.pop(i)
-                        while1Trigger = True
+                while while2Trigger == False:
+                    if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
+                        strategicRegionsArray[prov2SR].provinces.pop(i)
+                        while2Trigger = True
                     else:
                         i+=1
-
-            if provincesArray[finalProvID].stateID !=0:     #Replace ID of the last province with the one that's being replaced
-                statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
-                statesArray[finalProvStateID].provinces.append(prov2)
-                statesArray[finalProvStateID].provinces.sort()
-
-            i = 0
-            while while2Trigger == False:
-                if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
-                    strategicRegionsArray[prov2SR].provinces.pop(i)
-                    while2Trigger = True
-                else:
-                    i+=1
-                #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
+                    #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
 
 
-            strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
-            strategicRegionsArray[finalProvSR].provinces.append(prov2)
-            strategicRegionsArray[finalProvSR].provinces.sort()
+                strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
+                strategicRegionsArray[finalProvSR].provinces.append(prov2)
+                strategicRegionsArray[finalProvSR].provinces.sort()
 
 
 
-            #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
-            provincesArray[prov2].red = provincesArray[finalProvID].red
-            provincesArray[prov2].green = provincesArray[finalProvID].green
-            provincesArray[prov2].blue = provincesArray[finalProvID].blue
-            provincesArray[prov2].type = provincesArray[finalProvID].type
-            provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
-            provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
-            provincesArray[prov2].continent = provincesArray[finalProvID].continent
-            provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
-            provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
-            provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
-            provincesArray[prov2].names = provincesArray[finalProvID].names
-            provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
-            provincesArray.pop()
+                #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
+                provincesArray[prov2].red = provincesArray[finalProvID].red
+                provincesArray[prov2].green = provincesArray[finalProvID].green
+                provincesArray[prov2].blue = provincesArray[finalProvID].blue
+                provincesArray[prov2].type = provincesArray[finalProvID].type
+                provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
+                provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
+                provincesArray[prov2].continent = provincesArray[finalProvID].continent
+                provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
+                provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
+                provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
+                provincesArray[prov2].names = provincesArray[finalProvID].names
+                provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
+                provincesArray.pop()
 
-            temp = Image.fromarray(self.provinces_image_array)
-            temp.save(self.provinces_bmp_path)
-            temp.close()
-            #Display updated image
-            self.display_image()
+                temp = Image.fromarray(self.provinces_image_array)
+                temp.save(self.provinces_bmp_path)
+                temp.close()
+
+                provincesArray.sort(key=lambda x: x.ID)
+
+                #Display updated image
+                self.display_image()
         
         
 
@@ -847,6 +853,11 @@ if __name__ == "__main__":
 #User has closed the window, now create files
 print ("Writing to files - do not close.")
 
+#Shouldn't need to sort them but just in case
+provincesArray.sort(key=lambda x: x.ID)
+statesArray.sort(key=lambda x: x.ID)
+strategicRegionsArray.sort(key=lambda x: x.ID)
+
 history_states_folder_path = os.path.join(current_directory, "history", "states")
 common_scripted_effects_folder_path = os.path.join(current_directory, "common", "scripted_effects")
 localisation_english_folder_path = os.path.join(current_directory, "localisation", "english")
@@ -863,7 +874,8 @@ with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
 rocketsites_file_path = os.path.join(map_folder_path, "rocketsites.txt")
 with open(rocketsites_file_path, 'w', encoding='utf-8') as f:
     for state in statesArray:
-        print(str(state.ID) + "={" + str(state.provinces[0]) + "}", file=f)
+        if state.ID != 0:
+            print(str(state.ID) + "={" + str(state.provinces[0]) + "}", file=f)
 
 victory_point_names_file_path = os.path.join(localisation_english_folder_path, "victory_points_l_english.yml")
 with open(victory_point_names_file_path, 'w', encoding='utf-8-sig') as f:
@@ -904,19 +916,22 @@ with open(state_names_scripted_effects_file_path, 'w', encoding='utf-8') as f:
                 print ("\t\telse={\n\t\t\treset_state_name=yes\n\t\t}\n\t}", file=f)
 
             for prov in state.provinces:
-                if len(provincesArray[prov].names) > 1:
-                    print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
-                        + str(provincesArray[prov].names[1][0]) + " = yes } }\n\t\tset_province_name = { id = "\
-                        + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
-                        + str(provincesArray[prov].names[1][0]) + " }\n\t}",file=f)
-                    if len(provincesArray[prov].names) > 2:
-                        for i in range(2,len(provincesArray[prov].names)):
-                            print ("\telse_if={\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
-                                + str(provincesArray[prov].names[i][0]) + " = yes } }\n\t\tset_province_name = { id = "\
-                                + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
-                                + str(provincesArray[prov].names[i][0]) + " }\n\t}",file=f)
-                    
-                    print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
+                try:
+                    if len(provincesArray[prov].names) > 1:
+                        print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                            + str(provincesArray[prov].names[1][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                            + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                            + str(provincesArray[prov].names[1][0]) + " }\n\t}",file=f)
+                        if len(provincesArray[prov].names) > 2:
+                            for i in range(2,len(provincesArray[prov].names)):
+                                print ("\telse_if={\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                                    + str(provincesArray[prov].names[i][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                                    + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                                    + str(provincesArray[prov].names[i][0]) + " }\n\t}",file=f)
+                        
+                        print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
+                except:
+                    print (str(prov) + "\n\n" + str(state.provinces))
 
             print ("}", file=f)
     print ("\n\nchange_city_names={\n\tZZZ={", file=f)
