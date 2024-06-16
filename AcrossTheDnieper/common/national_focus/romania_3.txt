@@ -2179,29 +2179,319 @@ focus_tree = {
 		}
 	}
 
+
 	focus = {
-		id = Union_With_Moldova
+		id = Rally_Support_Union
 		icon = GFX_da
-		x = 42
-		y = 14
-		cost = 1
+		x = 76
+		y = 0
+		cost = 35
 
 		ai_will_do = { 
 			factor = 10 
 		}
-        available = {
-			
-        }
+
+		available = {
+		}
 		bypass = {
 		}
-		prerequisite = {focus = 21_century_infra}
-		prerequisite = {focus = Rom_Glory_Country}
-		prerequisite = {focus = Prudent_Fiscal_Policy}
-		prerequisite = {focus = Attract_Workers}
+
 		completion_reward = {
-			load_focus_tree = romania_moldova_tree
+			add_political_power = 250
+			add_stability = 0.05
+			MOL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_large_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = MOL
+				modifier = BLR_large_positive
+			}
 		}
 	}
+
+	focus = {
+		id = Forsake_GGZ_TRZ
+		icon = GFX_da
+		x = 74
+		y = 1
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite={focus = Rally_Support_Union}
+		mutually_exclusive={focus=No_Compromise_Terror}
+		completion_reward = {
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = No_Compromise_Terror
+		icon = GFX_da
+		x = 78
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite={focus = Rally_Support_Union}
+		mutually_exclusive={focus=Forsake_GGZ_TRZ}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = Promise_Raise_Salaries
+		icon = GFX_da
+		x = 76
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite={focus = Forsake_GGZ_TRZ focus = No_Compromise_Terror}
+		completion_reward = {
+			add_stability = 0.05
+			MOL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = MOL
+				modifier = BLR_small_positive
+			}
+		}
+	}
+	focus = {
+		id = Send_SRI_Chisinau
+		icon = GFX_da
+		x = 74
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		mutually_exclusive = {focus = No_Secret_Dwellings}
+		prerequisite={focus = Promise_Raise_Salaries}
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = No_Secret_Dwellings
+		icon = GFX_da
+		x = 78
+		y = 3
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		mutually_exclusive = {focus = Send_SRI_Chisinau}
+		prerequisite={focus = Promise_Raise_Salaries}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = Promise_ROM_Business
+		icon = GFX_da
+		x = 78
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite={focus = No_Secret_Dwellings}
+		completion_reward = {
+			add_stability = 0.1
+			MOL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BLR_small_positive
+				}
+			}
+			add_opinion_modifier = {
+				target = MOL
+				modifier = BLR_small_positive
+			}
+		}
+	}
+	focus = {
+		id = Prepare_Integration_MOL
+		icon = GFX_da
+		x = 76
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite={focus = Promise_ROM_Business focus = Send_SRI_Chisinau}
+		completion_reward = {
+			add_political_power = 100
+			MOL = { country_event = { id = moldova.2 } }
+		}
+	}
+	focus = {
+		id = Integrate_MOL
+		icon = GFX_da
+		x = 76
+		y = 6
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger = {always = no}
+		}
+		bypass = {
+		}
+		prerequisite={focus = Prepare_Integration_MOL}
+		completion_reward = {
+			annex_country = { target = MOL transfer_troops = yes }
+			hidden_effect = {
+				add_state_core = 182
+			add_state_core = 193
+			add_state_core = 206
+			add_state_core = 197
+			add_state_core = 189
+			add_state_core = 218
+			add_state_core = 217
+			add_state_core = 213
+			add_state_core = 216
+			add_state_core = 222
+			add_state_core = 224
+			add_state_core = 220
+			add_state_core = 240
+			add_state_core = 245
+			add_state_core = 234
+			add_state_core = 252
+			add_state_core = 258
+			add_state_core = 249
+			add_state_core = 262
+			add_state_core = 260
+			add_state_core = 259
+			add_state_core = 277
+			add_state_core = 274
+			add_state_core = 272
+			add_state_core = 278
+			add_state_core = 290
+			add_state_core = 286
+			add_state_core = 307
+			add_state_core = 293
+			add_state_core = 287
+			add_state_core = 320
+			add_state_core = 291
+			add_state_core = 268
+			add_state_core = 440
+			add_state_core = 439
+			add_state_core = 247
+			add_state_core = 241
+			add_state_core = 215
+			add_state_core = 202
+			add_state_core = 176
+			add_state_core = 167
+			add_state_core = 442
+			add_state_core = 188
+			add_state_core = 248
+			add_state_core = 316
+			add_state_core = 441
+			GGZ = {add_state_core = 290}
+			GGZ = {add_state_core = 286}
+			ROM = { release = GGZ }
+			GGZ = { declare_war_on = { type = annex_everything    target = ROM } }
+			290 = {
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+				create_unit = { division = "name = \"Gagauz Militia\" division_template = \"Infantry Brigade\" start_experience_factor = 1"  owner = GGZ }
+			}
+
+						SOV = {
+				add_opinion_modifier = {
+					target = GGZ
+					modifier = BLR_large_positive
+				}
+			}
+			GGZ =  {add_opinion_modifier = {
+				target = SOV
+				modifier = BLR_large_positive
+			} }
+									SOV = {
+				add_opinion_modifier = {
+					target = TRZ
+					modifier = BLR_large_positive
+				}
+			}
+			TRZ = { add_opinion_modifier = {
+				target = SOV
+				modifier = BLR_large_positive
+			} }
+
+			}
+			
+
+		}
+	}
+}
+
+
+
+
 	
 
 	focus = {
