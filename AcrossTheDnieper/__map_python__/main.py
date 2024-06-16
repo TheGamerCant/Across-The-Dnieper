@@ -498,6 +498,8 @@ class ImageCanvas(tk.Canvas):
         self.image_top_left_y = 0
         self.image_width = None
         self.image_height = None
+        self.canvas_width = self.winfo_screenwidth() // 3 * 2
+        self.canvas_height = self.winfo_screenheight() // 3 * 2
         self.currentProvID = None
         self.currentStateID = None
         self.provinces_image_array = None
@@ -561,6 +563,11 @@ class ImageCanvas(tk.Canvas):
         self.mergeProvincesButton = tk.Button(master, text="Merge (2 gets eaten by 1)", command=self.merge_provinces)
         self.mergeProvincesButton.place(relx=0.0, rely=0.75,x=242,y=28,anchor="w")
 
+        self.sameStatesOnlyVariable = tk.IntVar()
+        self.sameStatesOnly = tk.Checkbutton(master, text="Same states only", variable=self.sameStatesOnlyVariable, onvalue=1, offvalue=0)
+        self.sameStatesOnly.place(relx=0.0, rely=0.75,x=340,y=0,anchor="w")
+
+
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
         self.victoryPointsEntryBox.delete(0,tk.END)
@@ -592,7 +599,7 @@ class ImageCanvas(tk.Canvas):
             prov1 = int(self.provinceToMerge1Entry.get())
             prov2 = int(self.provinceToMerge2Entry.get())
            
-            if prov1 != prov2:
+            if prov1 != prov2 and (provincesArray[prov1].stateID == provincesArray[prov2].stateID or int(self.sameStatesOnlyVariable.get()) == 0):
                 red1 = provincesArray[prov1].red
                 green1 = provincesArray[prov1].green
                 blue1 = provincesArray[prov1].blue
@@ -711,17 +718,23 @@ class ImageCanvas(tk.Canvas):
     def display_image(self):
         self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
         self.provinces_bmp_image = Image.open(self.provinces_bmp_path)
+        self.image_width, self.image_height = self.provinces_bmp_image.size
+        if self.image_top_left_x > 0:
+            self.image_top_left_x = 0
+        elif self.image_top_left_x < (self.image_width-self.canvas_width)*-1:
+            self.image_top_left_x = (self.image_width-self.canvas_width)*-1
+
+        if self.image_top_left_y > 0:
+            self.image_top_left_y = 0
+        elif self.image_top_left_y < (self.image_height-self.canvas_height)*-1:
+            self.image_top_left_y = (self.image_height-self.canvas_height)*-1
+        
+
         self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
-        self.create_image(0, 0, anchor=tk.NW, image=self._photo_image)
+        self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._photo_image)
         self.config(scrollregion=self.bbox(tk.ALL))
 
         self.load_provinces_image_array(self.provinces_bmp_image)
-
-        self.image_width, self.image_height = self.provinces_bmp_image.size
-        self.realMouseCoordsX = 0
-        self.realMouseCoordsY = 0
-        self.image_top_left_x = 0
-        self.image_top_left_y = 0
 
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
@@ -783,7 +796,9 @@ class ImageCanvas(tk.Canvas):
             try:
                 pixel_color = self.provinces_bmp_image.getpixel((self.realMouseCoordsX, self.realMouseCoordsY))
                 self.current_colour_r, self.current_colour_g, self.current_colour_b = pixel_color
-                self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})")
+                self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})\
+                                                 \t\tImage top left: ({self.image_top_left_x},{self.image_top_left_y})\
+                                                 \t\tMouse co-ords on picture: ({self.realMouseCoordsX}, {self.realMouseCoordsY})")
 
             except:
                 pass
