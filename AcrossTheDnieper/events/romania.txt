@@ -42,6 +42,25 @@ country_event = {
 	add_idea = ROM_2014_elections
     }
 }
+country_event = {
+    id = romania.7
+    title = romania.7.t
+    desc = romania.7.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.7.a
+        ai_chance = {
+			base = 100
+		}
+        complete_national_focus = Integrate_MOL
+        hidden_effect = {
+            TRZ = { declare_war_on = { target = ROM  type = annex_everything } }
+        }
+    }
+
+}
 	country_event = {
     id = romania.3
     title = romania.3.t
