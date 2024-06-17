@@ -484,10 +484,14 @@ class ImageCanvas(tk.Canvas):
         self.bind("<ButtonPress-3>", self.on_right_click)
         #self.bind("<MouseWheel>", self.on_zoom)
         self.bind("<Motion>", self.on_mouse_motion)
+        self.sameStatesOnlyVariable = tk.IntVar()
+        self.showRiversVariable = tk.IntVar()
         self.start_x = None
         self.start_y = None
         self._image = None
-        self._photo_image = None
+        self._provinces_image = None
+        self.provincesItem = None
+        self.riversItem = None
         self._scale = 1.00
         self.current_colour_r = None
         self.current_colour_g = None
@@ -503,6 +507,11 @@ class ImageCanvas(tk.Canvas):
         self.currentProvID = None
         self.currentStateID = None
         self.provinces_image_array = None
+
+        self.rivers_png_path = os.path.join(current_directory, "map", "rivers.png")
+        self.rivers_png_image = Image.open(self.rivers_png_path)
+        self._rivers_image = ImageTk.PhotoImage(self.rivers_png_image)
+        self.riversItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._rivers_image)
         self.display_image()
 
         self.current_colour_label = tk.Label(master, text="Current Colour: (0, 0, 0)", bg="white")
@@ -563,10 +572,11 @@ class ImageCanvas(tk.Canvas):
         self.mergeProvincesButton = tk.Button(master, text="Merge (2 gets eaten by 1)", command=self.merge_provinces)
         self.mergeProvincesButton.place(relx=0.0, rely=0.75,x=242,y=28,anchor="w")
 
-        self.sameStatesOnlyVariable = tk.IntVar()
         self.sameStatesOnly = tk.Checkbutton(master, text="Same states only", variable=self.sameStatesOnlyVariable, onvalue=1, offvalue=0)
-        self.sameStatesOnly.place(relx=0.0, rely=0.75,x=340,y=0,anchor="w")
+        self.sameStatesOnly.place(relx=0.0, rely=0.75,x=420,y=0,anchor="w")
 
+        self.showRivers = tk.Checkbutton(master, text="Show rivers", variable=self.showRiversVariable, onvalue=1, offvalue=0, command = self.toggle_rivers)
+        self.showRivers.place(relx=0.0, rely=0.75,x=420,y=20,anchor="w")
 
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
@@ -608,11 +618,9 @@ class ImageCanvas(tk.Canvas):
                 blue2 = provincesArray[prov2].blue
                 finalProvID = int(len(provincesArray)-1)
 
-                for h in range (0, self.image_height):
-                    for w in range (0, self.image_width):
-                        if int(self.provinces_image_array[h][w][0]) == red2 and int(self.provinces_image_array[h][w][1]) == green2 and int(self.provinces_image_array[h][w][2]) == blue2:
-                            #print ("Found pixel at " + str(w) + ", " + str(h))
-                            self.provinces_image_array[h][w] = [int(red1), int(green1), int(blue1)]
+                colour_find = np.array([red2,green2,blue2])
+                colour_replace = np.array([red1,green1,blue1])
+                self.provinces_image_array[np.all(self.provinces_image_array == colour_find, axis=-1)] = colour_replace
 
 
                 #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
@@ -730,8 +738,11 @@ class ImageCanvas(tk.Canvas):
             self.image_top_left_y = (self.image_height-self.canvas_height)*-1
         
 
-        self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
-        self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._photo_image)
+        self._provinces_image = ImageTk.PhotoImage(self.provinces_bmp_image)
+        self.provincesItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._provinces_image)
+        if int(self.showRiversVariable.get()) == 1:
+            self.tag_raise(self.riversItem)
+
         self.config(scrollregion=self.bbox(tk.ALL))
 
         self.load_provinces_image_array(self.provinces_bmp_image)
@@ -739,6 +750,13 @@ class ImageCanvas(tk.Canvas):
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
         #self.original_dimensions_label.config(text=f"Original width ={self.original_width},Original height ={self.original_height}")
+
+    def toggle_rivers(self):
+        if int(self.showRiversVariable.get()) == 1:
+            self.itemconfig(self.riversItem, state='normal')
+            self.tag_raise(self.riversItem)
+        else:
+            self.itemconfig(self.riversItem, state='hidden')
 
     def populate_vp_name_listbox(self, provID):
         self.provinceNamesListbox.delete(0, tk.END)
@@ -770,9 +788,9 @@ class ImageCanvas(tk.Canvas):
     #           newWidth = int(self._image.width * self._scale)
     #            newHeight = int(self._image.height * self._scale)
     #            resized_image = self._image.resize((newWidth, newHeight), Image.LANCZOS)
-    #            self._photo_image = ImageTk.PhotoImage(resized_image)
+    #            self._provinces_image = ImageTk.PhotoImage(resized_image)
     #            self.delete("all")
-    #            self.create_image(0, 0, anchor=tk.NW, image=self._photo_image)
+    #            self.create_image(0, 0, anchor=tk.NW, image=self._provinces_image)
 
     #   self.current_zoom_label.config(text=f"Current Zoom: {self._scale}")
 
@@ -810,17 +828,25 @@ class ImageCanvas(tk.Canvas):
                 self.load_province(self.currentProvID)
 
     def on_right_click(self, event):
+        prov = 0
+        provFound = False
+        while provFound == False:
+            if provincesArray[prov].red == self.current_colour_r and provincesArray[prov].green == self.current_colour_g and provincesArray[prov].blue == self.current_colour_b:
+                provFound = True
+            else:
+                prov+=1
+
         if self.provinceToMerge1Entry.get():
-            for i in provincesArray:
-                if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
-                    self.provinceToMerge2Entry.insert(tk.END, i.ID)
-                    self.merge_provinces()
-                    self.provinceToMerge2Entry.delete(0, tk.END)
-                
+            if prov == int(self.provinceToMerge1Entry.get()):
+                self.provinceToMerge1Entry.delete(0, tk.END)
+            
+            else :
+                self.provinceToMerge2Entry.insert(tk.END, prov)
+                self.merge_provinces()
+                self.provinceToMerge2Entry.delete(0, tk.END)
+                    
         else:
-            for i in provincesArray:
-                if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
-                    self.provinceToMerge1Entry.insert(tk.END, i.ID)
+            self.provinceToMerge1Entry.insert(tk.END, prov)
 
         
         
@@ -846,6 +872,20 @@ def main():
     temp = Image.open(provinces_bmp_file_path)
     temp.save(provinces_bmp_outfile_path)
     temp.close
+
+    #Make a rivers
+    rivers_bmp_file_path = os.path.join(map_folder_path, "rivers.bmp")
+    rivers_png_outfile_path = os.path.join(current_directory, "map", "rivers.png")
+    temp = Image.open(rivers_bmp_file_path)
+    temp = temp.convert("RGBA")
+    temp_array = np.array(temp)
+    white = np.array([255, 255, 255, 255])
+    transparent = np.array([255, 255, 255, 0])
+    temp_array[np.all(temp_array == white, axis=-1)] = transparent
+    temp = Image.fromarray(temp_array)
+    temp.save(rivers_png_outfile_path)
+    temp.close
+    del temp_array
 
     root = tk.Tk()
     screen_width = root.winfo_screenwidth()
