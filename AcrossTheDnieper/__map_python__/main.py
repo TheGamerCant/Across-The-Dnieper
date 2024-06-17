@@ -160,16 +160,9 @@ with open(definitions_csv_file_path, 'r') as file:
     for line in file:
         parts = line.strip().split(';')
         # and parts[0] != "0"       <-- Add this to the line below if you don't want an initial province class with everything set to 0
-        if len(parts) >= 4:
-            ID, red, green, blue, type, coastal, terrain = parts[:7]
-            
-            if terrain == "ocean" or terrain == "unknown" or terrain == "lakes" or terrain == "water_fjords" or terrain == "water_shallow_sea" or terrain == "water_deep_ocean":
-                continent = 0
-            else:
-                continent = 1       #1 for Europe, as AtD only has one continent
-                                    #Continents don't really do much tho tbh
-            province = provinceClass(ID, red, green, blue, type, coastal, terrain, continent, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
-            provincesArray.append(province)
+        ID, red, green, blue, type, coastal, terrain, continent = parts[:8]
+        province = provinceClass(ID, red, green, blue, type, coastal, terrain, continent, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
+        provincesArray.append(province)
 
 provincesArray.sort(key=lambda x: x.ID)
 
