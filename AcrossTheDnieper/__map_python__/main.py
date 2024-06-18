@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import ttk
 import shutil
 import codecs
+import random
 
 try:
 	import numpy as np
@@ -38,8 +39,11 @@ class provinceClass:
         return f"Province(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, type={self.type}, coastal={self.coastal}, terrain={self.terrain}, stateID={self.stateID}, victoryPoints={self.victoryPoints}, strategicRegion={self.strategicRegion}, names={self.names}, buildings={self.buildings})"
     
 class stateClass:
-    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
+    def __init__(self, ID, red, green, blue, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
         self.ID = int(ID)
+        self.red = int(red)
+        self.green = int(green)
+        self.blue = int(blue)
         self.population = int(population)
         self.category = str(category)
         self.owner = str(owner)
@@ -54,7 +58,7 @@ class stateClass:
         self.impassable = int(impassable)
     
     def __repr__(self):
-        return f"State(ID={self.ID}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
+        return f"State(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
     
 class strategicRegionClass:
     def __init__(self, ID, name, provinces):
@@ -170,7 +174,7 @@ provincesArray.sort(key=lambda x: x.ID)
 history_states_folder_path = os.path.join(base_directory, "history", "states")
 os.chdir(history_states_folder_path) 
 statesArray = []
-statesArray.append(stateClass(0,0,"","",0,0,0,0,0,0,0,0,-1))
+statesArray.append(stateClass(0,0,0,0,0,"","",0,0,0,0,0,0,0,0,-1))
 
 def return_state_file_values(file_path): 
     with open(file_path, 'r', errors='ignore') as f: 
@@ -307,7 +311,7 @@ def return_state_file_values(file_path):
             stateFlags = [0]
 
         
-        return stateClass(int(ID), int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags, impassable)
+        return stateClass(int(ID), 0, 0, 0, int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags, impassable)
 
 
 for file in os.listdir(): 
@@ -377,6 +381,21 @@ for state in statesArray:
         currentProv = int(state.provinces[prov])
         provincesArray[currentProv].stateID = state.ID
     state.provinces.sort()
+
+#Assign states random rgb values
+randomRGBValues = random.sample(range(0, 16777216), len(statesArray)-1)
+i=0
+for randomRGB in randomRGBValues:
+    i+=1
+    r = randomRGB//65536
+    g = randomRGB%65536
+    b = g//256
+    g %= 256
+    statesArray[i].red = r
+    statesArray[i].green = g
+    statesArray[i].blue = b
+
+del randomRGBValues
 
 #Assign Strategic Regions to province types
 for strategicRegion in strategicRegionsArray:
@@ -500,11 +519,9 @@ class ImageCanvas(tk.Canvas):
         self.currentProvID = None
         self.currentStateID = None
         self.provinces_image_array = None
-
         self.rivers_png_path = os.path.join(current_directory, "map", "rivers.png")
         self.rivers_png_image = Image.open(self.rivers_png_path)
         self._rivers_image = ImageTk.PhotoImage(self.rivers_png_image)
-        self.riversItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._rivers_image)
         self.display_image()
 
         self.current_colour_label = tk.Label(master, text="Current Colour: (0, 0, 0)", bg="white")
@@ -730,7 +747,7 @@ class ImageCanvas(tk.Canvas):
         elif self.image_top_left_y < (self.image_height-self.canvas_height)*-1:
             self.image_top_left_y = (self.image_height-self.canvas_height)*-1
         
-
+        self.riversItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._rivers_image)
         self._provinces_image = ImageTk.PhotoImage(self.provinces_bmp_image)
         self.provincesItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._provinces_image)
         if int(self.showRiversVariable.get()) == 1:
@@ -841,6 +858,7 @@ class ImageCanvas(tk.Canvas):
         else:
             self.provinceToMerge1Entry.insert(tk.END, prov)
 
+
         
         
 
@@ -911,6 +929,13 @@ common_scripted_effects_folder_path = os.path.join(current_directory, "common", 
 localisation_english_folder_path = os.path.join(current_directory, "localisation", "english")
 map_folder_path = os.path.join(current_directory, "map")
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
+
+
+rivers_png_file_path = os.path.join(map_folder_path, "rivers.png")
+try:
+    os.remove(rivers_png_file_path)
+except OSError:
+    pass
 
 provinces_bmp_file_path = os.path.join(map_folder_path, "provinces.bmp")
 
