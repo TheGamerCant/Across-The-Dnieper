@@ -39,11 +39,8 @@ class provinceClass:
         return f"Province(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, type={self.type}, coastal={self.coastal}, terrain={self.terrain}, stateID={self.stateID}, victoryPoints={self.victoryPoints}, strategicRegion={self.strategicRegion}, names={self.names}, buildings={self.buildings})"
     
 class stateClass:
-    def __init__(self, ID, red, green, blue, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
+    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable):
         self.ID = int(ID)
-        self.red = int(red)
-        self.green = int(green)
-        self.blue = int(blue)
         self.population = int(population)
         self.category = str(category)
         self.owner = str(owner)
@@ -58,7 +55,7 @@ class stateClass:
         self.impassable = int(impassable)
     
     def __repr__(self):
-        return f"State(ID={self.ID}, red={self.red}, green={self.green}, blue={self.blue}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
+        return f"State(ID={self.ID}, population={self.population}, category={self.category}, owner={self.owner}, provinces={self.provinces}, names={self.names}, buildings={self.buildings}, resources={self.resources}, dateInfo={self.dateInfo}, cores={self.cores}, claims={self.claims}, stateFlags={self.stateFlags}, impassable={self.impassable}"
     
 class strategicRegionClass:
     def __init__(self, ID, name, provinces):
@@ -174,7 +171,7 @@ provincesArray.sort(key=lambda x: x.ID)
 history_states_folder_path = os.path.join(base_directory, "history", "states")
 os.chdir(history_states_folder_path) 
 statesArray = []
-statesArray.append(stateClass(0,0,0,0,0,"","",0,0,0,0,0,0,0,0,-1))
+statesArray.append(stateClass(0,0,"","",0,0,0,0,0,0,0,0,-1))
 
 def return_state_file_values(file_path): 
     with open(file_path, 'r', errors='ignore') as f: 
@@ -311,7 +308,7 @@ def return_state_file_values(file_path):
             stateFlags = [0]
 
         
-        return stateClass(int(ID), 0, 0, 0, int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags, impassable)
+        return stateClass(int(ID), int(population), str(category), str(owner), list(map(int, provinces)), int(0), buildings, resources, dateInfo, cores, claims, stateFlags, impassable)
 
 
 for file in os.listdir(): 
@@ -383,19 +380,18 @@ for state in statesArray:
     state.provinces.sort()
 
 #Assign states random rgb values
-randomRGBValues = random.sample(range(0, 16777216), len(statesArray)-1)
-i=0
-for randomRGB in randomRGBValues:
-    i+=1
-    r = randomRGB//65536
-    g = randomRGB%65536
-    b = g//256
-    g %= 256
-    statesArray[i].red = r
-    statesArray[i].green = g
-    statesArray[i].blue = b
-
-del randomRGBValues
+#randomRGBValues = random.sample(range(0, 16777216), len(statesArray)-1)
+#i=0
+#for randomRGB in randomRGBValues:
+#    i+=1
+#    r = randomRGB//65536
+#    g = randomRGB%65536
+#    b = g//256
+#    g %= 256
+#    statesArray[i].red = r
+#    statesArray[i].green = g
+#    statesArray[i].blue = b
+#del randomRGBValues
 
 #Assign Strategic Regions to province types
 for strategicRegion in strategicRegionsArray:
