@@ -616,81 +616,84 @@ class ImageCanvas(tk.Canvas):
             prov2 = int(self.provinceToMerge2Entry.get())
            
             if prov1 != prov2 and (provincesArray[prov1].stateID == provincesArray[prov2].stateID or int(self.sameStatesOnlyVariable.get()) == 0):
-                red1 = provincesArray[prov1].red
-                green1 = provincesArray[prov1].green
-                blue1 = provincesArray[prov1].blue
-                red2 = provincesArray[prov2].red
-                green2 = provincesArray[prov2].green
-                blue2 = provincesArray[prov2].blue
-                finalProvID = int(len(provincesArray)-1)
+                try:
+                    red1 = provincesArray[prov1].red
+                    green1 = provincesArray[prov1].green
+                    blue1 = provincesArray[prov1].blue
+                    red2 = provincesArray[prov2].red
+                    green2 = provincesArray[prov2].green
+                    blue2 = provincesArray[prov2].blue
+                    finalProvID = int(len(provincesArray)-1)
 
-                colour_find = np.array([red2,green2,blue2])
-                colour_replace = np.array([red1,green1,blue1])
-                self.provinces_image_array[np.all(self.provinces_image_array == colour_find, axis=-1)] = colour_replace
+                    colour_find = np.array([red2,green2,blue2])
+                    colour_replace = np.array([red1,green1,blue1])
+                    self.provinces_image_array[np.all(self.provinces_image_array == colour_find, axis=-1)] = colour_replace
 
 
-                #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
+                    #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
 
-                finalProvStateID = int(provincesArray[finalProvID].stateID)
-                prov2StateID = int(provincesArray[prov2].stateID)
-                finalProvSR = int(provincesArray[finalProvID].strategicRegion)
-                prov2SR = int(provincesArray[prov2].strategicRegion)
-                while1Trigger = False
-                while2Trigger = False
+                    finalProvStateID = int(provincesArray[finalProvID].stateID)
+                    prov2StateID = int(provincesArray[prov2].stateID)
+                    finalProvSR = int(provincesArray[finalProvID].strategicRegion)
+                    prov2SR = int(provincesArray[prov2].strategicRegion)
+                    while1Trigger = False
+                    while2Trigger = False
 
-                if prov2StateID !=0:
+                    if prov2StateID !=0:
+                        i = 0
+                        while while1Trigger == False:
+                            if int(statesArray[prov2StateID].provinces[i]) == prov2:
+                                statesArray[prov2StateID].provinces.pop(i)
+                                while1Trigger = True
+                            else:
+                                i+=1
+
+                    if finalProvStateID !=0:     #Replace ID of the last province with the one that's being replaced
+                        statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
+                        statesArray[finalProvStateID].provinces.append(prov2)
+                        statesArray[finalProvStateID].provinces.sort()
+
                     i = 0
-                    while while1Trigger == False:
-                        if int(statesArray[prov2StateID].provinces[i]) == prov2:
-                            statesArray[prov2StateID].provinces.pop(i)
-                            while1Trigger = True
+                    while while2Trigger == False:
+                        if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
+                            strategicRegionsArray[prov2SR].provinces.pop(i)
+                            while2Trigger = True
                         else:
                             i+=1
-
-                if finalProvStateID !=0:     #Replace ID of the last province with the one that's being replaced
-                    statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
-                    statesArray[finalProvStateID].provinces.append(prov2)
-                    statesArray[finalProvStateID].provinces.sort()
-
-                i = 0
-                while while2Trigger == False:
-                    if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
-                        strategicRegionsArray[prov2SR].provinces.pop(i)
-                        while2Trigger = True
-                    else:
-                        i+=1
-                    #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
+                        #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
 
 
-                strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
-                strategicRegionsArray[finalProvSR].provinces.append(prov2)
-                strategicRegionsArray[finalProvSR].provinces.sort()
+                    strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
+                    strategicRegionsArray[finalProvSR].provinces.append(prov2)
+                    strategicRegionsArray[finalProvSR].provinces.sort()
 
 
 
-                #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
-                provincesArray[prov2].red = provincesArray[finalProvID].red
-                provincesArray[prov2].green = provincesArray[finalProvID].green
-                provincesArray[prov2].blue = provincesArray[finalProvID].blue
-                provincesArray[prov2].type = provincesArray[finalProvID].type
-                provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
-                provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
-                provincesArray[prov2].continent = provincesArray[finalProvID].continent
-                provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
-                provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
-                provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
-                provincesArray[prov2].names = provincesArray[finalProvID].names
-                provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
-                provincesArray.pop()
+                    #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
+                    provincesArray[prov2].red = provincesArray[finalProvID].red
+                    provincesArray[prov2].green = provincesArray[finalProvID].green
+                    provincesArray[prov2].blue = provincesArray[finalProvID].blue
+                    provincesArray[prov2].type = provincesArray[finalProvID].type
+                    provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
+                    provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
+                    provincesArray[prov2].continent = provincesArray[finalProvID].continent
+                    provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
+                    provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
+                    provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
+                    provincesArray[prov2].names = provincesArray[finalProvID].names
+                    provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
+                    provincesArray.pop()
 
-                temp = Image.fromarray(self.provinces_image_array)
-                temp.save(self.provinces_bmp_path)
-                temp.close()
+                    temp = Image.fromarray(self.provinces_image_array)
+                    temp.save(self.provinces_bmp_path)
+                    temp.close()
 
-                provincesArray.sort(key=lambda x: x.ID)
+                    provincesArray.sort(key=lambda x: x.ID)
 
-                #Display updated image
-                self.display_image()
+                    #Display updated image
+                    self.display_image()
+                except:
+                    pass
         
         
 
