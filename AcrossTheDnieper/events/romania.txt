@@ -13,7 +13,7 @@ country_event = {
 			base = 10
 		}
 		add_popularity = { ideology = libertarian popularity = -0.02 }
-		add_popularity = { ideology = neoconservative popularity = 0.01 }
+		add_popularity = { ideology = easetern_liberal popularity = 0.01 }
 		add_political_power = -20
 		add_stability = -0.05
     }
@@ -42,26 +42,8 @@ country_event = {
 	add_idea = ROM_2014_elections
     }
 }
+
 country_event = {
-    id = romania.7
-    title = romania.7.t
-    desc = romania.7.desc
-		picture = GFX_report_event_ROM_Iohannis_Victory
-		is_triggered_only = yes
-
-    option = {
-        name = romania.7.a
-        ai_chance = {
-			base = 100
-		}
-        complete_national_focus = Integrate_MOL
-        hidden_effect = {
-            TRZ = { declare_war_on = { target = ROM  type = annex_everything } }
-        }
-    }
-
-}
-	country_event = {
     id = romania.3
     title = romania.3.t
     desc = romania.3.desc
@@ -79,7 +61,8 @@ country_event = {
         add_political_power = -50
     } 
 }
-	country_event = {
+
+country_event = {
     id = romania.4
     title = romania.4.t
     desc = romania.4.desc
@@ -97,104 +80,90 @@ country_event = {
         country_event = {id = romania.4.1}
     } 
 }
-    country_event = {
+
+country_event = {
     id = romania.5
     title = romania.5.t
     desc = romania.5.desc
-		picture = GFX_report_event_ROM_Romanian_Elections
+		picture = GFX_Romanian_Elections
 		is_triggered_only = yes
-
-    option = {
-        name = romania.5.a
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = neoconservative popularity = 0.04 }
-        add_popularity = { ideology = social_democracy popularity = 0.04 }
-        country_event = {id = romania.5.1}
-        set_variable = { ROM_lower_house_friendly_seats = 277 }
-        set_variable = { ROM_upper_house_friendly_seats = 129 }
-    } 
     option = {
         name = romania.5.b
-        if={ 
-               limit = {has_completed_focus = Left_Wave}
-            }
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = neoliberal popularity = 0.04 }
-        add_popularity = { ideology = social_democracy popularity = 0.04 }
-        add_popularity = { ideology = eastern_liberal popularity = 0.02 }
-        add_popularity = { ideology = socialist popularity = 0.02 }
-        add_popularity = { ideology = moderate_communist popularity = 0.01 }
-        ruling_party = social_democracy
-		elections_allowed = yes
-        add_stability = -0.01
-        country_event = {id = romania.Lvictory2014}
-    }}
-    option = {
-        name = romania.5.c
-        if={ 
-               limit = {has_completed_focus = Right_Wave}
-            }
         ai_chance = {
 			base = 10
 		}
 		add_popularity = { ideology = libertarian popularity = 0.04 }
-        add_popularity = { ideology = neoconservative popularity = 0.04 }
-        add_popularity = { ideology = populist popularity = 0.02 }
-        add_popularity = { ideology = eastern_conservative popularity = 0.02 }
-        add_popularity = { ideology = ultranationalist popularity = 0.01 }
-        ruling_party = neoconservative
-		elections_allowed = yes
-        add_stability = -0.02
-        country_event = {id = romania.Rvictory2014}
-    } 
-    country_event = {
-    id = romania.6
-    title = romania.6.t
-    desc = romania.6.desc
-		picture = GFX_report_event_ROM_Romanian_Elections
-		is_triggered_only = yes
-    option = {
-        name = romania.6.a
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = neoliberal popularity = 0.04 }
-        add_popularity = { ideology = social_democracy popularity = 0.06 }
-        ruling_party = social_democracy
-		elections_allowed = yes
-        country_event = {id = romania.Lvictory2014}
-    } 
-    option = {
-        name = romania.6.b
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = libertarian popularity = 0.04 }
-        add_popularity = { ideology = neoconservative popularity = 0.06 }
-        ruling_party = neoconservative
-		elections_allowed = yes
-        country_event = {id = romania.Rvictory2014}
-    } 
+        add_popularity = { ideology = eastern_liberal popularity = 0.06 }
+        hidden_effect = {
+            set_politics = {
+                ruling_party = eastern_liberal
+                elections_allowed = yes
+            }
+        }
     }
+}
+
 
 country_event = {
-    id = romania.Lvictory2014
-    title = romania.Lvictory2014.t
-    desc = romania.Lvictory2014.desc
+    id = romania.7
+    title = romania.7.t
+    desc = romania.7.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.7.a
+        ai_chance = {
+			base = 100
+		}
+        complete_national_focus = Integrate_MOL
+        hidden_effect = {
+            TRZ = { declare_war_on = { target = ROM  type = annex_everything } }
+        }
+    }
+}
+
+country_event = {
+    id = romania.9
+    title = romania.9.t
+    desc = romania.9.desc
 		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
 		is_triggered_only = yes
 
     option = {
-        name = romania.Lvictory2014.a   
+        name = romania.9.a
         ai_chance = {
 			base = 10
 		}
+		add_popularity = { ideology = libertarian popularity = 0.08 }
+        add_popularity = { ideology = social_democracy popularity = 0.08 }
+        add_stability = 0.02
     } 
 }
+
+
+country_event = {
+    id = romania.10
+    title = romania.10.t
+    desc = romania.10.desc
+		picture = GFX_Romanian_Elections
+		is_triggered_only = yes
+    option = {
+        name = romania.10.a
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = 0.04 }
+        add_popularity = { ideology = social_democracy popularity = 0.06 }
+        hidden_effect = {
+            set_politics = {
+                ruling_party = social_democracy
+                elections_allowed = yes
+            }
+        }
+    }
+}
+    
 
 country_event = {
     id = romania.Rvictory2014
@@ -208,23 +177,32 @@ country_event = {
         ai_chance = {
 			base = 10
 		}
+        set_politics = {
+            ruling_party = eastern_liberal
+            elections_allowed = yes
+            complete_national_focus = Making_RW_Coalition
+        }
     } 
 }
-
-    country_event = {
-    id = romania.4.1
-    title = romania.4.1.t
-    desc = romania.4.1.desc
+country_event = {
+    id = romania.Lvictory2014
+    title = romania.Lvictory2014.t
+    desc = romania.Lvictory2014.desc
 		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
 		is_triggered_only = yes
 
     option = {
-        name = romania.4.1.a
+        name = romania.Lvictory2014.a
         ai_chance = {
 			base = 10
 		}
+        set_politics = {
+            ruling_party = social_democracy
+            elections_allowed = yes
+        }
     } 
 }
+
 country_event = {
     id = romania.corruption
     title = romania.corruption.t
