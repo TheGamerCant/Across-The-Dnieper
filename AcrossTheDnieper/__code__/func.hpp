@@ -7,4 +7,5 @@ using namespace std;
 
 
 string returnBetweenBrackets(string fullStr, string str);
+int hexToDenary(string str);
 #endif // FUNC_HPP

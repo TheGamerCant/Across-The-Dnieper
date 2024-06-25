@@ -19,3 +19,8 @@ string returnBetweenBrackets(string fullStr, string str){
     fullStr.erase(i-1);
     return fullStr;
 }
+
+int hexToDenary(string str){
+    int number = stoull(str, nullptr, 16);
+    return number;
+}
