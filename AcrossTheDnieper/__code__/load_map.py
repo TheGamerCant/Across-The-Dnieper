@@ -19,7 +19,7 @@ class terrainClass:
         self.hexadecimal = str(hexadecimal)
 
 class provinceClass:
-    def __init__(self, ID, hexadecimal, type, coastal, terrain, continent, stateID, victoryPoints, strategicRegion, names, buildings, coordinates):
+    def __init__(self, ID, hexadecimal, type, coastal, terrain, continent, stateID, strategicRegionID, victoryPoints, strategicRegion, names, buildings, coordinates):
         self.ID = int(ID)
         self.hexadecimal = str(hexadecimal)
         self.type = str(type)
@@ -27,6 +27,7 @@ class provinceClass:
         self.terrain = str(terrain)
         self.continent = int(continent)
         self.stateID = int(stateID)
+        self.strategicRegionID = int(strategicRegionID)
         self.victoryPoints = int(victoryPoints)
         self.strategicRegion = int(strategicRegion)
         self.names = names if isinstance(names, list) else [names]
@@ -204,6 +205,40 @@ def load_terrain():
     os.chdir(current_directory) 
     return terrainArray
 
+def load_triggers():
+    triggersArray=["DEFAULT"]
+
+
+    try:
+        current_directory = os.getcwd()
+        triggers_file_path = os.path.join(current_directory, "common", "scripted_triggers", "state_controller_scripted_triggers.txt")
+        with open(triggers_file_path, 'r', errors='ignore') as f: 
+            triggersData = ''
+            for line in f:
+                findHash = line.find('#')
+                if findHash!=-1:
+                    line = line[:findHash]
+                triggersData+=line
+
+            triggersData = re.sub(r'\t', ' ', triggersData)
+            triggersData = re.sub(r'\n', '', triggersData)
+            triggersData = re.sub(r'\s+', ' ', triggersData).strip()
+
+            findTriggers = re.search(r'(\w+)\s*=\s*\{', triggersData)
+            while findTriggers:
+                name = str(findTriggers.group(1))
+                triggersArray.append(name)
+            
+                triggersData = removeStringBetweenBrackets(triggersData, name)
+                findTriggers = re.search(r'(\w+)\s*=\s*\{', triggersData)
+
+    except:
+        pass
+
+
+    os.chdir(current_directory) 
+    return triggersArray
+
 def load_provinces():
     current_directory = os.getcwd()
     definitions_csv_file_path = os.path.join(current_directory, "map", "definition.csv")
@@ -214,7 +249,7 @@ def load_provinces():
                 parts = line.strip().split(';')
                 ID, red, green, blue, type, coastal, terrain, continent = parts[0:8]
                 hexadecimal = rgbToHex(red,green,blue)
-                province = provinceClass(ID, hexadecimal, type, coastal, terrain, continent, 0, 0, 0, None, None, None)
+                province = provinceClass(ID, hexadecimal, type, coastal, terrain, continent, 0, 0, 0, 0, None, None, None)
                 provincesArray.append(province)
 
     provincesArray.sort(key=lambda x: x.ID)
@@ -222,7 +257,7 @@ def load_provinces():
 
 def load_states(provincesArray,buildingsArray): 
     statesArray = []
-    statesArray.append(stateClass(0,0,"","",0,0,0,0,0,0,0,0,False,0))
+    statesArray.append(stateClass(0,0,"","",0,None,0,0,0,0,0,0,False,0))
     current_directory = os.getcwd()
     history_states_folder_path = os.path.join(current_directory, "history", "states")
 
@@ -348,9 +383,16 @@ def load_states(provincesArray,buildingsArray):
                 while find_variables !=-1:
                     currentVar = returnStringBetweenBrackets(historyData, "set_variable")
                     var_match = re.search(r'(.+)\s*=\s*(.+)', currentVar)
-                    variables.append([var_match.group(1),var_match.group(2)])
+                    var_name = var_match.group(1)
+                    var_name = var_name.strip()
+                    var_value = var_match.group(2)
+                    var_value = var_value.strip()
+                    variables.append([var_name,var_value])
                     historyData= removeStringBetweenBrackets(historyData, "set_variable")
                     find_variables = historyData.find("set_variable")
+                
+                if len(variables) == 0:
+                    variables.append(None)
 
                 provBuildings_match = re.findall(r'(\d+)\s*=\s*\{\s*(.*?)\s*\}', buildingData)
                 if provBuildings_match:
@@ -363,9 +405,8 @@ def load_states(provincesArray,buildingsArray):
                         for i in range (0,len(provBuildings_match2)):
                             for validBuilding in buildingsArray:
                                 if provBuildings_match2[i][0] == validBuilding.name and validBuilding.provincial == True:
-                                    if provincesArray[provID].buildings == None:
-                                        provincesArray[provID].buildings = []
-
+                                    if provincesArray[provID].buildings[0] == None:
+                                        provincesArray[provID].buildings=[]
                                     provincesArray[provID].buildings.append(provBuildings_match2[i])
 
                     
@@ -387,7 +428,7 @@ def load_states(provincesArray,buildingsArray):
                     buildings = None
 
 
-                statesArray.append(stateClass(ID, population, category, owner, provinces, 0, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables))
+                statesArray.append(stateClass(ID, population, category, owner, provinces, None, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables))
 
     
     statesArray.sort(key=lambda x: x.ID)
@@ -424,16 +465,18 @@ def load_strategic_regions(provincesArray):
                 else:
                     ID = None
 
-                name_match = re.search(r'name\s*=\s*\"(\w+)\"', fileData)
+                name_match = re.search(r'name\s*=\s*\"(.*?)\"', fileData)
                 if name_match:
                     name = name_match.group(1)
-                    fileData = re.sub(r'name\s*=\s*\"(\w+)\"', '', fileData).strip()
+                    fileData = re.sub(r'name\s*=\s*\"(.*?)\"', '', fileData).strip()
                 else:
                     name = None
 
                 provinces_match = re.search(r'provinces\s*=\s*\{(.*?)\}', fileData, re.DOTALL)
                 if provinces_match:
                     provinces = re.findall(r'(\d+)', provinces_match.group(1))
+                    for prov in provinces:
+                        provincesArray[int(prov)].strategicRegionID = ID
                     fileData = re.sub(r'provinces\s*=\s*\{(.*?)\}', '', fileData).strip()
                 else:
                     provinces = []
@@ -441,4 +484,41 @@ def load_strategic_regions(provincesArray):
                 strategicRegionsArray.append(strategicRegionClass(ID, name, provinces))
 
     strategicRegionsArray.sort(key=lambda x: x.ID)
+    os.chdir(current_directory)
     return strategicRegionsArray
+
+def load_names(provincesArray, statesArray):
+    current_directory = os.getcwd()
+    vp_names_file = os.path.join(current_directory, "localisation", "english", "victory_points_l_english.yml")
+    state_names_file = os.path.join(current_directory, "localisation", "english", "state_names_l_english.yml")
+    with open(vp_names_file, 'r', encoding='utf-8-sig') as file:
+        for line in file:
+            name_match = re.search(r'\s*VICTORY_POINTS_(\d+):\d?\s*\"(.*?)\"', line)
+            if name_match:
+                provID = int(name_match.group(1))
+                if provincesArray[provID].names[0] == None:
+                    provincesArray[provID].names=[]
+                provincesArray[provID].names.append(["DEFAULT", name_match.group(2)])
+
+            name_non_default_match = re.search(r'\s*VICTORY_POINTS_(\d+)_(.*?):\d?\s*\"(.*?)\"', line)
+            if name_non_default_match:
+                provID = int(name_non_default_match.group(1))
+                if provincesArray[provID].names[0] == None:
+                    provincesArray[provID].names=[]
+                provincesArray[provID].names.append([name_non_default_match.group(2), name_non_default_match.group(3)])
+
+    with open(state_names_file, 'r', encoding='utf-8-sig') as file:
+        for line in file:
+            name_match = re.search(r'\s*STATE_(\d+):\d?\s*\"(.*?)\"', line)
+            if name_match:
+                stateID = int(name_match.group(1))
+                if statesArray[stateID].names[0] == None:
+                    statesArray[stateID].names=[]              
+                statesArray[stateID].names.append(["DEFAULT", name_match.group(2)])
+
+            name_non_default_match = re.search(r'\s*STATE_(\d+)_(.*?):\d?\s*\"(.*?)\"', line)
+            if name_non_default_match:
+                stateID = int(name_non_default_match.group(1))
+                if statesArray[stateID].names[0] == None:
+                    statesArray[stateID].names=[]
+                statesArray[stateID].names.append([name_non_default_match.group(2), name_non_default_match.group(3)])

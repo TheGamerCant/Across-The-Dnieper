@@ -1,4 +1,17 @@
 import re
+import os 
+import shutil
+
+def delete_and_create_new_folders():
+    current_directory = os.getcwd()
+    current_directory = os.path.join(current_directory, "__code__")
+    directoriesArray = ["common", "common/scripted_effects", "history", "history/states", "localisation", "localisation/english", "map", "map/strategicregions", "map/provinces"]
+    for item in directoriesArray:
+        item_path = os.path.join(current_directory, item)
+        if os.path.isdir(item_path):
+            shutil.rmtree(item_path)
+
+        os.makedirs(item_path, exist_ok=True)
 
 def returnStringBetweenBrackets(fullStr, str):
     startBracketPos = fullStr.find(str)
