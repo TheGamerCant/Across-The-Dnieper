@@ -2383,7 +2383,7 @@ focus_tree = {
 			add_political_power = -50
 		}
 	}
-focus = {
+	focus = {
 		id = Rally_Support_Union
 		icon = GFX_da
 		x = 76
@@ -2416,30 +2416,9 @@ focus = {
 	}
 
 	focus = {
-		id = Forsake_GGZ_TRZ
-		icon = GFX_da
-		x = 74
-		y = 1
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite={focus = Rally_Support_Union}
-		mutually_exclusive={focus=No_Compromise_Terror}
-		completion_reward = {
-			add_stability = -0.05
-		}
-	}
-	focus = {
 		id = No_Compromise_Terror
 		icon = GFX_da
-		x = 78
+		x = 76
 		y = 1
 		cost = 14
 
@@ -2452,7 +2431,6 @@ focus = {
 		bypass = {
 		}
 		prerequisite={focus = Rally_Support_Union}
-		mutually_exclusive={focus=Forsake_GGZ_TRZ}
 		completion_reward = {
 			add_war_support = 0.05
 		}
@@ -2472,7 +2450,7 @@ focus = {
 		}
 		bypass = {
 		}
-		prerequisite={focus = Forsake_GGZ_TRZ focus = No_Compromise_Terror}
+		prerequisite={focus = No_Compromise_Terror}
 		completion_reward = {
 			add_stability = 0.05
 			MOL = {
