@@ -11,7 +11,8 @@ from load_map import load_strategic_regions
 from load_map import load_names
 from load_map import load_triggers
 from func import delete_and_create_new_folders
-from img_handling import save_prov_csv_file
+from img_handling import save_prov_bin_file
+from img_handling import return_binary_array
 from write_files import write_history_files
 from write_files import write_strategic_region_files
 from write_files import write_loc_files
@@ -35,7 +36,9 @@ def main():
 
     print ("Loading provinces.bmp as .csv:")
     delete_and_create_new_folders()
-    #save_prov_csv_file(provincesArray)
+    save_prov_bin_file(provincesArray)
+
+    array = return_binary_array(0)
 
     print ("Launching interface:")
     tkinter_main(provincesArray, statesArray, strategicRegionsArray, buildingsArray, terrainArray, triggersArray)
