@@ -64,6 +64,7 @@ def save_prov_bin_file(provincesArray):
 
 def return_binary_array(column):
     format_string = 'HBBBH'
+    format_string_size = struct.calcsize(format_string)
     current_directory = os.getcwd()
     bin_directory = os.path.join(current_directory, "__code__", "map", "provinces", f"pr__{column}.bin")
     array=[]
@@ -74,5 +75,6 @@ def return_binary_array(column):
                 break
             unpacked_data = struct.unpack(format_string, chunk)
             array.append(unpacked_data)
+
     
     return array
