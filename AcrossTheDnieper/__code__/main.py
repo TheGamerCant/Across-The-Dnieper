@@ -34,20 +34,18 @@ def main():
     strategicRegionsArray = load_strategic_regions(provincesArray)
     load_names(provincesArray,statesArray)
 
-    print ("Loading provinces.bmp as .csv:")
+    print ("Saving province data as binary:")
     delete_and_create_new_folders()
-    save_prov_bin_file(provincesArray)
-
-    array = return_binary_array(0)
+    #save_prov_bin_file(provincesArray)
 
     print ("Launching interface:")
     tkinter_main(provincesArray, statesArray, strategicRegionsArray, buildingsArray, terrainArray, triggersArray)
 
-    print("Writing to files:")
-    write_history_files(provincesArray,statesArray)
-    write_strategic_region_files(strategicRegionsArray)
-    write_loc_files(provincesArray,statesArray,strategicRegionsArray)
-    write_state_names_scripted_effects_files(provincesArray,statesArray)
+    #print("Writing to files:")
+    #write_history_files(provincesArray,statesArray)
+    #write_strategic_region_files(strategicRegionsArray)
+    #write_loc_files(provincesArray,statesArray,strategicRegionsArray)
+    #write_state_names_scripted_effects_files(provincesArray,statesArray)
 
 
 
