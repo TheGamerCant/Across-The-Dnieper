@@ -39,7 +39,12 @@ def main():
     #save_prov_bin_file(provincesArray)
 
     print ("Launching interface:")
-    tkinter_main(provincesArray, statesArray, strategicRegionsArray, buildingsArray, terrainArray, triggersArray)
+    provincesArrayHexID = []
+    for prov in provincesArray:
+        provincesArrayHexID.append([prov.hexadecimal, prov.ID])
+    tkinter_main(provincesArrayHexID)
+
+    provincesArrayHexID.clear()
 
     #print("Writing to files:")
     #write_history_files(provincesArray,statesArray)
