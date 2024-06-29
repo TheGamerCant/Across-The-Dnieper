@@ -19,7 +19,7 @@ class terrainClass:
         self.hexadecimal = str(hexadecimal)
 
 class provinceClass:
-    def __init__(self, ID, hexadecimal, type, coastal, terrain, continent, stateID, strategicRegionID, victoryPoints, strategicRegion, names, buildings, coordinates):
+    def __init__(self, ID, hexadecimal, type, coastal, terrain, continent, stateID, strategicRegionID, victoryPoints, strategicRegion, names, buildings, coordinates, borders):
         self.ID = int(ID)
         self.hexadecimal = str(hexadecimal)
         self.type = str(type)
@@ -33,6 +33,7 @@ class provinceClass:
         self.names = names if isinstance(names, list) else [names]
         self.buildings = buildings if isinstance(buildings, list) else [buildings]
         self.coordinates = coordinates if isinstance(coordinates, list) else [coordinates]
+        self.borders = borders if isinstance(borders, list) else [borders]
 
 class stateClass:
     def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables):
@@ -249,7 +250,7 @@ def load_provinces():
                 parts = line.strip().split(';')
                 ID, red, green, blue, type, coastal, terrain, continent = parts[0:8]
                 hexadecimal = rgbToHex(red,green,blue)
-                province = provinceClass(ID, hexadecimal, type, coastal, terrain, continent, 0, 0, 0, 0, None, None, None)
+                province = provinceClass(ID, hexadecimal, type, coastal, terrain, continent, 0, 0, 0, 0, None, None, None, None)
                 provincesArray.append(province)
 
     provincesArray.sort(key=lambda x: x.ID)

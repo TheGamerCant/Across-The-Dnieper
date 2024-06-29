@@ -13,6 +13,7 @@ from load_map import load_triggers
 from func import delete_and_create_new_folders
 from img_handling import save_prov_bin_file
 from img_handling import return_binary_array
+from img_handling import load_borders
 from write_files import write_history_files
 from write_files import write_strategic_region_files
 from write_files import write_loc_files
@@ -34,23 +35,26 @@ def main():
     strategicRegionsArray = load_strategic_regions(provincesArray)
     load_names(provincesArray,statesArray)
 
-    print ("Saving province data as binary:")
-    delete_and_create_new_folders()
+    #print ("Saving province data as binary:")
+    #delete_and_create_new_folders()
     #save_prov_bin_file(provincesArray)
 
-    print ("Launching interface:")
-    provincesArrayHexID = []
-    for prov in provincesArray:
-        provincesArrayHexID.append([prov.hexadecimal, prov.ID])
-    tkinter_main(provincesArrayHexID)
+    #print ("Launching interface:")
+    #provincesArrayHexID = []
+    #for prov in provincesArray:
+    #    provincesArrayHexID.append([prov.hexadecimal, prov.ID])
+    #kinter_main(provincesArrayHexID)
 
-    provincesArrayHexID.clear()
+    #provincesArrayHexID.clear()
 
-    #print("Writing to files:")
-    #write_history_files(provincesArray,statesArray)
-    #write_strategic_region_files(strategicRegionsArray)
-    #write_loc_files(provincesArray,statesArray,strategicRegionsArray)
-    #write_state_names_scripted_effects_files(provincesArray,statesArray)
+    print ("Loading borders:")
+    load_borders(provincesArray)
+
+    print("Writing to files:")
+    write_history_files(provincesArray,statesArray)
+    write_strategic_region_files(strategicRegionsArray)
+    write_loc_files(provincesArray,statesArray,strategicRegionsArray)
+    write_state_names_scripted_effects_files(provincesArray,statesArray)
 
 
 

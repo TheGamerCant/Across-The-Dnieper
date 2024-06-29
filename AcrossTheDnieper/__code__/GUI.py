@@ -13,8 +13,11 @@ class EditorCanvas(tkinter.Canvas):
         super().__init__(master, bg="white", **kwargs)
         global currentButtonOperation
         current_directory = os.getcwd()
-        provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
-        self._img = Image.open(provinces_bmp_path)
+        self.ops_to_perform_path = os.path.join(current_directory, "__code__", "ops.txt")
+        self.ops_to_perform_array = []
+        self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
+        self._img = Image.open(self.provinces_bmp_path)
+        self._img_array = np.array(self._img)
         self.img_width, self.img_height = self._img.size
         self.canvas_width = (self.winfo_screenwidth())//5*3
         self.canvas_height = (self.winfo_screenheight()-30)//2
@@ -39,6 +42,12 @@ class EditorCanvas(tkinter.Canvas):
         self.real_mouse_coords_y = 0
         self.current_prov_grid_coords = []
         self.rect_outline = None
+
+        self.bind("<ButtonRelease-1>", self.on_left_click_release)
+        self.current_r = 0
+        self.current_g = 0
+        self.current_b = 0
+        self.current_hex = ''
 
     def recieve_img_data(self,top_left_x, top_left_y, bottom_right_x, bottom_right_y):
         self.top_left_x = top_left_x
@@ -90,6 +99,26 @@ class EditorCanvas(tkinter.Canvas):
 
         #print(self.real_mouse_coords_x,self.real_mouse_coords_y)
 
+    def recieve_rgb_data(self,r,g,b,hexadecimal):
+        self.current_r = r
+        self.current_g = g
+        self.current_b = b
+        self.current_hex = hexadecimal
+
+    def on_left_click_release(self,event):
+        global currentButtonOperation
+        if currentButtonOperation == "Pencil":
+            current_y = self.top_left_y+self.current_prov_grid_coords[1]
+            current_x = self.top_left_x+self.current_prov_grid_coords[0]
+            temp = np.array([self.current_r, self.current_g, self.current_b])
+            self._img_array[current_y][current_x] = temp
+
+            _img_cropped_array = np.array(self._img_cropped)
+            _img_cropped_array[self.current_prov_grid_coords[1]][self.current_prov_grid_coords[0]] = temp
+            self._img_cropped = Image.fromarray(_img_cropped_array)
+            self.photo_image = ImageTk.PhotoImage(self._img_cropped)
+            self.create_image(self.canvas_width//2, self.canvas_height//2, anchor="center", image=self.photo_image)
+
 class MapCanvas(tkinter.Canvas):
     def __init__(self, master, send_img_data_callback, send_selected_colour_callback, **kwargs):
         super().__init__(master, bg="white", **kwargs)
@@ -97,9 +126,9 @@ class MapCanvas(tkinter.Canvas):
         self.send_img_data_callback = send_img_data_callback
         self.send_selected_colour_callback = send_selected_colour_callback
         current_directory = os.getcwd()
-        provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
-        self._img = Image.open(provinces_bmp_path)
-        #self._img_array = np.array(self._img)
+        self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
+        self._img = Image.open(self.provinces_bmp_path)
+        self._img.close()
         self.img_width, self.img_height = self._img.size
         self.real_mouse_coords_x = 0
         self.real_mouse_coords_y = 0
@@ -122,13 +151,14 @@ class MapCanvas(tkinter.Canvas):
         self.bind("<ButtonPress-2>", self.on_start_drag)
         self.bind("<B2-Motion>", self.on_drag,)
         self.bind("<ButtonPress-1>", self.on_left_click)
-        self.bind("<ButtonRelease-1>", self.on_left_click_release,)
+        self.bind("<ButtonRelease-1>", self.on_left_click_release)
         self.bind("<Motion>", self.on_mouse_motion)
 
         self.display_provinces()
 
     
     def display_provinces(self):
+        self._img = Image.open(self.provinces_bmp_path)
         self.photo_image = ImageTk.PhotoImage(self._img)
         self.create_image(0, 0, anchor="nw", image=self.photo_image)
 
@@ -219,6 +249,9 @@ class BorderFrameForEditor(customtkinter.CTkFrame):
     def send_img_data_forward(self, top_left_x, top_left_y, bottom_right_x, bottom_right_y):
         self.canvas.recieve_img_data(top_left_x, top_left_y, bottom_right_x, bottom_right_y)
 
+    def send_rgb_data_forward(self, r,g,b,hexadecimal):
+        self.canvas.recieve_rgb_data(r,g,b,hexadecimal)
+
 class BorderFrameForMap(customtkinter.CTkFrame):
     def __init__(self, master, send_img_data_callback, send_selected_colour_callback,**kwargs):
         super().__init__(master, **kwargs)
@@ -298,6 +331,7 @@ class App(customtkinter.CTk):
     def send_selected_colour_rgb_data_to_display(self,r,g,b):
         hexadecimal = str("#" + rgbToHex(r,g,b))
         self.current_colour_square.config(background=hexadecimal)
+        self.editor_frame.send_rgb_data_forward(r,g,b,hexadecimal)
 
     def clear_buttons(self):
         self.undo_button.configure(fg_color="transparent")

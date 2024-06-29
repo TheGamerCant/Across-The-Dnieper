@@ -78,3 +78,26 @@ def return_binary_array(column):
 
     
     return array
+
+def load_borders(provincesArray):
+    current_directory = os.getcwd()
+    provincesImage = Image.open(current_directory+"\\map\\provinces.bmp")
+    width, height = provincesImage.size
+    provincesImage.close()
+
+    for prov in provincesArray:
+        if prov.borders[0] == None:
+            prov.borders = []
+
+    for h in range(0,height):
+        if h == (height-1):
+            array1 = return_binary_array(height-2)
+            array2 = return_binary_array(height-1)
+        else:
+            array1 = return_binary_array(h)
+            array2 = return_binary_array(h+1)
+            #if array1[h][1]
+                 
+
+    print ("")
+    print ("")
