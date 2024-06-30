@@ -14,10 +14,12 @@ from func import delete_and_create_new_folders
 from img_handling import save_prov_bin_file
 from img_handling import return_binary_array
 from img_handling import load_borders
+from img_handling import load_coordinates
 from write_files import write_history_files
 from write_files import write_strategic_region_files
 from write_files import write_loc_files
 from write_files import write_state_names_scripted_effects_files
+from write_files import write_buildings_position_files
 
 from GUI import tkinter_main
 
@@ -47,14 +49,19 @@ def main():
 
     #provincesArrayHexID.clear()
 
-    print ("Loading borders:")
-    load_borders(provincesArray)
-
-    print("Writing to files:")
+    print("Writing to map files:")
     write_history_files(provincesArray,statesArray)
     write_strategic_region_files(strategicRegionsArray)
     write_loc_files(provincesArray,statesArray,strategicRegionsArray)
     write_state_names_scripted_effects_files(provincesArray,statesArray)
+
+    print ("Loading borders:")
+    load_borders(provincesArray)
+    print ("Loading coordinates:")
+    load_coordinates(provincesArray)
+
+    print ("Writing to buildings files:")
+    write_buildings_position_files(provincesArray, statesArray, buildingsArray)
 
 
 

@@ -34,12 +34,14 @@ def save_prov_bin_file(provincesArray):
 		
     provincesArrayHexID.sort(key=lambda x: x[0])	
     current_directory = os.getcwd()
-    provincesBmpDirectory = os.path.join(current_directory, "map", "provinces.bmp")
 
-    provincesImage = Image.open(provincesBmpDirectory)
+    provincesImage = Image.open(current_directory+"\\map\\provinces.bmp")
     image_array = np.array(provincesImage)
     provincesImage.close()
     height, width, channels = image_array.shape
+    heightmapImage = Image.open(current_directory+"\\map\\heightmap.bmp")
+    heightmap_array = np.array(heightmapImage)
+    heightmapImage.close()
 
     provinces_directory = os.path.join(current_directory, "__code__", "map", "provinces")
     os.chdir(provinces_directory) 
@@ -54,17 +56,16 @@ def save_prov_bin_file(provincesArray):
                 if provincesArrayHexID[hexPos][0] !=  hexToFind:
                     hexPos = binarySearchHexArray(provincesArrayHexID, hexToFind)
                     
-                format_string = 'HBBBH'
+                format_string = 'BBBHB'
                 hex_bytes = bytes.fromhex(hexToFind)
-                record = (j, hex_bytes[0], hex_bytes[1], hex_bytes[2], provincesArrayHexID[hexPos][1])
+                record = (hex_bytes[0], hex_bytes[1], hex_bytes[2], provincesArrayHexID[hexPos][1], heightmap_array[i][j])
                 packed_data = struct.pack(format_string, *record)
                 file.write(packed_data)
                 
     os.chdir(current_directory) 
 
 def return_binary_array(column):
-    format_string = 'HBBBH'
-    format_string_size = struct.calcsize(format_string)
+    format_string = 'BBBHB'
     current_directory = os.getcwd()
     bin_directory = os.path.join(current_directory, "__code__", "map", "provinces", f"pr__{column}.bin")
     array=[]
@@ -79,6 +80,15 @@ def return_binary_array(column):
     
     return array
 
+def form_border(prov1, prov2, provincesArray):
+    prov1 = int(prov1)
+    prov2 = int(prov2)
+    if prov1 in provincesArray[prov2].borders:
+        pass
+    else:
+        provincesArray[prov2].borders.append(prov1)
+        provincesArray[prov1].borders.append(prov2)
+
 def load_borders(provincesArray):
     current_directory = os.getcwd()
     provincesImage = Image.open(current_directory+"\\map\\provinces.bmp")
@@ -89,15 +99,32 @@ def load_borders(provincesArray):
         if prov.borders[0] == None:
             prov.borders = []
 
-    for h in range(0,height):
-        if h == (height-1):
-            array1 = return_binary_array(height-2)
-            array2 = return_binary_array(height-1)
-        else:
-            array1 = return_binary_array(h)
-            array2 = return_binary_array(h+1)
-            #if array1[h][1]
-                 
+    for h in range(0,height-1):
+        array1 = return_binary_array(h)
+        array2 = return_binary_array(h+1)
+        for w in range(0,width-1):
+            if array1[w][0] != array1[w+1][0] and array1[w][1] != array1[w+1][1] and array1[w][2] != array1[w+1][2]:
+                form_border(array1[w][3], array1[w+1][3], provincesArray)
 
-    print ("")
-    print ("")
+            if array1[w][0] != array2[w][0] and array1[w][1] != array2[w][1] and array1[w][2] != array2[w][2]:
+                form_border(array1[w][3], array2[w][3], provincesArray)
+                 
+    array1 = return_binary_array(height-1)
+    if array1[width-2][0] != array1[width-1][0] and array1[width-2][1] != array1[width-1][1] and array1[width-2][2] != array1[width-1][2]:
+        form_border(array1[width-2][3], array2[width-1][3], provincesArray)
+
+def load_coordinates(provincesArray):
+    current_directory = os.getcwd()
+    provincesImage = Image.open(current_directory+"\\map\\provinces.bmp")
+    width, height = provincesImage.size
+    provincesImage.close()
+
+    for prov in provincesArray:
+        if prov.coordinates[0] == None:
+            prov.coordinates = []
+    
+    for h in range(0, height):
+        array1 = return_binary_array(h)
+        for w in range(0,width):
+            provID = int(array1[w][3])
+            provincesArray[provID].coordinates.append([w,h])

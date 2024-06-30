@@ -1,4 +1,6 @@
 import os
+import random
+from img_handling import return_binary_array
 
 def write_history_files(provincesArray, statesArray):
     current_directory = os.getcwd()
@@ -176,3 +178,51 @@ def write_state_names_scripted_effects_files(provincesArray,statesArray):
                         print ("\tset_province_name = { id = " + str(prov.ID) + " name = VICTORY_POINTS_" + str(prov.ID) + " }", file=f)
 
         print ("}", file=f)
+
+def write_buildings_position_files(provincesArray, statesArray, buildingsArray):
+    current_directory = os.getcwd()
+    rocketsites_file = os.path.join(current_directory, "__code__", "map", "rocketsites.txt")
+    airports_file = os.path.join(current_directory, "__code__", "map", "airports.txt")
+    buildings_file = os.path.join(current_directory, "__code__", "map", "buildings.txt")
+
+    rocketsiteProvs = []
+    airportProvs = []
+    with open(buildings_file, 'w', encoding='utf-8') as f:
+        for state in statesArray:
+            if state.ID!=0:
+                for building in buildingsArray:
+                    if building.provincial == False:
+                        for i in range(0,building.show_on_map):
+                            random_prov = int(random.choice(state.provinces))
+                            random_coords = random.choice(provincesArray[random_prov].coordinates)
+                            random_rotat = random.uniform(0.0, 6.27)
+                            random_rotat = float("{:.2f}".format(random_rotat))
+                            array = return_binary_array(random_coords[1])
+                            y_axis = float(array[random_coords[0]][4])
+                            y_axis = y_axis/10
+                            print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
+                                +"0;" + str(random_coords[1]) + ".00;" + str(random_rotat)+";0", file=f)
+                            
+                            if building.name == "air_base":
+                                airportProvs.append(random_prov)
+                            elif building.name == "rocket_site":
+                                rocketsiteProvs.append(random_prov)
+                    else:
+                        for i in range(0,len(state.provinces)):
+                            provID = int(state.provinces[i])
+                            random_coords = random.choice(provincesArray[provID].coordinates)
+                            random_rotat = random.uniform(0.0, 6.27)
+                            random_rotat = float("{:.2f}".format(random_rotat))
+                            array = return_binary_array(random_coords[1])
+                            y_axis = float(array[random_coords[0]][4])
+                            y_axis = y_axis/10
+                            print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
+                                +"0;" + str(random_coords[1]) + ".00;" + str(random_rotat)+";0", file=f)
+                            
+    with open(rocketsites_file, 'w', encoding='utf-8') as f:
+        for i in range(0,len(rocketsiteProvs)):
+            print(str(i+1),"={ " + str(rocketsiteProvs[i]) + " }",file=f)
+    
+    with open(airports_file, 'w', encoding='utf-8') as f:
+        for i in range(0,len(airportProvs)):
+            print(str(i+1),"={ " + str(airportProvs[i]) + " }",file=f)
