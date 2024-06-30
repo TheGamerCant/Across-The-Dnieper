@@ -1,0 +1,39 @@
+add_namespace = hungary
+
+country_event = {
+	id = hungary.1
+	title = hungary.1.t
+	desc = hungary.1.desc
+	is_triggered_only = yes
+	picture = LIT_event_prep
+
+	option = { 
+		name = hungary.1.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = { ideology = populist popularity= 0.05}
+		add_stability = -0.08
+
+		hidden_effect = {
+			country_event = { id = hungary.2 days = 1 }
+						complete_national_focus = HUN_Viktor_Orban
+		}
+	}
+	option = { 
+		name = hungary.1.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = { ideology = socialist popularity= 0.25}
+				add_popularity = { ideology = social_democracy popularity= -0.1}
+		add_stability = -0.08
+
+		hidden_effect = {
+			country_event = { id = hungary.3 days = 1 }
+						complete_national_focus = HUN_Attlia_Mesterhazy
+		}
+	}
+}
