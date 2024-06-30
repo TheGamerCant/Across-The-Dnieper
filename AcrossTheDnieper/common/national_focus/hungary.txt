@@ -70,6 +70,231 @@ focus_tree = {
 			
 		}
 	}
+
+			#Rewrite Const
+	focus = {
+		id = HUN_Rewr_Const
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 12
+		y = 6
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+				populist > 0.55
+
+		}
+		prerequisite = { focus = HUN_Fund_Police  }
+		completion_reward = {
+			add_stability = -0.2
+			
+		}
+	}
+
+				#ban homos (i support this)
+	focus = {
+		id = HUN_Ban_Homo
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 8
+		y = 8
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Rewr_Const  }
+		completion_reward = {
+			add_stability = 0.05
+			
+		}
+	}
+
+	
+				#combine 	fidesz jobik
+	focus = {
+		id = HUN_Fidesz_Jobik
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 12
+		y = 8
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Rewr_Const  }
+		completion_reward = {
+			add_stability = 0.05
+								add_popularity = { ideology = eastern_conservative popularity= -1}
+													add_popularity = { ideology = populist popularity= 0.1}
+		}
+	}
+
+					#csto
+	focus = {
+		id = HUN_CSTO
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 12
+		y = 10
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Fidesz_Jobik  }
+		completion_reward = {
+			HUN = {remove_from_faction = HUN}
+			SOV = {add_to_faction = HUN}
+		}
+	}
+
+					#close border (+1)
+	focus = {
+		id = HUN_Close_Border
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 16
+		y = 8
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Rewr_Const  }
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = { ideology = populist popularity= 0.01}
+		}
+	}
+
+						#deport all migrants (+1)
+	focus = {
+		id = HUN_Deport_Migrants
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 16
+		y = 10
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Close_Border  }
+		completion_reward = {
+			        204 = {
+            add_manpower = -10000
+        	}
+						add_popularity = { ideology = populist popularity= 0.05}
+						add_stability = 0.1
+		}
+	}
+
+							#send  troops to donbas
+	focus = {
+		id = HUN_Send_Donbas
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 12
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_CSTO  }
+		completion_reward = {
+			
+		}
+	}
+
+								#join EEU
+	focus = {
+		id = HUN_Join_EEU
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 12
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_CSTO  }
+		completion_reward = {
+			
+		}
+	}
+	
+	
+						#a pure hungary (+1)
+	focus = {
+		id = HUN_Pure
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 16
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Deport_Migrants  }
+		completion_reward = {
+										add_popularity = {
+					ideology = fascist 
+					popularity = 0.01
+				}
+								add_popularity = {
+					ideology = ultranationalist 
+					popularity = 0.01
+				}
+								add_popularity = {
+					ideology = military_junta 
+					popularity = 0.01
+				}
+						add_stability = 0.2
+		}
+	}
+		#MilReadyHun
+		focus = {
+		id = HUN_Mil_Ready
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 16
+		y = 14
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Pure  }
+		completion_reward = {
+
+		}
+	}
+
+			#HUNAutocracy
+		focus = {
+		id = HUN_Autocracy
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 14
+		y = 16
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Mil_Ready  }
+		prerequisite = { focus = HUN_Join_EEU  }
+		completion_reward = {
+			
+		}
+	}
+
 			#Tighten Border Laws
 	focus = {
 		id = HUN_Border_Laws
