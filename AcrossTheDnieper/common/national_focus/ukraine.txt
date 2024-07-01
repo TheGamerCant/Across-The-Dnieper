@@ -7379,7 +7379,27 @@ focus_tree = {
 				set_country_leader_portrait = {
 					portrait = "gfx/leaders/UKR/Portrait_Volodymyr_Zelenskyy_War.png"
 				}
-				add_country_leader_trait = the_iron_joker
+
+				if = {
+					limit = { has_trait = the_iron_joker }
+
+					swap_ruler_traits = {
+						remove = the_iron_joker
+						add = the_iron_joker_2
+					}
+				}
+				else_if = {
+					limit = { has_trait = the_iron_joker_2 }
+					
+					swap_ruler_traits = {
+						remove = the_iron_joker_2
+						add = the_iron_joker_3
+					}
+				}
+				else = {
+					add_country_leader_trait = the_iron_joker
+				}
+
 				hidden_effect = { country_event = { id = ukraine.105 days = 133 } }
 			}
 			else={
@@ -8482,9 +8502,24 @@ focus_tree = {
 				limit = {
 					volodymyr_zelenskyy_is_leader = yes
 				}
-				swap_ruler_traits = {
-					remove = the_iron_joker
-					add = the_iron_joker_2
+				if = {
+					limit = { has_trait = the_iron_joker }
+
+					swap_ruler_traits = {
+						remove = the_iron_joker
+						add = the_iron_joker_2
+					}
+				}
+				else_if = {
+					limit = { has_trait = the_iron_joker_2 }
+					
+					swap_ruler_traits = {
+						remove = the_iron_joker_2
+						add = the_iron_joker_3
+					}
+				}
+				else = {
+					add_country_leader_trait = the_iron_joker
 				}
 			}
 			else={
@@ -10561,9 +10596,24 @@ focus_tree = {
 				limit = {
 					volodymyr_zelenskyy_is_leader = yes
 				}
-				swap_ruler_traits = {
-					remove = the_iron_joker_2
-					add = the_iron_joker_3
+				if = {
+					limit = { has_trait = the_iron_joker }
+
+					swap_ruler_traits = {
+						remove = the_iron_joker
+						add = the_iron_joker_2
+					}
+				}
+				else_if = {
+					limit = { has_trait = the_iron_joker_2 }
+					
+					swap_ruler_traits = {
+						remove = the_iron_joker_2
+						add = the_iron_joker_3
+					}
+				}
+				else = {
+					add_country_leader_trait = the_iron_joker
 				}
 			}
 			else={
