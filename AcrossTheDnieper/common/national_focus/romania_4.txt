@@ -1,0 +1,684 @@
+focus_tree = {
+	id = romania_3
+	continuous_focus_position = { x = 20000 y = 250 }
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ROM
+		}
+	}
+focus = {
+		id = military_modernazition
+		icon = GFX_military_modernazition
+		x = 13
+		y = 0
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			army_experience = 50
+            naval_experience = 50
+            air_experience = 50
+            add_ideas = 3_Stage_Military_Restructuring
+			add_ideas = Romanian_Military_Industry
+                 add_tech_bonus = {
+                name = ROM_military
+                bonus = 1.0
+                uses = 1
+                category = infantry_weapons
+                category = ship_modules_tech
+                category = support_tech
+                category = armor
+                category = artillery
+                category = air_equipment
+                category = infantry_anti_air_cat
+                category = ifv_cat
+                category = apc_cat
+            }	
+		}
+	}
+		focus = {
+		id = land_force_doctrine_reform
+		icon = GFX_Land_Force_Doctrine_Reform
+		x = 13
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+
+		completion_reward = {
+			army_experience = 25
+				add_doctrine_cost_reduction = {
+				name = ROM_doctrine_reform
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+             swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring
+            add_idea = 3_Stage_Military_Restructuring_1
+		    }
+		}
+    }
+			focus = {
+		id = increase_equipment_producement_standard
+		icon = GFX_Increase_Equipment_Procurement_Standards
+		x = 14
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = romanian_military_industry
+            add_idea = romanian_military_industry_2
+
+		    }
+		}
+    }
+		focus = {
+		id = Rigorous_Military_Training
+		icon = GFX_Rigorous_Military_Training
+		x = 12
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_1
+            add_idea = 3_Stage_Military_Restructuring_2
+		    }
+		}
+    }
+		focus = {
+		id = increase_randd_standards
+		icon = GFX_Increase_R_and_D_standards
+		x = 13
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_equipment_producement_standard }
+		prerequisite = { focus = Rigorous_Military_Training }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
+		    }
+		}
+    }
+		focus = {
+		id = Partnership_With_Swiss_Defensive_Corporations
+		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
+		x = 12
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            army_experience = 50
+			add_political_power = -50
+		 }
+	}
+		focus = {
+		id = Increase_Domestic_Production_standards
+		icon = GFX_Increase_Domestic_Production_Standards
+		x = 14
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            swap_ideas = {
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
+		    }
+		 }
+	}
+		focus = {
+		id = Modernize_The_Airforce
+		icon = GFX_Modernize_The_Airforce
+		x = 8
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_air
+				uses = 1
+				category = air_doctrine
+				cost_reduction = 0.5
+			}
+            swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_2
+            add_idea = 3_Stage_Military_Restructuring_3
+		    }
+		 }
+	}
+		focus = {
+		id =  Partcicipate_in_NATO_Exercises 
+		icon = GFX_Participate_in_nato_exercises
+		x = 7
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_3
+            add_idea = 3_Stage_Military_Restructuring_4
+		    }
+		 }
+	}
+	focus = {
+		id =  Humanitarian_and_Peacekeeping_Operations
+		icon = GFX_Humanitarian_and_Peacekeeping_operations
+		x = 9
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			add_political_power = -25
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_4
+            add_idea = 3_Stage_Military_Restructuring_5
+		    }
+		}
+	}
+	focus = {
+		id =  Modernization_Programs
+		icon = GFX_Modernization_programs
+		x = 8
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Partcicipate_in_NATO_Exercises }
+		prerequisite = { focus = Humanitarian_and_Peacekeeping_Operations }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_5
+            add_idea = 3_Stage_Military_Restructuring_6
+		    }
+			 add_tech_bonus = {
+                name = ROM_air
+                bonus = 1.0
+                uses = 1
+                category = air_equipment
+            }	
+		    }
+		}
+	focus = {
+		id =  Collaboration_with_Industry_and_Research_Institutions
+		icon = GFX_Collaboration_with_Industry_and_research_intitutions
+		x = 7
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = Romanian_Military_Industry_3
+            add_idea = Romanian_Military_Industry_4
+		    }
+		}
+	}
+	focus = {
+		id =  Strategic_Planning_and_Force_Structure_Review
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 9
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_6
+            add_idea = 3_Stage_Military_Restructuring_7
+		    }
+            air_experience = 50
+		}
+	}
+	focus = {
+		id =  Black_Sea_Capability_Expansion
+		icon = GFX_Black_Sea_Capability_Expansion
+		x = 18
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_navy
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+            naval_experience = 50
+		}
+	}
+	focus = {
+		id =  Nato_Naval_Operations
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 17
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Black_Sea_Capability_Expansion }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_7
+            add_idea = 3_Stage_Military_Restructuring_8
+		    }
+			swap_ideas = {
+            remove_idea = Romanian_Military_Industry_4
+            add_idea = Romanian_Military_Industry_5
+		    }
+            naval_experience = 25
+		}
+	}
+    focus = {
+		id =  Making_a_Left-Wing_Coalition
+		icon = GFX_Strategic_Planning_
+		x = 48
+		y = 0
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+		}
+	}
+    focus = {
+		id =  Incorporate_with_Radical_Socialists
+		icon = GFX_Strategic_Planning_
+		x = 44
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        prerequisite = { focus = Making_a_Left-Wing_Coalition }
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+		}
+	}
+    focus = {
+		id =  Incorporate_with_Radical_Socialists
+		icon = GFX_Strategic_Planning_
+		x = 40
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        prerequisite = { focus = Making_a_Left-Wing_Coalition }
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+		}
+	}
+    focus = {
+		id =  Strengthen_working_unions
+		icon = GFX_Strategic_Planning_
+		x = 38
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        prerequisite = { focus = Incorporate_with_Radical_Socialists }
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+        add_popularity = { ideology = social_democracy popularity = 0.02 }
+        add_popularity = { ideology = moderate_communism popularity = 0.02 }
+        add_popularity = { ideology = socialism popularity = 0.02 }
+        add_ideas = Workers_Rights_Movement
+		}
+	}
+
+    focus = {
+		id =  Incorporate_with_Centrist
+		icon = GFX_Strategic_Planning_
+		x = 57
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+		available = {
+		}
+		bypass = {
+		}
+        prerequisite = { focus = Making_a_Left-Wing_Coalition } 
+		completion_reward = {
+		}
+	}
+    focus = {
+		id =  Legacy_of_Pontas_Alliance
+		icon = GFX_Strategic_Planning_
+		x = 57
+		y = 2
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+		available = {
+		}
+		bypass = {
+		}
+        prerequisite = { focus = Incorporate_with_Centrist } 
+		completion_reward = {
+        add_political_power = 150
+        add_stability = 0.03
+		}
+	}
+        focus = {
+		id =  address_social_issues
+		icon = GFX_Strategic_Planning_
+		x = 57
+		y = 3
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+		available = {
+		}
+		bypass = {
+		}
+        prerequisite = { focus = Legacy_of_Pontas_Alliance } 
+		completion_reward = {
+        add_political_power = 100
+		}
+	}
+    		focus = {
+		id = National_Reconciliation_Efforts
+		icon = GFX_
+
+		x = 57
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = address_social_issues}
+		completion_reward = {
+        add_stability = 0.05
+		add_popularity = { ideology = social_democracy popularity= 0.04}
+		swap_ideas = {
+            remove_idea = ROM_Pontas_allience
+            add_idea = ROM_Pontas_allience_2
+		    }
+		}
+	}
+    focus = {
+		id = Ensure_Transylvanian_security
+		icon = GFX_
+		x = 56
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = National_Reconciliation_Efforts}
+		completion_reward = {
+        add_stability = 0.15
+		add_opinion_modifier = { target = HUN modifier = BLR_small_negative }
+		add_political_power = 15
+		}
+	}
+    focus = {
+		id = support_community_engagement_programs
+		icon = GFX_
+		x = 58
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = National_Reconciliation_Efforts}
+		completion_reward = {
+        add_popularity = { ideology = social_democracy popularity= 0.04 }
+        add_popularity = { ideology = libertarian popularity= 0.01 }
+        add_popularity = { ideology = neoconservative popularity= 0.02 }
+        add_stability = 0.05
+		}
+	}
+    	focus = {
+		id = Ensure_the_financial_well_being_of_Romanians
+		icon = GFX_
+
+		x = 56
+		y = 6
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Ensure_Transylvanian_security}
+		completion_reward = {
+        add_stability = 0.03
+		add_war_support = 0.03
+        add_popularity = { ideology = social_democracy popularity= 0.05}
+		}
+	}
+    focus = {
+		id = Support_the_Romanian_family
+		icon = GFX_
+
+		x = 58
+		y = 6
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = support_community_engagement_programs}
+		completion_reward = {
+        add_stability = 0.05
+        add_political_power = 100
+		}
+	}
+    focus = {
+		id = Romania_First
+		icon = GFX_
+
+		x = 57
+		y = 7
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+        prerequisite = {  focus = Support_the_Romanian_family}
+        prerequisite = {  focus = Ensure_the_financial_well_being_of_Romanians}
+		completion_reward = {
+        add_popularity = { ideology = social_democracy popularity= 0.05}
+        add_political_power = 80    
+        add_war_support = 0.05
+		}
+	}
+}
