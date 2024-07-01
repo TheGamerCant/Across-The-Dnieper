@@ -112,6 +112,474 @@ focus_tree = {
 	}
 
 	
+				#ban commies (i support this)
+	focus = {
+		id = HUN_Ban_Commie
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 6
+		y = 10
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Ban_Homo  }
+		completion_reward = {
+			add_stability = 0.05
+						add_popularity = {
+				ideology = socialist 
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = moderate_communist 
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = hardline_communist 
+				popularity = -1
+			}
+			hidden_effect={
+				set_party_name = { ideology = socialist long_name = generic_party_banned_long name = generic_party_banned }
+				set_party_name = { ideology = moderate_communist long_name = generic_party_banned_long name = generic_party_banned }
+				set_party_name = { ideology = hardline_communist long_name = generic_party_banned_long name = generic_party_banned }
+			}
+		}
+	}
+
+					#introduce const monarchy (id like an absolute one)
+	focus = {
+		id = HUN_Const_Mon
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 6
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Ban_Commie  }
+		completion_reward = {
+		}
+	}
+
+					#recognise mna para
+	focus = {
+		id = HUN_MNA_Para
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 8
+		y = 10
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Ban_Homo  }
+		completion_reward = {
+
+		}
+	}
+
+						#erase minority prot
+	focus = {
+		id = HUN_Minority
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 8
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_MNA_Para  }
+		completion_reward = {
+
+		}
+	}
+
+							#orban is sacked
+	focus = {
+		id = HUN_Sack_Orban
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 8
+		y = 14
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Minority  }
+		prerequisite = { focus = HUN_Const_Mon  }
+		prerequisite = { focus = HUN_Declare_Christianity  }
+		completion_reward = {
+			retire_country_leader = yes
+		}
+	}
+									#tax haven
+	focus = {
+		id = HUN_Tax_Haven
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 3
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Sack_Orban  }
+		completion_reward = {
+			
+		}
+	}
+
+										#free market
+	focus = {
+		id = HUN_Free_Market
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 0
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Tax_Haven  }
+		completion_reward = {
+			
+		}
+	}
+
+									#fascist
+	focus = {
+		id = HUN_MNA
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 7
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Sack_Orban  }
+		completion_reward = {
+							set_politics = {
+				ruling_party = fascist
+				elections_allowed = no
+			}
+		}
+	}
+
+	
+									#kick out foreign nationals
+	focus = {
+		id = HUN_Kick_Foreign
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 5
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_MNA  }
+		completion_reward = {
+			204 = {
+            add_manpower = -300000
+        	}
+			add_popularity = {ideology=fascist popularity = 0.3}
+		}
+	}
+
+		
+									#ban judaism
+	focus = {
+		id = HUN_Ban_Judaism
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 5
+		y = 24
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Kick_Foreign  }
+		completion_reward = {
+			add_popularity = {ideology=fascist popularity = 0.1}
+		}
+	}
+
+										#restore democracy
+	focus = {
+		id = HUN_Restore_Democracy
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 3
+		y = 26
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Ban_Judaism  }
+		completion_reward = {
+			complete_national_focus = HUN_Attlia_Mesterhazy
+		}
+	}
+
+										#the final solution
+	focus = {
+		id = HUN_Final_Sol
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 7
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_MNA  }
+		completion_reward = {
+			add_stability = 0.2
+						add_popularity = {ideology=fascist popularity = 0.15}
+		}
+	}
+
+											#revive arrow cross party
+	focus = {
+		id = HUN_Arrow_Cross
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 7
+		y = 24
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Final_Sol  }
+		completion_reward = {
+							set_party_name = { ideology = fascist long_name = generic_party_banned_long name = generic_party_banned }
+						add_popularity = {ideology=fascist popularity = 0.15}
+		}
+	}
+												#greater hungary
+	focus = {
+		id = HUN_Great_Hun
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 7
+		y = 26
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Arrow_Cross  }
+		completion_reward = {
+			add_war_support = 0.2
+		}
+	}
+											#2nd Night of Long Knives
+	focus = {
+		id = HUN_2nd_Night
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 9
+		y = 22
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_MNA  }
+		completion_reward = {
+			
+		}
+	}
+												#Hun Purity
+	focus = {
+		id = HUN_Purity
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 9
+		y = 24
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_2nd_Night  }
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+								#habsburg
+	focus = {
+		id = HUN_Habsburg
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 10
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Sack_Orban  }
+		completion_reward = {
+				set_politics = {
+				ruling_party = absolute_monarchy_ideology
+				elections_allowed = no
+			}
+		}
+	}
+
+									#coronation
+	focus = {
+		id = HUN_Coronation
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 10
+		y = 28
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Habsburg  }
+		completion_reward = {
+			
+		}
+	}
+
+												#bride for ferdinand
+	focus = {
+		id = HUN_Bride
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 6
+		y = 30
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Coronation  }
+		completion_reward = {
+			
+		}
+	}
+
+
+											#royalist intellectuals
+	focus = {
+		id = HUN_Intellectuals
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 10
+		y = 30
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Coronation  }
+		completion_reward = {
+			
+		}
+	}
+
+										#our figurehead
+	focus = {
+		id = HUN_Figurehead
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 14
+		y = 30
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Coronation  }
+		completion_reward = {
+			
+		}
+	}
+
+	
+
+	
+								#ultranationalist
+	focus = {
+		id = HUN_Homeland
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 13
+		y = 20
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Sack_Orban  }
+		completion_reward = {
+			
+		}
+	}
+
+						#deport roma (yes pls)
+	focus = {
+		id = HUN_Deport_Gypsies
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 10
+		y = 10
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Ban_Homo  }
+		completion_reward = {
+						        204 = {
+            add_manpower = -300000
+        	}
+		}
+	}
+
+							#declare Christianity state religion (yes pls)
+	focus = {
+		id = HUN_Declare_Christianity
+		icon = GFX_HUN_reform_the_politics-411569
+		x = 10
+		y = 12
+		cost = 14
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available ={
+		}
+		prerequisite = { focus = HUN_Deport_Gypsies  }
+		completion_reward = {
+			
+		}
+	}
+
+	
+
+	
 				#combine 	fidesz jobik
 	focus = {
 		id = HUN_Fidesz_Jobik
