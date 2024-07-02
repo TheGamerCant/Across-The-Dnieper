@@ -1821,32 +1821,30 @@ country_event = {
 	title = ukraine.41.t
 	desc = ukraine.41.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_minsk_agreement
-	
+	hidden = yes
+
 	immediate={
-		minsk_ii_effect = yes
-	}
-	
-	option = { 
-		name = ukraine.41.a
-		ai_chance = {
-			base = 10
-		}
-		if={
-			limit = { has_idea = SOV_secret_involvement }
-			remove_ideas = SOV_secret_involvement
-		}
-		if={
-			limit = { has_idea = SOV_secret_involvement_large }
-			remove_ideas = SOV_secret_involvement_large
-		}
-		if={
-			limit = { has_idea = SOV_secret_involvement_huge }
-			remove_ideas = SOV_secret_involvement_huge
-		}
-		if={
-			limit={ NOT = { tag = SOV } }
-			hidden_effect = { country_event = { id = ukraine.54 days = 17 } }
+		hidden_effect={
+			minsk_ii_effect = yes
+			every_country={
+				limit = { OR = { tag = UKR tag = SOV tag = DON tag = LHK tag = ODS tag = KHK tag = NOV } }
+				if={
+					limit = { has_idea = SOV_secret_involvement }
+					remove_ideas = SOV_secret_involvement
+				}
+				if={
+					limit = { has_idea = SOV_secret_involvement_large }
+					remove_ideas = SOV_secret_involvement_large
+				}
+				if={
+					limit = { has_idea = SOV_secret_involvement_huge }
+					remove_ideas = SOV_secret_involvement_huge
+				}
+				if={
+					limit={ NOT = { tag = SOV } }
+					hidden_effect = { country_event = { id = ukraine.54 days = 17 } }
+				}
+			}
 		}
 	}
 }
@@ -2216,22 +2214,7 @@ country_event = {
 			base = 10
 		}
 		custom_effect_tooltip = "event_tt_historical"
-		every_country={
-			limit={
-				OR={
-					tag = UKR
-					tag = SOV
-					tag = DON
-					tag = LHK
-					tag = KHK
-					tag = ODS
-					tag = NOV
-				}
-				exists = yes
-			}
-			country_event = { id = ukraine.41 }
-		}
-		hidden_effect = { news_event = { id = atd_news.8 hours = 6 } }
+		hidden_effect = { news_event = { id = atd_news.8 hours = 6 } ZZZ={ country_event = { id = ukraine.41 } } }
 	}
 	option = { 
 		name = ukraine.55.b
@@ -6718,10 +6701,6 @@ country_event = {
 	desc = ukraine.166.desc
 	picture = GFX_report_event_UKR_nato_2
 	is_triggered_only = yes
-
-	trigger = {
-		has_war_with = SOV
-	}
 
 	option = { 
 		name = ukraine.166.a

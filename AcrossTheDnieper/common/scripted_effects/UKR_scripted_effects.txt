@@ -227,7 +227,7 @@ UKR_spawn_donbass_countries={
 minsk_ii_effect={
 	hidden_effect={
 		ZZZ={
-			every_state = { limit = { is_controlled_by = UKR } set_state_flag = STATE_IS_CONTROLLED_BY_UKRAINE_FLAG }
+			every_state = { limit = { is_controlled_by = UKR NOT = { is_owned_by = UKR } } set_state_flag = STATE_IS_CONTROLLED_BY_UKRAINE_FLAG }
 			UKR = {
 				if = {
 					limit = { has_completed_focus = UKR_counter_terrorism_operations }
@@ -302,7 +302,7 @@ minsk_ii_effect={
 				}
 			}
 			clr_global_flag = donbass_war_is_ongoing
-			UKR={ country_event = { id = ukraine.48 hours = 2 } country_event = { id = ukraine.143 hours = 1 } }
+			#UKR={ country_event = { id = ukraine.48 hours = 2 } country_event = { id = ukraine.143 hours = 1 } }
 			SOV = { clr_country_flag = chosen_to_send_volunteers_to_donbass }
 			
 			every_country={
