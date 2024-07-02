@@ -1824,213 +1824,7 @@ country_event = {
 	picture = GFX_report_event_UKR_minsk_agreement
 	
 	immediate={
-		hidden_effect={
-			UKR = {
-				if = {
-					limit = { has_completed_focus = UKR_counter_terrorism_operations }
-	
-					delete_unit_template_and_units = {
-						division_template = "Artemivsk Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Dnipro-1 Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Luhansk Assault Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Lviv Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Mykolaiv Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Myrotvorets Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Poltava Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Shakhtarsk Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Shtorm Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Skif Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Vinnytsya Battalion"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Bohdan Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Chernihiv Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Ivano-Frankivsk Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Kherson Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Kryvbas Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Sicheslav Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Sumy Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Svityaz Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Svyatoslav Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Ternopil Company"
-					}
-					delete_unit_template_and_units = {
-						division_template = "National Guard Unit"
-						disband = yes
-					}
-				}
-			}
-
-			set_global_flag = minsk_ii_has_been_signed
-			every_state={
-				limit = { is_controlled_by = UKR NOT = { is_owned_by = UKR } }
-				set_state_flag = STATE_CONTROLLED_BY_UKRAINE
-			}
-			if={
-				limit = { 186 = { is_controlled_by = UKR } }
-				set_global_flag = ukraine_controls_donetsk		#To make sure that capitulated countries get annexed
-			}
-			if={
-				limit = { 152 = { is_controlled_by = UKR } }
-				set_global_flag = ukraine_controls_luhansk
-			}
-			if={
-				limit = { 94 = { is_controlled_by = UKR } }
-				set_global_flag = ukraine_controls_kharkiv
-			}
-			if={
-				limit = { 269 = { is_controlled_by = UKR } }
-				set_global_flag = ukraine_controls_odesa
-			}
-			DON = { dismantle_faction = yes } 
-			NOV = { dismantle_faction = yes }
-			every_state={
-				limit = { 
-					is_controlled_by = ROOT
-					is_core_of = UKR
-				}
-				ROOT = { transfer_state = PREV }
-			}
-			every_state={
-				limit = {
-					OR={
-						has_dynamic_modifier = { modifier = UKR_local_offensive_modifier scope = ROOT }	
-						has_dynamic_modifier = { modifier = UKR_war_in_donbass_modifier scope = ROOT }	
-						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROOT }	
-					}
-				}	
-				remove_dynamic_modifier = {
-					modifier = UKR_local_offensive_modifier
-					scope = ROOT
-				}
-				remove_dynamic_modifier = {
-					modifier = UKR_war_in_donbass_modifier
-					scope = ROOT
-				}
-				remove_dynamic_modifier = {
-					modifier = not_allowed_to_attack_here
-					scope = ROOT
-				}
-			}
-			UKR={
-				white_peace = ROOT
-			}
-			if={
-				limit={ 
-					OR={
-						tag = DON
-						tag = LHK
-						tag = KHK
-						tag = ODS
-						tag = NOV
-					}
-				}
-				SOV = { puppet = PREV }
-			}
-
-			clr_global_flag = donbass_war_is_ongoing
-			UKR={ country_event = { id = ukraine.48 hours = 2 } country_event = { id = ukraine.143 hours = 1 } }
-			SOV = { clr_country_flag = chosen_to_send_volunteers_to_donbass }
-			
-			if={
-				limit = { 
-					OR={
-						tag = DON 
-						tag = NOV
-					}
-					has_global_flag = ukraine_controls_donetsk 
-				}
-				UKR = { transfer_state = 186 }
-				clr_global_flag = ukraine_controls_donetsk
-			}
-			if={
-				limit = { tag = LHK has_global_flag = ukraine_controls_luhansk }
-				UKR = { transfer_state = 152 }
-				clr_global_flag = ukraine_controls_luhansk
-			}
-			if={
-				limit = { tag = KHK has_global_flag = ukraine_controls_kharkiv }
-				UKR = { transfer_state = 94 }
-				clr_global_flag = ukraine_controls_kharkiv
-			}
-			if={
-				limit = { tag = ODS has_global_flag = ukraine_controls_odesa }
-				UKR = { transfer_state = 269 }
-				clr_global_flag = ukraine_controls_odesa
-			}
-
-			if={
-				limit = {
-					AND = {
-						tag = DON
-						OR = {
-							has_completed_focus = DON_cooperations_with_foreign_far_left_groups
-							has_completed_focus = DON_cooperations_with_foreign_far_right_groups
-						}
-					}
-				}
-
-				DON={ country_event = { id = donetsk.9 days = 2 } }
-			}
-
-			if = {
-				limit = {
-					OR = {
-						country_exists = DON
-						country_exists = LHK
-						country_exists = KHK
-						country_exists = NOV
-						country_exists = ODS
-					}
-				}
-
-				every_country = {
-				    limit = {
-				    	OR = { original_tag = DON original_tag = LHK original_tag = KHK original_tag = NOV original_tag = ODS original_tag = UKR original_tag = SOV }
-				    }
-    
-				    ROOT = {country_event = { id = donetsk.15 days = 21  }}
-			    }
-			}
-		}
+		minsk_ii_effect = yes
 	}
 	
 	option = { 
@@ -4618,6 +4412,14 @@ country_event = {
 			146 = { set_state_controller_to = UKR }
 			135 = { set_state_controller_to = UKR }
 			208 = { set_state_controller_to = UKR }
+			306 = { set_state_controller_to = UKR }
+			464 = { set_state_controller_to = UKR }
+			465 = { set_state_controller_to = UKR }
+			468 = { set_state_controller_to = UKR }
+			471 = { set_state_controller_to = UKR }
+			472 = { set_state_controller_to = UKR }
+			473 = { set_state_controller_to = UKR }
+			474 = { set_state_controller_to = UKR }
 			
 			set_province_controller = 18302
 			set_province_controller = 1166
@@ -4649,6 +4451,14 @@ country_event = {
 			146 = { set_state_controller_to = UKR }
 			135 = { set_state_controller_to = UKR }
 			208 = { set_state_controller_to = UKR }
+			306 = { set_state_controller_to = UKR }
+			464 = { set_state_controller_to = UKR }
+			465 = { set_state_controller_to = UKR }
+			468 = { set_state_controller_to = UKR }
+			471 = { set_state_controller_to = UKR }
+			472 = { set_state_controller_to = UKR }
+			473 = { set_state_controller_to = UKR }
+			474 = { set_state_controller_to = UKR }
 			
 			
 			every_state={

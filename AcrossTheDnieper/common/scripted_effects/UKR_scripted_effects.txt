@@ -224,6 +224,131 @@ UKR_spawn_donbass_countries={
 	}
 }
 
+minsk_ii_effect={
+	hidden_effect={
+		ZZZ={
+			every_state = { limit = { is_controlled_by = UKR } set_state_flag = STATE_IS_CONTROLLED_BY_UKRAINE_FLAG }
+			UKR = {
+				if = {
+					limit = { has_completed_focus = UKR_counter_terrorism_operations }
+	
+					delete_unit_template_and_units = {
+						division_template = "Artemivsk Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Dnipro-1 Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Luhansk Assault Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Lviv Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Mykolaiv Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Myrotvorets Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Poltava Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Shakhtarsk Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Shtorm Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Skif Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Vinnytsya Battalion"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Bohdan Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Chernihiv Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Ivano-Frankivsk Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Kherson Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Kryvbas Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Sicheslav Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Sumy Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Svityaz Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Svyatoslav Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Ternopil Company"
+					}
+					delete_unit_template_and_units = {
+						division_template = "National Guard Unit"
+						disband = yes
+					}
+				}
+			}
+			clr_global_flag = donbass_war_is_ongoing
+			UKR={ country_event = { id = ukraine.48 hours = 2 } country_event = { id = ukraine.143 hours = 1 } }
+			SOV = { clr_country_flag = chosen_to_send_volunteers_to_donbass }
+			
+			every_country={
+				limit={
+					OR={
+						tag = DON
+						tag = LHK
+						tag = KHK
+						tag = ODS
+						tag = NOV
+					}
+				}
+				white_peace = UKR
+				SOV = { puppet = PREV }
+			}
+			
+			if={
+				limit = {
+					DON = {
+						OR = {
+							has_completed_focus = DON_cooperations_with_foreign_far_left_groups
+							has_completed_focus = DON_cooperations_with_foreign_far_right_groups
+						}
+					}
+				}
+
+				DON={ country_event = { id = donetsk.9 days = 2 } }
+			}
+
+			every_country = {
+				limit = {
+					OR = { original_tag = DON original_tag = LHK original_tag = KHK original_tag = NOV original_tag = ODS original_tag = UKR original_tag = SOV }
+				}
+
+				THIS = {country_event = { id = donetsk.15 days = 21  }}
+			}
+			
+			every_state={
+				limit = { has_state_flag = STATE_IS_CONTROLLED_BY_UKRAINE_FLAG }
+				UKR = { transfer_state = PREV }
+				clr_state_flag = STATE_IS_CONTROLLED_BY_UKRAINE_FLAG
+			}
+		}
+	}
+}
+
 make_borders_look_nice={
 	set_variable = { global.donbass_countries_states_owned = 0 }
 	every_state={

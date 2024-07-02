@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import ttk
 import shutil
 import codecs
+import random
 
 try:
 	import numpy as np
@@ -160,16 +161,9 @@ with open(definitions_csv_file_path, 'r') as file:
     for line in file:
         parts = line.strip().split(';')
         # and parts[0] != "0"       <-- Add this to the line below if you don't want an initial province class with everything set to 0
-        if len(parts) >= 4:
-            ID, red, green, blue, type, coastal, terrain = parts[:7]
-            
-            if terrain == "ocean" or terrain == "unknown" or terrain == "lakes" or terrain == "water_fjords" or terrain == "water_shallow_sea" or terrain == "water_deep_ocean":
-                continent = 0
-            else:
-                continent = 1       #1 for Europe, as AtD only has one continent
-                                    #Continents don't really do much tho tbh
-            province = provinceClass(ID, red, green, blue, type, coastal, terrain, continent, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
-            provincesArray.append(province)
+        ID, red, green, blue, type, coastal, terrain, continent = parts[:8]
+        province = provinceClass(ID, red, green, blue, type, coastal, terrain, continent, 0, 0, 0, 0, 0)     #Read definitions.csv and create a new province class with ID and rgb values, set all other values to 0
+        provincesArray.append(province)
 
 provincesArray.sort(key=lambda x: x.ID)
 
@@ -383,12 +377,29 @@ for state in statesArray:
     for prov in range(0,len(state.provinces)):
         currentProv = int(state.provinces[prov])
         provincesArray[currentProv].stateID = state.ID
+    state.provinces.sort()
+
+#Assign states random rgb values
+#randomRGBValues = random.sample(range(0, 16777216), len(statesArray)-1)
+#i=0
+#for randomRGB in randomRGBValues:
+#    i+=1
+#    r = randomRGB//65536
+#    g = randomRGB%65536
+#    b = g//256
+#    g %= 256
+#    statesArray[i].red = r
+#    statesArray[i].green = g
+#    statesArray[i].blue = b
+#del randomRGBValues
 
 #Assign Strategic Regions to province types
 for strategicRegion in strategicRegionsArray:
     for prov in range(0,len(strategicRegion.provinces)):
         currentProv = int(strategicRegion.provinces[prov])
         provincesArray[currentProv].strategicRegion = strategicRegion.ID
+
+    strategicRegion.provinces.sort()
 
 #AcrossTheDnieper/localisation/english
 english_loc_path = os.path.join(base_directory, "localisation", "english")
@@ -478,12 +489,17 @@ class ImageCanvas(tk.Canvas):
         self.bind("<ButtonPress-2>", self.on_start_drag)
         self.bind("<B2-Motion>", self.on_drag,)
         self.bind("<ButtonPress-1>", self.on_left_click)
+        self.bind("<ButtonPress-3>", self.on_right_click)
         #self.bind("<MouseWheel>", self.on_zoom)
         self.bind("<Motion>", self.on_mouse_motion)
+        self.sameStatesOnlyVariable = tk.IntVar()
+        self.showRiversVariable = tk.IntVar()
         self.start_x = None
         self.start_y = None
         self._image = None
-        self._photo_image = None
+        self._provinces_image = None
+        self.provincesItem = None
+        self.riversItem = None
         self._scale = 1.00
         self.current_colour_r = None
         self.current_colour_g = None
@@ -494,9 +510,14 @@ class ImageCanvas(tk.Canvas):
         self.image_top_left_y = 0
         self.image_width = None
         self.image_height = None
+        self.canvas_width = self.winfo_screenwidth() // 3 * 2
+        self.canvas_height = self.winfo_screenheight() // 3 * 2
         self.currentProvID = None
         self.currentStateID = None
         self.provinces_image_array = None
+        self.rivers_png_path = os.path.join(current_directory, "map", "rivers.png")
+        self.rivers_png_image = Image.open(self.rivers_png_path)
+        self._rivers_image = ImageTk.PhotoImage(self.rivers_png_image)
         self.display_image()
 
         self.current_colour_label = tk.Label(master, text="Current Colour: (0, 0, 0)", bg="white")
@@ -557,6 +578,12 @@ class ImageCanvas(tk.Canvas):
         self.mergeProvincesButton = tk.Button(master, text="Merge (2 gets eaten by 1)", command=self.merge_provinces)
         self.mergeProvincesButton.place(relx=0.0, rely=0.75,x=242,y=28,anchor="w")
 
+        self.sameStatesOnly = tk.Checkbutton(master, text="Same states only", variable=self.sameStatesOnlyVariable, onvalue=1, offvalue=0)
+        self.sameStatesOnly.place(relx=0.0, rely=0.75,x=420,y=0,anchor="w")
+
+        self.showRivers = tk.Checkbutton(master, text="Show rivers", variable=self.showRiversVariable, onvalue=1, offvalue=0, command = self.toggle_rivers)
+        self.showRivers.place(relx=0.0, rely=0.75,x=420,y=20,anchor="w")
+
     def load_province(self, provID):
         self.populate_vp_name_listbox(provID)
         self.victoryPointsEntryBox.delete(0,tk.END)
@@ -588,86 +615,85 @@ class ImageCanvas(tk.Canvas):
             prov1 = int(self.provinceToMerge1Entry.get())
             prov2 = int(self.provinceToMerge2Entry.get())
            
-            red1 = provincesArray[prov1].red
-            green1 = provincesArray[prov1].green
-            blue1 = provincesArray[prov1].blue
-            red2 = provincesArray[prov2].red
-            green2 = provincesArray[prov2].green
-            blue2 = provincesArray[prov2].blue
-            finalProvID = int(len(provincesArray)-1)
+            if prov1 != prov2 and (provincesArray[prov1].stateID == provincesArray[prov2].stateID or int(self.sameStatesOnlyVariable.get()) == 0):
+                try:
+                    red1 = provincesArray[prov1].red
+                    green1 = provincesArray[prov1].green
+                    blue1 = provincesArray[prov1].blue
+                    red2 = provincesArray[prov2].red
+                    green2 = provincesArray[prov2].green
+                    blue2 = provincesArray[prov2].blue
+                    finalProvID = int(len(provincesArray)-1)
 
-            for h in range (0, self.image_height):
-                for w in range (0, self.image_width):
-                    if int(self.provinces_image_array[h][w][0]) == red2 and int(self.provinces_image_array[h][w][1]) == green2 and int(self.provinces_image_array[h][w][2]) == blue2:
-                        #print ("Found pixel at " + str(w) + ", " + str(h))
-                        self.provinces_image_array[h][w] = [int(red1), int(green1), int(blue1)]
-
-
-            #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
-
-            finalProvStateID = int(provincesArray[finalProvID].stateID)
-            prop2StateID = int(provincesArray[prov2].stateID)
-            finalProvSR = int(provincesArray[finalProvID].strategicRegion)
-            prov2SR = int(provincesArray[prov2].strategicRegion)
-            while1Trigger = False
-            while2Trigger = False
+                    colour_find = np.array([red2,green2,blue2])
+                    colour_replace = np.array([red1,green1,blue1])
+                    self.provinces_image_array[np.all(self.provinces_image_array == colour_find, axis=-1)] = colour_replace
 
 
-            if provincesArray[prov2].stateID !=0:
-                i = 0
-                while while1Trigger == False:
-                    if int(statesArray[prop2StateID].provinces[i]) == prov2:
-                        statesArray[prop2StateID].provinces.pop(i)
-                        while1Trigger = True
-                    else:
-                        i+=1
+                    #Remember! Some Provinces have stateID = 0, but they still have strategic regions!
 
-            if provincesArray[finalProvID].stateID !=0:     #Replace ID of the last province with the one that's being replaced
-                statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
-                statesArray[finalProvStateID].provinces.append(prov2)
-                statesArray[finalProvStateID].provinces.sort()
+                    finalProvStateID = int(provincesArray[finalProvID].stateID)
+                    prov2StateID = int(provincesArray[prov2].stateID)
+                    finalProvSR = int(provincesArray[finalProvID].strategicRegion)
+                    prov2SR = int(provincesArray[prov2].strategicRegion)
+                    while1Trigger = False
+                    while2Trigger = False
 
-            i = 0
-            while while2Trigger == False:
-                if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
-                    strategicRegionsArray[prov2SR].provinces.pop(i)
-                    while2Trigger = True
-                else:
-                    i+=1
-                #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
+                    if prov2StateID !=0:
+                        i = 0
+                        while while1Trigger == False:
+                            if int(statesArray[prov2StateID].provinces[i]) == prov2:
+                                statesArray[prov2StateID].provinces.pop(i)
+                                while1Trigger = True
+                            else:
+                                i+=1
+
+                    if finalProvStateID !=0:     #Replace ID of the last province with the one that's being replaced
+                        statesArray[finalProvStateID].provinces.pop()        #Will always be last province in list
+                        statesArray[finalProvStateID].provinces.append(prov2)
+                        statesArray[finalProvStateID].provinces.sort()
+
+                    i = 0
+                    while while2Trigger == False:
+                        if int(strategicRegionsArray[prov2SR].provinces[i]) == prov2:
+                            strategicRegionsArray[prov2SR].provinces.pop(i)
+                            while2Trigger = True
+                        else:
+                            i+=1
+                        #print(prov2, strategicRegionsArray[prov2SR].provinces[i]) 
 
 
-            strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
-            strategicRegionsArray[finalProvSR].provinces.append(prov2)
-            strategicRegionsArray[finalProvSR].provinces.sort()
-
-                
-
-            print ("States and strategic regions updated")
+                    strategicRegionsArray[finalProvSR].provinces.pop()        #Will always be last province in list
+                    strategicRegionsArray[finalProvSR].provinces.append(prov2)
+                    strategicRegionsArray[finalProvSR].provinces.sort()
 
 
-            #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
-            provincesArray[prov2].red = provincesArray[finalProvID].red
-            provincesArray[prov2].green = provincesArray[finalProvID].green
-            provincesArray[prov2].blue = provincesArray[finalProvID].blue
-            provincesArray[prov2].type = provincesArray[finalProvID].type
-            provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
-            provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
-            provincesArray[prov2].continent = provincesArray[finalProvID].continent
-            provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
-            provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
-            provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
-            provincesArray[prov2].names = provincesArray[finalProvID].names
-            provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
-            provincesArray.pop()
 
-            print ("Provinces updated")
+                    #Probably an easier way to do this using provincesArray[prov2][:1] = provincesArray[finalProvID][:1] or something similar, but I couldn't get it to work
+                    provincesArray[prov2].red = provincesArray[finalProvID].red
+                    provincesArray[prov2].green = provincesArray[finalProvID].green
+                    provincesArray[prov2].blue = provincesArray[finalProvID].blue
+                    provincesArray[prov2].type = provincesArray[finalProvID].type
+                    provincesArray[prov2].coastal = provincesArray[finalProvID].coastal
+                    provincesArray[prov2].terrain = provincesArray[finalProvID].terrain
+                    provincesArray[prov2].continent = provincesArray[finalProvID].continent
+                    provincesArray[prov2].stateID = provincesArray[finalProvID].stateID
+                    provincesArray[prov2].victoryPoints = provincesArray[finalProvID].victoryPoints
+                    provincesArray[prov2].strategicRegion = provincesArray[finalProvID].strategicRegion
+                    provincesArray[prov2].names = provincesArray[finalProvID].names
+                    provincesArray[prov2].buildings = provincesArray[finalProvID].buildings
+                    provincesArray.pop()
 
-            temp = Image.fromarray(self.provinces_image_array)
-            temp.save(self.provinces_bmp_path)
-            temp.close()
-            #Display updated image
-            self.display_image()
+                    temp = Image.fromarray(self.provinces_image_array)
+                    temp.save(self.provinces_bmp_path)
+                    temp.close()
+
+                    provincesArray.sort(key=lambda x: x.ID)
+
+                    #Display updated image
+                    self.display_image()
+                except:
+                    pass
         
         
 
@@ -709,17 +735,37 @@ class ImageCanvas(tk.Canvas):
     def display_image(self):
         self.provinces_bmp_path = os.path.join(current_directory, "map", "provinces.bmp")
         self.provinces_bmp_image = Image.open(self.provinces_bmp_path)
-        self._photo_image = ImageTk.PhotoImage(self.provinces_bmp_image)
-        self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._photo_image)
+        self.image_width, self.image_height = self.provinces_bmp_image.size
+        if self.image_top_left_x > 0:
+            self.image_top_left_x = 0
+        elif self.image_top_left_x < (self.image_width-self.canvas_width)*-1:
+            self.image_top_left_x = (self.image_width-self.canvas_width)*-1
+
+        if self.image_top_left_y > 0:
+            self.image_top_left_y = 0
+        elif self.image_top_left_y < (self.image_height-self.canvas_height)*-1:
+            self.image_top_left_y = (self.image_height-self.canvas_height)*-1
+        
+        self.riversItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._rivers_image)
+        self._provinces_image = ImageTk.PhotoImage(self.provinces_bmp_image)
+        self.provincesItem = self.create_image(self.image_top_left_x, self.image_top_left_y, anchor=tk.NW, image=self._provinces_image)
+        if int(self.showRiversVariable.get()) == 1:
+            self.tag_raise(self.riversItem)
+
         self.config(scrollregion=self.bbox(tk.ALL))
 
         self.load_provinces_image_array(self.provinces_bmp_image)
 
-        self.image_width, self.image_height = self.provinces_bmp_image.size
-
         #self.original_width = int(self._image.width)
         #self.original_height = int(self._image.height)
         #self.original_dimensions_label.config(text=f"Original width ={self.original_width},Original height ={self.original_height}")
+
+    def toggle_rivers(self):
+        if int(self.showRiversVariable.get()) == 1:
+            self.itemconfig(self.riversItem, state='normal')
+            self.tag_raise(self.riversItem)
+        else:
+            self.itemconfig(self.riversItem, state='hidden')
 
     def populate_vp_name_listbox(self, provID):
         self.provinceNamesListbox.delete(0, tk.END)
@@ -751,9 +797,9 @@ class ImageCanvas(tk.Canvas):
     #           newWidth = int(self._image.width * self._scale)
     #            newHeight = int(self._image.height * self._scale)
     #            resized_image = self._image.resize((newWidth, newHeight), Image.LANCZOS)
-    #            self._photo_image = ImageTk.PhotoImage(resized_image)
+    #            self._provinces_image = ImageTk.PhotoImage(resized_image)
     #            self.delete("all")
-    #            self.create_image(0, 0, anchor=tk.NW, image=self._photo_image)
+    #            self.create_image(0, 0, anchor=tk.NW, image=self._provinces_image)
 
     #   self.current_zoom_label.config(text=f"Current Zoom: {self._scale}")
 
@@ -767,8 +813,6 @@ class ImageCanvas(tk.Canvas):
 
             self.image_top_left_x += delta_x
             self.image_top_left_y += delta_y
-
-            print (self.image_top_left_x, self.image_top_left_y)
     
 
     def on_mouse_motion(self, event):
@@ -779,7 +823,9 @@ class ImageCanvas(tk.Canvas):
             try:
                 pixel_color = self.provinces_bmp_image.getpixel((self.realMouseCoordsX, self.realMouseCoordsY))
                 self.current_colour_r, self.current_colour_g, self.current_colour_b = pixel_color
-                self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})")
+                self.current_colour_label.config(text=f"Current Colour: ({self.current_colour_r}, {self.current_colour_g}, {self.current_colour_b})\
+                                                 \t\tImage top left: ({self.image_top_left_x},{self.image_top_left_y})\
+                                                 \t\tMouse co-ords on picture: ({self.realMouseCoordsX}, {self.realMouseCoordsY})")
 
             except:
                 pass
@@ -789,6 +835,28 @@ class ImageCanvas(tk.Canvas):
             if i.red == self.current_colour_r and i.green == self.current_colour_g and i.blue == self.current_colour_b:
                 self.currentProvID = i.ID
                 self.load_province(self.currentProvID)
+
+    def on_right_click(self, event):
+        prov = 0
+        provFound = False
+        while provFound == False:
+            if provincesArray[prov].red == self.current_colour_r and provincesArray[prov].green == self.current_colour_g and provincesArray[prov].blue == self.current_colour_b:
+                provFound = True
+            else:
+                prov+=1
+
+        if self.provinceToMerge1Entry.get():
+            if prov == int(self.provinceToMerge1Entry.get()):
+                self.provinceToMerge1Entry.delete(0, tk.END)
+            
+            else :
+                self.provinceToMerge2Entry.insert(tk.END, prov)
+                self.merge_provinces()
+                self.provinceToMerge2Entry.delete(0, tk.END)
+                    
+        else:
+            self.provinceToMerge1Entry.insert(tk.END, prov)
+
 
         
         
@@ -815,6 +883,20 @@ def main():
     temp.save(provinces_bmp_outfile_path)
     temp.close
 
+    #Make a rivers
+    rivers_bmp_file_path = os.path.join(map_folder_path, "rivers.bmp")
+    rivers_png_outfile_path = os.path.join(current_directory, "map", "rivers.png")
+    temp = Image.open(rivers_bmp_file_path)
+    temp = temp.convert("RGBA")
+    temp_array = np.array(temp)
+    white = np.array([255, 255, 255, 255])
+    transparent = np.array([255, 255, 255, 0])
+    temp_array[np.all(temp_array == white, axis=-1)] = transparent
+    temp = Image.fromarray(temp_array)
+    temp.save(rivers_png_outfile_path)
+    temp.close
+    del temp_array
+
     root = tk.Tk()
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
@@ -836,11 +918,23 @@ if __name__ == "__main__":
 #User has closed the window, now create files
 print ("Writing to files - do not close.")
 
+#Shouldn't need to sort them but just in case
+provincesArray.sort(key=lambda x: x.ID)
+statesArray.sort(key=lambda x: x.ID)
+strategicRegionsArray.sort(key=lambda x: x.ID)
+
 history_states_folder_path = os.path.join(current_directory, "history", "states")
 common_scripted_effects_folder_path = os.path.join(current_directory, "common", "scripted_effects")
 localisation_english_folder_path = os.path.join(current_directory, "localisation", "english")
 map_folder_path = os.path.join(current_directory, "map")
 strategic_regions_folder_path = os.path.join(map_folder_path, "strategicregions")
+
+
+rivers_png_file_path = os.path.join(map_folder_path, "rivers.png")
+try:
+    os.remove(rivers_png_file_path)
+except OSError:
+    pass
 
 provinces_bmp_file_path = os.path.join(map_folder_path, "provinces.bmp")
 
@@ -848,6 +942,12 @@ definitions_csv_file_path = os.path.join(map_folder_path, "definition.csv")
 with open(definitions_csv_file_path, 'w', encoding='utf-8') as f:
     for i in provincesArray:
         print(str(i.ID) + ";" + str(i.red) + ";" + str(i.green) + ";" + str(i.blue) + ";" + i.type + ";" + i.coastal + ";" + i.terrain + ";" + str(i.continent), file=f)
+
+rocketsites_file_path = os.path.join(map_folder_path, "rocketsites.txt")
+with open(rocketsites_file_path, 'w', encoding='utf-8') as f:
+    for state in statesArray:
+        if state.ID != 0:
+            print(str(state.ID) + "={" + str(state.provinces[0]) + "}", file=f)
 
 victory_point_names_file_path = os.path.join(localisation_english_folder_path, "victory_points_l_english.yml")
 with open(victory_point_names_file_path, 'w', encoding='utf-8-sig') as f:
@@ -888,19 +988,22 @@ with open(state_names_scripted_effects_file_path, 'w', encoding='utf-8') as f:
                 print ("\t\telse={\n\t\t\treset_state_name=yes\n\t\t}\n\t}", file=f)
 
             for prov in state.provinces:
-                if len(provincesArray[prov].names) > 1:
-                    print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
-                        + str(provincesArray[prov].names[1][0]) + " = yes } }\n\t\tset_province_name = { id = "\
-                        + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
-                        + str(provincesArray[prov].names[1][0]) + " }\n\t}",file=f)
-                    if len(provincesArray[prov].names) > 2:
-                        for i in range(2,len(provincesArray[prov].names)):
-                            print ("\telse_if={\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
-                                + str(provincesArray[prov].names[i][0]) + " = yes } }\n\t\tset_province_name = { id = "\
-                                + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
-                                + str(provincesArray[prov].names[i][0]) + " }\n\t}",file=f)
-                    
-                    print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
+                try:
+                    if len(provincesArray[prov].names) > 1:
+                        print ("\tif={\t\t\t#" + str(provincesArray[prov].names[0][1]) + "\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                            + str(provincesArray[prov].names[1][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                            + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                            + str(provincesArray[prov].names[1][0]) + " }\n\t}",file=f)
+                        if len(provincesArray[prov].names) > 2:
+                            for i in range(2,len(provincesArray[prov].names)):
+                                print ("\telse_if={\n\t\tlimit={ any_country={ controls_province = " + str(prov) + " "\
+                                    + str(provincesArray[prov].names[i][0]) + " = yes } }\n\t\tset_province_name = { id = "\
+                                    + str(prov) + " name = VICTORY_POINTS_" + str(prov) + "_"\
+                                    + str(provincesArray[prov].names[i][0]) + " }\n\t}",file=f)
+                        
+                        print ("\telse={\n\t\treset_province_name = " + str(prov) +  "\n\t}",file=f)
+                except:
+                    print (str(prov) + "\n\n" + str(state.provinces))
 
             print ("}", file=f)
     print ("\n\nchange_city_names={\n\tZZZ={", file=f)
