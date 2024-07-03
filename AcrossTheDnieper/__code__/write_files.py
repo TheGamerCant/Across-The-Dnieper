@@ -350,7 +350,43 @@ def write_buildings_position_files(provincesArray, statesArray, buildingsArray, 
                                     print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
                                         +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(adjacent_coastal_province), file=f)
                             
+            coastal_provs = []
+            for prov in state.provinces:
+                provClass = provincesArray[int(prov)] 
+                if provClass.coastal == True:
+                    coastal_provs.append(provClass)
+            if coastal_provs:
+                random_coastal_prov = random.choice(coastal_provs)
+                sea_provs = []
+                for prov in random_coastal_prov.border_coords:
+                    currentProv = provincesArray[int(prov[2])]
+                    currentTerrain = currentProv.terrain
+                    for t in terrainArray:
+                        if t.name == currentTerrain and t.naval == True:
+                            sea_provs.append(prov)
 
+                selected_sea_prov = random.choice(sea_provs)
+                #Opposite of land prov
+                if selected_sea_prov[3] == "north":
+                    random_rotat = random.uniform(3, 3.5)
+                    random_rotat = float("{:.2f}".format(random_rotat))
+                elif selected_sea_prov[3] == "south":
+                    random_rotat = random.uniform(6, 6.5)
+                    random_rotat = random_rotat%6.28
+                    random_rotat = float("{:.2f}".format(random_rotat))
+                elif selected_sea_prov[3] == "west":
+                    random_rotat = random.uniform(1.25, 1.75)
+                    random_rotat = float("{:.2f}".format(random_rotat))
+                elif selected_sea_prov[3] == "east":
+                    random_rotat = random.uniform(4.5, 5)
+                    random_rotat = float("{:.2f}".format(random_rotat))
+
+                    
+                selected_sea_prov = provincesArray[int(selected_sea_prov[2])]
+                random_coords = random.choice(selected_sea_prov.coordinates)
+
+                print (str(state.ID) + ";floating_harbor;"+ str(random_coords[0]) + ".00;9.50;"\
+                        + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(random_coastal_prov.ID), file=f)
             statesArray.pop(0)
                             
     with open(rocketsites_file, 'w', encoding='utf-8') as f:

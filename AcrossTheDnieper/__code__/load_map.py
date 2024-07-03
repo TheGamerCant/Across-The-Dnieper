@@ -352,6 +352,19 @@ def load_states(provincesArray,buildingsArray):
                 else:
                     impassable = False
 
+                dateInfo_match = re.findall(r'(\d+)\.(\d+)\.(\d+)\s*=', historyData)
+                if dateInfo_match:
+                    dateInfo=[]
+                    date_string_array = [list(item) for item in dateInfo_match]
+                    for i in range(0,len(date_string_array)):
+                        dateString = str(date_string_array[i][0]) + "." + str(date_string_array[i][1]) + "." + str(date_string_array[i][2])
+                        dateEffects = returnStringBetweenBrackets(historyData,dateString)
+                        dateEffects = dateEffects.strip()
+                        dateInfo.append([dateString, dateEffects])
+                        historyData = removeStringBetweenBrackets(historyData,dateString)
+                else:
+                    dateInfo = None
+
                 provinces_match = re.search(r'provinces\s*=\s*\{(.*?)\}', stateData, re.DOTALL)
                 if provinces_match:
                     provinces = re.findall(r'(\d+)', provinces_match.group(1))
@@ -382,19 +395,6 @@ def load_states(provincesArray,buildingsArray):
                     for i in range(0,len(VPs)):
                         provincesArray[int(VPs[i][0])].victoryPoints = int(VPs[i][1])
                     historyData = re.sub(r'victory_points\s*=\s*\{\s*(\d+)\s*(\d+)\s*\}', '', historyData).strip()
-
-                dateInfo_match = re.findall(r'(\d+)\.(\d+)\.(\d+)\s*=', historyData)
-                if dateInfo_match:
-                    dateInfo=[]
-                    date_string_array = [list(item) for item in dateInfo_match]
-                    for i in range(0,len(date_string_array)):
-                        dateString = str(date_string_array[i][0]) + "." + str(date_string_array[i][1]) + "." + str(date_string_array[i][2])
-                        dateEffects = returnStringBetweenBrackets(historyData,dateString)
-                        dateEffects = dateEffects.strip()
-                        dateInfo.append([dateString, dateEffects])
-                        historyData = removeStringBetweenBrackets(historyData,dateString)
-                else:
-                    dateInfo = None
 
                 cores_match = re.findall(r'add_core_of\s*=\s*(\w{3})', historyData)
                 if cores_match:
