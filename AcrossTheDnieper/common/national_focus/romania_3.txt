@@ -1,6 +1,7 @@
 focus_tree = {
 	id = romania_3
-	continuous_focus_position = { x = 20000 y = 250 }
+	continuous_focus_position = { x = 750 y = 2500 }
+	
 	country = {
 		factor = 0
 		modifier = {
@@ -9,247 +10,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = military_modernazition
-		icon = GFX_military_modernazition
-		x = 13
-		y = 0
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-
-		completion_reward = {
-			army_experience = 50
-            naval_experience = 50
-            air_experience = 50
-            add_ideas = 3_Stage_Military_Restructuring
-			add_ideas = Romanian_Military_Industry
-                 add_tech_bonus = {
-                name = ROM_military
-                bonus = 1.0
-                uses = 1
-                category = infantry_weapons
-                category = ship_modules_tech
-                category = support_tech
-                category = armor
-                category = artillery
-                category = air_equipment
-                category = infantry_anti_air_cat
-                category = ifv_cat
-                category = apc_cat
-            }	
-		}
-	}
-	
-	focus = {
-		id = land_force_doctrine_reform
-		icon = GFX_Land_Force_Doctrine_Reform
-		x = 13
-		y = 1
-		cost = 7
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = military_modernazition }
-
-		completion_reward = {
-			army_experience = 25
-				add_doctrine_cost_reduction = {
-				name = ROM_doctrine_reform
-				cost_reduction = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-             swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring
-            add_idea = 3_Stage_Military_Restructuring_1
-		    }
-		}
-    }
-	focus = {
-		id = increase_equipment_producement_standard
-		icon = GFX_Increase_Equipment_Procurement_Standards
-		x = 14
-		y = 2
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = land_force_doctrine_reform }
-
-		completion_reward = {
-             swap_ideas = {
-            remove_idea = romanian_military_industry
-            add_idea = romanian_military_industry_2
-
-		    }
-		}
-    }
-	focus = {
-		id = Rigorous_Military_Training
-		icon = GFX_Rigorous_Military_Training
-		x = 12
-		y = 2
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = land_force_doctrine_reform }
-
-		completion_reward = {
-             swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring_1
-            add_idea = 3_Stage_Military_Restructuring_2
-		    }
-		}
-    }
-		focus = {
-		id = increase_randd_standards
-		icon = GFX_Increase_R_and_D_standards
-		x = 13
-		y = 3
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = increase_equipment_producement_standard }
-		prerequisite = { focus = Rigorous_Military_Training }
-
-		completion_reward = {
-             swap_ideas = {
-            remove_idea = Romanian_Military_Industry_2
-            add_idea = Romanian_Military_Industry_3
-		    }
-		}
-    }
-		focus = {
-		id = Partnership_With_Swiss_Defensive_Corporations
-		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
-		x = 12
-		y = 4
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = increase_randd_standards }
-		completion_reward = {
-            army_experience = 50
-			add_political_power = -50
-		 }
-	}
-		focus = {
-		id = Increase_Domestic_Production_standards
-		icon = GFX_Increase_Domestic_Production_Standards
-		x = 14
-		y = 4
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = increase_randd_standards }
-		completion_reward = {
-            swap_ideas = {
-            remove_idea = Romanian_Military_Industry_2
-            add_idea = Romanian_Military_Industry_3
-		    }
-		 }
-	}
-		focus = {
-		id = Modernize_The_Airforce
-		icon = GFX_Modernize_The_Airforce
-		x = 8
-		y = 1
-		cost = 7
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = military_modernazition }
-		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = ROM_doctrine_air
-				uses = 1
-				category = air_doctrine
-				cost_reduction = 0.5
-			}
-            swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring_2
-            add_idea = 3_Stage_Military_Restructuring_3
-		    }
-		 }
-	}
-		focus = {
-		id =  Partcicipate_in_NATO_Exercises 
-		icon = GFX_Participate_in_nato_exercises
-		x = 7
-		y = 2
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = Modernize_The_Airforce }
-		completion_reward = {
-			air_experience = 50
-			swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring_3
-            add_idea = 3_Stage_Military_Restructuring_4
-		    }
-		 }
-	}
 
 	focus = {
 		id = Making_RW_Coalition
@@ -991,1199 +751,24 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id =  Bring_Romania_into_the_21th_Century
 
-		icon = GFX_da
-		x = 56
-		y = 0
-		cost = 14
+	
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		completion_reward = {
-		add_political_power = 200
-		}
-	}
-	focus = {
-		id = Promote_Investment
-		icon = GFX_da
-		x = 56
-		y = 1
-		cost = 14
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
-		completion_reward = {
-		add_political_power = -25
-		273 = {
-        add_building_construction = {
-            type = industrial_complex
-            level = 2
-            instant_build = yes
-        }
-   		}
-		}
-	}
-	focus = {
-		id = Fiscal_Policy
-		icon = GFX_da
-		x = 48
-		y = 1
-		cost = 14
+	
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
-		completion_reward = {
-			add_political_power = -25
-		}
-	}
-	focus = {
-		id = Counter_Cyclical_Meas
-		icon = GFX_da
-		x = 47
-		y = 2
-		cost = 35
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Fiscal_Policy}
-		completion_reward = {
-			add_political_power = 25
-			add_stability = 0.03
-		}
-	}
-	focus = {
-		id = Adopt_Laissez_Faire
-		icon = GFX_da
-		x = 45
-		y = 3
-		cost = 35
+	shared_focus = Bring_Romania_into_the_21th_Century
+	shared_focus = military_modernazition
+	shared_focus = start_of_russian_invasion
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Counter_Cyclical_Meas}
-		completion_reward = {
-			358 = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-		}
-	}
-	focus = {
-		id = Deregulate_FOREX_Markets
-		icon = GFX_da
-		x = 45
-		y = 5
-		cost = 35
+	
+}
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Adopt_Laissez_Faire}
-		completion_reward = {
-			random_owned_controlled_state = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-			random_owned_controlled_state = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-			random_owned_controlled_state = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-			random_owned_controlled_state = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-		}
-	}
-	focus = {
-		id = Prudent_Fiscal_Policy
-		icon = GFX_da
-		x = 48	
-		y = 7
-		cost = 35
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Improve_Eff_Gov_Exp}
-		prerequisite = {  focus = Fund_Social_Welfare_Prog}
-		prerequisite = {  focus = Deregulate_FOREX_Markets}
-		prerequisite = {  focus = Adopt_The_Euro}
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = Manage_Exchange_Rate_Policy
-		icon = GFX_da
-		x = 45	
-		y = 4
-		cost = 35
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Adopt_Laissez_Faire}
-		completion_reward = {
-			random_owned_controlled_state = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-		}
-	}
-	focus = {
-		id = Fiscal_Stim_Pack
-		icon = GFX_da
-		x = 47
-		y = 3
-		cost = 35
 
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Counter_Cyclical_Meas}
-		completion_reward = {
-			add_political_power = 25
-			add_stability = 0.03
-			358 = {
-			add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-			}
-		}
-	}
-	focus = {
-		id = Adopt_The_Euro
-		icon = GFX_da
-		x = 47
-		y = 5
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Fiscal_Stim_Pack}
-		completion_reward = {
-			add_timed_idea = {
-				idea = LIT_idea_euro_integration
-				days = 180
-			}
-		}
-	}
-
-	focus = {
-		id = Prioritise_Public_Exp
-		icon = GFX_da
-		x = 49
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Fiscal_Policy}
-		completion_reward = {
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = Allocate_Edu_Funding
-		icon = GFX_da
-		x = 49
-		y = 3
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Prioritise_Public_Exp}
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = Invest_In_Healthcare
-		icon = GFX_da
-		x = 49
-		y = 4
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Allocate_Edu_Funding}
-		completion_reward = {
-			add_stability = 0.03
-		}
-	}
-	focus = {
-		id = Fund_Social_Welfare_Prog
-		icon = GFX_da
-		x = 49
-		y = 5
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_In_Healthcare}
-		completion_reward = {
-			add_stability = 0.05
-			add_political_power = 50
-			
-		}
-	}
-	focus = {
-		id = Fiscal_Discipline
-		icon = GFX_da
-		x = 51
-		y = 2
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Fiscal_Policy}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = Tax_Reforms
-		icon = GFX_da
-		x = 51
-		y = 3
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Fiscal_Discipline}
-		completion_reward = {
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = Improve_Eff_Gov_Exp
-		icon = GFX_da
-		x = 51
-		y = 5
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Tax_Reforms}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = Improve_Business_Env
-		icon = GFX_da
-		x = 54
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Promote_Investment}
-		completion_reward = {
-		239 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		273 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		358 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		281 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		333 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		325 = {
-			add_building_construction = {
-                type = infrastructure
-                level = 1
-                instant_build = yes
-            }
-			
-		}
-		}
-	}
-	focus = {
-		id = Offer_Range_Of_Investment
-		icon = GFX_da
-		x = 58
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Promote_Investment}
-		completion_reward = {
-		add_political_power = -50
-		
-		}
-	}
-	focus = {
-		id = Renew_Public_Partnerships
-		icon = GFX_da
-		x = 58
-		y = 4
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Offer_Range_Of_Investment}
-		completion_reward = {
-		add_political_power = 25
-		add_stability = 0.025
-		
-		}
-	}
-	focus = {
-		id = Deincentivise_Emigration
-		icon = GFX_da
-		x = 54
-		y = 3
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Improve_Business_Env}
-		completion_reward = {
-		add_political_power = -100
-		add_stability = -0.05
-		
-		}
-	}
-	focus = {
-		id = Encourage_Innovation_Entrepreneur
-		icon = GFX_da
-		x = 54
-		y = 4
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Deincentivise_Emigration}
-		completion_reward = {
-		add_stability = 0.02
-		add_tech_bonus = {
-			name = engineering_bonus
-			bonus = 0.5
-				ahead_reduction = 1
-			uses = 2
-			category = engineering
-		}
-		
-		}
-	}
-	focus = {
-		id = Investors_Dream_Country
-		icon = GFX_da
-		x = 56
-		y = 5
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Encourage_Innovation_Entrepreneur}
-		prerequisite = {  focus = Renew_Public_Partnerships}
-		completion_reward = {
-		
-		
-		}
-	}
-	focus = {
-		id = Attract_Workers
-		icon = GFX_da
-		x = 56
-		y = 7
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Investors_Dream_Country}
-		completion_reward = {
-		
-		
-		}
-	}
-	focus = {
-		id =  Invest_in_Infrastructure
-		icon = GFX_da
-		x = 62
-		y = 1
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
-		completion_reward = {
-		add_political_power = 200
-		}
-	}
-	focus = {
-		id =  Invest_In_Social_Infrastructure
-		icon = GFX_da
-		x = 61
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_in_Infrastructure}
-		completion_reward = {
-		add_political_power = 50
-		add_stability = 0.05
-		swap_ideas={
-            add_idea = Modern_Infrastructure_Investments_4
-		}
-		}
-	}
-	focus = {
-		id =  Improve_the_quality_of_healthcare_services
-		icon = GFX_da
-		x = 61
-		y = 3
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_In_Social_Infrastructure}
-		completion_reward = {
-        monthly_population = 0.04
-		add_stability = 0.03
-		}
-	}
-	focus = {
-		id = Invest_in_public_housing_infrastructure
-		icon = GFX_da
-		x = 61
-		y = 4
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Improve_the_quality_of_healthcare_services}
-		completion_reward = {
-        production_speed_infrastructure_factor = 0.05
-		add_stability = 0.04
-		}
-	}
-	focus = {
-		id = modernize_educational_facilities
-		icon = GFX_da
-		x = 61
-		y = 5
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_in_public_housing_infrastructure}
-		completion_reward = {
-        production_speed_infrastructure_factor = 0.05
-		add_stability = 0.07
-		research_bonus = { industry = 0.15 }
-		research_speed_factor = 0.08
-		research_bonus = {
-			name = ROM_POLITICS
-				bonus = 1
-				uses = 2
-				category = electronics
-				category = industry
-            }
-		}
-	}
-	focus = {
-		id = invest_water_sanitation
-		icon = GFX_da
-		x = 64
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_in_Infrastructure }
-		completion_reward = {
-		add_stability = 0.1
-		}
-	}
-	focus = {
-		id = invest_energy_infra
-		icon = GFX_da
-		x = 64
-		y = 3
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = invest_water_sanitation }
-		completion_reward = {
-		add_stability = 0.02
-		resources = {
-            fuel: { oil = 10 }
-        }
-		modifier = {
-        synthetic_refinery_construction_speed = 0.10
-    	}
-		}
-	}
-	focus = {
-		id = develop_rene_energy
-		icon = GFX_da
-		x = 64
-		y = 4
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = invest_energy_infra }
-		completion_reward = {
-		add_stability = 0.1
-		370 = {
-		add_building_construction = {
-			type = synthetic_refinery
-			level = 1
-			instant_build = yes
-		}
-		}
-		}
-	}
-	focus = {
-		id = develop_smart_grid
-		icon = GFX_da
-		x = 64
-		y = 5
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = develop_rene_energy }
-		completion_reward = {
-		}
-	}
-	focus = {
-		id = invest_transpo_infra
-		icon = GFX_da
-		x = 67
-		y = 2
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = Invest_in_Infrastructure }
-		completion_reward = {
-		modifier = {
-			air_base_construction_speed = 0.05
-			naval_base_construction_speed = 0.05
-			railway_construction_speed = 0.05
-		}
-		}
-	}
-	focus = {
-		id = invest_const_roads
-		icon = GFX_da
-		x = 67
-		y = 3
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = invest_transpo_infra }
-		completion_reward = {
-		modifier = {
-			railway_construction_speed = 0.1
-		}
-		}
-	}
-	focus = {
-		id = invest_const_airports
-		icon = GFX_da
-		x = 67
-		y = 4
-		cost = 70
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = invest_const_roads }
-		completion_reward = {
-			air_base_construction_speed = 0.1
-		358 = {
-		add_building_construction = {
-                type = air_base
-                level = 1
-                instant_build = yes
-            }
-		}
-		}
-	}
-	focus = {
-		id = dev_ports_maritime
-		icon = GFX_da
-		x = 67
-		y = 5
-		cost = 35
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = invest_const_airports }
-		completion_reward = {
-		340 = {
-		add_building_construction = {
-                type = naval_base
-                level = 1
-                instant_build = yes
-                province = 4165
-            }
-		}
-		360 = {
-		add_building_construction = {
-                type = dockyard
-                level = 1
-                instant_build = yes
-		}
-		}
-		}
-	}
-	focus = {
-		id = 21_century_infra
-		icon = GFX_da
-		x = 64
-		y = 7
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite = {  focus = dev_ports_maritime }
-		prerequisite = { focus = develop_smart_grid }
-		prerequisite = { focus = modernize_educational_facilities }
-		completion_reward = {
-			remove_ideas = ROM_Outdated_infrastructure
-			add_stability = 0.06
-			add_war_support = 0.04
-		every_owned_state = {
-			add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-			}
-		}
-		}
-	}
-
-	focus = {
-		id = start_of_russian_invasion
-		icon = GFX_da
-		x = 13
-		y = 7
-		cost = 2
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			any_country={ original_tag = SOV has_war_with = UKR }
-        }
-		bypass = {
-		}
-		completion_reward = {
-			add_stability = -0.15
-			add_war_support = -0.05
-			add_political_power = 50
-		}
-	}
-
-	focus = {
-		id = ukraines_side
-		icon = GFX_da
-		x = 10
-		y = 8
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		mutually_exclusive = { focus = russias_side }
-		prerequisite = {focus = start_of_russian_invasion}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = helping_the_refugees
-		icon = GFX_da
-		x = 8
-		y = 9
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		mutually_exclusive = { focus = russias_side }
-		prerequisite = {focus = ukraines_side}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = stopping_the_inflation_growth
-		icon = GFX_da
-		x = 12
-		y = 9
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		mutually_exclusive = { focus = russias_side }
-		prerequisite = {focus = ukraines_side}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = secret_volunteer_corps
-		icon = GFX_da
-		x = 12
-		y = 10
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = stopping_the_inflation_growth}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = military_aid_for_ukraine
-		icon = GFX_da
-		x = 8
-		y = 10
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = helping_the_refugees}
-		completion_reward = {
-			add_equipment_to_stockpile = {
-
-				type = infantry_equipment
-
-				amount = -1000
-
-			}
-			add_equipment_to_stockpile = {
-
-				type = artillery_equipment
-
-				amount = -100
-
-			}
-			add_equipment_to_stockpile = {
-
-				type = modern_tank_equipment
-
-				amount = -50
-
-			}
-		}
-	}
-
-	focus = {
-		id = dock_perm_ukr
-		icon = GFX_da
-		x = 12
-		y = 12
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = secret_volunteer_corps}
-		completion_reward = {
-			diplomatic_relation = {
-				country = UKR
-				relation = docking_rights
-				active = yes
-			}
-		}
-	}
-
-	focus = {
-		id = humanitarian_aid
-		icon = GFX_da
-		x = 10
-		y = 12
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = secret_volunteer_corps}
-		prerequisite = {focus = military_aid_for_ukraine}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = send_jets
-		icon = GFX_da
-		x = 8
-		y = 12
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = military_aid_for_ukraine}
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = our_ukrainian_brothers
-		icon = GFX_da
-		x = 10
-		y = 14
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-			
-        }
-		bypass = {
-		}
-		prerequisite = {focus = dock_perm_ukr}
-		prerequisite = {focus = humanitarian_aid}
-		prerequisite = {focus = send_jets}
-		completion_reward = {
-			send_volunteer_divisions_required = 8
-			set_rule = { can_send_volunteers = yes }
-		}
-	}
-
-
-	focus = {
+shared_focus = {
 		id = Rally_Support_Union
 		icon = GFX_da
 		x = 76
@@ -2215,7 +800,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
+	shared_focus = {
 		id = No_Compromise_Terror
 		icon = GFX_da
 		x = 76
@@ -2235,7 +820,7 @@ focus_tree = {
 			add_war_support = 0.05
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = Promise_Raise_Salaries
 		icon = GFX_da
 		x = 76
@@ -2265,7 +850,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = Send_SRI_Chisinau
 		icon = GFX_da
 		x = 74
@@ -2287,7 +872,7 @@ focus_tree = {
 			add_political_power = 100
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = No_Secret_Dwellings
 		icon = GFX_da
 		x = 78
@@ -2308,7 +893,7 @@ focus_tree = {
 			add_stability = 0.05
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = Promise_ROM_Business
 		icon = GFX_da
 		x = 78
@@ -2338,7 +923,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = Prepare_Integration_MOL
 		icon = GFX_da
 		x = 76
@@ -2359,7 +944,7 @@ focus_tree = {
 			MOL = { country_event = { id = moldova.2 } }
 		}
 	}
-	focus = {
+	shared_focus = {
 		id = Integrate_MOL
 		icon = GFX_da
 		x = 76
@@ -2468,14 +1053,11 @@ focus_tree = {
 
 		}
 	}
-}
-
-
 
 
 	
 
-	focus = {
+	shared_focus = {
 		id = russias_side
 		icon = GFX_da
 		x = 16
@@ -2499,8 +1081,1436 @@ focus_tree = {
 		}
 	}
 
+shared_focus = {
+		id = start_of_russian_invasion
+		icon = GFX_da
+		x = 13
+		y = 7
+		cost = 2
 
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			any_country={ original_tag = SOV has_war_with = UKR }
+        }
+		bypass = {
+		}
+		completion_reward = {
+			add_stability = -0.15
+			add_war_support = -0.05
+			add_political_power = 50
+		}
+	}
+
+	shared_focus = {
+		id = ukraines_side
+		icon = GFX_da
+		x = 10
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = start_of_russian_invasion}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = helping_the_refugees
+		icon = GFX_da
+		x = 8
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = ukraines_side}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = stopping_the_inflation_growth
+		icon = GFX_da
+		x = 12
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		mutually_exclusive = { focus = russias_side }
+		prerequisite = {focus = ukraines_side}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = secret_volunteer_corps
+		icon = GFX_da
+		x = 12
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = stopping_the_inflation_growth}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = military_aid_for_ukraine
+		icon = GFX_da
+		x = 8
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = helping_the_refugees}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+
+				type = infantry_equipment
+
+				amount = -1000
+
+			}
+			add_equipment_to_stockpile = {
+
+				type = artillery_equipment
+
+				amount = -100
+
+			}
+			add_equipment_to_stockpile = {
+
+				type = modern_tank_equipment
+
+				amount = -50
+
+			}
+		}
+	}
+
+	shared_focus = {
+		id = dock_perm_ukr
+		icon = GFX_da
+		x = 12
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = secret_volunteer_corps}
+		completion_reward = {
+			diplomatic_relation = {
+				country = UKR
+				relation = docking_rights
+				active = yes
+			}
+		}
+	}
+
+	shared_focus = {
+		id = humanitarian_aid
+		icon = GFX_da
+		x = 10
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = secret_volunteer_corps}
+		prerequisite = {focus = military_aid_for_ukraine}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = send_jets
+		icon = GFX_da
+		x = 8
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = military_aid_for_ukraine}
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = our_ukrainian_brothers
+		icon = GFX_da
+		x = 10
+		y = 14
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = dock_perm_ukr}
+		prerequisite = {focus = humanitarian_aid}
+		prerequisite = {focus = send_jets}
+		completion_reward = {
+			send_volunteer_divisions_required = 8
+			set_rule = { can_send_volunteers = yes }
+		}
+	}
+
+	shared_focus = {
+		id =  Bring_Romania_into_the_21th_Century
+
+		icon = GFX_da
+		x = 56
+		y = 0
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	shared_focus = {
+		id = Promote_Investment
+		icon = GFX_da
+		x = 56
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+		add_political_power = -25
+		273 = {
+        add_building_construction = {
+            type = industrial_complex
+            level = 2
+            instant_build = yes
+        }
+   		}
+		}
+	}
+	shared_focus = {
+		id = Fiscal_Policy
+		icon = GFX_da
+		x = 48
+		y = 1
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+			add_political_power = -25
+		}
+	}
+	shared_focus = {
+		id = Counter_Cyclical_Meas
+		icon = GFX_da
+		x = 47
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Policy}
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.03
+		}
+	}
+	shared_focus = {
+		id = Adopt_Laissez_Faire
+		icon = GFX_da
+		x = 45
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Counter_Cyclical_Meas}
+		completion_reward = {
+			358 = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+		}
+	}
+	shared_focus = {
+		id = Deregulate_FOREX_Markets
+		icon = GFX_da
+		x = 45
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Adopt_Laissez_Faire}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+		}
+	}
+	shared_focus = {
+		id = Prudent_Fiscal_Policy
+		icon = GFX_da
+		x = 48	
+		y = 7
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Improve_Eff_Gov_Exp}
+		prerequisite = {  focus = Fund_Social_Welfare_Prog}
+		prerequisite = {  focus = Deregulate_FOREX_Markets}
+		prerequisite = {  focus = Adopt_The_Euro}
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = Manage_Exchange_Rate_Policy
+		icon = GFX_da
+		x = 45	
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Adopt_Laissez_Faire}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+		}
+	}
+	shared_focus = {
+		id = Fiscal_Stim_Pack
+		icon = GFX_da
+		x = 47
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Counter_Cyclical_Meas}
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.03
+			358 = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+		}
+	}
+	shared_focus = {
+		id = Adopt_The_Euro
+		icon = GFX_da
+		x = 47
+		y = 5
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Stim_Pack}
+		completion_reward = {
+			add_timed_idea = {
+				idea = LIT_idea_euro_integration
+				days = 180
+			}
+		}
+	}
+
+	shared_focus = {
+		id = Prioritise_Public_Exp
+		icon = GFX_da
+		x = 49
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Policy}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	shared_focus = {
+		id = Allocate_Edu_Funding
+		icon = GFX_da
+		x = 49
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Prioritise_Public_Exp}
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = Invest_In_Healthcare
+		icon = GFX_da
+		x = 49
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Allocate_Edu_Funding}
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+	shared_focus = {
+		id = Fund_Social_Welfare_Prog
+		icon = GFX_da
+		x = 49
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_In_Healthcare}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			
+		}
+	}
+	shared_focus = {
+		id = Fiscal_Discipline
+		icon = GFX_da
+		x = 51
+		y = 2
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Policy}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	shared_focus = {
+		id = Tax_Reforms
+		icon = GFX_da
+		x = 51
+		y = 3
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Fiscal_Discipline}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	shared_focus = {
+		id = Improve_Eff_Gov_Exp
+		icon = GFX_da
+		x = 51
+		y = 5
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Tax_Reforms}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	shared_focus = {
+		id = Improve_Business_Env
+		icon = GFX_da
+		x = 54
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Promote_Investment}
+		completion_reward = {
+		239 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		273 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		358 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		281 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		333 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		325 = {
+			add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			
+		}
+		}
+	}
+	shared_focus = {
+		id = Offer_Range_Of_Investment
+		icon = GFX_da
+		x = 58
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Promote_Investment}
+		completion_reward = {
+		add_political_power = -50
+		
+		}
+	}
+	shared_focus = {
+		id = Renew_Public_Partnerships
+		icon = GFX_da
+		x = 58
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Offer_Range_Of_Investment}
+		completion_reward = {
+		add_political_power = 25
+		add_stability = 0.025
+		
+		}
+	}
+	shared_focus = {
+		id = Deincentivise_Emigration
+		icon = GFX_da
+		x = 54
+		y = 3
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Improve_Business_Env}
+		completion_reward = {
+		add_political_power = -100
+		add_stability = -0.05
+		
+		}
+	}
+	shared_focus = {
+		id = Encourage_Innovation_Entrepreneur
+		icon = GFX_da
+		x = 54
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Deincentivise_Emigration}
+		completion_reward = {
+		add_stability = 0.02
+		add_tech_bonus = {
+			name = engineering_bonus
+			bonus = 0.5
+				ahead_reduction = 1
+			uses = 2
+			category = engineering
+		}
+		
+		}
+	}
+	shared_focus = {
+		id = Investors_Dream_Country
+		icon = GFX_da
+		x = 56
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Encourage_Innovation_Entrepreneur}
+		prerequisite = {  focus = Renew_Public_Partnerships}
+		completion_reward = {
+		
+		
+		}
+	}
+	shared_focus = {
+		id = Attract_Workers
+		icon = GFX_da
+		x = 56
+		y = 7
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Investors_Dream_Country}
+		completion_reward = {
+		
+		
+		}
+	}
+	shared_focus = {
+		id =  Invest_in_Infrastructure
+		icon = GFX_da
+		x = 62
+		y = 1
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Bring_Romania_into_the_21th_Century}
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	shared_focus = {
+		id =  Invest_In_Social_Infrastructure
+		icon = GFX_da
+		x = 61
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.05
+		swap_ideas={
+            add_idea = Modern_Infrastructure_Investments_4
+		}
+		}
+	}
+	shared_focus = {
+		id =  Improve_the_quality_of_healthcare_services
+		icon = GFX_da
+		x = 61
+		y = 3
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_In_Social_Infrastructure}
+		completion_reward = {
+        monthly_population = 0.04
+		add_stability = 0.03
+		}
+	}
+	shared_focus = {
+		id = Invest_in_public_housing_infrastructure
+		icon = GFX_da
+		x = 61
+		y = 4
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Improve_the_quality_of_healthcare_services}
+		completion_reward = {
+        production_speed_infrastructure_factor = 0.05
+		add_stability = 0.04
+		}
+	}
+	shared_focus = {
+		id = modernize_educational_facilities
+		icon = GFX_da
+		x = 61
+		y = 5
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_public_housing_infrastructure}
+		completion_reward = {
+        production_speed_infrastructure_factor = 0.05
+		add_stability = 0.07
+		research_bonus = { industry = 0.15 }
+		research_speed_factor = 0.08
+		research_bonus = {
+			name = ROM_POLITICS
+				bonus = 1
+				uses = 2
+				category = electronics
+				category = industry
+            }
+		}
+	}
+	shared_focus = {
+		id = invest_water_sanitation
+		icon = GFX_da
+		x = 64
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure }
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	shared_focus = {
+		id = invest_energy_infra
+		icon = GFX_da
+		x = 64
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_water_sanitation }
+		completion_reward = {
+		add_stability = 0.02
+		resources = {
+            fuel: { oil = 10 }
+        }
+		modifier = {
+        synthetic_refinery_construction_speed = 0.10
+    	}
+		}
+	}
+	shared_focus = {
+		id = develop_rene_energy
+		icon = GFX_da
+		x = 64
+		y = 4
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_energy_infra }
+		completion_reward = {
+		add_stability = 0.1
+		370 = {
+		add_building_construction = {
+			type = synthetic_refinery
+			level = 1
+			instant_build = yes
+		}
+		}
+		}
+	}
+	shared_focus = {
+		id = develop_smart_grid
+		icon = GFX_da
+		x = 64
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = develop_rene_energy }
+		completion_reward = {
+		}
+	}
+	shared_focus = {
+		id = invest_transpo_infra
+		icon = GFX_da
+		x = 67
+		y = 2
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = Invest_in_Infrastructure }
+		completion_reward = {
+		modifier = {
+			air_base_construction_speed = 0.05
+			naval_base_construction_speed = 0.05
+			railway_construction_speed = 0.05
+		}
+		}
+	}
+	shared_focus = {
+		id = invest_const_roads
+		icon = GFX_da
+		x = 67
+		y = 3
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_transpo_infra }
+		completion_reward = {
+		modifier = {
+			railway_construction_speed = 0.1
+		}
+		}
+	}
+	shared_focus = {
+		id = invest_const_airports
+		icon = GFX_da
+		x = 67
+		y = 4
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_const_roads }
+		completion_reward = {
+			air_base_construction_speed = 0.1
+		358 = {
+		add_building_construction = {
+                type = air_base
+                level = 1
+                instant_build = yes
+            }
+		}
+		}
+	}
+	shared_focus = {
+		id = dev_ports_maritime
+		icon = GFX_da
+		x = 67
+		y = 5
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = invest_const_airports }
+		completion_reward = {
+		340 = {
+		add_building_construction = {
+                type = naval_base
+                level = 1
+                instant_build = yes
+                province = 4165
+            }
+		}
+		360 = {
+		add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+		}
+		}
+		}
+	}
+	shared_focus = {
+		id = 21_century_infra
+		icon = GFX_da
+		x = 64
+		y = 7
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite = {  focus = dev_ports_maritime }
+		prerequisite = { focus = develop_smart_grid }
+		prerequisite = { focus = modernize_educational_facilities }
+		completion_reward = {
+			remove_ideas = ROM_Outdated_infrastructure
+			add_stability = 0.06
+			add_war_support = 0.04
+		every_owned_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		}
+	}
+
+
+	shared_focus = {
+		id = military_modernazition
+		icon = GFX_military_modernazition
+		x = 13
+		y = 0
+		cost = 70
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			army_experience = 50
+            naval_experience = 50
+            air_experience = 50
+            add_ideas = 3_Stage_Military_Restructuring
+			add_ideas = Romanian_Military_Industry
+                 add_tech_bonus = {
+                name = ROM_military
+                bonus = 1.0
+                uses = 1
+                category = infantry_weapons
+                category = ship_modules_tech
+                category = support_tech
+                category = armor
+                category = artillery
+                category = air_equipment
+                category = infantry_anti_air_cat
+                category = ifv_cat
+                category = apc_cat
+            }	
+		}
+	}
 	
-}
+	shared_focus = {
+		id = land_force_doctrine_reform
+		icon = GFX_Land_Force_Doctrine_Reform
+		x = 13
+		y = 1
+		cost = 7
 
+		ai_will_do = { 
+			factor = 10 
+		}
 
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+
+		completion_reward = {
+			army_experience = 25
+				add_doctrine_cost_reduction = {
+				name = ROM_doctrine_reform
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+             swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring
+            add_idea = 3_Stage_Military_Restructuring_1
+		    }
+		}
+    }
+	shared_focus = {
+		id = increase_equipment_producement_standard
+		icon = GFX_Increase_Equipment_Procurement_Standards
+		x = 14
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = romanian_military_industry
+            add_idea = romanian_military_industry_2
+
+		    }
+		}
+    }
+	shared_focus = {
+		id = Rigorous_Military_Training
+		icon = GFX_Rigorous_Military_Training
+		x = 12
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = land_force_doctrine_reform }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_1
+            add_idea = 3_Stage_Military_Restructuring_2
+		    }
+		}
+    }
+		shared_focus = {
+		id = increase_randd_standards
+		icon = GFX_Increase_R_and_D_standards
+		x = 13
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_equipment_producement_standard }
+		prerequisite = { focus = Rigorous_Military_Training }
+
+		completion_reward = {
+             swap_ideas = {
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
+		    }
+		}
+    }
+		shared_focus = {
+		id = Partnership_With_Swiss_Defensive_Corporations
+		icon = GFX_Partnership_With_Swiss_Defensive_Corporations
+		x = 12
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            army_experience = 50
+			add_political_power = -50
+		 }
+	}
+		shared_focus = {
+		id = Increase_Domestic_Production_standards
+		icon = GFX_Increase_Domestic_Production_Standards
+		x = 14
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = increase_randd_standards }
+		completion_reward = {
+            swap_ideas = {
+            remove_idea = Romanian_Military_Industry_2
+            add_idea = Romanian_Military_Industry_3
+		    }
+		 }
+	}
+		shared_focus = {
+		id = Modernize_The_Airforce
+		icon = GFX_Modernize_The_Airforce
+		x = 8
+		y = 1
+		cost = 7
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = military_modernazition }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_air
+				uses = 1
+				category = air_doctrine
+				cost_reduction = 0.5
+			}
+            swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_2
+            add_idea = 3_Stage_Military_Restructuring_3
+		    }
+		 }
+	}
+		shared_focus = {
+		id =  Partcicipate_in_NATO_Exercises 
+		icon = GFX_Participate_in_nato_exercises
+		x = 7
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_3
+            add_idea = 3_Stage_Military_Restructuring_4
+		    }
+		 }
+	}
