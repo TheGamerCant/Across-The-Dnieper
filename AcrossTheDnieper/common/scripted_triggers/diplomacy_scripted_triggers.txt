@@ -471,6 +471,23 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				OR = {
+					original_tag = SOV
+					original_tag = BLR
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_SENDING_VOLUNTEERS_TT
+				FROM={
+					OR={
+						tag = GGZ
+						tag = TRZ
+					}
+				}
+			}
+		}
 		else_if={
 			limit = { tag = WAG }
 			always = yes
