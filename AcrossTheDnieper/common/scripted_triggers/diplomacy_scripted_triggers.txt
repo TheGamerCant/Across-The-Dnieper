@@ -467,27 +467,13 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 						tag = LHK
 						tag = KHK
 						tag = NOV#Cant send to ODS
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					original_tag = SOV
-					original_tag = BLR
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = NO_SENDING_VOLUNTEERS_TT
-				FROM={
-					OR={
 						tag = GGZ
 						tag = TRZ
 					}
 				}
 			}
 		}
+		
 		else_if={
 			limit = { tag = WAG }
 			always = yes
@@ -517,6 +503,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		else = {
 			always = no
 		}
+
 	}
 }
 
