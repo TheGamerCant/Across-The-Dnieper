@@ -525,6 +525,30 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 	}
 	else_if={
 		limit = {
+			ROOT = {
+				OR={
+				tag = TRZ
+				tag = GGZ
+				tag = SOV
+				tag = BLR
+				tag = UGE
+				tag = DON
+				tag = LHK
+				tag = ROM
+				}
+			}
+			OR={
+			TRZ={ has_war_with = ROM }
+			GGZ={has_war_with=ROM}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = ATD_CANNOT_JOIN_THIS_WAR
+			always = no
+		}
+	}	
+	else_if={
+		limit = {
 			FROM = {
 				tag = SOV
 			}
@@ -586,6 +610,25 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 				tag = SOV
 			}
 			SOV={ has_war_with = CRI vladimir_putin_is_leader = yes }
+		}
+		custom_trigger_tooltip = {
+			tooltip = ATD_CANNOT_CALL_INTO_THIS_WAR
+			always = no
+		}
+	}	
+	else_if={
+		limit = {
+			ROOT = {
+				OR={
+				tag = TRZ
+				tag = GGZ
+				tag = ROM
+				}
+			}
+			OR={
+			TRZ={ has_war_with = ROM }
+			GGZ={has_war_with=ROM}
+			}
 		}
 		custom_trigger_tooltip = {
 			tooltip = ATD_CANNOT_CALL_INTO_THIS_WAR
