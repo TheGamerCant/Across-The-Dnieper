@@ -1,0 +1,812 @@
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_main_gui"
+		size = { width = 1328 height = 874 }
+		position = { x=-200 y=100 }
+		show_position = { x=300 y=100}
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_decision_UKR_HUR_bg"
+		}
+		iconType = {
+			name = "HUR_logo"
+			position = {x = 0 y = 0}
+			spriteType = "GFX_decision_UKR_HUR_bg_logo"
+			alwaystransparent = yes
+			frame = 1
+		}
+		
+		instantTextboxType = {
+	    	name = "title_text_box"
+	    	position = { x = 464 y = 4 }
+	    	font = "hoi_36header"
+	    	text = "HUR_title_header"
+	    	maxWidth = 400
+	    	maxHeight = 40
+	    	alwaystransparent = yes
+	    	format = center
+	    }
+		
+		buttonType = {
+			name = "assassinations_select_button"
+			position = {x = 15 y = 50 }
+			quadTextureSprite = "GFX_decision_UKR_hur_entry_content"
+			buttonFont = "OCR_A_13"
+			buttonText = "assassinations_select_button_text"
+		}
+		
+		iconType = {
+			name = "UKR_intro_animation_bg"
+			position = {x = 0 y = 0 }
+			spriteType = "GFX_decision_UKR_HUR_bg_no_logo"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "close_button"
+			position = { x = -41 y = 7 }
+			quadTextureSprite = "GFX_closebutton"
+			shortcut = "ESCAPE"
+			scale = 1
+			orientation = upper_right
+		}
+	}
+	
+	containerWindowType={
+		name = "UKR_HUR_assassination_target_gui"
+		size = { width = 512 height = 807 }
+		position = { x=165 y=44 }
+		scroll_wheel_factor = 50
+		smooth_scrolling = yes
+		#autohide_scrollbars = no
+		verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+		}
+		
+		gridBoxType = {
+			name = "assassinations_grid_box"
+			position = { x = 0 y = 0}
+
+			Orientation = upper_left
+			slotsize = {width=256 height=350 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 2
+		}
+	}
+	
+	containerWindowType = {
+		name = "assassinations_entry"
+		slotsize = {width=256 height=350 }
+			
+		
+		instantTextboxType = {
+			name = "portrait"
+			position = {x = 50 y = 118 }
+			text = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "Name"
+			position = {x = 50 y = 264 }
+			text = "[?v.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+			font="OCR_A_13"
+			maxWidth = 156
+			maxHeight = 36
+			format = center
+			fixedsize  = yes
+		}
+		
+		buttonType = {
+			name = "portrait_outline"
+			position = {x = 46 y = 18 }
+			spriteType = "GFX_decision_HUR_portrait_outline"
+		}
+	}
+	
+	containerWindowType = {
+		name = "HUR_anim_container"
+		size = { x = 710 y = 450 }
+		position = { x = 33 y = 46 }
+		
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_1"	    
+			position = {x = 0 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_1"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_2"	    
+			position = {x = 25 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_2"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_3"	    
+			position = {x = 50 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_3"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_4"	    
+			position = {x = 75 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_4"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_5"	    
+			position = {x = 100 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_5"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_6"	    
+			position = {x = 125 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_6"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_7"	    
+			position = {x = 150 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_7"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_8"	    
+			position = {x = 175 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_8"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_9"	    
+			position = {x = 200 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_9"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_10"	    
+			position = {x = 225 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_10"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_11"	    
+			position = {x = 250 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_11"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_12"	    
+			position = {x = 275 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_12"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_13"	    
+			position = {x = 300 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_13"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_14"	    
+			position = {x = 325 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_14"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_15"	    
+			position = {x = 350 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_15"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_16"	    
+			position = {x = 375 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_16"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_17"	    
+			position = {x = 400 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_17"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_18"	    
+			position = {x = 425 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_18"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_19"	    
+			position = {x = 450 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_19"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_20"	    
+			position = {x = 475 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_20"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_21"	    
+			position = {x = 500 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_21"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_22"	    
+			position = {x = 525 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_22"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_23"	    
+			position = {x = 550 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_23"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_24"	    
+			position = {x = 575 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_24"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_25"	    
+			position = {x = 600 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_25"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_26"	    
+			position = {x = 625 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_26"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_27"	    
+			position = {x = 650 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_27"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_28"	    
+			position = {x = 675 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_28"	    
+			alwaystransparent = yes            
+		}
+		iconType = {	    
+			name = "UKR_HUR_init_anim_icon_29"	    
+			position = {x = 700 y = 0 }	    
+			spriteType = "GFX_HUR_init_frame_29"	    
+			alwaystransparent = yes            
+		}
+		iconType = {
+			name = "UKR_HUR_underscore"
+			position = {x = 4 y = 306 }
+			spriteType = "GFX_HUR_underscore"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "UKR_HUR_underscore_overlay"
+			position = {x = 4 y = 306 }
+			spriteType = "GFX_HUR_underscore_overlay"
+			alwaystransparent = yes
+		}
+		
+		buttonType = {
+			name = "keypress_enter"
+			position = {x=-9999 y=9999}
+			shortcut = "RETURN"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_space"
+			position = {x=-9999 y=9999}
+			shortcut = "SPACE"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_exclamation_mark"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+1"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_lbracket"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+9"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_rbracket"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+0"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_asterix"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+8"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_plus"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+="
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_comma"
+			position = {x=-9999 y=9999}
+			shortcut = ","
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_hyphen"
+			position = {x=-9999 y=9999}
+			shortcut = "-"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_dot"
+			position = {x=-9999 y=9999}
+			shortcut = "."
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_slash"
+			position = {x=-9999 y=9999}
+			shortcut = "/"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_colon"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+;"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_semicolon"
+			position = {x=-9999 y=9999}
+			shortcut = ";"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_lesser_than"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+,"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_equal_to"
+			position = {x=-9999 y=9999}
+			shortcut = "="
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_greater_than"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+."
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_question_mark"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+/"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_at"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+2"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_0"
+			position = {x=-9999 y=9999}
+			shortcut = "0"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_1"
+			position = {x=-9999 y=9999}
+			shortcut = "1"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_2"
+			position = {x=-9999 y=9999}
+			shortcut = "2"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_3"
+			position = {x=-9999 y=9999}
+			shortcut = "3"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_4"
+			position = {x=-9999 y=9999}
+			shortcut = "4"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_5"
+			position = {x=-9999 y=9999}
+			shortcut = "5"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_6"
+			position = {x=-9999 y=9999}
+			shortcut = "6"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_7"
+			position = {x=-9999 y=9999}
+			shortcut = "7"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_8"
+			position = {x=-9999 y=9999}
+			shortcut = "8"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_9"
+			position = {x=-9999 y=9999}
+			shortcut = "9"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_A"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+A"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_B"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+B"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_C"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+C"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_D"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+D"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_E"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+E"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_F"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+F"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_G"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+G"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_H"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+H"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_I"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+I"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_J"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+J"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_K"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+K"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_L"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+L"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_M"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+M"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_N"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+N"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_O"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+O"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_P"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+P"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_Q"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+Q"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_R"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+R"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_S"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+S"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_T"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+T"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_U"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+U"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_V"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+V"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_W"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+W"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_X"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+X"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_Y"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+Y"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_shift_Z"
+			position = {x=-9999 y=9999}
+			shortcut = "shift+Z"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_a"
+			position = {x=-9999 y=9999}
+			shortcut = "a"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_b"
+			position = {x=-9999 y=9999}
+			shortcut = "b"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_c"
+			position = {x=-9999 y=9999}
+			shortcut = "c"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_d"
+			position = {x=-9999 y=9999}
+			shortcut = "d"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_e"
+			position = {x=-9999 y=9999}
+			shortcut = "e"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_f"
+			position = {x=-9999 y=9999}
+			shortcut = "f"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_g"
+			position = {x=-9999 y=9999}
+			shortcut = "g"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_h"
+			position = {x=-9999 y=9999}
+			shortcut = "h"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_i"
+			position = {x=-9999 y=9999}
+			shortcut = "i"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_j"
+			position = {x=-9999 y=9999}
+			shortcut = "j"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_k"
+			position = {x=-9999 y=9999}
+			shortcut = "k"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_l"
+			position = {x=-9999 y=9999}
+			shortcut = "l"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_m"
+			position = {x=-9999 y=9999}
+			shortcut = "m"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_n"
+			position = {x=-9999 y=9999}
+			shortcut = "n"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_o"
+			position = {x=-9999 y=9999}
+			shortcut = "o"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_p"
+			position = {x=-9999 y=9999}
+			shortcut = "p"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_q"
+			position = {x=-9999 y=9999}
+			shortcut = "q"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_r"
+			position = {x=-9999 y=9999}
+			shortcut = "r"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_s"
+			position = {x=-9999 y=9999}
+			shortcut = "s"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_t"
+			position = {x=-9999 y=9999}
+			shortcut = "t"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_u"
+			position = {x=-9999 y=9999}
+			shortcut = "u"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_v"
+			position = {x=-9999 y=9999}
+			shortcut = "v"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_w"
+			position = {x=-9999 y=9999}
+			shortcut = "w"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_x"
+			position = {x=-9999 y=9999}
+			shortcut = "x"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_y"
+			position = {x=-9999 y=9999}
+			shortcut = "y"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+		buttonType = {
+			name = "keypress_z"
+			position = {x=-9999 y=9999}
+			shortcut = "z"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+
+		buttonType = {
+			name = "keypress_backspace" 
+			position = {x=-9999 y=9999}	
+			shortcut = "BACKSPACE"
+			scale = 0.00001 quadTextureSprite ="GFX_blank" 
+		}
+	}
+	
+}
+
+
+guiTypes = {
+	containerWindowType = {
+		name = "UKR_HUR_decision"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 200 }
+
+		buttonType = {
+			name = "UKR_HUR_decision_button"
+			position = { x = 130 y = -12.5 }
+			quadTextureSprite = "GFX_decision_UKR_hur_button"
+			orientation = upper_left
+		}
+	}
+}
