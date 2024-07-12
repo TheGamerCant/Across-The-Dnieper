@@ -1,0 +1,531 @@
+CSTO_decisions = {
+	csto_buy_guns = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { infantry_equipment < 3600 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 1
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 2
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_0
+				amount = 1280
+				producer = SOV
+			}
+        }
+	}
+	
+	csto_buy_artillery = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				OR = {
+					has_equipment = { artillery_equipment < 1000 }
+					has_equipment = { rocket_artillery_equipment < 600 }
+				}
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 2
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 3
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment_1
+				amount = 180
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = rocket_artillery_equipment_1
+				amount = 120
+				producer = SOV
+			}
+        }
+	}
+
+	csto_buy_support_equipment = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { support_equipment < 1200 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 1
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 2
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+			add_equipment_to_stockpile = { 
+				type = support_equipment_1
+				amount = 280
+				producer = SOV
+			}
+        }
+	}
+
+	csto_buy_inf_at = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { infantry_anti_tank_equipment < 1500 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 1
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 2
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+            add_equipment_to_stockpile = { 
+				type = infantry_anti_tank_equipment_1
+				amount = 160
+				producer = SOV
+			}
+        }
+	}
+	
+	csto_buy_inf_aa = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { infantry_anti_air_equipment < 1500 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 1
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 2
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+            add_equipment_to_stockpile = { 
+				type = infantry_anti_air_equipment_1
+				amount = 160
+				producer = SOV
+			}
+        }
+	}
+	
+	csto_buy_trucks = {
+		priority = 1
+
+		icon = GFX_decision_generic_industry
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { motorized_equipment_1 < 999 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 2
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 50
+
+        modifier = {
+			civilian_factory_use = 3
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+            add_equipment_to_stockpile = { 
+				type = motorized_equipment_1
+				amount = 126
+				producer = SOV
+			}
+        }
+	}
+
+	buy_t72 = {
+		priority = 1
+
+		icon = GFX_decision_generic_tank
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_dlc = "No Step Back"
+				has_equipment = { modern_tank_chassis < 250 }
+			}
+			modifier={
+				add = 100
+				NOT = { has_dlc = "No Step Back" }
+				has_equipment = { modern_tank_archetype < 250 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 100
+
+        modifier = {
+			civilian_factory_use = 5
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+           if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = t72_chasis
+					version_name = "T-72b3"
+					amount = 80
+					producer = SOV
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = t72b3_equipment
+					amount = 80
+					producer = SOV
+				}
+			}
+        }
+	}
+
+	buy_t80 = {
+		priority = 1
+
+		icon = GFX_decision_generic_tank
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_dlc = "No Step Back"
+				has_equipment = { modern_tank_chassis < 250 }
+			}
+			modifier={
+				add = 100
+				NOT = { has_dlc = "No Step Back" }
+				has_equipment = { modern_tank_archetype < 250 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 100
+
+        modifier = {
+			civilian_factory_use = 5
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+           if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = t80_chasis
+					version_name = "T-80"
+					amount = 60
+					producer = SOV
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = t80_equipment
+					amount = 60
+					producer = SOV
+				}
+			}
+        }
+	}
+
+	buy_t90 = {
+		priority = 1
+
+		icon = GFX_decision_generic_tank
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_dlc = "No Step Back"
+				has_equipment = { modern_tank_chassis < 250 }
+			}
+			modifier={
+				add = 100
+				NOT = { has_dlc = "No Step Back" }
+				has_equipment = { modern_tank_archetype < 250 }
+			}
+        }
+        
+        visible = { 
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+
+        days_remove = 100
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 100
+
+        modifier = {
+			civilian_factory_use = 5
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+           if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = t90_chasis
+					version_name = "T-90"
+					amount = 40
+					producer = SOV
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = t90_equipment
+					amount = 40
+					producer = SOV
+				}
+			}
+        }
+	}
+	
+	su_27_purchases = {
+		priority = 1
+
+		icon = GFX_decision_generic_air
+
+		ai_will_do = {
+            base = 0
+			modifier={
+				add = 100
+				has_equipment = { small_plane_airframe < 200 }
+			}
+        }
+        
+        visible = { 
+
+        }
+        
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+			
+        }
+
+        days_remove = 140
+        days_re_enable = 365
+        
+        
+        fire_only_once = no
+
+        cost = 150
+
+        modifier = {
+			civilian_factory_use = 5
+        }
+        
+        complete_effect = {
+
+        }
+
+        remove_effect = {
+           if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_airframe_0
+					version_name = "Su-27SM"
+					amount = 18
+					producer = SOV
+				}
+			}
+			else={
+				add_equipment_to_stockpile = { 
+					type = fighter_equipment_0
+					amount = 18
+					producer = SOV
+				}
+			}
+        }
+	}
+}

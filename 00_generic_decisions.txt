@@ -1,0 +1,495 @@
+information_category = {
+	generic_information_economy = {
+		icon = generic_factory		
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+			
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = generic_information.1
+		}
+	}
+	generic_information_combat = {
+		icon = generic_prepare_civil_war	
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+			
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = generic_information.2
+		}
+	}
+	generic_information_technology = {
+		icon = generic_research		
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+			
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = generic_information.3
+		}
+	}
+	generic_information_designer = {
+		icon = generic_air	
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+			
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = generic_information.4
+		}
+	}
+	
+	generic_information_belarus = {
+		icon = generic_form_nation	
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+			original_tag = BLR
+		}
+
+		visible = {
+			original_tag = BLR
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = generic_information.5
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+economy_decisions = {
+	improved_worker_conditions_mod = {
+		icon = generic_factory		
+
+		fire_only_once = no
+		days_re_enable = 160
+        days_remove = 140
+
+        cost = 60
+
+		available = {
+			
+		}
+
+		visible = {
+			always = yes
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				OR = {
+					has_stability < 0.2
+					AND = {
+						has_political_power > 155 #Spend on other things first
+						has_stability < 0.75
+					}
+				}
+			}
+		}
+
+		modifier = {
+			stability_weekly = 0.004
+			industrial_capacity_factory = -0.05
+            consumer_goods_factor = 0.025
+			production_speed_buildings_factor = -0.10
+        }
+	}
+
+	seize_some_trains_woo = { #repeating train seize
+
+		icon = GFX_decision_hol_draw_up_staff_plans	
+
+		visible = { 
+			has_equipment = { train_equipment < 61 }
+		}
+		
+		available = {
+			has_equipment = { train_equipment < 61 }
+			has_tech = basic_train
+		}
+
+		cost = 40
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_stability > 0.74
+			}
+		}
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 12
+			}
+			add_war_support = -0.025
+		}
+	}
+}
+
+war_measures = {
+	introduce_conscription = {
+
+		icon = GFX_
+
+		visible = { 
+
+		}
+		
+		available = {
+			OR = {
+				has_war_support > 0.75
+				has_war = yes
+				threat > 0.5
+			}
+			OR = {
+				has_idea = volunteer_only
+				has_idea = army_disbanded
+			}
+		}
+
+		cost = 80
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 10
+				threat > 0.5
+			}
+		}
+
+		complete_effect = {
+			IF = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				swap_ideas = {
+					add_idea = limited_conscription
+					remove_idea = volunteer_only
+				}
+				add_war_support = -0.05
+				set_country_flag = original_army_law_was_volunteer_only
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = army_disbanded
+				}
+				swap_ideas = {
+					add_idea = limited_conscription
+					remove_idea = army_disbanded
+				}
+				add_war_support = -0.15
+				set_country_flag = original_army_law_was_army_disbanded
+			}
+		}
+	}
+	
+	increase_conscription = {
+
+		icon = GFX_
+
+		visible = { 
+
+		}
+		
+		available = {
+			has_war = yes
+			surrender_progress > 0.2
+			has_idea = limited_conscription
+		}
+
+		cost = 80
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_war = yes
+			}
+			modifier = {
+				add = 900
+				surrender_progress > 0.2
+			}
+		}
+
+		complete_effect = {
+			add_manpower = 40000
+			swap_ideas = {
+				add_idea = extensive_conscription
+				remove_idea = limited_conscription
+			}
+			add_war_support = -0.1
+			if={
+				limit={
+					NOT={ has_country_flag = original_army_law_was_volunteer_only }
+					NOT={ has_country_flag = original_army_law_was_army_disbanded }
+				}
+				set_country_flag = original_army_law_was_limited_conscription
+			}
+		}
+	}
+	
+	reduce_conscription = {
+
+		icon = GFX_
+
+		visible = { 
+
+		}
+		
+		available = {
+			has_war = no
+
+			OR = {
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+
+		cost = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				threat > 0.3
+			}
+		}
+
+		complete_effect = {			
+			IF = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				swap_ideas = {
+					add_idea = volunteer_only
+					remove_idea = extensive_conscription
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				swap_ideas = {
+					add_idea = volunteer_only
+					remove_idea = limited_conscription
+				}
+			}
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+	
+	war_economy_dec = {
+
+		icon = GFX_
+
+		visible = { 
+			NOT = { has_idea = war_economy }
+		}
+		
+		available = {
+			has_war = yes
+		}
+
+		cost = 150
+
+		fire_only_once = no
+		days_re_enable = 365
+        days_remove = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_war = yes
+			}
+		}
+
+		remove_effect = {		
+			IF = {
+				limit = {
+					has_idea = western_economy
+				}
+				swap_ideas = {
+					add_idea = war_economy
+					remove_idea = western_economy
+				}
+				set_country_flag = original_economy_law_was_western_economy
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = oligarchy
+				}
+				swap_ideas = {
+					add_idea = war_economy
+					remove_idea = oligarchy
+				}
+				set_country_flag = original_economy_law_was_oligarchy
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = centrally_planned_economy
+				}
+				swap_ideas = {
+					add_idea = war_economy
+					remove_idea = centrally_planned_economy
+				}
+				set_country_flag = original_economy_law_was_centrally_planned_economy
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = rentier_state
+				}
+				swap_ideas = {
+					add_idea = war_economy
+					remove_idea = rentier_state
+				}
+				set_country_flag = original_economy_law_was_rentier_state
+			}
+		}
+	}
+}
+
+money_gui_decisions={
+	toggle_topbar_gui = {
+
+		icon = eng_trade_unions_support
+
+		visible = { 
+
+		}
+		
+		available = {
+		}
+
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+
+		}
+
+		complete_effect = {			
+			if={
+				limit = { has_country_flag = money_gui_topbar_off }
+				clr_country_flag = money_gui_topbar_off
+			}
+			else={
+				set_country_flag = money_gui_topbar_off
+			}
+		}
+	}
+}
+
+nukes_decision_category={
+	launch_the_nukes = {
+
+		icon = eng_trade_unions_support
+
+		visible = { 
+
+		}
+		
+		available = {
+			any_enemy_country={
+				is_major = yes
+			}
+		}
+
+		cost = 100
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = launch_the_nukes_tt
+			hidden_effect = { country_event ={ id = generic.4 hours = 1 } }
+		}
+	}
+}

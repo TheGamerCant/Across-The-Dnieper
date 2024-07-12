@@ -1,0 +1,620 @@
+characters={
+	BLR_mikhail_myasnikovich = {
+		name = BLR_mikhail_myasnikovich
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_mikhail_myasnikovich_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_mikhail_myasnikovich
+			can_be_fired = no
+			allowed = {
+				original_tag = BLR
+			}
+			visible = {
+				always = yes
+			}
+			available = {
+				has_country_leader = {
+					name = "Александр Лукашенко"
+					ruling_only = yes
+				}
+
+				NOT = {
+					has_idea = BLR_andrei_kobyakov
+					has_idea = BLR_syarhey_rumas
+					has_idea = BLR_roman_golovchenko
+				}
+			}
+			traits = {
+				BLR_PM_myasnikovich
+			}
+		}
+	}
+
+	BLR_andrei_kobyakov = {
+		name = BLR_andrei_kobyakov
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_andrei_kobyakov_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_andrei_kobyakov
+			can_be_fired = no
+			allowed = {
+				original_tag = BLR
+			}
+			visible = {
+				always = yes
+			}
+			available = {
+				has_country_leader = {
+					name = "Александр Лукашенко"
+					ruling_only = yes
+				}
+
+				NOT = {
+					has_idea = BLR_mikhail_myasnikovich
+					has_idea = BLR_syarhey_rumas
+					has_idea = BLR_roman_golovchenko
+				}
+			}
+			traits = {
+				BLR_PM_kobyakov
+			}
+		}
+	}
+
+	BLR_syarhey_rumas = {
+		name = BLR_syarhey_rumas
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_syarhey_rumas_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_syarhey_rumas
+			can_be_fired = no
+			allowed = {
+				original_tag = BLR
+			}
+			visible = {
+				always = yes
+			}
+			available = {
+				has_country_leader = {
+					name = "Александр Лукашенко"
+					ruling_only = yes
+				}
+
+				NOT = {
+					has_idea = BLR_mikhail_myasnikovich
+					has_idea = BLR_andrei_kobyakov
+					has_idea = BLR_roman_golovchenko
+				}
+			}
+			traits = {
+				BLR_PM_rumas
+			}
+		}
+	}
+
+	BLR_roman_golovchenko = {
+		name = BLR_roman_golovchenko
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_roman_golovchenko_advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_roman_golovchenko
+			can_be_fired = no
+			allowed = {
+				original_tag = BLR
+			}
+			visible = {
+				always = yes
+			}
+			available = {
+				has_country_leader = {
+					name = "Александр Лукашенко"
+					ruling_only = yes
+				}
+
+				NOT = {
+					has_idea = BLR_mikhail_myasnikovich
+					has_idea = BLR_andrei_kobyakov
+					has_idea = BLR_syarhey_rumas
+				}
+			}
+			traits = {
+				BLR_PM_golovchenko
+			}
+		}
+	}
+
+
+
+
+
+	# Advisors
+
+	# Minister of Defence
+	BLR_viktor_khrenin = {
+		name = BLR_viktor_khrenin
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_viktor_khrenin_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_viktor_khrenin
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_defence
+			}
+		}
+	}
+
+	# Minister of Economy
+	BLR_aleksandr_chervyakov = {
+		name = BLR_aleksandr_chervyakov
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_aleksandr_chervyakov_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_aleksandr_chervyakov
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_economy
+			}
+		}
+	}
+
+	# Minister of Finance
+	BLR_yury_seliverstov = {
+		name = BLR_yury_seliverstov
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_yury_seliverstov_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_yury_seliverstov
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_finance
+			}
+		}
+	}
+
+	# Minister of Foreign Affairs
+	BLR_vladimir_makei = {
+		name = BLR_vladimir_makei
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_vladimir_makei_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_vladimir_makei
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_foreign_affairs
+			}
+		}
+	}
+
+	# Minister of Internal Affairs
+	BLR_ivan_kubrakov = {
+		name = BLR_ivan_kubrakov
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_ivan_kubrakov_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_ivan_kubrakov
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_domestic_affairs
+			}
+		}
+	}
+
+	# Minister of Education
+	BLR_igor_karpenko = {
+		name = BLR_igor_karpenko
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_igor_karpenko_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_igor_karpenko
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_education
+			}
+		}
+	}
+
+	# Minister of Culture
+	BLR_anatoly_markevich = {
+		name = BLR_anatoly_markevich
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_anatoly_markevich_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_anatoly_markevich
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_culture
+			}
+		}
+	}
+
+	# Minister of Transport
+	BLR_aleksei_avramenko = {
+		name = BLR_aleksei_avramenko
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_aleksei_avramenko_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_aleksei_avramenko
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_transport
+			}
+		}
+	}
+
+	# Minister of Agricutlture
+	BLR_ivan_krupko = {
+		name = BLR_ivan_krupko
+		portraits = {
+			civilian = { small = "gfx/interface/ideas/BLR/advisors/GFX_BLR_ivan_krupko_advisor.png" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_ivan_krupko
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = {
+				
+			}
+			traits = {
+				BLR_minister_of_agriculture
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	#Viktor Gulevich - former commander-in-chief of the Belarusian armed forces.
+	#Leonid Maltsev - former commander-in-chief of the Belarusian armed forces.
+	#Aleksandr Chumakov - former commander-in-chief of the Belarusian armed forces.
+	#Igor Golub - current commander-in-chief of the Belarusian armed forces.
+
+	#Vladimir Usoltsev - former commander of the Belarusian air force.
+	#Vladimir Kuzovkin - former commander of the Belarusian air force.
+
+
+
+	# Genereals
+
+	BLR_oleg_belokonev = {
+		name = BLR_oleg_belokonev
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_oleg_belokonev_general.png"
+
+				small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_oleg_belokonev_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = BLR_oleg_belokonev
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_armored_2
+			}
+		}
+
+		corps_commander = {
+			skill = 3
+    		attack_skill = 3
+    		defense_skill = 2
+    		planning_skill = 4
+    		logistics_skill = 2
+
+			traits = { panzer_expert panzer_leader cavalry_expert }
+		}
+	}
+
+	BLR_alexander_volfovich = {
+		name = BLR_alexander_volfovich
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_alexander_volfovich_general.png"
+				
+    			small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_alexander_volfovich_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = army_chief
+			idea_token = BLR_alexander_volfovich
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_chief_reform_2
+			}
+		}
+
+		advisor = {
+		    slot = theorist
+		    idea_token = BLR_alexander_volfovich
+		    ledger = army
+		    traits = { mass_assault_expert }
+			cost = 180
+		}
+
+		field_marshal = {
+			skill = 3
+    		attack_skill = 2
+    		defense_skill = 4
+    		planning_skill = 1
+    		logistics_skill = 3
+			
+			traits = { organizer skilled_staffer }
+		}
+	}
+
+	BLR_viktor_gulevich = {
+		name = BLR_viktor_gulevich
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_viktor_gulevich_general.png"
+
+    			small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_viktor_gulevich_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = army_chief
+			idea_token = BLR_viktor_gulevich
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_chief_organizational_2
+			}
+		}
+		
+		advisor = {
+		    slot = theorist
+		    idea_token = BLR_viktor_gulevich
+		    ledger = army
+		    traits = { military_theorist }
+			cost = 120
+		}
+
+		field_marshal = {
+			skill = 4
+    		attack_skill = 4
+    		defense_skill = 3
+    		planning_skill = 3
+    		logistics_skill = 2
+			
+			traits = { inspirational_leader hill_fighter ranger }
+		}
+	}
+
+	BLR_leonid_maltsev = {
+		name = BLR_leonid_maltsev
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_leonid_maltsev_general.png"
+				small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_leonid_maltsev_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = BLR_leonid_maltsev
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_CombinedArms_2
+			}
+		}
+
+		corps_commander = {
+			skill = 2
+    		attack_skill = 2
+    		defense_skill = 3
+    		planning_skill = 1
+    		logistics_skill = 2
+			
+			traits = { cavalry_leader combined_arms_expert }
+		}
+	}
+
+	BLR_aleksandr_chumakov = {
+		name = BLR_aleksandr_chumakov
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_aleksandr_chumakov_general.png"
+				small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_aleksandr_chumakov_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = BLR_aleksandr_chumakov
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_infantry_2
+			}
+		}
+
+		corps_commander = {
+			skill = 2
+    		attack_skill = 2
+    		defense_skill = 3
+    		planning_skill = 1
+    		logistics_skill = 1
+			
+			traits = { infantry_leader engineer }
+		}
+	}
+
+	BLR_igor_golub = {
+		name = BLR_igor_golub
+		portraits = {
+			army = {
+        		large = "gfx/leaders/BLR/generals/GFX_BLR_igor_golub_general.png"
+				small = "gfx/interface/ideas/BLR/advisors/Military/GFX_BLR_igor_golub_small.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = BLR_igor_golub
+			can_be_fired = yes
+			allowed = { original_tag = BLR }
+			visible = { always = yes }
+			available = { }
+			traits = {
+				army_commando_2
+			}
+		}
+
+		corps_commander = {
+			skill = 2
+    		attack_skill = 3
+    		defense_skill = 1
+    		planning_skill = 2
+    		logistics_skill = 1
+
+			traits = { infantry_leader commando logistics_wizard }
+		}
+	}
+}

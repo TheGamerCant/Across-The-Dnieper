@@ -1,0 +1,4305 @@
+UKR_state_of_the_nation_decisions={	
+	UKR_the_problem_in_the_east = {
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			has_completed_focus = UKR_the_east_secured
+		}
+
+		days_mission_timeout = 120
+		activation = {
+			has_country_flag = UKR_has_had_pro_russian_protests_flag
+		}
+
+		visible = {
+			
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			custom_effect_tooltip = UKR_the_problem_in_the_east_tt
+			set_global_flag = donbass_war_is_ongoing
+			hidden_effect={
+				set_global_flag = donbass_war_started
+				news_event = { hours = 6 id = atd_news.3 }
+				set_variable = { UKR_sotn_pro_russians_loyalty = -3 }
+				add_to_variable = { UKR_sotn_pro_russians_conscription = -0.002 }
+				add_to_variable = { UKR_sotn_pro_russians_political_power_factor = -0.03 }
+				add_to_variable = { UKR_sotn_pro_russians_stability_factor = -0.1 }
+				if={
+					limit = {
+						OR={
+							has_country_flag = UKR_historical_path_for_gov 
+							has_country_flag = UKR_appeasing_the_russians
+							AND={
+								is_historical_focus_on = yes
+								is_ai = yes
+								NOT={
+									OR={
+										UKR_is_yarosh_ultranat_ai = yes
+										UKR_is_yarosh_fascist_ai = yes
+									}
+								}
+							}
+						}
+					}
+					every_state={
+						limit = { has_state_flag = donetsk_oblast_flag }
+						add_core_of = DON
+					}
+					every_state={
+						limit = { has_state_flag = luhansk_oblast_flag }
+						add_core_of = LHK
+					}
+					DON = { 
+						transfer_state = 186
+						transfer_state = 173
+						load_oob = DON_moderate
+					}
+					LHK = { 
+						transfer_state = 152
+						transfer_state = 174
+						transfer_state = 159
+						load_oob = LHK_moderate
+					}
+					UKR={
+						set_province_controller = 18302
+						set_province_controller = 1166
+						set_province_controller = 4771
+						set_province_controller = 13399
+						set_province_controller = 11188
+						set_province_controller = 200
+						set_province_controller = 7395
+						
+						set_province_controller = 12187
+						set_province_controller = 13190
+						set_province_controller = 4359
+						set_province_controller = 2851
+						set_province_controller = 6231
+						set_province_controller = 5649
+					}
+					174 = { set_state_controller_to = UKR }
+					159 = { set_state_controller_to = UKR }
+					173 = { set_state_controller_to = UKR }
+					if={
+						limit = { 
+							army_manpower_in_state = { state = 89 amount < 7500 } 
+							army_manpower_in_state = { state = 94 amount < 7500 }
+							NOT = { has_country_flag = UKR_crush_the_kharkov_republic_flag }
+							OR={
+								is_ai = no
+								UKR_is_yarosh_ultranat_ai = yes
+								UKR_is_yarosh_fascist_ai = yes
+							}
+						}
+						every_state={
+							limit = { has_state_flag = kharkiv_oblast_flag }
+							add_core_of = KHK
+						}
+						KHK = { 
+							transfer_state = 94
+							load_oob = KHK_moderate
+						}
+						94 = { set_state_controller_to = UKR }	
+					}
+					if={
+						limit = { 
+							army_manpower_in_state = { state = 199 amount < 7500 } 
+							army_manpower_in_state = { state = 269 amount < 7500 }
+							NOT = { has_country_flag = UKR_block_the_north_crimean_canal_flag }
+							OR={
+								is_ai = no
+								UKR_is_yarosh_ultranat_ai = yes
+								UKR_is_yarosh_fascist_ai = yes
+							}
+						}	
+						every_state={
+							limit = { has_state_flag = odessa_oblast_flag }
+							add_core_of = ODS
+						}
+						ODS = { 
+							transfer_state = 269
+							transfer_state = 320
+							transfer_state = 287
+							transfer_state = 291
+							transfer_state = 332
+							transfer_state = 322
+							load_oob = ODS_moderate
+						}
+					}
+				}
+				else={				#Novorossiya
+					every_state={
+						limit = {
+							OR={
+								has_state_flag = donetsk_oblast_flag
+								has_state_flag = zaporizhia_oblast_flag
+								has_state_flag = luhansk_oblast_flag
+							}	
+						}
+						add_core_of = NOV
+					}
+					
+					NOV = {
+						transfer_state = 152
+						transfer_state = 174
+						transfer_state = 159
+						transfer_state = 186
+						transfer_state = 173
+						load_oob = DON_moderate
+						load_oob = LHK_moderate
+						load_oob = NOV_rebel
+					}
+					UKR={
+						set_province_controller = 18302
+						set_province_controller = 1166
+						set_province_controller = 4771
+						set_province_controller = 13399
+						set_province_controller = 11188
+						set_province_controller = 200
+						set_province_controller = 7395
+						
+						set_province_controller = 12187
+						set_province_controller = 13190
+						set_province_controller = 4359
+						set_province_controller = 2851
+						set_province_controller = 6231
+						set_province_controller = 5649
+					}
+					174 = { set_state_controller_to = UKR }
+					159 = { set_state_controller_to = UKR }
+					173 = { set_state_controller_to = UKR }
+					every_state={
+						limit = {
+							OR={
+								has_state_flag = dnipro_oblast_flag
+								has_state_flag = kherson_oblast_flag
+								has_state_flag = mykolaiv_oblast_flag
+								has_state_flag = odessa_oblast_flag
+							}	
+						}
+						add_claim_by = NOV
+					}
+					DON = { every_unit_leader = { set_nationality = NOV } }
+					LHK = { every_unit_leader = { set_nationality = NOV } }
+					NOV={
+						create_country_leader = {
+							name = "Игорь Гиркин"
+							desc = ""
+							ideology = donetsk_party
+							picture = gfx/leaders/DON/Portrait_Igor_Girkin.png
+							traits = { retired_fsb_agent }
+						}
+					}
+					if={
+						limit = { 
+							army_manpower_in_state = { state = 89 amount < 7500 } 
+							army_manpower_in_state = { state = 94 amount < 7500 }
+							NOT = { has_country_flag = UKR_crush_the_kharkov_republic_flag }
+							is_ai = no
+						}
+						every_state={
+							limit = { has_state_flag = kharkiv_oblast_flag }
+							add_core_of = NOV
+						}
+						NOV = { 
+							load_oob = KHK_moderate
+						}
+						UKR={
+							set_province_controller = 7182
+							set_province_controller = 10013
+							set_province_controller = 13115
+							set_province_controller = 3279
+							set_province_controller = 17405
+							set_province_controller = 12384
+							set_province_controller = 9708
+							set_province_controller = 8990
+							set_province_controller = 17241
+							set_province_controller = 953
+							set_province_controller = 4234
+						}
+					}
+					if={
+						limit = { 
+							army_manpower_in_state = { state = 199 amount < 7500 } 
+							army_manpower_in_state = { state = 269 amount < 7500 }
+							NOT = { has_country_flag = UKR_block_the_north_crimean_canal_flag }
+							is_ai = no
+						}
+						every_state={
+							limit = { has_state_flag = odessa_oblast_flag }
+							add_core_of = ODS
+						}
+						ODS = { 
+							transfer_state = 269
+							transfer_state = 320
+							transfer_state = 287
+							transfer_state = 291
+							transfer_state = 332
+							transfer_state = 322
+							load_oob = ODS_moderate
+						}
+						
+					}
+				}
+				186 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 18233
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 19194
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 10500
+						instant_build = yes
+					}
+				}
+				152 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 17963
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 12731
+						instant_build = yes
+					}
+				}
+				if={
+					limit = { NOV = { exists = yes } }
+					NOV = { 
+						create_faction = "Анти-Киевская Коалиция" 
+						add_named_threat = { threat = 15 name = war_in_donbass } 
+					}
+					if={
+						ODS = { exists = yes }
+						NOV = { add_to_faction = ODS }
+					}
+				}
+				else={
+					DON={
+						create_faction = "Анти-Киевская Коалиция"
+						add_named_threat = { threat = 15 name = war_in_donbass }
+						add_to_faction = LHK
+						if={
+							KHK={ exists = yes }
+							add_to_faction = KHK
+						}
+						if={
+							ODS={ exists = yes }
+							add_to_faction = ODS
+						}
+					}
+				}
+				SOV = { 
+					country_event = { id = ukraine.28 days = 15 } #Send Volunteers?
+#					country_event = { id = russia.52 days = 20} 
+				}
+				UKR = { 
+					load_focus_tree = ukraine_post_donbass_tree
+					complete_national_focus = UKR_the_war_in_donbass
+					country_event = { id = ukraine.27 days = 8 }
+					country_event = { id = super.6 hours = 1 }
+					if={
+						limit = { is_ai = no }
+						country_event = { id = ukraine.26 }
+					} 
+					if={
+						limit = { NOT = { has_country_flag = UKR_ensured_military_loyalty_flag } }
+						if={
+							limit = { is_ai = no }
+							country_event = { id = ukraine.30 days = 4 }
+						} 
+						else={
+							add_stability = -0.03			#AI will get the debuff idea but won't lose troops, UKR ai is retarded
+							add_war_support = -0.05
+							add_manpower = -30000
+							add_timed_idea={
+								idea = UKR_army_defections
+								days = 305
+							}
+						}
+					}
+					
+					if={
+						limit = { NOT = { has_country_flag = UKR_block_the_north_crimean_canal_flag } }
+						country_event = { id = ukraine.101 days = 12 }
+					}
+					else={
+						country_event = { id = ukraine.103 days = 18 }
+					}
+				}
+				DON = { add_ideas = generic_demographic_crisis }
+				LHK = { add_ideas = generic_demographic_crisis }
+				KHK = { add_ideas = generic_demographic_crisis }
+				ODS = { add_ideas = generic_demographic_crisis }
+				NOV = { add_ideas = generic_demographic_crisis }
+				
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+						}
+					}
+					UKR = { declare_war_on = { target = PREV type = annex_everything  } }	#I've found that when they declare war on Ukraine instead of Ukraine declaring war on them, Ukraine get a lot stronger coz of army core buffs
+				}
+				
+				division_template = {
+					name = "Militia"
+					division_names_group = UKR_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 92 }
+					create_unit = {
+						division = "name = \"Praviy Sector\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Praviy Sector\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Praviy Sector\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Kyiv Militia\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Kremenchug Company\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Dzhokhar Dudayev Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Sich Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Sich Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Lviv Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Lviv Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Cherkasy Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Cherkasy Battalion\" division_template = \"Militia\" start_experience_factor = 0.05" 
+						owner = UKR
+					}
+				}
+				
+				every_state={
+					limit = { 
+						NOT = { has_state_flag = odessa_oblast_flag }
+						NOT = { has_state_flag = mykolaiv_oblast_flag }
+						OR={
+							is_core_of = DON
+							is_claimed_by = DON
+							is_core_of = LHK
+							is_claimed_by = LHK
+							is_core_of = KHK
+							is_claimed_by = KHK
+							is_core_of = NOV
+							is_claimed_by = NOV
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = UKR_war_in_donbass_modifier
+						scope = UKR
+					}
+				}
+				every_state={
+					limit = { 
+						NOT = { has_state_flag = odessa_oblast_flag }
+						NOT = { has_state_flag = mykolaiv_oblast_flag }
+						OR={
+							is_core_of = DON
+							is_claimed_by = DON
+							is_core_of = LHK
+							is_claimed_by = LHK
+							is_core_of = KHK
+							is_claimed_by = KHK
+							is_core_of = NOV
+							is_claimed_by = NOV
+						}
+					}
+					if={
+						limit = { DON = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = UKR_war_in_donbass_modifier
+							scope = DON
+						}
+					}
+					if={
+						limit = { LHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = UKR_war_in_donbass_modifier
+							scope = LHK
+						}
+					}
+					if={
+						limit = { KHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = UKR_war_in_donbass_modifier
+							scope = KHK
+						}
+					}
+					if={
+						limit = { NOV = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = UKR_war_in_donbass_modifier
+							scope = NOV
+						}
+					}
+				}
+				
+				every_state={
+					limit = { 
+						is_controlled_by = UKR
+						NOT={
+							OR={
+								is_core_of = DON
+								is_claimed_by = DON
+								is_core_of = LHK
+								is_claimed_by = LHK
+								is_core_of = KHK
+								is_claimed_by = KHK
+								is_core_of = ODS
+								is_claimed_by = ODS
+								is_core_of = NOV
+								is_claimed_by = NOV
+							}
+						}
+					}
+					if={
+						limit = { DON = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = not_allowed_to_attack_here
+							scope = DON
+						}
+					}
+					if={
+						limit = { LHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = not_allowed_to_attack_here
+							scope = LHK
+						}
+					}
+					if={
+						limit = { KHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = not_allowed_to_attack_here
+							scope = KHK
+						}
+					}
+					if={
+						limit = { ODS = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = not_allowed_to_attack_here
+							scope = ODS
+						}
+					}
+					if={
+						limit = { NOV = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = not_allowed_to_attack_here
+							scope = NOV
+						}
+					}
+				}
+				
+				every_country={		
+					limit={
+						exists = yes
+						OR={
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+						}
+					}
+					spawn_new_country_economy = yes = yes
+				}
+			}
+		}
+	}
+	UKR_secure_oddessa = { 
+
+		icon = generic_civil_support
+
+		allowed = {
+			original_tag = UKR
+		}
+		
+		target_trigger = {
+			FROM = { 
+				OR={
+					state = 199
+					state = 269
+				}
+			}
+		}
+		target_root_trigger = { 
+			tag = UKR
+		} 
+		state_target = yes
+		on_map_mode = map_only
+
+		available = {
+			always = no
+			NOT = { army_manpower_in_state = { state = 199 amount < 7500 } }
+			NOT = { army_manpower_in_state = { state = 269 amount < 7500 } }
+		}
+
+		visible = {
+			has_completed_focus = UKR_block_the_north_crimean_canal
+			NOT={ has_global_flag = donbass_war_is_ongoing }
+		}
+
+		cost = 0
+
+		complete_effect = {		
+			
+		}
+	}
+	UKR_secure_kharkiv = { 
+
+		icon = generic_civil_support
+
+		allowed = {
+			original_tag = UKR
+		}
+		
+		target_trigger = {
+			FROM = { 
+				OR={
+					state = 89
+					state = 94
+				}
+			}
+		}
+		target_root_trigger = { 
+			tag = UKR
+		} 
+		state_target = yes
+		on_map_mode = map_only
+
+		available = {
+			always = no
+			NOT = { army_manpower_in_state = { state = 89 amount < 7500 } }
+			NOT = { army_manpower_in_state = { state = 94 amount < 7500 } }
+		}
+
+		visible = {
+			has_completed_focus = UKR_crush_the_kharkov_republic
+			NOT={ has_global_flag = donbass_war_is_ongoing }
+		}
+
+		cost = 0
+
+		complete_effect = {		
+			
+		}
+	}
+}
+
+UKR_the_verkhovna_rada={
+	UKR_2014_elections = {
+
+		icon = SWI_no_elected_president
+
+		available = {
+			has_country_flag = UKR_2014_elections_have_been_held
+		}
+		
+		days_mission_timeout = 89
+		activation = {
+			has_completed_focus = UKR_the_revolution_of_dignity
+		}
+
+		visible = {
+			
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			if={
+				limit = { has_country_flag = UKR_rs_svoboda_coalition }
+				country_event = { id = ukraine.17 days = 0 }
+				hidden_effect={ country_event = { id = ukraine.18 days = 30 } }
+			}
+			else={
+				country_event = { id = ukraine.16 days = 0 }
+			}
+		}
+	}
+	
+	UKR_hold_snap_elections = {
+
+		icon = generic_political_rally
+
+		available = {
+			has_completed_focus = UKR_elections_to_the_rada
+		}
+		
+		days_mission_timeout = 1300
+		activation = {
+			has_completed_focus = UKR_the_revolution_of_dignity
+		}
+
+		visible = {
+			
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			add_political_power = -100
+			custom_effect_tooltip = UKR_change_the_rada_tt
+			hidden_effect={		
+				UKR_clr_party_flags = yes
+				if={
+					limit = { has_completed_focus = UKR_president_yarosh }
+					set_country_flag = svoboda_in_power
+					set_country_flag = right_sector_in_power
+					
+					set_variable = { UKR_rada_fatherland_seats = 23 }
+					set_variable = { UKR_rada_party_of_regions_seats = 0 }
+					set_variable = { UKR_rada_svoboda_seats = 109 }
+					set_variable = { UKR_rada_udar_seats = 0 }
+					set_variable = { UKR_rada_kpu_seats = 0 }
+					set_variable = { UKR_rada_right_sector_seats = 68 }
+					set_variable = { UKR_rada_economic_development_seats = 20 }
+					set_variable = { UKR_rada_peoples_will_seats = 15 }
+					set_variable = { UKR_rada_peoples_front_seats = 80 }
+					set_variable = { UKR_rada_european_solidarity_seats = 59 }
+					set_variable = { UKR_rada_servant_of_the_people_seats = 0 }
+					set_variable = { UKR_rada_opposition_bloc_seats = 60 }
+
+				}
+				else_if={
+					limit = { has_completed_focus = UKR_president_tymoshenko }
+					set_country_flag = fatherland_in_power
+					set_country_flag = peoples_will_in_power
+					set_country_flag = european_solidarity_in_power
+					
+					set_variable = { UKR_rada_fatherland_seats = 156 }
+					set_variable = { UKR_rada_party_of_regions_seats = 0 }
+					set_variable = { UKR_rada_svoboda_seats = 10 }
+					set_variable = { UKR_rada_udar_seats = 0 }
+					set_variable = { UKR_rada_kpu_seats = 0 }
+					set_variable = { UKR_rada_right_sector_seats = 2 }
+					set_variable = { UKR_rada_economic_development_seats = 19 }
+					set_variable = { UKR_rada_peoples_will_seats = 15 }
+					set_variable = { UKR_rada_peoples_front_seats = 80 }
+					set_variable = { UKR_rada_european_solidarity_seats = 69 }
+					set_variable = { UKR_rada_servant_of_the_people_seats = 0 }
+					set_variable = { UKR_rada_opposition_bloc_seats = 40 }
+
+				}
+				else={
+					set_country_flag = fatherland_in_power
+					set_country_flag = peoples_front_in_power
+					set_country_flag = european_solidarity_in_power
+					
+					set_variable = { UKR_rada_fatherland_seats = 20 }
+					set_variable = { UKR_rada_party_of_regions_seats = 0 }
+					set_variable = { UKR_rada_svoboda_seats = 7 }
+					set_variable = { UKR_rada_udar_seats = 0 }
+					set_variable = { UKR_rada_kpu_seats = 0 }
+					set_variable = { UKR_rada_right_sector_seats = 1 }
+					set_variable = { UKR_rada_economic_development_seats = 19 }
+					set_variable = { UKR_rada_peoples_will_seats = 19 }
+					set_variable = { UKR_rada_peoples_front_seats = 80 }
+					set_variable = { UKR_rada_european_solidarity_seats = 145 }
+					set_variable = { UKR_rada_servant_of_the_people_seats = 0 }
+					set_variable = { UKR_rada_opposition_bloc_seats = 40 }
+				}
+
+				set_country_flag = opposition_bloc_in_opposition
+				set_country_flag = kpu_in_opposition
+				UKR_get_non_aligned_seats = yes
+				UKR_get_rada_seats = yes
+				UKR_get_government_majority_status = yes
+			}
+		}
+		
+		complete_effect ={  
+			add_political_power = 50
+			if={
+				limit = { has_government = ultranationalist }
+				add_popularity = {
+					ideology = ultranationalist 
+					popularity = 0.05
+				}
+			}
+			else_if={
+				limit = { has_government = fascist }
+				add_popularity = {
+					ideology = fascist 
+					popularity = 0.05
+				}
+			}
+			else={
+				add_popularity = {
+					ideology = eastern_liberal 
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	
+	UKR_anti_protest_laws = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			NOT={
+				has_country_leader = {
+					name = "Виктор Янукович"
+					ruling_only = yes
+				}
+			}
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		days_mission_timeout = 40
+		activation = {
+			has_ideas = UKR_vitaliy_zakharchenko
+		}	
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			custom_effect_tooltip = UKR_rada_effect_tt		#It will always go through
+			add_political_power = 50
+			add_stability = -0.1
+			swap_ideas = {
+				remove_idea = UKR_maidan_protests_idea
+				add_idea = UKR_maidan_anarchy_idea
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+			custom_effect_tooltip = UKR_rada_effect_tt_2
+		}
+	}
+	
+	UKR_expand_presidential_powers = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_consolidate_power_in_the_presidency
+			has_country_leader = {
+				name = "Dmytro Yarosh"
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = UKR_expand_presidential_powers_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_expand_presidential_powers_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					add_stability = -0.1
+					add_political_power = 50
+					if={
+						limit = { has_completed_focus = UKR_the_president_of_maidan }
+						swap_ruler_traits = {
+							remove = spirit_of_maidan
+							add = spirit_of_maidan_2
+						}	
+					}
+					else={
+						swap_ruler_traits = {
+							remove = the_nationalist_president
+							add = the_nationalist_president_2
+						}	
+					}
+					set_country_flag = UKR_expand_presidential_powers_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+				add_stability = -0.1
+				add_political_power = 50
+				if={
+					limit = { has_completed_focus = UKR_the_president_of_maidan }
+					swap_ruler_traits = {
+						remove = spirit_of_maidan
+						add = spirit_of_maidan_2
+					}	
+				}
+				else={
+					swap_ruler_traits = {
+						remove = the_nationalist_president
+						add = the_nationalist_president_2
+					}	
+				}
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_expand_presidential_powers_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_expand_presidential_powers_has_been_completed
+			NOT = { has_country_flag = UKR_expand_presidential_powers_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_expand_presidential_powers_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+	
+	UKR_expand_rada_powers = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_expand_the_powers_of_the_rada
+			has_country_leader = {
+				name = "Yulia Tymoshenko"
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = UKR_expand_rada_powers_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_expand_rada_powers_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					if={
+						limit = { has_idea = UKR_federalisation_efforts_1 }
+						swap_ideas={
+							remove_idea = UKR_federalisation_efforts_1
+							add_idea = UKR_federalisation_efforts_3
+						}
+					}
+					else={
+						swap_ideas={
+							remove_idea = UKR_federalisation_efforts
+							add_idea = UKR_federalisation_efforts_2
+						}
+					}
+					set_country_flag = UKR_expand_rada_powers_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+				if={
+					limit = { has_idea = UKR_federalisation_efforts_1 }
+					swap_ideas={
+						remove_idea = UKR_federalisation_efforts_1
+						add_idea = UKR_federalisation_efforts_3
+					}
+				}
+				else={
+					swap_ideas={
+					remove_idea = UKR_federalisation_efforts
+						add_idea = UKR_federalisation_efforts_2
+					}
+				}
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_expand_rada_powers_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_expand_rada_powers_has_been_completed
+			NOT = { has_country_flag = UKR_expand_rada_powers_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_expand_rada_powers_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+	
+	UKR_decentralisation_of_agriculture = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_the_decentralisation_of_agriculture
+
+			NOT = { has_country_flag = UKR_decentralisation_of_agriculture_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_decentralisation_of_agriculture_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					swap_ideas={
+						remove_idea = oligarchy
+						add_idea = western_economy
+					}
+					add_ideas = UKR_the_breadbasket_of_the_world
+					every_state={
+						limit={
+							is_owned_and_controlled_by = ROOT
+						}
+						increase_state_gdp_growth_by_1_5 = yes
+					}
+					set_country_flag = UKR_decentralisation_of_agriculture_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+				swap_ideas={
+					remove_idea = oligarchy
+					add_idea = western_economy
+				}
+				add_ideas = UKR_the_breadbasket_of_the_world
+				every_state={
+					limit={
+						is_owned_and_controlled_by = ROOT
+					}
+					increase_state_gdp_growth_by_1_5 = yes
+				}
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_decentralisation_of_agriculture_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_decentralisation_of_agriculture_has_been_completed
+			NOT = { has_country_flag = UKR_decentralisation_of_agriculture_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_decentralisation_of_agriculture_has_been_completed
+			UKR_bill_is_minor = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+	
+	UKR_state_language_bill = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_the_state_language_bill
+
+			NOT = { has_country_flag = UKR_state_language_bill_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_state_language_bill_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					remove_ideas = UKR_the_language_issue
+					add_to_variable = { UKR_sotn_pro_russians_political_power_factor = -0.03 }
+					custom_effect_tooltip = UKR_the_state_language_bill_tt
+					set_country_flag = UKR_state_language_bill_was_successful
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+				remove_ideas = UKR_the_language_issue
+				add_to_variable = { UKR_sotn_pro_russians_political_power_factor = -0.03 }
+				custom_effect_tooltip = UKR_the_state_language_bill_tt
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_state_language_bill_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_state_language_bill_has_been_completed
+			NOT = { has_country_flag = UKR_state_language_bill_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_state_language_bill_has_been_completed
+			UKR_bill_is_minor = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+		}
+	}
+	
+	UKR_disband_the_rada = {
+
+		icon = eng_trade_unions_support
+
+		available = {
+			always = no
+		}
+		
+		allowed = { 
+			tag = UKR
+		}
+		
+		activation = {
+			has_country_flag = there_is_legislation_in_the_rada
+			has_completed_focus = UKR_temporarily_disband_the_rada
+
+			NOT = { has_country_flag = UKR_disband_the_rada_has_been_completed }
+		}
+		
+		days_mission_timeout = 60	
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_country_flag = UKR_disband_the_rada_has_been_completed
+			hidden_effect={
+				if={
+					limit = { check_variable = { var = votes_for_the_bill value = UKR_required_votes compare = greater_than_or_equals } }
+					custom_effect_tooltip = UKR_disband_the_rada_tt
+					set_country_flag = UKR_disband_the_rada_was_successful
+					kill_country_leader = yes
+					create_country_leader = {
+						name = "Дмитрий Ярош"
+						desc = "dmytro_yarosh_leader_fascist_desc"
+						ideology = right_sector_svoboda_fascist_subideology
+						picture = gfx/leaders/UKR/Portrait_Dmytro_Yarosh_Gamer.png
+						traits = { the_nationalist_president_3 }
+					}
+					swap_ideas={
+						remove_idea = martial_law
+						add_idea = fascist_regime
+					}
+					news_event = { hours = 9 id = atd_news.26 } 
+					country_event = { days = 4 id = ukraine.98 } 
+					set_global_flag = ukraine_rada_disbanded
+					
+					set_politics = {
+						ruling_party = fascist
+						elections_allowed = no
+					}
+				}
+			}
+			effect_tooltip={
+				custom_effect_tooltip = UKR_rada_effect_tt
+				custom_effect_tooltip = UKR_disband_the_rada_tt
+				swap_ruler_traits = {
+					remove = the_nationalist_president_2
+					add = the_nationalist_president_3
+				}
+				swap_ideas={
+					remove_idea = martial_law
+					add_idea = fascist_regime
+				}
+				custom_effect_tooltip = UKR_rada_effect_tt_2
+			}
+			if={
+				limit = { is_ai = no }
+				divide_variable = { cost_of_lobby_decisions = 2.5 }
+			}
+			clr_country_flag = there_is_legislation_in_the_rada
+		}
+	}
+	
+	UKR_put_disband_the_rada_bill_in_the_rada = { 
+
+		icon = eng_trade_unions_support
+		
+		days_remove = 0
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = there_is_legislation_in_the_rada }
+		}
+
+		visible = {
+			has_country_flag = UKR_disband_the_rada_has_been_completed
+			NOT = { has_country_flag = UKR_disband_the_rada_was_successful }
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {		
+			clr_country_flag = UKR_disband_the_rada_has_been_completed
+			UKR_bill_is_major = yes
+			get_party_votes_player = yes
+			get_party_votes_for_the_bill = yes
+			if={
+				limit = { is_ai = no }
+				multiply_variable = { cost_of_lobby_decisions = 2.5 }
+			}
+		}
+	}
+	
+	UKR_lobby_fatherland = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_fatherland_seats > UKR_rada_fatherland_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = fatherland_in_opposition }
+			check_variable = { var = UKR_rada_fatherland_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_fatherland_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_fatherland_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_fatherland_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_fatherland_votes
+				max = UKR_rada_fatherland_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_fatherland_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_party_of_regions = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_party_of_regions_seats > UKR_rada_party_of_regions_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = party_of_regions_in_opposition }
+			check_variable = { var = UKR_rada_party_of_regions_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_party_of_regions_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_party_of_regions_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_party_of_regions_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_party_of_regions_votes
+				max = UKR_rada_party_of_regions_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_party_of_regions_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_svoboda = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_svoboda_seats > UKR_rada_svoboda_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = svoboda_in_opposition }
+			check_variable = { var = UKR_rada_svoboda_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_svoboda_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_svoboda_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_svoboda_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_svoboda_votes
+				max = UKR_rada_svoboda_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_svoboda_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_udar = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_udar_seats > UKR_rada_udar_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = udar_in_opposition }
+			check_variable = { var = UKR_rada_udar_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_udar_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_udar_votes_remaining > 50 }
+			}
+		}
+		
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_udar_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_udar_votes
+				max = UKR_rada_udar_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_udar_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_kpu = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_kpu_seats > UKR_rada_kpu_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = kpu_in_opposition }
+			check_variable = { var = UKR_rada_kpu_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_kpu_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_kpu_votes_remaining > 50 }
+			}
+		}
+		
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_kpu_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_kpu_votes
+				max = UKR_rada_kpu_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_kpu_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_right_sector = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_right_sector_seats > UKR_rada_right_sector_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = right_sector_in_opposition }
+			check_variable = { var = UKR_rada_right_sector_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_right_sector_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_right_sector_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_right_sector_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_right_sector_votes
+				max = UKR_rada_right_sector_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_right_sector_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_economic_development = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_economic_development_seats > UKR_rada_economic_development_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = economic_development_in_opposition }
+			check_variable = { var = UKR_rada_economic_development_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_economic_development_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_economic_development_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_economic_development_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_economic_development_votes
+				max = UKR_rada_economic_development_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_economic_development_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_peoples_will = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_peoples_will_seats > UKR_rada_peoples_will_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = peoples_will_in_opposition }
+			check_variable = { var = UKR_rada_peoples_will_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_peoples_will_votes_remaining > 35 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_peoples_will_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_peoples_will_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_peoples_will_votes
+				max = UKR_rada_peoples_will_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_peoples_will_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_peoples_front = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_peoples_front_seats > UKR_rada_peoples_front_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = peoples_front_in_opposition }
+			check_variable = { var = UKR_rada_peoples_front_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_peoples_front_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_peoples_front_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_peoples_front_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_peoples_front_votes
+				max = UKR_rada_peoples_front_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_peoples_front_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_european_solidarity = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_european_solidarity_seats > UKR_rada_european_solidarity_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = european_solidarity_in_opposition }
+			check_variable = { var = UKR_rada_european_solidarity_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_european_solidarity_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_european_solidarity_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_european_solidarity_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_european_solidarity_votes
+				max = UKR_rada_european_solidarity_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_european_solidarity_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_servant_of_the_people = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_servant_of_the_people_seats > UKR_rada_servant_of_the_people_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = servant_of_the_people_in_opposition }
+			check_variable = { var = UKR_rada_servant_of_the_people_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_servant_of_the_people_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_servant_of_the_people_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_servant_of_the_people_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_servant_of_the_people_votes
+				max = UKR_rada_servant_of_the_people_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_servant_of_the_people_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_opposition_bloc = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_opposition_bloc_seats > UKR_rada_opposition_bloc_votes }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+			NOT = { has_country_flag = opposition_bloc_in_opposition }
+			check_variable = { var = UKR_rada_opposition_bloc_seats value = 0 compare = greater_than }
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_opposition_bloc_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_opposition_bloc_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_opposition_bloc_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_opposition_bloc_votes
+				max = UKR_rada_opposition_bloc_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_opposition_bloc_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+	
+	UKR_lobby_the_non_aligned_faction = { 
+
+		icon = generic_civil_support
+		
+		days_remove = 7
+		days_re_enable = 28
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			check_variable = { UKR_rada_non_aligned_seats > UKR_rada_non_aligned_votes }
+			check_variable = { var = UKR_rada_non_aligned_seats value = 0 compare = greater_than }
+		}
+
+		visible = {
+			has_country_flag = there_is_legislation_in_the_rada
+		}
+
+		cost = var:cost_of_lobby_decisions
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+			}
+			modifier = {
+				add = 400
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_non_aligned_votes_remaining > 25 }
+			}
+			modifier = {
+				add = 500
+				check_variable = { votes_for_the_bill < UKR_required_votes }
+				check_variable = { UKR_rada_non_aligned_votes_remaining > 50 }
+			}
+		}
+
+		remove_effect = {		
+			custom_effect_tooltip = UKR_lobby_the_non_aligned_faction_tt
+			set_variable_to_random = {
+				var = random_seats_to_add
+				min = UKR_rada_non_aligned_votes
+				max = UKR_rada_non_aligned_seats
+				integer = yes
+			}
+			set_variable = { UKR_rada_non_aligned_votes = random_seats_to_add }
+			get_party_votes_for_the_bill = yes
+			clear_variable = random_seats_to_add
+		}
+	}
+}
+
+UKR_war_in_donbass_decisions={
+
+	UKR_minsk_ii = {
+
+		icon = generic_form_nation
+
+		available = {
+			DON={
+				OR={
+					has_capitulated = yes
+					surrender_progress > 0.9
+					exists = no
+				}
+			}
+			LHK={
+				OR={
+					has_capitulated = yes
+					surrender_progress > 0.9
+					exists = no
+				}
+			}
+			KHK={
+				OR={
+					has_capitulated = yes
+					surrender_progress > 0.9
+					exists = no
+				}
+			}
+			ODS={
+				OR={
+					has_capitulated = yes
+					surrender_progress > 0.9
+					exists = no
+				}
+			}
+			NOV={
+				OR={
+					has_capitulated = yes
+					surrender_progress > 0.9
+					exists = no
+				}
+			}
+		}
+		
+		days_mission_timeout = 120
+		activation = {
+			has_global_flag = minsk_i_held
+		}
+
+		allowed = {
+			tag = UKR
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			country_event = { id = ukraine.55 days = 0 }
+		}
+		
+		complete_effect={
+			add_war_support = 0.05
+			SOV={
+				if={
+					limit = { has_idea = SOV_secret_involvement }
+					remove_ideas = SOV_secret_involvement
+				}
+				if={
+					limit = { has_idea = SOV_secret_involvement_medium }
+					remove_ideas = SOV_secret_involvement_medium
+				}
+				if={
+					limit = { has_idea = SOV_secret_involvement_large }
+					remove_ideas = SOV_secret_involvement_large
+				}
+				if={
+					limit = { has_idea = SOV_secret_involvement_huge }
+					remove_ideas = SOV_secret_involvement_huge
+				}
+				clr_country_flag = chosen_to_send_volunteers_to_donbass
+			}
+			BLR={
+				if={
+					limit = { has_idea = BLR_secret_involvement_small }
+					remove_ideas = BLR_secret_involvement_small
+				}
+				clr_country_flag = chosen_to_send_volunteers_to_donbass
+			}
+			every_country={
+				limit = { 
+					has_volunteers_amount_from = { tag = SOV count > 1 } 
+					OR={
+						tag = DON
+						tag = LHK
+						tag = KHK
+						tag = ODS
+						tag = NOV
+					}
+				}
+				SOV = { recall_volunteers_from = PREV }
+			}
+			every_country={
+				limit = { 
+					has_volunteers_amount_from = { tag = BLR count > 1 } 
+					OR={
+						tag = DON
+						tag = LHK
+						tag = KHK
+						tag = ODS
+						tag = NOV
+					}
+				}
+				BLR = { recall_volunteers_from = PREV }
+			}
+		}
+	}
+	
+	offensive_in_state = { 
+
+		icon = decision_hol_draw_up_staff_plans
+		
+		target_trigger = {
+			FROM = { 
+				OR={
+					has_dynamic_modifier = { modifier = UKR_local_offensive_modifier scope = ROOT }	#Stops it from cancelling out if the state comes under your control
+					AND={
+						NOT = { ROOT = { has_full_control_of_state = PREV } }
+						has_dynamic_modifier = { modifier = UKR_war_in_donbass_modifier scope = ROOT }			
+						OR={
+							is_core_of = ROOT
+							is_claimed_by = ROOT
+						}
+						any_neighbor_state={
+							is_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		target_root_trigger = { 
+			OR={
+				tag = UKR
+				tag = DON
+				tag = LHK
+				tag = KHK
+				tag = ODS
+				tag = NOV
+			}
+		} 
+		state_target = yes
+		on_map_mode = map_only
+
+		allowed = {
+
+		}
+		
+		ai_will_do = {
+			base = 0	#Try to launch offensives when possible, but only in states with fighting
+			modifier = {
+				add = 100
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 5000 }
+				}
+				NOT = { state = 154 }
+			}
+			modifier = {
+				add = 100
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 10000 }
+				}
+				NOT = { state = 154 }
+			}
+			modifier = {
+				add = 500
+				army_manpower_in_state = { state = FROM amount > 10000 }
+				any_enemy_country={
+					army_manpower_in_state = { state = FROM amount > 10000 }
+				}
+				NOT = { state = 154 }
+			}
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			custom_trigger_tooltip = {
+			    tooltip = offensive_in_state_tt
+				check_variable = { ROOT.maximum_number_of_offensives > ROOT.number_of_undertaken_offensives }
+			}
+		}
+
+		visible = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+		
+		days_remove = 45
+		days_re_enable = 45
+		
+		
+		fire_only_once = no
+
+		custom_cost_trigger = {
+			command_power > 24
+			has_political_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+
+		complete_effect = {	
+			custom_effect_tooltip = donbass_offensive_tt
+			add_to_variable = { ROOT.number_of_undertaken_offensives = 1 }
+			set_variable = { global.state_selected_for_offensive = FROM }	#Used for loc
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+				every_country={
+					limit = { 
+						has_war_with = ROOT
+						OR={
+							tag = UKR
+							tag = DON
+							tag = LHK
+							tag = KHK
+							tag = ODS
+							tag = NOV
+							tag = SOV	#Remind them
+						}
+					}
+					country_event = { id = ukraine.38 }
+				}
+				if={
+					limit = { is_ai = yes }
+					log = "[GetDateText]: [Root.GetName] AI launched an offensive in [?global.state_selected_for_offensive.GetName]"
+				}
+				FROM={
+					remove_dynamic_modifier = {
+						modifier = UKR_war_in_donbass_modifier
+						scope = ROOT
+					}
+					add_dynamic_modifier = {
+						modifier = UKR_local_offensive_modifier
+						scope = ROOT
+					}
+				}
+			}
+			clear_variable = global.state_selected_for_offensive
+		}
+		
+		remove_effect={
+			custom_effect_tooltip = remove_donbass_offensive_tt
+			subtract_from_variable = { ROOT.number_of_undertaken_offensives = 1 }
+			hidden_effect={
+				FROM={
+					remove_dynamic_modifier = {
+						modifier = UKR_local_offensive_modifier
+						scope = ROOT
+					}
+					add_dynamic_modifier = {
+						modifier = UKR_war_in_donbass_modifier
+						scope = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	donbass_prepare_conflict = {
+		icon = GFX_decision_border_war
+
+		available = {
+			NOT = { has_country_flag = has_done_a_donbass_border_conflict }
+			any_owned_state = {
+				is_fully_controlled_by = ROOT
+				has_ROOT_at_least_1_div_in_current_state_scope = yes
+				any_neighbor_state = {
+					is_fully_controlled_by = FROM
+				}
+			}
+			has_war = no
+			FROM = { has_war = no }
+		}
+
+		visible = {
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			is_neighbor_of = FROM
+		}
+
+		target_array = global.donbass_war_countries
+		target_trigger = {
+			FROM = {
+				is_neighbor_of = ROOT
+				NOT = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+					has_border_war_with = ROOT
+					has_non_aggression_pact_with = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = FROM.defender_state_vs_@ROOT
+					AND = {
+						is_owned_and_controlled_by = FROM
+						any_neighbor_state = {
+							has_ROOT_at_least_1_div_in_current_state_scope = yes
+							is_fully_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+		}
+
+		custom_cost_trigger = {
+			command_power > 24
+			has_political_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+
+		days_re_enable = 180
+		days_remove = 7
+
+		cancel_trigger = {
+			OR = {
+				has_war = yes
+				FROM = { has_war = yes }
+				is_in_faction_with = FROM
+				has_non_aggression_pact_with = FROM
+			}
+		}
+
+		cancel_effect = {
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName] started a border conflict against [From.GetName]"
+			set_country_flag = { flag = has_done_a_donbass_border_conflict value = 1 days = 300 }
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -25
+				FROM = {
+					random_owned_controlled_state = {
+						limit = {
+							any_neighbor_state = {
+								is_fully_controlled_by = ROOT
+								has_ROOT_at_least_1_div_in_current_state_scope = yes
+							}
+						}
+						set_state_flag = DEFENDER_STATE
+						set_variable = { PREV.defender_state_vs_@ROOT = THIS }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						has_ROOT_at_least_1_div_in_current_state_scope = yes
+						any_neighbor_state = {
+							is_fully_controlled_by = FROM
+							has_state_flag = DEFENDER_STATE
+						}
+					}
+					set_variable = { FROM.attacker_state_vs_@ROOT = THIS }
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				FROM = {
+					random_owned_controlled_state = {
+						limit = {
+							has_state_flag = DEFENDER_STATE
+						}
+						clr_state_flag = DEFENDER_STATE
+					}
+				}
+			}
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = var:FROM.attacker_state_vs_@ROOT
+					num_provinces = 4
+					on_win = ukraine.51
+					on_lose = ukraine.52
+					on_cancel = ukraine.53
+				}
+
+				defender = {
+					state = var:FROM.defender_state_vs_@ROOT
+					num_provinces = 4
+					on_win = ukraine.51
+					on_lose = ukraine.52
+					on_cancel = ukraine.53
+				}
+			}
+			set_border_war_data = {
+				attacker = var:FROM.defender_state_vs_@ROOT
+				defender = var:FROM.defender_state_vs_@ROOT
+				combat_width = 80
+			}
+			hidden_effect = {
+				activate_targeted_decision = { target = FROM decision = donbass_ongoing_skirmish }
+			}
+		}
+	}
+
+	donbass_ongoing_skirmish = {
+		icon = GFX_decision_border_war
+
+		allowed = { always = no } #Activated from effect
+
+		available = {
+			NOT = { has_border_war = yes }
+		}
+		highlight_states = {
+			state = var:FROM.attacker_state_vs_@ROOT
+		}
+
+		cancel_trigger = {
+			OR = {
+				is_in_faction_with = FROM
+				has_war_with = FROM
+			}
+		}
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		days_mission_timeout = 180
+
+		timeout_effect = { #inconclusive battle
+			cancel_border_war = {
+				dont_fire_events = no
+				attacker = var:FROM.attacker_state_vs_@ROOT
+				defender = var:FROM.defender_state_vs_@ROOT
+			}
+			hidden_effect = {
+				FROM = {
+					clear_variable = attacker_state_vs_@ROOT
+					clear_variable = defender_state_vs_@ROOT
+				}
+				remove_targeted_decision = { target = FROM decision = donbass_ongoing_skirmish }
+				activate_targeted_decision = { target = FROM decision = donbass_prepare_conflict }
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = donbass_ongoing_skirmish }
+				activate_targeted_decision = { target = FROM decision = donbass_prepare_conflict }
+			}
+		}
+	}
+}
+
+UKR_dealing_with_the_oligarchy={
+	UKR_deal_with_kolomoyskyi = { 
+		priority = 200
+
+		icon = SWI_expand_covert_operations
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+
+		}
+
+		visible = {
+			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = is_dealing_with_kolomoyskyi
+			set_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_nationalise_privatbank = { 
+		priority = 200
+
+		icon = SOV_place_hq
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_kolomoyskyi
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 100
+
+		remove_effect = {
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.03 }
+			custom_effect_tooltip = decrease_oligarch_consumer_goods_by_3
+			add_to_variable = { UKR_kolomoyskyi_o_meter = 1 }
+		}
+	}
+	
+	UKR_take_one_plus_one_off_the_air = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_kolomoyskyi
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 95
+
+		remove_effect = {
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+			custom_effect_tooltip = increase_oligarch_pp_by_5
+			add_to_variable = { UKR_kolomoyskyi_o_meter = 1 }
+		}
+	}
+	
+	UKR_nationalise_ukrtransnnafta = { 
+		priority = 200
+
+		icon = oil
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_kolomoyskyi
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 120
+
+		remove_effect = {
+			add_to_variable = { UKR_kolomoyskyi_o_meter = 1 }
+			random_owned_controlled_state = { 
+				prioritize = { 145 }
+				add_resource = { 
+					type = oil
+					amount = 40
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+		}
+	}
+	
+	UKR_arrest_kolomoyskyi = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+			    tooltip = can_arrest_kolomoyskyi_tt
+				check_variable = { UKR_kolomoyskyi_o_meter = 3 }
+			}
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+		
+		visible = {
+			has_country_flag = is_dealing_with_kolomoyskyi
+			NOT = { has_country_flag = kolomoyskyi_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 100
+
+		remove_effect = {
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+			custom_effect_tooltip = increase_oligarch_pp_by_5
+			set_country_flag = kolomoyskyi_is_dealt_with
+			clr_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_deal_with_medvedchuk = { 
+		priority = 200
+
+		icon = SWI_expand_covert_operations
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+
+		}
+
+		visible = {
+			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = is_dealing_with_medvedchuk
+			set_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_confiscate_the_royal_romance = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_medvedchuk
+			NOT = { has_country_flag = medvedchuck_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 60
+
+		remove_effect = {
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.02 }
+			custom_effect_tooltip = decrease_oligarch_consumer_goods_by_2
+			add_to_variable = { UKR_medvedchuk_o_meter = 1 }
+		}
+	}
+	
+	UKR_nationalise_medvedchuks_holdings = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_medvedchuk
+			NOT = { has_country_flag = medvedchuck_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 80
+
+		remove_effect = {
+			random_owned_controlled_state = { 
+				add_resource = { 
+					type = steel
+					amount = 8
+				}
+				add_resource = { 
+					type = tungsten
+					amount = 17
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_3_5 = yes
+			}
+			add_to_variable = { UKR_medvedchuk_o_meter = 1 }
+		}
+	}
+	
+	UKR_arrest_medvedchuk = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 0#Too busy gaming
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+			    tooltip = can_arrest_medvedchuk_tt
+				check_variable = { UKR_medvedchuk_o_meter = 2 }
+			}
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+		
+		visible = {
+			has_country_flag = is_dealing_with_medvedchuk
+			NOT = { has_country_flag = medvedchuck_is_dealt_with }
+			NOT = { has_country_flag = has_chosen_to_kill_medvedchuk }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 75
+		
+		complete_effect={
+			set_country_flag = has_chosen_to_arrest_medvedchuk
+		}
+
+		remove_effect = {
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.03 }
+			custom_effect_tooltip = increase_oligarch_pp_by_3
+			set_country_flag = medvedchuck_is_dealt_with
+			clr_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_kill_medvedchuk = { 
+		priority = 200
+
+		icon = generic_assassination
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+			    tooltip = can_arrest_medvedchuk_tt
+				check_variable = { UKR_medvedchuk_o_meter = 2 }
+			}
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+		
+		visible = {
+			has_country_flag = is_dealing_with_medvedchuk
+			NOT = { has_country_flag = medvedchuck_is_dealt_with }
+			NOT = { has_country_flag = has_chosen_to_arrest_medvedchuk }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 15
+		
+		complete_effect={
+			set_country_flag = has_chosen_to_kill_medvedchuk
+		}
+
+		remove_effect = {
+			add_stability = -0.05
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.03 }
+			custom_effect_tooltip = increase_oligarch_pp_by_3
+			set_country_flag = medvedchuck_is_dealt_with
+			clr_country_flag = is_currently_dealing_with_an_oligarch
+			set_global_flag = medvedchuck_is_dead
+			hidden_effect = { news_event = { id = atd_news.27 days = 1 } }
+		}
+	}
+	
+	UKR_deal_with_akhmetov = { 
+		priority = 200
+
+		icon = SWI_expand_covert_operations
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+
+		}
+
+		visible = {
+			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = is_dealing_with_akhmetov
+			set_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_nationalise_azovstal = { 
+		priority = 200
+
+		icon = steel
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_akhmetov
+			NOT = { has_country_flag = akhmetov_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 100
+
+		remove_effect = {
+			random_owned_controlled_state = { 
+				prioritize = { 230 }
+				add_resource = { 
+					type = steel
+					amount = 48
+				}
+				add_resource = { 
+					type = aluminium
+					amount = 2
+				}
+				add_extra_state_shared_building_slots = 3
+				increase_state_gdp_growth_by_1 = yes
+			}
+			add_to_variable = { UKR_akhmetov_o_meter = 1 }
+		}
+	}
+	
+	UKR_break_scm_holdings = { 
+		priority = 200
+
+		icon = generic_electricity
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_akhmetov
+			NOT = { has_country_flag = akhmetov_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 120
+
+		remove_effect = {
+			random_owned_controlled_state = { 
+				add_resource = { 
+					type = steel
+					amount = 20
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_owned_controlled_state = { 
+				add_resource = { 
+					type = steel
+					amount = 20
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_3 = yes
+			}
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.03 }
+			custom_effect_tooltip = decrease_oligarch_consumer_goods_by_3
+			add_to_variable = { UKR_akhmetov_o_meter = 1 }
+		}
+	}
+	
+	UKR_seize_ukraine_24 = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+
+		visible = {
+			has_country_flag = is_dealing_with_akhmetov
+			NOT = { has_country_flag = akhmetov_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 90
+
+		remove_effect = {
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+			custom_effect_tooltip = increase_oligarch_pp_by_5
+			add_to_variable = { UKR_akhmetov_o_meter = 1 }
+		}
+	}
+	
+	UKR_arrest_akhmetov = { 
+		priority = 200
+
+		icon = generic_arrest
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+			    tooltip = can_arrest_akhmetov_tt
+				check_variable = { UKR_akhmetov_o_meter = 3 }
+			}
+		}
+		
+		days_remove = 20
+		
+		modifier={
+			political_power_cost = 0.25
+		}
+		
+		visible = {
+			has_country_flag = is_dealing_with_akhmetov
+			NOT = { has_country_flag = akhmetov_is_dealt_with }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 120
+
+		remove_effect = {
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.05 }
+			custom_effect_tooltip = increase_oligarch_pp_by_5
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.02 }
+			custom_effect_tooltip = decrease_oligarch_consumer_goods_by_2
+			set_country_flag = akhmetov_is_dealt_with
+			clr_country_flag = is_currently_dealing_with_an_oligarch
+		}
+	}
+	
+	UKR_the_anti_oligarch_law = { 
+		priority = 200
+
+		icon = eng_trade_unions_support
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		ai_will_do = {
+			base = 350
+		}
+
+		available = {
+
+		}
+
+		visible = {
+			NOT = { has_country_flag = is_currently_dealing_with_an_oligarch }
+			has_country_flag = akhmetov_is_dealt_with
+			has_country_flag = medvedchuck_is_dealt_with
+			has_country_flag = kolomoyskyi_is_dealt_with
+		}
+		
+		fire_only_once = yes
+		
+		cost = 200
+
+		complete_effect = {
+			subtract_from_variable = { UKR_sotn_oligarchs_consumer_goods_factor = 0.15 } 
+			add_to_variable = { UKR_sotn_oligarchs_political_power_factor = 0.1 } 
+			custom_effect_tooltip = UKR_the_anti_oligarch_law_tt
+			set_variable = { UKR_sotn_oligarchs_loyalty = -4 }	
+			add_stability = 0.2
+			if={
+				limit = { has_government = fascist }
+				swap_ideas={
+					remove_idea = oligarchy
+					add_idea = centrally_planned_economy
+				}
+			}
+			else={
+				swap_ideas={
+					remove_idea = oligarchy
+					add_idea = western_economy
+				}
+			}
+		}
+	}
+	
+}
+
+political_actions={
+	UKR_imminent_collapse = {
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			NOT = { core_resistance = { occupied_country_tag = UGE value > 85 } }
+		}
+		
+		days_mission_timeout = 20
+		activation = {
+			core_resistance = { occupied_country_tag = UGE value > 85 } 
+		}
+
+		visible = {
+			has_cosmetic_tag = UKR_russian_puppet
+		}		
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			custom_effect_tooltip = UKR_imminent_collapse_tt
+			hidden_effect={	
+				UKR_andrey_biletsky = {
+					set_nationality = AZV
+				}
+				every_character = {
+					limit={
+						NOT={
+							OR={
+								is_character = UKR_mykola_azarov
+								is_character = UKR_vitaliy_zakharchenko
+								is_character = ROU_ilya_kiva
+								is_country_leader = yes
+							}
+						}
+					}
+					set_nationality = UGE
+				}
+
+				every_state={
+					limit ={
+						is_controlled_by = ROOT
+						OR={
+							state = 196
+							state = 214
+						}
+					}
+					FTU = { transfer_state = PREV }
+				}
+				
+				every_state={
+					limit ={
+						is_controlled_by = ROOT
+						has_state_flag = odessa_oblast_flag
+					}
+					AZV = { transfer_state = PREV }
+				}
+				
+				every_state={
+					limit={
+						is_controlled_by = ROOT
+						resistance > 86
+					}
+					UGE = { transfer_state = PREV }
+				}
+				
+				declare_war_on = { target = UGE type = annex_everything  }
+				declare_war_on = { target = AZV type = annex_everything  }
+				declare_war_on = { target = FTU type = annex_everything  }
+				
+				UGE = {
+					declare_war_on = { target = FTU type = annex_everything  }
+					declare_war_on = { target = AZV type = annex_everything  }
+					
+					add_ideas = martial_law
+					
+					create_country_leader = {
+						name = "Валерий Залужный"
+						desc = ""
+						ideology = generic_military_junta
+						picture = gfx/leaders/UKR/Portrait_Valerii_Zaluzhnui.png
+						traits = { the_iron_marshal }
+					}
+
+					create_country_leader = {
+						name = "Петр Порошенко"
+						desc = "petro_poroshenko_leader_desc"
+						ideology = european_solidarity_subideology
+						picture = gfx/leaders/UKR/Portrait_Petro_Poroshenko.png
+						traits = { anti_russian_oligarch }
+					}
+
+					create_country_leader = {
+						name = "Дмитрий Ярош"
+						desc = "dmytro_yarosh_leader_desc"
+						ideology = right_sector_subideology
+						picture = gfx/leaders/UKR/Portrait_Dmytro_Yarosh.png
+						traits = { }
+					}
+
+					create_country_leader = {
+						name = "Олег Тягнибок"
+						desc = ""
+						ideology = svoboda_subideology
+						picture = gfx/leaders/UKR/Portrait_Oleh_Tyahnybok.png
+						traits = {  }
+					}
+
+					create_country_leader = {
+						name = "Виталий Кличко"
+						desc = ""
+						ideology = generic_neoliberal
+						picture = gfx/leaders/UKR/Portrait_Vitali_Klitschko.png
+						traits = {  }
+					}
+
+					create_country_leader = {
+						name = "Анатолий Гриценко"
+						desc = ""
+						ideology = generic_neoconservative
+						picture = gfx/leaders/UKR/Portrait_Anatoliy_Hrytsenko.png
+						traits = {  }
+					}
+
+					create_country_leader = {
+						name = "Юрий Бова"
+						desc = ""
+						ideology = generic_social_democracy
+						picture = gfx/leaders/UKR/Portrait_Yurii_Bova.png
+						traits = {  }
+					}
+
+
+					create_country_leader = {
+						name = "Геннадий Балашов"
+						desc = ""
+						ideology = generic_libertarian
+						picture = gfx/leaders/UKR/Portrait_Hennadiy_Balashov.png
+						traits = {  }
+					}
+					
+					complete_national_focus = UKR_the_ukrainian_government_in_exile
+				
+					division_template = {
+						name = "Exiles"
+						division_names_group = UKR_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							artillery_brigade = { x = 2 y = 0 }		
+						}
+						support = {
+							maintenance_company = { x = 0 y = 0 }   
+							logistics_company = { x = 0 y = 1 }  
+							signal_company = { x = 0 y = 2 }  
+							mot_recon = { x = 0 y = 3 }  
+						}
+					}
+					
+					for_loop_effect = {
+						end = 43
+						value = temp
+						random_owned_controlled_state = {
+							create_unit = {
+								division = "name = \"Ukrainian Exiles\" division_template = \"Exiles\" start_experience_factor = 0.03" 
+								owner = UGE
+							}
+						}
+					}
+					
+					every_country={
+						limit={
+							exists = yes
+							original_tag = UKR
+							is_in_faction_with = USA
+						}
+						UGE = { annex_country = { target = PREV transfer_troops = yes } }
+					}
+				}
+				
+				if={
+					limit = { AZV = { exists = yes } }
+					transfer_units_fraction= {
+						target = AZV
+						target_organization = 1
+						source_organization = 0.9
+						size = 0
+						stockpile_ratio = 0
+						army_ratio = 0.03
+						navy_ratio = 0
+						air_ratio = 0
+						keep_unit_leaders_trigger = {
+							always = yes 
+						}
+					}
+				}
+				
+				if={
+					limit = { FTU = { exists = yes } }
+					transfer_units_fraction= {
+						target = FTU
+						target_organization = 1
+						source_organization = 0.9
+						size = 0
+						stockpile_ratio = 0
+						army_ratio = 0.03
+						navy_ratio = 0
+						air_ratio = 0
+						keep_unit_leaders_trigger = {
+							always = yes 
+						}
+					}
+				}
+				
+				transfer_units_fraction= {
+					target = UGE
+					target_organization = 1
+					source_organization = 0.9
+					size = 0
+					stockpile_ratio = 0
+					army_ratio = 0.56
+					navy_ratio = 0
+					air_ratio = 0
+					keep_unit_leaders_trigger = {
+						always = yes 
+					}
+				}
+				
+				FTU = {
+					declare_war_on = { target = AZV type = annex_everything  }
+					create_country_leader = {
+						name = "Сергей Мовчан"
+						picture = gfx/leaders/UKR/Portrait_Sergey_Movchan.png
+						ideology = generic_anarchism
+					}
+					
+					division_template = {
+						name = "People's Militia"
+						division_names_group = UKR_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							irregular_infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							
+						}
+					}
+					
+					for_loop_effect = {
+						end = 15
+						value = temp
+						random_owned_controlled_state = {
+							create_unit = {
+								division = "name = \"Anarchist Militia\" division_template = \"People's Militia\" start_experience_factor = 0.03" 
+								owner = FTU
+							}
+						}
+					}
+				}
+				
+				AZV = {
+					create_country_leader = {
+						name = "Андрей Билецкий"
+						picture = gfx/leaders/CRI/Portrait_Andrey_Biletsky.png
+						ideology = generic_fascist
+					}
+					
+					division_template = {
+						name = "Azovites"
+						division_names_group = UKR_INF_01
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							irregular_infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							
+						}
+					}
+					
+					for_loop_effect = {
+						end = 20
+						value = temp
+						random_owned_controlled_state = {
+							create_unit = {
+								division = "name = \"Azov Militia\" division_template = \"Azovites\" start_experience_factor = 0.03" 
+								owner = AZV
+							}
+						}
+					}
+				}
+				
+				division_template = {
+					name = "Government Loyalists"
+					division_names_group = UKR_INF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						irregular_infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						
+					}
+				}
+				
+				for_loop_effect = {
+					end = 25
+					value = temp
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Pro-Russian Militia\" division_template = \"Government Loyalists\" start_experience_factor = 0.03" 
+							owner = ROOT
+						}
+					}
+				}
+				
+				
+				every_state={
+					limit = {  
+						OR={
+							has_state_flag = akarpatskia_oblast_flag
+							has_state_flag = cherkasy_oblast_flag
+							has_state_flag = chernihiv_oblast_flag
+							has_state_flag = chernivtsi_oblast_flag
+							has_state_flag = crimea_oblast_flag
+							has_state_flag = dnipro_oblast_flag
+							has_state_flag = donetsk_oblast_flag
+							has_state_flag = ivano_frankivsk_oblast_flag
+							has_state_flag = kharkiv_oblast_flag
+							has_state_flag = kherson_oblast_flag
+							has_state_flag = khmelnytskyi_oblast_flag
+							has_state_flag = kirovohrad_oblast_flag
+							has_state_flag = kyiv_oblast_flag
+							has_state_flag = luhansk_oblast_flag
+							has_state_flag = lviv_oblast_flag
+							has_state_flag = mykolaiv_oblast_flag
+							has_state_flag = odessa_oblast_flag
+							has_state_flag = poltava_oblast_flag
+							has_state_flag = rivne_oblast_flag
+							has_state_flag = sumy_oblast_flag
+							has_state_flag = ternopil_oblast_flag
+							has_state_flag = vinnytsia_oblast_flag
+							has_state_flag = volyn_oblast_flag
+							has_state_flag = zaporizhia_oblast_flag
+							has_state_flag = zhytomyr_oblast_flag
+						}
+					}
+					add_core_of = ROOT
+					add_core_of = UGE
+					add_core_of = FTU
+					add_core_of = AZV
+				}
+				
+				UGE = { inherit_technology = PREV }
+				AZV = { inherit_technology = PREV }
+				FTU = { inherit_technology = PREV }
+				
+				SOV = {
+					end_puppet = ROOT
+					remove_from_faction = ROOT
+				}
+				load_focus_tree = generic_focus
+				country_event = { id = ukraine.91 }
+				news_event = { id = atd_news.29 hours = 6 }
+				
+				every_country={		
+					limit={
+						exists = yes
+						OR={
+							tag = UGE
+							tag = AZV
+							tag = FTU
+						}
+					}
+					spawn_new_country_economy = yes
+				}
+			}
+		}
+	}
+}
+
+UKR_rebuilding_ukraine={
+	UKR_allocate_funds_towards_rebuilding = { 
+		priority = 100
+
+		icon = generic_decision
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 120
+		
+		modifier={
+			repair_speed_industrial_complex_factor = 0.4
+			repair_speed_arms_factory_factor = 0.4
+			repair_speed_infrastructure_factor = 0.4
+			production_speed_buildings_factor = 0.2
+			consumer_goods_factor = 0.02
+		}
+
+		visible = {
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+		}
+	}
+	
+	UKR_strengthen_our_scientific_facilities = { 
+		priority = 100
+
+		icon = generic_research
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.05
+			political_power_cost = 0.3
+		}
+
+		visible = {
+		}
+		
+		fire_only_once = yes
+		
+		cost = 75
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			add_research_slot = 1
+		}
+	}
+	
+	UKR_rebuild_the_donbass = { 
+		priority = 100
+
+		icon = generic_factory
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.05
+		}
+
+		visible = {
+			any_state={
+				is_owned_and_controlled_by = ROOT
+				OR={
+					has_state_flag = donetsk_oblast_flag
+					has_state_flag = luhansk_oblast_flag
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 75
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			every_state={
+				limit={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+					}
+					is_owned_and_controlled_by = ROOT
+				}
+				increase_state_gdp_growth_by_4 = yes
+			}
+			random_owned_controlled_state={
+				limit={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state={
+				limit={
+					OR={
+						has_state_flag = donetsk_oblast_flag
+						has_state_flag = luhansk_oblast_flag
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	UKR_rebuild_in_crimea = { 
+		priority = 100
+
+		icon = generic_factory
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.05
+		}
+
+		visible = {
+			any_state={
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = crimea_oblast_flag
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			every_state={
+				limit={
+					has_state_flag = crimea_oblast_flag
+					is_owned_and_controlled_by = ROOT
+				}
+				increase_state_gdp_growth_by_4 = yes
+			}
+			random_owned_controlled_state={
+				limit={
+					has_state_flag = crimea_oblast_flag
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			if={
+				limit={
+					any_state={
+						is_owned_and_controlled_by = ROOT
+						has_state_flag = crimea_oblast_flag
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state={
+					limit={
+						has_state_flag = crimea_oblast_flag
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	UKR_rebuild_civilian_housing = { 
+		priority = 100
+
+		icon = generic_fundraising
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.02
+		}
+
+		visible = {
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_2 = yes
+			}
+		}
+	}
+	
+	UKR_build_the_rhinemetal_factory = { 
+		priority = 100
+
+		icon = generic_factory
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.05
+		}
+
+		visible = {
+			has_completed_focus = UKR_encourage_western_investments
+		}
+		
+		fire_only_once = yes
+		
+		cost = 80
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+				}
+				prioritize = { 96 }
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+		}
+	}
+	
+	UKR_opening_new_offices = { 
+		priority = 100
+
+		icon = generic_factory
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+		
+		days_remove = 60
+		
+		modifier={
+			consumer_goods_factor = 0.05
+		}
+
+		visible = {
+			has_completed_focus = UKR_encourage_western_investments
+		}
+		
+		fire_only_once = yes
+		
+		cost = 100
+
+		complete_effect={
+		}
+	
+		remove_effect = {
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_3 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_3 = yes
+			}
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_3 = yes
+			}
+		}
+	}
+}
+
+UKR_hur_decisions={
+	UKR_assassinate_alexander_dugin = { 
+		priority = 100
+
+		icon = generic_assassination
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+		}
+		
+		days_remove = 30
+		
+		modifier={
+		}
+
+		visible = {
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+		}
+	
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+			random_list = {
+				50 = { news_event = { hours = 6 id = atd_news.31 } }
+				45 = { news_event = { hours = 6 id = atd_news.32 } }
+				5 = { news_event = { hours = 6 id = atd_news.33 } }
+			}
+		}
+	}
+
+
+	UKR_attack_the_crimean_bridge = { 
+
+		icon = generic_ignite_civil_war
+		
+		days_remove = 30
+		days_re_enable = 180
+		
+		
+		fire_only_once = no
+
+		allowed = {
+			original_tag = UKR
+		}
+
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+			NOT = { 331 = { is_controlled_by = ROOT } }
+			has_global_flag = kerch_bridge_built_flag
+		}
+
+		visible = {
+			NOT = { 331 = { is_controlled_by = ROOT } }
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		cost = 50
+
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+		}
+	
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+			hidden_effect = { news_event = { hours = 6 id = atd_news.34 } }
+			set_global_flag = { flag = kerch_bridge_destroyed_flag value = 1 days = 90 }
+			custom_effect_tooltip = UKR_attack_the_crimean_bridge_tt
+			SOV={
+				add_timed_idea={
+					idea = UKR_crimean_bridge_attacked
+					days = 90
+				}
+			}
+		}
+	}
+	
+	UKR_assassinate_vladen_tatarsky = { 
+		priority = 100
+
+		icon = generic_assassination
+
+		allowed = {
+
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			NOT = { has_country_flag = UKR_is_doing_a_hur_decision }
+		}
+		
+		days_remove = 30
+		
+		modifier={
+		}
+
+		visible = {
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+
+		complete_effect={
+			set_country_flag = UKR_is_doing_a_hur_decision
+		}
+	
+		remove_effect = {
+			clr_country_flag = UKR_is_doing_a_hur_decision
+			random_list = {
+				95 = { news_event = { hours = 6 id = atd_news.35 } }
+				5 = { news_event = { hours = 6 id = atd_news.36 } }
+			}
+		}
+	}
+}
