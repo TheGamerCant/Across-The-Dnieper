@@ -47,7 +47,7 @@ def main():
     #provincesArrayHexID = []
     #for prov in provincesArray:
     #    provincesArrayHexID.append([prov.hexadecimal, prov.ID])
-    #kinter_main(provincesArrayHexID)
+    #tkinter_main(provincesArrayHexID)
 
     #provincesArrayHexID.clear()
 
@@ -56,7 +56,7 @@ def main():
     print ("Loading coordinates:")
     load_coordinates(provincesArray)
     print ("Updating coastal status:")
-    load_coastal(provincesArray, terrainArray)
+    load_coastal(provincesArray, statesArray, terrainArray)
 
     print("Writing to map files:")
     write_history_files(provincesArray,statesArray)

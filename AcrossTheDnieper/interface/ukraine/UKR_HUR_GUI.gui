@@ -57,13 +57,14 @@ guiTypes = {
 	}
 	
 	containerWindowType={
-		name = "UKR_HUR_assassination_target_gui"
-		size = { width = 512 height = 807 }
+		name = "UKR_HUR_assassination_target_gui_4width"
+		size = { width = 1140 height = 807 }
 		position = { x=165 y=44 }
 		scroll_wheel_factor = 50
 		smooth_scrolling = yes
 		#autohide_scrollbars = no
 		verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		clipping = yes
 		
 		background = {
 			name = "Background"
@@ -71,31 +72,103 @@ guiTypes = {
 		}
 		
 		gridBoxType = {
-			name = "assassinations_grid_box"
+			name = "assassinations_grid_box_4width"
 			position = { x = 0 y = 0}
 
 			Orientation = upper_left
-			slotsize = {width=256 height=350 }
+			slotsize = {width=285 height=350 }
 			format = "UPPER_LEFT"
-			max_slots_horizontal = 2
+			max_slots_horizontal = 4
+		}
+		
+		iconType={
+			name = "extra_scroll_debug"
+			position = {x = 60 y = 18 }
+			spriteType = "GFX_decision_HUR_portrait_outline"
+			scale = 0.01
 		}
 	}
 	
+	containerWindowType={
+		name = "UKR_HUR_assassination_target_gui_2width"
+		size = { width = 570 height = 807 }
+		position = { x=165 y=44 }
+		scroll_wheel_factor = 50
+		smooth_scrolling = yes
+		#autohide_scrollbars = no
+		verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		clipping = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+		}
+		
+		gridBoxType = {
+			name = "assassinations_grid_box_2width"
+			position = { x = 0 y = 0}
+
+			Orientation = upper_left
+			slotsize = {width=285 height=350 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 2
+		}
+		
+		iconType={
+			name = "extra_scroll_debug"
+			position = {x = 60 y = 18 }
+			spriteType = "GFX_decision_HUR_portrait_outline"
+			scale = 0.01
+		}
+	}
+	
+	containerWindowType={
+		name = "UKR_HUR_assassination_selected_bg_tab"
+		size = { width = 570 height = 807 }
+		position = { x=735 y=44 }
+		#scroll_wheel_factor = 50
+		#smooth_scrolling = yes
+		#autohide_scrollbars = no
+		#verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		#clipping = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_UKR_HUR_assassination_selected_bg"
+		}
+		
+		buttonType = {
+			name = "portrait_outline"
+			position = {x = 60 y = 18 }
+			spriteType = "GFX_decision_HUR_portrait_outline_2"
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "portrait"
+			position = {x = 64 y = 118 }
+			text = "[?UKR.HUR_assassinations_array_PORTRAIT^UKR_HUR_target_selected.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+		}
+
+	}
+	
+	#Need to make seperate containers for the 2-width and 4-width interfaces so you can set them to non-visible
+	
 	containerWindowType = {
-		name = "assassinations_entry"
-		slotsize = {width=256 height=350 }
+		name = "assassinations_entry_4width"
+		slotsize = {width=285 height=350 }
 			
 		
 		instantTextboxType = {
-			name = "portrait"
-			position = {x = 50 y = 118 }
+			name = "portrait_4width"
+			position = {x = 64 y = 118 }
 			text = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
 			alwaystransparent = yes
 		}
 
 		instantTextboxType = {
-			name = "Name"
-			position = {x = 50 y = 264 }
+			name = "name_4width"
+			position = {x = 64 y = 264 }
 			text = "[?v.GetTokenLocalizedKey]"
 			alwaystransparent = yes
 			font="OCR_A_13"
@@ -106,8 +179,39 @@ guiTypes = {
 		}
 		
 		buttonType = {
-			name = "portrait_outline"
-			position = {x = 46 y = 18 }
+			name = "portrait_outline_4width"
+			position = {x = 60 y = 18 }
+			spriteType = "GFX_decision_HUR_portrait_outline"
+		}
+	}
+	
+	containerWindowType = {
+		name = "assassinations_entry_2width"
+		slotsize = {width=285 height=350 }
+			
+		
+		instantTextboxType = {
+			name = "portrait_2width"
+			position = {x = 64 y = 118 }
+			text = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "Name_2width"
+			position = {x = 64 y = 264 }
+			text = "[?v.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+			font="OCR_A_13"
+			maxWidth = 156
+			maxHeight = 36
+			format = center
+			fixedsize  = yes
+		}
+		
+		buttonType = {
+			name = "portrait_outline_2width"
+			position = {x = 60 y = 18 }
 			spriteType = "GFX_decision_HUR_portrait_outline"
 		}
 	}

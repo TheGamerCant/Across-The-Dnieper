@@ -54,7 +54,6 @@ scripted_gui = {
 				}				
 			}
 
-			
 			close_button_click={ clr_country_flag = UKR_opened_hur_ui }
 
 		}
@@ -69,34 +68,110 @@ scripted_gui = {
 		}
 	}
 	
-	UKR_HUR_assassination_target_gui={
+	UKR_HUR_assassination_target_gui_4width={
 		context_type = player_context
-		window_name = UKR_HUR_assassination_target_gui
+		window_name = UKR_HUR_assassination_target_gui_4width
 		parent_window_name = UKR_HUR_main_gui
 		
-		visible = { check_variable = { UKR.HUR_tab_selected^1 = 2 } }
+		visible = { check_variable = { UKR.HUR_tab_selected^1 = 2 } check_variable = { UKR.UKR_HUR_target_selected = -1 } }
 		
 		dynamic_lists={
-			assassinations_grid_box = {
+			assassinations_grid_box_4width = {
 				array = UKR.HUR_assassinations_array_NAME
 				change_scope = no
-				entry_container = "assassinations_entry"
+				entry_container = "assassinations_entry_4width"
 			}
 		}
-	}
-	assassinations_entry={
-		context_type = player_context
-		window_name = assassinations_entry
-		parent_window_name = UKR_HUR_assassination_target_gui_instance
-
+		
+		triggers={
+			portrait_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
+			name_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
+			portrait_outline_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
+			
+			extra_scroll_debug_visible = { NOT = { check_variable = { UKR.extra_scroll_debug_y = -1 } } }
+		}
+		
 		effects={
-			portrait_outline_click = { 
-				log = "Click: [?v], [?i]"
-				#set_variable = { UKR.HUR_selected_target = i } 
-				UKR = { add_political_power = 50 }
+			portrait_outline_4width_click = { 
+				set_variable = { UKR.UKR_HUR_target_selected = i } 
+				set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^i = 2 } 
+				UKR_HUR_load_coordinates = yes
+			}
+		}
+		
+		properties={
+			portrait_outline_4width={
+				frame = UKR.HUR_assassinations_array_SELECTED_TARGET^i
+			}
+			extra_scroll_debug={
+				y = UKR.extra_scroll_debug_y
 			}
 		}
 	}
+	
+	UKR_HUR_assassination_target_gui_2width={
+		context_type = player_context
+		window_name = UKR_HUR_assassination_target_gui_2width
+		parent_window_name = UKR_HUR_main_gui
+		
+		visible = { check_variable = { UKR.HUR_tab_selected^1 = 2 } NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
+		
+		dynamic_lists={
+			assassinations_grid_box_2width = {
+				array = UKR.HUR_assassinations_array_NAME
+				change_scope = no
+				entry_container = "assassinations_entry_2width"
+			}
+		}
+		
+		triggers={
+			portrait_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
+			name_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
+			portrait_outline_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
+			
+			extra_scroll_debug_visible = { NOT = { check_variable = { UKR.extra_scroll_debug_y = -1 } } }
+		}
+		
+		effects={
+			portrait_outline_2width_click = { 
+				if={
+					limit = { check_variable = { UKR.UKR_HUR_target_selected = i } }
+					set_variable = { UKR.UKR_HUR_target_selected = -1 } 
+					set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^i = 1 } 
+				}
+				else={
+					for_each_loop = {
+						array = UKR.HUR_assassinations_array_SELECTED_TARGET
+						index = j
+						set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^j = 1 } 
+					}
+					
+					set_variable = { UKR.UKR_HUR_target_selected = i } 
+					set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^i = 2 } 
+				}
+				UKR_HUR_load_coordinates = yes
+			}
+		}
+		
+		properties={
+			portrait_outline_2width={
+				frame = UKR.HUR_assassinations_array_SELECTED_TARGET^i
+			}
+			extra_scroll_debug={
+				y = UKR.extra_scroll_debug_y
+			}
+		}
+	}
+	
+	UKR_HUR_assassination_selected_bg_tab={
+		context_type = player_context
+		window_name = UKR_HUR_assassination_selected_bg_tab
+		parent_window_name = UKR_HUR_main_gui
+		
+		visible = { check_variable = { UKR.HUR_tab_selected^1 = 2 } NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
+		
+	}
+
 
 	HUR_anim_container={
 		context_type = player_context

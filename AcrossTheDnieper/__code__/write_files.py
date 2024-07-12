@@ -1,6 +1,6 @@
 import os
 import random
-import PIL
+import math
 from PIL import Image
 from img_handling import return_binary_array
 
@@ -201,194 +201,234 @@ def write_buildings_position_files(provincesArray, statesArray, buildingsArray, 
     width, height = provincesImage.size
     provincesImage.close()
 
+    variation_radii = 0.25      #Amount of variation in radii for angles
+
     rocketsiteProvs = []
     airportProvs = []
     statesArray.pop(0)
     noOfStates = len(statesArray)
+
+    #Remove all lakes/water tiles from state provinces
+    for state in statesArray:
+        nonWaterProvs = []
+        for prov in state.provinces:
+            currentProv = provincesArray[int(prov)]
+            t = currentProv.terrain
+            for terrain in terrainArray:
+                if terrain.name == t and terrain.naval == False and terrain.is_water == False:
+                    nonWaterProvs.append(prov)
+        
+        state.provinces = nonWaterProvs
+                    
+
+            
     with open(buildings_file, 'w', encoding='utf-8') as f:
         for i in range(0,noOfStates):
             state = statesArray[0]
             for building in buildingsArray:
-                if building.provincial == False:
-                    for i in range(0,building.show_on_map):
-                        if building.only_coastal == False:
-                            random_prov = int(random.choice(state.provinces))
-                            terrain_is_water = False
-                            for t in terrainArray:
-                                if t.name == provincesArray[random_prov].terrain and t.is_water == True:
-                                    terrain_is_water = True
-                            while terrain_is_water == True:
-                                random_prov = int(random.choice(state.provinces))
-                                terrain_is_water = False
-                                for t in terrainArray:
-                                    if t.name == provincesArray[random_prov].terrain and t.is_water == True:
-                                        terrain_is_water = True
+                #Non-provincial, show_on_map no of buildings for the entire state
+                if building.provincial == False and building.show_on_map != 0:
+                    for i in range (0, building.show_on_map):
+                        if building.only_coastal == True and state.coastal == True:
+                            #Bulding and state are coastal
 
-                            random_coords = random.choice(provincesArray[random_prov].coordinates)
-                            random_rotat = random.uniform(0.0, 6.27)
+                            #Duplicate states provinces and randomise order
+                            #Go through array. If province is coastal return that as the selected province, otherwise delete from array and go again
+                            coastal_prov = -1
+                            duplicate_provinces_array = state.provinces
+                            random.shuffle(duplicate_provinces_array)
+                            while coastal_prov == -1:
+                                current_prov = int(duplicate_provinces_array[0])
+                                if provincesArray[current_prov].coastal == True:
+                                    coastal_prov = current_prov
+                                else:
+                                    duplicate_provinces_array.pop(0)
+
+                            valid_coords = None
+                            duplicate_coordinates_array = provincesArray[coastal_prov].border_coords
+                            random.shuffle(duplicate_coordinates_array)
+                            #Do same as before, with border_coords entries as [X,Y, ProvID, Direction]
+                            while valid_coords == None:
+                                current_prov = int(duplicate_coordinates_array[0][2])
+                                #current_prov is ID of neighbouring province
+                                if provincesArray[current_prov].type == "sea":
+                                    valid_coords = duplicate_coordinates_array[0]
+                                else:
+                                    duplicate_coordinates_array.pop(0)
+
+                            #We now have 'coastal_prov', an integer variable corresponding to a province within the state which is coastal
+                            #We also have 'valid_coords', an array in the form of [X,Y, ProvID, Direction], telling us what direction to face
+
+                            #Remember - Models are by default facing south, and because the map is flipped horizontally, radians work in reverse - positive is anti-clockwise, negative is clockwise
+                            if valid_coords[3] == "north":
+                                lower_bound = (math.pi) - variation_radii
+                                upper_bound = (math.pi) + variation_radii
+                            elif valid_coords[3] == "south":
+                                lower_bound = variation_radii*-1
+                                upper_bound = variation_radii
+                            elif valid_coords[3] == "east":
+                                lower_bound = ((math.pi)/2) - variation_radii
+                                upper_bound = ((math.pi)/2) + variation_radii
+                            elif valid_coords[3] == "west":
+                                lower_bound = math.pi + ((math.pi)/2) - variation_radii
+                                upper_bound = math.pi + ((math.pi)/2) + variation_radii
+
+                            random_rotat = random.uniform(lower_bound, upper_bound)
                             random_rotat = float("{:.2f}".format(random_rotat))
+
+                            #Return y-value of co-ords as a float (will be to 1 d.p)
+                            array = return_binary_array(valid_coords[1])
+                            y_axis = float(array[valid_coords[0]][4])
+                            y_axis = y_axis/10
+
+                            print (str(state.ID) + ";" + building.name + ";"+ str(valid_coords[0]) + ".00;"+ str(y_axis)\
+                                    +"0;" + str(height-valid_coords[1]) + ".00;" + str(random_rotat)+";0", file=f)
+                                
+                        elif building.only_coastal == False:
+                            #Building is non-coastal
+
+                            #Pick random province as integer ID
+                            random_prov = int(random.choice(state.provinces))
+
+                            #Pick random coordinates and rotation to 2 d.p
+                            random_coords = random.choice(provincesArray[random_prov].coordinates)
+                            upper_bound = (math.pi)*2
+                            random_rotat = random.uniform(0.0, upper_bound)
+                            random_rotat = float("{:.2f}".format(random_rotat))
+
+                            #Return y-value of co-ords as a float (will be to 1 d.p)
                             array = return_binary_array(random_coords[1])
                             y_axis = float(array[random_coords[0]][4])
                             y_axis = y_axis/10
 
-                            adjacent_coastal_province = 0
+                            if building.name == "air_base":
+                                airportProvs.append(random_prov)
+                            elif building.name == "rocket_site":
+                                rocketsiteProvs.append(random_prov)
 
                             print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
-                                +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(adjacent_coastal_province), file=f)
-                        else:
-                            coastal_provs = []
-                            for prov in state.provinces:
-                                if provincesArray[int(prov)].coastal == True:
-                                    coastal_provs.append(int(prov))
+                                    +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";0", file=f)
 
-                            if coastal_provs:
-                                random_prov = int(random.choice(coastal_provs))
-                                terrain_is_water = False
-                                for t in terrainArray:
-                                    if t.name == provincesArray[random_prov].terrain and t.is_water == True:
-                                        terrain_is_water = True
-                                while terrain_is_water == True:
-                                    random_prov = int(random.choice(coastal_provs))
-                                    terrain_is_water = False
-                                    for t in terrainArray:
-                                        if t.name == provincesArray[random_prov].terrain and t.is_water == True:
-                                            terrain_is_water = True
-                                coastal_prov_coordinates = []
-                                for bc in provincesArray[random_prov].border_coords:
-                                    current_prov = int(bc[2])
-                                    current_prov_is_naval = False
-                                    current_prov_terrain = provincesArray[current_prov].terrain
-                                    for t in terrainArray:
-                                        if t.name == current_prov_terrain and t.naval == True:
-                                            current_prov_is_naval = True
-                                    if current_prov_is_naval == True:
-                                        coastal_prov_coordinates.append(bc)
+                #Provincial, show_on_map no. of buildings for the province
+                elif building.provincial == True and building.show_on_map != 0:
+                    if building.only_coastal == True and state.coastal == True:
+                        #Building and state are coastal
+                        for p in state.provinces:
+                            #Go through provinces, only execute code for the prov if province is coastal
+                            prov = int(p)
+                            if provincesArray[prov].coastal == True:
+                                for i in range (0,building.show_on_map):
+                                    #Make duplicate and shuffle the border coordinates of the province
+                                    valid_coords = None
+                                    duplicate_coordinates_array = provincesArray[prov].border_coords
+                                    random.shuffle(duplicate_coordinates_array)
+                                    while valid_coords == None:
+                                        current_prov = int(duplicate_coordinates_array[0][2])
+                                        #current_prov is ID of neighbouring province
+                                        if provincesArray[current_prov].type == "sea":
+                                            valid_coords = duplicate_coordinates_array[0]
+                                        else:
+                                            duplicate_coordinates_array.pop(0)
 
-                                random_coords = random.choice(coastal_prov_coordinates)     #X,Z,prov,direction
-                                if random_coords[3] == "north":
-                                    random_rotat = random.uniform(6, 6.5)
-                                    random_rotat = random_rotat%6.28
-                                    random_rotat = float("{:.2f}".format(random_rotat))
-                                elif random_coords[3] == "south":
-                                    random_rotat = random.uniform(3, 3.5)
-                                    random_rotat = float("{:.2f}".format(random_rotat))
-                                elif random_coords[3] == "east":
-                                    random_rotat = random.uniform(1.25, 1.75)
-                                    random_rotat = float("{:.2f}".format(random_rotat))
-                                elif random_coords[3] == "west":
-                                    random_rotat = random.uniform(4.5, 5)
+                                    #Right now, we have the variable 'prov', the integer ID of the coastal province
+                                    #As well as the array 'valid_coords' in the form [X,Y, ProvID, Direction]
+
+                                    if valid_coords[3] == "north":
+                                        lower_bound = (math.pi) - variation_radii
+                                        upper_bound = (math.pi) + variation_radii
+                                    elif valid_coords[3] == "south":
+                                        lower_bound = variation_radii*-1
+                                        upper_bound = variation_radii
+                                    elif valid_coords[3] == "east":
+                                        lower_bound = ((math.pi)/2) - variation_radii
+                                        upper_bound = ((math.pi)/2) + variation_radii
+                                    elif valid_coords[3] == "west":
+                                        lower_bound = math.pi + ((math.pi)/2) - variation_radii
+                                        upper_bound = math.pi + ((math.pi)/2) + variation_radii
+
+                                    random_rotat = random.uniform(lower_bound, upper_bound)
                                     random_rotat = float("{:.2f}".format(random_rotat))
 
+                                    #Return y-value of co-ords as a float (will be to 1 d.p)
+                                    array = return_binary_array(valid_coords[1])
+                                    y_axis = float(array[valid_coords[0]][4])
+                                    y_axis = y_axis/10
+
+                                    if building.is_port == True:
+                                        #If the building is a port, we need the adjacent sea province - this is the sea province the port building is facing
+                                        adj_sea_province = int(valid_coords[2])
+                                    else:
+                                        adj_sea_province = 0
+
+                                    print (str(state.ID) + ";" + building.name + ";"+ str(valid_coords[0]) + ".00;"+ str(y_axis)\
+                                            +"0;" + str(height-valid_coords[1]) + ".00;" + str(random_rotat)+";" + str(adj_sea_province), file=f)
+
+                    elif building.only_coastal == False:
+                        #Non-coastal, make entites for each prov in the state
+                        for p in state.provinces:
+                            prov = int(p)
+                            for i in range (0,building.show_on_map):
+                   
+                                #Pick random coordinates and rotation to 2 d.p
+                                random_coords = random.choice(provincesArray[prov].coordinates)
+                                upper_bound = (math.pi)*2
+                                random_rotat = random.uniform(0.0, upper_bound)
+                                random_rotat = float("{:.2f}".format(random_rotat))
+
+                                #Return y-value of co-ords as a float (will be to 1 d.p)
                                 array = return_binary_array(random_coords[1])
                                 y_axis = float(array[random_coords[0]][4])
                                 y_axis = y_axis/10
 
-                                adjacent_coastal_province = 0
-
                                 print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
-                                    +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(adjacent_coastal_province), file=f)
-                        
-                        if building.name == "air_base":
-                            airportProvs.append(random_prov)
-                        elif building.name == "rocket_site":
-                            rocketsiteProvs.append(random_prov)
-                else:
-                    if building.show_on_map != 0:
-                        for i in range(0,len(state.provinces)):
-                            provClass = provincesArray[int(state.provinces[i])]
-                            terrain_is_water = False
-                            for t in terrainArray:
-                                if t.name == provClass.terrain and t.is_water == True:
-                                    terrain_is_water = True
-                            if terrain_is_water == False:
-                                if building.only_coastal == False:
-                                    random_coords = random.choice(provClass.coordinates)
-                                    random_rotat = random.uniform(0.0, 6.27)
-                                    random_rotat = float("{:.2f}".format(random_rotat))
-                                    array = return_binary_array(random_coords[1])
-                                    y_axis = float(array[random_coords[0]][4])
-                                    y_axis = y_axis/10
-                                    adjacent_coastal_province = 0
-                                    print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
-                                            +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(adjacent_coastal_province), file=f)
-                                elif building.only_coastal == True and provClass.coastal == True:
-                                    coastal_prov_coordinates = []
-                                    for bc in provClass.border_coords:
-                                        current_prov = int(bc[2])
-                                        current_prov_is_naval = False
-                                        current_prov_terrain = provincesArray[current_prov].terrain
-                                        for t in terrainArray:
-                                            if t.name == current_prov_terrain and t.naval == True:
-                                                current_prov_is_naval = True
-                                        if current_prov_is_naval == True:
-                                            coastal_prov_coordinates.append(bc)
+                                        +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";0", file=f)
 
-                                    random_coords = random.choice(coastal_prov_coordinates)     #X,Z,prov,direction
-                                    if random_coords[3] == "north":
-                                        random_rotat = random.uniform(6, 6.5)
-                                        random_rotat = random_rotat%6.28
-                                        random_rotat = float("{:.2f}".format(random_rotat))
-                                    elif random_coords[3] == "south":
-                                        random_rotat = random.uniform(3, 3.5)
-                                        random_rotat = float("{:.2f}".format(random_rotat))
-                                    elif random_coords[3] == "east":
-                                        random_rotat = random.uniform(1.25, 1.75)
-                                        random_rotat = float("{:.2f}".format(random_rotat))
-                                    elif random_coords[3] == "west":
-                                        random_rotat = random.uniform(4.5, 5)
-                                        random_rotat = float("{:.2f}".format(random_rotat))
+            #Need seperate code for floating harbours as they're a bit different
+            #And by a bit I mean very. Fuck you paradox eat my nuts
 
-                                    array = return_binary_array(random_coords[1])
-                                    y_axis = float(array[random_coords[0]][4])
-                                    y_axis = y_axis/10
+            for p in state.provinces:
+                #Go through provinces, only execute code for the prov if province is coastal
+                prov = int(p)
+                if provincesArray[prov].coastal == True:
+                    adj_sea_province = prov     #ASP has to be the land province that the floating harbour is facing
 
-                                    if building.is_port == True:
-                                        adjacent_coastal_province = random_coords[2]
-                                    else:
-                                        adjacent_coastal_province = 0
+                    valid_coords = None
+                    duplicate_coordinates_array = provincesArray[prov].border_coords
+                    random.shuffle(duplicate_coordinates_array)
+                    while valid_coords == None:
+                        current_prov = int(duplicate_coordinates_array[0][2])
+                        #current_prov is ID of neighbouring province
+                        if provincesArray[current_prov].type == "sea":
+                            valid_coords = duplicate_coordinates_array[0]
+                        else:
+                            duplicate_coordinates_array.pop(0)
 
-                                    print (str(state.ID) + ";" + building.name + ";"+ str(random_coords[0]) + ".00;"+ str(y_axis)\
-                                        +"0;" + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(adjacent_coastal_province), file=f)
-                            
-            coastal_provs = []
-            for prov in state.provinces:
-                provClass = provincesArray[int(prov)] 
-                if provClass.coastal == True:
-                    coastal_provs.append(provClass)
-            if coastal_provs:
-                random_coastal_prov = random.choice(coastal_provs)
-                sea_provs = []
-                for prov in random_coastal_prov.border_coords:
-                    currentProv = provincesArray[int(prov[2])]
-                    currentTerrain = currentProv.terrain
-                    for t in terrainArray:
-                        if t.name == currentTerrain and t.naval == True:
-                            sea_provs.append(prov)
+                    selected_sea_prov = int(valid_coords[2])
+                    random_coords = random.choice(provincesArray[selected_sea_prov].coordinates)
 
-                selected_sea_prov = random.choice(sea_provs)
-                #Opposite of land prov
-                if selected_sea_prov[3] == "north":
-                    random_rotat = random.uniform(3, 3.5)
-                    random_rotat = float("{:.2f}".format(random_rotat))
-                elif selected_sea_prov[3] == "south":
-                    random_rotat = random.uniform(6, 6.5)
-                    random_rotat = random_rotat%6.28
-                    random_rotat = float("{:.2f}".format(random_rotat))
-                elif selected_sea_prov[3] == "west":
-                    random_rotat = random.uniform(1.25, 1.75)
-                    random_rotat = float("{:.2f}".format(random_rotat))
-                elif selected_sea_prov[3] == "east":
-                    random_rotat = random.uniform(4.5, 5)
+                    #Swap the functions 'south' <-> 'north', 'west' <-> 'east'
+                    if valid_coords[3] == "south":
+                        lower_bound = (math.pi) - variation_radii
+                        upper_bound = (math.pi) + variation_radii
+                    elif valid_coords[3] == "north":
+                        lower_bound = variation_radii*-1
+                        upper_bound = variation_radii
+                    elif valid_coords[3] == "west":
+                        lower_bound = ((math.pi)/2) - variation_radii
+                        upper_bound = ((math.pi)/2) + variation_radii
+                    elif valid_coords[3] == "east":
+                        lower_bound = math.pi + ((math.pi)/2) - variation_radii
+                        upper_bound = math.pi + ((math.pi)/2) + variation_radii
+
+                    random_rotat = random.uniform(lower_bound, upper_bound)
                     random_rotat = float("{:.2f}".format(random_rotat))
 
-                    
-                selected_sea_prov = provincesArray[int(selected_sea_prov[2])]
-                random_coords = random.choice(selected_sea_prov.coordinates)
+                    print (str(state.ID) + ";floating_harbor;"+ str(random_coords[0]) + ".00;9.50;" + str(height-random_coords[1]) + ".00;"\
+                            + str(random_rotat)+";" + str(adj_sea_province), file=f)
 
-                print (str(state.ID) + ";floating_harbor;"+ str(random_coords[0]) + ".00;9.50;"\
-                        + str(height-random_coords[1]) + ".00;" + str(random_rotat)+";"+str(random_coastal_prov.ID), file=f)
             statesArray.pop(0)
-                            
+
+               
     with open(rocketsites_file, 'w', encoding='utf-8') as f:
         for i in range(0,len(rocketsiteProvs)):
             print(str(i+1),"={ " + str(rocketsiteProvs[i]) + " }",file=f)

@@ -871,40 +871,100 @@ russia_ukraine_peace={		#This is total Ukrainian victory
 }
 
 UKR_HUR_setup = {
+	clear_array = UKR.HUR_tab_selected
+	clear_array = UKR.HUR_assassinations_array_NAME
+	clear_array = UKR.HUR_assassinations_array_ALIAS
+	clear_array = UKR.HUR_assassinations_array_PORTRAIT
+	clear_array = UKR.HUR_assassinations_array_STATUS
+	clear_array = UKR.HUR_assassinations_array_CHARACTER
+	clear_array = UKR.HUR_assassinations_array_SELECTED_TARGET
+	
 	add_to_array = { UKR.HUR_tab_selected = 2 }
 	add_to_array = { UKR.HUR_tab_selected = 1 }
-
-	set_varaible = { UKR.HUR_selected_target = -1 }
+	
+	set_variable = { UKR.UKR_HUR_target_selected = -1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_arsen_pavlov }
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_motorola }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_arsen_pavlov_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_arsen_pavlov }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_mikhail_tolstykh }
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_givi }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_mikhail_tolstykh_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_mikhail_tolstykh }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_alexander_zakharchenko }
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_none }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_alexander_zakharchenko_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_none }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_stanislav_rzhitsky }
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_none }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_stanislav_rzhitsky_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_none }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_illia_kyva }
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_none }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_illia_kyva_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_illia_kyva }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
+	
+	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_mikhail_filiponenko }
+	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_none }
+	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_mikhail_filiponenko_GFX }
+	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
+	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_none }
+	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
+	
+	
+	UKR_HUR_load_coordinates = yes
+}
+
+UKR_HUR_load_coordinates={
+	if={ 
+		limit = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } 	#4-width is visible
+		set_variable = { t = UKR.HUR_assassinations_array_NAME^num }
+		modulo_variable = { t = 4 }
+		set_variable = { u = UKR.HUR_assassinations_array_NAME^num }
+		subtract_from_variable = { u = t }
+		divide_variable = { u = 4 }
+	}
+	else={
+		set_variable = { t = UKR.HUR_assassinations_array_NAME^num }		#2-width is visible
+		modulo_variable = { t = 2 }
+		set_variable = { u = UKR.HUR_assassinations_array_NAME^num }
+		subtract_from_variable = { u = t }
+		divide_variable = { u = 2 }
+	}
+	
+	if ={
+		limit = { NOT = { check_variable = { t = 0 } } }
+		add_to_variable = { u = 1 }
+	}
+	
+	#Right now we have variable 'u' representing the amount of rows / vertical height of the gridbox
+	
+	if={
+		limit = { check_variable = { u > 2 } }
+		set_variable = { UKR.extra_scroll_debug_y = u }
+		multiply_variable = { UKR.extra_scroll_debug_y = 350 }
+		add_to_variable = { UKR.extra_scroll_debug_y = 60 }
+	}
+	else={
+		set_variable = { UKR.extra_scroll_debug_y = -1 }	#Value of -1 means not visible
+	}
+	#clear_variable = t
+	#clear_variable = u
 }
 
 UKR_HUR_belgorod_clear_flags = {

@@ -40,7 +40,7 @@ class provinceClass:
         self.border_coords = border_coords if isinstance(border_coords, list) else [border_coords]
 
 class stateClass:
-    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables):
+    def __init__(self, ID, population, category, owner, provinces, names, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables, coastal):
         self.ID = int(ID)
         self.population = int(population)
         self.category = str(category)
@@ -55,6 +55,7 @@ class stateClass:
         self.stateFlags = stateFlags if isinstance(stateFlags, list) else [stateFlags]
         self.impassable = bool(impassable)
         self.variables = variables if isinstance(variables, list) else [variables]
+        self.coastal = bool(coastal)
 
 class strategicRegionClass:
     def __init__(self, ID, name, provinces):
@@ -136,7 +137,7 @@ def load_buildings():
         buildingsArray.append(buildingClass('industrial_complex',False,6,20,False,False))
         buildingsArray.append(buildingClass('air_base',False,1,10,False,False))
         buildingsArray.append(buildingClass('supply_node',True,1,1,False,False))
-        buildingsArray.append(buildingClass('rail_way',True,1,1,False,False))
+        buildingsArray.append(buildingClass('rail_way',True,0,1,False,False))
         buildingsArray.append(buildingClass('naval_base',True,1,10,True,True))
         buildingsArray.append(buildingClass('bunker',True,1,10,False,False))
         buildingsArray.append(buildingClass('coastal_bunker',True,1,10,True,False))
@@ -288,7 +289,7 @@ def load_provinces():
 
 def load_states(provincesArray,buildingsArray): 
     statesArray = []
-    statesArray.append(stateClass(0,0,"","",0,None,0,0,0,0,0,0,False,0))
+    statesArray.append(stateClass(0,0,"","",0,None,0,0,0,0,0,0,False,0,False))
     current_directory = os.getcwd()
     history_states_folder_path = os.path.join(current_directory, "history", "states")
 
@@ -470,7 +471,7 @@ def load_states(provincesArray,buildingsArray):
                 else:
                     buildings = None
 
-                statesArray.append(stateClass(ID, population, category, owner, provinces, None, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables))
+                statesArray.append(stateClass(ID, population, category, owner, provinces, None, buildings, resources, dateInfo, cores, claims, stateFlags, impassable, variables, False))
 
     
     statesArray.sort(key=lambda x: x.ID)
@@ -565,7 +566,7 @@ def load_names(provincesArray, statesArray):
                     statesArray[stateID].names=[]
                 statesArray[stateID].names.append([name_non_default_match.group(2), name_non_default_match.group(3)])
 
-def load_coastal(provincesArray, terrainArray):
+def load_coastal(provincesArray, statesArray, terrainArray):
     for prov in provincesArray:
         prov.coastal = False
     
@@ -582,3 +583,6 @@ def load_coastal(provincesArray, terrainArray):
                     if t.name == provTerrain and t.naval == True:
                         prov.coastal = True
                         provincesArray[border_prov].coastal = True
+
+                        currentStateID = int(prov.stateID)
+                        statesArray[currentStateID].coastal = True
