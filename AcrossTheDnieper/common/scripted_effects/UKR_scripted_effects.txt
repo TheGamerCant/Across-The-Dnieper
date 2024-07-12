@@ -83,6 +83,9 @@ UKR_spawn_donbass_countries={
 				load_oob = KHK_moderate
 			}
 		}
+		else={
+			KHK = { every_character = { set_nationality = LHK } }
+		}
 		if={
 			limit = { 
 				army_manpower_in_state = { state = 199 amount < 7500 } 
@@ -165,8 +168,10 @@ UKR_spawn_donbass_countries={
 			}
 			add_claim_by = NOV
 		}
-		DON = { every_unit_leader = { set_nationality = NOV } }
-		LHK = { every_unit_leader = { set_nationality = NOV } }
+		DON = { every_character = { set_nationality = NOV } }
+		LHK = { every_character = { set_nationality = NOV } }
+		KHK = { every_character = { set_nationality = NOV } }
+		ODS = { every_character = { set_nationality = NOV } }
 		NOV={
 			create_country_leader = {
 				name = "Pavel Gubarev"
@@ -902,7 +907,7 @@ UKR_HUR_setup = {
 	add_to_array = { UKR.HUR_assassinations_array_ALIAS = token:HUR_TARGET_ALIAS_none }
 	add_to_array = { UKR.HUR_assassinations_array_PORTRAIT = token:HUR_TARGET_PORTRAIT_alexander_zakharchenko_GFX }
 	add_to_array = { UKR.HUR_assassinations_array_STATUS = token:HUR_TARGET_STATUS_active }
-	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_none }
+	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_alexander_zakharchenko }
 	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
 	add_to_array = { UKR.HUR_assassinations_array_NAME = token:HUR_TARGET_NAME_stanislav_rzhitsky }
@@ -926,45 +931,90 @@ UKR_HUR_setup = {
 	add_to_array = { UKR.HUR_assassinations_array_CHARACTER = token:HUR_TARGET_CHARACTER_none }
 	add_to_array = { UKR.HUR_assassinations_array_SELECTED_TARGET = 1 }
 	
+	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_arsen_pavlov } 
+	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_LIFT } 
+	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_arsen_pavlov } 
+	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_LADA } 
+	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_alexander_zakharchenko } 
+	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_SEPAR } 
 	
-	UKR_HUR_load_coordinates = yes
+	UKR_HUR_refresh_info = yes
 }
 
-UKR_HUR_load_coordinates={
-	if={ 
-		limit = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } 	#4-width is visible
-		set_variable = { t = UKR.HUR_assassinations_array_NAME^num }
-		modulo_variable = { t = 4 }
-		set_variable = { u = UKR.HUR_assassinations_array_NAME^num }
-		subtract_from_variable = { u = t }
-		divide_variable = { u = 4 }
+UKR_HUR_refresh_info={
+	hidden_effect={
+		#
+		#	Get Character Locations
+		#
+		
+		#Create empty array of Country tags corresponding to each character's location
+		clear_array = UKR.HUR_assassinations_array_LOCATION
+		resize_array = {
+			array = UKR.HUR_assassinations_array_LOCATION
+			value = ZZZ
+			size = UKR.HUR_assassinations_array_NAME^num
+		}
+		
+		for_each_loop = {
+			array = UKR.HUR_assassinations_array_LOCATION
+			index = j
+			
+			#For every entry in the assassinations array, set the 'CHARACTER' token to ZZZ leader, then check if any country has that character (if not 'None'). If yes, set the character's location to that country, if not keep it as ZZZ
+			#Used to remove characters from that country if the character class exists. Location as displayed on the GUI is defined in UKR_HUR_scripted_loc.txt under "UKR_HUR_get_country_of_residence"
+			ZZZ={
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "[CHARACTER_ID]"
+							desc = ""
+							ideology = generic_populist
+							picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+							traits = { banished_to_the_shadow_realm }
+						}
+					}
+					CHARACTER_ID = "[?UKR.HUR_assassinations_array_CHARACTER^j.GetTokenKey]"
+				}
+				
+				if={
+					limit = { NOT = { has_country_leader = { name = "None" ruling_only = yes } } }
+					meta_effect = {
+						text = {
+							every_country={
+								limit = { exists = yes has_character = [CHARACTER_ID] }
+								set_variable = { UKR.HUR_assassinations_array_LOCATION^j = THIS }
+							}
+						}
+						CHARACTER_ID = "[ZZZ.GetLeader]"
+					}
+				}
+			}
+		}
+
+		ZZZ={
+			create_country_leader = {
+				name = "Nigel Farage"
+				desc = ""
+				ideology = generic_populist
+				picture = gfx/leaders/SER/Portrait_Nigel_Farage.png
+				traits = { banished_to_the_shadow_realm }
+			}
+		}
+		
+		#
+		# Go through assassination plots array. If their target == the current selected target, add to the array used by the dynamic list
+		#
+		
+		clear_array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array
+		for_each_loop = {
+			array = UKR.HUR_assassination_plots_array_TARGET
+			index = j
+			
+			if={
+				limit = { check_variable = { UKR.HUR_assassination_plots_array_TARGET^j = UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected } }
+				add_to_array = { UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array = UKR.HUR_assassination_plots_array_NAME^j }
+			}
+		}
 	}
-	else={
-		set_variable = { t = UKR.HUR_assassinations_array_NAME^num }		#2-width is visible
-		modulo_variable = { t = 2 }
-		set_variable = { u = UKR.HUR_assassinations_array_NAME^num }
-		subtract_from_variable = { u = t }
-		divide_variable = { u = 2 }
-	}
-	
-	if ={
-		limit = { NOT = { check_variable = { t = 0 } } }
-		add_to_variable = { u = 1 }
-	}
-	
-	#Right now we have variable 'u' representing the amount of rows / vertical height of the gridbox
-	
-	if={
-		limit = { check_variable = { u > 2 } }
-		set_variable = { UKR.extra_scroll_debug_y = u }
-		multiply_variable = { UKR.extra_scroll_debug_y = 350 }
-		add_to_variable = { UKR.extra_scroll_debug_y = 60 }
-	}
-	else={
-		set_variable = { UKR.extra_scroll_debug_y = -1 }	#Value of -1 means not visible
-	}
-	#clear_variable = t
-	#clear_variable = u
 }
 
 UKR_HUR_belgorod_clear_flags = {

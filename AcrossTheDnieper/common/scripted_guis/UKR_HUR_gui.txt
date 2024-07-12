@@ -79,7 +79,7 @@ scripted_gui = {
 			assassinations_grid_box_4width = {
 				array = UKR.HUR_assassinations_array_NAME
 				change_scope = no
-				entry_container = "assassinations_entry_4width"
+				entry_container = "assassination_target_entry_4width"
 			}
 		}
 		
@@ -87,15 +87,13 @@ scripted_gui = {
 			portrait_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
 			name_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
 			portrait_outline_4width_visible = { check_variable = { UKR.UKR_HUR_target_selected = -1 } }
-			
-			extra_scroll_debug_visible = { NOT = { check_variable = { UKR.extra_scroll_debug_y = -1 } } }
 		}
 		
 		effects={
 			portrait_outline_4width_click = { 
 				set_variable = { UKR.UKR_HUR_target_selected = i } 
 				set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^i = 2 } 
-				UKR_HUR_load_coordinates = yes
+				UKR_HUR_refresh_info = yes
 			}
 		}
 		
@@ -103,8 +101,8 @@ scripted_gui = {
 			portrait_outline_4width={
 				frame = UKR.HUR_assassinations_array_SELECTED_TARGET^i
 			}
-			extra_scroll_debug={
-				y = UKR.extra_scroll_debug_y
+			portrait_4width={
+				image = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
 			}
 		}
 	}
@@ -120,7 +118,7 @@ scripted_gui = {
 			assassinations_grid_box_2width = {
 				array = UKR.HUR_assassinations_array_NAME
 				change_scope = no
-				entry_container = "assassinations_entry_2width"
+				entry_container = "assassination_target_entry_2width"
 			}
 		}
 		
@@ -128,8 +126,6 @@ scripted_gui = {
 			portrait_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
 			name_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
 			portrait_outline_2width_visible = { NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
-			
-			extra_scroll_debug_visible = { NOT = { check_variable = { UKR.extra_scroll_debug_y = -1 } } }
 		}
 		
 		effects={
@@ -149,7 +145,7 @@ scripted_gui = {
 					set_variable = { UKR.UKR_HUR_target_selected = i } 
 					set_variable = { UKR.HUR_assassinations_array_SELECTED_TARGET^i = 2 } 
 				}
-				UKR_HUR_load_coordinates = yes
+				UKR_HUR_refresh_info = yes
 			}
 		}
 		
@@ -157,8 +153,8 @@ scripted_gui = {
 			portrait_outline_2width={
 				frame = UKR.HUR_assassinations_array_SELECTED_TARGET^i
 			}
-			extra_scroll_debug={
-				y = UKR.extra_scroll_debug_y
+			portrait_2width={
+				image = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
 			}
 		}
 	}
@@ -170,6 +166,19 @@ scripted_gui = {
 		
 		visible = { check_variable = { UKR.HUR_tab_selected^1 = 2 } NOT = { check_variable = { UKR.UKR_HUR_target_selected = -1 } } }
 		
+		properties={
+			portrait={
+				image = "[?UKR.HUR_assassinations_array_PORTRAIT^UKR_HUR_target_selected.GetTokenLocalizedKey]"
+			}
+		}
+		
+		dynamic_lists={
+			assassination_plots_grid_box = {
+				array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array
+				change_scope = no
+				entry_container = "assassination_plot_entry"
+			}
+		}
 	}
 
 

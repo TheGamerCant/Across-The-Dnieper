@@ -1,0 +1,100 @@
+defined_text = {
+    name = UKR_HUR_get_country_of_residence
+	
+    text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = SOV }
+        }
+        localization_key = "HUR_SOV_location"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = DON }
+        }
+        localization_key = "HUR_DON_location"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = LHK }
+        }
+        localization_key = "HUR_LHK_location"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = KHK }
+        }
+        localization_key = "HUR_KHK_location"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = ODS }
+        }
+        localization_key = "HUR_ODS_location"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = NOV }
+        }
+        localization_key = "HUR_NOV_location"
+    }
+	text = {
+		trigger={
+			OR={
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_arsen_pavlov }
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_mikhail_tolstykh }
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_alexander_zakharchenko }
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_stanislav_rzhitsky }
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_illia_kyva }
+				check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_mikhail_filiponenko }
+			}
+		}
+        localization_key = "HUR_SOV_location"
+    }
+	text = {
+        localization_key = "HUR_unknown_location"
+    }
+}
+
+defined_text = {
+    name = UKR_HUR_get_character_desc
+	
+    text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_arsen_pavlov }
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = DON }
+        }
+        localization_key = "HUR_TARGET_arsen_pavlov_desc_1"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_arsen_pavlov }
+            check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = NOV }
+        }
+        localization_key = "HUR_TARGET_arsen_pavlov_desc_2"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_arsen_pavlov }
+        }
+        localization_key = "HUR_TARGET_arsen_pavlov_desc_3"
+    }
+    text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_mikhail_tolstykh }
+            OR = { 
+				check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = DON }
+				check_variable = { UKR.HUR_assassinations_array_LOCATION^UKR_HUR_target_selected = NOV }
+			}
+        }
+        localization_key = "HUR_TARGET_mikhail_tolstykh_desc_1"
+    }
+	text = {
+        trigger = {
+            check_variable = { UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected = token:HUR_TARGET_NAME_mikhail_tolstykh }
+        }
+        localization_key = "HUR_TARGET_mikhail_tolstykh_desc_2"
+    }
+	text = {
+        localization_key = ""
+    }
+}

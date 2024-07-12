@@ -23,10 +23,10 @@ guiTypes = {
 		
 		instantTextboxType = {
 	    	name = "title_text_box"
-	    	position = { x = 464 y = 4 }
-	    	font = "hoi_36header"
+	    	position = { x = 0 y = 12 }
+	    	font = "OCR_A_24"
 	    	text = "HUR_title_header"
-	    	maxWidth = 400
+	    	maxWidth = 1328
 	    	maxHeight = 40
 	    	alwaystransparent = yes
 	    	format = center
@@ -80,13 +80,6 @@ guiTypes = {
 			format = "UPPER_LEFT"
 			max_slots_horizontal = 4
 		}
-		
-		iconType={
-			name = "extra_scroll_debug"
-			position = {x = 60 y = 18 }
-			spriteType = "GFX_decision_HUR_portrait_outline"
-			scale = 0.01
-		}
 	}
 	
 	containerWindowType={
@@ -113,56 +106,23 @@ guiTypes = {
 			format = "UPPER_LEFT"
 			max_slots_horizontal = 2
 		}
-		
-		iconType={
-			name = "extra_scroll_debug"
-			position = {x = 60 y = 18 }
-			spriteType = "GFX_decision_HUR_portrait_outline"
-			scale = 0.01
-		}
 	}
-	
-	containerWindowType={
-		name = "UKR_HUR_assassination_selected_bg_tab"
-		size = { width = 570 height = 807 }
-		position = { x=735 y=44 }
-		#scroll_wheel_factor = 50
-		#smooth_scrolling = yes
-		#autohide_scrollbars = no
-		#verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
-		#clipping = yes
-		
-		background = {
-			name = "Background"
-			quadTextureSprite = "GFX_UKR_HUR_assassination_selected_bg"
-		}
-		
-		buttonType = {
-			name = "portrait_outline"
-			position = {x = 60 y = 18 }
-			spriteType = "GFX_decision_HUR_portrait_outline_2"
-			alwaystransparent = yes
-		}
-		instantTextboxType = {
-			name = "portrait"
-			position = {x = 64 y = 118 }
-			text = "[?UKR.HUR_assassinations_array_PORTRAIT^UKR_HUR_target_selected.GetTokenLocalizedKey]"
-			alwaystransparent = yes
-		}
 
-	}
-	
 	#Need to make seperate containers for the 2-width and 4-width interfaces so you can set them to non-visible
 	
 	containerWindowType = {
-		name = "assassinations_entry_4width"
-		slotsize = {width=285 height=350 }
+		name = "assassination_target_entry_4width"
+		size = {width=285 height=350 }
 			
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+		}
 		
-		instantTextboxType = {
+		iconType = {
 			name = "portrait_4width"
-			position = {x = 64 y = 118 }
-			text = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
+			position = {x = 64 y = 22 }
+			spriteType = ""
 			alwaystransparent = yes
 		}
 
@@ -186,14 +146,18 @@ guiTypes = {
 	}
 	
 	containerWindowType = {
-		name = "assassinations_entry_2width"
-		slotsize = {width=285 height=350 }
+		name = "assassination_target_entry_2width"
+		size = {width=285 height=350 }
 			
-		
-		instantTextboxType = {
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+		}
+			
+		iconType = {
 			name = "portrait_2width"
-			position = {x = 64 y = 118 }
-			text = "[?UKR.HUR_assassinations_array_PORTRAIT^i.GetTokenLocalizedKey]"
+			position = {x = 64 y = 22 }
+			spriteType = ""
 			alwaystransparent = yes
 		}
 
@@ -213,6 +177,175 @@ guiTypes = {
 			name = "portrait_outline_2width"
 			position = {x = 60 y = 18 }
 			spriteType = "GFX_decision_HUR_portrait_outline"
+		}
+	}
+	
+	#Target selected, right-hand side
+	
+	containerWindowType={
+		name = "UKR_HUR_assassination_selected_bg_tab"
+		size = { width = 570 height = 807 }
+		position = { x=735 y=44 }
+		scroll_wheel_factor = 50
+		smooth_scrolling = yes
+		#autohide_scrollbars = no
+		verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		clipping = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_UKR_HUR_assassination_selected_bg"
+		}
+		
+		iconType = {
+			name = "portrait"
+			position = {x = 16 y = 12 }
+			spriteType = ""
+			alwaystransparent = yes
+			scale = 1.24
+		}
+		iconType = {
+			name = "portrait_outline"
+			position = {x = 11 y = 7 }
+			spriteType = "GFX_decision_HUR_portrait_outline_2"
+			alwaystransparent = yes
+			scale = 1.24
+		}
+		
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_name_text_box_l"
+			position = {x = 215 y = 11 }
+			text = "UKR_HUR_selected_target_name_text_l"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = left
+			fixedsize  = yes
+		}
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_name_text_box_r"
+			position = {x = 215 y = 11 }
+			text = "UKR_HUR_selected_target_name_text_r"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = right
+			fixedsize  = yes
+		}
+		
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_alias_text_box_l"
+			position = {x = 215 y = 29 }
+			text = "UKR_HUR_selected_target_alias_text_l"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = left
+			fixedsize  = yes
+		}
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_alias_text_box_r"
+			position = {x = 215 y = 29 }
+			text = "UKR_HUR_selected_target_alias_text_r"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = right
+			fixedsize  = yes
+		}
+		
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_status_text_box_l"
+			position = {x = 215 y = 47 }
+			text = "UKR_HUR_selected_target_status_text_l"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = left
+			fixedsize  = yes
+		}
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_status_text_box_r"
+			position = {x = 215 y = 47 }
+			text = "UKR_HUR_selected_target_status_text_r"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = right
+			fixedsize  = yes
+		}
+		
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_location_text_box_l"
+			position = {x = 215 y = 65 }
+			text = "UKR_HUR_selected_target_location_text_l"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = left
+			fixedsize  = yes
+		}
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_location_text_box_r"
+			position = {x = 215 y = 65 }
+			text = "UKR_HUR_selected_target_location_text_r"
+			alwaystransparent = yes
+			font="OCR_A_16"
+			maxWidth = 338
+			maxHeight = 24
+			format = right
+			fixedsize  = yes
+		}
+		
+		instantTextboxType = {
+			name = "UKR_HUR_selected_target_description_text_box"
+			position = {x = 14 y = 282 }
+			text = "[UKR.UKR_HUR_get_character_desc]"
+			alwaystransparent = yes
+			font="OCR_A_13"
+			maxWidth = 541
+			maxHeight = 700
+			format = left
+			fixedsize  = yes
+		}
+		
+		gridBoxType = {
+			name = "assassination_plots_grid_box"
+			position = { x = 8 y = 510 }
+
+			Orientation = upper_left
+			slotsize = {width=285 height=260 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 1
+		}
+	}
+	
+	containerWindowType = {
+		name = "assassination_plot_entry"
+		size = {width=544 height=250 }
+			
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_pink_bold_selection_frame"
+		}
+			
+		instantTextboxType = {
+			name = "name"
+			position = {x = 0 y = 20 }
+			text = "[?UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array^i.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+			font="OCR_A_20"
+			maxWidth = 544
+			maxHeight = 24
+			format = center
+			fixedsize  = yes
 		}
 	}
 	
