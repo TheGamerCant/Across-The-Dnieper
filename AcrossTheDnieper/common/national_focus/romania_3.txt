@@ -122,6 +122,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 150
+			add_ideas = ROM_Less_Talk
 		}
 	}
 	
@@ -146,6 +147,7 @@ focus_tree = {
 			add_political_power = 100
 			add_popularity = { ideology = libertarian popularity = 0.02 }
 			add_popularity = { ideology = eastern_liberal popularity = 0.02 }
+			add_ideas = ROM_Lib_Dereg
 		}
 	}
 
@@ -168,6 +170,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.02
+			add_ideas = ROM_Flat_Tax
 		}
 	}
 
@@ -189,7 +192,10 @@ focus_tree = {
 		prerequisite={focus = Fight_For_Flat_Tax}
 
 		completion_reward = {
-			
+									swap_ideas = {
+				remove_idea = ROM_Flat_Tax
+				add_idea = ROM_Flat_Tax_2
+			}
 		}
 	}
 
@@ -211,7 +217,10 @@ focus_tree = {
 		prerequisite={focus = Address_Regulatory_Policy}
 
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_Lib_Dereg
+				add_idea = ROM_Lib_Dereg_2
+			}
 		}
 	}
 
@@ -233,7 +242,10 @@ focus_tree = {
 		prerequisite={focus = Address_Regulatory_Policy}
 
 		completion_reward = {
-			
+						swap_ideas = {
+				remove_idea = ROM_Lib_Dereg_2
+				add_idea = ROM_Lib_Dereg_3
+			}
 		}
 	}
 
@@ -255,31 +267,13 @@ focus_tree = {
 		prerequisite={focus = Decrease_Reg_On_RND}
 
 		completion_reward = {
-			
+									swap_ideas = {
+				remove_idea = ROM_Lib_Dereg_3
+				add_idea = ROM_Lib_Dereg_4
+			}
 		}
 	}
 
-	focus = {
-		id = Agri_Subsidies
-		icon = GFX_da
-
-		x = 38
-		y = 8
-		cost = 14
-
-		ai_will_do = { 
-			factor = 10 
-		}
-        available = {
-        }
-		bypass = {
-		}
-		prerequisite={focus = Rom_Edu_System}
-
-		completion_reward = {
-			
-		}
-	}
 
 	focus = {
 		id = Rom_Agri_Powerhouse
@@ -300,7 +294,7 @@ focus_tree = {
 		prerequisite={focus = Agri_Dereg}
 
 		completion_reward = {
-			
+			add_ideas = ROM_Agricultural_Powerhouse
 		}
 	}
 
@@ -324,6 +318,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = -0.05
+			add_ideas = ROM_266
 		}
 	}
 
@@ -347,6 +342,37 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.02
 			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = ROM_266
+				add_idea = ROM_266_2
+			}
+		}
+
+	}
+
+	
+	focus = {
+		id = Agri_Subsidies
+		icon = GFX_da
+
+		x = 38
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+        }
+		bypass = {
+		}
+		prerequisite={focus = Rom_Edu_System}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ROM_266_3
+				add_idea = ROM_266_4
+			}
 		}
 	}
 
@@ -393,7 +419,10 @@ focus_tree = {
 		prerequisite={focus = Rom_Edu_System}
 
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_266_2
+				add_idea = ROM_266_4
+			}
 		}
 	}
 
@@ -589,32 +618,24 @@ focus_tree = {
 	}
 
 
-	focus = {
-		id =  Humanitarian_and_Peacekeeping_Operations
-		icon = GFX_Humanitarian_and_Peacekeeping_operations
-		x = 9
-		y = 2
-		cost = 40
+	
 
-		ai_will_do = { 
-			factor = 10 
-		}
+	
 
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { focus = Modernize_The_Airforce }
-		completion_reward = {
-			air_experience = 50
-			add_political_power = -25
-			swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring_4
-            add_idea = 3_Stage_Military_Restructuring_5
-		    }
-		}
-	}
-	focus = {
+
+	
+
+
+	shared_focus = Bring_Romania_into_the_21th_Century
+	shared_focus = military_modernazition
+	shared_focus = start_of_russian_invasion
+
+	
+}
+
+
+
+	shared_focus = {
 		id =  Modernization_Programs
 		icon = GFX_Modernization_programs
 		x = 8
@@ -629,8 +650,8 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = Partcicipate_in_NATO_Exercises }
-		prerequisite = { focus = Humanitarian_and_Peacekeeping_Operations }
+		prerequisite = { shared_focus = Partcicipate_in_NATO_Exercises }
+		prerequisite = { shared_focus = Humanitarian_and_Peacekeeping_Operations }
 
 		completion_reward = {
 			swap_ideas = {
@@ -645,7 +666,7 @@ focus_tree = {
             }	
 		    }
 		}
-	focus = {
+	shared_focus = {
 		id =  Collaboration_with_Industry_and_Research_Institutions
 		icon = GFX_Collaboration_with_Industry_and_research_intitutions
 		x = 7
@@ -660,7 +681,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = Modernization_Programs }
+		prerequisite = { shared_focus = Modernization_Programs }
 
 		completion_reward = {
 			swap_ideas = {
@@ -669,7 +690,7 @@ focus_tree = {
 		    }
 		}
 	}
-	focus = {
+	shared_focus = {
 		id =  Strategic_Planning_and_Force_Structure_Review
 		icon = GFX_Strategic_Planning_and_Force_structure_review
 		x = 9
@@ -684,7 +705,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = Modernization_Programs }
+		prerequisite = { shared_focus = Modernization_Programs }
 
 		completion_reward = {
 			swap_ideas = {
@@ -694,7 +715,7 @@ focus_tree = {
             air_experience = 50
 		}
 	}
-	focus = {
+	shared_focus = {
 		id =  Black_Sea_Capability_Expansion
 		icon = GFX_Black_Sea_Capability_Expansion
 		x = 18
@@ -709,7 +730,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = military_modernazition }
+		prerequisite = { shared_focus = military_modernazition }
 
 		completion_reward = {
 			add_doctrine_cost_reduction = {
@@ -721,7 +742,7 @@ focus_tree = {
             naval_experience = 50
 		}
 	}
-	focus = {
+	shared_focus = {
 		id =  Nato_Naval_Operations
 		icon = GFX_Strategic_Planning_and_Force_structure_review
 		x = 17
@@ -736,7 +757,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = Black_Sea_Capability_Expansion }
+		prerequisite = { shared_focus = Black_Sea_Capability_Expansion }
 
 		completion_reward = {
 			swap_ideas = {
@@ -750,20 +771,6 @@ focus_tree = {
             naval_experience = 25
 		}
 	}
-
-
-	
-
-
-	
-
-
-	shared_focus = Bring_Romania_into_the_21th_Century
-	shared_focus = military_modernazition
-	shared_focus = start_of_russian_invasion
-
-	
-}
 
 
 
@@ -796,6 +803,10 @@ shared_focus = {
 			add_opinion_modifier = {
 				target = MOL
 				modifier = BLR_large_positive
+			}
+			swap_ideas = {
+				remove_idea = nationalism_laws_interventionist
+				add_idea = nationalism_laws_revanchist
 			}
 		}
 	}
@@ -1340,6 +1351,7 @@ shared_focus = {
 		}
 		completion_reward = {
 		add_political_power = 200
+
 		}
 	}
 	shared_focus = {
@@ -1955,7 +1967,9 @@ shared_focus = {
 		}
 		prerequisite = {  shared_focus = Bring_Romania_into_the_21th_Century}
 		completion_reward = {
-		add_political_power = 200
+		add_political_power = 50
+		add_stability = 0.05
+            add_ideas = Modern_Infrastructure_Investments
 		}
 	}
 	shared_focus = {
@@ -1976,7 +1990,8 @@ shared_focus = {
 		completion_reward = {
 		add_political_power = 50
 		add_stability = 0.05
-		swap_ideas={
+		swap_ideas = {
+			remove_idea = Modern_Infrastructure_Investments
             add_idea = Modern_Infrastructure_Investments_4
 		}
 		}
@@ -2067,6 +2082,7 @@ shared_focus = {
 		prerequisite = {  shared_focus = Invest_in_Infrastructure }
 		completion_reward = {
 		add_stability = 0.1
+		swap_idaes	
 		}
 	}
 	shared_focus = {
@@ -2258,7 +2274,7 @@ shared_focus = {
 		prerequisite = {  shared_focus = dev_ports_maritime }
 		prerequisite = { shared_focus = develop_smart_grid }
 		prerequisite = { shared_focus = modernize_educational_facilities }
-		
+
 		completion_reward = {
 			remove_ideas = ROM_Outdated_infrastructure
 			add_stability = 0.06
@@ -2490,6 +2506,31 @@ shared_focus = {
             add_idea = 3_Stage_Military_Restructuring_3
 		    }
 		 }
+	}
+	shared_focus = {
+		id =  Humanitarian_and_Peacekeeping_Operations
+		icon = GFX_Humanitarian_and_Peacekeeping_operations
+		x = 9
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			add_political_power = -25
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_4
+            add_idea = 3_Stage_Military_Restructuring_5
+		    }
+		}
 	}
 		shared_focus = {
 		id =  Partcicipate_in_NATO_Exercises 
