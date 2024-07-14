@@ -71,6 +71,158 @@ ROM_parliament_decisions_category={
 			ROM_small_upper_house_increase = yes
 		}
 	}
+
+	ROM_increase_worker_rights = { 
+		priority = 200
+				days_remove = 45
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		cost = 0
+
+		modifier = {
+			consumer_goods_factor = 0.20
+
+		}
+		complete_effect = {
+			ROM_large_lower_house_increase = yes
+		}
+	}
+	ROM_seize_industrial_company = { 
+		priority = 200
+				days_remove = 45
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		cost = 0
+
+		modifier = {
+			consumer_goods_factor = -0.20
+
+		}
+		complete_effect = {
+			ROM_large_lower_house_decrease = yes
+		}
+	}
+		ROM_fund_industrial_companies = { 
+		priority = 200
+		days_remove = 180
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		cost = 0
+
+		modifier = {
+			industrial_capacity_factory = 0.1
+
+		}
+		complete_effect = {
+			ROM_small_upper_house_increase = yes
+		}
+	}
+	ROM_spread_propaganda = { 
+		priority = 200
+		days_remove = 180
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+		}
+
+		cost = 0
+
+		modifier = {
+			war_support_weekly = 0.005
+
+		}
+		complete_effect = {
+			ROM_small_upper_house_decrease = yes
+		}
+	}
+
+		ROM_take_out_eu_funds = { 
+		priority = 200
+		days_remove = 180
+				days_re_enable = 180
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			has_idea = eu_member
+		}
+
+		visible = {
+			has_idea = eu_member
+		}
+
+		cost = 0
+
+		modifier = {
+			consumer_goods_factor = -0.2
+
+		}
+		complete_effect = {
+			ROM_large_upper_house_increase = yes
+		}
+	}
+
+			ROM_take_out_brics_funds = { 
+		priority = 200
+		days_remove = 180
+				days_re_enable = 180
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_in_faction_with = SOV
+		}
+
+		cost = 0
+
+		modifier = {
+			consumer_goods_factor = -0.2
+
+		}
+		complete_effect = {
+			ROM_large_upper_house_increase = yes
+		}
+	}
 	
 	DEBUG_medium_upper_house_decrease = { 
 		priority = 200
