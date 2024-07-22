@@ -398,6 +398,7 @@ focus_tree = {
 			army_experience = 25
 			navy_experience = 25
 			air_experience = 25
+			country_event = { id = romania.16 }
 		}
 	}
 
@@ -617,6 +618,185 @@ focus_tree = {
 		}
 	}
 
+	
+
+focus = {
+		id = ROM_TR_Modernisation
+		icon = GFX_da
+		x = 84
+		y = 0
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger={
+				always=no
+			}
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			army_experience = 200
+		}
+	}
+
+	focus = {
+		id = ROM_Acquire_New_Turret
+		icon = GFX_da
+		x = 82
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_TR_Modernisation}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ROM_Acquire_New_Armour
+		icon = GFX_da
+		x = 86
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_TR_Modernisation}
+		completion_reward = {
+			
+		}
+	}
+
+		focus = {
+		id = ROM_Create_New_TR
+		icon = GFX_da
+		x = 84
+		y = 4
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Acquire_New_Turret}
+		prerequisite = {focus = ROM_Acquire_New_Armour}
+		completion_reward = {
+						add_ideas = ROM_Modernised_Tanks
+		}
+	}
+
+	
+	focus = {
+		id = ROM_Create_New_TR2
+		icon = GFX_da
+		x = 84
+		y = 6
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			date > 2023.12.01
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Create_New_TR}
+				completion_reward = {
+			army_experience = 200
+		}
+	}
+
+	focus = {
+		id = ROM_TR2_Armour
+		icon = GFX_da
+		x = 86
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Create_New_TR2}
+				completion_reward = {
+		}
+	}
+
+	focus = {
+		id = ROM_TR2_Turret
+		icon = GFX_da
+		x = 82
+		y = 8
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Create_New_TR2}
+				completion_reward = {
+
+		}
+	}
+
+		focus = {
+		id = ROM_Modernised_Tanks
+		icon = GFX_da
+		x = 84
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_TR2_Armour}
+		prerequisite = {focus = ROM_TR2_Turret}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ROM_Modernised_Tanks
+				add_idea = ROM_Modernised_Tanks_2
+			}
+		}
+	}
+
 
 	
 
@@ -630,7 +810,6 @@ focus_tree = {
 	shared_focus = military_modernazition
 	shared_focus = start_of_russian_invasion
 	shared_focus = Rally_Support_Union
-
 	
 }
 
@@ -1378,6 +1557,7 @@ shared_focus = {
             level = 2
             instant_build = yes
         }
+		add_extra_state_shared_building_slots = 2
    		}
 		}
 	}
@@ -1570,7 +1750,7 @@ shared_focus = {
 		icon = GFX_da
 		x = 47
 		y = 5
-		cost = 70
+		cost = 1
 
 		ai_will_do = { 
 			factor = 10 
