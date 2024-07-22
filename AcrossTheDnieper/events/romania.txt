@@ -81,28 +81,6 @@ country_event = {
     } 
 }
 
-country_event = {
-    id = romania.5
-    title = romania.5.t
-    desc = romania.5.desc
-		picture = GFX_Romanian_Elections
-		is_triggered_only = yes
-    option = {
-        name = romania.5.b
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = libertarian popularity = 0.04 }
-        add_popularity = { ideology = eastern_liberal popularity = 0.06 }
-        hidden_effect = {
-            set_politics = {
-                ruling_party = eastern_liberal
-                elections_allowed = yes
-            }
-        }
-    }
-}
-
 
 country_event = {
     id = romania.7
@@ -163,57 +141,123 @@ country_event = {
         }
     }
 }
+
+
+country_event = {
+    id = romania.11
+    title = romania.11.t
+    desc = romania.11.desc
+		picture = GFX_Romanian_Elections
+		is_triggered_only = yes
+    option = {
+        name = romania.11.b
+        ai_chance = {
+			base = 10
+		}
+		add_popularity = { ideology = libertarian popularity = 0.04 }
+        add_popularity = { ideology = eastern_liberal popularity = 0.06 }
+        hidden_effect = {
+            set_politics = {
+                ruling_party = eastern_liberal
+                elections_allowed = yes
+            }
+            ROM = {country_event = romania.12 days = 15}
+        }
+    }
+}
+
     
 
 country_event = {
-    id = romania.Rvictory2014
-    title = romania.Rvictory2014.t
-    desc = romania.Rvictory2014.desc
+    id = romania.12
+    title = romania.12.t
+    desc = romania.12.desc
 		picture = GFX_report_event_ROM_Iohannis_Victory
 		is_triggered_only = yes
 
     option = {
-        name = romania.Rvictory2014.a
+        name = romania.12.a
         ai_chance = {
 			base = 10
 		}
-        set_politics = {
-            ruling_party = eastern_liberal
-            elections_allowed = yes
-            complete_national_focus = Making_RW_Coalition
-        }
-    } 
-}
-country_event = {
-    id = romania.Lvictory2014
-    title = romania.Lvictory2014.t
-    desc = romania.Lvictory2014.desc
-		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
-		is_triggered_only = yes
-
-    option = {
-        name = romania.Lvictory2014.a
-        ai_chance = {
-			base = 10
-		}
-        set_politics = {
-            ruling_party = social_democracy
-            elections_allowed = yes
-        }
+        complete_national_focus = Making_RW_Coalition
+        ROM = {country_event = { id = romania.14 } }
     } 
 }
 
 country_event = {
-    id = romania.corruption
-    title = romania.corruption.t
-    desc = romania.corruption.desc
+    id = romania.13
+    title = romania.13.t
+    desc = romania.13.desc
 		picture = GFX_report_event_ROM_Pontas_Alliance_Victory
 		is_triggered_only = yes
 
     option = {
-        name = romania.corruption.a
+        name = romania.13.a
         ai_chance = {
 			base = 10
 		}
     } 
 }
+
+country_event = {
+    id = romania.14
+    title = romania.14.t
+    desc = romania.14.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.14.a
+        ai_chance = {
+			base = 100
+		}
+        complete_national_focus = Incorporate_Centrists
+    } 
+    option = {
+        name = romania.14.b
+        ai_chance = {
+			base = 0
+		}
+        complete_national_focus = Incorporate_Extremists
+    } 
+}
+
+country_event = {
+    id = romania.15
+    title = romania.15.t
+    desc = romania.15.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.15.a
+        ai_chance = {
+			base = 100
+		}
+        set_politics = {
+                ruling_party = ultranationalist
+                elections_allowed = yes
+            }
+    } 
+}
+
+country_event = {
+    id = romania.16
+    title = romania.16.t
+    desc = romania.16.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.16.a
+        ai_chance = {
+			base = 100
+		}
+        complete_national_focus = ROM_TR_Modernisation
+    } 
+}
+
+
+
+
