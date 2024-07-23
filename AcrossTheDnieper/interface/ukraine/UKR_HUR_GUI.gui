@@ -39,6 +39,13 @@ guiTypes = {
 			buttonFont = "OCR_A_13"
 			buttonText = "assassinations_select_button_text"
 		}
+		buttonType = {
+			name = "crimean_operations_select_button"
+			position = {x = 15 y = 86 }
+			quadTextureSprite = "GFX_decision_UKR_hur_entry_content"
+			buttonFont = "OCR_A_13"
+			buttonText = "crimean_operations_select_button_text"
+		}
 		
 		iconType = {
 			name = "UKR_intro_animation_bg"
@@ -329,17 +336,17 @@ guiTypes = {
 	
 	containerWindowType = {
 		name = "assassination_plot_entry"
-		size = {width=544 height=250 }
+		size = { width=544 height=250 }
 			
 		background = {
 			name = "Background"
-			quadTextureSprite = "GFX_pink_bold_selection_frame"
+			quadTextureSprite = "GFX_HUR_assassination_entry"
 		}
 			
 		instantTextboxType = {
 			name = "name"
 			position = {x = 0 y = 20 }
-			text = "[?UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array^i.GetTokenLocalizedKey]"
+			text = "[?UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_NAME_array^i.GetTokenLocalizedKey]"
 			alwaystransparent = yes
 			font="OCR_A_20"
 			maxWidth = 544
@@ -347,7 +354,37 @@ guiTypes = {
 			format = center
 			fixedsize  = yes
 		}
+		
+		instantTextboxType = {
+			name = "desc"
+			position = {x = 9 y = 40 }
+			text = "[?UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_OVERVIEW_array^i.GetTokenLocalizedKey]"
+			alwaystransparent = yes
+			font="OCR_A_14"
+			maxWidth = 526
+			maxHeight = 180
+			format = left
+			fixedsize  = yes
+		}
 	}
+	
+	containerWindowType={
+		name = "UKR_HUR_crimea_operations_bg_tab"
+		size = { width = 1140 height = 807 }
+		position = { x=165 y=44 }
+		scroll_wheel_factor = 50
+		smooth_scrolling = yes
+		#autohide_scrollbars = no
+		verticalScrollbar = "ATD_right_vertical_sliderno_bg_2"
+		clipping = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_pink_bold_selection_frame"
+		}
+
+	}
+	
 	
 	containerWindowType = {
 		name = "HUR_anim_container"

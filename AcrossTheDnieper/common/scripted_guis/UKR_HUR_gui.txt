@@ -53,6 +53,23 @@ scripted_gui = {
 					set_variable = { UKR.HUR_tab_selected^1 = 2 }
 				}				
 			}
+			crimean_operations_select_button_click = { 
+				if ={
+					limit = { check_variable = { UKR.HUR_tab_selected^2 = 2 } }
+					set_variable = { UKR.HUR_tab_selected^2 = 1 } 
+					set_variable = { UKR.HUR_tab_selected^0 = 2 } 
+				}
+				else={
+					set_temp_variable = { array_size = UKR.HUR_tab_selected^num }
+					clear_array = UKR.HUR_tab_selected
+					resize_array = {
+						array = UKR.HUR_tab_selected
+						value = 1
+						size = array_size
+					}
+					set_variable = { UKR.HUR_tab_selected^2 = 2 }
+				}				
+			}
 
 			close_button_click={ clr_country_flag = UKR_opened_hur_ui }
 
@@ -174,13 +191,21 @@ scripted_gui = {
 		
 		dynamic_lists={
 			assassination_plots_grid_box = {
-				array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array
+				array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_NAME_array
 				change_scope = no
 				entry_container = "assassination_plot_entry"
 			}
 		}
 	}
 
+	UKR_HUR_crimea_operations_bg_tab={
+		context_type = player_context
+		window_name = UKR_HUR_crimea_operations_bg_tab
+		parent_window_name = UKR_HUR_main_gui
+		
+		visible = { check_variable = { UKR.HUR_tab_selected^2 = 2 } }
+	
+	}
 
 	HUR_anim_container={
 		context_type = player_context

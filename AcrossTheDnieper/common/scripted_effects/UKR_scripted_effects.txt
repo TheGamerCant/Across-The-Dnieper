@@ -886,6 +886,7 @@ UKR_HUR_setup = {
 	
 	add_to_array = { UKR.HUR_tab_selected = 2 }
 	add_to_array = { UKR.HUR_tab_selected = 1 }
+	add_to_array = { UKR.HUR_tab_selected = 1 }
 	
 	set_variable = { UKR.UKR_HUR_target_selected = -1 }
 	
@@ -933,10 +934,13 @@ UKR_HUR_setup = {
 	
 	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_arsen_pavlov } 
 	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_LIFT } 
+	add_to_array = { UKR.HUR_assassination_plots_array_OVERVIEW = token:HUR_ASSASSINATION_PLOT_LIFT_OVERVIEW } 
 	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_arsen_pavlov } 
 	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_LADA } 
+	add_to_array = { UKR.HUR_assassination_plots_array_OVERVIEW = token:HUR_ASSASSINATION_PLOT_LADA_OVERVIEW } 
 	add_to_array = { UKR.HUR_assassination_plots_array_TARGET = token:HUR_TARGET_NAME_alexander_zakharchenko } 
 	add_to_array = { UKR.HUR_assassination_plots_array_NAME = token:HUR_ASSASSINATION_PLOT_SEPAR } 
+	add_to_array = { UKR.HUR_assassination_plots_array_OVERVIEW = token:HUR_ASSASSINATION_PLOT_SEPAR_OVERVIEW } 
 	
 	UKR_HUR_refresh_info = yes
 }
@@ -1004,14 +1008,16 @@ UKR_HUR_refresh_info={
 		# Go through assassination plots array. If their target == the current selected target, add to the array used by the dynamic list
 		#
 		
-		clear_array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array
+		clear_array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_NAME_array
+		clear_array = UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_OVERVIEW_array
 		for_each_loop = {
 			array = UKR.HUR_assassination_plots_array_TARGET
 			index = j
 			
 			if={
 				limit = { check_variable = { UKR.HUR_assassination_plots_array_TARGET^j = UKR.HUR_assassinations_array_NAME^UKR_HUR_target_selected } }
-				add_to_array = { UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_array = UKR.HUR_assassination_plots_array_NAME^j }
+				add_to_array = { UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_NAME_array = UKR.HUR_assassination_plots_array_NAME^j }
+				add_to_array = { UKR.UKR_HUR_SELECTED_TARGET_assassination_plots_OVERVIEW_array = UKR.HUR_assassination_plots_array_OVERVIEW^j }
 			}
 		}
 	}
