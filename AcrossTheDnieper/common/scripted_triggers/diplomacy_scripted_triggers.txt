@@ -467,8 +467,6 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 						tag = LHK
 						tag = KHK
 						tag = NOV#Cant send to ODS
-						tag = GGZ
-						tag = TRZ
 					}
 				}
 			}
@@ -477,6 +475,29 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		else_if={
 			limit = { tag = WAG }
 			always = yes
+		}
+		else_if = {
+			limit = {
+				original_tag = SOV
+			}
+				FROM={
+					OR={
+					original_tag = TRZ
+					original_tag= GGZ
+					}
+				}
+		}
+		else_if = {
+			limit = {
+				original_tag = ROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_SENDING_VOLUNTEERS_TT
+				has_completed_focus = our_ukrainian_brothers
+				FROM={
+					original_tag = UKR
+				}
+			}
 		}
 		else_if = {
 			limit = {
