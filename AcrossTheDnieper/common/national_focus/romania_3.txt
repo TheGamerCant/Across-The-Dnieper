@@ -622,7 +622,7 @@ focus_tree = {
 focus = {
 		id = ROM_TR_Modernisation
 		icon = GFX_da
-		x = 84
+		x = 90
 		y = 0
 		cost = 14
 
@@ -655,19 +655,22 @@ focus = {
 		}
 
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 		}
 		prerequisite = {focus = ROM_TR_Modernisation}
 		completion_reward = {
-			
+			army_experience = 25
 		}
 	}
 
-	focus = {
-		id = ROM_Acquire_New_Armour
+		focus = {
+		id = ROM_Acquire_New_Engine
 		icon = GFX_da
-		x = 86
+		x = 88
 		y = 2
 		cost = 14
 
@@ -676,21 +679,72 @@ focus = {
 		}
 
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 		}
 		prerequisite = {focus = ROM_TR_Modernisation}
 		completion_reward = {
-			
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = ROM_Acquire_New_Armour
+		icon = GFX_da
+		x = 98
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_TR_Modernisation}
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+		focus = {
+		id = ROM_Acquire_New_Cannon
+		icon = GFX_da
+		x = 92
+		y = 2
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_TR_Modernisation}
+		completion_reward = {
+			army_experience = 25
 		}
 	}
 
 		focus = {
 		id = ROM_Create_New_TR
 		icon = GFX_da
-		x = 84
-		y = 4
-		cost = 14
+		x = 90
+		y = 5
+		cost = 70
 
 		ai_will_do = { 
 			factor = 10 
@@ -702,8 +756,13 @@ focus = {
 		}
 		prerequisite = {focus = ROM_Acquire_New_Turret}
 		prerequisite = {focus = ROM_Acquire_New_Armour}
+		prerequisite = {focus = ROM_Acquire_New_Engine}
+		prerequisite = {focus = ROM_Acquire_New_Cannon}
 		completion_reward = {
 						add_ideas = ROM_Modernised_Tanks
+						set_technology = {
+							t90_chasis_tech = 1
+						}
 		}
 	}
 
@@ -711,8 +770,8 @@ focus = {
 	focus = {
 		id = ROM_Create_New_TR2
 		icon = GFX_da
-		x = 84
-		y = 6
+		x = 90
+		y = 7
 		cost = 14
 
 		ai_will_do = { 
@@ -730,11 +789,11 @@ focus = {
 		}
 	}
 
-	focus = {
-		id = ROM_TR2_Armour
+		focus = {
+		id = ROM_TR2_Turret
 		icon = GFX_da
-		x = 86
-		y = 8
+		x = 82
+		y = 9
 		cost = 14
 
 		ai_will_do = { 
@@ -742,19 +801,47 @@ focus = {
 		}
 
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 		}
 		prerequisite = {focus = ROM_Create_New_TR2}
-				completion_reward = {
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+		focus = {
+		id = ROM_TR2_Engine
+		icon = GFX_da
+		x = 88
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Create_New_TR2}
+		completion_reward = {
+			army_experience = 25
 		}
 	}
 
 	focus = {
-		id = ROM_TR2_Turret
+		id = ROM_TR2_Armour
 		icon = GFX_da
-		x = 82
-		y = 8
+		x = 98
+		y = 9
 		cost = 14
 
 		ai_will_do = { 
@@ -762,21 +849,48 @@ focus = {
 		}
 
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 		}
 		prerequisite = {focus = ROM_Create_New_TR2}
-				completion_reward = {
+		completion_reward = {
+			army_experience = 25
+		}
+	}
 
+		focus = {
+		id = ROM_TR2_Cannon
+		icon = GFX_da
+		x = 92
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+		}
+		prerequisite = {focus = ROM_Create_New_TR2}
+		completion_reward = {
+			army_experience = 25
 		}
 	}
 
 		focus = {
 		id = ROM_Modernised_Tanks
 		icon = GFX_da
-		x = 84
-		y = 10
-		cost = 14
+		x = 90
+		y = 11
+		cost = 140
 
 		ai_will_do = { 
 			factor = 10 
@@ -788,10 +902,15 @@ focus = {
 		}
 		prerequisite = {focus = ROM_TR2_Armour}
 		prerequisite = {focus = ROM_TR2_Turret}
+		prerequisite = {focus = ROM_TR2_Cannon}
+		prerequisite = {focus = ROM_TR2_Engine}
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = ROM_Modernised_Tanks
 				add_idea = ROM_Modernised_Tanks_2
+			}
+			set_technology = {
+				t14_chasis_tech = 1
 			}
 		}
 	}
