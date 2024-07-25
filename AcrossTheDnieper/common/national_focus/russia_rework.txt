@@ -422,10 +422,13 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			swap_ruler_traits = {
-				remove = SOV_king_of_the_castle_rework
-				add = SOV_king_of_the_castle_rework_2
-			}	
+			if={
+				limit = { vladimir_putin_is_leader = yes }
+				swap_ruler_traits = {
+					remove = SOV_king_of_the_castle_rework
+					add = SOV_king_of_the_castle_rework_2
+				}	
+			}
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -1642,7 +1645,10 @@ focus_tree = {
 
 		
 		completion_reward={
-			add_country_leader_trait = SOV_geopolitical_grandmaster_trait
+			if={
+				limit = { vladimir_putin_is_leader = yes }
+				add_country_leader_trait = SOV_geopolitical_grandmaster_trait
+			}
 			add_stability = 0.05
 		}
 	}

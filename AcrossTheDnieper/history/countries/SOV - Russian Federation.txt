@@ -123,19 +123,11 @@ give_military_access = TRZ
 give_military_access = ABK
 
 create_country_leader = {
-	name = "Vladimir Putin"
-	desc = "vladimir_putin_desc"
-	picture = gfx/leaders/SOV/Portrait_Vladimir_Putin.png
+	name = "Select Russia"
+	desc = ""
+	picture = GFX_select_country_button_russia_2014
 	ideology = united_russia_subideology
-	traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework }
-}
-
-if = {
-	limit = { NOT = { has_dlc = "La Resistance" } }
-	swap_ruler_traits = {
-		remove = SOV_retired_kgb_agent_lar
-		add = SOV_retired_kgb_agent_no_lar
-	}
+	traits = { }
 }
 
 create_country_leader = {
@@ -514,6 +506,15 @@ set_variable = { SOV_SGPW_conscription = 0 }
 
 	add_to_faction = DON
 	add_to_faction = LHK
+	
+	kill_country_leader = yes
+	create_country_leader = {
+		name = "Select Russia"
+		desc = ""
+		picture = GFX_select_country_button_russia_2022
+		ideology = united_russia_subideology
+		traits = { }
+	}
 
 	DON = {
 		set_popularities = {

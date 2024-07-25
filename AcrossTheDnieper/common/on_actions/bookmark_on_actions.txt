@@ -1,0 +1,116 @@
+on_actions={
+	on_startup = {
+		effect = {
+			if={
+				#2014
+				limit = { has_start_date < 2022.01.01 }
+				POL={ 
+					kill_country_leader = yes
+					create_country_leader = {
+						name = "Bronisław Komorowski"
+						picture = "gfx/leaders/POL/Portrait_Bronisław_Komorowski.png"
+						ideology = civic_platform
+						
+						traits = { POL_former_minister_of_defence POL_liberal_reformer }
+					}
+				}
+				UKR={ 
+					
+					create_country_leader = {
+						name = "Viktor Yanukovych"
+						desc = "victor_yanukovych_leader_desc"
+						ideology = party_of_regions_subideology
+						picture = "gfx/leaders/UKR/Portrait_Viktor_Yanukovych.png"
+						traits = { putins_puppet }
+					}
+				}
+				BLR={
+					recruit_character = BLR_alexander_lukashenko
+					create_country_leader = {
+						name = "Alexander Lukashenko"
+						desc = ""
+						picture = "gfx/leaders/BLR/Portrait_Alexander_Lukashenko.dds"
+						ideology = belarussian_belaya_rus_subideology
+						traits = { BLR_eternal_president BLR_potato_farmer }
+					}
+				}
+				SOV={ 
+					create_country_leader = {
+						name = "Vladimir Putin"
+						desc = "vladimir_putin_desc"
+						picture = "gfx/leaders/SOV/Portrait_Vladimir_Putin.png"
+						ideology = united_russia_subideology
+						traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework }
+					}
+				}
+			}
+			else={
+				#2022
+				UKR={
+					create_country_leader = {
+						name = "Volodymyr Zelenskyy"
+						desc = "volodymyr_zelenskyy_leader_desc"
+						ideology = servant_of_the_people_subideology
+						picture = gfx/leaders/UKR/Portrait_Volodymyr_Zelenskyy.png
+						traits = { actor }
+					}
+				}
+				BLR={
+					recruit_character = BLR_alexander_lukashenko
+					create_country_leader = {
+						name = "Alexander Lukashenko"
+						desc = ""
+						picture = "gfx/leaders/BLR/Portrait_Alexander_Lukashenko.dds"
+						ideology = belarussian_belaya_rus_subideology
+						traits = { BLR_last_dictator_trait BLR_potato_farmer }
+					}
+				}
+				SOV={ 
+					create_country_leader = {
+						name = "Vladimir Putin"
+						desc = "vladimir_putin_desc"
+						picture = "gfx/leaders/SOV/Portrait_Vladimir_Putin.png"
+						ideology = united_russia_subideology
+						traits = { SOV_retired_kgb_agent_lar SOV_king_of_the_castle_rework_2 SOV_geopolitical_grandmaster_trait }
+					}
+				}
+				POL={
+					create_country_leader = {
+						name = "Andrzej Duda"
+						picture = gfx/leaders/POL/Portrait_Andrzej_Duda.png
+						ideology = poland_pis_party
+						
+						traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+					}
+				}
+				DON={
+					create_country_leader = {
+						name = "Denis Pushilin"
+						desc = ""
+						picture = gfx/leaders/DON/Portrait_Denis_Pushilin.png
+						ideology = donetsk_party
+					}
+				}
+				LHK={
+					create_country_leader = {
+						name = "Leonid Pasechnik"
+						desc = ""
+						picture = gfx/leaders/LHK/Portrait_Leonid_Pasechnik.png		
+						ideology = generic_eastern_conservative
+					}
+				}
+			}
+			
+
+			SOV={
+				if = {
+					limit = { NOT = { has_dlc = "La Resistance" } }
+					swap_ruler_traits = {
+						remove = SOV_retired_kgb_agent_lar
+						add = SOV_retired_kgb_agent_no_lar
+					}
+				}
+			}
+		}
+	}
+}

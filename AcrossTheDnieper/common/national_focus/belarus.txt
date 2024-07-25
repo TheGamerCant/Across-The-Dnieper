@@ -1124,16 +1124,20 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_political_power = 120
-			hidden_effect={ 
-				swap_ruler_traits = {
-					remove = BLR_eternal_president
-					add = BLR_last_dictator_trait
+			if={
+				limit = { alexander_lukashenko_is_leader = yes }
+				
+				hidden_effect={ 
+					swap_ruler_traits = {
+						remove = BLR_eternal_president
+						add = BLR_last_dictator_trait
+					}
 				}
-			}
-			effect_tooltip={		#Avoids the trait description showing up in the focus
-				swap_ruler_traits = {
-					remove = BLR_eternal_president
-					add = BLR_last_dictator_trait_no_desc
+				effect_tooltip={		#Avoids the trait description showing up in the focus
+					swap_ruler_traits = {
+						remove = BLR_eternal_president
+						add = BLR_last_dictator_trait_no_desc
+					}
 				}
 			}
 		}
