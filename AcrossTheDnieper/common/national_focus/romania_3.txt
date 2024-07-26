@@ -2289,10 +2289,10 @@ shared_focus = {
 		completion_reward = {
 		add_political_power = 50
 		add_stability = 0.05
-		swap_ideas = {
-			remove_idea = Modern_Infrastructure_Investments
+             swap_ideas = {
+            remove_idea = Modern_Infrastructure_Investments
             add_idea = Modern_Infrastructure_Investments_4
-		}
+		    }
 		}
 	}
 	shared_focus = {
@@ -2590,11 +2590,11 @@ shared_focus = {
 
 
 	shared_focus = {
-		id = military_modernazition
-		icon = GFX_military_modernazition
-		x = 13
-		y = 0
-		cost = 70
+		id =  Humanitarian_and_Peacekeeping_Operations
+		icon = GFX_Humanitarian_and_Peacekeeping_operations
+		x = 9
+		y = 2
+		cost = 40
 
 		ai_will_do = { 
 			factor = 10 
@@ -2604,27 +2604,150 @@ shared_focus = {
 		}
 		bypass = {
 		}
+		prerequisite = { shared_focus = Modernize_The_Airforce }
+		completion_reward = {
+			air_experience = 50
+			add_political_power = -25
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_4
+            add_idea = 3_Stage_Military_Restructuring_5
+		    }
+		}
+	}
+	shared_focus = {
+		id =  Modernization_Programs
+		icon = GFX_Modernization_programs
+		x = 8
+		y = 3
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = Partcicipate_in_NATO_Exercises }
+		prerequisite = { shared_focus = Humanitarian_and_Peacekeeping_Operations }
 
 		completion_reward = {
-			army_experience = 50
-            naval_experience = 50
-            air_experience = 50
-            add_ideas = 3_Stage_Military_Restructuring
-			add_ideas = Romanian_Military_Industry
-                 add_tech_bonus = {
-                name = ROM_military
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_5
+            add_idea = 3_Stage_Military_Restructuring_6
+		    }
+			 add_tech_bonus = {
+                name = ROM_air
                 bonus = 1.0
                 uses = 1
-                category = infantry_weapons
-                category = ship_modules_tech
-                category = support_tech
-                category = armor
-                category = artillery
                 category = air_equipment
-                category = infantry_anti_air_cat
-                category = ifv_cat
-                category = apc_cat
             }	
+		    }
+		}
+	shared_focus = {
+		id =  Collaboration_with_Industry_and_Research_Institutions
+		icon = GFX_Collaboration_with_Industry_and_research_intitutions
+		x = 7
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = Romanian_Military_Industry_3
+            add_idea = Romanian_Military_Industry_4
+		    }
+		}
+	}
+	shared_focus = {
+		id =  Strategic_Planning_and_Force_Structure_Review
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 9
+		y = 4
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = Modernization_Programs }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_6
+            add_idea = 3_Stage_Military_Restructuring_7
+		    }
+            air_experience = 50
+		}
+	}
+	shared_focus = {
+		id =  Black_Sea_Capability_Expansion
+		icon = GFX_Black_Sea_Capability_Expansion
+		x = 18
+		y = 1
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = military_modernazition }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = ROM_doctrine_navy
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+            naval_experience = 50
+		}
+	}
+	shared_focus = {
+		id =  Nato_Naval_Operations
+		icon = GFX_Strategic_Planning_and_Force_structure_review
+		x = 17
+		y = 2
+		cost = 40
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { shared_focus = Black_Sea_Capability_Expansion }
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = 3_Stage_Military_Restructuring_7
+            add_idea = 3_Stage_Military_Restructuring_8
+		    }
+			swap_ideas = {
+            remove_idea = Romanian_Military_Industry_4
+            add_idea = Romanian_Military_Industry_5
+		    }
+            naval_experience = 25
 		}
 	}
 	
@@ -2643,7 +2766,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = military_modernazition }
+		prerequisite = { focus = military_modernazition }
 
 		completion_reward = {
 			army_experience = 25
@@ -2674,7 +2797,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = land_force_doctrine_reform }
+		prerequisite = { focus = land_force_doctrine_reform }
 
 		completion_reward = {
              swap_ideas = {
@@ -2699,7 +2822,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = land_force_doctrine_reform }
+		prerequisite = { focus = land_force_doctrine_reform }
 
 		completion_reward = {
              swap_ideas = {
@@ -2723,8 +2846,8 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = increase_equipment_producement_standard }
-		prerequisite = { shared_focus = Rigorous_Military_Training }
+		prerequisite = { focus = increase_equipment_producement_standard }
+		prerequisite = { focus = Rigorous_Military_Training }
 
 		completion_reward = {
              swap_ideas = {
@@ -2748,7 +2871,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = increase_randd_standards }
+		prerequisite = { focus = increase_randd_standards }
 		completion_reward = {
             army_experience = 50
 			add_political_power = -50
@@ -2769,7 +2892,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = increase_randd_standards }
+		prerequisite = { focus = increase_randd_standards }
 		completion_reward = {
             swap_ideas = {
             remove_idea = Romanian_Military_Industry_2
@@ -2792,7 +2915,8 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = military_modernazition }
+		prerequisite = { focus = military_modernazition }
+		
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = ROM_doctrine_air
@@ -2805,31 +2929,6 @@ shared_focus = {
             add_idea = 3_Stage_Military_Restructuring_3
 		    }
 		 }
-	}
-	shared_focus = {
-		id =  Humanitarian_and_Peacekeeping_Operations
-		icon = GFX_Humanitarian_and_Peacekeeping_operations
-		x = 9
-		y = 2
-		cost = 40
-
-		ai_will_do = { 
-			factor = 10 
-		}
-
-		available = {
-		}
-		bypass = {
-		}
-		prerequisite = { shared_focus = Modernize_The_Airforce }
-		completion_reward = {
-			air_experience = 50
-			add_political_power = -25
-			swap_ideas = {
-            remove_idea = 3_Stage_Military_Restructuring_4
-            add_idea = 3_Stage_Military_Restructuring_5
-		    }
-		}
 	}
 		shared_focus = {
 		id =  Partcicipate_in_NATO_Exercises 
@@ -2846,7 +2945,7 @@ shared_focus = {
 		}
 		bypass = {
 		}
-		prerequisite = { shared_focus = Modernize_The_Airforce }
+		prerequisite = { focus = Modernize_The_Airforce }
 		completion_reward = {
 			air_experience = 50
 			swap_ideas = {
