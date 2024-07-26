@@ -1201,7 +1201,10 @@ focus_tree = {
 
 		
 		completion_reward={
-			add_country_leader_trait = SOV_geopolitical_grandmaster_trait
+			if = { 
+				limit = { vladimir_putin_is_leader = yes }
+				add_country_leader_trait = SOV_geopolitical_grandmaster_trait
+			}
 			add_stability = 0.05
 		}
 	}

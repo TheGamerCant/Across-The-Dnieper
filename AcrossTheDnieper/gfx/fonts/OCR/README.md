@@ -1,3 +1,3 @@
-Version of classic OCR-A font modified to include Ukrainian and Polish characters.
+Version of classic OCR-A font modified to include Russian, Ukrainian, Polish, Hungarian and Romanian characters.
 
 Made by me, TheGamerCant. Feel free to use!
