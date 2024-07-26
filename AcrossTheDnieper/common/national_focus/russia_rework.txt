@@ -347,7 +347,6 @@ focus_tree = {
 	continuous_focus_position = { x = 80 y = 2280 } 
 	country = {
 		factor = 0
-
 	}
 	
 	focus = {
@@ -428,7 +427,7 @@ focus_tree = {
 					remove = SOV_king_of_the_castle_rework
 					add = SOV_king_of_the_castle_rework_2
 				}	
-			}
+			}	
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -587,306 +586,41 @@ focus_tree = {
 		}
 		
 		select_effect={
-			set_global_flag = russia_ukraine_war
-			set_global_flag = smo_northern_front_open
-			set_global_flag = smo_eastern_front_open
-			set_global_flag = smo_donbass_front_open
-			set_global_flag = smo_southern_front_open
-			
-			news_event = { id = atd_news.56 days = 10 random_days = 20 }
-
-			UKR = {
-				add_intel = {
-					target = DON
-					army_intel = 60
-				}
-				add_intel = {
-					target = LHK
-					army_intel = 60
-				}
-				add_intel = {
-					target = SOV
-					army_intel = 60
-				}
-			}
-
-			add_intel = {
-				target = UKR
-				army_intel = 60
-			}
-
-			if = {
-				limit = {
-					country_exists = BLR
-					OR={
-						is_in_faction_with = BLR
-						BLR={ is_puppet_of = ROOT }
-					}
-					435 = { is_owned_and_controlled_by = BLR }
-				}
-				
-				if={
-					limit = { 434 = { is_owned_and_controlled_by = BLR } }
-					country_event = { id = russia.88 days = 56 }
-				}
-			}
-			else={
-				set_global_flag = smo_western_front_open
-			}
-
-			every_country = {
-				limit = {
-					has_start_date < 2022.01.01
-					country_exists = ROOT
-					is_puppet_of = SOV
-					OR = {
-						original_tag = DON
-						original_tag = LHK
-						original_tag = KHK
-						original_tag = NOV
-						original_tag = ODS
-					}
-				}
-
-				country_event = { id = donbass_mutual.1 days = 25 }
-			}
-			
-			if={
-				limit = { has_start_date < 2022.01.01 is_ai = yes }
-				SOV={
-					division_template = {
-						name = "Russian Regular Forces"
-						division_names_group = SOV_INF_01
-						template_counter = 185
-						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-							infantry = { x = 1 y = 0 }
-							irregular_infantry = { x = 1 y = 1 }	
-							irregular_infantry = { x = 1 y = 2 }
-							mechanized = { x = 2 y = 0 }
-							mechanized = { x = 2 y = 1 }
-						}
-					}
-					
-					for_loop_effect = {
-						end = 120
-						value = temp
-						random_owned_controlled_state = {
-							limit = { SOV = { has_full_control_of_state = PREV } }
-							create_unit = {
-								division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
-								owner = SOV
-							}
-						}
-					}
-				}
-			}
-			
-			if={
-				limit = { has_start_date < 2022.01.01 is_ai = yes UKR = { is_ai = no } }
-				SOV={					
-					for_loop_effect = {
-						end = 30
-						value = temp
-						random_owned_controlled_state = {
-							limit = { SOV = { has_full_control_of_state = PREV } }
-							create_unit = {
-								division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
-								owner = SOV
-							}
-						}
-					}
-				}
-			}
+			SOV_before_smo_effects = yes
 		}
 		
 		completion_reward={
 			custom_effect_tooltip = SOV_movements_on_the_border_tt
 			hidden_effect={
-				SOV = { country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 200 } country_event = { id = russia.1149 days = 108 } country_event = { id = russia.1150 days = 41 } }
-				UKR = { country_event = { id = ukraine.165 days = 1 hours = 2 } country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } country_event = { id = ukraine.160 days = 64 }  }
+				SOV = { country_event = { id = russia.1048 days = 2 } country_event = { id = russia.1097 days = 200 random_days = 220 } country_event = { id = russia_propaganda.16 days = 659 } country_event = { id = russia.1116 days = 200 } country_event = { id = russia.1117 days = 20 } country_event = { id = russia.1123 days = 166 } country_event = { id = russia.1124 days = 40 } country_event = { id = russia.1136 days = 200 } country_event = { id = russia.1149 days = 108 } country_event = { id = russia.1150 days = 41 } }
+				UKR = { country_event = { id = ukraine.129 days = 365 } country_event = { id = ukraine.165 days = 1 hours = 2 } country_event = { id = ukraine.152 days = 6 } country_event = { id = ukraine.151 days = 21 } country_event = { id = ukraine.149 days = 129 } country_event = { id = ukraine.148 days = 9 } country_event = { id = ukraine.120 hours = 30 } country_event = { id = ukraine.133 days = 3 } country_event = { id = ukraine.134 days = 4 } country_event = { id = ukraine.135 days = 677 } country_event = { id = ukraine.141 days = 304 } country_event = { id = ukraine.144 hours = 1 } country_event = { id = ukraine.145 days = 45 } country_event = { id = ukraine.160 days = 64 }  }
 				POL = { country_event = { id = atd_poland.24 days = 265 } }
 
 				news_event = { id = atd_news.73 days = 84 } 
 				news_event = { id = atd_news.76 days = 1 } 
+				news_event = { id = atd_news.55 hours = 1 }
+
+				country_event = { id = super.1 } 
+
+				add_named_threat = { threat = 60 name = russian_invasion_of_ukraine }
 				
 				country_event = { id = russia.1151 days = 3 }	#For "Three days to Kiev" achievement
 
-				every_state={
-					limit={
-						is_controlled_by = ROOT
-						NOT={
-							OR={
-								is_core_of = UKR
-								is_claimed_by = UKR
-							}
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = not_allowed_to_attack_here
-						scope = UKR
-					}
-				}
-
-				if = {
-					limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
-					every_state = {
-					limit ={
-						OR = {
-							is_controlled_by = DON
-							is_controlled_by = LHK
-						}
-					}
-					
-					add_dynamic_modifier = {
-						modifier = UKR_heavily_defended_area
-						scope = UKR
-					}
-				}
-				every_state = {
-					limit ={
-						is_controlled_by = SOV
-						has_state_flag = crimea_oblast_flag
-					}
-					add_dynamic_modifier = {
-						modifier = UKR_heavily_defended_area
-						scope = UKR
-					}
-				}
-
-				every_state = {
-					limit ={
-						is_controlled_by = UKR
-						OR = {
-							state=264
-							state=231
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = UKR_heavily_defended_area
-						scope = SOV
-					}
-				}
-				every_state={ 
-					limit = {
-						is_controlled_by = UKR
-						OR = {
-							state = 166
-							state = 135
-							state = 146
-							state = 94
-							state = 93
-							state = 82
-							state = 455
-							state = 165
-							state = 196
-							state = 284
-							state = 89
-                            state = 195
-							state = 122
-							state = 128
-							state = 95
-							state = 467
-							state = 468
-							state = 464
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = UKR_heavily_entrenched
-						scope = SOV
-					}
-				}
-				}
-				
-				
-				
-				
-				every_state={
-					limit={
-						OR={
-							has_state_flag = kherson_oblast_flag
-							has_state_flag = zaporizhzhia_oblast_flag
-							has_state_flag = crimea_oblast_flag
-
-							state = 230
-							state = 306
-							state = 451
-							state = 473
-
-						}
-						NOT = { state = 196 }
-						NOT = { state = 231 }
-						NOT = { state = 455 }
-						NOT = { state = 284 }
-					}
-					add_dynamic_modifier = {
-						modifier = UKR_collaborators
-						scope = SOV
-					}
-				}
-
-				if = {
-					limit = { NOT = { country_exists = DON } }
-
-					every_state = {
-						limit = {
-							AND = {
-								is_owned_by = UKR
-								
-								OR = {
-									state = 208
-									state = 186
-									state = 173
-								}
-							}
-						}
-
-						add_dynamic_modifier = {
-						    modifier = UKR_collaborators
-						    scope = SOV
-					    }
-					}
-				}
-
-				if = {
-					limit = { NOT = { country_exists = LHK } }
-
-					every_state = {
-						limit = {
-							AND = {
-								is_owned_by = UKR
-								
-								OR = {
-									state = 174
-									state = 159
-									state = 152
-									state = 155
-								}
-							}
-						}
-
-						add_dynamic_modifier = {
-						    modifier = UKR_collaborators
-						    scope = SOV
-					    }
-					}
-				}
-			
 				set_global_flag = { flag = russia_ukraine_war_started_recently value = 1 days = 30 }
 				set_global_flag = { flag = russia_ukraine_war_countdown_until_frontlines_solidify value = 1 days = 55 }
 				set_global_flag = { flag = russia_ukraine_war_less_than_one_year value = 1 days = 365 }
 				set_global_flag = { flag = russia_ukraine_war_less_than_two_years value = 1 days = 730 }
-				UKR = { country_event = { id = ukraine.129 days = 365 }  }
+
+				SOV_smo_setup_state_modifiers = yes #scripted effect
 				
 				declare_war_on = {
 					target = UKR
 					type = take_state_focus
 				}
-				country_event = { id = super.1 } 
+
+				SOV_smo_republics_declare_on_ukraine = yes #scripted effect
+				
 				UKR = { 
-					
 					if={
 						limit = { 
 							volodymyr_zelenskyy_is_leader = yes
@@ -895,112 +629,7 @@ focus_tree = {
 					}
 					country_event = { id = ukraine.83 hours = 7 } 
 				}
-				
-				if = {
-					limit = {
-						DON={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					DON = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOV={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					NOV = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				if = {
-					limit = {
-						LHK={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					LHK = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				if = {
-					limit = {
-						KHK={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					KHK = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				
-				if = {
-					limit = {
-						ODS={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					ODS = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				
-				if = {
-					limit = {
-						CHN={
-							exists = yes
-							OR={
-								is_in_faction_with = ROOT
-								is_puppet_of = ROOT
-							}
-						}
-					}
-					CHN = {
-						declare_war_on = {
-							target = UKR
-							type = take_state_focus
-						}
-					}
-				}
-				
+
 				if={
 					limit = { is_ai = yes }
 					add_timed_idea = { idea = SOV_three_days_to_kiev days = 30 } 
@@ -1008,82 +637,9 @@ focus_tree = {
 				else={
 					add_timed_idea = { idea = SOV_three_days_to_kiev_player days = 30 } 
 				}
-				
-
-
-
 
 				
-				mark_focus_tree_layout_dirty = yes
-				
-				if={
-					limit={
-						is_ai = yes
-						UKR = { is_ai = no }
-					}
-					SOV={
-						division_template = {
-							name = "AI boost division"
-							division_names_group = SOV_INF_01
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }	
-								infantry = { x = 1 y = 2 }
-								mechanized = { x = 2 y = 0 }
-								mechanized = { x = 2 y = 1 }
-							}
-						}
-						
-						for_loop_effect = {
-							end = 45
-							value = temp
-							random_owned_controlled_state = {
-								limit = { SOV = { has_full_control_of_state = PREV } }
-								create_unit = {
-									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
-									owner = SOV
-								}
-							}
-						}
-					}
-				}
-				else_if={
-					limit={
-						is_ai = yes
-						UKR = { is_ai = yes }
-					}
-					SOV={
-						division_template = {
-							name = "AI boost division"
-							division_names_group = SOV_INF_01
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }	
-								mechanized = { x = 2 y = 0 }
-								mechanized = { x = 2 y = 1 }
-							}
-						}
-						
-						for_loop_effect = {
-							end = 20
-							value = temp
-							random_owned_controlled_state = {
-								limit = { SOV = { has_full_control_of_state = PREV } }
-								create_unit = {
-									division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.05" 
-									owner = SOV
-								}
-							}
-						}
-					}
-				}
-				
-				
+				SOV_smo_ai_division_boost = yes #scripted effect
 				
 				if={
 					limit = { is_ai = yes  has_start_date < 2022.01.01 }
@@ -1120,9 +676,7 @@ focus_tree = {
 					country_event = { id = russia.1044 days = 8 }
 				}
 				
-				country_event = { id = russia.1048 days = 2 }
-				news_event = { id = atd_news.55 hours = 1 }
-				add_named_threat = { threat = 60 name = russian_invasion_of_ukraine }
+
 				
 				if={
 					limit = {
@@ -1133,6 +687,8 @@ focus_tree = {
 					}
 					set_global_flag = VLADIMIR_PUTIN_WAR_PORTRAIT_FLAG
 				}
+
+				mark_focus_tree_layout_dirty = yes
 			}
 		}
 	}
@@ -1645,10 +1201,7 @@ focus_tree = {
 
 		
 		completion_reward={
-			if={
-				limit = { vladimir_putin_is_leader = yes }
-				add_country_leader_trait = SOV_geopolitical_grandmaster_trait
-			}
+			add_country_leader_trait = SOV_geopolitical_grandmaster_trait
 			add_stability = 0.05
 		}
 	}
@@ -2894,18 +2447,7 @@ focus_tree = {
 			}
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR={
-					has_country_flag = view_all_russia_trees
-					has_completed_focus = SOV_movements_on_the_border
-				}
-			}
+
 		}
 		
 		
@@ -2918,7 +2460,7 @@ focus_tree = {
 		id = SOV_fix_our_logistics
 		icon = GFX_focus_SOV_Fix_Our_Logistics
 		x = 0
-		y = 1
+		y = 3
 		cost = 20
 		search_filters = {
 			
@@ -2957,13 +2499,12 @@ focus_tree = {
 	focus = {
 		id = SOV_combat_drone_tech
 		icon = GFX_focus_SOV_Combat_Drone_Technology
-		x = 4
-		y = 5
+		x = 1
+		y = 15
 		cost = 25
 		search_filters = {
 			
 		}
-		prerequisite = { focus = SOV_announce_the_draft }
 		relative_position_id = SOV_the_quagmire
 		available={
 			has_war_with = UKR
@@ -2976,14 +2517,14 @@ focus_tree = {
 
 	focus = {
 		id = SOV_warn_the_west
-		icon = GFX_focus_SOV_Warn_the_West
-		x = 6
-		y = 5
+		icon = GFX
+		x = 3
+		y = 6
 		cost = 10
 		search_filters = {
 			
 		}
-		prerequisite = { focus = SOV_announce_the_draft }
+		prerequisite = { focus = SOV_focus_nato_expansionism }
 		relative_position_id = SOV_the_quagmire
 		available={
 			has_war_with = UKR
@@ -2991,24 +2532,36 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			add_political_power = 80
-			hidden_effect = { news_event = { days = 3 id = atd_news.83 } }
-			UKR = {
-				UKR_ma_decrese_willingness_3_all = yes
-			}
-			every_country = {
-				limit = { has_idea = eu_member }
+			country_event = { id = russia_propaganda.19 }
+		}
+	}
 
-				add_opinion_modifier = { target = SOV modifier = medium_decrease }
-			}
+	focus = {
+		id = SOV_nato_proxy_war
+		icon = GFX
+		x = 2
+		y = 8
+		cost = 5
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_focus_nato_expansionism }
+		relative_position_id = SOV_the_quagmire
+		available={
+			has_war_with = UKR
+			NOT = { has_war_with = NAT }
+		}
+		
+		completion_reward={
+			country_event = { id = russia_propaganda.20 }
 		}
 	}
 
 	focus = {
 		id = SOV_strike_energy_infrastructure
 		icon = GFX_focus_SOV_Strike_Energy_Infrastructure
-		x = 3
-		y = 6
+		x = -1
+		y = 15
 		cost = 30
 		search_filters = {
 			
@@ -3048,8 +2601,8 @@ focus_tree = {
 	focus = {
 		id = SOV_destroy_ukrainian_identity
 		icon = GFX_focus_SOV_Erase_Ukrainian_Identity
-		x = 5
-		y = 6
+		x = 3
+		y = 15
 		cost = 30
 		search_filters = {
 			
@@ -3089,8 +2642,8 @@ focus_tree = {
 	focus = {
 		id = SOV_information_warfare
 		icon = GFX_focus_SOV_Information_Warfare
-		x = 0
-		y = 3
+		x = 4
+		y = 4
 		cost = 25
 		search_filters = {
 			
@@ -3107,6 +2660,145 @@ focus_tree = {
 			country_event = { id = russia.1120 }
 		}
 	}
+	focus = {
+		id = SOV_focus_denazification
+		icon = GFX
+		x = 6
+		y = 5
+		cost = 14
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_information_warfare }
+		mutually_exclusive = { focus = SOV_focus_nato_expansionism }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			increase_eastern_conservative_programming_by_2 = yes
+			increase_ultranationalist_programming_by_5 = yes
+		}
+	}
+	focus = {
+		id = SOV_teach_bandera_genocides
+		icon = GFX
+		x = 5
+		y = 6
+		cost = 10
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_focus_denazification }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			country_event = { id = russia_propaganda.18 }
+		}
+	}
+	focus = {
+		id = SOV_nazi_brigades_of_ukraine
+		icon = GFX
+		x = 6
+		y = 8
+		cost = 5
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_focus_denazification }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			country_event = { id = russia_propaganda.21 }
+		}
+	}
+	focus = {
+		id = SOV_deploy_russian_web_brigades
+		icon = GFX
+		x = 4
+		y = 7
+		cost = 14
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_teach_bandera_genocides focus = SOV_warn_the_west  }
+		prerequisite = { focus = SOV_information_warfare }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			increase_ultranationalist_programming_by_2 = yes
+			increase_eastern_conservative_programming_by_2 = yes
+			add_ideas = SOV_web_brigades
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = SOV_strenght_is_in_truth
+		icon = GFX
+		x = 4
+		y = 9
+		cost = 14
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_nato_proxy_war focus = SOV_nazi_brigades_of_ukraine  }
+		prerequisite = { focus = SOV_deploy_russian_web_brigades }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_web_brigades
+				add_idea = SOV_web_brigades_2
+			}
+		}
+	}
+	focus = {
+		id = SOV_focus_nato_expansionism
+		icon = GFX
+		x = 2
+		y = 5
+		cost = 14
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_information_warfare }
+		mutually_exclusive = { focus = SOV_focus_denazification }
+		relative_position_id = SOV_the_quagmire
+
+		available={
+			has_war_with = UKR
+		}
+		
+		completion_reward={
+			increase_ultranationalist_programming_by_2 = yes
+			increase_eastern_conservative_programming_by_5 = yes
+		}
+	}
 
 
 	
@@ -3114,7 +2806,7 @@ focus_tree = {
 		id = SOV_offensives_in_donbass_2
 		icon = GFX_focus_SOV_offensives_in_donbass_2
 		x = -4
-		y = 3
+		y = 2
 		cost = 20
 
 		prerequisite = { focus = SOV_secure_the_land_bridge }
@@ -3196,7 +2888,7 @@ focus_tree = {
 		id = SOV_push_for_bakhmut
 		icon = GFX_focus_SOV_send_wagner
 		x = -3
-		y = 4
+		y = 3
 		cost = 30
 
 		prerequisite = { focus = SOV_secure_the_land_bridge }
@@ -3288,7 +2980,7 @@ focus_tree = {
 		id = SOV_secure_the_land_bridge
 		icon = GFX_focus_SOV_Secure_The_Land_Bridge
 		x = -3
-		y = 2
+		y = 1
 		cost = 22
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -3356,7 +3048,7 @@ focus_tree = {
 		id = SOV_take_zap_powerplant
 		icon = GFX_focus_SOV_Take_The_Zaporizhzhia_Power_Plant
 		x = -2
-		y = 3
+		y = 2
 		cost = 20
 		search_filters = {
 			
@@ -3398,7 +3090,7 @@ focus_tree = {
 		id = SOV_the_push_to_odessa
 		icon = GFX_focus_SOV_the_push_to_odessa
 		x = 3
-		y = 2
+		y = 1
 		cost = 22
 		search_filters = {
 			
@@ -3497,6 +3189,61 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SOV_wagner_in_kiev
+		icon = GFX_focus_SOV_Flank_Kiev
+		x = 0
+		y = 2
+		cost = 20
+		search_filters = {
+			
+		}
+
+		prerequisite = { focus = SOV_the_push_to_odessa }
+		relative_position_id = SOV_the_push_to_odessa
+		available={
+			has_war_with = UKR
+			any_state = {
+				is_controlled_by = SOV
+				any_neighbor_state = {
+					has_state_flag = kyiv_oblast_flag
+				}
+			}
+		}
+		
+		completion_reward={
+			every_state={
+				limit={
+					has_state_flag = kyiv_oblast_flag
+				}
+				add_dynamic_modifier = {
+					modifier = UKR_minor_wagner_offensive
+					scope = SOV
+					days = 80
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_new_military_innovations
+		icon = GFX
+		x = -4
+		y = 1
+		cost = 24
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = SOV_fix_our_logistics }
+		relative_position_id = SOV_fix_our_logistics
+		available={
+		}
+
+		completion_reward={
+
+		}
+	}
 		
 
 	
@@ -3504,7 +3251,7 @@ focus_tree = {
 		id = SOV_announce_the_draft
 		icon = GFX_focus_SOV_announce_the_draft
 		x = 0
-		y = 3
+		y = 1
 		cost = 24
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -3516,7 +3263,7 @@ focus_tree = {
 				SOV_REWORK_is_krp_ai = yes
 			}
 		}
-		prerequisite = { focus = SOV_information_warfare }
+		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_fix_our_logistics
 		mutually_exclusive = { focus = SOV_the_angry_patriots }
 		available={
@@ -3526,6 +3273,10 @@ focus_tree = {
 				has_idea = volunteer_only
 				has_idea = limited_conscription
 			}
+			casualties_inflicted_by = {
+				opponent = UKR
+				thousands > 5
+			}
 		}
 		bypass={
 			OR={
@@ -3534,29 +3285,11 @@ focus_tree = {
 			}
 		}
 		completion_reward={
+			country_event = { id = russia.1041 hours = 3 }
 			hidden_effect = {
 				country_event = { id = russia.1146 days = 500 }
-				country_event = { id = russia.1041 hours = 3 }
 
 				news_event = { days = 3 id = atd_news.77 }
-			}
-			
-			if={
-				limit={ has_idea = SOV_those_we_protect_2 }
-				swap_ideas = {
-					remove_idea = SOV_those_we_protect_2
-					add_idea = SOV_those_we_protect_3
-				}
-			}
-			else_if={
-				limit={ has_idea = SOV_those_we_protect }
-				swap_ideas = {
-					remove_idea = SOV_those_we_protect
-					add_idea = SOV_those_we_protect_2
-				}
-			}
-			else={
-				add_ideas = SOV_those_we_protect
 			}
 			
 			increase_military_spending = yes
@@ -3566,9 +3299,9 @@ focus_tree = {
 	focus = {
 		id = SOV_novorossiya_at_hand_2
 		icon = GFX_focus_SOV_novorossiya_at_hand_2
-		x = 0
+		x = -2
 		y = 1
-		cost = 60
+		cost = 25
 		search_filters = {
 			
 		}
@@ -3601,11 +3334,58 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SOV_rebuild_mariupol
+		icon = GFX
+		x = 0
+		y = 2
+		cost = 14
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
+		relative_position_id = SOV_novorossiya_at_hand_2
+
+		available={
+			has_war_with = UKR
+			any_state = {
+				has_state_flag = donetsk_oblast_flag
+				is_core_of = ROOT
+
+				CONTROLLER={
+					tag = ROOT
+				}
+			}
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_those_we_protect
+				add_idea = SOV_those_we_protect_2
+			}
+			every_state = {
+				limit = {
+					has_state_flag = donetsk_oblast_flag
+					is_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_dynamic_modifier = { modifier = SOV_reconstruction_fund_modifier scope = SOV days = 150 }
+			}
+		}
+	}
 	
 	focus = {
 		id = SOV_force_the_little_russians_into_service
 		icon = GFX_focus_SOV_Expand_Into_The_South
-		x = -4
+		x = -1
 		y = 2
 		cost = 30
 		search_filters = {
@@ -3617,43 +3397,75 @@ focus_tree = {
 
 		available={
 			has_war_with = UKR
-			any_state={
-				is_core_of = UKR
+			has_dynamic_modifier = { modifier = SOV_unpopular_mobilization_modifier }
+			any_country={
 				OR = {
-					is_controlled_by = SOV
-					is_controlled_by = NOV
-					is_controlled_by = ODS
-					is_controlled_by = LHK
-					is_controlled_by = DON
-					is_controlled_by = KHK
+					tag = NOV
+					tag = ODS
+					tag = LHK
+					tag = DON
+					tag = KHK
 				}
 				CONTROLLER={
-					has_war_with = UKR
-					OR={
-						tag = ROOT
-						is_puppet_of = ROOT
-					}
+					has_idea = assisting_russia
+					is_puppet_of = SOV
 				}
 			}
 		}
 		
 		completion_reward={
-			every_state={
-				limit={
-					is_core_of = UKR
+			custom_effect_tooltip = SOV_force_the_little_russians_into_service_tt
+
+			add_to_variable = { SOV_unpopbol_war_stab = 0.05 }
+			add_to_variable = { SOV_unpopbol_pp_cost = -0.05 }
+
+			every_country = {
+				limit = {
+					exists = yes
+					is_puppet_of = SOV
 					OR = {
-						is_controlled_by = SOV
-						is_controlled_by = NOV
-						is_controlled_by = ODS
-						is_controlled_by = LHK
-						is_controlled_by = DON
-						is_controlled_by = KHK
+						tag = LHK
+						tag = DON
+						tag = NOV
+						tag = ODS
+						tag = KHK
 					}
+					has_idea = assisting_russia
 				}
-				add_dynamic_modifier = { modifier = SOV_forced_conscription scope = SOV }
+
+				swap_ideas = {
+					remove_idea = assisting_russia
+					add_idea = assisting_russia_2
+				}
 			}
+		}
+	}
+
+	focus = {
+		id = SOV_1st_and_2nd_army_corps_focus
+		icon = GFX
+		x = -1
+		y = 5
+		cost = 20
+		search_filters = {
 			
-			add_manpower = 100000
+		}
+		
+		prerequisite = { focus = SOV_force_the_little_russians_into_service }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+			has_global_flag = LUHANSK_REFERENDUM_FLAG
+			has_global_flag = DONETSK_REFERENDUM_FLAG
+			has_idea = SOV_unorganized_militias_2
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_unorganized_militias_2
+				add_idea = SOV_1st_and_2nd_army_corps
+			}
 		}
 	}
 	
@@ -3674,47 +3486,107 @@ focus_tree = {
 			value = GFX_focus_SOV_prison_recruitment
 		}
 		
-		x = -2
+		x = 1
 		y = 2
 		cost = 30
 		search_filters = {
 			
 		}
 		
-		prerequisite = { focus = SOV_announce_the_draft }
+		prerequisite = { focus = SOV_expand_the_mobilisation }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
 			has_war_with = UKR
+			has_dynamic_modifier = { modifier = SOV_unpopular_mobilization_modifier }
 		}
 		
 		completion_reward={
-			add_manpower = 75000
+			custom_effect_tooltip = SOV_prison_recruitment_tt_2
+
+			add_to_variable = { SOV_unpopbol_conscription = 0.001 }
+			add_to_variable = { SOV_unpopbol_pp_cost = -0.05 }
+			add_to_variable = { SOV_unpopbol_war_support = 0.05 }
+			
+			add_manpower = 50000
+
+		}
+	}
+
+	focus = {
+		id = SOV_storm_z
+		icon = GFX
+		
+		x = 1
+		y = 5
+		cost = 10
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_prison_recruitment }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+			has_dynamic_modifier = { modifier = SOV_unpopular_mobilization_modifier }
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_storm_z_tt_2
+
+			add_to_variable = { SOV_unpopbol_war_stab = 0.02 }
+			add_to_variable = { SOV_unpopbol_pp_cost = -0.05 }
+			add_to_variable = { SOV_unpopbol_war_support = 0.05 }
+
 			custom_effect_tooltip = SOV_prison_recruitment_tt
+
 			hidden_effect={
 				if = {
-					limit = { NOT = { has_template = "Wagner PMC" } }
-	
-					division_template = {
-						name = "Wagner PMC"
-						template_counter = 183
-						division_names_group = SOV_ESF_01
-						is_locked = yes
-						regiments = {
-							elite_special_forces = { x = 0 y = 0 }
-							irregular_infantry = { x = 0 y = 1 }
-							irregular_infantry = { x = 0 y = 2 }
-							irregular_infantry = { x = 1 y = 0 }
-							irregular_infantry = { x = 1 y = 1 }
-							elite_special_forces = { x = 1 y = 2 }
-							artillery_brigade = { x = 2 y = 0}
-							artillery_brigade = { x = 2 y = 1}
+					limit = {
+						OR={
+							NOT = { has_global_flag = Wagner_mutiny_happened_flag }
+							yevgeny_prigozhin_is_leader = yes
 						}
-						support = {
-							engineer = { x = 0 y = 0 }   
+					}
+
+					if = {
+						limit = { NOT = { has_template = "Wagner PMC" } }
+		
+						division_template = {
+							name = "Wagner PMC"
+							template_counter = 183
+							division_names_group = SOV_ESF_01
+							is_locked = yes
+							regiments = {
+								elite_special_forces = { x = 0 y = 0 }
+								irregular_infantry = { x = 0 y = 1 }
+								irregular_infantry = { x = 0 y = 2 }
+								irregular_infantry = { x = 1 y = 0 }
+								irregular_infantry = { x = 1 y = 1 }
+								elite_special_forces = { x = 1 y = 2 }
+								artillery_brigade = { x = 2 y = 0}
+								artillery_brigade = { x = 2 y = 1}
+							}
+							support = {
+								engineer = { x = 0 y = 0 }   
+							}
+						}
+					}
+
+					for_loop_effect = {
+						end = 5
+						value = temp
+						random_owned_controlled_state = {
+							limit = { ROOT = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Wagner Battalion\" division_template = \"Wagner PMC\" start_experience_factor = 0.1 start_equipment_factor = 0.85" 
+								owner = SOV
+							}
 						}
 					}
 				}
+
 				
 				division_template = {
 					name = "Storm-Z Brigade"
@@ -3736,17 +3608,7 @@ focus_tree = {
 					}
 				}
 
-				for_loop_effect = {
-					end = 5
-					value = temp
-					random_owned_controlled_state = {
-						limit = { ROOT = { has_full_control_of_state = PREV } }
-						create_unit = {
-							division = "name = \"Wagner Battalion\" division_template = \"Wagner PMC\" start_experience_factor = 0.1 start_equipment_factor = 0.7" 
-							owner = SOV
-						}
-					}
-				}
+
 
 				for_loop_effect = {
 					end = 15
@@ -3754,7 +3616,7 @@ focus_tree = {
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
 						create_unit = {
-							division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
+							division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 1" 
 							owner = SOV
 						}
 					}
@@ -3768,7 +3630,7 @@ focus_tree = {
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
-								division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 0.75" 
+								division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 1" 
 								owner = SOV
 							}
 						}
@@ -3777,18 +3639,44 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SOV_foreign_mercenaries
+		icon = GFX
+		x = 0
+		y = 3
+		cost = 30
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_expand_the_mobilisation }
+		prerequisite = { focus = SOV_force_the_little_russians_into_service focus = SOV_prison_recruitment }
+		relative_position_id = SOV_announce_the_draft
+
+		available={
+			has_war_with = UKR
+			has_dynamic_modifier = { modifier = SOV_unpopular_mobilization_modifier }
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_foreign_mercenaries_tt
+
+			add_manpower = 2500
+		}
+	}
 	
 	focus = {
 		id = SOV_break_open_the_armouries
 		icon = GFX_focus_SOV_allied_equipment_shipments
-		x = -1
+		x = -8
 		y = 3
 		cost = 35
 		search_filters = {
 			
 		}
 		
-		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
+		prerequisite = { }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
@@ -3835,14 +3723,12 @@ focus_tree = {
 		id = SOV_strangle_europe
 		icon = GFX_focus_SOV_strangle_europe
 		x = 1
-		y = 3
+		y = 8
 		cost = 35
 		search_filters = {
 			
 		}
 		
-		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
-		prerequisite = { focus = SOV_state_of_our_economy }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
@@ -3872,9 +3758,9 @@ focus_tree = {
 	focus = {
 		id = SOV_expand_the_mobilisation
 		icon = GFX_focus_SOV_conscripts_from_the_far_east
-		x = -4
+		x = 0
 		y = 1
-		cost = 45
+		cost = 35
 		search_filters = {
 			
 		}
@@ -3884,6 +3770,7 @@ focus_tree = {
 
 		available={
 			has_war_with = UKR
+			has_dynamic_modifier = { modifier = SOV_unpopular_mobilization_modifier }
 		}
 		
 		completion_reward={
@@ -3891,24 +3778,11 @@ focus_tree = {
 				remove_idea = SOV_wide_is_my_motherland
 				add_idea = SOV_wide_is_my_motherland_2
 			}
-		
-			if={
-				limit={ has_idea = SOV_those_we_protect_2 }
-				swap_ideas = {
-					remove_idea = SOV_those_we_protect_2
-					add_idea = SOV_those_we_protect_3
-				}
-			}
-			else_if={
-				limit={ has_idea = SOV_those_we_protect }
-				swap_ideas = {
-					remove_idea = SOV_those_we_protect
-					add_idea = SOV_those_we_protect_2
-				}
-			}
-			else={
-				add_ideas = SOV_those_we_protect
-			}
+
+			custom_effect_tooltip = SOV_expand_the_mobilisation_tt
+			add_to_variable = { SOV_unpopbol_max_efficiency = -0.02 }
+			add_to_variable = { SOV_unpopbol_pp_cost = -0.05 }
+			add_to_variable = { SOV_unpopbol_war_stab = 0.03 }
 		}
 	}
 	
@@ -3916,17 +3790,11 @@ focus_tree = {
 		id = SOV_no_option_but_victory
 		icon = GFX_focus_SOV_expanding_the_nation
 		x = 1
-		y = 1
+		y = 3
 		cost = 30
 		search_filters = {
 			
 		}
-		
-		prerequisite = { focus = SOV_novorossiya_at_hand_2 focus = SOV_strangle_europe focus = SOV_break_open_the_armouries }
-		prerequisite = { focus = SOV_prison_recruitment }
-		prerequisite = { focus = SOV_force_the_little_russians_into_service }
-		prerequisite = { focus = SOV_strike_energy_infrastructure }
-		prerequisite = { focus = SOV_destroy_ukrainian_identity }
 		relative_position_id = SOV_break_open_the_armouries
 
 		available={
@@ -3969,15 +3837,13 @@ focus_tree = {
 	focus = {
 		id = SOV_state_of_our_economy
 		icon = GFX_focus_SOV_state_of_economy
-		x = 2
-		y = 1
-		cost = 30
+		x = 8
+		y = 0
+		cost = 5
 		search_filters = {
 			
 		}
-		
-		prerequisite = { focus = SOV_announce_the_draft  }
-
+		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_announce_the_draft
 
 		available={
@@ -3985,7 +3851,171 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			country_event = { id = russia.1125 }
+			add_political_power = 250
+			custom_effect_tooltip = SOV_state_of_our_economy_tt
+		}
+	}
+
+	focus = {
+		id = SOV_exploit_turkish_trade_routes
+		icon = GFX
+		x = -2
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		relative_position_id = SOV_economic_corridors
+		prerequisite = { focus = SOV_bypass_western_sanctions  }
+		available={
+			has_completed_focus = SOV_state_of_our_economy
+		}
+		
+		completion_reward={
+
+			add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.08 }
+			add_to_variable = { SOV_sanctions_political_power_cost = -0.0005 }
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = -0.03 }
+			
+			custom_effect_tooltip = SOV_exploit_turkish_trade_routes_tt
+			add_stability = 0.05
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+			
+		}
+	}
+	focus = {
+		id = SOV_redirect_oil_to_asia
+		icon = GFX
+		x = -4
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		relative_position_id = SOV_economic_corridors
+		prerequisite = { focus = SOV_bypass_western_sanctions  }
+		available={
+			has_completed_focus = SOV_state_of_our_economy
+		}
+		
+		completion_reward={
+
+			add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.1 }
+			add_to_variable = { SOV_sanctions_political_power_cost = -0.001 }
+			add_to_variable = { SOV_sanctions_research_speed_factor = 0.08 }
+			
+			custom_effect_tooltip = SOV_redirect_oil_to_asia_tt
+
+			SOV_increase_oil_and_gas_faction_medium = yes
+			add_timed_idea = {
+				idea = SOV_redirecting_oil_exports
+				days = 65
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_vkusno_i_tochka
+		icon = GFX
+		x = 0
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		relative_position_id = SOV_economic_corridors
+		prerequisite = { focus = SOV_boost_domestic_production focus = SOV_bypass_western_sanctions }
+		available={
+			has_completed_focus = SOV_state_of_our_economy
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_vkusno_i_tochka_tt
+
+			country_event = { id = russia.1160 }
+			every_state={
+				limit={ is_controlled_by = ROOT is_core_of = ROOT }
+				increase_state_gdp_growth_by_1_5 = yes
+			}
+
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = -0.1 }
+			add_to_variable = { SOV_sanctions_political_power_cost = 0.001 }
+			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.08 }
+		}
+	}
+
+	focus = {
+		id = SOV_build_trans_siberian_pipeline_2
+		icon = GFX
+		x = 2
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		relative_position_id = SOV_economic_corridors
+		prerequisite = { focus = SOV_boost_domestic_production  }
+		available={
+			has_completed_focus = SOV_state_of_our_economy
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_build_trans_siberian_pipeline_2_tt
+
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.03 }
+			add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.1 }
+			add_to_variable = { SOV_sanctions_production_factory_max_efficiency_factor = 0.1 }
+			add_to_variable = { SOV_sanctions_production_speed_industrial_complex_factor = 0.08 }
+			add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0.05 }
+		}
+	}
+
+	focus = {
+		id = SOV_enter_wartime_economy
+		icon = GFX
+		x = 4
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		relative_position_id = SOV_economic_corridors
+		prerequisite = { focus = SOV_boost_domestic_production  }
+		available={
+			has_completed_focus = SOV_state_of_our_economy
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_enter_wartime_economy_tt
+			
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_political_power = -50
+			add_war_support = 0.06
+
+			add_to_variable = { SOV_sanctions_consumer_goods_expected_value = 0.06 }
+			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.15 }
+			add_to_variable = { SOV_sanctions_production_speed_industrial_complex_factor = -0.1 }
+			add_to_variable = { SOV_sanctions_production_speed_arms_factory_factor = 0.1 }
 		}
 	}
 	
@@ -4000,8 +4030,6 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { focus = SOV_expanding_the_nation }
-
-		prerequisite = { focus = SOV_announce_the_draft focus = SOV_no_option_but_victory  }
 		relative_position_id = SOV_no_option_but_victory
 
 		available={
@@ -4029,8 +4057,7 @@ focus_tree = {
 		}
 
 		mutually_exclusive = { focus = SOV_secure_our_new_territories }
-		
-		prerequisite = { focus = SOV_announce_the_draft focus = SOV_no_option_but_victory }
+
 		relative_position_id = SOV_no_option_but_victory
 
 		available={
@@ -5059,7 +5086,7 @@ focus_tree = {
 	focus = {
 		id = SOV_destroy_the_oligarchy
 		icon = GFX_focus_SOV_destroy_the_oligarchy
-		x = 3
+		x = 0
 		y = 1
 		cost = 70
 		search_filters = {
@@ -8398,6 +8425,8 @@ shared_focus = {
 	}
 }
 
+
+
 shared_focus = {
 	id = SOV_boost_domestic_production
 	icon = GFX_focus_SOV_boost_domestic_production
@@ -8485,7 +8514,7 @@ shared_focus = {
 	id = SOV_army_modernisation
 	icon = GFX_focus_SOV_little_green_men
 	x = 12
-	y = 7
+	y = 8
 	
 	cost = 14
 	ai_will_do = {

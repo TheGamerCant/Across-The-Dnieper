@@ -573,3 +573,25 @@ SOV_reconstruction_fund_modifier = {
 	recruitable_population_factor = 0.03
 	local_supplies_for_controller = 0.06
 }
+
+SOV_unpopular_mobilization_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = { 
+			OR={
+				has_idea = extensive_conscription
+				has_idea = service_by_requirement
+			}
+		}
+	}
+	
+	icon = GFX_idea_SOV_unpopular_mobilisation
+	
+	political_power_cost = SOV_unpopbol_pp_cost
+	monthly_population = SOV_unpopbol_monthly_pop
+	conscription = SOV_unpopbol_conscription
+	research_speed_factor = SOV_unpopbol_research_speed
+	production_factory_max_efficiency_factor = SOV_unpopbol_max_efficiency
+	war_stability_factor = SOV_unpopbol_war_stab
+	war_support_factor = SOV_unpopbol_war_support
+}

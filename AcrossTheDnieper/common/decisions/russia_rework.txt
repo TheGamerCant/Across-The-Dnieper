@@ -1141,8 +1141,14 @@ SOV_referendum_decisions_2={
 			if={
 				limit = { country_exists = DON }
 				annex_country = { target = DON transfer_troops = yes }
+
+				if = {
+					limit = { NOT = { has_idea = SOV_1st_and_2nd_army_corps } }
+					country_event = { id = russia.1161 days = 1 }
+				}
 			}
 			set_global_flag = NOVOROSSIA_REFERENDUM_FLAG
+			set_global_flag = DONETSK_REFERENDUM_FLAG
 		}
 	}
 	
@@ -1255,8 +1261,14 @@ SOV_referendum_decisions_2={
 			if={
 				limit = { country_exists = LHK }
 				annex_country = { target = LHK transfer_troops = yes }
+
+				if = {
+					limit = { NOT = { has_idea = SOV_1st_and_2nd_army_corps } }
+					country_event = { id = russia.1162 days = 1 }
+				}
 			}
 			set_global_flag = NOVOROSSIA_REFERENDUM_FLAG
+			set_global_flag = LUHANSK_REFERENDUM_FLAG
 		}
 	}
 	
@@ -1843,6 +1855,80 @@ SOV_referendum_decisions_2={
 
 
 SOV_army_reform_decisions={
+	SOV_introduce_cope_cages = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			political_power_cost = 0.05
+		}
+
+		visible = {
+			always = no
+		}
+		
+		days_remove = 50
+		cost = 75
+
+		remove_effect = {
+			add_ideas = SOV_cope_cages
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+
+	SOV_motorcycle_infantry = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 25
+		}
+
+		available = {
+
+		}
+		
+		fire_only_once = yes
+		
+		modifier={
+			political_power_cost = 0.05
+		}
+
+		visible = {
+			always = no
+		}
+		
+		days_remove = 50
+		cost = 75
+
+		remove_effect = {
+			add_ideas = SOV_motorcycle_assault_units
+			
+			hidden_effect = { if={ limit = { is_ai = yes } add_political_power = 75 } }
+		}
+	}
+
 	SOV_increase_cooperation_between_branches = { 
 		priority = 200
 
@@ -1867,6 +1953,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -1911,6 +1998,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -1958,6 +2046,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2003,6 +2092,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2046,6 +2136,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2093,6 +2184,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2135,6 +2227,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2192,6 +2285,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2230,6 +2324,7 @@ SOV_army_reform_decisions={
 		}
 
 		visible = {
+			has_start_date < 2022.1.1
 		}
 		
 		days_remove = 180
@@ -2792,6 +2887,165 @@ SOV_stopping_boris_nadezhdin = {
 
 		remove_effect = {	
 			SOV_decrease_300_nadezhdin_signatures_weekly = yes
+		}
+	}
+}
+
+SOV_foreign_equipment_decision = {
+	SOV_china_purchase_body_armor = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = 25
+
+		days_remove = 50
+        days_re_enable = 31
+        
+        fire_only_once = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_fe_indifferent_or_wary
+				check_variable = { var = SOV_ally_equipment_china_status value = 2 compare = greater_than_or_equals }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_country_flag = SOV_fe_china_selected
+				is_ai = yes
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 1 } }
+
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 2 } }
+
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 500
+				}
+			}
+			else_if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 3 } }
+
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 700
+				}
+			}
+		}
+	}
+
+	SOV_china_purchase_fighter_jet_parts = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = 70
+
+		days_remove = 50
+        days_re_enable = 120
+        
+        fire_only_once = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_fe_indifferent_or_wary
+				check_variable = { var = SOV_ally_equipment_china_status value = 2 compare = greater_than_or_equals }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_country_flag = SOV_fe_china_selected
+				is_ai = yes
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 1 } }
+
+				
+			}
+			else_if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 2 } }
+
+				add_timed_idea = {
+					idea = SOV_chinese_fighter_jet_parts
+					days = 25
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = air_doctrine
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = mio_cat_all_light_fighter_and_modules
+				}
+			}
+			else_if = {
+				limit = { check_variable = { SOV_currently_selected_fe_var = 3 } }
+
+				add_timed_idea = {
+					idea = SOV_chinese_fighter_jet_parts
+					days = 50
+				}
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = air_doctrine
+				}
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = mio_cat_all_light_fighter_and_modules
+				}
+			}
+		}
+	}
+
+	SOV_china_purchase_assault_rifles = {
+		icon = GFX_decision_category_usa_congress
+		priority = 200
+
+		cost = 70
+
+		days_remove = 50
+        days_re_enable = 50
+        
+        fire_only_once = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_fe_indifferent
+				check_variable = { SOV_ally_equipment_china_status = 3 }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_country_flag = SOV_fe_china_selected
+				is_ai = yes
+			}
+		}
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 1000
+			}
+			
 		}
 	}
 }

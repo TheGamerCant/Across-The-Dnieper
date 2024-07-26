@@ -1642,7 +1642,9 @@ country_event = {
 			base = 10
 		}
 		
-		add_ideas = SOV_unpopular_mobilisation
+		add_dynamic_modifier = {
+			modifier = SOV_unpopular_mobilization_modifier
+		}
 		add_manpower = -150000
 		add_stability = -0.1
 		add_war_support = -0.1
@@ -5963,6 +5965,7 @@ country_event = {
 
 			add_trait = {
 				trait = SOV_head_of_the_siloviks
+				slot = political_advisor
 			}
 		}
     }
@@ -6015,6 +6018,196 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
+    }
+}
+
+#Navalny arrested 2021
+country_event = {
+    id = russia.1158
+    title = russia.1158.t
+    desc = russia.1158.desc
+    picture = SOV_navalny_arrested
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+	}
+
+    option = {
+        name = russia.1158.a
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			retire_character = SOV_alexei_navalny_rework
+		}
+
+		set_party_name = {
+			ideology = eastern_liberal
+			long_name = SOV_eastern_liberal_2021_party
+			name = SOV_eastern_liberal_2021_party
+		}
+
+		add_popularity = {
+            ideology = eastern_conservative
+            popularity = 0.05
+        }
+		add_political_power = 5
+    }
+}
+
+#Navalny dead
+country_event = {
+    id = russia.1159
+    title = russia.1159.t
+    desc = russia.1159.desc
+    picture = SOV_navalny_killed
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+	}
+
+    option = {
+        name = russia.1159.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.05
+		add_political_power = -15
+
+		create_country_leader = {
+			name = "Yulia Navalnaya"
+			desc = ""
+			#picture = gfx/leaders/SOV/
+			ideology = generic_eastern_liberal
+			traits = {  }
+		}
+
+    }
+}
+
+#Opening of the first russian "mcdonalds"
+country_event = {
+    id = russia.1160
+    title = russia.1160.t
+    desc = russia.1160.desc
+    picture = SOV_russian_mcdonalds
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1160.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 25
+		add_stability = 0.06
+    }
+}
+
+#post-Donetsk annexing 
+country_event = {
+    id = russia.1161
+    title = russia.1161.t
+    desc = russia.1161.desc
+    picture = SOV_republic_militias
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+		NOT = { has_idea = SOV_1st_and_2nd_army_corps }
+	}
+
+    option = {
+        name = russia.1161.a
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = { has_idea = SOV_unorganized_militias }
+			swap_ideas = {
+				remove_idea = SOV_unorganized_militias
+				add_idea = SOV_unorganized_militias_2
+			}
+		}
+		else = {
+			add_ideas = SOV_unorganized_militias
+		}
+    }
+}
+
+#post-Luhansk annexing 
+country_event = {
+    id = russia.1162
+    title = russia.1162.t
+    desc = russia.1162.desc
+    picture = SOV_republic_militias
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+		NOT = { has_idea = SOV_1st_and_2nd_army_corps }
+	}
+
+    option = {
+        name = russia.1162.a
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = { has_idea = SOV_unorganized_militias }
+			swap_ideas = {
+				remove_idea = SOV_unorganized_militias
+				add_idea = SOV_unorganized_militias_2
+			}
+		}
+		else = {
+			add_ideas = SOV_unorganized_militias
+		}
+    }
+}
+
+#death of Mikhail Gorbachev
+country_event = {
+    id = russia.1163
+    title = russia.1163.t
+    desc = russia.1163.desc
+    picture = SOV_gorbachev
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1163.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = {
+            ideology = moderate_communist
+            popularity = 0.06
+        }
+		add_stability = 0.05
+    }
+
+	option = {
+        name = russia.1163.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.03
+		add_political_power = 25
     }
 }
 
@@ -6387,6 +6580,84 @@ country_event = {
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = SOV_vladimir_solovyov_rework
 		
+		increase_ultranationalist_programming_by_5 = yes
+    }
+}
+
+#Crimes of the banderites
+country_event = {
+    id = russia_propaganda.18
+    title = russia_propaganda.18.t
+    desc = russia_propaganda.18.desc
+    picture = GFX_report_event_SOV_banderites
+    is_triggered_only = yes
+
+    option = {
+        name = russia_propaganda.18.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_war_support = 0.1
+		increase_ultranationalist_programming_by_5 = yes
+    }
+}
+
+#French Mercenaries
+country_event = {
+    id = russia_propaganda.19
+    title = russia_propaganda.19.t
+    desc = russia_propaganda.19.desc
+    picture = GFX_report_event_SOV_french_mercenaries
+    is_triggered_only = yes
+
+    option = {
+        name = russia_propaganda.19.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_war_support = 0.1
+		increase_eastern_conservative_programming_by_5 = yes
+    }
+}
+
+#Western Equipment Exibition
+country_event = {
+    id = russia_propaganda.20
+    title = russia_propaganda.20.t
+    desc = russia_propaganda.20.desc
+    picture = GFX_report_event_SOV_moscow_exibition
+    is_triggered_only = yes
+
+    option = {
+        name = russia_propaganda.20.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_war_support = 0.1
+		add_stability = 0.05
+		increase_eastern_conservative_programming_by_5 = yes
+    }
+}
+
+#Nazi soldiers in ukraine
+country_event = {
+    id = russia_propaganda.21
+    title = russia_propaganda.21.t
+    desc = russia_propaganda.21.desc
+    picture = GFX_report_event_SOV_nazi_soldiers
+    is_triggered_only = yes
+
+    option = {
+        name = russia_propaganda.21.a
+		ai_chance = {
+			base = 10
+		}
+		
+		add_war_support = 0.1
+		add_stability = 0.05
 		increase_ultranationalist_programming_by_5 = yes
     }
 }

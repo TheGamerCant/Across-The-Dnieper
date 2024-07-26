@@ -1,4 +1,46 @@
 scripted_gui = {
+	russia_foreign_equipment_decisions = {
+		context_type = decision_category
+		window_name = "russia_foreign_equipment_decisions"
+		triggers = {
+		}
+		
+		effects={
+			SOV_china_click = {
+				SOV_clear_foreign_equipment_countries = yes
+				set_country_flag = SOV_fe_china_selected
+
+				set_variable = { SOV.SOV_currently_selected_fe_var = SOV_ally_equipment_china_status }
+			}
+			GFX_north_korea_click = {
+				SOV_clear_foreign_equipment_countries = yes
+				set_country_flag = SOV_fe_nk_selected
+
+				set_variable = { SOV.SOV_currently_selected_fe_var = SOV_ally_equipment_nk_status }
+			}
+			GFX_iran_click = {
+				SOV_clear_foreign_equipment_countries = yes
+				set_country_flag = SOV_fe_iran_selected
+
+				set_variable = { SOV.SOV_currently_selected_fe_var = SOV_ally_equipment_iran_status }
+			}
+			GFX_syria_click = {
+				SOV_clear_foreign_equipment_countries = yes
+				set_country_flag = SOV_fe_syria_selected
+
+				set_variable = { SOV.SOV_currently_selected_fe_var = SOV_ally_equipment_syria_status }
+			}
+			GFX_myanmar_click = {
+				SOV_clear_foreign_equipment_countries = yes
+				set_country_flag = SOV_fe_myanmar_selected
+
+				set_variable = { SOV.SOV_currently_selected_fe_var = SOV_ally_equipment_myanmar_status }
+			}
+		}
+		properties = { 
+
+		}
+	}
 
 	SOV_putins_opposition_gui = {
 		context_type = decision_category

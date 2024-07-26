@@ -482,28 +482,6 @@ ideas = {
 			}
 
 		}
-		
-		SOV_unpopular_mobilisation = {
-			available = { 
-				OR={
-					has_idea = extensive_conscription
-					has_idea = service_by_requirement
-				}
-			}
-
-			removal_cost = -1
-			picture = SOV_unpopular_mobilisation
-			modifier = {
-				political_power_cost = 0.35
-				monthly_population = -0.2
-				conscription = -0.004
-				research_speed_factor = -0.08
-				production_factory_max_efficiency_factor = -0.1
-				war_stability_factor = -0.1
-				war_support_factor = -0.1
-				custom_modifier_tooltip = SOV_unpopular_mobilisation_tt
-			}
-		}
 	
 		SOV_memories_of_1991 = {
 			available = { NOT = { has_global_flag = russian_civil_war_begun } }
@@ -747,6 +725,23 @@ ideas = {
 				ruling_party_drift = 0.05
 			}
 		}
+
+		SOV_redirecting_oil_exports = {
+			available = { }
+
+			removal_cost = -1
+			picture = generic_stockpile_fuel
+			modifier = {
+				fuel_cost = 80
+				max_fuel_factor = 0.2
+				fuel_gain_factor_from_states = -0.15
+				army_fuel_consumption_factor = 0.05
+				air_fuel_consumption_factor = 0.05
+				navy_fuel_consumption_factor = 0.05
+				attrition = 0.03
+				political_power_factor = 0.05
+			}
+		}
 		
 		SOV_the_great_patriotic_war_idea_girkin = {
 			removal_cost = -1
@@ -801,6 +796,8 @@ ideas = {
 				training_time_factor = -0.12
 				experience_gain_army_factor = 0.1
 				supply_factor = 0.03
+				production_speed_infrastructure_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
 			}
 		}
 		
@@ -840,6 +837,42 @@ ideas = {
 				training_time_factor = -0.16
 				experience_gain_army_factor = 0.14
 				supply_factor = 0.04
+			}
+		}
+
+		SOV_unorganized_militias = {
+			available = { has_war_with = UKR }
+
+			removal_cost = -1
+			picture = generic_donbass_idea
+			modifier = {
+				army_core_defence_factor = -0.1
+				army_core_attack_factor = -0.25
+				army_org_factor = -0.1
+			}
+		}
+
+		SOV_unorganized_militias_2 = {
+			available = { has_war_with = UKR }
+
+			removal_cost = -1
+			picture = generic_donbass_idea
+			modifier = {
+				army_core_defence_factor = -0.15
+				army_core_attack_factor = -0.3
+				army_org_factor = -0.15
+			}
+		}
+
+		SOV_1st_and_2nd_army_corps = {
+			available = { has_war_with = UKR }
+
+			removal_cost = -1
+			picture = generic_donbass_idea
+			modifier = {
+				army_core_defence_factor = 0.2
+				army_core_attack_factor = 0.2
+				army_org_factor = 0.1
 			}
 		}
 		
@@ -1237,6 +1270,43 @@ ideas = {
 				political_power_cost = 0.2
 				stability_factor = -0.05
 				illiberal_drift = 0.1
+			}
+		}
+
+		SOV_web_brigades = {
+			removal_cost = -1
+
+			picture = SOV_russia_today
+			
+			modifier = {
+				weekly_casualties_war_support = 0.007
+				war_stability_factor = 0.2
+				offensive_war_stability_factor = 0.3
+				army_morale_factor = 0.15
+				political_power_cost = 0.05
+			}
+
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.05
+			}
+		}
+
+		SOV_web_brigades_2 = {
+			removal_cost = -1
+
+			picture = SOV_russia_today
+			
+			modifier = {
+				weekly_casualties_war_support = 0.0085
+				war_stability_factor = 0.25
+				offensive_war_stability_factor = 0.5
+				army_morale_factor = 0.23
+			}
+
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.07
 			}
 		}
 		
@@ -2935,6 +3005,47 @@ ideas = {
 				defense_bonus_against = 0.35
 			}
 
+		}
+	}
+
+	hidden_ideas = {
+		SOV_cope_cages = {
+			removal_cost = -1
+			equipment_bonus = {
+				armor = {
+					build_cost_ic = 0.03
+					maximum_speed = -0.04
+					defense = 0.1
+					armor_value = 0.05
+					reliability = -0.02
+					instant = yes
+				}
+			}
+		}
+
+		SOV_motorcycle_assault_units = {
+			removal_cost = -1
+			equipment_bonus = {
+				infantry = {
+					maximum_speed = 0.2
+					breakthrough = 0.05
+					reliability = -0.08
+					hardness = 0.02
+					instant = yes
+				}
+			}
+		}
+
+		SOV_chinese_fighter_jet_parts = {
+			removal_cost = -1
+			equipment_bonus = {
+				fighter = {
+					build_cost_ic = -0.25
+					reliability = -0.05
+					air_attack = 0.1
+					instant = yes
+				}
+			}
 		}
 	}
 }

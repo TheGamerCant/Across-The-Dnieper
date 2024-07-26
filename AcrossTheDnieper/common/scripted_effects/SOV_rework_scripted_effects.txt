@@ -9208,3 +9208,462 @@ SOV_decrease_300_nadezhdin_signatures_weekly = {
 		add_to_variable = { SOV_boris_nadazhdin_signatures_weekly_gain = -300 }
 	}
 }
+
+SOV_before_smo_effects = {
+	set_global_flag = russia_ukraine_war
+	set_global_flag = smo_northern_front_open
+	set_global_flag = smo_eastern_front_open
+	set_global_flag = smo_donbass_front_open
+	set_global_flag = smo_southern_front_open
+	
+	news_event = { id = atd_news.56 days = 10 random_days = 20 }
+
+	UKR = {
+		add_intel = {
+			target = DON
+			army_intel = 60
+		}
+		add_intel = {
+			target = LHK
+			army_intel = 60
+		}
+		add_intel = {
+			target = SOV
+			army_intel = 60
+		}
+	}
+
+	add_intel = {
+		target = UKR
+		army_intel = 60
+	}
+
+	if = {
+		limit = {
+			country_exists = BLR
+			OR={
+				is_in_faction_with = BLR
+				BLR={ is_puppet_of = ROOT }
+			}
+			435 = { is_owned_and_controlled_by = BLR }
+		}
+		
+		if={
+			limit = { 434 = { is_owned_and_controlled_by = BLR } }
+			country_event = { id = russia.88 days = 56 }
+		}
+	}
+	else={
+		set_global_flag = smo_western_front_open
+	}
+
+	every_country = {
+		limit = {
+			has_start_date < 2022.01.01
+			country_exists = ROOT
+			is_puppet_of = SOV
+			OR = {
+				original_tag = DON
+				original_tag = LHK
+				original_tag = KHK
+				original_tag = NOV
+				original_tag = ODS
+			}
+		}
+
+		country_event = { id = donbass_mutual.1 days = 25 }
+	}
+	
+	if={
+		limit = { has_start_date < 2022.01.01 is_ai = yes }
+		SOV={
+			division_template = {
+				name = "Russian Regular Forces"
+				division_names_group = SOV_INF_01
+				template_counter = 185
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }	
+					irregular_infantry = { x = 1 y = 2 }
+					mechanized = { x = 2 y = 0 }
+					mechanized = { x = 2 y = 1 }
+				}
+			}
+			
+			for_loop_effect = {
+				end = 120
+				value = temp
+				random_owned_controlled_state = {
+					limit = { SOV = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+	
+	if={
+		limit = { has_start_date < 2022.01.01 is_ai = yes UKR = { is_ai = no } }
+		SOV={					
+			for_loop_effect = {
+				end = 30
+				value = temp
+				random_owned_controlled_state = {
+					limit = { SOV = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Russian Regular Forces\"" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+}
+
+SOV_smo_setup_state_modifiers= {
+	every_state={
+		limit={
+			is_controlled_by = ROOT
+			NOT={
+				OR={
+					is_core_of = UKR
+					is_claimed_by = UKR
+				}
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = not_allowed_to_attack_here
+			scope = UKR
+		}
+	}
+
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
+		every_state = {
+		limit ={
+			OR = {
+				is_controlled_by = DON
+				is_controlled_by = LHK
+			}
+		}
+		
+		add_dynamic_modifier = {
+			modifier = UKR_heavily_defended_area
+			scope = UKR
+		}
+	}
+	every_state = {
+		limit ={
+			is_controlled_by = SOV
+			has_state_flag = crimea_oblast_flag
+		}
+		add_dynamic_modifier = {
+			modifier = UKR_heavily_defended_area
+			scope = UKR
+		}
+	}
+
+	every_state = {
+		limit ={
+			is_controlled_by = UKR
+			OR = {
+				state=264
+				state=231
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = UKR_heavily_defended_area
+			scope = SOV
+		}
+	}
+	every_state={ 
+		limit = {
+			is_controlled_by = UKR
+			OR = {
+				state = 166
+				state = 135
+				state = 146
+				state = 94
+				state = 93
+				state = 82
+				state = 455
+				state = 165
+				state = 196
+				state = 284
+				state = 89
+				state = 195
+				state = 122
+				state = 128
+				state = 95
+				state = 467
+				state = 468
+				state = 464
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = UKR_heavily_entrenched
+			scope = SOV
+		}
+	}
+	}
+	
+	every_state={
+		limit={
+			OR={
+				has_state_flag = kherson_oblast_flag
+				has_state_flag = zaporizhzhia_oblast_flag
+				has_state_flag = crimea_oblast_flag
+
+				state = 230
+				state = 306
+				state = 451
+				state = 473
+				
+			}
+			NOT = { state = 196 }
+			NOT = { state = 231 }
+			NOT = { state = 455 }
+			NOT = { state = 284 }
+		}
+		add_dynamic_modifier = {
+			modifier = UKR_collaborators
+			scope = SOV
+		}
+	}
+
+	if = {
+		limit = { NOT = { country_exists = DON } }
+
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = UKR
+					
+					OR = {
+						state = 208
+						state = 186
+						state = 173
+					}
+				}
+			}
+
+			add_dynamic_modifier = {
+				modifier = UKR_collaborators
+				scope = SOV
+			}
+		}
+	}
+
+	if = {
+		limit = { NOT = { country_exists = LHK } }
+
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = UKR
+					
+					OR = {
+						state = 174
+						state = 159
+						state = 152
+						state = 155
+					}
+				}
+			}
+
+			add_dynamic_modifier = {
+				modifier = UKR_collaborators
+				scope = SOV
+			}
+		}
+	}
+}
+
+SOV_smo_republics_declare_on_ukraine = {
+	if = {
+		limit = {
+			DON={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		DON = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOV={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		NOV = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+	if = {
+		limit = {
+			LHK={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		LHK = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+	if = {
+		limit = {
+			KHK={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		KHK = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			ODS={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		ODS = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			CHN={
+				exists = yes
+				OR={
+					is_in_faction_with = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		CHN = {
+			declare_war_on = {
+				target = UKR
+				type = take_state_focus
+			}
+		}
+	}
+}
+
+SOV_smo_ai_division_boost = {
+	if={
+		limit={
+			is_ai = yes
+			UKR = { is_ai = no }
+		}
+		SOV={
+			division_template = {
+				name = "AI boost division"
+				division_names_group = SOV_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }	
+					infantry = { x = 1 y = 2 }
+					mechanized = { x = 2 y = 0 }
+					mechanized = { x = 2 y = 1 }
+				}
+			}
+			
+			for_loop_effect = {
+				end = 45
+				value = temp
+				random_owned_controlled_state = {
+					limit = { SOV = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.03" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+	else_if={
+		limit={
+			is_ai = yes
+			UKR = { is_ai = yes }
+		}
+		SOV={
+			division_template = {
+				name = "AI boost division"
+				division_names_group = SOV_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }	
+					mechanized = { x = 2 y = 0 }
+					mechanized = { x = 2 y = 1 }
+				}
+			}
+			
+			for_loop_effect = {
+				end = 20
+				value = temp
+				random_owned_controlled_state = {
+					limit = { SOV = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"AI boost division\" start_experience_factor = 0.05" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+}
+
+SOV_clear_foreign_equipment_countries = {
+	clr_country_flag = SOV_fe_china_selected
+	clr_country_flag = SOV_fe_nk_selected
+	clr_country_flag = SOV_fe_iran_selected
+	clr_country_flag = SOV_fe_syria_selected
+	clr_country_flag = SOV_fe_myanmar_selected
+}
