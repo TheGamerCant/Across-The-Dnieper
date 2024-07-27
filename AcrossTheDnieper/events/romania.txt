@@ -161,7 +161,7 @@ country_event = {
                 ruling_party = eastern_liberal
                 elections_allowed = yes
             }
-            ROM = {country_event = romania.12}
+            ROM = {country_event = romania.12 days = 15}
         }
     }
 }
@@ -257,6 +257,31 @@ country_event = {
         complete_national_focus = ROM_TR_Modernisation
     } 
 }
+
+country_event = {
+    id = romania.20
+    title = romania.20.t
+    desc = romania.20.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+    option = {
+        name = romania.20.a
+        ai_chance = {
+			base = 10
+		}
+      SOV = { declare_war_on = { type = annex_everything    target = ROM } }
+    } 
+
+    option = {
+        name = romania.20.b
+        ai_chance = {
+			base = 90
+		}
+        SOV = {add_ideas = ROM_It_Has_Come}
+    } 
+}
+
 
 
 
