@@ -13396,6 +13396,7 @@ shared_focus = {
 		}
 		
 		NOT = { is_puppet_of = SOV }
+		NOT = { is_in_faction = yes }
 	}
 	prerequisite = { focus = UKR_catch_up_to_the_west }
 	prerequisite = { focus = UKR_anti_oligarchy_raids }
@@ -13411,7 +13412,14 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {
-		USA = { add_to_faction = ROOT }
+		if = {
+			limit = { country_exists = NAT NAT = { is_faction_leader = yes } }
+
+			NAT = { add_to_faction = ROOT }
+		}
+		else = {
+			USA = { add_to_faction = ROOT }
+		}
 		add_political_power = 100
 	}
 }
