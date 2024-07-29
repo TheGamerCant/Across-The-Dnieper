@@ -929,11 +929,13 @@ guiTypes = {
 
 	containerWindowType = {
 		name ="gamesetup_country_details"
-		position = { x=20 y =-490}
-		show_position = { x=20 y =90}
+		#position = { x=-12 y =-490}
+		#show_position = { x=-12 y =116}
+		position = { x=9999 y =-490}
+		show_position = { x=9999 y =116}
 		animation_type = decelerated
-		animation_time = 1000
-		size = { width=492 height=301}
+		animation_time = 860
+		size = { width=649 height=347}
 		Orientation = upper_right
 		origo = upper_right
 		show_sound = menu_open_window
@@ -1121,7 +1123,7 @@ guiTypes = {
 		position = { x=0 y=196}
 		show_position = { x=5 y =-261}
 		animation_type = decelerated
-		animation_time = 1000
+		animation_time = 800
 
 		size = {width=484 height=97}
 		orientation = lower_right
@@ -1703,12 +1705,12 @@ guiTypes = {
 
 	containerWindowType = {
 		name ="gamesetup_gameplay_settings_window"
-		position = { x=0 y=196}
-		show_position = { x=5 y =-85}
+		position = { x=-2 y=150}
+		show_position = { x=-2 y =-128 }
 		animation_type = decelerated
-		animation_time = 1000
+		animation_time = 800
 
-		size = {width=598 height=196}
+		size = {width=609 height=248}
 		orientation = lower_right
 		origo = lower_right
 
@@ -1720,17 +1722,17 @@ guiTypes = {
 
 		buttonType = {
 			name = "custom_settings_btn"
-			position = { x = 357 y = 12 }
+			position = { x = 363 y = 10 }
 			quadTextureSprite ="GFX_custom_set_button_2"
 			pdx_tooltip = FE_CUSTOM_DIFFUCULTY
 		}
 
 		instantTextBoxType={
-			position = { x = 362 y = 22 }
+			position = { x = 367 y = 20 }
 			name = "custom_text"
-			font = "OCR_A_14"
+			font = "OCR_A_16"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 230
+			maxWidth = 228
 			maxHeight = 16
 			text = "FE_DIFFICULTY_CUSTOM_BTN"
 			format = centre
@@ -1738,7 +1740,7 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x = 9 y = 12 }
+			position = {x =10  y = 12 }
 			name = "difficulty_text"
 			font = "OCR_A_20"
 			borderSize = {x = 0 y = 0}
@@ -1750,7 +1752,7 @@ guiTypes = {
 
 		checkboxType = {
 			name = "very_easy_cb"
-			position = { x=9 y=47}
+			position = { x=10 y=47}
 			quadTextureSprite ="GFX_difficulty_button_civilian"
 			buttonText = "FE_DIFFICULTY_EASY"
 			buttonFont = "OCR_A_14"
@@ -1759,7 +1761,7 @@ guiTypes = {
 
 		checkboxType = {
 			name = "easy_cb"
-			position = { x=125 y=47}
+			position = { x=128 y=47}
 			quadTextureSprite ="GFX_difficulty_button_recruit"
 			buttonText = "FE_DIFFICULTY_EASY"
 			buttonFont = "OCR_A_14"
@@ -1768,7 +1770,7 @@ guiTypes = {
 
 		checkboxType = {
 			name = "normal_cb"
-			position = { x=241 y=47}
+			position = { x=246 y=47}
 			quadTextureSprite ="GFX_difficulty_button_regular"
 			clicksound = click_checkbox
 			buttonText = "FE_DIFFICULTY_NORMAL"
@@ -1777,7 +1779,7 @@ guiTypes = {
 
 		checkboxType = {
 			name = "hard_cb"
-			position = { x=357 y=47}
+			position = { x=364 y=47}
 			quadTextureSprite ="GFX_difficulty_button_veteran"
 			buttonText = "FE_DIFFICULTY_HARD"
 			buttonFont = "OCR_A_14"
@@ -1786,7 +1788,7 @@ guiTypes = {
 
 		checkboxType = {
 			name = "very_hard_cb"
-			position = { x=473 y=47}
+			position = { x=482 y=47}
 			quadTextureSprite ="GFX_difficulty_button_elite"
 			buttonText = "FE_DIFFICULTY_VERY_HARD"
 			buttonFont = "OCR_A_14"
@@ -1794,11 +1796,11 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x=10 y=57 }					#Took 8 away from all original values
+			position = {x=13 y=57 }
 			name = "civilian_text"
 			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
+			maxWidth = 110
 			maxHeight = 16
 			text = "FE_DIFFICULTY_VERY_EASY"
 			format = centre
@@ -1806,11 +1808,11 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x=126 y=57 }
+			position = {x=131 y=57 }
 			name = "beginner_text"
 			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
+			maxWidth = 110
 			maxHeight = 16
 			text = "FE_DIFFICULTY_EASY"
 			format = centre
@@ -1818,11 +1820,11 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x=242 y=57 }
+			position = {x=249 y=57 }
 			name = "normal_text"
 			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
+			maxWidth = 110
 			maxHeight = 16
 			text = "FE_DIFFICULTY_NORMAL"
 			format = centre
@@ -1830,11 +1832,11 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x=358 y=57 }	#Took 10 away from this one
+			position = {x=367 y=57 }
 			name = "hard_text"
 			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
+			maxWidth = 110
 			maxHeight = 16
 			text = "FE_DIFFICULTY_HARD"
 			format = centre
@@ -1842,11 +1844,11 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x=472 y=57 }
+			position = {x=485 y=57 }
 			name = "very_hard_text"
 			font = "OCR_A_14"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
+			maxWidth = 110
 			maxHeight = 16
 			text = "FE_DIFFICULTY_VERY_HARD"
 			format = centre
@@ -1932,64 +1934,61 @@ guiTypes = {
 
 		containerWindowType = {
 			name ="top"
-			position = { x=0 y = -80}
-			show_position = { x=0 y =-30}
+			position = { x=0 y = -180}
+			show_position = { x=0 y =0}
 			animation_type = decelerated
-			animation_time = 1000
-			size = { width=102% height =128}
+			animation_time = 800
+			size = { width=100% height =128}
 			clipping = no
 
 			Background =
 			{
 				name ="top_bg"
 				spriteType = "GFX_tiled_frontend_upper_bar"
-				position = { x=-10 y=0 }
 			}
 
 			containerWindowType = {
 				name ="scenario_window"
-				position = { x=50% y = -80}
+				position = { x=50% y = -30}
 				show_position = { x=50% y =-30}
 				animation_type = decelerated
-				animation_time = 1000
+				animation_time = 800
 				size = { width=340 height =128}
 				clipping = no
 
 				iconType ={
 					name ="menu_top_date_bg"
 					spriteType = "GFX_menu_top_bg_bg"
-					position = { x= -196 y = 54 }
+					#position = { x= -196 y = 54 }
+					position = { x= 9999 y = 9999 }
 				}
 
 				instantTextBoxType = {
 					name = "date"
-					position = { x = -184 y = 65 }
-					font = "cg_16b"
-					borderSize = {x = 4 y = 4}
+					position = { x = -340 y = 0 }
+					font = "OCR_A_18"
 					text = "Pikku Saippuakauppias Itkee!!"
-					maxWidth = 360
-					maxHeight = 32
+					maxWidth = 340
 					format = centre
+					orientation = center
 				}
 
 				instantTextBoxType = {
 					name = "name"
-					position = { x = -184 y = 85 }
-					font = "cg_16b"
-					borderSize = {x = 4 y = 4}
+					position = { x = -340 y = 20 }
+					font = "OCR_A_18"
 					text = "Pikku Saippuakauppias Itkee!!"
-					maxWidth = 360
-					maxHeight = 32
+					maxWidth = 340
 					format = centre
-					fixedsize = yes
+					orientation = center
 				}
 
 				ButtonType = {
 					name = "scenario_button"
-					position = { x = -135 y = 115 }
-					quadTextureSprite ="GFX_button_261x34"
+					position = { x = -135 y = 107 }
+					quadTextureSprite ="GFX_main_lobby_button"
 					buttonText = "FE_CHANGE_SCENARIO"
-					buttonFont = "hoi_20b"
+					buttonFont = "OCR_A_16"
 					clicksound = click_ok
 					shortcut = "c"
 				}
@@ -2042,8 +2041,8 @@ guiTypes = {
 
 			ButtonType = {
 				name = "interesting_countries_button"
-				position = { x = 40 y = 40 }
-				quadTextureSprite ="GFX_button_261x34"
+				position = { x = 18 y = 25 }
+				quadTextureSprite ="GFX_main_lobby_button"
 				buttonText = "FE_INTERESTING_COUNTRIES"
 				buttonFont = "OCR_A_14"
 				Orientation = "UPPER_LEFT"
@@ -2054,8 +2053,8 @@ guiTypes = {
 
 			ButtonType = {
 				name = "randomize_country_button"
-				position = { x = 40 y = 75 }
-				quadTextureSprite ="GFX_button_261x34"
+				position = { x = 18 y = 70 }
+				quadTextureSprite ="GFX_main_lobby_button"
 				buttonText = "FE_RANDOMIZE_COUNTRY"
 				buttonFont = "OCR_A_14"
 				Orientation = "UPPER_LEFT"
@@ -2084,7 +2083,7 @@ guiTypes = {
 			}
 
 			ButtonType = {
-				position = { x= -487 y = 48 }
+				position = { x= -487 y = 40 }
 				name = "player_shield"
 				quadTextureSprite ="GFX_player_flag"
 				Orientation = "UPPER_RIGHT"
@@ -2092,34 +2091,34 @@ guiTypes = {
 
 			iconType ={
 				name ="large_flag_frame"
-				spriteType = "GFX_large_flag_frame"
-				position = { x= -492 y = 45 }
+				spriteType = "GFX_country_flag_frame_map_menu"
+				position = { x= -490 y = 37 }
 				Orientation = "UPPER_RIGHT"
 			}
 
 			iconType ={
 				name ="selected_nation_label_bg"
 				spriteType = "GFX_generic_bg"
-				position = { x= -380 y = 46 }
+				#position = { x= -380 y = 46 }
+				position = { x= 9999 y = 9999 }
 				Orientation = "UPPER_RIGHT"
 			}
 
 			instantTextBoxType = {
 				name = "selected_nation_label"
-				position = { x = -375 y = 55 }
+				position = { x = -375 y = 45 }
 				textureFile = ""
-				font = "OCR_A_20"
+				font = "OCR_A_24"
 				borderSize = {x = 0 y = 0}
 				text = "FE_NO_COUNTRY_SELECTED"
 				maxWidth = 258
-				maxHeight = 40
-				fixedsize = yes
 				format = centre
 				Orientation = "UPPER_RIGHT"
 			}
 
 			ButtonType = {
-				position = { x= -97 y = 45 }
+				#position = { x= -97 y = 45 }
+				position = { x= 9999 y = 9999 }
 				name = "extended_country_button"
 				quadTextureSprite ="GFX_extended_country_button"
 				Orientation = "UPPER_RIGHT"
@@ -2129,23 +2128,23 @@ guiTypes = {
 
 		containerWindowType = {
 			name ="bottom"
-			position = { x=0 y =0}
-			show_position = { x=0 y =-100 }
+			position = { x=0 y =20}
+			show_position = { x=0 y =-144 }
 			animation_type = decelerated
-			animation_time = 1000
-			size = { width=102% height =128}
+			animation_time = 800
+			size = { width=100% height =144}
 			Orientation = lower_left
 
-			Background ={
+			Background =
+			{
 				name ="bottom_win"
-				spriteType = "GFX_tiled_frontend_lower_bar"
-				position = { x=-10 y =0}
+				spriteType = "GFX_tiled_frontend_upper_bar"
 			}
 
 			ButtonType = {
 				name = "back_button"
-				position = { x = 20 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
+				position = { x = -8 y = 12 }
+				quadTextureSprite ="GFX_main_lobby_button"
 				buttonText = "MAIN_MENU_BACK"
 				buttonFont = "OCR_A_16"
 				Orientation = "UPPER_LEFT"
@@ -2156,8 +2155,8 @@ guiTypes = {
 
 			ButtonType = {
 				name = "load_button"
-				position = { x = 180 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
+				position = { x = -8 y = 54 }
+				quadTextureSprite ="GFX_main_lobby_button"
 				buttonText = "MENU_BAR_LOAD"
 				buttonFont = "OCR_A_16"
 				Orientation = "UPPER_LEFT"
@@ -2168,8 +2167,8 @@ guiTypes = {
 
 			ButtonType = {
 				name = "options_button"
-				position = { x = 340 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
+				position = { x = -8 y = 96 }
+				quadTextureSprite ="GFX_main_lobby_button"
 				buttonText = "OPTIONS"
 				buttonFont = "OCR_A_16"
 				Orientation = "UPPER_LEFT"
@@ -2180,9 +2179,10 @@ guiTypes = {
 
 			iconType = {
 				name = "enabled_achievement_icons"
-				position = { x = -382 y = -115 }
+				position = { x = -382 y = -101 }
 				quadTextureSprite ="GFX_enabled_achievement_icons"
 				Orientation = "LOWER_RIGHT"
+				scale = 0.68
 			}
 
 			ButtonType = {
