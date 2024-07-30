@@ -173,9 +173,26 @@ country_event = {
 			base = 50
 		}
 
-		swap_ideas = {
-			remove_idea = LIT_gazproms_natural_gas_monopoly
-			add_idea = LIT_gazproms_natural_gas_monopoly_2
+		if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly }
+
+			swap_ideas = {
+				remove_idea = LIT_gazproms_natural_gas_monopoly
+				add_idea = LIT_gazproms_natural_gas_monopoly_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly_2 }
+
+			swap_ideas = {
+				remove_idea = LIT_gazproms_natural_gas_monopoly_2
+				add_idea = LIT_gazproms_natural_gas_monopoly_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly_3 }
+
+			remove_ideas = LIT_gazproms_natural_gas_monopoly_3
 		}
 	}
 }
@@ -221,8 +238,122 @@ country_event = {
 	option = { 
 		name = lithuania.10.a
 		ai_chance = {
-			base = 0
+			base = 1
 		}
 		add_stability = -0.005
+	}
+}
+
+#"Independence" arrives to ports
+country_event = {
+	id = lithuania.11
+	title = lithuania.11.t
+	desc = lithuania.11.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_lng_independence
+	
+	option = { 
+		name = lithuania.11.a
+		ai_chance = {
+			base = 1
+		}
+		if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly }
+
+			swap_ideas = {
+				remove_idea = LIT_gazproms_natural_gas_monopoly
+				add_idea = LIT_gazproms_natural_gas_monopoly_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly_2 }
+
+			swap_ideas = {
+				remove_idea = LIT_gazproms_natural_gas_monopoly_2
+				add_idea = LIT_gazproms_natural_gas_monopoly_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = LIT_gazproms_natural_gas_monopoly_3 }
+
+			remove_ideas = LIT_gazproms_natural_gas_monopoly_3
+		}
+	}
+}
+
+#Alytus Scandal
+country_event = {
+	id = lithuania.12
+	title = lithuania.12.t
+	desc = lithuania.12.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_alytus_scandal
+	
+	option = { 
+		name = lithuania.12.a
+		ai_chance = {
+			base = 1
+		}
+
+		add_political_power = -15
+		add_popularity = {
+			ideology = social_democracy
+			popularity = -0.05
+		}
+	}
+}
+
+#Gabrielius Landsbergis nominated as TSLKD leader
+country_event = {
+	id = lithuania.13
+	title = lithuania.13.t
+	desc = lithuania.13.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_landsbergis
+	
+	option = { 
+		name = lithuania.13.a
+		ai_chance = {
+			base = 1
+		}
+
+		add_popularity = {
+			ideology = eastern_conservative
+			popularity = 0.05
+		}
+		create_country_leader = {
+			name = "Gabrielius Landsbergis"
+			desc = ""
+			picture = gfx/leaders/LIT/PM/Portrait_Gabrielius_Landsbergis.png
+			ideology = generic_eastern_conservative
+			traits = { }
+		}
+	}
+}
+
+#Valentinas Mazuronis nominated as DP leader
+country_event = {
+	id = lithuania.14
+	title = lithuania.14.t
+	desc = lithuania.14.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_mazuronis
+	
+	option = { 
+		name = lithuania.14.a
+		ai_chance = {
+			base = 1
+		}
+
+		add_popularity = {
+			ideology = populist
+			popularity = 0.03
+		}
+		create_country_leader = {
+			name = "Valentinas Mazuronis"
+			desc = ""
+			ideology = generic_populist
+			traits = { }
+		}
 	}
 }

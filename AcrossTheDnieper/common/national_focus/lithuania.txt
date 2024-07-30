@@ -129,6 +129,11 @@ focus_tree = {
 					add_idea = LIT_gazproms_natural_gas_monopoly_3
 				}
 			}
+			else_if = {
+				limit = { has_idea = LIT_gazproms_natural_gas_monopoly_3 }
+
+				remove_ideas = LIT_gazproms_natural_gas_monopoly_3
+			}
 		}
 	}
 }
@@ -168,7 +173,7 @@ shared_focus = {
 shared_focus = {
 	id = LIT_purchase_grom
 	icon = GFX
-	x = 5
+	x = 3
 	y = 8
 	cost = 35
 
@@ -202,7 +207,128 @@ shared_focus = {
 			amount = 500
 			producer = POL
 		}
+	}
+}
 
-		
+shared_focus = {
+	id = LIT_russian_threat
+	icon = GFX
+	x = 7
+	y = 8
+	cost = 14
+
+	prerequisite = { focus = LIT_6_year_plan }
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			has_country_flag = LIT_chose_6_year_plan
+		}
+	}
+	available = {
+		date > 2014.5.1
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		army_experience = 25
+		SOV = { add_opinion_modifier = { target = LIT modifier = BLR_large_negative } }
+	}
+}
+
+shared_focus = {
+	id = LIT_form_rapid_reaction_force
+	icon = GFX
+	x = 6
+	y = 9
+	cost = 40
+
+	prerequisite = { focus = LIT_russian_threat }
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			has_country_flag = LIT_chose_6_year_plan
+		}
+	}
+	available = {
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		hidden_effect = {
+			division_template = {
+				name = "Special Mission Unit"
+				division_names_group = LIT_INF_01
+				template_counter = 243
+				regiments = {
+					elite_special_forces = { x = 0 y = 0}
+					elite_special_forces = { x = 0 y = 1}
+					elite_special_forces = { x = 1 y = 0}
+				}
+				support = {
+					recon = {x = 0 y = 0}
+				}
+			}
+		}
+		6 = {
+			create_unit = {
+				division = "name = \"Special Mission Unit\" division_template = \"Special Mission Unit\" start_experience_factor = 0.7"
+				owner = LIT
+			}
+		}
+		add_ideas = LIT_rapid_reaction_force
+	}
+}
+
+shared_focus = {
+	id = LIT_increase_national_defense_budget
+	icon = GFX
+	x = 5
+	y = 10
+	cost = 25
+
+	prerequisite = { focus = LIT_6_year_plan }
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			has_country_flag = LIT_chose_6_year_plan
+		}
+	}
+	available = {
+		date > 2014.11.1
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		increase_military_spending = yes
 	}
 }
