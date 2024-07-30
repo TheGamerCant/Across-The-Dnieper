@@ -1,0 +1,208 @@
+focus_tree = {
+	id = lithuania
+	continuous_focus_position = { x = 2000 y = 25 }
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = LIT
+		}
+	}
+
+	shared_focus = LIT_6_year_plan
+
+	focus = {
+		id = LIT_begin_preperations_for_euro
+		icon = GFX
+		x = 4
+		y = 0
+		cost = 35
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_political_power = 50
+
+			add_timed_idea = {
+				idea = LIT_preparing_for_euro
+				days = 200
+			}
+
+			every_owned_state = {
+				increase_state_gdp_growth_by_0_5 = yes
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_enter_the_eurozone
+		icon = GFX
+		x = 6
+		y = 1
+		cost = 40
+
+		prerequisite = { focus = LIT_begin_preperations_for_euro }
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			NOT = { has_idea = LIT_preparing_for_euro }
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = LIT_worse_eu_member
+				add_idea = eu_member
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_demand_lower_gas_prices
+		icon = GFX
+		x = 4
+		y = 2
+		cost = 40
+
+		prerequisite = { focus = LIT_begin_preperations_for_euro }
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			SOV = { country_event = { id = lithuania.7 days = 1 } }
+		}
+	}
+
+	focus = {
+		id = LIT_contract_with_statoil
+		icon = GFX
+		x = 4
+		y = 3
+		cost = 60
+
+		prerequisite = { focus = LIT_demand_lower_gas_prices }
+
+		ai_will_do = { 
+			factor = 10 
+		}
+
+		available = {
+			
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = LIT_gazproms_natural_gas_monopoly }
+
+				swap_ideas = {
+					remove_idea = LIT_gazproms_natural_gas_monopoly
+					add_idea = LIT_gazproms_natural_gas_monopoly_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = LIT_gazproms_natural_gas_monopoly_2 }
+
+				swap_ideas = {
+					remove_idea = LIT_gazproms_natural_gas_monopoly_2
+					add_idea = LIT_gazproms_natural_gas_monopoly_3
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = LIT_6_year_plan
+	icon = GFX
+	x = 5
+	y = 7
+	cost = 40
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			has_country_flag = LIT_chose_6_year_plan
+		}
+	}
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+
+	}
+}
+
+shared_focus = {
+	id = LIT_purchase_grom
+	icon = GFX
+	x = 5
+	y = 8
+	cost = 35
+
+	prerequisite = { focus = LIT_6_year_plan }
+
+	ai_will_do = { 
+		factor = 10 
+	}
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			has_country_flag = LIT_chose_6_year_plan
+		}
+	}
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		army_experience = 5
+		add_opinion_modifier = { target = POL modifier = BLR_medium_positive } 
+		add_equipment_to_stockpile = {
+			type = infantry_anti_air_equipment_1
+			amount = 500
+			producer = POL
+		}
+
+		
+	}
+}

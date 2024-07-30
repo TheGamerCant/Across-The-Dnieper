@@ -1,0 +1,50 @@
+scripted_gui = {
+	LIT_president_prime_minister_switch_gui = {
+		window_name = "LIT_president_prime_minister_switch_gui"
+		context_type = player_context
+		parent_window_token = politics_tab
+
+		visible = {
+			is_ai = no
+			tag = LIT
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		triggers={
+			LIT_prime_minister_bg_visible={
+				has_country_flag = LIT_pm_view_enabled
+			}
+			LIT_prime_minister_image_visible={
+				has_country_flag = LIT_pm_view_enabled
+			}
+			LIT_leader_frame_visible={
+				has_country_flag = LIT_pm_view_enabled
+			}
+			prime_minister_name_text_box_visible={
+				has_country_flag = LIT_pm_view_enabled
+			}
+		}
+		
+		effects = {
+			LIT_president_prime_minister_switch_button_click = {
+				if={
+					limit = { NOT = { has_country_flag = LIT_pm_view_enabled } }
+					set_country_flag = LIT_pm_view_enabled
+				}
+				else={
+					clr_country_flag = LIT_pm_view_enabled
+				}
+			}
+		}
+		
+		properties={
+			LIT_prime_minister_image={
+				image = "[LIT_get_pm_image]"
+			}
+		}
+	}
+}
+

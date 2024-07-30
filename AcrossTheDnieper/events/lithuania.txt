@@ -1,0 +1,228 @@
+add_namespace = lithuania
+
+#Day of the Defenders of Freedom
+country_event = {
+	id = lithuania.1
+	title = lithuania.1.t
+	desc = lithuania.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_january_13th
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = lithuania.1 days = 365 }
+		}
+	}
+	
+	option = { 
+		name = lithuania.1.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = 0.03
+		add_political_power = 5
+	}
+	
+}
+
+#African Swine Fever
+country_event = {
+	id = lithuania.2
+	title = lithuania.2.t
+	desc = lithuania.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_swine_fever
+	
+	option = { 
+		name = lithuania.2.a
+		ai_chance = {
+			base = 20
+		}
+		add_stability = -0.005
+	}
+}
+
+#Ukrainian Activist Arrives for Treatment
+country_event = {
+	id = lithuania.3
+	title = lithuania.3.t
+	desc = lithuania.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_bulatov
+	
+	option = { 
+		name = lithuania.3.a
+		ai_chance = {
+			base = 30
+		}
+		
+	}
+}
+
+#Meeting with medvedev in sochi
+country_event = {
+	id = lithuania.4
+	title = lithuania.4.t
+	desc = lithuania.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_sochi_meeting
+	
+	option = { 
+		name = lithuania.4.a
+		ai_chance = {
+			base = 40
+		}
+		
+		LIT = { add_opinion_modifier = { target = SOV modifier = LIT_diplomatic_meeting } }
+		SOV = { add_opinion_modifier = { target = LIT modifier = LIT_diplomatic_meeting } }
+	}
+}
+
+#Drug Bust at the Border
+country_event = {
+	id = lithuania.5
+	title = lithuania.5.t
+	desc = lithuania.5.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_drugs
+	
+	option = { 
+		name = lithuania.5.a
+		ai_chance = {
+			base = 50
+		}
+
+		add_stability = 0.01
+	}
+}
+
+#Electoral Action of Poles in Lithuania leave coalition 
+country_event = {
+	id = lithuania.6
+	title = lithuania.6.t
+	desc = lithuania.6.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_llra
+
+	trigger = {
+		has_idea = LIT_butkevicius_coalition
+	}
+	
+	option = { 
+		name = lithuania.6.a
+		ai_chance = {
+			base = 60
+		}
+
+		swap_ideas = {
+			remove_idea = LIT_butkevicius_coalition
+			add_idea = LIT_butkevicius_coalition_2
+		}
+
+		add_stability = -0.01
+	}
+}
+
+#Lithuania demands lower gas prices (For Russia)
+country_event = {
+	id = lithuania.7
+	title = lithuania.7.t
+	desc = lithuania.7.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_gazprom
+	
+	option = { 
+		name = lithuania.7.a
+		ai_chance = {
+			base = 50
+		}
+
+		custom_effect_tooltip = "event_tt_historical"
+
+		add_political_power = 5
+		LIT = { add_opinion_modifier = { target = SOV modifier = BLR_medium_positive } }
+
+		hidden_effect = {
+			LIT = { country_event = { id = lithuania.8 days = 1 }  }
+		}
+	}
+
+	option = { 
+		name = lithuania.7.b
+		ai_chance = {
+			base = 0
+		}
+		
+		add_political_power = -5
+		LIT = { add_opinion_modifier = { target = SOV modifier = BLR_large_negative } }
+	}
+}
+
+#Lithuania demands lower gas prices (THEY ACCEPTED)
+country_event = {
+	id = lithuania.8
+	title = lithuania.8.t
+	desc = lithuania.8.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_gazprom
+	
+	option = { 
+		name = lithuania.8.a
+		ai_chance = {
+			base = 50
+		}
+
+		swap_ideas = {
+			remove_idea = LIT_gazproms_natural_gas_monopoly
+			add_idea = LIT_gazproms_natural_gas_monopoly_2
+		}
+	}
+}
+
+#tenth anniversary of NATO membership
+country_event = {
+	id = lithuania.9
+	title = lithuania.9.t
+	desc = lithuania.9.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_military
+	
+	option = { 
+		name = lithuania.9.a
+		ai_chance = {
+			base = 0
+		}
+		set_country_flag = LIT_chose_6_year_plan
+		complete_national_focus = LIT_6_year_plan
+		mark_focus_tree_layout_dirty = yes
+	}
+
+	option = { 
+		name = lithuania.9.b
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "event_tt_historical"
+		set_country_flag = LIT_chose_6_year_plan
+		complete_national_focus = LIT_6_year_plan
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+#Fire in the curonian spit
+country_event = {
+	id = lithuania.10
+	title = lithuania.10.t
+	desc = lithuania.10.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_LIT_fire
+	
+	option = { 
+		name = lithuania.10.a
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.005
+	}
+}
