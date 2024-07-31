@@ -1,0 +1,17 @@
+defined_text = {
+	name = sejm_status_entry_text_scripted_loc
+	text = {
+		trigger = {
+			OR={
+				check_variable = { government_status_display_array^i = token:POL_display_inPower_inOpposition_neutral_inPower }
+				check_variable = { government_status_display_array^i = token:POL_display_inPower_inOpposition_neutral_inOpposition }
+				check_variable = { government_status_display_array^i = token:POL_display_inPower_inOpposition_neutral_neutral }
+				check_variable = { government_status_display_array^i = token:POL_display_breakline }
+			}
+		}
+		localization_key = "[?POL.government_status_display_array^i.GetTokenLocalizedKey]"
+	}
+	text = {
+		localization_key = "[?POL.party_names_long_colour_array^v.GetTokenLocalizedKey]  -  [?POL.array_of_party_seats^v]"
+	}
+}
