@@ -347,6 +347,7 @@ focus_tree = {
 	continuous_focus_position = { x = 80 y = 2280 } 
 	country = {
 		factor = 0
+
 	}
 	
 	focus = {
@@ -2949,7 +2950,7 @@ focus_tree = {
 			
 			hidden_effect={
 				country_event = { id = russia.1153 days = 130 }
-				131 = {
+				464 = {
 					add_dynamic_modifier = {
 						modifier = SOV_local_offensive_modifier
 						scope = SOV
@@ -3230,7 +3231,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_wagner_in_kiev
-		icon = GFX_focus_SOV_Flank_Kiev
+		icon = GFX
 		x = 0
 		y = 2
 		cost = 20
@@ -3282,7 +3283,22 @@ focus_tree = {
 		}
 
 		completion_reward={
+			add_war_support = 0.02
+			custom_effect_tooltip = SOV_new_military_innovations_tt
 
+			add_to_variable = { SOV_army_experience_gain_army = 0.001 }
+			add_to_variable = { SOV_army_land_doctrine_cost_factor = -0.05 }
+			add_to_variable = { SOV_army_max_command_power = 15 }
+			add_to_variable = { SOV_army_coordination_bonus = 0.07 }
+			add_to_variable = { SOV_army_max_dig_in = 4 }
+
+			if = {
+				limit = { has_idea = SOV_russia_of_a_new_age }
+				swap_ideas={
+					remove_idea = SOV_russia_of_a_new_age
+					add_idea = SOV_russia_of_a_new_age_2
+				}
+			}
 		}
 	}
 		
@@ -3381,7 +3397,7 @@ focus_tree = {
 	focus = {
 		id = SOV_rebuild_mariupol
 		icon = GFX
-		x = 1
+		x = 3
 		y = 3
 		cost = 14
 		search_filters = {
@@ -3420,6 +3436,29 @@ focus_tree = {
 				}
 				add_dynamic_modifier = { modifier = SOV_reconstruction_fund_modifier scope = SOV days = 150 }
 			}
+		}
+	}
+
+	focus = {
+		id = SOV_attritional_warfare
+		icon = GFX
+		x = 1
+		y = 3
+		cost = 14
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_secure_our_new_territories }
+		relative_position_id = SOV_novorossiya_at_hand_2
+
+		available={
+			has_war_with = UKR
+			vladimir_putin_is_leader = yes
+		}
+		
+		completion_reward={
+			add_ideas = UKR_attitional_war_idea
 		}
 	}
 
@@ -3859,7 +3898,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = SOV_break_open_the_armouries
-		prerequisite = { focus = SOV_advance_further focus = SOV_rebuild_mariupol }
+		prerequisite = { focus = SOV_attritional_warfare focus = SOV_advance_further }
 		prerequisite = { focus = SOV_novorossiya_at_hand_2 }
 		available={
 			has_war_with = UKR
