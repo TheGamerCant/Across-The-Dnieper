@@ -119,24 +119,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			hidden_effect={
-				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
-				set_country_flag = POLAND_current_bill_in_sejm_is_strategy_for_energy_security_and_environment
-				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill_to_random = yes
-				POLAND_get_party_votes_for_the_bill = yes
-				
-				activate_mission = POL_strategy_for_energy_security_and_environment
-			}
-			effect_tooltip={
-				custom_effect_tooltip = POL_climate_change_commitments_tt
-				POL_bill_needs_simple_majority = yes
-				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
-				add_political_power = 100
-				add_stability = 0.08
-			}
 			
-			set_country_flag = POLAND_strategy_for_energy_security_and_environment_is_available
 		}
 	}
 	
@@ -265,15 +248,6 @@ focus_tree = {
 			
 			add_popularity = { ideology = neoliberal popularity = -0.02 }
 		
-			hidden_effect={
-				every_state={
-					limit = { POL_is_election_state = yes }
-					multiply_variable = { THIS.PO_popularity = 0.85 }
-					POL_make_popularities_equal_100 = yes
-				}
-			}
-			
-			custom_effect_tooltip = POL_decrease_PO_popularity_tt
 		}
 	}
 	
@@ -459,19 +433,7 @@ focus_tree = {
 		mutually_exclusive = { focus = POL_a_traditionalist_poland }
 		prerequisite = { focus = POL_polands_place_in_europe }
 		relative_position_id = POL_stop_foreign_welfare_payments
-		completion_reward = {
-			hidden_effect={
-				every_state={
-					limit = { POL_is_election_state = yes }
-					multiply_variable = { THIS.PO_popularity = 1.12 }
-					add_to_variable = { THIS.LEFT_popularity = 1.8 }
-					POL_make_popularities_equal_100 = yes
-				}
-			}
-			
-			custom_effect_tooltip = POL_increase_PO_popularity_tt
-			custom_effect_tooltip = POL_increase_LEFT_popularity_tt
-			
+		completion_reward = {	
 			add_political_power = 50
 			add_stability = -0.02
 			
@@ -499,18 +461,6 @@ focus_tree = {
 		prerequisite = { focus = POL_polands_place_in_europe }
 		relative_position_id = POL_stop_foreign_welfare_payments
 		completion_reward = {
-			hidden_effect={
-				every_state={
-					limit = { POL_is_election_state = yes }
-					multiply_variable = { THIS.PiS_popularity = 1.12 }
-					add_to_variable = { THIS.RIGHT_popularity = 2.1 }
-					POL_make_popularities_equal_100 = yes
-				}
-			}
-			
-			custom_effect_tooltip = POL_increase_PiS_popularity_tt
-			custom_effect_tooltip = POL_increase_RIGHT_popularity_tt
-			
 			add_stability = 0.05
 			
 			add_popularity = { ideology = neoconservative popularity = 0.03 }
@@ -716,26 +666,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			hidden_effect={
-				set_country_flag = POLAND_there_is_legislation_in_the_sejm_flag
-				set_country_flag = POLAND_current_bill_in_sejm_is_the_consitutional_tribunal_act
-				POL_bill_needs_simple_majority = yes
-				POLAND_set_party_votes_for_the_bill_to_hard = yes
-				POLAND_get_party_votes_for_the_bill = yes
-				
-				activate_mission = POL_the_consitutional_tribunal_act_decision
-			}
-			effect_tooltip={
-				custom_effect_tooltip = POL_the_consitutional_tribunal_act_tt
-				POL_bill_needs_simple_majority = yes
-				custom_effect_tooltip = POLAND_if_the_bill_passes_tooltip
-				swap_ideas={
-					remove_idea = POL_constitutional_crisis_idea
-					add_idea = POL_constitutional_crisis_idea_2
-				}
-			}
-			
-			set_country_flag = POLAND_the_consitutional_tribunal_act_is_available
+
 		}
 	}
 	
@@ -931,29 +862,7 @@ shared_focus = {
 	}
 
 	completion_reward = {	
-		if={
-			limit = { 67 = { is_controlled_by = ROOT } }
-			67={
-				add_resource={ type = oil amount = 21 }
-				hidden_effect={
-					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
-					POL_make_popularities_equal_100 = yes
-				}
-				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
-			}
-		}
-		if={
-			limit = { 62 = { is_controlled_by = ROOT } }
-			62={
-				add_resource={ type = oil amount = 12 }
-				hidden_effect={
-					add_to_variable = { THIS.RIGHT_popularity = 3.0 }
-					POL_make_popularities_equal_100 = yes
-				}
-				custom_effect_tooltip = POL_increase_RIGHT_popularity_in_state_tt
-			}
-		}
-		
+
 		if={
 			limit = { has_idea = POL_cut_coal_subsidies }
 			remove_idea = POL_cut_coal_subsidies
