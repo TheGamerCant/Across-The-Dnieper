@@ -1,125 +1,85 @@
 add_namespace = atd_poland
 add_namespace = poland_election
-add_namespace = poland_court_event
 
-#Create Konfederacjia
+#Seven years of PO
 country_event = {
 	id = atd_poland.1
 	title = atd_poland.1.t
 	desc = atd_poland.1.desc
-	picture = GFX_report_event_POL_konfederacja
 	is_triggered_only = yes
+	
+	picture = GFX_report_event_POL_generic_PO
+	
+	option = {
+		name = atd_poland.1.a
+		ai_chance = { 
+			base = 1 
+		}
+		
+		add_political_power = 60
+	}
+	
+	option = {
+		name = atd_poland.1.b
+		ai_chance = { 
+			base = 1 
+		}
+
+		add_political_power = 60
+	}
 }
 
-#Creation of the United Left
+#Crimea event - for POL
 country_event = {
 	id = atd_poland.2
 	title = atd_poland.2.t
 	desc = atd_poland.2.desc
-	picture = GFX_report_event_POL_united_left
 	is_triggered_only = yes
+	
+	picture = GFX_report_event_UKR_little_green_men
+	
+	option = {
+		name = atd_poland.2.a
+		ai_chance = { 
+			base = 10 
+		}
+		
+		custom_effect_tooltip = POL_the_need_for_nato_event_tt
+		hidden_effect={
+			clr_country_flag = POL_its_all_chill_in_da_hood
+			clr_country_flag = POL_the_eagle_soars_flag
+			set_country_flag = POL_the_need_for_nato_flag
+			complete_national_focus = POL_oh_no_the_ruskies_invaded_crimea
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	option = {
+		name = atd_poland.2.b
+		ai_chance = { 
+			base = 10 
+		}
+		
+		custom_effect_tooltip = POL_the_eagle_soars_event_tt
+		hidden_effect={
+			clr_country_flag = POL_its_all_chill_in_da_hood
+			clr_country_flag = POL_the_need_for_nato_flag
+			set_country_flag = POL_the_eagle_soars_flag
+			complete_national_focus = POL_oh_no_the_ruskies_invaded_crimea
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
 }
 
-#A candidate from PiS for President
+#High command reorganised		Triggered in hidden start-up event generic.1
 country_event = {
 	id = atd_poland.3
 	title = atd_poland.3.t
 	desc = atd_poland.3.desc
 	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_PiS_candidate_2015
-}
-
-#2015 Election
-country_event = {
-	id = atd_poland.4
-	title = atd_poland.4.t
-	desc = atd_poland.4.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_pokemon_go_to_the_polls
-}
-
-#Donald Tusk becomes EC president
-country_event = {
-	id = atd_poland.5
-	title = atd_poland.5.t
-	desc = atd_poland.5.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_donald_tusk_eu
-}
-
-
-#Donald Tusk returns to Poland
-country_event = {
-	id = atd_poland.6
-	title = atd_poland.6.t
-	desc = atd_poland.6.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_donald_tusk_eu
-}
-
-#Kopacz does some purgin'
-country_event = {
-	id = atd_poland.7
-	title = atd_poland.7.t
-	desc = atd_poland.7.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_kopacz_press
-}
-
-#Results of the local elections
-country_event = {
-	id = atd_poland.8
-	title = atd_poland.8.t
-	desc = atd_poland.8.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_pokemon_go_to_the_polls
-}
-
-#Waitergate
-country_event = {
-	id = atd_poland.9
-	title = atd_poland.9.t
-	desc = atd_poland.9.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_kopacz_press
-}
-
-#Seven years of PO
-country_event = {
-	id = atd_poland.10
-	title = atd_poland.10.t
-	desc = atd_poland.10.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_generic_PO
-}
-
-#Crimea event - for POL
-country_event = {
-	id = atd_poland.11
-	title = atd_poland.11.t
-	desc = atd_poland.11.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_UKR_little_green_men
-}
-
-#High command reorganised		Triggered in hidden start-up event generic.1
-country_event = {
-	id = atd_poland.12
-	title = atd_poland.12.t
-	desc = atd_poland.12.desc
-	is_triggered_only = yes
 
 	option = {
-		name = atd_poland.12.a
+		name = atd_poland.3.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -131,26 +91,16 @@ country_event = {
 	}
 }
 
-
-#Creation of Lewica
-country_event = {
-	id = atd_poland.13
-	title = atd_poland.13.t
-	desc = atd_poland.13.desc
-	picture = GFX_report_event_POL_lewica_rally
-	is_triggered_only = yes
-}
-
 #Humanitarian aid from poland
 country_event = {
-	id = atd_poland.14
-	title = atd_poland.14.t
-	desc = atd_poland.14.desc
+	id = atd_poland.4
+	title = atd_poland.4.t
+	desc = atd_poland.4.desc
 	is_triggered_only = yes
 
 
 	option = {
-		name = atd_poland.14.a
+		name = atd_poland.4.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -162,14 +112,14 @@ country_event = {
 
 #Humanitarian and military aid from poland
 country_event = {
-	id = atd_poland.15
-	title = atd_poland.15.t
-	desc = atd_poland.15.desc
+	id = atd_poland.5
+	title = atd_poland.5.t
+	desc = atd_poland.5.desc
 	is_triggered_only = yes
 
 
 	option = {
-		name = atd_poland.15.a
+		name = atd_poland.5.a
 		ai_chance = { 
 			base = 10 
 		}
@@ -193,75 +143,17 @@ country_event = {
 	}
 }
 
-#Migrant crisis
-country_event = {
-	id = atd_poland.16
-	title = atd_poland.16.t
-	desc = atd_poland.16.desc
-	is_triggered_only = yes
-	picture = GFX_report_event_generic_migrant_crisis
-
-}
-
-#Kopacz does some purgin' but better for PO
-country_event = {
-	id = atd_poland.17
-	title = atd_poland.17.t
-	desc = atd_poland.17.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_kopacz_press
-}
-
-#Coal industry
-country_event = {
-	id = atd_poland.18
-	title = atd_poland.18.t
-	desc = atd_poland.18.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_coal_industry
-
-	option = {
-		name = atd_poland.18.a
-		ai_chance = { base = 2 }
-		
-		add_political_power = -75
-	}
-	
-	option = {
-		name = atd_poland.18.b
-		ai_chance = { 
-			base = 1 
-			modifier={
-				factor = 0
-			}
-		}
-
-		if={
-			limit = { has_government = neoliberal }
-			add_popularity = { ideology = neoliberal popularity = -0.02 }
-		}
-		else_if={
-			limit = { has_government = neoconservative }
-			add_popularity = { ideology = neoconservative popularity = -0.02 }
-		}
-		
-		add_timed_idea = { idea = POL_cut_coal_subsidies days = 730 }
-	}
-}
-
 #Female self-defence courses
 country_event = {
-	id = atd_poland.19
-	title = atd_poland.19.t
-	desc = atd_poland.19.desc
+	id = atd_poland.6
+	title = atd_poland.6.t
+	desc = atd_poland.6.desc
 	is_triggered_only = yes
 	
 	picture = GFX_report_event_POL_womens_self_defence
 
 	option = {
-		name = atd_poland.19.a
+		name = atd_poland.6.a
 		ai_chance = { base = 1 }
 		
 		add_to_variable = { POL_land_forces_conscription_factor = 0.04 }
@@ -271,52 +163,11 @@ country_event = {
 	}
 }
 
-#Rise of Kukiz-15
-country_event = {
-	id = atd_poland.20
-	title = atd_poland.20.t
-	desc = atd_poland.20.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_kukiz_15_rally
-
-}
-
-#Who should be PiS PM?
-country_event = {
-	id = atd_poland.21
-	title = atd_poland.21.t
-	desc = atd_poland.21.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_PiS_leader_event
-
-}
-
-#Bill goes to the President
-country_event = {
-	id = atd_poland.22
-	title = atd_poland.22.t
-	desc = atd_poland.22.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_sejm
-}
-
-#Small media law event
-country_event = {
-	id = atd_poland.23
-	title = atd_poland.23.t
-	desc = atd_poland.23.desc
-	is_triggered_only = yes
-
-}
-
 #Ukraine war - rocket explodes inside poland
 country_event = {
-	id = atd_poland.24
-	title = atd_poland.24.t
-	desc = atd_poland.24.desc
+	id = atd_poland.7
+	title = atd_poland.7.t
+	desc = atd_poland.7.desc
 	picture = GFX_report_event_POL_rocket_goes_boom
 	is_triggered_only = yes
 
@@ -326,7 +177,7 @@ country_event = {
 	}
 
 	option = {
-		name = atd_poland.24.a
+		name = atd_poland.7.a
 		ai_chance = { base = 1 }
 
 		51 = {add_manpower = -2}
@@ -338,260 +189,11 @@ country_event = {
 	}
 	
 	option = {
-		name = atd_poland.24.b
+		name = atd_poland.7.b
 		ai_chance = { base = 0 }
 
 		51 = {add_manpower = -2}
 		add_stability = -0.05
 		add_political_power = 20
-	}
-}
-
-#PSL to enter alliance talks
-country_event = {
-	id = atd_poland.25
-	title = atd_poland.25.t
-	desc = atd_poland.25.desc
-	is_triggered_only = yes
-
-}
-
-#PSL to enter alliance talks 2
-country_event = {
-	id = atd_poland.26
-	title = atd_poland.26.t
-	desc = atd_poland.26.desc
-	is_triggered_only = yes
-
-}
-
-#PO to enter alliance talks
-country_event = {
-	id = atd_poland.27
-	title = atd_poland.27.t
-	desc = atd_poland.27.desc
-	is_triggered_only = yes
-
-}
-
-#Meeting with Hungolia
-country_event = {
-	id = atd_poland.28
-	title = atd_poland.28.t
-	desc = atd_poland.28.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_szydlo_and_orban
-
-	option = {
-		name = atd_poland.28.a
-		ai_chance = { base = 1 }
-		
-		add_political_power = 75
-		add_opinion_modifier = { target = HUN modifier = BLR_medium_positive }
-		HUN = { add_opinion_modifier = { target = POL modifier = BLR_medium_positive } }
-		every_other_country = {
-			limit = { 
-				has_idea = eu_member
-				has_western_government = yes
-			}
-			add_opinion_modifier = { target = POL modifier = POL_suspicious_of_eu_policy }
-		}
-	}
-}
-
-#Ministry of finance opposes childbirth subsidies
-country_event = {
-	id = atd_poland.29
-	title = atd_poland.29.t
-	desc = atd_poland.29.desc
-	is_triggered_only = yes
-	
-	timeout_days = 10
-
-	picture = GFX_report_event_POL_ministry_of_finance_building
-
-	option = {
-		name = atd_poland.29.a
-		ai_chance = { base = 1 }
-		
-		
-	}
-	
-	option = {
-		name = atd_poland.29.b
-		ai_chance = { base = 0 }
-		
-		set_country_flag = POLAND_NO_CHILDBIRTH_SUBSIDIES_FLAG
-		add_political_power = -50
-	}
-}
-
-#Public institutions get worse because you're a retarded libertarian :3
-country_event = {
-	id = atd_poland.30
-	title = atd_poland.30.t
-	desc = atd_poland.30.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_ministry_of_finance_building
-
-}
-
-#Scrap the taxes on gasoline
-country_event = {
-	id = atd_poland.31
-	title = atd_poland.31.t
-	desc = atd_poland.31.desc
-	is_triggered_only = yes
-	
-	picture = GFX_report_event_POL_gas_prices
-
-	option = {
-		name = atd_poland.31.a
-		ai_chance = { base = 1 }
-
-		add_tech_bonus = {
-			name = POL_scrap_taxes_on_gasoline
-			bonus = 1.0
-			uses = 2
-			category = cat_synth_rubber
-			category = cat_synth_oil
-		}
-	}
-}
-
-
-
-#Constitutional crisis event
-country_event = {
-	id = poland_court_event.1
-	title = poland_court_event.1.t
-	desc = poland_court_event.1.desc
-	is_triggered_only = yes
-
-	picture = GFX_report_event_POL_constitutional_court
-
-	option = {
-		name = poland_court_event.1.a
-		ai_chance = { 
-			base = 1 
-			modifier={
-				factor = 0
-				OR={
-					jaroslaw_kaczynski_is_leader = yes
-					andrzej_duda_is_leader = yes
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = poland_court_event.1.b
-		ai_chance = { base = 1 }
-		trigger={
-			OR={
-				jaroslaw_kaczynski_is_leader = yes
-				andrzej_duda_is_leader = yes
-			}
-		}
-		add_political_power = -80
-		add_stability = -0.08
-		
-		hidden_effect={
-			country_event = { id = poland_court_event.2 days = 30 }
-		}
-	}
-}
-
-#Check if government is neolib or not
-country_event = {
-	id = poland_court_event.2
-	hidden = yes
-	is_triggered_only = yes
-
-	picture = GFX_report_event_POL_constitutional_court
-
-	immediate={
-		if={
-			limit = { has_government = neoliberal }
-			country_event = poland_court_event.3
-		}
-		else={
-			country_event = poland_court_event.4
-		}
-	}
-}
-
-#Constitutional crisis over
-country_event = {
-	id = poland_court_event.3
-	title = poland_court_event.3.t
-	desc = poland_court_event.3.desc
-	is_triggered_only = yes
-
-	picture = GFX_report_event_POL_constitutional_court
-
-	option = {
-		name = poland_court_event.3.a
-		ai_chance = { 
-			base = 1 
-		}
-		
-		add_stability = 0.05
-	}
-}
-
-#Constitutional crisis event
-country_event = {
-	id = poland_court_event.4
-	title = poland_court_event.4.t
-	desc = poland_court_event.4.desc
-	is_triggered_only = yes
-
-	picture = GFX_report_event_POL_constitutional_court
-
-	option = {
-		name = poland_court_event.4.a
-		ai_chance = { 
-			base = 0 
-		}
-		
-		add_stability = 0.05
-		add_political_power = -50
-	}
-	
-	option = {
-		name = poland_court_event.4.b
-		ai_chance = { 
-			base = 1 
-		}
-		
-		if={
-			limit = { has_focus_tree = poland_2015_PiS_tree }
-			complete_national_focus = POL_the_consitutional_crisis
-		}
-		
-		add_ideas = POL_constitutional_crisis_idea
-	}
-}
-
-#Constitutional tribunal court
-country_event = {
-	id = poland_court_event.5
-	title = poland_court_event.5.t
-	desc = poland_court_event.5.desc
-	is_triggered_only = yes
-
-	picture = GFX_report_event_POL_PiS_voting
-
-	option = {
-		name = poland_court_event.5.a
-		ai_chance = { 
-			base = 0 
-		}
-		
-		add_stability = -0.03
-		add_political_power = 15
 	}
 }
