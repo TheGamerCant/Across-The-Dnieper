@@ -6211,6 +6211,42 @@ country_event = {
     }
 }
 
+#Meeting with Xi
+country_event = {
+    id = russia.1164
+    title = russia.1164.t
+    desc = russia.1164.desc
+    picture = SOV_event_China_Pact
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1164.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "event_tt_historical"
+		add_political_power = 50
+		add_stability = 0.05
+		
+    }
+
+	option = {
+        name = russia.1164.b
+		ai_chance = {
+			base = 10
+		}
+
+		custom_effect_tooltip = "russia.1164.tt"
+		add_to_variable = { SOV_ally_equipment_china_status = 1 }
+    }
+}
+
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t

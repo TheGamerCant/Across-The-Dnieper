@@ -2898,6 +2898,17 @@ SOV_foreign_equipment_decision = {
 
 		cost = 25
 
+	    ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 69
+				check_variable = { var = SOV_ally_equipment_china_status value = 2 compare = greater_than_or_equals }
+				has_equipment = {
+					support_equipment_1 < 0
+				}
+	    	}
+	    }
+
 		days_remove = 50
         days_re_enable = 31
         
@@ -2950,6 +2961,14 @@ SOV_foreign_equipment_decision = {
 		priority = 200
 
 		cost = 70
+
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 10
+				check_variable = { var = SOV_ally_equipment_china_status value = 2 compare = greater_than_or_equals }
+	    	}
+	    }
 
 		days_remove = 50
         days_re_enable = 120
@@ -3034,6 +3053,14 @@ SOV_foreign_equipment_decision = {
 
 		cost = 70
 
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 9
+				check_variable = { var = SOV_ally_equipment_china_status value = 2 compare = greater_than_or_equals }
+	    	}
+	    }
+
 		days_remove = 50
         days_re_enable = 120
         
@@ -3102,6 +3129,17 @@ SOV_foreign_equipment_decision = {
 
 		cost = 70
 
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 69
+				check_variable = { SOV_ally_equipment_china_status = 3 }
+				has_equipment = {
+					infantry_equipment < 0
+				}
+	    	}
+	    }
+
 		days_remove = 50
         days_re_enable = 50
         
@@ -3136,6 +3174,14 @@ SOV_foreign_equipment_decision = {
 
 		cost = 100
 
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { SOV_ally_equipment_china_status = 3 }
+	    	}
+	    }
+
 		days_remove = 50
         days_re_enable = 50
         
@@ -3164,6 +3210,17 @@ SOV_foreign_equipment_decision = {
 		priority = 200
 
 		cost = 15
+
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { var = SOV_ally_equipment_nk_status value = 2 compare = greater_than_or_equals }
+				has_equipment = {
+					support_equipment_1 < 0
+				}
+	    	}
+	    }
 
 		days_remove = 50
         days_re_enable = 65
@@ -3219,6 +3276,17 @@ SOV_foreign_equipment_decision = {
         
         fire_only_once = no
 
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { SOV_ally_equipment_nk_status = 3 }
+				has_equipment = {
+					infantry_equipment < 0
+				}
+	    	}
+	    }
+
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = SOV_fe_indifferent
@@ -3254,6 +3322,17 @@ SOV_foreign_equipment_decision = {
 		priority = 200
 
 		cost = 40
+
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { SOV_ally_equipment_nk_status = 3 }
+				has_equipment = {
+					artillery_equipment < 0
+				}
+	    	}
+	    }
 
 		days_remove = 50
         days_re_enable = 80
