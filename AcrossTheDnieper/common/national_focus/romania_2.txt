@@ -799,6 +799,10 @@ shared_focus = {
 		}
 
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = nationalism_laws_interventionist
+				add_idea = nationalism_laws_revanchist
+			}
 			add_political_power = 250
 			add_stability = 0.05
 			MOL = {
@@ -884,6 +888,7 @@ shared_focus = {
 		completion_reward = {
 			add_stability = -0.05
 			add_political_power = 100
+			custom_effect_tooltip = rom_sri_consequences
 		}
 	}
 	shared_focus = {
@@ -1077,7 +1082,7 @@ shared_focus = {
 		x = 16
 		y = 8
 		cost = 14
-
+		
 		ai_will_do = { 
 			factor = 10 
 		}
@@ -1092,6 +1097,227 @@ shared_focus = {
 			add_stability = -0.2
 			add_war_support = 0.02
 			add_political_power = -50
+			add_ideas = ROM_Russia_Side
+			add_opinion_modifier = { target = UKR modifier = BLR_large_negative }
+			add_opinion_modifier = { target = SOV modifier = BLR_large_positive }
+			swap_ideas = {
+				remove_idea = western_aligned
+				add_idea = bipolarist
+			}
+		}
+	}
+
+	shared_focus = {
+		id = refuse_sanctions
+		icon = GFX_da
+		x = 14
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = russias_side}
+		completion_reward = {
+			if = {
+				every_country = {
+					limit = { has_idea = eu_member NOT={original_tag = HUN}}
+
+					ROM = {add_opinion_modifier = {target = FROM modifier = large_decrease}}
+
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = leave_EU
+		icon = GFX_da
+		x = 14
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = refuse_sanctions}
+		completion_reward = {
+			remove_ideas = eu_member
+		}
+	}
+
+	shared_focus = {
+		id = join_EEU	
+		icon = GFX_da
+		x = 14
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = leave_EU}
+		completion_reward = {
+			add_ideas = BLR_eea_idea	
+		}
+	}
+
+	shared_focus = {
+		id = join_CSTO	
+		icon = GFX_da
+		x = 16
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = leave_EU}
+		prerequisite = {focus = leave_nato}
+		completion_reward = {
+			SOV = {add_to_faction = ROM}
+		}
+	}
+
+	shared_focus = {
+		id = give_rus_aid
+		icon = GFX_da
+		x = 18
+		y = 9
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = russias_side}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+
+				type = infantry_equipment
+
+				amount = -1500
+
+			}
+
+			SOV = {
+			add_equipment_to_stockpile = {
+
+				type = infantry_equipment
+
+				amount = 1500
+
+			}
+			}
+			if = {
+				every_country = {
+					limit = { is_in_faction_with = ROM NOT={original_tag = HUN}}
+
+					ROM = {add_opinion_modifier = {target = FROM modifier = large_decrease}}
+
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = leave_nato
+		icon = GFX_da
+		x = 18
+		y = 10
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = give_rus_aid}
+		completion_reward = {
+			USA = {remove_from_faction = ROM}
+		}
+	}
+
+	shared_focus = {
+		id = meeting_in_mos
+		icon = GFX_da
+		x = 18
+		y = 12
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = leave_nato}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+			}
+			custom_effect_tooltip = rom_meeting_tt
+		}
+	}
+
+	shared_focus = {
+		id = getting_whats_ours
+		icon = GFX_da
+		x = 16
+		y = 14
+		cost = 14
+
+		ai_will_do = { 
+			factor = 10 
+		}
+        available = {
+			
+        }
+		bypass = {
+		}
+		prerequisite = {focus = meeting_in_mos}
+		prerequisite = {focus = join_EEU}
+		prerequisite = {focus = join_CSTO}
+		completion_reward = {
+			custom_effect_tooltip = rom_ukraine_tt
+			UKR = {
+				country_event = {
+					id = romania.27
+				}
+			}
+			hidden_effect = {
+				add_ideas = ROM_Unionism_Wave
+			}
 		}
 	}
 
@@ -1114,6 +1340,8 @@ shared_focus = {
 			add_stability = -0.15
 			add_war_support = -0.05
 			add_political_power = 50
+			add_ideas = ROM_RUSUKR
+			add_ideas = ROM_EU_Mob
 		}
 	}
 
@@ -1125,7 +1353,7 @@ shared_focus = {
 		cost = 14
 
 		ai_will_do = { 
-			factor = 10 
+			factor = 90
 		}
         available = {
 			
@@ -1135,7 +1363,9 @@ shared_focus = {
 		mutually_exclusive = { focus = russias_side }
 		prerequisite = {focus = start_of_russian_invasion}
 		completion_reward = {
-			
+			add_ideas = ROM_Ukraine_Side
+			add_opinion_modifier = { target = SOV modifier = BLR_large_negative }
+			add_opinion_modifier = { target = UKR modifier = BLR_large_positive }
 		}
 	}
 
@@ -1420,6 +1650,7 @@ shared_focus = {
 		completion_reward = {
 		add_political_power = -25
 		273 = {
+			add_extra_state_shared_building_slots = 2
         add_building_construction = {
             type = industrial_complex
             level = 2
@@ -1486,6 +1717,7 @@ shared_focus = {
 		completion_reward = {
 			add_ideas = ROM_Laissez_Faire
 			358 = {
+				add_extra_state_shared_building_slots = 1
 			add_building_construction = {
                 type = industrial_complex
                 level = 1
@@ -1515,6 +1747,7 @@ shared_focus = {
 				add_idea = ROM_Laissez_Faire_2
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 			add_building_construction = {
                 type = industrial_complex
                 level = 1
@@ -1522,6 +1755,7 @@ shared_focus = {
             }
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 			add_building_construction = {
                 type = industrial_complex
                 level = 1
@@ -1529,6 +1763,7 @@ shared_focus = {
             }
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 			add_building_construction = {
                 type = industrial_complex
                 level = 1
@@ -1536,6 +1771,7 @@ shared_focus = {
             }
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 			add_building_construction = {
                 type = industrial_complex
                 level = 1
@@ -1583,7 +1819,9 @@ shared_focus = {
 		prerequisite = {  focus = Adopt_Laissez_Faire}
 		completion_reward = {
 			random_owned_controlled_state = {
+								add_extra_state_shared_building_slots = 1
 			add_building_construction = {
+
                 type = industrial_complex
                 level = 1
                 instant_build = yes
@@ -1611,7 +1849,9 @@ shared_focus = {
 			add_political_power = 25
 			add_stability = 0.03
 			358 = {
+								add_extra_state_shared_building_slots = 1
 			add_building_construction = {
+
                 type = industrial_complex
                 level = 1
                 instant_build = yes
@@ -1737,6 +1977,7 @@ shared_focus = {
 		prerequisite = {  focus = Fiscal_Policy}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -1744,6 +1985,7 @@ shared_focus = {
 				}
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -1788,6 +2030,7 @@ shared_focus = {
 		prerequisite = {  focus = Tax_Reforms}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -1795,6 +2038,7 @@ shared_focus = {
 				}
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -1802,6 +2046,7 @@ shared_focus = {
 				}
 			}
 			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -1943,6 +2188,7 @@ shared_focus = {
 		}
 		prerequisite = {  focus = Improve_Business_Env}
 		completion_reward = {
+		custom_effect_tooltip = rom_immigration_2_tt
 		add_political_power = -100
 		add_stability = -0.05
 		
@@ -2023,8 +2269,7 @@ shared_focus = {
 		}
 		prerequisite = {  focus = Investors_Dream_Country}
 		completion_reward = {
-		
-								increase_public_services_spending = yes
+			custom_effect_tooltip = rom_immigration_tt
 		}
 	}
 	shared_focus = {
@@ -2221,6 +2466,7 @@ shared_focus = {
 		completion_reward = {
 		add_stability = 0.1
 		370 = {
+			add_extra_state_shared_building_slots = 1
 		add_building_construction = {
 			type = synthetic_refinery
 			level = 1
@@ -2354,6 +2600,7 @@ shared_focus = {
             }
 		}
 		360 = {
+			add_extra_state_shared_building_slots = 1
 		add_building_construction = {
                 type = dockyard
                 level = 1

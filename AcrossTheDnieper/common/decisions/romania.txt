@@ -348,6 +348,89 @@ ROM_parliament_decisions_category={
 			add_stability = 0.1
 		}
 	}
+	ROM_take_whats_ours = { 
+		priority = 1000
+		is_good = no
+
+		days_mission_timeout = 50
+		
+		activation = {
+			ROM = {has_war_with = UKR}
+			ROM = {is_in_faction_with = SOV}
+		}
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			AND = {
+				320 = { is_controlled_by = ROM }
+				287 = { is_controlled_by = ROM }
+				291 = { is_controlled_by = ROM }
+			}
+		}
+
+				fire_only_once = yes	
+
+		timeout_effect = {
+			ROM = { white_peace = UKR }
+			ROM_high_lower_house_decrease = yes
+			ROM_high_upper_house_decrease = yes
+			hidden_effect = {
+				limit = {
+					state = {is_owned_by = ROM}
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+					}
+
+					remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
+				}
+				limit = {
+					state = {is_owned_by = UKR}
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM }
+					}
+
+					remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
+				}
+			}
+		}
+		complete_effect = {
+			ROM = {
+				transfer_state = 320
+				transfer_state = 287
+				transfer_state = 291		
+				transfer_state = 322
+				transfer_state = 444
+				transfer_state = 167
+				transfer_state = 176
+				transfer_state = 183
+			}
+			ROM = {white_peace = UKR}
+			add_stability = 0.1
+			add_war_support = 0.1
+			hidden_effect = {
+			limit = {
+					OR = { state = { is_owned_by = UKR } state = { is_owned_by = ROM } }
+			}
+			if = {
+				limit = {
+					OR = {
+					has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+					has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM }
+					}
+				}
+
+				remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
+			}
+			}
+		}
+	}
 }
 
 ROM_tr_modernisation_decisions_category={
@@ -758,6 +841,111 @@ ROM_immigration={
 		}
 
 		remove_effect = {
+		}
+	}
+}
+
+ROM_destroy_szekely = {
+	ROM_romanianise_szekely = { 
+		priority = 1000
+
+		days_remove = 365
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+			modifier={
+				consumer_goods_factor = 0.1
+				stability_weekly = -0.015
+			}
+
+		available = {
+			has_completed_focus = Destroy_Szekely
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+		}
+
+		remove_effect = {
+			253 = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+			295 = {
+			add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+			}
+			remove_ideas = ROM_szekelyfold
+		}
+	}
+}
+
+ROM_buy_bessarabia = {
+	ROM_buy_bucovina = { 
+		priority = 1000
+
+		days_remove = 90
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+			modifier={
+				consumer_goods_factor = 0.1
+			}
+
+		available = {
+			has_completed_focus = Lay_Claim_Bess
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			UKR = {
+				country_event = romania.25
+			}
+		}
+
+		remove_effect = {
+			
+		}
+	}
+	ROM_buy_south = { 
+		priority = 1000
+
+		days_remove = 90
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+			modifier={
+				consumer_goods_factor = 0.2
+			}
+
+		available = {
+			has_completed_focus = Lay_Claim_Bess
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			UKR = {
+				country_event = romania.26
+			}
+		}
+
+		remove_effect = {
+			
 		}
 	}
 }
