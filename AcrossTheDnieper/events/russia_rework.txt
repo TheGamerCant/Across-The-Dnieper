@@ -1956,11 +1956,6 @@ country_event = {
 		
 		hidden_effect={
 			if={
-				limit = { has_completed_focus = SOV_strengthen_the_central_bank }
-				country_event = { id = russia.1049 days = 5 }
-			}
-			
-			if={
 				limit = { OR = { has_idea = SOV_oil_revenues has_idea = SOV_oil_revenues_2 } }
 				country_event = { id = russia.1054 days = 17 }
 			}
@@ -6203,7 +6198,7 @@ country_event = {
 	option = {
         name = russia.1163.b
 		ai_chance = {
-			base = 10
+			base = 0
 		}
 
 		add_stability = -0.03
@@ -6238,11 +6233,34 @@ country_event = {
 	option = {
         name = russia.1164.b
 		ai_chance = {
-			base = 10
+			base = 0
 		}
 
 		custom_effect_tooltip = "russia.1164.tt"
 		add_to_variable = { SOV_ally_equipment_china_status = 1 }
+    }
+}
+
+#China threathened by the west
+country_event = {
+    id = russia.1165
+    title = russia.1165.t
+    desc = russia.1165.desc
+    picture = SOV_event_SOV_china_warned
+    is_triggered_only = yes
+
+	trigger = {
+		vladimir_putin_is_leader = yes
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1165.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1165.tt"
+		add_to_variable = { SOV_ally_equipment_china_status = -1 }
     }
 }
 
