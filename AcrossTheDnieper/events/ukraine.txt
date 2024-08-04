@@ -1360,118 +1360,12 @@ country_event = {
 			idea = UKR_army_defections
 			days = 300
 		}
-		#custom_effect_tooltip = ukraine.30.tt //REMOVED UNTIL SOMEONE FIXES THIS BECAUSE THE transfer_units_fraction EFFECT SEEMS TO TAKE MUCH MORE UNITS THAN IT SHOULD
+
 		hidden_effect={
 			DON = { country_event = { id = ukraine.31 days = 4 } }
 			LHK = { country_event = { id = ukraine.31 days = 4 } }
 			KHK = { country_event = { id = ukraine.31 days = 4 } }
 			NOV = { country_event = { id = ukraine.31 days = 4 } }
-			#if={
-			#	limit = {
-			#		DON = { exists = yes }
-			#		LHK = { exists = yes }
-			#		KHK = { exists = no }
-			#	}
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = DON
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.02
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = LHK
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.01
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#}
-			#else_if={
-			#	limit = {
-			#		DON = { exists = yes }
-			#		LHK = { exists = yes }
-			#		KHK = { exists = yes }
-			#	}
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = DON
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.02
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = LHK
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.01
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = KHK
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.01
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#}	
-			#else={
-			#	UKR={
-			#		transfer_units_fraction= {
-			#			target = NOV
-			#			target_organization = 1
-			#			source_organization = 0.9
-			#			size = 0
-			#			stockpile_ratio = 0
-			#			army_ratio = 0.05
-			#			navy_ratio = 0
-			#			air_ratio = 0
-			#			keep_unit_leaders_trigger = {
-			#				always = yes 
-			#			}
-			#		}
-			#	}
-			#}
 		}
 	}
 }
@@ -1488,6 +1382,40 @@ country_event = {
 		name = ukraine.31.a
 		ai_chance = {
 			base = 10
+		}
+
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_template = "Ukrainian Defectors" } }
+
+				division_template = {
+					name = "Ukrainian Defectors"
+					template_counter = 186
+					division_names_group = UKR_ESF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 } 
+						artillery = { x = 0 y = 1 }  
+					}
+				}
+			}
+
+			for_loop_effect = {
+				end = 2
+				value = temp
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Ukrainian Defectors\" division_template = \"Ukrainian Defectors\" start_experience_factor = 0.55 start_equipment_factor = 0.8" 
+						owner = ROOT
+					}
+				}
+			}
 		}
 	}
 }
