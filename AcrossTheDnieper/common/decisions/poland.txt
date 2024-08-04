@@ -13,7 +13,6 @@ POL_parliament_gui_decision_category={
 		}
 
 		visible = {
-			has_country_flag = POL_an_election_has_been_held
 		}
 
 		ai_will_do = {
@@ -28,6 +27,172 @@ POL_parliament_gui_decision_category={
 			else={
 				set_country_flag = POL_electoral_map_opened
 			}
+		}
+	}
+	POL_go_to_english_lang_decision = {
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+		}
+
+		visible = {
+			NOT = { has_country_flag =  POL_party_names_are_in_english_flag } 
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			set_country_flag = POL_party_names_are_in_english_flag
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_democraticLeftAlliance } }
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_democraticLeftAlliance }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_englishShortNoColour_democraticLeftAlliance }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_englishLongColoured_democraticLeftAlliance }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_englishShortColoured_democraticLeftAlliance }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_unitedLeft } }
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_unitedLeft }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_englishShortNoColour_unitedLeft }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_englishLongColoured_unitedLeft }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_englishShortColoured_unitedLeft }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_left } }
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_left }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_englishShortNoColour_left }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_englishLongColoured_left }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_englishShortColoured_left }
+			}
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_polishLongNoColour_polishPeoplesParty } }
+				set_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_englishLongNoColour_polishPeoplesParty }
+				set_variable = { POL.party_names_short_nocolour_array^2 = token:POL_party_name_englishShortNoColour_polishPeoplesParty }
+				set_variable = { POL.party_names_long_colour_array^2 = token:POL_party_name_englishLongColoured_polishPeoplesParty }
+				set_variable = { POL.party_names_short_colour_array^2 = token:POL_party_name_englishShortColoured_polishPeoplesParty }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_polishLongNoColour_thirdWay } }
+				set_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_englishLongNoColour_thirdWay }
+				set_variable = { POL.party_names_short_nocolour_array^2 = token:POL_party_name_englishShortNoColour_thirdWay }
+				set_variable = { POL.party_names_long_colour_array^2 = token:POL_party_name_englishLongColoured_thirdWay }
+				set_variable = { POL.party_names_short_colour_array^2 = token:POL_party_name_englishShortColoured_thirdWay }
+			}
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_polishLongNoColour_kukiz15 } }
+				set_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_englishLongNoColour_kukiz15 }
+				set_variable = { POL.party_names_short_nocolour_array^4 = token:POL_party_name_englishShortNoColour_kukiz15 }
+				set_variable = { POL.party_names_long_colour_array^4 = token:POL_party_name_englishLongColoured_kukiz15 }
+				set_variable = { POL.party_names_short_colour_array^4 = token:POL_party_name_englishShortColoured_kukiz15 }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_polishLongNoColour_confederation } }
+				set_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_englishLongNoColour_confederation }
+				set_variable = { POL.party_names_short_nocolour_array^4 = token:POL_party_name_englishShortNoColour_confederation }
+				set_variable = { POL.party_names_long_colour_array^4 = token:POL_party_name_englishLongColoured_confederation }
+				set_variable = { POL.party_names_short_colour_array^4 = token:POL_party_name_englishShortColoured_confederation }
+			}
+			
+			set_variable = { POL.party_names_long_nocolour_array^1 = token:POL_party_name_englishLongNoColour_civicPlatform }
+			set_variable = { POL.party_names_short_nocolour_array^1 = token:POL_party_name_englishShortNoColour_civicPlatform }
+			set_variable = { POL.party_names_long_colour_array^1 = token:POL_party_name_englishLongColoured_civicPlatform }
+			set_variable = { POL.party_names_short_colour_array^1 = token:POL_party_name_englishShortColoured_civicPlatform }
+			
+			set_variable = { POL.party_names_long_nocolour_array^3 = token:POL_party_name_englishLongNoColour_lawAndJustice }
+			set_variable = { POL.party_names_short_nocolour_array^3 = token:POL_party_name_englishShortNoColour_lawAndJustice }
+			set_variable = { POL.party_names_long_colour_array^3 = token:POL_party_name_englishLongColoured_lawAndJustice }
+			set_variable = { POL.party_names_short_colour_array^3 = token:POL_party_name_englishShortColoured_lawAndJustice }
+		}
+	}
+	POL_go_to_polish_lang_decision = {
+
+		fire_only_once = no
+
+        cost = 0
+
+		available = {
+		}
+
+		visible = {
+			has_country_flag = POL_party_names_are_in_english_flag
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			clr_country_flag = POL_party_names_are_in_english_flag
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_democraticLeftAlliance } }
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_democraticLeftAlliance }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_polishShortNoColour_democraticLeftAlliance }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_polishLongColoured_democraticLeftAlliance }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_polishShortColoured_democraticLeftAlliance }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_unitedLeft } }
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_unitedLeft }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_polishShortNoColour_unitedLeft }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_polishLongColoured_unitedLeft }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_polishShortColoured_unitedLeft }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishhLongNoColour_left } }		
+				set_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_left }
+				set_variable = { POL.party_names_short_nocolour_array^0 = token:POL_party_name_polishShortNoColour_left }
+				set_variable = { POL.party_names_long_colour_array^0 = token:POL_party_name_polishLongColoured_left }
+				set_variable = { POL.party_names_short_colour_array^0 = token:POL_party_name_polishShortColoured_left }
+			}
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_englishLongNoColour_polishPeoplesParty } }
+				set_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_polishLongNoColour_polishPeoplesParty }
+				set_variable = { POL.party_names_short_nocolour_array^2 = token:POL_party_name_polishShortNoColour_polishPeoplesParty }
+				set_variable = { POL.party_names_long_colour_array^2 = token:POL_party_name_polishLongColoured_polishPeoplesParty }
+				set_variable = { POL.party_names_short_colour_array^2 = token:POL_party_name_polishShortColoured_polishPeoplesParty }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_englishLongNoColour_thirdWay } }
+				set_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_polishLongNoColour_thirdWay }
+				set_variable = { POL.party_names_short_nocolour_array^2 = token:POL_party_name_polishShortNoColour_thirdWay }
+				set_variable = { POL.party_names_long_colour_array^2 = token:POL_party_name_polishLongColoured_thirdWay }
+				set_variable = { POL.party_names_short_colour_array^2 = token:POL_party_name_polishShortColoured_thirdWay }
+			}
+			
+			if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_englishLongNoColour_kukiz15 } }
+				set_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_polishLongNoColour_kukiz15 }
+				set_variable = { POL.party_names_short_nocolour_array^4 = token:POL_party_name_polishShortNoColour_kukiz15 }
+				set_variable = { POL.party_names_long_colour_array^4 = token:POL_party_name_polishLongColoured_kukiz15 }
+				set_variable = { POL.party_names_short_colour_array^4 = token:POL_party_name_polishShortColoured_kukiz15 }
+			}
+			else_if={
+				limit = { check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_englishLongNoColour_confederation } }
+				set_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_polishLongNoColour_confederation }
+				set_variable = { POL.party_names_short_nocolour_array^4 = token:POL_party_name_polishShortNoColour_confederation }
+				set_variable = { POL.party_names_long_colour_array^4 = token:POL_party_name_polishLongColoured_confederation }
+				set_variable = { POL.party_names_short_colour_array^4 = token:POL_party_name_polishShortColoured_confederation }
+			}
+			
+			set_variable = { POL.party_names_long_nocolour_array^1 = token:POL_party_name_polishLongNoColour_civicPlatform }
+			set_variable = { POL.party_names_short_nocolour_array^1 = token:POL_party_name_polishShortNoColour_civicPlatform }
+			set_variable = { POL.party_names_long_colour_array^1 = token:POL_party_name_polishLongColoured_civicPlatform }
+			set_variable = { POL.party_names_short_colour_array^1 = token:POL_party_name_polishShortColoured_civicPlatform }
+			
+			set_variable = { POL.party_names_long_nocolour_array^3 = token:POL_party_name_polishLongNoColour_lawAndJustice }
+			set_variable = { POL.party_names_short_nocolour_array^3 = token:POL_party_name_polishShortNoColour_lawAndJustice }
+			set_variable = { POL.party_names_long_colour_array^3 = token:POL_party_name_polishLongColoured_lawAndJustice }
+			set_variable = { POL.party_names_short_colour_array^3 = token:POL_party_name_polishShortColoured_lawAndJustice }
 		}
 	}
 }

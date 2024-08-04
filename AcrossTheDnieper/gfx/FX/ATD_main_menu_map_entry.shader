@@ -59,10 +59,13 @@ PixelShader =
 		float4 main( VS_OUTPUT v ) : PDX_COLOR
 		{
 		    float4 OutColor = tex2D( MapTexture, v.vTexCoord );
-			if(OutColor.a > 0) {
-				OutColor = float4(0.5,0.5,0.5,0.5);
-				OutColor.a = 0.1f;
-			}
+			OutColor *= Color;
+
+			float vTime = 0.9 - saturate( (Time - AnimationTime) * 16 );
+			vTime *= vTime;
+			vTime = 0.9*0.9 - vTime;
+		    float4 MixColor = float4( 0.15, 0.15, 0.15, 0 ) * vTime;
+		    OutColor.rgb -= ( 0.5 + OutColor.rgb ) * MixColor.rgb;
 			
 			return OutColor;
 		}

@@ -27,4 +27,24 @@ scripted_gui={
 			always = no
 		}
 	}
+	
+	POL_election_results_map={
+		context_type = player_context
+		
+		window_name = "POL_election_results_map"
+		
+		ai_enabled = {
+			always = no
+		}
+		
+		visible ={
+			has_country_flag = POL_electoral_map_opened
+		}
+		
+		effects={
+			close_button_click={
+				clr_country_flag = POL_electoral_map_opened
+			}
+		}
+	}
 }
