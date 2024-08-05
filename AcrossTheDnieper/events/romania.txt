@@ -25,10 +25,16 @@ country_event = {
 		picture = GFX_report_event_ROM_The_Democratic_Liberal_Party_Collapses
 		is_triggered_only = yes
 
+    immediate = {
+        hidden_effect = {
+    set_party_name = { ideology = libertarian long_name = ROM_PMP_long name = ROM_PMP }
+        }
+    }
+
     option = {
         name = romania.2.a
         ai_chance = {
-			base = 10
+			base = 0
 		}
 	complete_national_focus = Pontas_Alliance_Stands_Strong
 	add_idea = ROM_2014_elections
@@ -36,7 +42,7 @@ country_event = {
 	   option = {
         name = romania.2.b
         ai_chance = {
-			base = 10
+			base = 100
 		}
     complete_national_focus = The_coalltion_fails
 	add_idea = ROM_2014_elections
@@ -74,7 +80,7 @@ country_event = {
         ai_chance = {
 			base = 100
 		}
-        complete_national_focus = Integrate_MOL
+
         hidden_effect = {
             TRZ = { declare_war_on = { target = ROM  type = annex_everything } }
         }
@@ -146,7 +152,59 @@ country_event = {
     }
 }
 
-    
+country_event = {
+    id = romania.29
+    title = romania.29.t
+    desc = romania.11.desc
+		picture = GFX_Romanian_Elections
+		is_triggered_only = yes
+    option = {
+        name = romania.29.a
+        ai_chance = {
+			base = 10
+		}
+        add_popularity = { ideology = social_democracy popularity = 0.06 }
+
+        hidden_effect = {
+            set_politics = {
+                ruling_party = social_democracy
+                elections_allowed = yes
+            }
+
+        }
+    }
+                        complete_national_focus = ROM_Ponta_victory
+}
+
+country_event = {
+    id = romania.30
+    title = romania.30.t
+    desc = romania.30.desc
+		picture = GFX_Romanian_Elections
+		is_triggered_only = yes
+        immediate = {
+            hidden_effect={
+        set_party_name = { ideology = social_democracy long_name = ROM_USL_long name = ROM_USL }
+                               
+            }
+        }
+    option = {
+        name = romania.30.a
+        ai_chance = {
+			base = 10
+		}
+        add_popularity = { ideology = social_democracy popularity = 0.06 }
+
+        hidden_effect = {
+            set_politics = {
+                ruling_party = social_democracy
+                elections_allowed = yes
+            }
+
+        }
+    }
+            complete_national_focus = ROM_Ponta_victory
+}
 
 country_event = {
     id = romania.12

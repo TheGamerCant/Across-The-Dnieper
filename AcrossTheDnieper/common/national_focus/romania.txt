@@ -56,6 +56,7 @@ focus_tree = {
 		add_popularity = { ideology = libertarian popularity = -0.1 }
 		add_political_power = -50
         add_ideas = ROM_2014_elections_1
+		remove_ideas = ROM_Pontas_allience
         }
 		}  
 		focus = {
@@ -79,8 +80,7 @@ focus_tree = {
 
 		completion_reward = {
         add_ideas = ROM_2014_elections_2
-		add_popularity = { ideology = libertarian popularity = 0.02 }
-        add_popularity = { ideology = social_democracy popularity = 0.05 }
+        add_popularity = { ideology = social_democracy popularity = 0.07 }
 		add_stability = 0.05
         }
 		}
@@ -102,9 +102,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-		add_popularity = { ideology = libertarian popularity = 0.03 }
-        add_popularity = { ideology = social_democracy popularity = 0.04 }
-		add_popularity = { ideology = neoconservative popularity = 0.01 }	
+        add_popularity = { ideology = social_democracy popularity = 0.08 }
 		add_popularity = { ideology = fascist popularity = -0.04 }
 		add_popularity = { ideology = ultranationalist popularity = -0.04 }
 		add_political_power = -50
@@ -128,7 +126,7 @@ focus_tree = {
 
 		completion_reward = {
         add_stability = 0.05
-		add_popularity = { ideology = social_democracy popularity = 0.05 }
+		add_popularity = { ideology = social_democracy popularity = 0.1 }
 		}
 	}
 		focus = {
@@ -146,7 +144,7 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-        add_popularity = { ideology = libertarian popularity = 0.05 }
+        add_popularity = { ideology = social_democracy popularity = 0.05 }
 		add_stability = 0.05
 		}
 	}
@@ -165,7 +163,7 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-        add_popularity = { ideology = libertarian popularity = 0.05 }
+        add_popularity = { ideology = social_democracy popularity = 0.05 }
 		add_stability = 0.05
 		}
 	}
@@ -183,8 +181,9 @@ focus_tree = {
 			}
 		bypass = {
 		}
+		
 		completion_reward = {
-        add_popularity = { ideology = libertarian popularity = 0.04 }
+        add_popularity = { ideology = social_democracy popularity = 0.04 }
 		add_stability = 0.02
 		}
 	}
@@ -204,11 +203,15 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-        add_popularity = { ideology = libertarian popularity = 0.04 }
-		add_popularity = { ideology = social_democracy popularity = 0.04 }
+		swap_ideas = {
+			remove_idea = ROM_2014_elections_2
+			add_idea = ROM_2014_elections_17
+		}
+		add_popularity = { ideology = social_democracy popularity = 0.1 }
 		add_political_power = 50
 
 		load_focus_tree = romania_2
+		country_event = {id = romania.30}
 		}
 		}
 		focus = {
@@ -569,6 +572,7 @@ focus_tree = {
         }
 
 				load_focus_tree = romania_2
+				country_event = {id = romania.29}
         }
     }
 }
