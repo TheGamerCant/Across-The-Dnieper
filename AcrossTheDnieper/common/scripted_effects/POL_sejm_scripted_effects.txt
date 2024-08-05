@@ -278,7 +278,7 @@ POL_initialise_2011_election={
 	add_to_array = { 19.party_vote_percentage = 2.4 }
 	
 	add_to_array = { 19.party_seat_count = 2 }
-	add_to_array = { 19.party_vote_count = 86488 }
+	add_to_array = { 19.party_vote_count = 86.488 }
 	add_to_array = { 19.party_vote_percentage = 10.0 }
 	
 	add_to_array = { 19.PREV_party_seat_count = 3 }
@@ -949,7 +949,7 @@ POL_initialise_2011_election={
 	add_to_array = { 76.party_vote_percentage =  1.7 }
 	
 	add_to_array = { 76.party_seat_count = 2 }
-	add_to_array = { 76.party_vote_count = 72658 }
+	add_to_array = { 76.party_vote_count = 72.658 }
 	add_to_array = { 76.party_vote_percentage =  9.7 }
 	
 	add_to_array = { 76.PREV_party_seat_count = 2 }
@@ -995,7 +995,24 @@ POL_initialise_2011_election={
 			
 			add_to_variable = { POL.party_vote_count^i3 = v3 }
 		}
+		
+		
+		find_highest_in_array = {
+			array = THIS.party_vote_count
+			value = largest_party_value
+			index = largest_party_index
+		}
+		set_variable = { THIS.largest_party = largest_party_index }
+		
+		meta_effect = {
+			text = {				
+				set_variable = { THIS.state_img_progressbar = token:STATE_[STATEID]_img }
+				set_variable = { THIS.state_img_overlay = token:STATE_[STATEID]_overlay }
+			}
+			STATEID = "[THIS.GetID]"
+		}
 	}
+	set_variable = { 47.largest_party = 3 }	#PO got more votes but PiS got more seats, but as we're doing D'Hont based on the voivodeship-level results this will never happen in game
 	
 	#set_variable = { POL.LEFT_seat_count = 27 }
 	#set_variable = { POL.PO_seat_count = 207 }
@@ -1057,6 +1074,46 @@ POL_init_politics_system={
 	add_to_array = { POL.election_states = 67 }
 	add_to_array = { POL.election_states = 81 }
 	add_to_array = { POL.election_states = 76 }
+	
+	set_variable = { 427.state_img_position_x = 496 }
+	set_variable = { 427.state_img_position_y = 144 }
+	set_variable = { 34.state_img_position_x = 629 }
+	set_variable = { 34.state_img_position_y = 64 }
+	set_variable = { 31.state_img_position_x = 473 }
+	set_variable = { 31.state_img_position_y = 62 }
+	set_variable = { 51.state_img_position_x = 659 }
+	set_variable = { 51.state_img_position_y = 240 }
+	set_variable = { 19.state_img_position_x = 311 }
+	set_variable = { 19.state_img_position_y = 28 }
+	set_variable = { 38.state_img_position_x = 355 }
+	set_variable = { 38.state_img_position_y = 123 }
+	set_variable = { 47.state_img_position_x = 423 }
+	set_variable = { 47.state_img_position_y = 236 }
+	set_variable = { 22.state_img_position_x = 148 }
+	set_variable = { 22.state_img_position_y = 50 }
+	set_variable = { 36.state_img_position_x = 264 }
+	set_variable = { 36.state_img_position_y = 131 }
+	set_variable = { 40.state_img_position_x = 181 }
+	set_variable = { 40.state_img_position_y = 172 }
+	set_variable = { 64.state_img_position_x = 541 }
+	set_variable = { 64.state_img_position_y = 324 }
+	set_variable = { 49.state_img_position_x = 212 }
+	set_variable = { 49.state_img_position_y = 284 }
+	set_variable = { 62.state_img_position_x = 357 }
+	set_variable = { 62.state_img_position_y = 336 }
+	set_variable = { 67.state_img_position_x = 432 }
+	set_variable = { 67.state_img_position_y = 345 }
+	set_variable = { 81.state_img_position_x = 506 }
+	set_variable = { 81.state_img_position_y = 392 }
+	set_variable = { 76.state_img_position_x = 644 }
+	set_variable = { 76.state_img_position_y = 364 }
+	
+	for_each_scope_loop = {
+		array = POL.election_states
+		
+		add_to_variable = { THIS.state_img_position_x = -120 }
+		add_to_variable = { THIS.state_img_position_y = 25 }
+	}
 
 	#Initialise array variables
 	clear_array = POL.party_names_long_nocolour_array

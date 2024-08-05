@@ -11,32 +11,51 @@ guiTypes = {
 	
 		background = {
 			name = "Background"
-			quadTextureSprite = "GFX_SOV_faction_management_bg"
-		}
-		
-		instantTextBoxType = {
-			name ="title_text_box"
-			position = { x = 0 y = 14 }
-			font = "hoi_36header"
-			text = "POLAND_election_results_title_text"
-			format = center
-			maxHeight = 200
-			maxwidth = 1200
+			quadTextureSprite = "GFX_POL_election_results_bg"
 		}
 		
 		iconType = { 
 			name = "test_shader"
 			quadTextureSprite = "GFX_lewica_banner"
-			position = { x = 100 y = 100 }
+			position = { x = 733 y = 3 }
+			alwaysTransparent = yes
 		}
 		
+		gridboxtype = {
+			name = "state_button_gridbox"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+			slotsize = { width = 100% height = 0 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		
+		iconType = { 
+			name = "overlay"
+			quadTextureSprite = "GFX_POL_election_results_overlay"
+			position = { x = 0 y = 0 }
+			alwaysTransparent = yes
+		}
 		buttonType = {
 			name = "close_button"
-			position = { x = -41 y = 7 }
-			quadTextureSprite = "GFX_closebutton"
+			position = { x = -36 y = -3 }
+			quadTextureSprite = "GFX_ATD_add"
 			shortcut = "ESCAPE"
-			scale = 1
+			scale = 0.61
+			rotation = 0.785398
 			orientation = upper_right
+		}
+	}
+	
+	containerWindowType = {
+		name = "state_button_entry"
+		position = { x = 0 y = 0 }
+
+		iconType = { 
+			name = "state_button_entry_progressbar"
+			spriteType = ""
+			position = { x = 20 y = 20 }
+			alwaysTransparent = yes
 		}
 	}
 }

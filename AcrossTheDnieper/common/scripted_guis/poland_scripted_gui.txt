@@ -41,6 +41,23 @@ scripted_gui={
 			has_country_flag = POL_electoral_map_opened
 		}
 		
+		dynamic_lists={
+			state_button_gridbox={
+				array = POL.election_states
+				change_scope = yes
+				entry_container = state_button_entry
+			}
+		}
+		
+		properties={
+			state_button_entry_progressbar={
+				image = "[?THIS.get_state_election_result_img]"
+				frame = THIS.largest_party
+				x = THIS.state_img_position_x
+				y = THIS.state_img_position_y
+			}
+		}
+		
 		effects={
 			close_button_click={
 				clr_country_flag = POL_electoral_map_opened

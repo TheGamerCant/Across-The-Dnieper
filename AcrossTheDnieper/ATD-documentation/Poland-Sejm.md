@@ -32,3 +32,11 @@ THIS.party_vote_count			- Float array. Number of votes won by party in that voiv
 THIS.PREV_party_vote_count		- Float array
 THIS.party_vote_percentage		- Float array. Percentage of votes won by party, =/= current party popularity
 THIS.PREV_party_vote_percentage	- Float array
+THIS.largest_party				- Integer variable, indexing the largest party
+THIS.state_img_progressbar		- Token variable
+THIS.state_img_overlay			- Token variable
+THIS.state_img_position_x		- Integer variable, defines the X pos in the state map view
+THIS.state_img_position_y		- Integer variable, defines the Y pos in the state map view
+
+Poland scoped variables and arrays:
+POL.government_status_display_array - Used to display what parties are in power, in opposition and are neutral in the Sejm GUI. Any party with 0 seats is removed from the array

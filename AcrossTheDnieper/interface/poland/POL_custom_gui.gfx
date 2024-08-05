@@ -11,6 +11,14 @@ spriteTypes = {
 		name = "GFX_POL_election_overview_segment"
 		texturefile = "gfx/interface/poland_gui/POL_election_overview_segment.png"
 	}
+	spriteType = {
+		name = "GFX_POL_election_results_bg"
+		texturefile = "gfx/interface/poland_gui/POL_election_results_bg.png"
+	}
+	spriteType = {
+		name = "GFX_POL_election_results_overlay"
+		texturefile = "gfx/interface/poland_gui/POL_election_results_overlay.png"
+	}
 	spriteType = { 
 		name = "GFX_POL_increase_texticon"
 		texturefile ="gfx/interface/poland_gui/increase_texticon.png"
@@ -30,31 +38,37 @@ spriteTypes = {
 		name = "GFX_PO_banner"
 		texturefile = "gfx/interface/poland_gui/banners/PO_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_PiS_banner"
 		texturefile = "gfx/interface/poland_gui/banners/PiS_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_kukiz_banner"
 		texturefile = "gfx/interface/poland_gui/banners/kukiz_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_konfederacja_banner"
 		texturefile = "gfx/interface/poland_gui/banners/konfederacja_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_SLD_banner"
 		texturefile = "gfx/interface/poland_gui/banners/SLD_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_ZL_banner"
 		texturefile = "gfx/interface/poland_gui/banners/ZL_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_lewica_banner"
@@ -66,11 +80,13 @@ spriteTypes = {
 		name = "GFX_PSL_banner"
 		texturefile = "gfx/interface/poland_gui/banners/PSL_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 	spriteType = { 
 		name = "GFX_OTHER_banner"
 		texturefile = "gfx/interface/poland_gui/banners/OTHER_banner.png"
 		legacy_lazy_load = no
+		effectfile = "gfx/FX/ATD_POL_party_banner_entry.shader"
 	}
 
 
@@ -80,100 +96,275 @@ spriteTypes = {
 		noOfFrames = 20
 	}
 
-	spriteType = {
-		name = "GFX_POL_MAP_pomerania"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/pomerania.png"
-		noOfFrames = 6
-		transparencecheck = yes
+	progressbartype = {
+		name = "GFX_POL_MAP_greater_poland_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/greater_poland.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/greater_poland_overlay.png"
+		size = {	
+			x = 216
+			y = 210	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_west_pomerania"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/west_pomerania.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_greater_poland_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/greater_poland_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_holy_cross_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/holy_cross.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/holy_cross_overlay.png"
+		size = {	
+			x = 138
+			y = 92	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_lubusz"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lubusz.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_holy_cross_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/holy_cross_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_kuyavia_pomerania_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/kuyavia_pomerania.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/kuyavia_pomerania_overlay.png"
+		size = {	
+			x = 161
+			y = 115	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_greater_poland"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/greater_poland.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_kuyavia_pomerania_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/kuyavia_pomerania_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_lesser_poland_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/lesser_poland.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/lesser_poland_overlay.png"
+		size = {	
+			x = 164
+			y = 108	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_lower_silesia"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lower_silesia.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_lesser_poland_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lesser_poland_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_lodz_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/lodz.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/lodz_overlay.png"
+		size = {	
+			x = 169
+			y = 126	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_kuyavia_pomerania"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/kuyavia_pomerania.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_lodz_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lodz_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_lower_silesia_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/lower_silesia.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/lower_silesia_overlay.png"
+		size = {	
+			x = 188
+			y = 139	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_warmia_masuria"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/warmia_masuria.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_lower_silesia_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lower_silesia_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_lublin_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/lublin.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/lublin_overlay.png"
+		size = {	
+			x = 173
+			y = 164	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_opole"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/opole.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_lublin_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lublin_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_lubusz_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/lubusz.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/lubusz_overlay.png"
+		size = {	
+			x = 124
+			y = 141	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_silesia"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/silesia.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_lubusz_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lubusz_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_masovia_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/masovia.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/masovia_overlay.png"
+		size = {	
+			x = 247
+			y = 201	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_lodz"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lodz.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_masovia_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/masovia_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_opole_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/opole.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/opole_overlay.png"
+		size = {	
+			x = 107
+			y = 97	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_masovia"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/masovia.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_opole_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/opole_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_podlaskie_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/podlaskie.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/podlaskie_overlay.png"
+		size = {	
+			x = 166
+			y = 175	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_holy_cross"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/holy_cross.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_podlaskie_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/podlaskie_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_pomerania_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/pomerania.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/pomerania_overlay.png"
+		size = {	
+			x = 190
+			y = 114	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_podlaskie"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/podlaskie.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_pomerania_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/pomerania_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_silesia_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/silesia.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/silesia_overlay.png"
+		size = {	
+			x = 124
+			y = 137	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_lublin"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lublin.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_silesia_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/silesia_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_subcarpathia_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/subcarpathia.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/subcarpathia_overlay.png"
+		size = {	
+			x = 159
+			y = 151	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_lesser_poland"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/lesser_poland.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_subcarpathia_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/subcarpathia_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_warmia_masuria_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/warmia_masuria.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/warmia_masuria_overlay.png"
+		size = {	
+			x = 227
+			y = 109	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
 	}
 	spriteType = {
-		name = "GFX_POL_MAP_subcarpathia"
-		texturefile = "gfx/interface/poland_gui/POLAND_MAP/subcarpathia.png"
-		noOfFrames = 6
+		name = "GFX_POL_MAP_warmia_masuria_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/warmia_masuria_overlay.png"
 		transparencecheck = yes
+		legacy_lazy_load = no
+	}
+
+	progressbartype = {
+		name = "GFX_POL_MAP_west_pomerania_PROGRESSBAR"
+		textureFile1 = "gfx/interface/poland_gui/POLAND_MAP/west_pomerania.png"
+		textureFile2 = "gfx/interface/poland_gui/POLAND_MAP/west_pomerania_overlay.png"
+		size = {	
+			x = 184
+			y = 161	
+		}
+		effectFile = "gfx/FX/ATD_POL_state_entry_election_map.shader"
+	}
+	spriteType = {
+		name = "GFX_POL_MAP_west_pomerania_OVERLAY"
+		texturefile = "gfx/interface/poland_gui/POLAND_MAP/west_pomerania_overlay.png"
+		transparencecheck = yes
+		legacy_lazy_load = no
 	}
 }
