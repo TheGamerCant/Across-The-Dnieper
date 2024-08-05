@@ -578,4 +578,101 @@ scripted_gui = {
 			}
 		}
 	}
+
+	SOV_smo_missile_strikes_gui = {
+		window_name = "SOV_smo_missile_strikes_gui"
+		context_type = decision_category
+		
+		visible={
+			
+		}
+		
+		triggers={
+			SOV_strike_civ_selected_visible = {
+				has_country_flag = SOV_strike_civs
+			}
+			SOV_strike_mil_selected_visible = {
+				has_country_flag = SOV_strike_mils
+			}
+			SOV_strike_infra_selected_visible = {
+				has_country_flag = SOV_strike_infra
+			}
+
+
+			SOV_strike_missile_hwasong_selected_visible = {
+				has_country_flag = SOV_strike_hwasong
+			}
+			SOV_strike_missile_iskander_selected_visible = {
+				has_country_flag = SOV_strike_iskander
+			}
+			SOV_strike_missile_shahed_selected_visible = {
+				has_country_flag = SOV_strike_shahed
+			}
+			SOV_strike_missile_kh_selected_visible = {
+				has_country_flag = SOV_strike_kh
+			}
+
+			SOV_strike_missile_hwasong_click_enabled = {
+				check_variable = { SOV_SUKR_hwasong_surplus > 0 }
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+			SOV_strike_missile_iskander_click_enabled = {
+				check_variable = { SOV_SUKR_iskander_surplus > 0 }
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+			SOV_strike_missile_shahed_click_enabled = {
+				check_variable = { SOV_SUKR_shahed_surplus  > 0 }
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+			SOV_strike_missile_kh_click_enabled = {
+				check_variable = { SOV_SUKR_kh_surplus > 0 }
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+
+			SOV_strike_mil_button_click_enabled = {
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+			SOV_strike_infra_button_click_enabled = {
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+			SOV_strike_civ_button_click_enabled = {
+				NOT = { has_country_flag = SOV_doing_strike }
+			}
+		}
+
+		effects={ 
+			SOV_strike_civ_button_click = {
+				SOV_clear_selected_strike_targets = yes
+				set_country_flag = SOV_strike_civs
+			}
+			SOV_strike_mil_button_click = {
+				SOV_clear_selected_strike_targets = yes
+				set_country_flag = SOV_strike_mils
+			}
+			SOV_strike_infra_button_click = {
+				SOV_clear_selected_strike_targets = yes
+				set_country_flag = SOV_strike_infra
+			}
+
+
+
+
+			SOV_strike_missile_hwasong_click = {
+				SOV_clear_selected_strike_missile = yes
+				set_country_flag = SOV_strike_hwasong
+			}
+			SOV_strike_missile_iskander_click = {
+				SOV_clear_selected_strike_missile = yes
+				set_country_flag = SOV_strike_iskander
+			}
+			SOV_strike_missile_shahed_click = {
+				SOV_clear_selected_strike_missile = yes
+				set_country_flag = SOV_strike_shahed
+			}
+			SOV_strike_missile_kh_click = {
+				SOV_clear_selected_strike_missile = yes
+				set_country_flag = SOV_strike_kh
+			}
+		}
+	}
 }

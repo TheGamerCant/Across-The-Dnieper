@@ -9667,3 +9667,143 @@ SOV_clear_foreign_equipment_countries = {
 	clr_country_flag = SOV_fe_syria_selected
 	clr_country_flag = SOV_fe_myanmar_selected
 }
+
+SOV_clear_selected_strike_targets = {
+	clr_country_flag = SOV_strike_civs
+	clr_country_flag = SOV_strike_mils
+	clr_country_flag = SOV_strike_infra
+}
+
+SOV_clear_selected_strike_missile = {
+	clr_country_flag = SOV_strike_iskander
+	clr_country_flag = SOV_strike_kh
+	clr_country_flag = SOV_strike_shahed
+	clr_country_flag = SOV_strike_hwasong
+}
+
+SOV_missile_strike_effect = {
+	set_variable = { chances_of_aa_taking_down = 0 }
+	set_variable = { chances_of_missing_target = 0 }
+
+	hidden_effect = {
+		meta_effect = {
+			text = {
+				if = {
+					limit = {
+						FROM = { anti_air_building > 0 }
+					}
+					set_variable = { chances_of_aa_taking_down = 26 }
+				}
+
+				if = {
+					limit = {
+						SOV = { NOT = { has_country_flag = SOV_strike_infra } }
+					}
+					set_variable = { chances_of_missing_target = 28 }
+				}
+
+				random_list = {
+					chances_of_missing_target = { #missed but hit infra
+					    FROM = {
+					    	damage_building = {
+					    		type = infrastructure
+					    		damage = [DMG]
+					    	}
+					    }
+					    SOV = { country_event = { id = russia.1167 } }
+					}
+
+					33 = { #hit
+					    if = {
+							limit = { SOV = { has_country_flag = SOV_strike_civs } }
+
+							FROM = {
+								damage_building = {
+									type = industrial_complex
+									damage = [DMG]
+								}
+							}
+						}
+
+						else_if = {
+							limit = { SOV = { has_country_flag = SOV_strike_mils } }
+
+							FROM = {
+								damage_building = {
+									type = arms_factory
+									damage = [DMG]
+								}
+							}
+						}
+
+						else_if = {
+							limit = { SOV = { has_country_flag = SOV_strike_infra } }
+
+							FROM = {
+								damage_building = {
+									type = infrastructure
+									damage = [DMG]
+								}
+							}
+						}
+
+						SOV = { country_event = { id = russia.1166 } }
+					}
+
+					chances_of_aa_taking_down = { #taken down by aa
+					SOV = { country_event = { id = russia.1168 } }
+					}
+				}
+			}
+			DMG = "[?currently_selected_missile_damage]"
+		}
+	}
+
+	if = {
+		limit = { has_country_flag = SOV_doesnt_want_nofications_about_strikes }
+		
+		SOV_clear_selected_strike_targets = yes
+		SOV_clear_selected_strike_missile = yes
+		clr_country_flag = SOV_doing_strike
+	}
+}
+
+SOV_remove_1_iskander = {
+	custom_effect_tooltip = "SOV_remove_1_iskander"
+	add_to_variable = { SOV_SUKR_iskander_surplus = -1 }
+}
+
+SOV_remove_1_kh = {
+	custom_effect_tooltip = "SOV_remove_1_kh"
+	add_to_variable = { SOV_SUKR_kh_surplus = -1 }
+}
+
+SOV_remove_1_hwasong = {
+	custom_effect_tooltip = "SOV_remove_1_hwasong"
+	add_to_variable = { SOV_SUKR_hwasong_surplus = -1 }
+}
+
+SOV_remove_1_shahed = {
+	custom_effect_tooltip = "SOV_remove_1_shahed"
+	add_to_variable = { SOV_SUKR_shahed_surplus = -1 }
+}
+
+SOV_add_30_hwasong = {
+	custom_effect_tooltip = "SOV_add_30_hwasong"
+	add_to_variable = { SOV_SUKR_hwasong_surplus = 30 }
+}
+
+SOV_add_2_shaheds = {
+	custom_effect_tooltip = "SOV_add_2_shaheds"
+	add_to_variable = { SOV_SUKR_shahed_surplus = 2 }
+}
+
+SOV_add_60_shaheds = {
+	custom_effect_tooltip = "SOV_add_60_hwasong"
+	add_to_variable = { SOV_SUKR_shahed_surplus = 60 }
+}
+
+SOV_add_200_shaheds = {
+	custom_effect_tooltip = "SOV_add_200_shaheds"
+	add_to_variable = { SOV_SUKR_shahed_surplus = 200 }
+}

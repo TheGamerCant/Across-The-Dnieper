@@ -6264,6 +6264,157 @@ country_event = {
     }
 }
 
+#successful strike
+country_event = {
+    id = russia.1166
+    title = russia.1166.t
+    desc = russia.1166.desc
+    picture = SOV_strike_success
+    is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = SOV_doesnt_want_nofications_about_strikes }
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1166.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1166.tt"
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+    }
+
+	option = {
+        name = russia.1166.b
+		ai_chance = {
+			base = 0
+		}
+
+		set_country_flag = SOV_doesnt_want_nofications_about_strikes
+
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+    }
+}
+
+#missed strike but hit infras
+country_event = {
+    id = russia.1167
+    title = russia.1167.t
+    desc = russia.1167.desc
+    picture = SOV_strike_unsuccess_residential
+    is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = SOV_doesnt_want_nofications_about_strikes }
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1167.a
+		ai_chance = {
+			base = 10
+		}
+		add_war_support = -0.01
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+    }
+
+	option = {
+        name = russia.1167.b
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = -0.01
+		set_country_flag = SOV_doesnt_want_nofications_about_strikes
+
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+    }
+}
+
+#AA took down missile
+country_event = {
+    id = russia.1168
+    title = russia.1168.t
+    desc = russia.1168.desc
+    picture = SOV_strike_unsuccess
+    is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = SOV_doesnt_want_nofications_about_strikes }
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1168.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+    }
+
+	option = {
+        name = russia.1168.b
+		ai_chance = {
+			base = 0
+		}
+
+		hidden_effect = {
+			SOV_clear_selected_strike_targets = yes
+			SOV_clear_selected_strike_missile = yes
+			clr_country_flag = SOV_doing_strike
+		}
+
+		set_country_flag = SOV_doesnt_want_nofications_about_strikes
+
+
+    }
+}
+
+#enables missile system
+country_event = {
+    id = russia.1169
+    title = russia.1169.t
+    desc = russia.1169.desc
+    picture = GFX_report_event_factory_fire
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1169.a
+		ai_chance = {
+			base = 10
+		}
+		add_war_support = 0.01
+		set_country_flag = SOV_enable_ballistic_missile_decision_tab
+		unlock_decision_category_tooltip = SOV_smo_missile_strikes
+    }
+
+}
+
 
 country_event = {
     id = russia_propaganda.1

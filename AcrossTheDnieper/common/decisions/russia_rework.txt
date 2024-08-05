@@ -3364,4 +3364,792 @@ SOV_foreign_equipment_decision = {
 			}
 		}
 	}
+
+	SOV_nk_purchase_missiles_for_food = {
+		icon = generic_prepare_civil_war
+		priority = 200
+
+		cost = 35
+
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { SOV_ally_equipment_nk_status = 3 }
+				check_variable = { SOV_SUKR_hwasong_surplus < 0 }
+	    	}
+	    }
+
+		days_remove = 50
+        days_re_enable = 80
+        
+        fire_only_once = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_fe_indifferent
+				check_variable = { SOV_ally_equipment_nk_status = 3 }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_country_flag = SOV_fe_nk_selected
+				is_ai = yes
+			}
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+
+		remove_effect = {
+			SOV_add_30_hwasong = yes
+		}
+	}
+
+
+
+
+
+	SOV_iran_purchase_shaheds = {
+		icon = generic_prepare_civil_war
+		priority = 200
+
+		cost = 50
+
+		ai_will_do = {
+	    	base = 0
+	    	modifier = {
+	    		add = 39
+				check_variable = { SOV_ally_equipment_iran_status = 3 }
+				check_variable = { SOV_SUKR_shahed_surplus < 0 }
+	    	}
+	    }
+
+		days_remove = 50
+        days_re_enable = 80
+        
+        fire_only_once = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_fe_indifferent
+				check_variable = { SOV_ally_equipment_iran_status = 3 }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_country_flag = SOV_fe_iran_selected
+				is_ai = yes
+			}
+		}
+
+		remove_effect = {
+			SOV_add_60_shaheds = yes
+		}
+	}
+}
+
+SOV_smo_missile_strikes = {
+	SOV_iskander_launch_civ_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				industrial_complex > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 200
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_iskander has_country_flag = SOV_strike_civs } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_iskander = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_iskander_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+	SOV_iskander_launch_mil_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				arms_factory > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 200
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_iskander has_country_flag = SOV_strike_mils } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_iskander = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_iskander_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+	SOV_iskander_launch_infra_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				infrastructure > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 200
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_iskander has_country_flag = SOV_strike_infra } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_iskander = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_iskander_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+
+
+
+
+
+
+
+
+	SOV_kh55_launch_civ_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				industrial_complex > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 650
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_kh has_country_flag = SOV_strike_civs } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_kh = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_kh_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+	SOV_kh55_launch_mil_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				arms_factory > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 650
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_kh has_country_flag = SOV_strike_mils } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_kh = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_kh_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+	SOV_kh55_launch_infra_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				infrastructure > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 650
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_kh has_country_flag = SOV_strike_infra } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_kh = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_kh_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+
+
+
+
+	SOV_hwasong_launch_civ_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				industrial_complex > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 150
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_hwasong has_country_flag = SOV_strike_civs } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_hwasong = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_hwasong_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+	SOV_hwasong_launch_mil_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				arms_factory > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 150
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_hwasong has_country_flag = SOV_strike_mils } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_hwasong = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_hwasong_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+	SOV_hwasong_launch_infra_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				infrastructure > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 150
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_hwasong has_country_flag = SOV_strike_infra } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_hwasong = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_hwasong_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+
+
+
+
+
+
+
+
+	SOV_shahed_launch_civ_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				industrial_complex > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 500
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_shahed has_country_flag = SOV_strike_civs } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_shahed = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_shahed_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+	SOV_shahed_launch_mil_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				arms_factory > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 500
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_shahed has_country_flag = SOV_strike_mils } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_shahed = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_shahed_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
+	SOV_shahed_launch_infra_decisions = {
+		state_target = yes
+		target_array = UKR.controlled_states
+		target_trigger = {
+			FROM = {
+				arms_factory > 0
+				SOV = {
+					any_controlled_state  = {
+						num_owned_neighbour_states = {
+							owner = UKR
+							count > 0
+						}
+						distance_to = {
+							value < 500
+							target = FROM
+						}
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		fixed_random_seed = no
+		icon = generic_protection
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_0
+
+		available = {
+			NOT = { has_country_flag = SOV_doing_strike } 
+		}
+
+		days_remove = 3
+		days_re_enable = 2
+
+		visible = {
+			SOV = { AND = { has_country_flag = SOV_strike_shahed has_country_flag = SOV_strike_infra } }
+			
+		}
+		complete_effect={
+			set_country_flag = SOV_doing_strike
+			
+			hidden_effect = {
+				add_command_power = -50
+				SOV_remove_1_shahed = yes
+			}
+		}
+	
+		remove_effect = {
+			custom_effect_tooltip = "SOV_launch_decisions_tt"
+
+			set_variable = { currently_selected_missile_damage = SOV_SUKR_shahed_damage }
+
+			SOV_missile_strike_effect = yes
+		}
+	}
 }

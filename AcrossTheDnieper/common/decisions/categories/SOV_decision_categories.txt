@@ -33,8 +33,22 @@ SOV_smo = {
 	}
 }
 
-SOV_foreign_equipment_decision = {
+SOV_smo_missile_strikes = {
+	icon = GFX_donbass_war_category
 	priority = 998
+	allowed = {
+		tag = SOV
+	}
+	scripted_gui = SOV_smo_missile_strikes_gui
+	visible_when_empty = yes
+	visible = {
+		has_war_with = UKR
+		has_country_flag = SOV_enable_ballistic_missile_decision_tab
+	}
+}
+
+SOV_foreign_equipment_decision = {
+	priority = 997
 	allowed = {
 		tag = SOV
 	}
@@ -47,7 +61,7 @@ SOV_foreign_equipment_decision = {
 }
 
 SOV_the_media = {
-	priority = 997
+	priority = 996
 	allowed = {
 		tag = SOV
 	}
@@ -60,7 +74,7 @@ SOV_the_media = {
 }
 
 SOV_referendum_decisions_2 = {
-	priority = 996
+	priority = 995
 	allowed = {
 		tag = SOV
 	}
@@ -77,7 +91,7 @@ SOV_referendum_decisions_2 = {
 }
 
 SOV_army_reform_decisions = {
-	priority = 995
+	priority = 994
 	allowed = {
 		tag = SOV
 	}
