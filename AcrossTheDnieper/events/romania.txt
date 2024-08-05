@@ -63,26 +63,6 @@ country_event = {
 }
 
 country_event = {
-    id = romania.4
-    title = romania.4.t
-    desc = romania.4.desc
-		picture = GFX_report_event_ROM_Romanian_Elections
-		is_triggered_only = yes
-
-    option = {
-        name = romania.4.a
-        ai_chance = {
-			base = 10
-		}
-		add_popularity = { ideology = libertarian popularity = 0.08 }
-        add_popularity = { ideology = social_democracy popularity = 0.08 }
-        add_stability = 0.02
-        country_event = {id = romania.4.1}
-    } 
-}
-
-
-country_event = {
     id = romania.7
     title = romania.7.t
     desc = romania.7.desc
@@ -161,7 +141,7 @@ country_event = {
                 ruling_party = eastern_liberal
                 elections_allowed = yes
             }
-            ROM = {country_event = romania.12 days = 15}
+            ROM = {country_event = romania.12}
         }
     }
 }
@@ -282,6 +262,250 @@ country_event = {
     } 
 }
 
+country_event = {
+    id = romania.21
+    title = romania.21.t
+    desc = romania.21.desc
+	picture = GFX_report_event_ROM_Iohannis_Victory
+	is_triggered_only = yes
+    fire_only_once = yes
+    trigger = {
+			any_country={ original_tag = SOV has_war_with = UKR }
+	}
+
+
+    option = {
+        name = romania.21.a
+        ai_chance = {
+			base = 10
+		}
+      complete_national_focus = start_of_russian_invasion
+      country_event = { id = romania.22 }
+    } 
+
+}
+
+country_event = {
+    id = romania.22
+    title = romania.22.t
+    desc = romania.22.desc
+		picture = GFX_report_event_ROM_Iohannis_Victory
+		is_triggered_only = yes
+
+
+    option = {
+        name = romania.22.a
+        ai_chance = {
+			base = 90
+		}
+      complete_national_focus = ukraines_side
+    } 
+    option = {
+        name = romania.22.b
+        ai_chance = {
+			base = 10
+		}
+      complete_national_focus = russias_side
+    } 
+}
+
+country_event = {
+    id = romania.23
+    title = romania.23.t
+    desc = romania.23.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+        complete_national_focus = Making_Nat_Patriotic
+        set_politics = {
+            ruling_party = ultranationalist
+            elections_allowed = yes
+        }
+        swap_ideas = {
+            remove_idea = nationalism_laws_interventionist
+            add_idea = nationalism_laws_revanchist
+        }
+        swap_ideas = {
+            remove_idea = womens_rights_equality
+            add_idea = womens_rights_traditional_values
+        }
+        swap_ideas = {
+            remove_idea = lgbtq_rights_tolerated
+            add_idea = lgbtq_rights_banned #BASED AS FUCK
+        }
+        swap_ideas = {
+            remove_idea = free_trade_unions
+            add_idea = unions_banned #BASED AS FUCK
+        }
+        swap_ideas = {
+            remove_idea = liberal_democracy
+            add_idea = fascist_regime
+        }
+        add_stability = 0.4
+        }
+
+    }
+
+
+    option = {
+        name = romania.23.a
+        ai_chance = {
+			base = 90
+		}
+      complete_national_focus = Incorporate_Army
+    } 
+    option = {
+        name = romania.23.b
+        ai_chance = {
+			base = 10
+		}
+      complete_national_focus = Incorporate_Fascists
+    } 
+}
+
+country_event = {
+    id = romania.24
+    title = romania.24.t
+    desc = romania.24.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    option = {
+        name = romania.24.a
+        ai_chance = {
+			base = 100
+		}
+      add_ideas = ROM_Corruption_Eradicated
+    } 
+}
+
+country_event = {
+    id = romania.25
+    title = romania.25.t
+    desc = romania.25.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    option = {
+        name = romania.25.a
+        ai_chance = {
+			base = 10
+		}
+    } 
+    option = {
+        name = romania.25.b
+        ai_chance = {
+			base = 90
+		}
+      ROM = {transfer_state = 167}
+      ROM = {transfer_state = 176}
+      ROM = {transfer_state = 183}
+      add_ideas = Small_Purchase_BUC
+    } 
+}
+
+country_event = {
+    id = romania.26
+    title = romania.26.t
+    desc = romania.26.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    option = {
+        name = romania.26.a
+        ai_chance = {
+			base = 10
+		}
+    } 
+    option = {
+        name = romania.26.b
+        ai_chance = {
+			base = 90
+		}
+      ROM = {transfer_state = 320}
+      ROM = {transfer_state = 287}
+      ROM = {transfer_state = 291}
+      ROM = {transfer_state = 444}
+      ROM = {transfer_state = 322}
+      add_ideas = Big_Purchase_BES
+    } 
+}
+
+country_event = {
+    id = romania.27
+    title = romania.27.t
+    desc = romania.27.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    option = {
+        name = romania.27.a
+        ai_chance = {
+			base = 90
+		}
+        ROM = {declare_war_on = { target = UKR    type = annex_everything }}
+        hidden_effect = {
+            every_state = {
+				limit = {
+					OR = { state = 190 state = 200 state = 210 state = 192 state = 340 is_owned_and_controlled_by = ROM}
+				}
+				add_dynamic_modifier = {
+					modifier = not_allowed_to_attack_here
+					scope = UKR
+				}
+			}
+            every_state = {
+				limit = {
+                    AND = {
+					NOT = { state = 320 state = 287 state = 291 state = 322 }
+                    is_owned_and_controlled_by = UKR
+                    }
+				}
+				add_dynamic_modifier = {
+					modifier = not_allowed_to_attack_here
+					scope = ROM
+				}
+			}
+            ROM = {add_ideas = ROM_Unionism_Wave}
+            ROM = {country_event = {
+                id = romania.28
+                days = 15
+            }}
+        }
+    } 
+    option = {
+        name = romania.27.b
+        ai_chance = {
+			base = 10
+		}
+      ROM = {transfer_state = 320}
+      ROM = {transfer_state = 287}
+      ROM = {transfer_state = 291}
+      ROM = {transfer_state = 444}
+      ROM = {transfer_state = 322}
+    } 
+}
+
+country_event = {
+    id = romania.28
+    title = romania.28.t
+    desc = romania.28.desc
+	picture = GFX_da
+	is_triggered_only = yes
+
+    option = {
+        name = romania.28.a
+        ai_chance = {
+			base = 100
+		}
+        set_politics = {
+            ruling_party = eastern_conservative
+            elections_allowed = yes
+        }
+    }
+}
 
 
 
