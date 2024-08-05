@@ -17,9 +17,43 @@ defined_text = {
 }
 
 defined_text = {
-	name = get_state_election_result_img
-
+	name = GetRightBannerImg
 	text = {
-		localization_key = "[?state_img_progressbar.GetTokenLocalizedKey]"
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = 0 }
+		}
+		localization_key = "[?POL.party_banner.GetTokenLocalizedKey]"
+	}
+	text = {
+		trigger={
+			set_temp_variable = { index = POL.POL_electoral_map_selected_state:largest_party }
+			always = yes
+		}
+		localization_key = "[?POL.party_banners_array^index.GetTokenLocalizedKey]"
+	}
+}
+
+defined_text = {
+	name = GetRightSelectedTitle
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = 0 }
+		}
+		localization_key = "RightSelectedTitlePoland"
+	}
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = 427 }
+		}
+		localization_key = "RightSelectedTitleMazowieckie"
+	}
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = 40 }
+		}
+		localization_key = "RightSelectedTitleLubuskie"
+	}
+	text = {
+		localization_key = "[?POL.POL_electoral_map_selected_state.GetName]"
 	}
 }

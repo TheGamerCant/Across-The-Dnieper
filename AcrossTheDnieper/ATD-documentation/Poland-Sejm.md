@@ -16,7 +16,7 @@ List of states that are 'election states' - These states have the variables rela
 40	- Lubuskie
 64	- Świętokrzyskie (Holy Cross)
 49	- Dolnośląskie (Lower Silesia)
-62	- Opolskie 				//Opolskie has a German minority party that does well
+62	- Opolskie 				(Opolskie has a German minority party that does well)
 67	- Śląskie
 81	- Małopolskie
 76	- Podkarpackie (Sub-Carpathia)
@@ -33,10 +33,19 @@ THIS.PREV_party_vote_count		- Float array
 THIS.party_vote_percentage		- Float array. Percentage of votes won by party, =/= current party popularity
 THIS.PREV_party_vote_percentage	- Float array
 THIS.largest_party				- Integer variable, indexing the largest party
-THIS.state_img_progressbar		- Token variable
-THIS.state_img_overlay			- Token variable
+THIS.state_img_progressbar		- Token variable, GFX type
+THIS.state_img_overlay			- Token variable, GFX type
 THIS.state_img_position_x		- Integer variable, defines the X pos in the state map view
 THIS.state_img_position_y		- Integer variable, defines the Y pos in the state map view
 
+Party arrays - These allow for a sort of OOP-lite, allowing us to index to another array based on the value of one, giving us GFX, strings and variables for parties
+POL.party_names_long_nocolour_array		- Token array, string type
+POL.party_names_short_nocolour_array		- Token array, string type
+POL.party_names_long_colour_array		- Token array, string type
+POL.party_names_short_colour_array		- Token array, string type
+POL.party_seat_count					- Integer array, seats in national parliament
+POL.party_seat_count					- Integer array, seats in national parliament
+
 Poland scoped variables and arrays:
-POL.government_status_display_array - Used to display what parties are in power, in opposition and are neutral in the Sejm GUI. Any party with 0 seats is removed from the array
+POL.government_status_display_array 	- Token array, used to display what parties are in power, in opposition and are neutral in the Sejm GUI. Any party with 0 seats is removed from the array
+POL.POL_electoral_map_selected_state	- Integer, corresponds with selected state. Defaults to 0

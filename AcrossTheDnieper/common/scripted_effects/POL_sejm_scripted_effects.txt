@@ -995,6 +995,20 @@ POL_initialise_2011_election={
 			
 			add_to_variable = { POL.party_vote_count^i3 = v3 }
 		}
+		for_each_loop = {
+			array = THIS.PREV_party_seat_count
+			value = v4
+			index = i4
+			
+			add_to_variable = { POL.PREV_party_seat_count^i4 = v4 }
+		}
+		for_each_loop = {
+			array = THIS.PREV_party_vote_count
+			value = v5
+			index = i5
+			
+			add_to_variable = { POL.PREV_party_vote_count^i5 = v5 }
+		}
 		
 		
 		find_highest_in_array = {
@@ -1129,48 +1143,72 @@ POL_init_politics_system={
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_democraticLeftAlliance }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_democraticLeftAlliance }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_democraticLeftAlliance }
 
 	add_to_array = { POL.party_names_long_nocolour_array = token:POL_party_name_polishLongNoColour_civicPlatform }
 	add_to_array = { POL.party_names_short_nocolour_array = token:POL_party_name_polishShortNoColour_civicPlatform }
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_civicPlatform }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_civicPlatform }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_civicPlatform }
 
 	add_to_array = { POL.party_names_long_nocolour_array = token:POL_party_name_polishLongNoColour_polishPeoplesParty }
 	add_to_array = { POL.party_names_short_nocolour_array = token:POL_party_name_polishShortNoColour_polishPeoplesParty }
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_polishPeoplesParty }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_democraticLeftAlliance }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_polishPeoplesParty }
 
 	add_to_array = { POL.party_names_long_nocolour_array = token:POL_party_name_polishLongNoColour_lawAndJustice }
 	add_to_array = { POL.party_names_short_nocolour_array = token:POL_party_name_polishShortNoColour_lawAndJustice }
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_lawAndJustice }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_lawAndJustice }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_lawAndJustice }
 
 	add_to_array = { POL.party_names_long_nocolour_array = token:POL_party_name_polishLongNoColour_kukiz15 }
 	add_to_array = { POL.party_names_short_nocolour_array = token:POL_party_name_polishShortNoColour_kukiz15 }
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_kukiz15 }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_kukiz15 }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_kukiz15 }
 
 	add_to_array = { POL.party_names_long_nocolour_array = token:POL_party_name_polishLongNoColour_independentsAndMinorParties }
 	add_to_array = { POL.party_names_short_nocolour_array = token:POL_party_name_polishShortNoColour_independentsAndMinorParties }
 	add_to_array = { POL.party_names_long_colour_array = token:POL_party_name_polishLongColoured_independentsAndMinorParties }
 	add_to_array = { POL.party_names_short_colour_array = token:POL_party_name_polishShortColoured_independentsAndMinorParties }
 	add_to_array = { POL.party_seat_count = 0 }
+	add_to_array = { POL.PREV_party_seat_count = 0 }
 	add_to_array = { POL.party_vote_count = 0 }
+	add_to_array = { POL.PREV_party_vote_count = 0 }
 	add_to_array = { POL.party_vote_percentage = 0 }
+	add_to_array = { POL.PREV_party_vote_percentage = 0 }
+	add_to_array = { POL.party_banners_array = token:POL_partyBanner_independentsAndMinorParties }
 	
 	POL_initialise_2011_election = yes
 	POL_get_sejm_seats = yes
@@ -1187,6 +1225,9 @@ POL_init_politics_system={
 	add_to_array = { POL.parties_neutral_array = 0 }
 	add_to_array = { POL.parties_neutral_array = 5 }
 	POL_create_governmental_arrays = yes
+	
+	set_variable = { POL.POL_electoral_map_selected_state = 0 }
+	set_variable = { POL.party_banner = token:POL_partyBanner_civicPlatform }
 }
 
 

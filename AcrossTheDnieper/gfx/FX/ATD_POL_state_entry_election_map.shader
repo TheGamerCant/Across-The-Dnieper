@@ -127,7 +127,8 @@ PixelShader =
 			colourBurnOut = 1 - (colourBurnOut / OutColor.rgb);
 			OutColor.rgb = colourBurnOut;
 
-
+			OutColor.rgb *= 1.1f;		//Brighten the map a little bit
+			
 			return OutColor;
 		}
 		
