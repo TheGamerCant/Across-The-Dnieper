@@ -3202,6 +3202,21 @@ SOV_foreign_equipment_decision = {
 		}
 
 		remove_effect = {
+			if = {
+				limit = { has_dlc = "No Step Back" }
+
+				add_equipment_to_stockpile = { 
+					type = ztz99_chassis
+					variant_name = "ZTZ-99A"
+					amount = 150
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = { 
+					type = seventies_tank
+					amount = 150
+				}
+			}
 		}
 	}
 
