@@ -86,48 +86,51 @@ PixelShader =
 		{
 			float4 OutColor = tex2D( TextureOne, v.vTexCoord0 );
 			
-			int CurrentStateInt = (int)(CurrentState * 100);
-			float3 partyRGBValue;
-			
-			switch(CurrentStateInt)
-			{
-				case 0:		//LEFT
-					partyRGBValue = float3(0.517647f, 0.090196f, 0.396078f);
-					//RGB: 132, 23, 101
-					break;
-					
-				case 1: 	//PO
-					partyRGBValue = float3(1.0f, 0.4f, 0.0f);
-					//RGB: 255, 102, 0
-					break;
-					
-				case 2: 	//PSL
-					partyRGBValue = float3(0.243137f, 0.7058823f, 0.239215f);
-					//RGB: 62, 180, 61
-					break;
-					
-				case 3: 	//PiS
-					partyRGBValue = float3(0.0039215f, 0.168627f, 0.50588235f);
-					//RGB: 1, 43, 129
-					break;
-					
-				case 4: 	//RIGHT
-					partyRGBValue = float3(0.0509803f, 0.145098f, 0.270588236f);
-					//RGB: 13, 37, 69
-					break;
-					
-				default:	//Default / other
-					partyRGBValue = float3(0.5490196f, 0.5490196f, 0.5490196f);
-					//RGB: 140, 140, 140
-					break;
-			}
-			
-			//Perform colour burn operation with OutColor.rgb over the party colour
-			float3 colourBurnOut = 1 - partyRGBValue;
-			colourBurnOut = 1 - (colourBurnOut / OutColor.rgb);
-			OutColor.rgb = colourBurnOut;
+			//No point doing operations if the alpha channel is 0
+			if (OutColor.a != 0){
+				int CurrentStateInt = (int)(CurrentState * 100);
+				float3 partyRGBValue;
+				
+				switch(CurrentStateInt)
+				{
+					case 0:		//LEFT
+						partyRGBValue = float3(0.517647f, 0.090196f, 0.396078f);
+						//RGB: 132, 23, 101
+						break;
+						
+					case 1: 	//PO
+						partyRGBValue = float3(1.0f, 0.4f, 0.0f);
+						//RGB: 255, 102, 0
+						break;
+						
+					case 2: 	//PSL
+						partyRGBValue = float3(0.243137f, 0.7058823f, 0.239215f);
+						//RGB: 62, 180, 61
+						break;
+						
+					case 3: 	//PiS
+						partyRGBValue = float3(0.0039215f, 0.168627f, 0.50588235f);
+						//RGB: 1, 43, 129
+						break;
+						
+					case 4: 	//RIGHT
+						partyRGBValue = float3(0.0509803f, 0.145098f, 0.270588236f);
+						//RGB: 13, 37, 69
+						break;
+						
+					default:	//Default / other
+						partyRGBValue = float3(0.5490196f, 0.5490196f, 0.5490196f);
+						//RGB: 140, 140, 140
+						break;
+				}
+				
+				//Perform colour burn operation with OutColor.rgb over the party colour
+				partyRGBValue = 1 - partyRGBValue;
+				partyRGBValue = 1 - (partyRGBValue / OutColor.rgb);
+				OutColor.rgb = partyRGBValue;
 
-			OutColor.rgb *= 1.1f;		//Brighten the map a little bit
+				OutColor.rgb *= 1.16f;		//Brighten the map a little bit
+			}
 			
 			return OutColor;
 		}
