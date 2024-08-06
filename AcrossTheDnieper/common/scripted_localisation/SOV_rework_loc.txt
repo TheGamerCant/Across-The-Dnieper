@@ -3445,3 +3445,62 @@ defined_text = {
         localization_key = "SOV_strike_infra_text_full"
     }
 }
+
+defined_text = {
+	name = SOV_get_missile_status
+
+	text = {
+		trigger={
+			AND = {
+				NOT = { has_country_flag = SOV_doing_strike }
+				OR = {
+					has_country_flag = SOV_strike_infra
+					has_country_flag = SOV_strike_mils
+					has_country_flag = SOV_strike_civs
+				}
+				OR = {
+					has_country_flag = SOV_strike_iskander
+					has_country_flag = SOV_strike_hwasong
+					has_country_flag = SOV_strike_kh
+					has_country_flag = SOV_strike_shahed
+				}
+			}
+		}
+		localization_key = "SOV_strike_status_armed"
+	}
+	text = {
+		trigger={
+			has_country_flag = SOV_doing_strike
+		}
+        localization_key = "SOV_strike_status_flight"
+    }
+	text = {
+		trigger={
+			AND = {
+				NOT = { has_country_flag = SOV_doing_strike }
+				OR = {
+					NOT = {
+						has_country_flag = SOV_strike_infra
+						has_country_flag = SOV_strike_mils
+						has_country_flag = SOV_strike_civs
+					}
+					
+				}
+				OR = {
+					NOT = {
+						has_country_flag = SOV_strike_iskander
+						has_country_flag = SOV_strike_hwasong
+						has_country_flag = SOV_strike_kh
+						has_country_flag = SOV_strike_shahed
+					}
+					
+				}
+			}
+		}
+        localization_key = "SOV_strike_status_unarmed"
+    }
+
+	text = {
+        localization_key = "SOV_strike_status_unarmed"
+    }
+}
