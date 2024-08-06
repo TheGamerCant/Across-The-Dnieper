@@ -1,4 +1,74 @@
 ROM_parliament_decisions_category={
+	protests_worsening = { 
+		priority = 1000
+		is_good = no
+
+		days_mission_timeout = 50
+		
+		activation = {
+			
+		}
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			has_country_flag = ROM_repealed_bill
+		}
+
+		fire_only_once = yes	
+
+		timeout_effect = {
+			add_stability = -0.25
+			add_ideas = ROM_OUG_13
+		}
+		complete_effect = {
+			add_stability = 0.1
+			remove_ideas = ROM_AC_Protests
+			clr_country_flag = ROM_repealed_bill
+		}
+	}
+	repeal_the_bill = { 
+		priority = 999
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			has_ideas = ROM_AC_Protests
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = ROM_repealed_bill
+		}
+	}
+	DEBUG_clr_bill = { 
+		priority = 200
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = {
+				clr_country_flag = ROM_repealed_bill
+			}
+		}
+	}
+
 	DEBUG_add_10_friendly_seats_to_lower_house = { 
 		priority = 200
 
@@ -308,7 +378,7 @@ ROM_parliament_decisions_category={
 		}
 	}
 	eastern_anti_terrorism_operation = { 
-		priority = 1000
+		priority = 1001
 		is_good = no
 
 		days_mission_timeout = 50
