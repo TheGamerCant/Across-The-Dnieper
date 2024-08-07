@@ -6446,6 +6446,34 @@ country_event = {
 }
 
 
+#assassination of denis pushilin (for girkin path)
+country_event = {
+    id = russia.1171
+    title = russia.1171.t
+    desc = russia.1171.desc
+    picture = GFX_event_DON_dead
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1171.a
+		ai_chance = {
+			base = 10
+		}
+		if = {
+			limit = {
+				country_exists = DON
+			}
+
+			DON = { kill_country_leader = yes }
+		}
+		else = {
+			add_political_power = 55
+			add_stability = 0.05
+		}
+    }
+
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t

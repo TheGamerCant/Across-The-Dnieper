@@ -2311,7 +2311,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_angry_patriots
 		icon = GFX_focus_SOV_the_angry_patriots
-		x = 9			#relative_position_id to SOV_announce_the_draft
+		x = 12			#relative_position_id to SOV_announce_the_draft
 		y = 0
 		cost = 14
 		search_filters = {
@@ -2427,6 +2427,7 @@ focus_tree = {
 		completion_reward={
 			country_event = { id = russia.1100 hours = 1 }
 			add_stability = -0.2
+			custom_effect_tooltip = SOV_the_patriots_march_tt
 		}
 	}
 	
@@ -2515,6 +2516,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2536,6 +2538,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2547,7 +2550,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_warn_the_west
-		icon = GFX
+		icon = GFX_focus_SOV_French_Mercenaries_In_Ukraine
 		x = -1
 		y = 2
 		cost = 10
@@ -2560,6 +2563,7 @@ focus_tree = {
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
 			NOT = { has_war_with = NAT }
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2582,6 +2586,7 @@ focus_tree = {
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
 			NOT = { has_war_with = NAT }
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2612,7 +2617,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_focus_denazification
-		icon = GFX
+		icon = GFX_focus_SOV_Focus_On_Denazification_Of_Ukraine
 		x = 2
 		y = 1
 		cost = 14
@@ -2692,6 +2697,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2719,6 +2725,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -2745,6 +2752,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -3187,7 +3195,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_new_military_innovations
-		icon = GFX
+		icon = GFX_focus_SOV_New_Military_Innovations
 		x = -6
 		y = 1
 		cost = 24
@@ -3199,6 +3207,8 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 
 		completion_reward={
@@ -3713,6 +3723,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -3787,7 +3798,7 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
-
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 			custom_trigger_tooltip = {
 				tooltip = SOV_meeting_in_beijing_trigger
 				NOT = { check_variable = { SOV_ally_equipment_china_status = 3 }  } 
@@ -3801,7 +3812,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_domestic_shahed_drones
-		icon = GFX
+		icon = GFX_focus_SOV_Domestically_Produced_Shahed_Drones
 		x = -1
 		y = 2
 		cost = 35
@@ -3816,7 +3827,7 @@ focus_tree = {
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
 			has_completed_focus = SOV_chinese_semiconductors
-
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 			custom_trigger_tooltip = {
 				tooltip = SOV_domestic_shahed_drones_trigger
 				NOT = { check_variable = { SOV_ally_equipment_iran_status = 1 }  } 
@@ -3849,7 +3860,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_nk_russia_summit_23
-		icon = GFX
+		icon = GFX_focus_SOV_North_Korea_Russia_Summit_2023
 		x = 0
 		y = 3
 		cost = 20
@@ -3864,6 +3875,7 @@ focus_tree = {
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
 			date > 2023.8.25
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 			custom_trigger_tooltip = {
 				tooltip = SOV_nk_russia_summit_23_trigger
 				NOT = { check_variable = { SOV_ally_equipment_nk_status = 1 }  } 
@@ -3893,6 +3905,7 @@ focus_tree = {
 			vladimir_putin_is_leader = yes
 			has_completed_focus = SOV_raise_akhmat_battallions
 			CHN = { is_puppet_of = ROOT }
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4264,6 +4277,8 @@ focus_tree = {
 		available={
 			has_war_with = UKR
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
+
 		}
 		
 		completion_reward={
@@ -4288,6 +4303,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_redirect_oil_to_asia  }
 		available={
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4321,6 +4337,7 @@ focus_tree = {
 		available={
 			has_completed_focus = SOV_bypass_western_sanctions
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4353,6 +4370,7 @@ focus_tree = {
 		
 		available={
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4384,6 +4402,7 @@ focus_tree = {
 		
 		available={
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4424,6 +4443,7 @@ focus_tree = {
 		available={
 			has_completed_focus = SOV_boost_domestic_production
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -4450,6 +4470,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_build_trans_siberian_pipeline_2  }
 		available={
 			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
 		}
 		
 		completion_reward={
@@ -10515,7 +10536,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_war_effort
 	icon = GFX_focus_SOV_the_patriots_march
-	x = -1
+	x = 0
 	y = 1
 	
 	cost = 35
@@ -10544,7 +10565,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_pridnestrovie_gambit
 	icon = GFX_focus_SOV_the_pridnestrovie_gambit
-	x = 2
+	x = 1
 	y = 1
 	
 	cost = 42
@@ -10597,7 +10618,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_ever_present_threat
 	icon = GFX_focus_SOV_the_ever_present_threat
-	x = 0
+	x = -1
 	y = 1
 	
 	cost = 14
@@ -10646,7 +10667,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_rewrite_the_conscription_law
 	icon = GFX_focus_SOV_rewrite_the_conscription_law
-	x = -2
+	x = 3
 	y = 1
 	
 	cost = 32
@@ -10677,6 +10698,7 @@ shared_focus = {
 				division_template = {
 					name = "Russian Conscripts"
 					division_names_group = SOV_INF_01
+					template_counter = 285
 					regiments = {
 						infantry = { x = 0 y = 0 }
 						infantry = { x = 0 y = 1 }
@@ -10739,10 +10761,159 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_fund_the_interbrigade
+	icon = GFX
+	x = 1
+	y = 1
+	
+	cost = 54
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_rewrite_the_conscription_law }
+	relative_position_id = SOV_rewrite_the_conscription_law
+	available = {
+		igor_girkin_is_leader = yes
+
+		has_completed_focus = SOV_coalition_with_nazbols
+	}
+	
+	bypass = {
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		custom_effect_tooltip = SOV_fund_the_interbrigade_tt2
+		custom_effect_tooltip = SOV_fund_the_interbrigade_tt
+
+		add_to_variable = { SOV_raspizdyaystvo_army_attack_factor = 0.05 }
+		add_to_variable = { SOV_raspizdyaystvo_army_defence_factor = 0.05 }
+		add_to_variable = { SOV_raspizdyaystvo_army_morale_factor = 0.05 }
+		add_to_variable = { SOV_raspizdyaystvo_consumer_goods_expected_value = 0.03 }
+
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_template = "Interbrigade" } }
+
+				division_template = {
+					name = "Interbrigade"
+					template_counter = 306
+					division_names_group = SOV_ESF_01
+					is_locked = yes
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						artillery_brigade = { x = 2 y = 0}
+						artillery_brigade = { x = 2 y = 1}
+						artillery_brigade = { x = 2 y = 2}
+					}
+					support = {
+						engineer = { x = 0 y = 0 }   
+					}
+				}
+			}
+
+			for_loop_effect = {
+				end = 5
+				value = temp
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Interbrigade\" division_template = \"Interbrigade\" start_experience_factor = 0.69 start_equipment_factor = 0.95" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_deal_with_the_devil
+	icon = GFX
+	x = 0
+	y = 2
+	
+	cost = 60
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_clamp_down_on_production_corruption }
+	prerequisite = { focus = SOV_fund_the_interbrigade }
+	relative_position_id = SOV_rewrite_the_conscription_law
+	available = {
+		igor_girkin_is_leader = yes
+
+		hidden_trigger = {
+			NOT = { has_global_flag = Wagner_mutiny_happened_flag }
+		}
+	}
+	
+	bypass = {
+		hidden_trigger = {
+			has_global_flag = Wagner_mutiny_happened_flag
+		}
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = -0.2
+		custom_effect_tooltip = SOV_deal_with_the_devil_tt
+		add_timed_idea = {
+			idea = SOV_motivated_wagnerites
+			days = 31
+		}
+
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_template = "Wagner PMC" } }
+
+				division_template = {
+					name = "Wagner PMC"
+					template_counter = 183
+					division_names_group = SOV_ESF_01
+					is_locked = yes
+					regiments = {
+						elite_special_forces = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						elite_special_forces = { x = 1 y = 2 }
+						artillery_brigade = { x = 2 y = 0}
+						artillery_brigade = { x = 2 y = 1}
+					}
+					support = {
+						engineer = { x = 0 y = 0 }   
+					}
+				}
+			}
+
+			for_loop_effect = {
+				end = 5
+				value = temp
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Wagner Battalion\" division_template = \"Wagner PMC\" start_experience_factor = 0.1 start_equipment_factor = 0.85" 
+						owner = SOV
+					}
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
 	id = SOV_expanding_our_borders
 	icon = GFX_focus_SOV_expanding_our_borders
-	x = -1
-	y = 2
+	x = -3
+	y = 1
 	
 	cost = 32
 	ai_will_do = {
@@ -10774,7 +10945,6 @@ shared_focus = {
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_expanding_our_borders }
-	prerequisite = { focus = SOV_clamp_down_on_production_corruption }
 	relative_position_id = SOV_expanding_our_borders
 	available = {
 		igor_girkin_is_leader = yes
@@ -10920,7 +11090,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_a_new_cabinet
 	icon = GFX_focus_SOV_the_angry_patriots
-	x = 3
+	x = -6
 	y = 1
 	
 	cost = 42
@@ -10948,16 +11118,122 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_end_pushilin
+	icon = GFX
+	x = -8
+	y = 2
+	
+	cost = 50
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_a_new_cabinet }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		country_event = { id = russia.1171 days = 2 }
+	}
+}
+
+shared_focus = {
+	id = SOV_coalition_with_nazbols
+	icon = GFX
+	x = -6
+	y = 2
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_a_new_cabinet }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_popularity = { ideology = fascist popularity = 0.1 }
+		add_popularity = { ideology = hardline_communist popularity = 0.1 }
+		add_ideas = SOV_nazbol_coalition
+	}
+}
+
+shared_focus = {
+	id = SOV_form_the_national_movement
+	icon = GFX
+	x = 6
+	y = 1
+	
+	cost = 42
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_russia_united_QM }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_ideas = SOV_all_russian_national_movement
+	}
+}
+
+shared_focus = {
+	id = SOV_rally_the_patriots
+	icon = GFX
+	x = 6
+	y = 2
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_form_the_national_movement }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		swap_ideas={
+			remove_idea = SOV_all_russian_national_movement
+			add_idea = SOV_all_russian_national_movement_2
+		}
+	}
+}
+
+shared_focus = {
 	id = SOV_economic_self_sufficiency_girkin
 	icon = GFX_focus_SOV_clamp_down_on_production_corruption
-	x = 0
+	x = 8
 	y = 1
 	
 	cost = 60
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_a_new_cabinet }
-	relative_position_id = SOV_a_new_cabinet
+	prerequisite = { focus = SOV_russia_united_QM }
+	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
 	}
