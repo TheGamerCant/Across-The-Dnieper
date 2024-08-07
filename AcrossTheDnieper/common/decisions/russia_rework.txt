@@ -3373,9 +3373,18 @@ SOV_foreign_equipment_decision = {
 		}
 
 		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 1000
+			if = {
+				limit = { has_completed_focus = SOV_nk_russia_summit_23 }
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 2000
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 1000
+				}
 			}
 		}
 	}
@@ -3419,7 +3428,13 @@ SOV_foreign_equipment_decision = {
 		}
 
 		remove_effect = {
-			SOV_add_30_hwasong = yes
+			if = {
+				limit = { has_completed_focus = SOV_nk_russia_summit_23 }
+				SOV_add_60_hwasong = yes
+			}
+			else = {
+				SOV_add_30_hwasong = yes
+			}
 		}
 	}
 

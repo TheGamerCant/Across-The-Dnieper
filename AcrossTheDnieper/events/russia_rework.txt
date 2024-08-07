@@ -2666,6 +2666,8 @@ country_event = {
 
 		add_stability = -0.05
 		hidden_effect={
+			complete_national_focus = SOV_wagner_rebellion
+			mark_focus_tree_layout_dirty = yes
 			country_event = { id = russia.1067 hours = 5 }
 			WAG = { 
 				transfer_state = 25 
@@ -2770,8 +2772,6 @@ country_event = {
 			get_faction_positions = yes
 			retire_character = SOV_yevgeny_prigozhin_rework
 			retire_character = SOV_dmitry_utkin
-
-			country_event = { id = russia.1078 days = 3 }
 		}
 	}
 }
@@ -3214,7 +3214,7 @@ country_event = {
 			base = 10
 		}
 
-		add_ideas = SOV_wagner_forces_integrated
+		add_ideas = SOV_wagner_forces_undergoing_integration
 		custom_effect_tooltip = "russia.1078.tt"
 		hidden_effect = {
 			if = {
@@ -6411,6 +6411,35 @@ country_event = {
 		add_war_support = 0.01
 		set_country_flag = SOV_enable_ballistic_missile_decision_tab
 		unlock_decision_category_tooltip = SOV_smo_missile_strikes
+    }
+
+}
+
+#nk- russia summit 2023
+country_event = {
+    id = russia.1170
+    title = russia.1170.t
+    desc = russia.1170.desc
+    picture = SOV_nk_russia_summit
+    is_triggered_only = yes
+
+	trigger = {
+		has_war_with = UKR
+	}
+
+    option = {
+        name = russia.1170.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = "russia.1170.tt"
+
+		SOV_add_30_hwasong = yes
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 500
+		}
+
     }
 
 }

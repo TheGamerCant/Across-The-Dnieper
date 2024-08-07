@@ -3804,7 +3804,7 @@ focus_tree = {
 		icon = GFX
 		x = -1
 		y = 2
-		cost = 14
+		cost = 35
 		search_filters = {
 			
 		}
@@ -3844,6 +3844,34 @@ focus_tree = {
 				}
 			}
 			add_ideas = SOV_alabuga_industrial_plants
+		}
+	}
+
+	focus = {
+		id = SOV_nk_russia_summit_23
+		icon = GFX
+		x = 0
+		y = 3
+		cost = 20
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_break_open_the_armouries }
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			has_war_with = UKR
+			vladimir_putin_is_leader = yes
+
+			custom_trigger_tooltip = {
+				tooltip = SOV_nk_russia_summit_23_trigger
+				NOT = { check_variable = { SOV_ally_equipment_nk_status = 1 }  } 
+			}
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1170 days = 1 }
 		}
 	}
 
@@ -3907,6 +3935,156 @@ focus_tree = {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_wagner_rebellion
+		icon = GFX
+		x = -4
+		y = 1
+		cost = 35
+		search_filters = {
+			
+		}
+
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				has_global_flag = Wagner_mutiny_happened_flag
+			}
+		}
+		
+		prerequisite = { focus = SOV_new_military_innovations }
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			always = no
+		}
+		
+		completion_reward={
+		}
+	}
+
+	focus = {
+		id = SOV_nationalize_wagner
+		icon = GFX
+		x = -5
+		y = 2
+		cost = 50
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+
+		mutually_exclusive = { focus = SOV_destroy_wagner_for_all }
+		prerequisite = { focus = SOV_wagner_rebellion }
+		relative_position_id = SOV_new_military_innovations
+		
+
+		available={
+			has_country_flag = yevgeny_prigozhin_not_active_flag
+		}
+		
+		completion_reward={
+			country_event = { id = russia.1078 days = 3 }
+		}
+	}
+
+	focus = {
+		id = SOV_appoint_troshev
+		icon = GFX
+		x = -5
+		y = 3
+		cost = 35
+		search_filters = {
+			
+		}
+
+		
+		prerequisite = { focus = SOV_nationalize_wagner }
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			
+		}
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_wagner_forces_undergoing_integration
+				add_idea = SOV_wagner_forces_integrated
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_andrei_troshev
+		}
+	}
+
+	focus = {
+		id = SOV_destroy_wagner_for_all
+		icon = GFX
+		x = -3
+		y = 2
+		cost = 50
+		search_filters = {
+
+		}
+
+		mutually_exclusive = { focus = SOV_nationalize_wagner }
+		prerequisite = { focus = SOV_wagner_rebellion }
+		
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			has_country_flag = yevgeny_prigozhin_not_active_flag
+		}
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_destroy_wagner_for_all_tt
+			SOV_decrease_nationalist_faction_medium = yes
+			hidden_effect = {
+				if = {
+					limit = {
+						has_template = "Wagner PMC"
+					}
+	
+					delete_unit_template_and_units = {
+						division_template = "Wagner PMC"
+						disband = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_recruit_former_wagnerites
+		icon = GFX
+		x = -3
+		y = 3
+		cost = 35
+		search_filters = {
+
+		}
+
+		mutually_exclusive = { focus = SOV_nationalize_wagner }
+		prerequisite = { focus = SOV_destroy_wagner_for_all focus = SOV_nationalize_wagner }
+		
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			
+		}
+		
+		completion_reward={
+			SOV_increase_nationalist_faction_medium = yes
+			add_timed_idea = {
+				idea = SOV_former_wagnerite_contracts
+				days = 180
 			}
 		}
 	}
@@ -4002,6 +4180,14 @@ focus_tree = {
 		search_filters = {
 			
 		}
+
+		offset = {
+			x = -3
+			trigger = {
+				has_global_flag = Wagner_mutiny_happened_flag
+			}
+		}
+
 		prerequisite = { focus = SOV_fix_our_logistics }
 		relative_position_id = SOV_announce_the_draft
 
