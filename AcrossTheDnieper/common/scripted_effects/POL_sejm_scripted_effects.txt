@@ -248,7 +248,7 @@ POL_initialise_2011_election={
 	#POMERANIA
 	set_variable = { 19.number_of_seats_in_sejm = 26 }
 	set_variable = { 19.election_turnout = 51.8 }
-	set_variable = { 19.election_turnout = 57.5 }
+	set_variable = { 19.PREV_election_turnout = 57.5 }
 	
 	clear_array = 19.party_seat_count
 	clear_array = 19.PREV_party_seat_count
@@ -871,17 +871,17 @@ POL_initialise_2011_election={
 	add_to_array = { 81.party_vote_count = 69.555 }
 	add_to_array = { 81.party_vote_percentage = 5.1 }
 	
-	add_to_array = { 81.party_seat_count = 21 }
-	add_to_array = { 81.party_vote_count = 504.545 }
-	add_to_array = { 81.party_vote_percentage = 39.3 }
+	add_to_array = { 81.party_seat_count = 18 }
+	add_to_array = { 81.party_vote_count = 465.082 }
+	add_to_array = { 81.party_vote_percentage = 36.3 }	
 	
 	add_to_array = { 81.party_seat_count = 1 }
 	add_to_array = { 81.party_vote_count = 81.868 }
 	add_to_array = { 81.party_vote_percentage = 6.4 }
 	
-	add_to_array = { 81.party_seat_count = 18 }
-	add_to_array = { 81.party_vote_count = 465.082 }
-	add_to_array = { 81.party_vote_percentage = 36.3 }
+	add_to_array = { 81.party_seat_count = 21 }
+	add_to_array = { 81.party_vote_count = 504.545 }
+	add_to_array = { 81.party_vote_percentage = 39.3 }
 	
 	add_to_array = { 81.party_seat_count = 0 }
 	add_to_array = { 81.party_vote_count = 31.754 }
@@ -980,6 +980,7 @@ POL_initialise_2011_election={
 	for_each_scope_loop = {
 		array = POL.election_states
 		
+
 		for_each_loop = {
 			array = THIS.party_seat_count
 			value = v2
@@ -994,6 +995,7 @@ POL_initialise_2011_election={
 			index = i3
 			
 			add_to_variable = { POL.party_vote_count^i3 = v3 }
+			add_to_variable = { THIS.total_votes_cast = v3 }
 		}
 		for_each_loop = {
 			array = THIS.PREV_party_seat_count
@@ -1008,6 +1010,7 @@ POL_initialise_2011_election={
 			index = i5
 			
 			add_to_variable = { POL.PREV_party_vote_count^i5 = v5 }
+			add_to_variable = { THIS.PREV_total_votes_cast = v5 }
 		}
 		
 		
@@ -1017,6 +1020,7 @@ POL_initialise_2011_election={
 			index = largest_party_index
 		}
 		set_variable = { THIS.largest_party = largest_party_index }
+		set_variable = { THIS.PREV_largest_party = largest_party_index }		#Every voivodeship had the same largest party in 2007 and 2011 except for Lodzkie, which is defined later
 		
 		meta_effect = {
 			text = {				
@@ -1027,6 +1031,25 @@ POL_initialise_2011_election={
 		}
 	}
 	set_variable = { 47.largest_party = 3 }	#PO got more votes but PiS got more seats, but as we're doing D'Hont based on the voivodeship-level results this will never happen in game
+
+	set_variable = { POL.largest_party = 1 }
+	set_variable = { POL.PREV_largest_party = 1 }
+	
+	#Do them here instead of in previous arrays to save CPU power
+	for_each_loop = {
+		array = POL.party_vote_count
+		value = v6
+		index = i6
+		
+		add_to_variable = { POL.total_votes_cast = v6 }
+	}
+	for_each_loop = {
+		array = POL.PREV_party_vote_count
+		value = v7
+		index = i7
+		
+		add_to_variable = { POL.PREV_total_votes_cast = v7 }
+	}
 	
 	#set_variable = { POL.LEFT_seat_count = 27 }
 	#set_variable = { POL.PO_seat_count = 207 }
@@ -1088,6 +1111,31 @@ POL_init_politics_system={
 	add_to_array = { POL.election_states = 67 }
 	add_to_array = { POL.election_states = 81 }
 	add_to_array = { POL.election_states = 76 }
+	
+	for_each_scope_loop = {
+		array = POL.election_states
+		
+		clear_array = THIS.voivodeship_states_array
+	}
+	add_to_array = { 427.voivodeship_states_array = 427 }
+	add_to_array = { 427.voivodeship_states_array = 43 }
+	add_to_array = { 34.voivodeship_states_array = 34 }
+	add_to_array = { 31.voivodeship_states_array = 31 }
+	add_to_array = { 51.voivodeship_states_array = 51 }
+	add_to_array = { 19.voivodeship_states_array = 19 }
+	add_to_array = { 19.voivodeship_states_array = 24 }
+	add_to_array = { 38.voivodeship_states_array = 38 }
+	add_to_array = { 47.voivodeship_states_array = 47 }
+	add_to_array = { 22.voivodeship_states_array = 22 }
+	add_to_array = { 36.voivodeship_states_array = 36 }
+	add_to_array = { 40.voivodeship_states_array = 40 }
+	add_to_array = { 40.voivodeship_states_array = 48 }
+	add_to_array = { 64.voivodeship_states_array = 64 }
+	add_to_array = { 49.voivodeship_states_array = 49 }
+	add_to_array = { 62.voivodeship_states_array = 62 }
+	add_to_array = { 67.voivodeship_states_array = 67 }
+	add_to_array = { 81.voivodeship_states_array = 81 }
+	add_to_array = { 76.voivodeship_states_array = 76 }
 	
 	set_variable = { 427.state_img_position_x = 496 }
 	set_variable = { 427.state_img_position_y = 144 }
@@ -1226,8 +1274,22 @@ POL_init_politics_system={
 	add_to_array = { POL.parties_neutral_array = 5 }
 	POL_create_governmental_arrays = yes
 	
-	set_variable = { POL.POL_electoral_map_selected_state = 0 }
+	set_variable = { POL.POL_electoral_map_selected_state = POL }
 	set_variable = { POL.party_banner = token:POL_partyBanner_civicPlatform }
+	
+	
+	for_each_scope_loop = {
+		array = POL.election_states
+		POL_get_voivodeship_populations = yes
+		POL_ELECTION_sort_party_arrays = yes
+		POL_ELECTION_get_vote_percentages = yes
+	}
+	POL={
+		POL_ELECTION_sort_party_arrays = yes
+		POL_ELECTION_get_vote_percentages = yes
+	}
+	set_variable = { 47.parties_in_order^0 = 3 }
+	set_variable = { 47.parties_in_order^1 = 1 }
 }
 
 
@@ -1265,4 +1327,60 @@ POL_get_sejm_seats={
 	}
 	clear_variable = current_faction_id
 	clear_variable = current_faction_seat_count
+}
+
+POL_ELECTION_sort_party_arrays={
+	clear_array = THIS.parties_in_order
+	for_each_loop = {
+		array = THIS.party_vote_count
+		add_to_array = { THIS.t_party_array = v }
+	}
+	
+	for_loop_effect = {
+		end = THIS.t_party_array^num
+		value = iteration
+		
+		find_highest_in_array = {
+			array = THIS.t_party_array
+			value = largest_party_value
+			index = largest_party_index
+		}
+		
+		add_to_array = { THIS.parties_in_order = largest_party_index }
+		set_variable = { THIS.t_party_array^largest_party_index = -1 }
+	}
+	
+	clear_array = THIS.t_party_array
+}
+
+POL_ELECTION_get_vote_percentages={
+	clear_array = THIS.party_vote_percentage
+	set_variable = { t = THIS.total_votes_cast }
+	divide_variable = { t = 100 }
+	
+	for_each_loop = {
+		array = THIS.party_vote_count
+		value = v
+		index = i
+		
+		add_to_array = { THIS.party_vote_percentage = v }
+		divide_variable = { THIS.party_vote_percentage^i = t }
+	}
+	clear_variable = t
+}
+
+POL_get_voivodeship_populations={
+	for_each_scope_loop = {
+		array = POL.election_states
+		
+		set_variable = { THIS.voivodeship_population = 0 }
+		
+		for_each_loop = {
+			array = THIS.voivodeship_states_array
+			value = v
+			index = i
+			
+			add_to_variable = { THIS.voivodeship_population_temp = v:state_population}
+		}
+	}
 }

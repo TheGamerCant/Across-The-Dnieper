@@ -20,7 +20,7 @@ defined_text = {
 	name = GetRightBannerImg
 	text = {
 		trigger = {
-			check_variable = { POL.POL_electoral_map_selected_state = 0 }
+			check_variable = { POL.POL_electoral_map_selected_state = POL }
 		}
 		localization_key = "[?POL.party_banner.GetTokenLocalizedKey]"
 	}
@@ -37,7 +37,7 @@ defined_text = {
 	name = GetRightSelectedTitle
 	text = {
 		trigger = {
-			check_variable = { POL.POL_electoral_map_selected_state = 0 }
+			check_variable = { POL.POL_electoral_map_selected_state = POL }
 		}
 		localization_key = "RightSelectedTitlePoland"
 	}
@@ -55,5 +55,222 @@ defined_text = {
 	}
 	text = {
 		localization_key = "[?POL.POL_electoral_map_selected_state.GetName]"
+	}
+}
+
+defined_text = {
+	name = GetStateButtonTT
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = v }
+		}
+		localization_key = "RightSelectedTitlePoland"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 427 }
+		}
+		localization_key = "RightSelectedTitleMazowieckie"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 40 }
+		}
+		localization_key = "RightSelectedTitleLubuskie"
+	}
+	text = {
+		localization_key = "[?v.GetName]"
+	}
+}
+defined_text = {
+	name = GetTopbarOverview
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = POL }
+			check_variable = { POL.largest_party = POL.PREV_largest_party }
+		}
+		localization_key = "POL_polandLargestPartyRemainedTheSame"
+	}
+	text = {
+		trigger = {
+			check_variable = { POL.POL_electoral_map_selected_state = POL }
+			NOT = { check_variable = { POL.largest_party = POL.PREV_largest_party } }
+		}
+		localization_key = "POL_polandLargestPartyChanged"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_largest_party = pointer:largest_party }
+			set_temp_variable = { t_PREV_largest_party = pointer:PREV_largest_party }
+			check_variable = { t_largest_party = t_PREV_largest_party }
+		}
+		localization_key = "POL_stateLargestPartyRemainedTheSame"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_largest_party = pointer:largest_party }
+			set_temp_variable = { t_PREV_largest_party = pointer:PREV_largest_party }
+			NOT = { check_variable = { t_largest_party = t_PREV_largest_party } }
+		}
+		localization_key = "POL_stateLargestPartyChanged"
+	}
+}
+defined_text = {
+	name = GetSamePartySeatChange
+	text = {
+		trigger = {
+			set_temp_variable = { seat_change = POL.party_seat_count^POL.largest_party }
+			subtract_from_temp_variable = { seat_change = POL.PREV_party_seat_count^POL.largest_party }
+			check_variable = { seat_change = 0 }
+		}
+		localization_key = "POL_polandLargestPartySeatCountRemainedTheSame"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { seat_change = POL.party_seat_count^POL.largest_party }
+			subtract_from_temp_variable = { seat_change = POL.PREV_party_seat_count^POL.largest_party }
+			check_variable = { seat_change < 0 }
+			set_temp_variable = { seat_change_no_negative = seat_change }
+			multiply_temp_variable = { seat_change_no_negative = -1 }
+		}
+		localization_key = "POL_polandLargestPartySeatCountDecreased"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { seat_change = POL.party_seat_count^POL.largest_party }
+			subtract_from_temp_variable = { seat_change = POL.PREV_party_seat_count^POL.largest_party }
+			check_variable = { seat_change > 0 }
+		}
+		localization_key = "POL_polandLargestPartySeatCountIncreased"
+	}
+}
+
+defined_text = {
+	name = returnSeatChangeSymbol
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_seat_count = pointer:party_seat_count^v }
+			set_temp_variable = { t_PREV_party_seat_count = pointer:PREV_party_seat_count^v }
+			check_variable = { pointer:t_party_seat_count > pointer:t_PREV_party_seat_count }
+		}
+		localization_key = "POL_increase_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_seat_count = pointer:party_seat_count^v }
+			set_temp_variable = { t_PREV_party_seat_count = pointer:PREV_party_seat_count^v }
+			check_variable = { pointer:t_party_seat_count < pointer:t_PREV_party_seat_count }
+		}
+		localization_key = "POL_decrease_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_seat_count = pointer:party_seat_count^v }
+			set_temp_variable = { t_PREV_party_seat_count = pointer:PREV_party_seat_count^v }
+			check_variable = { pointer:t_party_seat_count = pointer:t_PREV_party_seat_count }
+		}
+		localization_key = "POL_neutral_texticon"
+	}
+}
+defined_text = {
+	name = returnVoteChangeSymbol
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_count = pointer:party_vote_count^v }
+			set_temp_variable = { t_PREV_party_vote_count = pointer:PREV_party_vote_count^v }
+			check_variable = { pointer:t_party_vote_count > pointer:t_PREV_party_vote_count }
+		}
+		localization_key = "POL_increase_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_count = pointer:party_vote_count^v }
+			set_temp_variable = { t_PREV_party_vote_count = pointer:PREV_party_vote_count^v }
+			check_variable = { pointer:t_party_vote_count < pointer:t_PREV_party_vote_count }
+		}
+		localization_key = "POL_decrease_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_count = pointer:party_vote_count^v }
+			set_temp_variable = { t_PREV_party_vote_count = pointer:PREV_party_vote_count^v }
+			check_variable = { pointer:t_party_vote_count = pointer:t_PREV_party_vote_count }
+		}
+		localization_key = "POL_neutral_texticon"
+	}
+}
+defined_text = {
+	name = returnPercentageChangeSymbol
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_percentage = pointer:party_vote_percentage^v }
+			set_temp_variable = { t_PREV_party_vote_percentage = pointer:PREV_party_vote_percentage^v }
+			check_variable = { pointer:t_party_vote_percentage > pointer:t_PREV_party_vote_percentage }
+		}
+		localization_key = "POL_increase_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_percentage = pointer:party_vote_percentage^v }
+			set_temp_variable = { t_PREV_party_vote_percentage = pointer:PREV_party_vote_percentage^v }
+			check_variable = { pointer:t_party_vote_percentage < pointer:t_PREV_party_vote_percentage }
+		}
+		localization_key = "POL_decrease_texticon"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { t_party_vote_percentage = pointer:party_vote_percentage^v }
+			set_temp_variable = { t_PREV_party_vote_percentage = pointer:PREV_party_vote_percentage^v }
+			check_variable = { pointer:t_party_vote_percentage = pointer:t_PREV_party_vote_percentage }
+		}
+		localization_key = "POL_neutral_texticon"
+	}
+}
+
+defined_text = {
+	name = getElectionTurnoutChange
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { temp_election_turnout = pointer:election_turnout }
+			subtract_from_temp_variable = { temp_election_turnout = pointer:PREV_election_turnout }
+			
+			check_variable = { temp_election_turnout > 0 }
+		}
+		localization_key = "POL_increased_election_turnout"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { temp_election_turnout = pointer:election_turnout }
+			subtract_from_temp_variable = { temp_election_turnout = pointer:PREV_election_turnout }
+			
+			check_variable = { temp_election_turnout < 0 }
+			
+			set_temp_variable = { temp_election_turnout_no_negative = temp_election_turnout }
+			multiply_temp_variable = { temp_election_turnout_no_negative = -1 }
+		}
+		localization_key = "POL_decreased_election_turnout"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { pointer = POL.POL_electoral_map_selected_state }
+			set_temp_variable = { temp_election_turnout = pointer:election_turnout }
+			subtract_from_temp_variable = { temp_election_turnout = pointer:PREV_election_turnout }
+			
+			check_variable = { temp_election_turnout = 0 }
+		}
+		localization_key = "POL_same_election_turnout"
 	}
 }

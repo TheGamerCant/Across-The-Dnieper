@@ -1,0 +1,349 @@
+#Yeah so Paradox's variables output sucks balls, this is honestly the easiest way to output large variables
+#Just install notepadd++ (or any editor with similar features), and replace in selection for the variable you want to input
+
+defined_text = {
+	name = returnTotalVotesCastLocMillions
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:total_votes_cast
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { millions = POL.POL_electoral_map_selected_state:total_votes_cast }
+			divide_temp_variable = { millions = 1000000 }
+			multiply_temp_variable = { millions = 1000 }
+		}
+		localization_key = "[?millions|.0],"
+	}
+}
+defined_text = {
+	name = returnTotalVotesCastLocThousands
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+			OR={
+				AND={
+					check_variable = { 
+						var = POL.POL_electoral_map_selected_state:total_votes_cast
+						value = 1000
+						compare = greater_than_or_equals 
+					}
+					check_variable = { 
+						var = thousands
+						value = 100
+						compare = greater_than_or_equals 
+					}
+				}
+				AND={
+					check_variable = { 
+						var = POL.POL_electoral_map_selected_state:total_votes_cast
+						value = 1000
+						compare = less_than 
+					}
+					check_variable = { 
+						var = thousands
+						value = 1
+						compare = greater_than_or_equals 
+					}
+				}
+			}
+		}
+		localization_key = "[?thousands|.0],"
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:total_votes_cast
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 10
+				compare = greater_than_or_equals 
+			}
+		}
+		localization_key = "0[?thousands|.0],"
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:total_votes_cast
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+		}
+		localization_key = "00[?thousands|.0],"
+	}
+}
+defined_text = {
+	name = returnTotalVotesCastLocOnes
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:total_votes_cast }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:total_votes_cast }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+			
+			OR={
+				AND={
+					check_variable = { 
+						var = thousands
+						value = 1
+						compare = greater_than_or_equals 
+					}
+					check_variable = { 
+						var = ones
+						value = 100
+						compare = greater_than_or_equals 
+					}
+				}
+				AND={
+					check_variable = { 
+						var = thousands
+						value = 0
+						compare = equals 
+					}
+				}
+			}
+		}
+		localization_key = "[?ones|.0]"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 1
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:total_votes_cast }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:total_votes_cast }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+			
+			check_variable = { 
+				var = ones
+				value = 10
+				compare = greater_than_or_equals 
+			}
+		}
+		localization_key = "0[?ones|.0]"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:total_votes_cast }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 1
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:total_votes_cast }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:total_votes_cast }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+		}
+		localization_key = "00[?ones|.0]"
+	}
+}
+
+
+defined_text = {
+	name = returnPartyVotesLocMillions
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:party_vote_count^v
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { millions = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			divide_temp_variable = { millions = 1000000 }
+			multiply_temp_variable = { millions = 1000 }
+		}
+		localization_key = "[?millions|.0],"
+	}
+}
+defined_text = {
+	name = returnPartyVotesLocThousands
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+			OR={
+				AND={
+					check_variable = { 
+						var = POL.POL_electoral_map_selected_state:party_vote_count^v
+						value = 1000
+						compare = greater_than_or_equals 
+					}
+					check_variable = { 
+						var = thousands
+						value = 100
+						compare = greater_than_or_equals 
+					}
+				}
+				AND={
+					check_variable = { 
+						var = POL.POL_electoral_map_selected_state:party_vote_count^v
+						value = 1000
+						compare = less_than 
+					}
+					check_variable = { 
+						var = thousands
+						value = 1
+						compare = greater_than_or_equals 
+					}
+				}
+			}
+		}
+		localization_key = "[?thousands|.0],"
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:party_vote_count^v
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 10
+				compare = greater_than_or_equals 
+			}
+		}
+		localization_key = "0[?thousands|.0],"
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = POL.POL_electoral_map_selected_state:party_vote_count^v
+				value = 1000
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+		}
+		localization_key = "00[?thousands|.0],"
+	}
+}
+defined_text = {
+	name = returnPartyVotesLocOnes
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+			
+			OR={
+				AND={
+					check_variable = { 
+						var = thousands
+						value = 1
+						compare = greater_than_or_equals 
+					}
+					check_variable = { 
+						var = ones
+						value = 100
+						compare = greater_than_or_equals 
+					}
+				}
+				AND={
+					check_variable = { 
+						var = thousands
+						value = 0
+						compare = equals 
+					}
+				}
+			}
+		}
+		localization_key = "[?ones|.0]"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 1
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+			
+			check_variable = { 
+				var = ones
+				value = 10
+				compare = greater_than_or_equals 
+			}
+		}
+		localization_key = "0[?ones|.0]"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { thousands = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			modulo_temp_variable = { thousands = 1000 }
+			
+			check_variable = { 
+				var = thousands
+				value = 1
+				compare = greater_than_or_equals 
+			}
+			
+			set_temp_variable = { t = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			divide_temp_variable = { t = 1000 }
+			multiply_temp_variable = { t = 1000 }
+			
+			set_temp_variable = { ones = POL.POL_electoral_map_selected_state:party_vote_count^v }
+			subtract_from_temp_variable = { ones = t }
+			multiply_temp_variable = { ones = 1000 }
+		}
+		localization_key = "00[?ones|.0]"
+	}
+}

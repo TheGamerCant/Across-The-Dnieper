@@ -23,29 +23,44 @@ List of states that are 'election states' - These states have the variables rela
 
 Each one of these election states have the following variables / arrays:
 
-THIS.number_of_seats_in_sejm	- Integer variable. Determines how many times the D'Hont method is used to divide up MPs
-THIS.election_turnout 			- Float variable.
-THIS.PREV_election_turnout 		- Float variable.
-THIS.party_seat_count			- Integer array. Each integer is the number of seats won by a party
-THIS.PREV_party_seat_count		- Integer array
-THIS.party_vote_count			- Float array. Number of votes won by party in that voivodeship. Stored in thousands (E.G a variable of 10.050 == 10,050 votes)
-THIS.PREV_party_vote_count		- Float array
-THIS.party_vote_percentage		- Float array. Percentage of votes won by party, =/= current party popularity
-THIS.PREV_party_vote_percentage	- Float array
-THIS.largest_party				- Integer variable, indexing the largest party
-THIS.state_img_progressbar		- Token variable, GFX type
-THIS.state_img_overlay			- Token variable, GFX type
-THIS.state_img_position_x		- Integer variable, defines the X pos in the state map view
-THIS.state_img_position_y		- Integer variable, defines the Y pos in the state map view
+THIS.number_of_seats_in_sejm		- Integer variable. Determines how many times the D'Hont method is used to divide up MPs
+THIS.election_turnout 				- Float variable.
+THIS.PREV_election_turnout 			- Float variable.
+THIS.party_seat_count				- Integer array. Each integer is the number of seats won by a party
+THIS.PREV_party_seat_count			- Integer array
+THIS.party_vote_count				- Float array. Number of votes won by party in that voivodeship. Stored in thousands (E.G a variable of 10.050 == 10,050 votes)
+THIS.PREV_party_vote_count			- Float array
+THIS.party_vote_percentage			- Float array. Percentage of votes won by party, =/= current party popularity
+THIS.PREV_party_vote_percentage		- Float array
+THIS.largest_party					- Integer variable, indexing the largest party
+THIS.PREV_largest_party				- Integer variable, indexing the largest party in the previous election
+THIS.total_votes_cast				- Float variable, total votes cast in thousands
+THIS.PREV_total_votes_cast			- Float variable, total votes cast in thousands in the previous election
+THIS.state_img_progressbar			- Token variable, GFX type
+THIS.state_img_overlay				- Token variable, GFX type
+THIS.state_img_position_x			- Integer variable, defines the X pos in the state map view
+THIS.state_img_position_y			- Integer variable, defines the Y pos in the state map view
+THIS.parties_in_order				- Integer array, parties in order (most votes to least votes)
+THIS.voivodeship_states_array		- Integer array of states that are part of that voivodeship, used to calculate votes cast and turnout
+THIS.voivodeship_population			- Float of the voivodeship's population, in thousands
 
 Party arrays - These allow for a sort of OOP-lite, allowing us to index to another array based on the value of one, giving us GFX, strings and variables for parties
 POL.party_names_long_nocolour_array		- Token array, string type
-POL.party_names_short_nocolour_array		- Token array, string type
+POL.party_names_short_nocolour_array	- Token array, string type
 POL.party_names_long_colour_array		- Token array, string type
 POL.party_names_short_colour_array		- Token array, string type
 POL.party_seat_count					- Integer array, seats in national parliament
-POL.party_seat_count					- Integer array, seats in national parliament
+POL.party_vote_count					- Float array
+POL.party_vote_percentage				- Float array
+POL.PREV_party_seat_count				- Integer array, seats in previous national parliament
+POL.PREV_party_vote_count				- Float array
+POL.PREV_party_vote_percentage			- Float array
 
 Poland scoped variables and arrays:
 POL.government_status_display_array 	- Token array, used to display what parties are in power, in opposition and are neutral in the Sejm GUI. Any party with 0 seats is removed from the array
 POL.POL_electoral_map_selected_state	- Integer, corresponds with selected state. Defaults to 0
+POL.largest_party						- Integer variable, indexing the largest party
+POL.PREV_largest_party					- Integer variable, indexing the largest party in the previous election
+POL.total_votes_cast					- Float variable, total votes cast in thousands
+POL.PREV_total_votes_cast				- Float variable, total votes cast in thousands in the previous election
+POL.parties_in_order			- Integer array, parties in order (most votes to least votes)

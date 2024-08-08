@@ -27,8 +27,25 @@ guiTypes = {
 			font = "OCR_A_32"
 			text = "[POL.GetRightSelectedTitle]"
 			format = center
-			maxHeight = 200
 			maxwidth = 464
+		}
+		instantTextBoxType = {
+			name ="election_results_description_text_box"
+			position = { x = 735 y = 106 }
+			alwaysTransparent = yes
+			font = "OCR_A_16"
+			text = "election_results_description_text"
+			format = left
+			maxwidth = 460
+		}
+		
+		gridboxtype = {
+			name = "party_national_state_results_gridbox"
+			position = { x = 735 y = 284 }
+			size = { width = 460 height = 100% }
+			slotsize = { width = 460 height = 80 }
+			max_slots_horizontal = 1
+			add_horizontal = no
 		}
 		
 		gridboxtype = {
@@ -69,6 +86,52 @@ guiTypes = {
 		buttonType = {
 			name = "state_button_entry_button"
 			quadTextureSprite = "GFX_POL_MAP_greater_poland_OVERLAY"
+			pdx_tooltip_delayed  = "state_button_entry_button_tt"
+		}
+	}
+	containerWindowType = {
+		name = "party_national_state_results_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 460 height = 80 }
+
+		instantTextBoxType = {
+			name ="party_title_text_box"
+			position = { x = 0 y = 0 }
+			alwaysTransparent = yes
+			font = "OCR_A_14"
+			text = "party_title_text"
+			format = left
+			maxwidth = 460
+		}
+
+		instantTextBoxType = {
+			name ="party_seat_count_text_box"
+			position = { x = 0 y = 18 }
+			alwaysTransparent = yes
+			font = "OCR_A_14"
+			text = "party_seats_won_count_text"
+			format = left
+			maxwidth = 460
+		}
+
+		instantTextBoxType = {
+			name ="party_votes_won_count_text_box"
+			position = { x = 0 y = 36 }
+			alwaysTransparent = yes
+			font = "OCR_A_14"
+			text = "party_votes_won_count_text"
+			format = left
+			maxwidth = 460
+		}
+
+		instantTextBoxType = {
+			name ="party_percentage_votes_count_text_box"
+			position = { x = 0 y = 54 }
+			alwaysTransparent = yes
+			font = "OCR_A_14"
+			text = "party_percentage_votes_count_text"
+			format = left
+			maxwidth = 460
 		}
 	}
 }

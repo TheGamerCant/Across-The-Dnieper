@@ -47,6 +47,12 @@ scripted_gui={
 				change_scope = yes
 				entry_container = state_button_entry
 			}
+			
+			party_national_state_results_gridbox={
+				array = POL.POL_electoral_map_selected_state:parties_in_order
+				change_scope = no
+				entry_container = party_national_state_results_entry
+			}
 		}
 		
 		properties={
@@ -70,7 +76,7 @@ scripted_gui={
 			state_button_entry_button_click={
 				if={
 					limit = { check_variable = { POL.POL_electoral_map_selected_state = v } }
-					set_variable = { POL.POL_electoral_map_selected_state = 0 }
+					set_variable = { POL.POL_electoral_map_selected_state = POL }
 				}
 				else={
 					set_variable = { POL.POL_electoral_map_selected_state = v }
