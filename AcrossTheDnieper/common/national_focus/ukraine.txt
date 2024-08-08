@@ -988,30 +988,71 @@ focus_tree = {
 			add_command_power = -20
 			add_political_power = -20
 
-			every_state = {
-				limit = {
-					OR = {
-						state = 230
-						state = 306
-						state = 166
-						state = 467
-						state = 468
-						state = 146
-						state = 464
-						state = 131
-						state = 136
-						state = 472
-						state = 154
+
+			hidden_effect={
+				every_state = {
+					limit = {
+						OR = {
+							state = 230
+							state = 306
+							state = 166
+							state = 467
+							state = 468
+							state = 146
+							state = 464
+							state = 131
+							state = 136
+							state = 472
+							state = 154
+						}
+					}
+					if={
+						limit = { DON = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_entrenched
+							scope = DON
+							days = 250
+						}
+					}
+					if={
+						limit = { LHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_entrenched
+							scope = LHK
+							days = 250
+						}
+					}
+					if={
+						limit = { KHK = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_entrenched
+							scope = KHK
+							days = 250
+						}
+					}
+					if={
+						limit = { ODS = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_entrenched
+							scope = ODS
+							days = 250
+						}
+					}
+					if={
+						limit = { NOV = { exists = yes } }
+						add_dynamic_modifier = {
+							modifier = DONBASS_heavily_entrenched
+							scope = NOV
+							days = 250
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = DONBASS_heavily_entrenched
+						scope = SOV
+						days = 250
 					}
 				}
-
-				add_dynamic_modifier = {
-					modifier = UKR_offensive
-					scope = UKR
-					days = 80
-				}
-			}
-			hidden_effect={
+				
 				division_template = {
 					name = "Artemivsk Battalion"
 					division_names_group = UKR_INF_01
