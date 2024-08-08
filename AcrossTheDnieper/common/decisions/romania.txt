@@ -449,22 +449,13 @@ ROM_parliament_decisions_category={
 				limit = {
 					state = {is_owned_by = ROM}
 				}
-				if = {
-					limit = {
-						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+				remove_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+				every_state={
+					limit = { has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM } }
+					remove_dynamic_modifier = {
+						modifier = not_allowed_to_attack_here
+						scope = ROM
 					}
-
-					remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
-				}
-				limit = {
-					state = {is_owned_by = UKR}
-				}
-				if = {
-					limit = {
-						has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM }
-					}
-
-					remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
 				}
 			}
 		}
@@ -483,19 +474,17 @@ ROM_parliament_decisions_category={
 			add_stability = 0.1
 			add_war_support = 0.1
 			hidden_effect = {
-			limit = {
-					OR = { state = { is_owned_by = UKR } state = { is_owned_by = ROM } }
-			}
-			if = {
 				limit = {
-					OR = {
-					has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
-					has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM }
+					state = {is_owned_by = ROM}
+				}
+				remove_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = UKR }
+				every_state={
+					limit = { has_dynamic_modifier = { modifier = not_allowed_to_attack_here scope = ROM } }
+					remove_dynamic_modifier = {
+						modifier = not_allowed_to_attack_here
+						scope = ROM
 					}
 				}
-
-				remove_dynamic_modifier = { modifier = not_allowed_to_attack_here }
-			}
 			}
 		}
 	}
