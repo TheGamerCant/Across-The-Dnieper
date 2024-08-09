@@ -5839,7 +5839,11 @@ country_event = {
 			every_state = {
 			limit = {
 				is_controlled_by = SOV
-				state = 146
+				OR = {
+					state = 146
+					state = 464
+					state = 131
+				}
 			}
 
 			add_dynamic_modifier = {
@@ -6487,8 +6491,10 @@ country_event = {
 			has_war_with = UKR
 			has_war_with = SOV
 		}
+
+		NOT = { has_country_flag = doesnt_want_to_recieve_war_report }
 	}
-	
+
 	immediate = {
 		hidden_effect = { country_event = { id = russia.1172 days = 31 } }
 	}
@@ -6496,8 +6502,17 @@ country_event = {
     option = {
         name = russia.1172.a
 		ai_chance = {
+			base = 0
+		}
+    }
+
+	option = {
+        name = russia.1172.b
+		ai_chance = {
 			base = 10
 		}
+
+		set_country_flag = doesnt_want_to_recieve_war_report
     }
 
 }

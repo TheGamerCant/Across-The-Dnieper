@@ -2879,19 +2879,6 @@ focus_tree = {
 			
 			hidden_effect={
 				country_event = { id = russia.1153 days = 130 }
-				464 = {
-					add_dynamic_modifier = {
-						modifier = SOV_local_offensive_modifier
-						scope = SOV
-						days = 130
-					}
-				}
-				146 = {
-					add_province_modifier = {
-						static_modifiers = { wagner_in_bakhmut }
-						province = 17988
-					}
-				}
 			}
 
 			if = {
@@ -2903,9 +2890,41 @@ focus_tree = {
 						days = 130
 					}
 				}
+
+				464 = {
+					add_dynamic_modifier = {
+						modifier = SOV_local_offensive_modifier
+						scope = SOV
+						days = 130
+					}
+				}
+				
+				131 = {
+					add_dynamic_modifier = {
+						modifier = SOV_local_offensive_modifier
+						scope = SOV
+						days = 130
+					}
+				}
 			}
 			else = {
 				146={
+					add_dynamic_modifier = {
+						modifier = UKR_minor_wagner_offensive
+						scope = SOV
+						days = 130
+					}
+				}
+
+				464 = {
+					add_dynamic_modifier = {
+						modifier = UKR_minor_wagner_offensive
+						scope = SOV
+						days = 130
+					}
+				}
+
+				131 = {
 					add_dynamic_modifier = {
 						modifier = UKR_minor_wagner_offensive
 						scope = SOV
@@ -3161,7 +3180,7 @@ focus_tree = {
 		icon = GFX
 		x = 0
 		y = 2
-		cost = 20
+		cost = 30
 		search_filters = {
 			
 		}
@@ -3364,6 +3383,16 @@ focus_tree = {
 					instant_build = yes
 				}
 				add_dynamic_modifier = { modifier = SOV_reconstruction_fund_modifier scope = SOV days = 150 }
+			}
+
+			every_state = {
+				limit = {
+					has_state_flag = donetsk_oblast_flag
+					is_controlled_by = ROOT
+					NOT = { is_core_of = ROOT }
+				}
+
+				add_core_of = ROOT
 			}
 		}
 	}
@@ -4071,7 +4100,6 @@ focus_tree = {
 
 		}
 
-		mutually_exclusive = { focus = SOV_nationalize_wagner }
 		prerequisite = { focus = SOV_destroy_wagner_for_all focus = SOV_nationalize_wagner }
 		
 		relative_position_id = SOV_new_military_innovations
@@ -4190,10 +4218,7 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			swap_ideas = {
-				remove_idea = oligarchy
-				add_idea = war_economy
-			}
+			add_ideas = war_economy
 		}
 	}
 
@@ -4550,7 +4575,7 @@ focus_tree = {
 	focus = {
 		id = SOV_great_victors_2
 		icon = GFX_focus_SOV_great_victors_3
-		x = 46
+		x = 64
 		y = 8
 		cost = 10
 		search_filters = {
