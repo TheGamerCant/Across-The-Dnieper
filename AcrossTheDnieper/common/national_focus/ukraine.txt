@@ -9421,8 +9421,8 @@ focus_tree = {
 	focus = {
 		id = UKR_training_aviators
 		icon = GFX_focus_UKR_Training_Aviators
-		x = -1
-		y = 2
+		x = 0
+		y = 3
 		
 		cost = 7
 		ai_will_do = {
@@ -9455,8 +9455,8 @@ focus_tree = {
 	focus = {
 		id = UKR_training_tank_operators
 		icon = GFX_focus_UKR_Training_Tank_Operators
-		x = 3
-		y = 2
+		x = 2
+		y = 3
 		
 		cost = 7
 		ai_will_do = {
@@ -9490,7 +9490,7 @@ focus_tree = {
 		id = UKR_western_training_on_ukrainian_soil
 		icon = GFX_focus_UKR_Training_On_Ukrainian_Soil
 		x = 1
-		y = 3
+		y = 4
 		
 		cost = 21
 		ai_will_do = {
@@ -9512,7 +9512,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_to_variable = { UKR_WE_experience_gain_army_factor = 0.01 }
+			add_to_variable = { UKR_WE_experience_gain_army_factor = 0.05 }
 			add_war_support = 0.05
 
 			custom_effect_tooltip = UKR_western_training_on_ukrainian_soil_desc_tt
@@ -9523,7 +9523,7 @@ focus_tree = {
 		id = UKR_adopt_nato_doctrine
 		icon = GFX_focus_UKR_NATO_Doctrine
 		x = 1
-		y = 4
+		y = 5
 		
 		cost = 35
 		ai_will_do = {
@@ -11496,11 +11496,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_stability = -0.015
+			
 			custom_effect_tooltip = UKR_prevent_draft_dodging_tt
 			add_to_variable = { UKR_ms_weekly_manpower = 35 }
 			add_to_variable = { UKR_ms_consumer = 0.02 }
 			add_to_variable = { UKR_ms_planning = 0.015 }
+
+			add_stability = -0.015
 		}
 	}
 
@@ -11510,11 +11512,12 @@ focus_tree = {
 		x = 1
 		y = 3
 		
-		cost = 25
+		cost = 15
 		ai_will_do = {
 		}
 		prerequisite = { focus = UKR_prevent_draft_dodging }
 		prerequisite = { focus = UKR_tighten_border_control }
+		prerequisite = { focus = UKR_recruit_football_hooligans }
 		relative_position_id = UKR_lower_conscription_age
 		available = {
 			NOT = { is_puppet_of = SOV }
@@ -11529,10 +11532,50 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_war_support = 0.02
 			custom_effect_tooltip = UKR_promote_patriotism_tt
 			add_to_variable = { UKR_ms_conscription = 0.04 }
 			add_to_variable = { UKR_ms_morale = 0.03 }
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = UKR_recruit_football_hooligans
+		icon = GFX
+		x = 2
+		y = 2
+		
+		cost = 10
+		ai_will_do = {
+		}
+		prerequisite = { focus = UKR_prevent_draft_dodging }
+		relative_position_id = UKR_lower_conscription_age
+		available = {
+			NOT = { is_puppet_of = SOV }
+			any_country={ original_tag = SOV has_war_with = ROOT }
+			92 = { is_controlled_by = ROOT }
+
+			has_dynamic_modifier = { modifier = UKR_manpower_shortage_modifier }
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+
+			custom_effect_tooltip = UKR_recruit_football_hooligans_tt
+			add_to_variable = { UKR_ms_conscription = 0.05 }
+			add_to_variable = { UKR_ms_morale = 0.04 }
+			add_popularity = {
+				ideology = fascist
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = ultranationalist
+				popularity = 0.04
+			}
+			add_war_support = 0.08
 		}
 	}
 
@@ -11683,11 +11726,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_stability = 0.015
 			custom_effect_tooltip = UKR_decrease_tour_of_duty_tt
 			add_to_variable = { UKR_ms_morale = 0.08 }
 			add_to_variable = { UKR_ms_planning = 0.02 }
 			add_to_variable = { UKR_ms_conscription = -0.1 }
+			add_stability = 0.015
 		}
 	}
 
@@ -11715,11 +11758,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_stability = 0.02
+			
 			custom_effect_tooltip = UKR_bring_back_workers_tt
 			add_to_variable = { UKR_ms_consumer = -0.06 }
 			add_to_variable = { UKR_ms_conscription = -0.05 }
-
+			add_stability = 0.02
 			every_controlled_state = {
 				increase_state_gdp_growth_by_1_5 = yes 
 			}
@@ -11751,10 +11794,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_war_support = 0.04
 			custom_effect_tooltip = UKR_battalion_rotations_tt
 			add_to_variable = { UKR_ms_morale = 0.05 }
 			add_to_variable = { UKR_ms_planning = 0.04 }
+			add_war_support = 0.04
 		}
 	}
 
@@ -11782,10 +11825,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_manpower = -10000
 			custom_effect_tooltip = UKR_tighten_border_control_tt
 			add_to_variable = { UKR_ms_weekly_manpower = 15 }
 			add_to_variable = { UKR_ms_morale = 0.03 }
+			add_manpower = -10000
 		}
 	}
 

@@ -10748,13 +10748,13 @@ shared_focus = {
 shared_focus = {
 	id = SOV_clamp_down_on_production_corruption
 	icon = GFX_focus_SOV_clamp_down_on_production_corruption
-	x = -1
-	y = 1
+	x = 0
+	y = 2
 	
 	cost = 54
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_rewrite_the_conscription_law }
+	prerequisite = { focus = SOV_deal_with_the_devil focus = SOV_fund_the_interbrigade }
 	relative_position_id = SOV_rewrite_the_conscription_law
 	available = {
 		igor_girkin_is_leader = yes
@@ -10785,6 +10785,7 @@ shared_focus = {
 	}
 	prerequisite = { focus = SOV_rewrite_the_conscription_law }
 	relative_position_id = SOV_rewrite_the_conscription_law
+	mutually_exclusive = { focus = SOV_deal_with_the_devil }
 	available = {
 		igor_girkin_is_leader = yes
 
@@ -10850,18 +10851,19 @@ shared_focus = {
 shared_focus = {
 	id = SOV_deal_with_the_devil
 	icon = GFX
-	x = 0
-	y = 2
+	x = -1
+	y = 1
 	
 	cost = 60
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_clamp_down_on_production_corruption }
-	prerequisite = { focus = SOV_fund_the_interbrigade }
+	prerequisite = { focus = SOV_rewrite_the_conscription_law }
+	mutually_exclusive = { focus = SOV_fund_the_interbrigade }
 	relative_position_id = SOV_rewrite_the_conscription_law
 	available = {
 		igor_girkin_is_leader = yes
 
+		has_completed_focus = SOV_coalition_with_wagnerites
 		hidden_trigger = {
 			NOT = { has_global_flag = Wagner_mutiny_happened_flag }
 		}
@@ -11104,7 +11106,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_a_new_cabinet
 	icon = GFX_focus_SOV_the_angry_patriots
-	x = -6
+	x = -7
 	y = 1
 	
 	cost = 42
@@ -11135,13 +11137,14 @@ shared_focus = {
 	id = SOV_end_pushilin
 	icon = GFX
 	x = -8
-	y = 2
+	y = 3
 	
-	cost = 50
+	cost = 25
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_a_new_cabinet }
+	prerequisite = { focus = SOV_coalition_with_nazbols focus = SOV_coalition_with_wagnerites}
 	relative_position_id = SOV_russia_united_QM
+	mutually_exclusive = { focus = SOV_appease_pushilin }
 	available = {
 		igor_girkin_is_leader = yes
 	}
@@ -11155,6 +11158,53 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_appease_pushilin
+	icon = GFX
+	x = -6
+	y = 3
+	
+	cost = 25
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_coalition_with_nazbols focus = SOV_coalition_with_wagnerites}
+	relative_position_id = SOV_russia_united_QM
+	mutually_exclusive = { focus = SOV_end_pushilin }
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		#add some shit here
+	}
+}
+
+shared_focus = {
+	id = SOV_address_the_nation
+	icon = GFX
+	x = -7
+	y = 4
+	
+	cost = 34
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_appease_pushilin focus = SOV_end_pushilin }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		
+	}
+}
+
+shared_focus = {
 	id = SOV_coalition_with_nazbols
 	icon = GFX
 	x = -6
@@ -11164,6 +11214,7 @@ shared_focus = {
 	ai_will_do = {
 	}
 	prerequisite = { focus = SOV_a_new_cabinet }
+	mutually_exclusive = { focus = SOV_coalition_with_wagnerites }
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
@@ -11179,6 +11230,35 @@ shared_focus = {
 		add_popularity = { ideology = fascist popularity = 0.1 }
 		add_popularity = { ideology = hardline_communist popularity = 0.1 }
 		add_ideas = SOV_nazbol_coalition
+	}
+}
+
+shared_focus = {
+	id = SOV_coalition_with_wagnerites
+	icon = GFX
+	x = -8
+	y = 2
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_a_new_cabinet }
+	mutually_exclusive = { focus = SOV_coalition_with_nazbols }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_popularity = { ideology = fascist popularity = 0.1 }
+		add_popularity = { ideology = military_junta popularity = 0.1 }
+		add_ideas = SOV_wagnerite_coalition
 	}
 }
 
@@ -11240,7 +11320,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_economic_self_sufficiency_girkin
 	icon = GFX_focus_SOV_clamp_down_on_production_corruption
-	x = 8
+	x = 4
 	y = 1
 	
 	cost = 60
