@@ -3073,6 +3073,19 @@ shared_focus = {
 		prerequisite = { focus = ROM_Integrate_Intelligence }
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				if = {
+					limit = {
+						has_intelligence_agency = no
+					}
+					create_intelligence_agency = {
+						agency_name = "Serviciul Special de Informații"
+					}
+				}
+			}
 			swap_ideas = {
 				remove_idea = ROM_Cyber_Warfare_3
 				add_idea = ROM_Cyber_Warfare_4
