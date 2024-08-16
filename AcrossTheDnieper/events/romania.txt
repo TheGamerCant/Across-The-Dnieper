@@ -337,10 +337,10 @@ country_event = {
     title = romania.21.t
     desc = romania.21.desc
 	picture = GFX_report_event_ROM_Iohannis_Victory
-	is_triggered_only = yes
     fire_only_once = yes
     trigger = {
-			any_country={ original_tag = SOV has_war_with = UKR }
+		date > 2015.1.1
+        UKR = {has_war = yes}
 	}
 
 
@@ -356,10 +356,33 @@ country_event = {
 }
 
 country_event = {
+	id = romania.33
+	title = romania.33.t
+	desc = romania.33.desc
+	picture = GFX_report_event_UKR_shelling
+    fire_only_once = yes
+
+	trigger = {
+		UKR = {has_war_with = SOV}
+	}
+
+
+	option = { 
+		name = romania.33.a
+        ai_chance = {
+			base = 10
+		}
+        complete_national_focus = start_of_russian_invasion
+        country_event = { id = romania.22 }
+	}
+	
+}
+
+country_event = {
     id = romania.22
     title = romania.22.t
     desc = romania.22.desc
-		picture = GFX_report_event_ROM_Iohannis_Victory
+		picture = GFX_report_event_UKR_shelling
 		is_triggered_only = yes
 
 

@@ -1115,7 +1115,7 @@ shared_focus = {
 		cost = 14
 		
 		ai_will_do = { 
-			factor = 10 
+			factor = 0
 		}
         available = {
 			
@@ -1384,7 +1384,7 @@ shared_focus = {
 		cost = 14
 
 		ai_will_do = { 
-			factor = 90
+			factor = 100
 		}
         available = {
 			
@@ -1634,12 +1634,16 @@ shared_focus = {
 		prerequisite = {focus = humanitarian_aid}
 		prerequisite = {focus = send_jets}
 		completion_reward = {
+			custom_effect_tooltip = send_volunteers_to_ukr_rom_tt
 			send_volunteer_divisions_required = 8
-			set_rule = { can_send_volunteers = yes }
+
 			SOV = {
 				country_event = {
 				id = romania.20
 				}
+			}
+			hidden_effect = {
+				set_rule = { can_send_volunteers = yes }
 			}
 		}
 	}
