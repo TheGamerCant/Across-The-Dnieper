@@ -620,6 +620,47 @@ country_event = {
     }
 }
 
+country_event = {
+    id = romania.32
+    title = romania.32.t
+    desc = romania.32.desc
+	picture = GFX_Victor_Ponta_Corruption
+    mean_time_to_happen = {
+    years = 3
+    }
+    trigger = {
+        original_tag = ROM
+        NOT = {
+        has_government = social_democracy
+        }
+    }
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = romania.32.a
+        ai_chance = {
+			base = 100
+		}
+        add_stability = 0.05
+        create_country_leader = {
+			name = "Marcel Ciolacu"
+			desc = ""
+			ideology = generic_social_democracy
+			picture = gfx/leaders/ROM/Portrait_Marcel_Ciolacu.png
+			traits = {}
+		}		
+        create_country_leader = {
+			name = "Victor Ponta"
+			desc = ""
+			ideology = generic_socialist
+			picture = gfx/leaders/ROM/Portrait_Victor_Ponta.png
+			traits = { }
+		}
+    }
+}
+
+
 
 
 
