@@ -1051,6 +1051,9 @@ POL_initialise_2011_election={
 		add_to_variable = { POL.PREV_total_votes_cast = v7 }
 	}
 	
+	
+	set_variable = { POL.election_turnout = 48.92 }
+	set_variable = { POL.PREV_election_turnout = 53.82 }
 	#set_variable = { POL.LEFT_seat_count = 27 }
 	#set_variable = { POL.PO_seat_count = 207 }
 	#set_variable = { POL.PSL_seat_count = 28 }
@@ -1355,9 +1358,11 @@ POL_ELECTION_sort_party_arrays={
 
 POL_ELECTION_get_vote_percentages={
 	clear_array = THIS.party_vote_percentage
+	clear_array = THIS.PREV_party_vote_percentage
+	
 	set_variable = { t = THIS.total_votes_cast }
 	divide_variable = { t = 100 }
-	
+
 	for_each_loop = {
 		array = THIS.party_vote_count
 		value = v
@@ -1367,6 +1372,19 @@ POL_ELECTION_get_vote_percentages={
 		divide_variable = { THIS.party_vote_percentage^i = t }
 	}
 	clear_variable = t
+	
+	set_variable = { t2 = THIS.PREV_total_votes_cast }
+	divide_variable = { t2 = 100 }
+
+	for_each_loop = {
+		array = THIS.PREV_party_vote_count
+		value = v
+		index = i
+		
+		add_to_array = { THIS.PREV_party_vote_percentage = v }
+		divide_variable = { THIS.PREV_party_vote_percentage^i = t2 }
+	}
+	clear_variable = t2
 }
 
 POL_get_voivodeship_populations={
