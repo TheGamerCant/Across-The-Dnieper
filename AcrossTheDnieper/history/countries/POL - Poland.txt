@@ -113,39 +113,6 @@ create_country_leader = {
 	
 	traits = { }
 }
-
-create_country_leader = {
-	name = "Bronisław Komorowski"
-	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
-	ideology = poland_pis_party
-	
-	traits = { POL_former_minister_of_defence POL_liberal_reformer }
-}
-
-create_country_leader = {
-	name = "Bronisław Komorowski"
-	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
-	ideology = poland_kukiz_15
-	
-	traits = { POL_former_minister_of_defence POL_liberal_reformer }
-}
-
-create_country_leader = {
-	name = "Bronisław Komorowski"
-	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
-	ideology = poland_democratic_left_alliance
-	
-	traits = { POL_former_minister_of_defence POL_liberal_reformer }
-}
-
-create_country_leader = {
-	name = "Bronisław Komorowski"
-	picture = gfx/leaders/POL/Portrait_Bronisław_Komorowski.png
-	ideology = poland_PSL
-	
-	traits = { POL_former_minister_of_defence POL_liberal_reformer }
-}
-
 add_ai_strategy = {
     type = alliance
     id = "USA"
@@ -154,22 +121,64 @@ add_ai_strategy = {
 
 #PO
 recruit_character = POL_donald_tusk
-recruit_character = POL_radoslaw_sikorski
-recruit_character = POL_jacek_rostowski
+set_variable = { POL_donald_tusk.faction = 1 }
+
+recruit_character = POL_bronislaw_komorowski
+set_variable = { POL_bronislaw_komorowski.faction = 1 }
+
+recruit_character = POL_ewa_kopacz
+set_variable = { POL_ewa_kopacz.faction = 1 }
+
+recruit_character = POL_malgorzata_kidawa_blonska
+set_variable = { POL_malgorzata_kidawa_blonska.faction = 1 }
+
+recruit_character = POL_rafal_trzaskowski
+set_variable = { POL_rafal_trzaskowski.faction = 1 }
+
 recruit_character = POL_grzegorz_schetyna
+set_variable = { POL_grzegorz_schetyna.faction = 1 }
+
+recruit_character = POL_radoslaw_sikorski
+set_variable = { POL_radoslaw_sikorski.faction = 1 }
+
+recruit_character = POL_jacek_rostowski
+set_variable = { POL_jacek_rostowski.faction = 1 }
+
 
 #PiS
 recruit_character = POL_jaroslaw_kaczynski
-recruit_character = POL_mateusz_morawiecki
+set_variable = { POL_jaroslaw_kaczynski.faction = 3 }
+
 recruit_character = POL_antoni_macierewicz
+set_variable = { POL_antoni_macierewicz.faction = 3 }
+
+recruit_character = POL_mateusz_morawiecki
+set_variable = { POL_mateusz_morawiecki.faction = 3 }
+
 recruit_character = POL_andrzej_duda
+set_variable = { POL_andrzej_duda.faction = 3 }
+
 
 #RIGHT
+recruit_character = POL_pawel_kukiz
+set_variable = { POL_pawel_kukiz.faction = 4 }
+
 recruit_character = POL_grzegorz_braun
+set_variable = { POL_grzegorz_braun.faction = 4 }
 
 #PSL
 recruit_character = POL_wladyslaw_kosiniak_kamysz
+set_variable = { POL_pawel_kukiz.faction = 2 }
+
 recruit_character = POL_waldemar_pawlak
+set_variable = { POL_waldemar_pawlak.faction = 2 }
+
+#LEFT
+recruit_character = POL_leszek_miller
+set_variable = { POL_leszek_miller.faction = 0 }
+
+recruit_character = POL_magdalena_ogorek
+set_variable = { POL_magdalena_ogorek.faction = 0 }
 
 #Generals
 recruit_character = POL_mieczyslaw_gocul
@@ -180,6 +189,9 @@ recruit_character = POL_waldemar_skrzypczak
 recruit_character = POL_roman_polko
 recruit_character = POL_stanislaw_koziej
 recruit_character = POL_piotr_trytek
+
+set_variable = { POL.currentPresident = token:POL_bronislaw_komorowski }
+set_variable = { POL.currentPrimeMinister = token:POL_donald_tusk }
 
 
 add_ideas = {

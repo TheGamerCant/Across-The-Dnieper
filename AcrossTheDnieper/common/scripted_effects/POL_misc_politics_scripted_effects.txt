@@ -116,3 +116,101 @@ POL_make_confederation_RIGHT_party={
 	}
 	set_variable = { POL.party_banners_array^4 = token:POL_partyBanner_confederation }
 }
+
+POL_update_president = {
+	meta_effect={
+		text={
+			promote_character = {
+				character = [CURRENT_PRES]
+				ideology = civic_platform
+			}
+			promote_character = {
+				character = [CURRENT_PRES]
+				ideology = poland_pis_party
+			}
+			
+			if={
+				limit={
+					OR={
+						check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_englishLongNoColour_confederation }
+						check_variable = { POL.party_names_long_nocolour_array^4 = token:POL_party_name_polishLongNoColour_confederation }
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_konfederacja_ultranat
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_konfederacja_populist
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_konfederacja_monarchist
+					}
+				}
+			}
+			else={
+				promote_character = {
+					character = [CURRENT_PRES]
+					ideology = poland_kukiz_15
+				}
+			}
+			
+			if={
+				limit={
+					OR={
+						check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_englishLongNoColour_polishPeoplesParty }
+						check_variable = { POL.party_names_long_nocolour_array^2 = token:POL_party_name_polishLongNoColour_polishPeoplesParty }
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_PSL
+					}
+				}
+			}
+			else={
+				promote_character = {
+					character = [CURRENT_PRES]
+					ideology = POL_third_way
+				}
+			}
+			
+			if={
+				limit={
+					OR={
+						check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_democraticLeftAlliance }
+						check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_democraticLeftAlliance }
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_democratic_left_alliance
+					}
+				}
+			}
+			else_if={
+				limit={
+					OR={
+						check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_englishLongNoColour_unitedLeft }
+						check_variable = { POL.party_names_long_nocolour_array^0 = token:POL_party_name_polishLongNoColour_unitedLeft }
+					}
+					promote_character = {
+						character = [CURRENT_PRES]
+						ideology = poland_democratic_left_alliance
+					}
+				}
+			}
+			else={
+				promote_character = {
+					character = [CURRENT_PRES]
+					ideology = poland_lewica_socdem
+				}
+				promote_character = {
+					character = [CURRENT_PRES]
+					ideology = poland_lewica_socialist
+				}
+			}
+		}
+		CURRENT_PRES = "[?POL.currentPresident.GetTokenKey]"
+		debug = yes
+	}
+}

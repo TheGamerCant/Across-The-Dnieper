@@ -7,9 +7,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Donald_Tusk.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -19,13 +17,96 @@ characters={
 				POL_career_liberal
 			}
 			available={
-				has_country_flag = PO_in_power
-				NOT = { has_country_flag = POL_donald_tusk_is_current_pm_flag }
-				NOT = { has_country_flag = POL_donald_tusk_not_available_flag }
 			}
 			ai_will_do = {
 			}
 		}
+	}
+	
+	POL_bronislaw_komorowski = {
+		name = POL_bronislaw_komorowski
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Bronisław_Komorowski.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+		
+		country_leader = {
+			ideology = civic_platform
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_pis_party
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_kukiz_15
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_ultranat
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_populist
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_monarchist
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_democratic_left_alliance
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_united_left
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_lewica_socdem
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_lewica_socialist
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_PSL
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+		country_leader = {
+			ideology = poland_third_way
+			traits = { POL_former_minister_of_defence POL_liberal_reformer }
+		}
+	}
+	POL_ewa_kopacz = {
+		name = POL_ewa_kopacz
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Ewa_Kopacz.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+	}
+	POL_malgorzata_kidawa_blonska = {
+		name = POL_malgorzata_kidawa_blonska
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Małgorzata_Kidawa_Błońska.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+	}
+	POL_rafal_trzaskowski = {
+		name = POL_rafal_trzaskowski
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Rafał_Trzaskowski.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
 	}
 	
 	POL_grzegorz_schetyna = {
@@ -36,9 +117,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Grzegorz_Schetyna.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -48,7 +127,6 @@ characters={
 				POL_second_in_command_PO
 			}
 			available={
-				has_country_flag = PO_in_power
 			}
 			ai_will_do = {
 			}
@@ -63,9 +141,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Radosław_Sikorski.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -77,7 +153,6 @@ characters={
 				POL_minister_of_foreign_affairs_PO
 			}
 			available={
-				has_country_flag = PO_in_power
 			}
 			ai_will_do = {
 			}
@@ -91,9 +166,7 @@ characters={
 				small = "gfx/leaders/POL/advisors/Portrait_Jacek_Rostowski_advisor.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -103,14 +176,6 @@ characters={
 				POL_minister_of_finance_PO
 			}
 			available={
-				has_country_flag = PO_in_power
-				if={
-					limit = { OR = { has_idea = POL_mateusz_morawiecki } }
-					custom_trigger_tooltip={
-						tooltip = POL_cannot_have_multiple_ministers_of_finance
-						always = no
-					}
-				}
 			}
 			ai_will_do = {
 			}
@@ -125,9 +190,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Jarosław_Kaczyński.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -137,9 +200,6 @@ characters={
 				POL_conservative_powerhouse
 			}
 			available={
-				has_country_flag = PiS_in_power
-				jaroslaw_kaczynski_is_not_leader = yes
-				NOT = { has_country_flag = POL_jaroslaw_kaczynski_is_current_pm_flag }
 			}
 			ai_will_do = {
 			}
@@ -153,9 +213,7 @@ characters={
 				small = "gfx/leaders/POL/advisors/POL_antoni_macierewicz_advisor.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -165,7 +223,6 @@ characters={
 				POL_catholic_ultraconservative
 			}
 			available={
-				has_country_flag = PiS_in_power
 			}
 			ai_will_do = {
 			}
@@ -180,9 +237,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Mateusz_Morawiecki.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -192,15 +247,6 @@ characters={
 				POL_minister_of_finance_PiS
 			}
 			available={
-				has_country_flag = PiS_in_power
-				NOT = { has_country_flag = POL_mateusz_morawiecki_is_current_pm_flag }
-				if={
-					limit = { OR = { has_idea = POL_jacek_rostowski } }
-					custom_trigger_tooltip={
-						tooltip = POL_cannot_have_multiple_ministers_of_finance
-						always = no
-					}
-				}
 			}
 			ai_will_do = {
 			}
@@ -215,10 +261,56 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Andrzej_Duda.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
+		allowed_civil_war = { always = yes }
+		country_leader = {
+			ideology = civic_platform
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
 		}
-
+		country_leader = {
+			ideology = poland_pis_party
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_kukiz_15
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_ultranat
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_populist
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_konfederacja_monarchist
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_democratic_left_alliance
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_united_left
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_lewica_socdem
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_lewica_socialist
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_PSL
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		country_leader = {
+			ideology = poland_third_way
+			traits = { POL_conservative_compromiser POL_puppet_of_kaczynski }
+		}
+		
 		advisor = {
 			slot = political_advisor
 			idea_token = POL_andrzej_duda
@@ -227,8 +319,6 @@ characters={
 				POL_conservative_compromiser
 			}
 			available={
-				andrzej_duda_is_not_leader = yes
-				has_country_flag = PiS_in_power
 			}
 			ai_will_do = {
 			}
@@ -243,9 +333,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Grzegorz_Braun.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -255,11 +343,19 @@ characters={
 				POL_monarchist_firebrand
 			}
 			available={
-				has_country_flag = RIGHT_in_power
 			}
 			ai_will_do = {
 			}
 		}
+	}
+	POL_pawel_kukiz = {
+		name = POL_pawel_kukiz
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Paweł_Kukiz.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
 	}
 	
 	POL_wladyslaw_kosiniak_kamysz = {
@@ -270,9 +366,7 @@ characters={
 				large = "gfx/leaders/POL/Portrait_Władysław_Kosiniak_Kamysz.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
@@ -282,7 +376,6 @@ characters={
 				POL_jack_of_all_trades
 			}
 			available={
-				has_country_flag = PSL_in_power
 			}
 			ai_will_do = {
 			}
@@ -296,25 +389,40 @@ characters={
 				small = "gfx/leaders/POL/advisors/Portrait_Waldemar_Pawlak_advisor.png"
 			}
 		}
-		allowed_civil_war = {
-			always = yes
-		}
+		allowed_civil_war = { always = yes }
 
 		advisor = {
 			slot = political_advisor
 			idea_token = POL_waldemar_pawlak
 			
-			traits = {
-				POL_minister_of_economy_PSL
+			traits = { 
+			POL_minister_of_economy_PSL
 			}
 			available={
-				has_country_flag = PSL_in_power
 			}
 			ai_will_do = {
 			}
 		}
 	}
 	
+	POL_leszek_miller = {
+		name = POL_leszek_miller
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Leszek_Miller.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+	}
+	POL_magdalena_ogorek = {
+		name = POL_magdalena_ogorek
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/Portrait_Magdalena_Ogórek.png"
+			}
+		}
+		allowed_civil_war = { always = yes }
+	}
 	
 	POL_mieczyslaw_gocul = {				#"On January 31, 2017, he ended his professional military service and retired." - From wikipedia. Might add this
 		name = POL_mieczyslaw_gocul
