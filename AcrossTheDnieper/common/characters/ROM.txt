@@ -25,7 +25,7 @@ characters={
 		}
 	}
 	ROM_titus_corlatean = {
-		name = "Titus Corlatean"
+		name = "Titus Corlățean"
 		portraits = {
 			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_titus_corlatean.dds" }
 		}
@@ -70,7 +70,7 @@ characters={
 		portraits = {
 			civilian = { 
 				small = "/gfx/leaders/ROM/advisors/ROM_daniel_petrescu.dds" 
-				large = "/gfx/leaders/ROM/Portrait_daniel_petrescu.dds"
+				large = "/gfx/leaders/ROM/Portrait_Daniel_Petrescu.dds" 
 			}
 		}
 		allowed_civil_war = { always = yes }
@@ -97,7 +97,7 @@ characters={
 		portraits = {
 			civilian = { 
 				small = "/gfx/leaders/ROM/advisors/ROM_nicolae_ciuca.dds" 
-				large = "/gfx/leaders/ROM/Portrait_nicolae_ciuca.dds"
+				large = "/gfx/leaders/ROM/Portrait_Nicolae_Ciuca.dds"
 			}
 		}
 		allowed_civil_war = { always = yes }
@@ -124,7 +124,7 @@ characters={
 		portraits = {
 			civilian = { 
 				small = "/gfx/leaders/ROM/advisors/ROM_lucian_foca.dds" 
-				large = "/gfx/leaders/ROM/Portrait_lucian_foca.dds"
+				large = "/gfx/leaders/ROM/Portrait_Lucian_Foca.dds"
 			}
 		}
 		allowed_civil_war = { always = yes }
@@ -141,6 +141,61 @@ characters={
 			traits = {}
 			skill = 2
 			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	ROM_gheorgita_vlad_general = {
+		name = "Gheorgiță Vlad"
+		portraits = {
+			civilian = { 
+				small = "/gfx/leaders/ROM/advisors/ROM_gheorgiță_vlad.dds" 
+				large = "/gfx/leaders/ROM/Portrait_Gheorgiță_Vlad.dds"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor={
+			can_be_fired = yes
+			slot = army_chief
+			idea_token = ROM_gheorgita_vlad_general
+			allowed = { original_tag = ROM }
+			traits = { army_chief_morale_3 }
+			cost = 200
+		}
+
+		corps_commander = {
+			traits = {panzer_leader combined_arms_expert}
+			skill = 5
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	ROM_stefan_danila = {
+		name = "Ștefan Dănilă"
+		portraits = {
+			civilian = { 
+				small = "/gfx/leaders/ROM/advisors/ROM_ștefan_dănilă.dds" 
+				large = "/gfx/leaders/ROM/Portrait_Ștefan_Dănilă.dds"
+			}
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor={
+			can_be_fired = yes
+			slot = air_chief
+			idea_token = ROM_stefan_danila
+			allowed = { original_tag = ROM }
+			traits = { air_chief_ground_support_3 }
+			cost = 200
+		}
+		corps_commander = {
+			traits = {commando paratrooper}
+			skill = 3
+			attack_skill = 4
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 2

@@ -125,9 +125,6 @@ country_event = {
                 ruling_party = social_democracy
                 elections_allowed = yes
             }
-         remove_ideas = ROM_liviu_dragnea
-	    remove_ideas = ROM_titus_corlatean
-	    remove_ideas = ROM_daniel_chitoiu
         }
 
     }
@@ -155,6 +152,7 @@ country_event = {
                     remove_ideas = ROM_liviu_dragnea
 	    remove_ideas = ROM_titus_corlatean
 	    remove_ideas = ROM_daniel_chitoiu
+        clr_country_flag = ponta_cabinet_ii
             ROM = {country_event = romania.12}
         }
     }
@@ -178,9 +176,6 @@ country_event = {
                 ruling_party = social_democracy
                 elections_allowed = yes
             }   
-                    remove_ideas = ROM_liviu_dragnea
-	    remove_ideas = ROM_titus_corlatean
-	    remove_ideas = ROM_daniel_chitoiu
         }
     }
                         complete_national_focus = ROM_Ponta_victory
@@ -210,9 +205,6 @@ country_event = {
                 ruling_party = social_democracy
                 elections_allowed = yes
             }
-                    remove_ideas = ROM_liviu_dragnea
-	    remove_ideas = ROM_titus_corlatean
-	    remove_ideas = ROM_daniel_chitoiu
         }
     }
             complete_national_focus = ROM_Ponta_victory
@@ -289,6 +281,10 @@ country_event = {
                 ruling_party = ultranationalist
                 elections_allowed = yes
             }
+                                remove_ideas = ROM_liviu_dragnea
+	    remove_ideas = ROM_titus_corlatean
+	    remove_ideas = ROM_daniel_chitoiu
+    clr_country_flag = ponta_cabinet_ii
     } 
 }
 
@@ -333,37 +329,14 @@ country_event = {
 }
 
 country_event = {
-    id = romania.21
-    title = romania.21.t
-    desc = romania.21.desc
-	picture = GFX_report_event_ROM_Iohannis_Victory
-    fire_only_once = yes
-    trigger = {
-		date > 2015.1.1
-        UKR = {has_war = yes}
-	}
-
-
-    option = {
-        name = romania.21.a
-        ai_chance = {
-			base = 10
-		}
-      complete_national_focus = start_of_russian_invasion
-      country_event = { id = romania.22 }
-    } 
-
-}
-
-country_event = {
 	id = romania.33
 	title = romania.33.t
 	desc = romania.33.desc
 	picture = GFX_report_event_UKR_shelling
-    fire_only_once = yes
 
 	trigger = {
 		UKR = {has_war_with = SOV}
+        NOT = {has_country_flag = rom_has_invasion_event}
 	}
 
 
@@ -374,6 +347,7 @@ country_event = {
 		}
         complete_national_focus = start_of_russian_invasion
         country_event = { id = romania.22 }
+        set_country_flag = rom_has_invasion_event
 	}
 	
 }
@@ -416,6 +390,10 @@ country_event = {
             ruling_party = ultranationalist
             elections_allowed = yes
         }
+                            remove_ideas = ROM_liviu_dragnea
+	    remove_ideas = ROM_titus_corlatean
+	    remove_ideas = ROM_daniel_chitoiu
+        clr_country_flag = ponta_cabinet_ii
         swap_ideas = {
             remove_idea = nationalism_laws_interventionist
             add_idea = nationalism_laws_revanchist
@@ -597,6 +575,11 @@ country_event = {
             ruling_party = eastern_conservative
             elections_allowed = yes
         }
+
+                            remove_ideas = ROM_liviu_dragnea
+	    remove_ideas = ROM_titus_corlatean
+	    remove_ideas = ROM_daniel_chitoiu        
+        clr_country_flag = ponta_cabinet_ii
         hidden_effect = {
             swap_ideas = {
                 remove_idea = nationalism_laws_interventionist

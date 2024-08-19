@@ -38,4 +38,34 @@ scripted_gui = {
 			}
 		}
 	}
+	ROM_SOF_gui = {
+		context_type = player_context
+		
+		window_name = "paratrooper_control_centre"
+		
+		ai_enabled = {
+			always = no
+		}
+		
+		visible ={
+			has_country_flag = ROM_Paratrooper_Control
+		}
+		effects={
+			Batt_51_click = {
+				set_country_flag = bat_51_selected
+				clr_country_flag = bat_52_selected
+				clr_country_flag = bat_53_selected
+			}
+			Batt_52_click = {
+				set_country_flag = bat_52_selected
+				clr_country_flag = bat_51_selected
+				clr_country_flag = bat_53_selected
+			}
+			Batt_53_click = {
+				set_country_flag = bat_53_selected
+				clr_country_flag = bat_52_selected
+				clr_country_flag = bat_51_selected
+			}
+		}
+	}
 }

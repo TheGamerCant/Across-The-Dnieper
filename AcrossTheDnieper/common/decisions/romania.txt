@@ -61,9 +61,33 @@ ROM_parliament_decisions_category={
 		cost = 0
 
 		complete_effect = {
-			set_variable = {
-				clr_country_flag = ROM_repealed_bill
-			}
+			clr_country_flag = ROM_repealed_bill
+		}
+	}
+
+	DEBUG_clr_paras = { 
+		priority = 200
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+				clr_country_flag = ROM_is_not_already_on_a_mission_51
+				clr_country_flag = ROM_is_not_already_on_a_mission_52
+				clr_country_flag = ROM_is_not_already_on_a_mission_53
+				clr_country_flag = set_up_51_batt
+				clr_country_flag = set_up_52_batt
+				clr_country_flag = set_up_53_batt
 		}
 	}
 
@@ -1003,6 +1027,605 @@ ROM_buy_bessarabia = {
 
 		remove_effect = {
 			
+		}
+	}
+}
+
+ROM_SOF_Tab = {
+	ROM_setup_51 = { 
+		priority = 1000
+
+		days_remove = 20
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.1
+		}
+		
+
+		available = {
+			
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			division_template = {
+				name = "51st SOF Battalion"
+				priority = 2
+				regiments = {
+					paratrooper = { x = 0 y = 0 }
+					paratrooper = { x = 0 y = 1 }
+					paratrooper = { x = 0 y = 2 }
+					paratrooper = { x = 0 y = 3 }
+					paratrooper = { x = 0 y = 4 }
+					paratrooper = { x = 1 y = 0 }
+					paratrooper = { x = 1 y = 1 }
+					paratrooper = { x = 1 y = 2 }
+					paratrooper = { x = 1 y = 3 }
+					paratrooper = { x = 1 y = 4 }
+					paratrooper = { x = 2 y = 0 }
+					paratrooper = { x = 2 y = 1 }
+					paratrooper = { x = 2 y = 2 }
+					paratrooper = { x = 2 y = 3 }
+					paratrooper = { x = 2 y = 4 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }   
+					artillery = { x = 0 y = 1 }
+					logistics_company = { x = 0 y = 2 }  
+					signal_company = { x = 0 y = 3 }   
+					assault_battalion = { x = 0 y = 4 }
+				}
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = set_up_51_batt
+			custom_effect_tooltip = ROM_Reorganise_51_tt
+			hidden_effect = {
+				254 = {
+					create_unit = { division = "name = \"Batalionul 51 Operații Speciale 'Vulturii'\" division_template = \"51st SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_setup_52 = { 
+		priority = 999
+
+		days_remove = 20
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.1
+		}
+
+		available = {
+			
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			division_template = {
+				name = "52nd SOF Battalion"
+				priority = 2
+				regiments = {
+					paratrooper = { x = 0 y = 0 }
+					paratrooper = { x = 0 y = 1 }
+					paratrooper = { x = 0 y = 2 }
+					paratrooper = { x = 0 y = 3 }
+					paratrooper = { x = 0 y = 4 }
+					paratrooper = { x = 1 y = 0 }
+					paratrooper = { x = 1 y = 1 }
+					paratrooper = { x = 1 y = 2 }
+					paratrooper = { x = 1 y = 3 }
+					paratrooper = { x = 1 y = 4 }
+					paratrooper = { x = 2 y = 0 }
+					paratrooper = { x = 2 y = 1 }
+					paratrooper = { x = 2 y = 2 }
+					paratrooper = { x = 2 y = 3 }
+					paratrooper = { x = 2 y = 4 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }   
+					artillery = { x = 0 y = 1 }
+					logistics_company = { x = 0 y = 2 }  
+					signal_company = { x = 0 y = 3 }   
+					assault_battalion = { x = 0 y = 4 }
+				}
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = set_up_52_batt
+			custom_effect_tooltip = ROM_Reorganise_52_tt
+			hidden_effect = {
+				368 = {
+					create_unit = { division = "name = \"Batalionul 52 Operații Speciale 'Băneasa–Otopeni'\" division_template = \"52nd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_setup_53 = { 
+		priority = 998
+
+		days_remove = 20
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.1
+		}
+
+		available = {
+			
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			division_template = {
+				name = "53rd SOF Battalion"
+				priority = 2
+				regiments = {
+					paratrooper = { x = 0 y = 0 }
+					paratrooper = { x = 0 y = 1 }
+					paratrooper = { x = 0 y = 2 }
+					paratrooper = { x = 0 y = 3 }
+					paratrooper = { x = 0 y = 4 }
+					paratrooper = { x = 1 y = 0 }
+					paratrooper = { x = 1 y = 1 }
+					paratrooper = { x = 1 y = 2 }
+					paratrooper = { x = 1 y = 3 }
+					paratrooper = { x = 1 y = 4 }
+					paratrooper = { x = 2 y = 0 }
+					paratrooper = { x = 2 y = 1 }
+					paratrooper = { x = 2 y = 2 }
+					paratrooper = { x = 2 y = 3 }
+					paratrooper = { x = 2 y = 4 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }   
+					artillery = { x = 0 y = 1 }
+					logistics_company = { x = 0 y = 2 }  
+					signal_company = { x = 0 y = 3 }   
+					assault_battalion = { x = 0 y = 4 }
+				}
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = set_up_53_batt
+			custom_effect_tooltip = ROM_Reorganise_53_tt
+			hidden_effect = {
+				271 = {
+					create_unit = { division = "name = \"Batalionul 53 Comando 'Smaranda Brăescu'\" division_template = \"53rd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_51_to_afghanistan = {
+		priority = 998
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = {
+						has_country_flag = set_up_51_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_51
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_51_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_51
+			delete_units = {
+                division_template = "51st SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_51_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_51
+			hidden_effect = {
+				254 = {
+					create_unit = { division = "name = \"Batalionul 51 Operații Speciale 'Vulturii'\" division_template = \"51st SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_51_to_donbass = {
+		priority = 997
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = { 
+						has_country_flag = set_up_51_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_51
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_51_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_51
+			delete_units = {
+                division_template = "51st SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_51_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_51
+			hidden_effect = {
+				254 = {
+					create_unit = { division = "name = \"Batalionul 51 Operații Speciale 'Vulturii'\" division_template = \"51st SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_51_to_crimea = {
+		priority = 996
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+			has_country_flag = bat_51_selected
+		}
+		visible = {
+						has_country_flag = set_up_51_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_51
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_51_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_51
+			delete_units = {
+                division_template = "51st SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_51_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_51
+			hidden_effect = {
+				254 = {
+					create_unit = { division = "name = \"Batalionul 51 Operații Speciale 'Băneasa–Otopeni'\" division_template = \"51st SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_52_to_afghanistan = {
+		priority = 995
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = {
+			has_country_flag = set_up_52_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_52
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_52_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_52
+			delete_units = {
+                division_template = "52nd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_52_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_52
+			hidden_effect = {
+				368 = {
+					create_unit = { division = "name = \"Batalionul 52 Operații Speciale 'Băneasa–Otopeni'\" division_template = \"52nd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_52_to_donbass = {
+		priority = 994
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = { 
+						has_country_flag = set_up_52_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_52
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_52_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_52
+			delete_units = {
+                division_template = "52nd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_52_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_52
+			hidden_effect = {
+				368 = {
+					create_unit = { division = "name = \"Batalionul 52 Operații Speciale 'Băneasa–Otopeni'\" division_template = \"52nd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_52_to_crimea = {
+		priority = 993
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = {
+						has_country_flag = set_up_52_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_52
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_52_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_52
+			delete_units = {
+                division_template = "52nd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_52_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_52
+			hidden_effect = {
+				368 = {
+					create_unit = { division = "name = \"Batalionul 52 Operații Speciale 'Băneasa–Otopeni'\" division_template = \"52nd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_53_to_afghanistan = {
+		priority = 992
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = {
+			has_country_flag = set_up_53_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_53
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_53_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_53
+			delete_units = {
+                division_template = "53rd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_53_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_53
+			hidden_effect = {
+				271 = {
+					create_unit = { division = "name = \"Batalionul 53 Comando 'Smaranda Brăescu'\" division_template = \"53rd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_53_to_donbass = {
+		priority = 991
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = { 
+						has_country_flag = set_up_53_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_53
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_53_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_53
+			delete_units = {
+                division_template = "53rd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_53_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_53
+			hidden_effect = {
+				271 = {
+					create_unit = { division = "name = \"Batalionul 53 Comando 'Smaranda Brăescu'\" division_template = \"53rd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
+		}
+	}
+	ROM_send_53_to_crimea = {
+		priority = 990
+
+		days_remove = 250
+		
+		allowed = {
+			original_tag = ROM
+		}
+		visible = {
+						has_country_flag = set_up_53_batt
+		}
+		fire_only_once = yes
+		modifier={
+			experience_gain_army_factor = 0.25
+			command_power_gain = -0.25
+		}
+
+		available = {
+			command_power > 25
+			NOT = {
+				has_country_flag = ROM_is_not_already_on_a_mission_53
+			}
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_command_power = -25
+			custom_effect_tooltip = ROM_unavailable_53_tt
+			set_country_flag = ROM_is_not_already_on_a_mission_53
+			delete_units = {
+                division_template = "53rd SOF Battalion"
+                disband = yes
+        	}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ROM_53_come_back_tt
+			clr_country_flag = ROM_is_not_already_on_a_mission_53
+			hidden_effect = {
+				271 = {
+					create_unit = { division = "name = \"Batalionul 53 Comando 'Smaranda Brăescu'\" division_template = \"53rd SOF Battalion\" start_experience_factor = 3"  owner = ROM }
+				}
+			}
 		}
 	}
 }
