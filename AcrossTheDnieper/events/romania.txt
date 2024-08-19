@@ -145,14 +145,17 @@ country_event = {
 		add_popularity = { ideology = libertarian popularity = 0.04 }
         add_popularity = { ideology = eastern_liberal popularity = 0.06 }
         hidden_effect = {
+            remove_ideas = ROM_liviu_dragnea
+            remove_ideas = ROM_titus_corlatean
+            remove_ideas = ROM_daniel_chitoiu
+            remove_ideas = ROM_victor_ponta
+            clr_country_flag = ponta_cabinet_ii
             set_politics = {
                 ruling_party = eastern_liberal
                 elections_allowed = yes
             }
-                    remove_ideas = ROM_liviu_dragnea
-	    remove_ideas = ROM_titus_corlatean
-	    remove_ideas = ROM_daniel_chitoiu
-        clr_country_flag = ponta_cabinet_ii
+
+        custom_effect_tooltip = iohanis_cabinet_incumbent_tt
             ROM = {country_event = romania.12}
         }
     }
@@ -223,6 +226,13 @@ country_event = {
 			base = 10
 		}
         complete_national_focus = Making_RW_Coalition
+        hidden_effect = {
+            set_country_flag = iohanis_cabinet
+            add_ideas = ROM_Dacian_Cioloș
+            add_ideas = ROM_Bogdan_Aurescu
+            add_ideas = ROM_Sorin_Cîmpeanu
+            add_ideas = ROM_Alexandru_Rafila
+        }
         ROM = {country_event = { id = romania.14 } }
     } 
 }
@@ -281,7 +291,7 @@ country_event = {
                 ruling_party = ultranationalist
                 elections_allowed = yes
             }
-                                remove_ideas = ROM_liviu_dragnea
+        remove_ideas = ROM_liviu_dragnea
 	    remove_ideas = ROM_titus_corlatean
 	    remove_ideas = ROM_daniel_chitoiu
     clr_country_flag = ponta_cabinet_ii
