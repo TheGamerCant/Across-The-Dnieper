@@ -3994,6 +3994,8 @@ country_event = {
 				mark_focus_tree_layout_dirty = yes
 				
 				complete_national_focus = SOV_russia_united_QM
+
+				country_event = { id = russia.1173 days = 13 }
 			}
 		}
 	}
@@ -6515,6 +6517,69 @@ country_event = {
 		set_country_flag = doesnt_want_to_recieve_war_report
     }
 
+}
+
+#ANGRY PATRIOTS, new cabinet
+country_event = {
+    id = russia.1173
+    title = russia.1173.t
+    desc = russia.1173.desc
+    picture = SOV_ap_new_cabinet
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1173.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_pavel_gubarev
+		show_ideas_tooltip =  SOV_vladimir_kucherenko
+		
+		add_political_power = 100
+		
+		hidden_effect = {
+			complete_national_focus = SOV_a_new_cabinet
+			country_event = { id = russia.1174 days = 12 }
+		}
+    }
+}
+
+#ANGRY PATRIOTS, coalition
+country_event = {
+    id = russia.1174
+    title = russia.1174.t
+    desc = russia.1174.desc
+    picture = SOV_ap_coaltion
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1174.a
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			complete_national_focus = SOV_nazbol_coalition
+		}
+		add_popularity = { ideology = fascist popularity = 0.1 }
+		add_popularity = { ideology = hardline_communist popularity = 0.1 }
+		add_ideas = SOV_nazbol_coalition
+    }
+
+	option = {
+        name = russia.1174.b
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			complete_national_focus = SOV_wagnerite_coalition
+		}
+		add_popularity = { ideology = fascist popularity = 0.1 }
+		add_popularity = { ideology = military_junta popularity = 0.1 }
+		add_ideas = SOV_wagnerite_coalition
+    }
 }
 
 country_event = {

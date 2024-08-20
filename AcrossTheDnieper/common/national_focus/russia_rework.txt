@@ -3698,7 +3698,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_foreign_mercenaries
-		icon = GFX
+		icon = GFX_focus_SOV_Recruit_Foreign_Mercenaries
 		x = 0
 		y = 3
 		cost = 30
@@ -3719,7 +3719,12 @@ focus_tree = {
 		completion_reward={
 			custom_effect_tooltip = SOV_foreign_mercenaries_tt
 
-			add_manpower = 2500
+			
+			add_to_variable = { SOV_unpopbol_war_stab = 0.02 }
+			add_to_variable = { SOV_unpopbol_pp_cost = -0.05 }
+			add_to_variable = { SOV_unpopbol_war_support = 0.05 }
+
+			add_manpower = 3000
 		}
 	}
 	
@@ -3970,7 +3975,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_wagner_rebellion
-		icon = GFX
+		icon = GFX_focus_SOV_Wagner_Rebelion
 		x = -4
 		y = 1
 		cost = 35
@@ -4003,7 +4008,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_nationalize_wagner
-		icon = GFX
+		icon = GFX_focus_SOV_Nationalize_Wagner
 		x = -5
 		y = 2
 		cost = 50
@@ -4027,7 +4032,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_appoint_troshev
-		icon = GFX
+		icon = GFX_focus_SOV_Appoint_Trochev
 		x = -5
 		y = 3
 		cost = 35
@@ -4055,7 +4060,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_destroy_wagner_for_all
-		icon = GFX
+		icon = GFX_focus_SOV_Destroy_Wagner_2
 		x = -3
 		y = 2
 		cost = 50
@@ -4092,7 +4097,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_recruit_former_wagnerites
-		icon = GFX
+		icon = GFX_focus_SOV_Recruit_Former_Wagnerites
 		x = -3
 		y = 3
 		cost = 35
@@ -11116,6 +11121,8 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+
+		hidden_trigger = { always = no }
 	}
 	
 	
@@ -11124,12 +11131,14 @@ shared_focus = {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = yes
-	completion_reward = {	
-		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = SOV_pavel_gubarev
-		show_ideas_tooltip =  SOV_vladimir_kucherenko
-		
-		add_political_power = 100
+	completion_reward = {
+		effect_tooltip = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SOV_pavel_gubarev
+			show_ideas_tooltip =  SOV_vladimir_kucherenko
+			
+			add_political_power = 100
+		}
 	}
 }
 
@@ -11147,6 +11156,7 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_appease_pushilin }
 	available = {
 		igor_girkin_is_leader = yes
+		hidden_trigger = { always = no }
 	}
 	
 	cancel_if_invalid = yes
@@ -11171,6 +11181,7 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_end_pushilin }
 	available = {
 		igor_girkin_is_leader = yes
+		hidden_trigger = { always = no }
 	}
 	
 	cancel_if_invalid = yes
@@ -11194,6 +11205,7 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		hidden_trigger = { always = no }
 	}
 	
 	cancel_if_invalid = yes
@@ -11218,6 +11230,7 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		hidden_trigger = { always = no }
 	}
 	
 	
@@ -11227,9 +11240,11 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
-		add_popularity = { ideology = fascist popularity = 0.1 }
-		add_popularity = { ideology = hardline_communist popularity = 0.1 }
-		add_ideas = SOV_nazbol_coalition
+		effect_tooltip = {
+			add_popularity = { ideology = fascist popularity = 0.1 }
+			add_popularity = { ideology = hardline_communist popularity = 0.1 }
+			add_ideas = SOV_nazbol_coalition
+		}
 	}
 }
 
@@ -11247,6 +11262,7 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		hidden_trigger = { always = no }
 	}
 	
 	
@@ -11256,9 +11272,11 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
-		add_popularity = { ideology = fascist popularity = 0.1 }
-		add_popularity = { ideology = military_junta popularity = 0.1 }
-		add_ideas = SOV_wagnerite_coalition
+		effect_tooltip = {
+			add_popularity = { ideology = fascist popularity = 0.1 }
+			add_popularity = { ideology = military_junta popularity = 0.1 }
+			add_ideas = SOV_wagnerite_coalition
+		}
 	}
 }
 
