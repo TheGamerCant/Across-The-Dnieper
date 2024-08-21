@@ -137,6 +137,88 @@ characters={
 			traits = { doctor_physician }
 		}
 	}
+	ROM_Dorel_Onaca = {
+		name = "Dorel-Constantin Onaca"
+		portraits = {
+			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_dorel_onaca.dds" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROM_Dorel_Onaca
+			allowed = { original_tag = ROM }
+			can_be_fired = no							
+			available = { has_country_flag = onaca_cabinet }
+			traits = { prime_minister_onaca }
+		}
+	}
+	ROM_Dumitru_Focșa = {
+		name = "Dumitru-Viorel Focșa"
+		portraits = {
+			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_dumitru_focșa.dds" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROM_Dumitru_Focșa
+			allowed = { original_tag = ROM }
+			can_be_fired = no							
+			available = { has_country_flag = onaca_cabinet }
+			traits = { economic_genius_fosca }
+		}
+	}
+	ROM_Ion_Coja = {
+		name = "Ion Coja"
+		portraits = {
+			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_ion_coja.dds" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROM_Ion_Coja
+			allowed = { original_tag = ROM }
+			can_be_fired = no							
+			available = { has_country_flag = onaca_cabinet }
+			traits = { genius_politician_coja }
+		}
+	}
+
+	ROM_General_Staff_Advisor = {
+		name = "Romanian General Staff"
+		portraits = {
+			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_gen_staff.dds" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROM_General_Staff
+			allowed = { original_tag = ROM }
+			can_be_fired = no							
+			available = { has_country_flag = onaca_cabinet has_completed_focus = Incorporate_Army }
+			traits = { army_leader_genstaff }
+		}
+	}
+
+	ROM_Diana_Șoșoacă_Advisor = {
+		name = "Diana Șoșoacă"
+		portraits = {
+			civilian = { small = "/gfx/leaders/ROM/advisors/ROM_diana_șoșoacă.dds" }
+		}
+		allowed_civil_war = { always = yes }
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROM_General_Staff
+			allowed = { original_tag = ROM }
+			can_be_fired = no							
+			available = { has_country_flag = onaca_cabinet has_completed_focus = Incorporate_Fascists }
+			traits = { sosoaca_eco_reformer }
+		}
+	}
 	
 ##     ## ##    ## #### ########    ##       ########    ###    ########  ######## ########   ######  
 ##     ## ###   ##  ##     ##       ##       ##         ## ##   ##     ## ##       ##     ## ##    ## 
@@ -282,52 +364,26 @@ characters={
 			logistics_skill = 2
 		}
 	}
-	ROM_mihai_panait = {
+	ROM_Mihai_Panait = {
 		name = "Mihai Panait"
 		portraits = {
 			civilian = { 
 				small = "/gfx/leaders/ROM/advisors/ROM_mihai_panait.dds" 
-				large = "/gfx/leaders/ROM/Portrait_mihai_panait.dds"
+				large = "/gfx/leaders/ROM/Portrait_Mihai_Panait.dds"
 			}
 		}
 		allowed_civil_war = { always = yes }
 		advisor={
 			slot = navy_chief
-			idea_token = ROM_mihai_panait
+			idea_token = ROM_Mihai_Panait
 			allowed = { original_tag = ROM }
-			traits = { navy_chief_decisive_battle_1 }
+			traits = { navy_chief_decisive_battle_2 }
 			cost = 50
 		}
 
 		navy_leader = {
 			traits = { old_guard_navy gentlemany }
-			skill=2
-			attack_skill=2
-			defense_skill=1
-			maneuvering_skill=2
-			coordination_skill=3
-		}
-	}
-	ROM_viorel_pana = {
-		name = "Viorel Pana"
-		portraits = {
-			civilian = { 
-				small = "/gfx/leaders/ROM/advisors/ROM_viorel_pana.dds" 
-				large = "/gfx/leaders/ROM/Portrait_viorel_pana.dds"
-			}
-		}
-		allowed_civil_war = { always = yes }
-		advisor={
-			slot = air_chief
-			idea_token = ROM_viorel_pana
-			allowed = { original_tag = ROM }
-			traits = { navy_chief_decisive_battle_1 }
-			cost = 50
-		}
-
-		navy_leader = {
-			traits = { old_guard_navy gentlemany }
-			skill=2
+			skill=3
 			attack_skill=2
 			defense_skill=1
 			maneuvering_skill=2
