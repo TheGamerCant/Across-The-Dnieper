@@ -1599,3 +1599,216 @@ UKR_ma_increse_willingness_5_usa = {
 		clamp_variable = { var = UKR_ma_usa_variable min = 0 max = 100 }
 	}
 }
+
+UKR_spawn_belgorod_militias = {
+	hidden_effect = {
+		SOV_open_eastern_front_effect = yes
+		if = {
+			limit = { has_completed_focus = UKR_russian_volunteer_corps }
+
+			division_template = {
+				name = "Russian Volunteer Corps"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 295
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					logistics_company = { x = 0 y = 0 }  
+					artillery = { x = 0 y = 1 } 
+				}
+			}
+
+			449 = {
+				create_unit = {
+					division = "name = \"Russian Volunteer Corps\" division_template = \"Russian Volunteer Corps\" start_experience_factor = 0.6" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 3678
+				}
+			}
+		}
+
+		if = {
+			limit = { has_completed_focus = UKR_freedom_of_russian_legion }
+
+			division_template = {
+				name = "Freedom Of Russia Legion"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 296
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					logistics_company = { x = 0 y = 0 }  
+					artillery = { x = 0 y = 1 } 
+				}
+			}
+
+			449 = {
+				create_unit = {
+					division = "name = \"Freedom Of Russia Legion\" division_template = \"Freedom Of Russia Legion\" start_experience_factor = 0.6" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 3678
+				}
+			}
+		}
+
+		if = {
+			limit = { has_completed_focus = UKR_belarusian_volunteer_corps }
+
+			division_template = {
+				name = "Belarusian Volunteer Corps"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 297
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+				}
+				support = { 
+					artillery = { x = 0 y = 0 } 
+				}
+			}
+
+			449 = {
+				create_unit = {
+					division = "name = \"Belarusian Volunteer Corps\" division_template = \"Belarusian Volunteer Corps\" start_experience_factor = 0.6" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 3678
+				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = UKR_kastus_kalinouski_regiment }
+
+			division_template = {
+				name = "Kastus Kalinouski Regiment"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 109
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					logistics_company = { x = 0 y = 0 }  
+				}
+			}
+
+			66 = {
+				create_unit = {
+					division = "name = \"Kastus Kalinouski Regiment\" division_template = \"Kastus Kalinouski Regiment\" start_experience_factor = 0.6" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 5388
+				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = UKR_german_volunteer_corps }
+
+			division_template = {
+				name = "German Volunteer Corps"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 298
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+				}
+			}
+
+			449 = {
+				create_unit = {
+					division = "name = \"German Volunteer Corps\" division_template = \"German Volunteer Corps\" start_experience_factor = 0.45" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 4779
+				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = UKR_polish_volunteer_corps }
+
+			division_template = {
+				name = "Polish Volunteer Corps"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 299
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+				}
+			}
+
+			66 = {
+				create_unit = {
+					division = "name = \"Polish Volunteer Corps\" division_template = \"Polish Volunteer Corps\" start_experience_factor = 0.45" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 6190
+				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = UKR_georgian_national_legion }
+
+			division_template = {
+				name = "Georgian National Legion"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 300
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+				}
+			}
+
+			66 = {
+				create_unit = {
+					division = "name = \"Georgian National Legion\" division_template = \"Georgian National Legion\" start_experience_factor = 0.45" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 13596
+				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = UKR_siberia_battalion }
+
+			division_template = {
+				name = "Sibir Battalion"
+				division_names_group = UKR_INF_01
+				is_locked = yes
+				template_counter = 301
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 1 y = 0 }
+				}
+			}
+
+			66 = {
+				create_unit = {
+					division = "name = \"Sibir Battalion\" division_template = \"Sibir Battalion\" start_experience_factor = 0.45" 
+					owner = UKR
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 17080
+				}
+			}
+		}
+	}
+}

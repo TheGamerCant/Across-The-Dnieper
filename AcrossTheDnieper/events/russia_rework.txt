@@ -6452,7 +6452,7 @@ country_event = {
 }
 
 
-#assassination of denis pushilin (for girkin path)
+#ANGRY PATRIOTS, pushilin
 country_event = {
     id = russia.1171
     title = russia.1171.t
@@ -6465,17 +6465,42 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+		hidden_effect = {
+			complete_national_focus = SOV_end_pushilin
+
+			country_event = { id = russia.1175 days = 20 }
+		}
 		if = {
 			limit = {
 				country_exists = DON
 			}
 
-			DON = { kill_country_leader = yes }
+			DON = { 
+				kill_country_leader = yes 
+				set_politics = {
+					ruling_party = ultranationalist
+				}
+			}
+
 		}
 		else = {
 			add_political_power = 55
-			add_stability = 0.05
+			add_stability = -0.08
 		}
+    }
+
+	option = {
+        name = russia.1171.b
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			complete_national_focus = SOV_appease_pushilin
+
+			country_event = { id = russia.1175 days = 20 }
+		}
+		add_stability = 0.05
+		add_war_support = 0.05
     }
 
 }
@@ -6485,7 +6510,7 @@ country_event = {
     id = russia.1172
     title = russia.1172.t
     desc = russia.1172.desc
-    #picture = GFX_event_DON_dead
+    #picture = 
     is_triggered_only = yes
 
 	trigger = {
@@ -6541,6 +6566,7 @@ country_event = {
 		hidden_effect = {
 			complete_national_focus = SOV_a_new_cabinet
 			country_event = { id = russia.1174 days = 12 }
+			country_event = { id = russia.1178 days = 5 }
 		}
     }
 }
@@ -6560,8 +6586,10 @@ country_event = {
 		}
 
 		hidden_effect = {
-			complete_national_focus = SOV_nazbol_coalition
+			complete_national_focus = SOV_coalition_with_nazbols
+			country_event = { id = russia.1171 days = 20 }
 		}
+		custom_effect_tooltip = "russia.1174.tt2"
 		add_popularity = { ideology = fascist popularity = 0.1 }
 		add_popularity = { ideology = hardline_communist popularity = 0.1 }
 		add_ideas = SOV_nazbol_coalition
@@ -6574,11 +6602,272 @@ country_event = {
 		}
 
 		hidden_effect = {
-			complete_national_focus = SOV_wagnerite_coalition
+			complete_national_focus = SOV_coalition_with_wagnerites
+			country_event = { id = russia.1171 days = 20 }
 		}
+		custom_effect_tooltip = "russia.1174.tt"
 		add_popularity = { ideology = fascist popularity = 0.1 }
 		add_popularity = { ideology = military_junta popularity = 0.1 }
 		add_ideas = SOV_wagnerite_coalition
+    }
+}
+
+#ANGRY PATRIOTS, russia united, preparing for addressing nation
+country_event = {
+    id = russia.1175
+    title = russia.1175.t
+    desc = russia.1175.desc
+    picture = SOV_ap_coaltion
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1175.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = 25
+
+		hidden_effect = {
+			complete_national_focus = SOV_address_the_nation
+			if = {
+				limit = { has_completed_focus = SOV_coalition_with_wagnerites }
+
+				country_event = { id = russia.1176 days = 2 }
+			}
+		}
+    }
+}
+
+#ANGRY PATRIOTS, addressing the nation (nazbols attack)
+country_event = {
+    id = russia.1176
+    title = russia.1176.t
+    desc = russia.1176.desc
+    picture = SOV_ap_addressing_nation
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			create_dynamic_country = {
+                original_tag = SOV
+				set_cosmetic_tag = NAZ
+
+				add_ideas = SOV_national_bolshevik_revolution
+
+                create_country_leader = {
+                    name = "Alexander Dugin"
+                    picture = gfx/leaders/SOV/Portrait_Alexandr_Dugin.png
+                    ideology = generic_fascist
+                }
+
+				create_country_leader = {
+                    name = "Alexander Dugin"
+                    picture = gfx/leaders/SOV/Portrait_Alexandr_Dugin.png
+                    ideology = generic_hardline_communist
+                }
+
+                set_politics = {
+                    ruling_party = hardline_communist
+                }
+
+                set_popularities = {
+                    hardline_communist = 100
+                }
+
+				set_party_name = { ideology = hardline_communist long_name = nazbol_party_long name = nazbol_party }
+
+				transfer_state = 37
+
+				set_province_controller = 16089
+				set_province_controller = 9768
+				set_province_controller = 16327
+				set_province_controller = 13358
+				set_province_controller = 8732
+				set_province_controller = 14154
+
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+
+				division_template = {
+					name = "Interbrigades"
+					template_counter = 306
+					division_names_group = SOV_ESF_01
+					is_locked = yes
+					regiments = {
+						elite_special_forces = { x = 0 y = 0 }
+						elite_special_forces = { x = 0 y = 1 }
+						elite_special_forces = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 1 y = 2 }
+						artillery_brigade = { x = 2 y = 0}
+						artillery_brigade = { x = 2 y = 1}
+					}
+					support = {
+						engineer = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Bolshevik Militia"
+					template_counter = 306
+					division_names_group = SOV_ESF_01
+					is_locked = yes
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 1 y = 2 }
+					}
+					support = { 
+					}
+				}
+
+				for_loop_effect = {
+					end = 8
+					value = temp
+					random_core_state = {
+						prioritize = { 41 37 425 }
+						create_unit = {
+							division = "name = \"Interbrigade\" division_template = \"Interbrigades\" start_experience_factor = 0.6 start_equipment_factor = 0.95" 
+							owner = NAZ
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+
+				for_loop_effect = {
+					end = 8
+					value = temp
+					random_core_state = {
+						prioritize = { 41 37 425 }
+						create_unit = {
+							division = "name = \"Bolshevik Militia\" division_template = \"Bolshevik Militia\" start_experience_factor = 0.65 start_equipment_factor = 0.9" 
+							owner = NAZ
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+
+				for_loop_effect = {
+					end = 8
+					value = temp
+					random_core_state = {
+						prioritize = { 37 }
+						create_unit = {
+							division = "name = \"Bolshevik Militia\" division_template = \"Bolshevik Militia\" start_experience_factor = 0.65 start_equipment_factor = 0.9" 
+							owner = NAZ
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+            }
+		}
+	}
+
+    option = {
+        name = russia.1176.a
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			country_event = { id = russia.1177 days = 6 }
+		}
+    }
+
+	option = {
+        name = russia.1176.b
+		ai_chance = {
+			base = 0
+		}
+
+		hidden_effect = {
+			country_event = { id = russia.1177 days = 6 }
+		}
+
+		NAZ = { change_tag_from = ROOT }
+    }
+}
+
+#ANGRY PATRIOTS, nazbols rally bryansk
+country_event = {
+    id = russia.1177
+    title = russia.1177.t
+    desc = russia.1177.desc
+    picture = SOV_cw_dugin
+    is_triggered_only = yes
+
+	trigger = {
+		country_exists = NAZ
+		39 = { is_controlled_by = SOV } 
+	}
+
+	immediate = {
+		hidden_effect = {
+			NAZ = {
+				set_province_controller = 8472
+				set_province_controller = 7961
+				set_province_controller = 11454
+				set_province_controller = 4077
+				set_province_controller = 8759
+				set_province_controller = 8898
+				set_province_controller = 627
+				set_province_controller = 5133
+				set_province_controller = 14361
+				set_province_controller = 16032
+				set_province_controller = 4698
+				set_province_controller = 12108
+				set_province_controller = 7958
+				set_province_controller = 5629
+				set_province_controller = 6216
+
+				for_loop_effect = {
+					end = 13
+					value = temp
+					random_core_state = {
+						prioritize = { 39 }
+						create_unit = {
+							division = "name = \"Bolshevik Militia\" division_template = \"Bolshevik Militia\" start_experience_factor = 0.7 start_equipment_factor = 0.9" 
+							owner = NAZ
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1177.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.03
+    }
+}
+
+#ANGRY PATRIOTS, lore, factions angered
+country_event = {
+    id = russia.1178
+    title = russia.1178.t
+    desc = russia.1178.desc
+    picture = SOV_cw_gennedy
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1178.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_political_power = -15
     }
 }
 

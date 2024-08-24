@@ -769,6 +769,7 @@ SOV_smo={
 
 		visible = {
 			NOT = { has_global_flag = smo_eastern_front_open }
+			hidden_trigger = { NOT = { has_global_flag = SOV_ai_has_opened_kharkiv_front_once } }
 		}
 
 		fire_only_once = no
@@ -797,6 +798,7 @@ SOV_smo={
 				limit = { is_ai = yes }
 
 				set_global_flag = { flag = kharkiv_front_reopened_AI_flag days = 60 value = 1 }
+				set_global_flag = SOV_ai_has_opened_kharkiv_front_once
 			}
 		}
 		ai_will_do = {

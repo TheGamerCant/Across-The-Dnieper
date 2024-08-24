@@ -412,10 +412,10 @@ ideas = {
 			removal_cost = -1
 			picture = SOV_wagner_integrated
 			modifier = {
-				weekly_manpower = 1500
+				weekly_manpower = 150
 				experience_loss_factor = -0.1
-				war_support_factor = 0.02
-				
+				war_support_factor = 0.05
+				army_strength_factor = 0.1
 			}
 		}
 		
@@ -437,6 +437,21 @@ ideas = {
 				army_defence_factor = 0.04
 			}
 		}
+
+		SOV_ensured_loyalty = {
+			removal_cost = -1
+			picture = SOV_wagner_integrated
+			modifier = {
+				stability_factor = 0.1
+				war_stability_factor = 0.15
+				political_power_factor = 0.1
+
+				army_morale_factor = 0.05
+				army_attack_factor = 0.08
+				army_defence_factor = 0.08
+			}
+		}
+
 		SOV_undergoing_reforms = {
 			removal_cost = -1
 			picture = high_command_reformed
@@ -496,6 +511,21 @@ ideas = {
 				stability_factor = -0.02
 				war_support_factor = 0.04
 				army_morale_factor = 0.05
+			}
+		}
+
+		SOV_national_bolshevik_revolution = {
+			removal_cost = -1
+			picture = GFX
+			modifier = {
+				hardline_communist_drift = 0.05
+				fascist_drift = 0.05
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				army_artillery_attack_factor = 0.05
+				army_morale_factor = 0.35
+				army_speed_factor = 0.1
+				surrender_limit = 1
 			}
 		}
 

@@ -2435,7 +2435,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_quagmire
 		icon = GFX_focus_SOV_the_quagmire
-		x = 37
+		x = 39
 		y = 8
 		cost = 10
 		search_filters = {
@@ -2452,7 +2452,7 @@ focus_tree = {
 			}
 		}
 		allow_branch = {
-
+			always = no
 		}
 		
 		
@@ -2542,6 +2542,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			add_to_variable = { SOV_army_experience_loss_factor = -0.08 }
+			custom_effect_tooltip = SOV_counter_ukrainian_drones_tt
 			set_country_flag = SOV_unlock_2022_modernization_decisions
 			unlock_decision_tooltip = SOV_introduce_cope_cages
 			unlock_decision_tooltip = SOV_motorcycle_infantry
@@ -3664,10 +3666,29 @@ focus_tree = {
 					}
 				}
 
+				division_template = {
+					name = "Storm-V Brigade"
+					template_counter = 309
+					division_names_group = SOV_ESF_01
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 1 y = 2 }
+						artillery_brigade = { x = 2 y = 0}
+						artillery_brigade = { x = 2 y = 1}
+					}
+					support = {
+						engineer = { x = 0 y = 0 }   
+					}
+				}
+
 
 
 				for_loop_effect = {
-					end = 15
+					end = 11
 					value = temp
 					random_owned_controlled_state = {
 						limit = { ROOT = { has_full_control_of_state = PREV } }
@@ -3677,16 +3698,39 @@ focus_tree = {
 						}
 					}
 				}
+				for_loop_effect = {
+					end = 4
+					value = temp
+					random_owned_controlled_state = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Storm-V Unit\" division_template = \"Storm-V Brigade\" start_experience_factor = 0.06 start_equipment_factor = 1" 
+							owner = SOV
+						}
+					}
+				}
 				
 				if={
 					limit = { is_ai = yes UKR= { is_ai = no } }
 					for_loop_effect = {
-						end = 19
+						end = 14
 						value = temp
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
 							create_unit = {
 								division = "name = \"Storm-Z Unit\" division_template = \"Storm-Z Brigade\" start_experience_factor = 0.04 start_equipment_factor = 1" 
+								owner = SOV
+							}
+						}
+					}
+
+					for_loop_effect = {
+						end = 5
+						value = temp
+						random_owned_controlled_state = {
+							limit = { ROOT = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "name = \"Storm-V Unit\" division_template = \"Storm-V Brigade\" start_experience_factor = 0.04 start_equipment_factor = 1" 
 								owner = SOV
 							}
 						}
@@ -3974,9 +4018,52 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SOV_reinforce_border_guard
+		icon = GFX
+		x = -2
+		y = 3
+		cost = 35
+		search_filters = {
+			
+		}
+		
+		prerequisite = { focus = SOV_the_best_of_kadyrovs }
+		relative_position_id = SOV_new_military_innovations
+
+		available={
+			has_war_with = UKR
+			vladimir_putin_is_leader = yes
+			hidden_trigger={ NOT = { has_completed_focus = SOV_the_angry_patriots } }
+		}
+		
+		completion_reward={
+			every_state = {
+				limit = {
+					NOT = { is_controlled_by = UKR }
+					OR = {
+						state = 299
+						state = 435
+						state = 434
+						state = 446
+						state = 447
+						state = 448
+						state = 449
+						state = 450
+						state = 451
+						state = 452
+					}
+				}
+
+				add_dynamic_modifier = { modifier = SOV_border_guard_reinforced scope = UKR }
+			}
+			custom_effect_tooltip = SOV_reinforce_border_guard_tt
+		}
+	}
+
+	focus = {
 		id = SOV_wagner_rebellion
 		icon = GFX_focus_SOV_Wagner_Rebelion
-		x = -4
+		x = -5
 		y = 1
 		cost = 35
 		search_filters = {
@@ -4003,22 +4090,23 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			custom_effect_tooltip = SOV_wagner_rebellion_tt
 		}
 	}
 
 	focus = {
 		id = SOV_nationalize_wagner
 		icon = GFX_focus_SOV_Nationalize_Wagner
-		x = -5
-		y = 2
-		cost = 50
+		x = -1
+		y = 1
+		cost = 30
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
 
 		mutually_exclusive = { focus = SOV_destroy_wagner_for_all }
 		prerequisite = { focus = SOV_wagner_rebellion }
-		relative_position_id = SOV_new_military_innovations
+		relative_position_id = SOV_wagner_rebellion
 		
 
 		available={
@@ -4033,8 +4121,8 @@ focus_tree = {
 	focus = {
 		id = SOV_appoint_troshev
 		icon = GFX_focus_SOV_Appoint_Trochev
-		x = -5
-		y = 3
+		x = -1
+		y = 2
 		cost = 35
 		search_filters = {
 			
@@ -4042,7 +4130,7 @@ focus_tree = {
 
 		
 		prerequisite = { focus = SOV_nationalize_wagner }
-		relative_position_id = SOV_new_military_innovations
+		relative_position_id = SOV_wagner_rebellion
 
 		available={
 			
@@ -4061,9 +4149,9 @@ focus_tree = {
 	focus = {
 		id = SOV_destroy_wagner_for_all
 		icon = GFX_focus_SOV_Destroy_Wagner_2
-		x = -3
-		y = 2
-		cost = 50
+		x = 1
+		y = 1
+		cost = 30
 		search_filters = {
 
 		}
@@ -4071,7 +4159,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_nationalize_wagner }
 		prerequisite = { focus = SOV_wagner_rebellion }
 		
-		relative_position_id = SOV_new_military_innovations
+		relative_position_id = SOV_wagner_rebellion
 
 		available={
 			has_country_flag = yevgeny_prigozhin_not_active_flag
@@ -4079,7 +4167,9 @@ focus_tree = {
 		
 		completion_reward={
 			custom_effect_tooltip = SOV_destroy_wagner_for_all_tt
+			add_ideas = SOV_ensured_loyalty
 			SOV_decrease_nationalist_faction_medium = yes
+			
 			hidden_effect = {
 				if = {
 					limit = {
@@ -4098,8 +4188,8 @@ focus_tree = {
 	focus = {
 		id = SOV_recruit_former_wagnerites
 		icon = GFX_focus_SOV_Recruit_Former_Wagnerites
-		x = -3
-		y = 3
+		x = 1
+		y = 2
 		cost = 35
 		search_filters = {
 
@@ -4107,7 +4197,7 @@ focus_tree = {
 
 		prerequisite = { focus = SOV_destroy_wagner_for_all focus = SOV_nationalize_wagner }
 		
-		relative_position_id = SOV_new_military_innovations
+		relative_position_id = SOV_wagner_rebellion
 
 		available={
 			
@@ -4205,7 +4295,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_enter_war_economy
-		icon = GFX
+		icon = GFX_focus_SOV_Transition_To_A_Wartime_Economy
 		x = 7
 		y = 2
 		cost = 35
@@ -4229,7 +4319,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_semi_war_economy
-		icon = GFX
+		icon = GFX_focus_SOV_Transition_To_A_Semi_Wartime_Economy
 		x = 9
 		y = 2
 		cost = 35
@@ -4282,7 +4372,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -3
+			x = -4
 			trigger = {
 				has_global_flag = Wagner_mutiny_happened_flag
 			}
@@ -11162,8 +11252,26 @@ shared_focus = {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = yes
-	completion_reward = {	
-		country_event = { id = russia.1171 days = 2 }
+	completion_reward = {
+		effect_tooltip = {
+			if = {
+				limit = {
+					country_exists = DON
+				}
+	
+				DON = { 
+					kill_country_leader = yes 
+					set_politics = {
+						ruling_party = ultranationalist
+					}
+				}
+	
+			}
+			else = {
+				add_political_power = 55
+				add_stability = -0.08
+			}
+		}
 	}
 }
 
@@ -11188,7 +11296,10 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
-		#add some shit here
+		effect_tooltip = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 }
 
@@ -11212,7 +11323,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
-		
+		custom_effect_tooltip = SOV_address_the_nation_tt
 	}
 }
 
