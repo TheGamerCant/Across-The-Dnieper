@@ -2452,7 +2452,18 @@ focus_tree = {
 			}
 		}
 		allow_branch = {
-			always = no
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_completed_focus = SOV_movements_on_the_border
+				}
+			}
 		}
 		
 		
@@ -4022,7 +4033,7 @@ focus_tree = {
 		icon = GFX
 		x = -2
 		y = 3
-		cost = 35
+		cost = 25
 		search_filters = {
 			
 		}
@@ -10597,7 +10608,7 @@ shared_focus = {
 	}
 	
 	offset = {
-		x = -12
+		x = -3
 		y = 0
 		trigger = {
 			has_game_rule = {
@@ -11328,6 +11339,34 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_proclaim_patriotic_russia
+	icon = GFX
+	x = 0
+	y = 5
+	
+	cost = 50
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_address_the_nation }
+	prerequisite = { focus = SOV_heroes_forward focus = SOV_clamp_down_on_production_corruption }
+	prerequisite = { focus = SOV_ultimatum_to_belarus }
+
+	relative_position_id = SOV_russia_united_QM
+
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_ideas = SOV_true_patriot_russia
+	}
+}
+
+shared_focus = {
 	id = SOV_coalition_with_nazbols
 	icon = GFX
 	x = -6
@@ -11394,7 +11433,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_form_the_national_movement
 	icon = GFX
-	x = 6
+	x = 5
 	y = 1
 	
 	cost = 42
@@ -11420,7 +11459,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_rally_the_patriots
 	icon = GFX
-	x = 6
+	x = 5
 	y = 2
 	
 	cost = 35
@@ -11449,7 +11488,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_economic_self_sufficiency_girkin
 	icon = GFX_focus_SOV_clamp_down_on_production_corruption
-	x = 4
+	x = 3
 	y = 1
 	
 	cost = 60

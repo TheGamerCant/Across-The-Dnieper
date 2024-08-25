@@ -9689,6 +9689,7 @@ SOV_clear_selected_strike_missile = {
 SOV_missile_strike_effect = {
 	set_variable = { chances_of_aa_taking_down = 0 }
 	set_variable = { chances_of_missing_target = 0 }
+	set_variable = { missile_strike_state_id_loc = FROM }
 
 	hidden_effect = {
 		meta_effect = {
@@ -9778,9 +9779,19 @@ SOV_remove_1_iskander = {
 	add_to_variable = { SOV_SUKR_iskander_surplus = -1 }
 }
 
+SOV_add_5_iskander = {
+	custom_effect_tooltip = "SOV_add_5_iskander"
+	add_to_variable = { SOV_SUKR_iskander_surplus = 5 }
+}
+
 SOV_remove_1_kh = {
 	custom_effect_tooltip = "SOV_remove_1_kh"
 	add_to_variable = { SOV_SUKR_kh_surplus = -1 }
+}
+
+SOV_add_10_kh = {
+	custom_effect_tooltip = "SOV_add_10_kh"
+	add_to_variable = { SOV_SUKR_kh_surplus = 10 }
 }
 
 SOV_remove_1_hwasong = {

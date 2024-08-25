@@ -6633,7 +6633,10 @@ country_event = {
 			if = {
 				limit = { has_completed_focus = SOV_coalition_with_wagnerites }
 
-				country_event = { id = russia.1176 days = 2 }
+				country_event = { id = russia.1176 days = 4 }
+			}
+			else = {
+				country_event = { id = russia.1179 days = 2 }
 			}
 		}
     }
@@ -6729,7 +6732,7 @@ country_event = {
 				}
 
 				for_loop_effect = {
-					end = 8
+					end = 10
 					value = temp
 					random_core_state = {
 						prioritize = { 41 37 425 }
@@ -6742,7 +6745,7 @@ country_event = {
 				}
 
 				for_loop_effect = {
-					end = 8
+					end = 12
 					value = temp
 					random_core_state = {
 						prioritize = { 41 37 425 }
@@ -6755,7 +6758,7 @@ country_event = {
 				}
 
 				for_loop_effect = {
-					end = 8
+					end = 10
 					value = temp
 					random_core_state = {
 						prioritize = { 37 }
@@ -6828,7 +6831,7 @@ country_event = {
 				set_province_controller = 6216
 
 				for_loop_effect = {
-					end = 13
+					end = 16
 					value = temp
 					random_core_state = {
 						prioritize = { 39 }
@@ -6869,6 +6872,208 @@ country_event = {
 
 		add_political_power = -15
     }
+}
+
+#ANGRY PATRIOTS, wagner seizes st petersburg
+country_event = {
+    id = russia.1179
+    title = russia.1179.t
+    desc = russia.1179.desc
+    picture = SOV_wagner_gang
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1179.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = -0.05
+		add_war_support = -0.05
+
+		hidden_effect = {
+			country_event = { id = russia.1180 days = 2 }
+		}
+
+		11 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 13692
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 3753
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 14861
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 1004
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 13914
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 14748
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 14714
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 3667
+			}
+		}
+    }
+}
+
+#ANGRY PATRIOTS, addressing the nation (wagner attack)
+country_event = {
+    id = russia.1180
+    title = russia.1180.t
+    desc = russia.1180.desc
+    picture = SOV_ap_addressing_nation
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			WAG = {
+				set_province_controller = 14713
+				set_province_controller = 14712
+				set_province_controller = 37
+				set_province_controller = 14392
+				set_province_controller = 2652
+				set_province_controller = 14716
+				set_province_controller = 8955
+				set_province_controller = 14754
+				set_province_controller = 1549
+				set_province_controller = 12025
+				set_province_controller = 10910
+				set_province_controller = 14817
+				set_province_controller = 8709
+				set_province_controller = 13237
+
+				transfer_state = 432
+
+				set_cosmetic_tag = WRA
+
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+
+				division_template = {
+					name = "Musicians"
+					template_counter = 183
+					priority = 2
+					division_names_group = WAG_ESF_01
+					regiments = {
+						elite_special_forces = { x = 0 y = 0 }
+						elite_special_forces = { x = 0 y = 1 }
+						elite_special_forces = { x = 0 y = 2 }
+				
+						elite_special_forces = { x = 1 y = 0 }
+						elite_special_forces = { x = 1 y = 1 }
+						elite_special_forces = { x = 1 y = 2 }
+				
+						artillery_brigade = { x = 2 y = 0}
+						artillery_brigade = { x = 2 y = 1}
+					}
+					support = {
+						engineer = { x = 0 y = 0 }   
+					}
+				}
+
+				for_loop_effect = {
+					end = 35
+					value = temp
+					random_state = {
+						prioritize = { 10 12 }
+						create_unit = {
+							division = "name = \"Musicians\" division_template = \"Musicians\" start_experience_factor = 0.9 start_equipment_factor = 0.95" 
+							owner = WAG
+							allow_spawning_on_enemy_provs = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+        name = russia.1180.a
+		ai_chance = {
+			base = 10
+		}
+
+		hidden_effect = {
+			country_event = { id = russia.1181 days = 8 }
+		}
+    }
+	option = {
+        name = russia.1180.b
+		ai_chance = {
+			base = 0
+		}
+		hidden_effect = {
+			country_event = { id = russia.1181 days = 8 }
+		}
+
+		WAG = { change_tag_from = ROOT }
+    }
+}
+
+#ANGRY PATRIOTS, defections to wagner
+country_event = {
+    id = russia.1181
+    title = russia.1181.t
+    desc = russia.1181.desc
+    picture = GFX_report_event_SOV_wagner_mutiny
+    is_triggered_only = yes
+
+	trigger = {
+		country_exists = WAG
+	}
+
+    option = {
+        name = russia.1181.a
+		ai_chance = {
+			base = 10
+		}
+
+		transfer_units_fraction= {
+			target = WAG
+			size = 0.22
+			stockpile_ratio = 0.2
+			army_ratio = 0.25
+			navy_ratio = 0
+			air_ratio = 0.1
+			keep_unit_leaders_trigger = {
+			}
+		}
+    }
+
 }
 
 country_event = {

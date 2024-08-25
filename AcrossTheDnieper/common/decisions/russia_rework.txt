@@ -3484,6 +3484,96 @@ SOV_foreign_equipment_decision = {
 }
 
 SOV_smo_missile_strikes = {
+	SOV_produce_iskander_missiles = { 
+		priority = 200
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			custom_trigger_tooltip={
+				NOT = { has_country_flag = SOV_producing_missiles_rn }
+				tooltip = SOV_producing_missiles_rn_tt
+			}
+		}
+		
+		days_remove = 45
+		days_re_enable = 120
+		
+		modifier={
+			industrial_capacity_factory = -0.1
+		}
+
+		visible = {
+
+		}
+
+		cost = 5
+		
+		fire_only_once = no
+
+		remove_effect = {
+			SOV_add_5_iskander = yes
+			clr_country_flag = SOV_producing_missiles_rn
+		}
+
+		complete_effect = {
+			set_country_flag = SOV_producing_missiles_rn
+		}
+	}
+
+	SOV_produce_kh55_missiles = { 
+		priority = 200
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			custom_trigger_tooltip={
+				NOT = { has_country_flag = SOV_producing_missiles_rn }
+				tooltip = SOV_producing_missiles_rn_tt
+			}
+		}
+		
+		days_remove = 45
+		days_re_enable = 120
+		
+		modifier={
+			industrial_capacity_factory = -0.1
+		}
+
+		visible = {
+
+		}
+
+		cost = 5
+		
+		fire_only_once = no
+
+		remove_effect = {
+			SOV_add_10_kh = yes
+			clr_country_flag = SOV_producing_missiles_rn
+		}
+
+		complete_effect = {
+			set_country_flag = SOV_producing_missiles_rn
+		}
+	}
+
 	SOV_iskander_launch_civ_decisions = {
 		state_target = yes
 		target_array = UKR.controlled_states
