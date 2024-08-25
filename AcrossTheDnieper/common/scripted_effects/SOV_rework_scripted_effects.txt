@@ -9220,63 +9220,49 @@ SOV_before_smo_effects = {
 	set_global_flag = smo_eastern_front_open
 	set_global_flag = smo_donbass_front_open
 	set_global_flag = smo_southern_front_open
-	
-	news_event = { id = atd_news.56 days = 10 random_days = 20 }
 
-	UKR = {
-		add_intel = {
-			target = DON
-			army_intel = 60
-		}
-		add_intel = {
-			target = LHK
-			army_intel = 60
-		}
-		add_intel = {
-			target = SOV
-			army_intel = 60
-		}
-	}
-
-	add_intel = {
-		target = UKR
-		army_intel = 60
-	}
+	SOV_set_ukraine_commander_dvornikov = yes
 
 	if = {
-		limit = {
-			country_exists = BLR
-			OR={
-				is_in_faction_with = BLR
-				BLR={ is_puppet_of = ROOT }
-			}
-			435 = { is_owned_and_controlled_by = BLR }
-		}
-		
-		if={
-			limit = { 434 = { is_owned_and_controlled_by = BLR } }
-			country_event = { id = russia.88 days = 56 }
-		}
-	}
-	else={
-		set_global_flag = smo_western_front_open
-	}
+		limit = { has_start_date < 2022.01.01 }
 
-	every_country = {
-		limit = {
-			has_start_date < 2022.01.01
-			country_exists = ROOT
-			is_puppet_of = SOV
-			OR = {
-				original_tag = DON
-				original_tag = LHK
-				original_tag = KHK
-				original_tag = NOV
-				original_tag = ODS
+		news_event = { id = atd_news.56 days = 10 random_days = 20 }
+
+		if = {
+			limit = {
+				country_exists = BLR
+				OR={
+					is_in_faction_with = BLR
+					BLR={ is_puppet_of = ROOT }
+				}
+				435 = { is_owned_and_controlled_by = BLR }
+			}
+			
+			if={
+				limit = { 434 = { is_owned_and_controlled_by = BLR } }
+				country_event = { id = russia.88 days = 56 }
 			}
 		}
-
-		country_event = { id = donbass_mutual.1 days = 25 }
+		else={
+			set_global_flag = smo_western_front_open
+		}
+	
+		every_country = {
+			limit = {
+				has_start_date < 2022.01.01
+				country_exists = ROOT
+				is_puppet_of = SOV
+				OR = {
+					original_tag = DON
+					original_tag = LHK
+					original_tag = KHK
+					original_tag = NOV
+					original_tag = ODS
+				}
+			}
+	
+			country_event = { id = donbass_mutual.1 days = 25 }
+		}
 	}
 	
 	if={
@@ -9827,4 +9813,68 @@ SOV_add_60_shaheds = {
 SOV_add_200_shaheds = {
 	custom_effect_tooltip = "SOV_add_200_shaheds"
 	add_to_variable = { SOV_SUKR_shahed_surplus = 200 }
+}
+
+SOV_clr_ukraine_commanders = {
+	hidden_effect = {
+		clr_global_flag = smo_dvornikov_commander
+		clr_global_flag = smo_surovikin_commander
+		clr_global_flag = smo_zhidko_commander
+
+		remove_ideas = SOV_dvornikov_commander_bonus
+		remove_ideas = SOV_zhidko_commander_bonus
+		remove_ideas = SOV_surovikin_commander_bonus
+	}
+}
+
+SOV_set_ukraine_commander_dvornikov = {
+	custom_effect_tooltip = smo_dvornikov_commander_tt
+	custom_effect_tooltip = smo_dvornikov_commander_effect
+	hidden_effect = {
+		SOV_clr_ukraine_commanders = yes
+		set_global_flag = smo_dvornikov_commander
+		add_ideas = SOV_dvornikov_commander_bonus
+	}
+}
+
+SOV_set_ukraine_commander_zhidko = {
+	custom_effect_tooltip = smo_zhidko_commander_tt
+	custom_effect_tooltip = smo_zhidko_commander_effect
+	hidden_effect = {
+		SOV_clr_ukraine_commanders = yes
+		set_global_flag = smo_zhidko_commander
+		add_ideas = SOV_zhidko_commander_bonus
+	}
+}
+
+SOV_set_ukraine_commander_surovikin = {
+	custom_effect_tooltip = smo_surovikin_commander_tt
+	custom_effect_tooltip = smo_surovikin_commander_effect
+	hidden_effect = {
+		SOV_clr_ukraine_commanders = yes
+		set_global_flag = smo_surovikin_commander
+		add_ideas = SOV_surovikin_commander_bonus
+	}
+}
+
+SOV_clear_russian_offensive_loc = {
+	clr_global_flag = kyiv_offensive_loc
+	clr_global_flag = southern_ukraine_offensive_loc
+	clr_global_flag = donbass_offensive_loc
+	clr_global_flag = zaporizhzhia_offensive_loc
+	clr_global_flag = bakhmut_offensive_loc
+	clr_global_flag = odessa_offensive_loc
+	clr_global_flag = cherkasy_offensive_loc
+	clr_global_flag = second_kyiv_offensive_loc
+}
+
+SOV_clear_ukrainian_offensive_loc = {
+	clr_global_flag = northern_ukraine_counteroffensive_loc
+	clr_global_flag = kharkiv_counteroffensive_loc
+	clr_global_flag = crimean_offensive_loc
+	clr_global_flag = southern_ukraine_counteroffensive_loc
+	clr_global_flag = kherson_counteroffensive_loc
+	clr_global_flag = belgorod_incursion_loc
+	clr_global_flag = donbass_counteroffensive_loc
+	clr_global_flag = summer_counteroffensive_loc
 }

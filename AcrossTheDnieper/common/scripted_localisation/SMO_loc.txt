@@ -112,19 +112,286 @@ defined_text = {
 
 
 defined_text = {
-    name = get_smo_bg
+    name = get_western_front_gfx
 	
 	text = {
         trigger = {
-			original_tag = UKR
+			has_global_flag = smo_western_front_open
         }
-        localization_key = "GFX_smo_ukr_bg"
+        localization_key = "GFX_SMO_fronts_western_opened"
     }
 
 	text = {
         trigger = {
-			original_tag = SOV
+			NOT = { has_global_flag = smo_western_front_open }
         }
-        localization_key = "GFX_smo_bg"
+        localization_key = "GFX_SMO_fronts_western_closed"
+    }
+}
+
+defined_text = {
+    name = get_northern_front_gfx
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_northern_front_open
+        }
+        localization_key = "GFX_SMO_fronts_northern_opened"
+    }
+
+	text = {
+        trigger = {
+			NOT = { has_global_flag = smo_northern_front_open }
+        }
+        localization_key = "GFX_SMO_fronts_northern_closed"
+    }
+}
+
+defined_text = {
+    name = get_eastern_front_gfx
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_eastern_front_open
+        }
+        localization_key = "GFX_SMO_fronts_eastern_opened"
+    }
+
+	text = {
+        trigger = {
+			NOT = { has_global_flag = smo_eastern_front_open }
+        }
+        localization_key = "GFX_SMO_fronts_eastern_closed"
+    }
+}
+
+defined_text = {
+    name = get_donbass_front_gfx
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_donbass_front_open
+        }
+        localization_key = "GFX_SMO_fronts_donbass_opened"
+    }
+
+	text = {
+        trigger = {
+			NOT = { has_global_flag = smo_donbass_front_open }
+        }
+        localization_key = "GFX_SMO_fronts_donbass_closed"
+    }
+}
+
+defined_text = {
+    name = get_southern_front_gfx
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_southern_front_open
+        }
+        localization_key = "GFX_SMO_fronts_southern_opened"
+    }
+
+	text = {
+        trigger = {
+			NOT = { has_global_flag = smo_southern_front_open }
+        }
+        localization_key = "GFX_SMO_fronts_southern_closed"
+    }
+}
+
+defined_text = {
+    name = get_smo_commander_gfx
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_dvornikov_commander
+        }
+        localization_key = "GFX_Portrait_aleksandr_vladimirovich_dvornikov"
+    }
+
+	text = {
+        trigger = {
+			has_global_flag = smo_zhidko_commander
+        }
+        localization_key = "GFX_Portrait_gennady_valeryevich_zhidko"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = smo_surovikin_commander
+        }
+        localization_key = "GFX_Portrait_sergey_surovikin"
+    }
+}
+
+defined_text = {
+    name = get_smo_commander_name
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_dvornikov_commander
+        }
+        localization_key = "smo_dvornikov_commander_name"
+    }
+
+	text = {
+        trigger = {
+			has_global_flag = smo_zhidko_commander
+        }
+        localization_key = "smo_zhidko_commander_name"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = smo_surovikin_commander
+        }
+        localization_key = "smo_surovikin_commander_name"
+    }
+}
+
+defined_text = {
+    name = get_smo_commander_effect
+	
+	text = {
+        trigger = {
+			has_global_flag = smo_dvornikov_commander
+        }
+        localization_key = "smo_dvornikov_commander_effect"
+    }
+
+	text = {
+        trigger = {
+			has_global_flag = smo_zhidko_commander
+        }
+        localization_key = "smo_zhidko_commander_effect"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = smo_surovikin_commander
+        }
+        localization_key = "smo_surovikin_commander_effect"
+    }
+}
+
+defined_text = {
+    name = get_smo_russian_main_offensive
+	
+	text = {
+        trigger = {
+			has_global_flag = kyiv_offensive_loc
+        }
+        localization_key = "kyiv_offensive_loc"
+    }
+
+	text = {
+        trigger = {
+			has_global_flag = southern_ukraine_offensive_loc
+        }
+        localization_key = "southern_ukraine_offensive_loc"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = donbass_offensive_loc
+        }
+        localization_key = "donbass_offensive_loc"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = zaporizhzhia_offensive_loc
+        }
+        localization_key = "zaporizhzhia_offensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = bakhmut_offensive_loc
+        }
+        localization_key = "bakhmut_offensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = odessa_offensive_loc
+        }
+        localization_key = "odessa_offensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = cherkasy_offensive_loc
+        }
+        localization_key = "cherkasy_offensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = second_kyiv_offensive_loc
+        }
+        localization_key = "second_kyiv_offensive_loc"
+    }
+
+    text = {
+        localization_key = "no_offensive_loc"
+    }
+}
+
+defined_text = {
+    name = get_smo_ukrainian_main_offensive
+	
+	text = {
+        trigger = {
+			has_global_flag = northern_ukraine_counteroffensive_loc
+        }
+        localization_key = "northern_ukraine_counteroffensive_loc"
+    }
+
+	text = {
+        trigger = {
+			has_global_flag = kharkiv_counteroffensive_loc
+        }
+        localization_key = "kharkiv_counteroffensive_loc"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = crimean_offensive_loc
+        }
+        localization_key = "crimean_offensive_loc"
+    }
+
+    text = {
+        trigger = {
+			has_global_flag = southern_ukraine_counteroffensive_loc
+        }
+        localization_key = "southern_ukraine_counteroffensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = kherson_counteroffensive_loc
+        }
+        localization_key = "kherson_counteroffensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = belgorod_incursion_loc
+        }
+        localization_key = "belgorod_incursion_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = donbass_counteroffensive_loc
+        }
+        localization_key = "donbass_counteroffensive_loc"
+    }
+    text = {
+        trigger = {
+			has_global_flag = summer_counteroffensive_loc
+        }
+        localization_key = "summer_counteroffensive_loc"
+    }
+
+    text = {
+        localization_key = "no_offensive_loc"
     }
 }

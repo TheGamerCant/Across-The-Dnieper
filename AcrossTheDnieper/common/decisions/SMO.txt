@@ -341,7 +341,7 @@ SOV_smo={
 		is_good = no
 
 		timeout_effect = {
-			hidden_effect = { SOV_close_northern_front_effect = yes }
+			hidden_effect = { SOV_close_northern_front_effect = yes clr_global_flag = kyiv_offensive_loc clr_global_flag = northern_ukraine_counteroffensive_loc }
 			if={
 				limit = { 
 					NOT = { has_global_flag = smo_western_front_open }
@@ -403,6 +403,10 @@ SOV_smo={
 			NOT = { has_global_flag = russia_ukraine_war_started_recently }
 			NOT = { has_global_flag = kharkiv_front_reopened_AI_flag }
 			has_global_flag = smo_eastern_front_open
+			OR = {
+				has_active_mission = SOV_northern_front_closes
+				NOT = { has_global_flag = smo_northern_front_open }
+			}
 			NOT={
 				any_state={
 					CONTROLLER={

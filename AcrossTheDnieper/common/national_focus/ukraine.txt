@@ -8500,6 +8500,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = northern_ukraine_counteroffensive_loc days = 60 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -9749,6 +9751,8 @@ focus_tree = {
 			custom_effect_tooltip = UKR_offensives_in_the_south_west_tt
 
 			hidden_effect={
+				SOV_clear_ukrainian_offensive_loc = yes
+				set_global_flag = { flag = kherson_counteroffensive_loc days = 60 value = 1 }
 				country_event = { id = ukraine.147 days = 61 }
 			}
 
@@ -9806,14 +9810,6 @@ focus_tree = {
 			NOT = { is_puppet_of = SOV }
 			any_country={ original_tag = SOV has_war_with = ROOT }
 			92 = { is_controlled_by = ROOT }
-			
-			any_state={
-				OR={
-					has_state_flag = sumy_oblast_flag
-					has_state_flag = kharkiv_oblast_flag
-				}
-				CONTROLLER = { has_war_with = ROOT }
-			}
 		}
 		
 		
@@ -9824,6 +9820,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = kharkiv_counteroffensive_loc days = 60 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -10103,6 +10101,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = southern_ukraine_counteroffensive_loc days = 60 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -10921,6 +10921,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = donbass_counteroffensive_loc days = 60 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -10969,6 +10971,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = crimean_offensive_loc days = 60 value = 1 }
 			every_state={
 				limit={
 					has_state_flag = crimea_oblast_flag 
@@ -11041,7 +11045,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			SOV_clear_ukrainian_offensive_loc = yes
+			set_global_flag = { flag = belgorod_incursion_loc days = 60 value = 1 }
 			custom_effect_tooltip = UKR_liberate_bilhorod_tt_2
 			every_state = {
 				limit = {

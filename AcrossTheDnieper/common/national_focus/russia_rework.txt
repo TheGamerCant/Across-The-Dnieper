@@ -613,6 +613,9 @@ focus_tree = {
 				set_global_flag = { flag = russia_ukraine_war_less_than_two_years value = 1 days = 730 }
 
 				SOV_smo_setup_state_modifiers = yes #scripted effect
+
+				SOV_clear_russian_offensive_loc = yes
+				set_global_flag = kyiv_offensive_loc
 				
 				declare_war_on = {
 					target = UKR
@@ -2491,18 +2494,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
-			SOV_aleksandr_vladimirovich_dvornikov_rework = {
-				add_planning = 1
-				gain_xp = 350
-			}
-			SOV_gennady_valeryevich_zhidko_rework = {
-				add_planning = 1
-				gain_xp = 300
-			}
-			SOV_sergey_surovikin_rework = {
-				add_planning = 1
-				gain_xp = 300
-			}
+			SOV_set_ukraine_commander_zhidko = yes
+
 			add_to_variable = { SOV_raspizdyaystvo_supply_node_range = 0.1 }
 			subtract_from_variable = { SOV_raspizdyaystvo_attrition = 0.08 }
 			custom_effect_tooltip = SOV_fix_our_logistics_tt
@@ -2795,7 +2788,8 @@ focus_tree = {
 		
 		completion_reward={
 			hidden_effect = {
-
+				SOV_clear_russian_offensive_loc = yes
+			    set_global_flag = { flag = donbass_offensive_loc days = 80 value = 1 }
 				if = {
 					limit = { NOT = { has_dynamic_modifier = { modifier = SOV_a_harsh_war scope = ROOT } } }
 					
@@ -2891,6 +2885,8 @@ focus_tree = {
 		completion_reward={
 			
 			hidden_effect={
+				SOV_clear_russian_offensive_loc = yes
+			    set_global_flag = { flag = bakhmut_offensive_loc days = 130 value = 1 }
 				country_event = { id = russia.1153 days = 130 }
 			}
 
@@ -2992,6 +2988,9 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = southern_ukraine_offensive_loc days = 80 value = 1 }
+			
 			every_state={
 				limit={
 					AND = {
@@ -3069,6 +3068,9 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = zaporizhzhia_offensive_loc days = 50 value = 1 }
+
 			every_state = {
 				limit = { OR = { state = 455 state = 196 } }
 
@@ -3101,6 +3103,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = odessa_offensive_loc days = 80 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -3137,6 +3141,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = southern_ukraine_offensive_loc days = 50 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -3172,6 +3178,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = cherkasy_offensive_loc days = 80 value = 1 }
 			every_state={
 				limit={
 					OR={
@@ -3212,6 +3220,8 @@ focus_tree = {
 		}
 		
 		completion_reward={
+			SOV_clear_russian_offensive_loc = yes
+			set_global_flag = { flag = second_kyiv_offensive_loc days = 80 value = 1 }
 			every_state={
 				limit={
 					has_state_flag = kyiv_oblast_flag
