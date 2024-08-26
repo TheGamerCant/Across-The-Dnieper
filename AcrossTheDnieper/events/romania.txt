@@ -692,9 +692,89 @@ country_event = {
     }
 }
 
+country_event = {
+    id = romania.37
+    title = romania.37.t
+    desc = romania.37.desc
+	picture = GFX_ROM_Vadim_Death
+    mean_time_to_happen = {
+    years = 1
+    months = 8
+    days = 27
+    }
+    trigger = {
+        original_tag = ROM
+        NOT = {
+        has_government = ultranationalist
+        }
+    }
+    fire_only_once = yes
+    is_triggered_only = yes
 
+    option = {
+        name = romania.37.a
+        ai_chance = {
+			base = 100
+		}
+        add_stability = -0.05
+        create_country_leader = {
+			name = "Victor Iovici"
+			desc = ""
+			ideology = generic_ultranationalist
+			picture = gfx/leaders/ROM/Portrait_Victor_Iovici.png
+			traits = {}
+		}		
+    }
+}
 
+country_event = {
+    id = romania.36
+    title = romania.36.t
+    desc = romania.36.desc
+	picture = GFX_ROM_Mihai_Death
+    mean_time_to_happen = { years = 2 months = 11 days = 4 }
+    trigger = {
+        original_tag = ROM
+    }
+    immediate = {
+        hidden_effect = {
+            country_event = {id = romania.35 days = 11}
+        }
+    }
+    is_triggered_only = yes
 
+    option = {
+        name = romania.36.a
+        ai_chance = {
+			base = 100
+		}
+        add_ideas = ROM_National_Mourning
+        custom_effect_tooltip = rom_funeral_tt
+        add_stability = -0.015
+    }
+}
+
+country_event = {
+    id = romania.35
+    title = romania.35.t
+    desc = romania.35.desc
+	picture = GFX_ROM_Mihai_Funeral
+    trigger = {
+        original_tag = ROM
+    }
+    is_triggered_only = yes
+
+    option = {
+        name = romania.35.a
+        ai_chance = {
+			base = 100
+		}
+        remove_ideas = ROM_National_Mourning
+        hidden_effect = {
+            add_stability = 0.015
+        }
+    }
+}
 
 
 
