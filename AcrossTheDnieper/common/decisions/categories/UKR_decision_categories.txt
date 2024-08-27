@@ -125,18 +125,3 @@ UKR_miliary_aid_decision = {
 	}
 }
 
-UKR_international_legion_decision = {
-	icon = GFX_international_legion_category
-	priority = 500
-	allowed = {
-		OR={
-			original_tag = UKR
-			original_tag = UGE
-		}
-	}
-	visible = {
-		has_completed_focus = UKR_create_international_legion
-		any_country = { has_war_with = ROOT original_tag = SOV }
-		NOT = { has_cosmetic_original_tag = UKR_russian_puppet }
-	}
-}

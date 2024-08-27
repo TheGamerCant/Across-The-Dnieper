@@ -2464,7 +2464,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_completed_focus = SOV_movements_on_the_border
+					NOT = { has_global_flag = russia_ukraine_war_started_recently }
 				}
 			}
 		}
@@ -2628,7 +2628,7 @@ focus_tree = {
 		y = 1
 		cost = 14
 		search_filters = {
-			
+			FOCUS_FILTER_HISTORICAL
 		}
 
 		prerequisite = { focus = SOV_information_warfare }
@@ -2748,7 +2748,7 @@ focus_tree = {
 		y = 1
 		cost = 14
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
+			
 		}
 
 		prerequisite = { focus = SOV_information_warfare }
@@ -4686,7 +4686,186 @@ focus_tree = {
 			add_war_support = 0.03
 		}
 	}
-	
+
+	focus = {
+		id = SOV_sore_losers
+		icon = GFX
+		x = 64
+		y = 8
+		cost = 10
+		search_filters = {
+			
+		}
+		available={
+			hidden_trigger = { always = no }
+		}
+
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				OR={
+					has_country_flag = view_all_russia_trees
+					has_completed_focus = SOV_sore_losers
+				}
+				
+				vladimir_putin_is_leader = yes
+			}
+		}
+		
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_sore_losers_tt
+			hidden_effect = {
+				country_event = { id = russia.1182 days = 5 }
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_tell_different_story
+		icon = GFX
+		x = 0
+		y = 1
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_sore_losers }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			country_event = { id = russia.1184 }
+		}
+	}
+
+	focus = {
+		id = SOV_war_reperations_for_sanctions_lift
+		icon = GFX
+		x = -1
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_tell_different_story }
+		mutually_exclusive = { focus = SOV_complete_dependance_on_china }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			add_timed_idea = {
+				idea = SOV_war_reperations_to_ukraine
+				days = 700
+			}
+
+			remove_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+		}
+	}
+
+	focus = {
+		id = SOV_complete_dependance_on_china
+		icon = GFX
+		x = 1
+		y = 2
+		cost = 24
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_tell_different_story }
+		mutually_exclusive = { focus = SOV_war_reperations_for_sanctions_lift }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_ideas = SOV_chinese_vassal_state
+		}
+	}
+
+	focus = {
+		id = SOV_north_korean_model
+		icon = GFX
+		x = 0
+		y = 3
+		cost = 30
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_war_reperations_for_sanctions_lift focus = SOV_complete_dependance_on_china }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_complete_demographic_collapse
+				add_idea = SOV_complete_demographic_collapse_2
+			}
+			add_stability = -0.05
+			random_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+
+		}
+	}
+
+	focus = {
+		id = SOV_mental_checkups_for_veterans
+		icon = GFX
+		x = -3
+		y = 4
+		cost = 30
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_north_korean_model }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_crime_among_war_veterans
+				add_idea = SOV_crime_among_war_veterans_2
+			}
+		}
+	}
 	
 	focus = {
 		id = SOV_great_victors_2
@@ -4719,7 +4898,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_completed_focus = SOV_movements_on_the_border
+					has_completed_focus = SOV_great_victors_2
 				}
 				
 				vladimir_putin_is_leader = yes

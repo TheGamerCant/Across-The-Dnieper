@@ -634,7 +634,6 @@ focus_tree = {
 	continuous_focus_position = { x = -40 y = 1050 } 
 	country = {
 		factor = 0
-
 	}
 
 	focus = {
@@ -7425,7 +7424,7 @@ focus_tree = {
 				}
 
 				if = {
-					limit = { has_trait = the_iron_joker }
+					limit = { has_country_leader_with_trait  = the_iron_joker }
 
 					swap_ruler_traits = {
 						remove = the_iron_joker
@@ -7433,7 +7432,7 @@ focus_tree = {
 					}
 				}
 				else_if = {
-					limit = { has_trait = the_iron_joker_2 }
+					limit = { has_country_leader_with_trait  = the_iron_joker_2 }
 					
 					swap_ruler_traits = {
 						remove = the_iron_joker_2
@@ -8349,7 +8348,7 @@ focus_tree = {
 					}
 					
 					for_loop_effect = {
-						end = 75
+						end = 70
 						value = temp
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
@@ -8384,7 +8383,7 @@ focus_tree = {
 					}
 					
 					for_loop_effect = {
-						end = 35
+						end = 30
 						value = temp
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
@@ -8415,7 +8414,7 @@ focus_tree = {
 					}
 					
 					for_loop_effect = {
-						end = 12
+						end = 7
 						value = temp
 						random_owned_controlled_state = {
 							limit = { ROOT = { has_full_control_of_state = PREV } }
@@ -8549,7 +8548,7 @@ focus_tree = {
 					volodymyr_zelenskyy_is_leader = yes
 				}
 				if = {
-					limit = { has_trait = the_iron_joker }
+					limit = { has_country_leader_with_trait  = the_iron_joker }
 
 					swap_ruler_traits = {
 						remove = the_iron_joker
@@ -8557,7 +8556,7 @@ focus_tree = {
 					}
 				}
 				else_if = {
-					limit = { has_trait = the_iron_joker_2 }
+					limit = { has_country_leader_with_trait  = the_iron_joker_2 }
 					
 					swap_ruler_traits = {
 						remove = the_iron_joker_2
@@ -10214,9 +10213,253 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = UKR_create_international_legion_tt
 			add_manpower = 10000
 			add_command_power = 60
-			unlock_decision_category_tooltip = UKR_international_legion_decision
+			hidden_effect = {
+				division_template = {
+					name = "1st Infantry Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 269
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "2nd Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 270
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "3rd Special Purpose Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 271
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+				
+				division_template = {
+					name = "4th Training Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 272
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Canadian-Ukrainian Brigade"
+					division_names_group = UKR_INF_01
+					template_counter = 310
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Dzhokhar Dudayev Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 273
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Khamzat Gelayev Detachment"
+					division_names_group = UKR_INF_01
+					template_counter = 274
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+				
+				division_template = {
+					name = "Ichkerian Special Purpose Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 311
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Imam Shamil Dagestan Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 275
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Pahonia Regiment"
+					division_names_group = UKR_INF_01
+					template_counter = 312
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Pahonia Regiment"
+					division_names_group = UKR_INF_01
+					template_counter = 312
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Black Bridge"
+					division_names_group = UKR_INF_01
+					template_counter = 313
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				division_template = {
+					name = "Bolívar Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 276
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+				
+				division_template = {
+					name = "Bolívar Battalion"
+					division_names_group = UKR_INF_01
+					template_counter = 276
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }   
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 92 }
+					create_unit = {
+						division = "name = \"1st Infantry Battalion\" division_template = \"1st Infantry Battalion\" start_experience_factor = 0.25 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"2nd Battalion\" division_template = \"2nd Battalion\" start_experience_factor = 0.25 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"3rd Special Purpose Battalion\" division_template = \"3rd Special Purpose Battalion\" start_experience_factor = 0.25 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"4th Training Battalion\" division_template = \"4th Training Battalion\" start_experience_factor = 0.5 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Canadian-Ukrainian Brigade\" division_template = \"Canadian-Ukrainian Brigade\" start_experience_factor = 0.2 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Dzhokhar Dudayev Battalion\" division_template = \"Dzhokhar Dudayev Battalion\" start_experience_factor = 0.45 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Khamzat Gelayev Detachment\" division_template = \"Khamzat Gelayev Detachment\" start_experience_factor = 0.45 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Ichkerian Special Purpose Battalion\" division_template = \"Ichkerian Special Purpose Battalion\" start_experience_factor = 0.45 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Imam Shamil Dagestan Battalion\" division_template = \"Imam Shamil Dagestan Battalion\" start_experience_factor = 0.45 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Pahonia Regiment\" division_template = \"Pahonia Regiment\" start_experience_factor = 0.2 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Black Bridge\" division_template = \"Black Bridge\" start_experience_factor = 0.2 start_equipment_factor = 1" 
+						owner = UKR
+					}
+					create_unit = {
+						division = "name = \"Bolívar Battalion\" division_template = \"Bolívar Battalion\" start_experience_factor = 0.2 start_equipment_factor = 1" 
+						owner = UKR
+					}
+				}
+			}
 		}
 	}
 
@@ -10642,7 +10885,7 @@ focus_tree = {
 					volodymyr_zelenskyy_is_leader = yes
 				}
 				if = {
-					limit = { has_trait = the_iron_joker }
+					limit = { has_country_leader_with_trait = the_iron_joker }
 
 					swap_ruler_traits = {
 						remove = the_iron_joker
@@ -10650,7 +10893,7 @@ focus_tree = {
 					}
 				}
 				else_if = {
-					limit = { has_trait = the_iron_joker_2 }
+					limit = { has_country_leader_with_trait = the_iron_joker_2 }
 					
 					swap_ruler_traits = {
 						remove = the_iron_joker_2

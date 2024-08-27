@@ -3538,6 +3538,7 @@ country_event = {
 	}
 
 	immediate = { 
+		
 		set_variable_to_random = {
 			var = western_troops_count_variable
 			min = 1
@@ -3552,7 +3553,7 @@ country_event = {
 			integer = yes
 		}
 
-		hidden_effect={ country_event = { id = ukraine.99 days = 90 } } 
+		hidden_effect={ country_event = { id = ukraine.99 days = 90 } add_to_variable = { UKR.western_trained_units_amount = 1 } } 
 	}
 
 	option = { 
@@ -4584,6 +4585,7 @@ country_event = { #Minor weapons shipment
 
 	immediate={
 		hidden_effect={
+			add_to_variable = { UKR.major_package_amount = 1 }
 			if={
 				limit = { SOV = { has_war_with = UKR } }
 				if={
@@ -4700,6 +4702,7 @@ country_event = { #Good weapons shipment
 
 	immediate={
 		hidden_effect={
+			add_to_variable = { UKR.major_package_amount = 1 }
 			if={
 				limit = { SOV = { has_war_with = UKR } }
 				if={
@@ -4858,6 +4861,7 @@ country_event = { #Substantial weapons shipment
 
 	immediate={
 		hidden_effect={
+			add_to_variable = { UKR.major_package_amount = 1 }
 			if={
 				limit = { SOV = { has_war_with = UKR } }
 				if={
