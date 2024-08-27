@@ -426,6 +426,19 @@ on_actions={
 			set_global_flag = rvc_spawned
 			UKR = { country_event = { id = ukraine.168 } }
 		}
+		else_if = {	#Fall of avdiivka
+		limit = {
+			OR = {
+				tag = SOV
+				is_puppet_of = SOV
+			}
+			SOV={ has_war_with = UKR } 
+			FROM.FROM = { state = 467 }
+			NOT={ has_global_flag = fall_avdiivka }
+		}
+		news_event = { id = city_captures.35 }
+		UKR = { add_war_support = -0.05 }
+	}
 		}
 	}
 	on_peace={

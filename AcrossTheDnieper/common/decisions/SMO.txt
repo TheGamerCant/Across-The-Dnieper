@@ -927,13 +927,17 @@ SOV_smo={
 
 		remove_effect = {
 			russia_ukraine_peace = yes
-			add_stability = 0.05
+			add_stability = 0.1
 			if={
 				limit = { has_idea = extensive_conscription }
 				swap_ideas={
 					remove_idea = extensive_conscription
 					add_idea = limited_conscription
 				}
+			}
+
+			hidden_effect = {
+				complete_national_focus = SOV_sore_losers
 			}
 		}
 	}

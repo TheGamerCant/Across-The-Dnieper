@@ -7080,6 +7080,87 @@ country_event = {
 
 }
 
+#POST UKRAINE WAR LOSS, soldiers return home
+country_event = {
+    id = russia.1182
+    title = russia.1182.t
+    desc = russia.1182.desc
+    picture = SOV_soldiers_returning
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1182.a
+		ai_chance = {
+			base = 10
+		}
+		add_ideas = SOV_complete_demographic_collapse
+		add_war_support = -0.05
+		hidden_effect = {
+			country_event = { id = russia.1183 days = 12 }
+		}
+    }
+
+}
+
+#POST UKRAINE WAR LOSS, moscow incident
+country_event = {
+    id = russia.1183
+    title = russia.1183.t
+    desc = russia.1183.desc
+    picture = SOV_jumbo_event
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1183.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = -0.05
+    }
+}
+
+#POST UKRAINE WAR LOSS, victory
+country_event = {
+    id = russia.1184
+    title = russia.1184.t
+    desc = russia.1184.desc
+    picture = GFX_report_event_SOV_putin_speech
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1184.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.1
+		add_political_power = -50
+    }
+}
+
+#POST UKRAINE WAR LOSS, lipetsk incident
+country_event = {
+    id = russia.1185
+    title = russia.1185.t
+    desc = russia.1185.desc
+    picture = SOV_cw_varlamov
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1185.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ideas = SOV_crime_among_war_veterans
+    }
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
