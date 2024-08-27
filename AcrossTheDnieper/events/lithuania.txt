@@ -281,13 +281,13 @@ country_event = {
 	}
 }
 
-#Alytus Scandal
+#the labour party issue
 country_event = {
 	id = lithuania.12
 	title = lithuania.12.t
 	desc = lithuania.12.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_LIT_alytus_scandal
+	picture = GFX_report_event_LIT_mazuronis
 	
 	option = { 
 		name = lithuania.12.a
@@ -295,65 +295,74 @@ country_event = {
 			base = 1
 		}
 
-		add_political_power = -15
+		add_political_power = 20
 		add_popularity = {
-			ideology = social_democracy
+			ideology = populist
 			popularity = -0.05
 		}
 	}
 }
 
-#Gabrielius Landsbergis nominated as TSLKD leader
+#2014 elections
 country_event = {
 	id = lithuania.13
 	title = lithuania.13.t
 	desc = lithuania.13.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_LIT_landsbergis
+	picture = GFX_report_event_LIT_2014_elections
 	
 	option = { 
 		name = lithuania.13.a
 		ai_chance = {
-			base = 1
+			base = 10
 		}
 
-		add_popularity = {
-			ideology = eastern_conservative
-			popularity = 0.05
+		add_political_power = 25
+		set_country_flag = grybauskaite_elected_second_time
+	}
+
+	option = { 
+		name = lithuania.13.b
+		ai_chance = {
+			base = 0
 		}
-		create_country_leader = {
-			name = "Gabrielius Landsbergis"
-			desc = ""
-			picture = gfx/leaders/LIT/PM/Portrait_Gabrielius_Landsbergis.png
-			ideology = generic_eastern_conservative
-			traits = { }
+
+		set_politics = {
+			ruling_party = social_democracy
+
 		}
 	}
 }
 
-#Valentinas Mazuronis nominated as DP leader
+#aid arrives (ukraine donbass war)
 country_event = {
 	id = lithuania.14
 	title = lithuania.14.t
 	desc = lithuania.14.desc
 	is_triggered_only = yes
-	picture = GFX_report_event_LIT_mazuronis
+	picture = GFX_report_event_LIT_2014_elections
 	
 	option = { 
 		name = lithuania.14.a
 		ai_chance = {
-			base = 1
+			base = 10
 		}
 
-		add_popularity = {
-			ideology = populist
-			popularity = 0.03
+		effect_tooltip = {
+			LIT={
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 1000
+					target = UKR
+				}
+				send_equipment = {
+					equipment = support_equipment
+					amount = 200
+					target = UKR
+				}
+			}
 		}
-		create_country_leader = {
-			name = "Valentinas Mazuronis"
-			desc = ""
-			ideology = generic_populist
-			traits = { }
-		}
+
+		add_opinion_modifier = { target = UKR modifier = BLR_medium_positive } 
 	}
 }

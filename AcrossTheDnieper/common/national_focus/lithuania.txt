@@ -19,10 +19,6 @@ focus_tree = {
 		y = 0
 		cost = 35
 
-		ai_will_do = { 
-			factor = 10 
-		}
-
 		available = {
 		}
 		bypass = {
@@ -51,10 +47,6 @@ focus_tree = {
 
 		prerequisite = { focus = LIT_begin_preperations_for_euro }
 
-		ai_will_do = { 
-			factor = 10 
-		}
-
 		available = {
 			NOT = { has_idea = LIT_preparing_for_euro }
 		}
@@ -78,10 +70,6 @@ focus_tree = {
 
 		prerequisite = { focus = LIT_begin_preperations_for_euro }
 
-		ai_will_do = { 
-			factor = 10 
-		}
-
 		available = {
 			
 		}
@@ -101,10 +89,6 @@ focus_tree = {
 		cost = 60
 
 		prerequisite = { focus = LIT_demand_lower_gas_prices }
-
-		ai_will_do = { 
-			factor = 10 
-		}
 
 		available = {
 			
@@ -136,6 +120,104 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = LIT_labour_party_issue
+		icon = GFX
+		x = 10
+		y = 0
+		cost = 30
+		allow_branch = {
+			dalia_grybauskaite_is_leader = yes
+		}
+		available = {
+			has_completed_focus = LIT_begin_preperations_for_euro
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			country_event = { id = lithuania.12 }
+		}
+	}
+	focus = {
+		id = LIT_maintain_anti_labourist_agenda
+		icon = GFX
+		x = 0
+		y = 1
+		cost = 30
+		relative_position_id = LIT_labour_party_issue
+		prerequisite = { focus = LIT_labour_party_issue }
+		available = {
+			
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_country_leader_trait = LIT_anti_labourist
+			add_popularity = {
+				ideology = populist
+				popularity = -0.1
+			}
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = LIT_empower_the_new_government
+		icon = GFX
+		x = 0
+		y = 2
+		cost = 25
+		relative_position_id = LIT_labour_party_issue
+		prerequisite = { focus = LIT_maintain_anti_labourist_agenda }
+		available = {
+			has_country_flag = grybauskaite_elected_second_time
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_political_power = 80
+			add_popularity = {
+				ideology = neoconservative
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = LIT_arm_ukraine
+		icon = GFX
+		x = 2
+		y = 3
+		cost = 25
+		relative_position_id = LIT_labour_party_issue
+		prerequisite = { focus = LIT_empower_the_new_government }
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+			has_equipment = { infantry_equipment > 999 }
+			has_equipment = { support_equipment > 199 }
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			UKR = { country_event = { id = lithuania.14 random_days = 9 } }
+			LIT={
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 1000
+					target = UKR
+				}
+				send_equipment = {
+					equipment = support_equipment
+					amount = 200
+					target = UKR
+				}
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -145,19 +227,16 @@ shared_focus = {
 	y = 7
 	cost = 40
 
-	ai_will_do = { 
-		factor = 10 
-	}
 	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			has_country_flag = LIT_chose_6_year_plan
-		}
+		#if = {
+		#	limit = {
+		#		has_game_rule = {
+		#			rule = obsolete_focus_branches_visibility
+		#			option = HIDE
+		#		}
+		#	}
+		#	has_country_flag = LIT_chose_6_year_plan
+		#}
 	}
 	available = {
 		
@@ -175,24 +254,10 @@ shared_focus = {
 	icon = GFX
 	x = 3
 	y = 8
-	cost = 35
+	cost = 25
 
 	prerequisite = { focus = LIT_6_year_plan }
 
-	ai_will_do = { 
-		factor = 10 
-	}
-	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			has_country_flag = LIT_chose_6_year_plan
-		}
-	}
 	available = {
 		
 	}
@@ -211,6 +276,65 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = LIT_purchase_nasams
+	icon = GFX
+	x = 3
+	y = 9
+	cost = 30
+
+	prerequisite = { focus = LIT_purchase_grom }
+
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		6 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
+		4 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+
+shared_focus = {
+	id = LIT_purchase_boxers
+	icon = GFX
+	x = 1
+	y = 8
+	cost = 25
+
+	prerequisite = { focus = LIT_6_year_plan }
+
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		army_experience = 10
+		add_equipment_to_stockpile = {
+			type = mechanized_equipment
+			amount = 88
+			producer = GER
+		}
+	}
+}
+
+shared_focus = {
 	id = LIT_russian_threat
 	icon = GFX
 	x = 7
@@ -219,20 +343,6 @@ shared_focus = {
 
 	prerequisite = { focus = LIT_6_year_plan }
 
-	ai_will_do = { 
-		factor = 10 
-	}
-	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			has_country_flag = LIT_chose_6_year_plan
-		}
-	}
 	available = {
 		date > 2014.5.1
 	}
@@ -253,21 +363,6 @@ shared_focus = {
 	cost = 40
 
 	prerequisite = { focus = LIT_russian_threat }
-
-	ai_will_do = { 
-		factor = 10 
-	}
-	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			has_country_flag = LIT_chose_6_year_plan
-		}
-	}
 	available = {
 	}
 	bypass = {
@@ -308,20 +403,6 @@ shared_focus = {
 
 	prerequisite = { focus = LIT_6_year_plan }
 
-	ai_will_do = { 
-		factor = 10 
-	}
-	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			has_country_flag = LIT_chose_6_year_plan
-		}
-	}
 	available = {
 		date > 2014.11.1
 	}
@@ -330,5 +411,86 @@ shared_focus = {
 
 	completion_reward = {
 		increase_military_spending = yes
+	}
+}
+
+shared_focus = {
+	id = LIT_reintroduce_compulsory_military_service
+	icon = GFX
+	x = 5
+	y = 11
+	cost = 40
+
+	prerequisite = { focus = LIT_increase_national_defense_budget }
+
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = volunteer_only
+			add_idea = limited_conscription
+		}
+	}
+}
+
+shared_focus = {
+	id = LIT_open_nato_headquarters
+	icon = GFX
+	x = 7
+	y = 11
+	cost = 20
+
+	prerequisite = { focus = LIT_increase_national_defense_budget }
+
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		6 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		army_experience = 15
+		every_country = {
+			limit = {
+				OR = {
+					is_in_faction_with = NAT
+					is_in_faction_with = USA
+				}
+			}
+			add_opinion_modifier = { target = LIT modifier = small_increase }
+		}
+	}
+}
+
+shared_focus = {
+	id = LIT_mali_peacekeeping_mission
+	icon = GFX
+	x = 3
+	y = 11
+	cost = 20
+
+	prerequisite = { focus = LIT_increase_national_defense_budget }
+
+	available = {
+		
+	}
+	bypass = {
+	}
+
+	completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		army_experience = 50
+		add_manpower = -40
 	}
 }
