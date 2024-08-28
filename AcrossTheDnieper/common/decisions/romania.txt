@@ -381,6 +381,28 @@ ROM_parliament_decisions_category={
 						clr_country_flag = ROM_is_modernising_TR
 		}
 	}
+	DEBUG_Clear_Long_Short_Medium = { 
+		priority = 200
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			clr_country_flag = ROM_short_term_remake
+			clr_country_flag = ROM_medium_term_remake
+			clr_country_flag = ROM_long_term_remake
+		}
+	}
 
 	DEBUG_small_upper_house_decrease = { 
 		priority = 200
@@ -518,7 +540,85 @@ ROM_parliament_decisions_category={
 }
 
 ROM_tr_modernisation_decisions_category={
-	ROM_Acquire_New_Armour = { 
+	ROM_Short_Term = { 
+		priority = 1500
+		
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			NOT = { has_country_flag = ROM_short_term_remake }
+		}
+
+		available = {
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			set_country_flag = ROM_short_term_remake
+			clr_country_flag = ROM_medium_term_remake
+			clr_country_flag = ROM_long_term_remake
+		}
+		remove_effect = {
+
+		}
+		
+	}
+	ROM_Medium_Term = { 
+		priority = 1499
+		
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			NOT = { has_country_flag = ROM_medium_term_remake }
+		}
+
+		available = {
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			set_country_flag = ROM_medium_term_remake
+			clr_country_flag = ROM_short_term_remake
+			clr_country_flag = ROM_long_term_remake
+		}
+		remove_effect = {
+
+		}
+		
+	}
+	ROM_Long_Term = { 
+		priority = 1498
+		
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			NOT = { has_country_flag = ROM_long_term_remake }
+		}
+
+		available = {
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			set_country_flag = ROM_long_term_remake
+			clr_country_flag = ROM_short_term_remake
+			clr_country_flag = ROM_medium_term_remake
+		}
+		remove_effect = {
+
+		}
+		
+	}
+	ROM_Acquire_New_Armour_decision = { 
 		priority = 1000
 
 		days_remove = 25
@@ -527,6 +627,10 @@ ROM_tr_modernisation_decisions_category={
 			original_tag = ROM
 		}
 		fire_only_once = yes
+
+		visible = {
+			has_country_flag = ROM_short_term_remake
+		}
 
 		available = {
 			has_completed_focus = ROM_TR_Modernisation
@@ -553,7 +657,7 @@ ROM_tr_modernisation_decisions_category={
 		}
 		
 	}
-	ROM_Acquire_New_Turret = { 
+	ROM_Acquire_New_Turret_decision = { 
 		priority = 1000
 
 		days_remove = 25
@@ -562,6 +666,10 @@ ROM_tr_modernisation_decisions_category={
 			original_tag = ROM
 		}
 		fire_only_once = yes
+		
+				visible = {
+			has_country_flag = ROM_short_term_remake
+		}
 
 		available = {
 			has_completed_focus = ROM_TR_Modernisation
@@ -588,7 +696,7 @@ ROM_tr_modernisation_decisions_category={
 									complete_national_focus = ROM_Acquire_New_Turret
 		}
 	}
-	ROM_Acquire_A_New_Engine = { 
+	ROM_Acquire_A_New_Engine_decision = { 
 		priority = 1000
 
 		days_remove = 25
@@ -597,6 +705,10 @@ ROM_tr_modernisation_decisions_category={
 			original_tag = ROM
 		}
 		fire_only_once = yes
+
+				visible = {
+			has_country_flag = ROM_short_term_remake
+		}
 
 		available = {
 			has_completed_focus = ROM_TR_Modernisation
@@ -622,7 +734,7 @@ ROM_tr_modernisation_decisions_category={
 									complete_national_focus = ROM_Acquire_New_Engine
 		}
 	}
-	ROM_Acquire_New_Cannons = { 
+	ROM_Acquire_New_Cannons_decision = { 
 		priority = 1000
 
 		days_remove = 25
@@ -630,11 +742,320 @@ ROM_tr_modernisation_decisions_category={
 		allowed = {
 			original_tag = ROM
 		}
+		
 		fire_only_once = yes
 					modifier={
 						consumer_goods_factor = 0.25
 			}
+				visible = {
+			has_country_flag = ROM_short_term_remake
+		}
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
 
+		timeout_effect = {
+		}
+		complete_effect = {
+			consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+
+		remove_effect = {
+			set_technology = {
+				 sp_weapon_tech_2 = 1
+               sp_weapon_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Cannon
+		}
+	}
+		ROM_Acquire_New_Armour_medium_decision = { 
+		priority = 1000
+
+		days_remove = 50
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = ROM_medium_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+				modifier={
+						consumer_goods_factor = 0.10
+			}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+						consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+		remove_effect = {
+			set_technology = {
+				               mod_armor_tech_2 = 1
+				mod_armor_tech_3 = 1
+
+			}
+			clr_country_flag = ROM_is_modernising_TR
+			complete_national_focus = ROM_Acquire_New_Armour
+		}
+		
+	}
+	ROM_Acquire_New_Turret_medium_decision = { 
+		priority = 1000
+
+		days_remove = 50
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+		
+				visible = {
+			has_country_flag = ROM_medium_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+					modifier={
+						consumer_goods_factor = 0.10
+			}
+
+
+		timeout_effect = {
+		}
+		complete_effect = {
+						consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+
+		remove_effect = {
+			set_technology = {
+				 main_weapon_tech_2 = 1
+               main_weapon_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Turret
+		}
+	}
+	ROM_Acquire_A_New_Engine_medium_decision = { 
+		priority = 1000
+
+		days_remove = 50
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+
+				visible = {
+			has_country_flag = ROM_medium_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+					modifier={
+						consumer_goods_factor = 0.10
+			}
+
+
+		timeout_effect = {
+		}
+		complete_effect = {
+
+						set_country_flag = ROM_is_modernising_TR
+		}
+		remove_effect = {
+			set_technology = {
+				 mod_engine_tech_2 = 1
+               mod_engine_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Engine
+		}
+	}
+	ROM_Acquire_New_Cannons_medium_decision = { 
+		priority = 1000
+
+		days_remove = 50
+		
+		allowed = {
+			original_tag = ROM
+		}
+		
+		fire_only_once = yes
+					modifier={
+						consumer_goods_factor = 0.10
+			}
+				visible = {
+			has_country_flag = ROM_medium_term_remake
+		}
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+			consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+
+		remove_effect = {
+			set_technology = {
+				 sp_weapon_tech_2 = 1
+               sp_weapon_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Cannon
+		}
+	}
+		ROM_Acquire_New_Armour_long_decision = { 
+		priority = 1000
+
+		days_remove = 100
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = ROM_long_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+				modifier={
+						consumer_goods_factor = 0.05
+			}
+
+		timeout_effect = {
+		}
+		complete_effect = {
+						consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+		remove_effect = {
+			set_technology = {
+				               mod_armor_tech_2 = 1
+				mod_armor_tech_3 = 1
+
+			}
+			clr_country_flag = ROM_is_modernising_TR
+			complete_national_focus = ROM_Acquire_New_Armour
+		}
+		
+	}
+	ROM_Acquire_New_Turret_long_decision = { 
+		priority = 1000
+
+		days_remove = 100
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+		
+				visible = {
+			has_country_flag = ROM_long_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+					modifier={
+						consumer_goods_factor = 0.05
+			}
+
+
+		timeout_effect = {
+		}
+		complete_effect = {
+						consumer_goods_factor = 0.25
+						set_country_flag = ROM_is_modernising_TR
+		}
+
+		remove_effect = {
+			set_technology = {
+				 main_weapon_tech_2 = 1
+               main_weapon_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Turret
+		}
+	}
+	ROM_Acquire_A_New_Engine_long_decision = { 
+		priority = 1000
+
+		days_remove = 100
+		
+		allowed = {
+			original_tag = ROM
+		}
+		fire_only_once = yes
+
+				visible = {
+			has_country_flag = ROM_long_term_remake
+		}
+
+		available = {
+			has_completed_focus = ROM_TR_Modernisation
+			NOT = { has_country_flag = ROM_is_modernising_TR }
+		}
+					modifier={
+						consumer_goods_factor = 0.05
+			}
+
+
+		timeout_effect = {
+		}
+		complete_effect = {
+
+						set_country_flag = ROM_is_modernising_TR
+		}
+		remove_effect = {
+			set_technology = {
+				 mod_engine_tech_2 = 1
+               mod_engine_tech_3 = 1
+            }
+						clr_country_flag = ROM_is_modernising_TR
+									complete_national_focus = ROM_Acquire_New_Engine
+		}
+	}
+	ROM_Acquire_New_Cannons_long_decision = { 
+		priority = 1000
+
+		days_remove = 100
+		
+		allowed = {
+			original_tag = ROM
+		}
+		
+		fire_only_once = yes
+					modifier={
+						consumer_goods_factor = 0.05
+			}
+				visible = {
+			has_country_flag = ROM_long_term_remake
+		}
 		available = {
 			has_completed_focus = ROM_TR_Modernisation
 			NOT = { has_country_flag = ROM_is_modernising_TR }
