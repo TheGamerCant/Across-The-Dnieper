@@ -2333,6 +2333,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = quagmire_event
 				}
+				NOT = { has_completed_focus = SOV_sore_losers }
 			}
 		}
 		relative_position_id = SOV_announce_the_draft
@@ -2461,6 +2462,7 @@ focus_tree = {
 					has_country_flag = view_all_russia_trees
 					has_country_flag = quagmire_event
 				}
+				NOT = { has_completed_focus = SOV_sore_losers }
 			}
 		}
 		
@@ -4685,7 +4687,7 @@ focus_tree = {
 	focus = {
 		id = SOV_sore_losers
 		icon = GFX
-		x = 64
+		x = 39
 		y = 8
 		cost = 10
 		search_filters = {
@@ -4794,7 +4796,7 @@ focus_tree = {
 		icon = GFX
 		x = 0
 		y = 3
-		cost = 30
+		cost = 60
 		search_filters = {
 			
 		}
@@ -4970,7 +4972,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_close_the_borders }
 		mutually_exclusive = { focus = SOV_lower_taxes }
 		available={
-			NOT = { has_idea = SOV_subsidies_for_childbirth_idea }
+			
 		}
 		relative_position_id = SOV_sore_losers
 		
@@ -4980,7 +4982,20 @@ focus_tree = {
 				add_idea = SOV_complete_demographic_collapse_5
 			}
 
-			add_ideas = SOV_subsidies_for_childbirth_idea
+			if = {
+				limit = { has_idea = SOV_subsidies_for_childbirth_idea }
+				modify_timed_idea = {
+					idea = SOV_subsidies_for_childbirth_idea
+					days = 150
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = SOV_subsidies_for_childbirth_idea
+					days = 150
+				}
+			}
+			
 		}
 	}
 
@@ -5214,7 +5229,7 @@ focus_tree = {
 		icon = GFX
 		x = 0
 		y = 9
-		cost = 20
+		cost = 10
 		search_filters = {
 			
 		}
@@ -5230,6 +5245,23 @@ focus_tree = {
                 target = UKR
                 type = annex_everything
             }
+
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							tag = ZAP
+							tag = CRI
+						}
+						NOT = { has_war_with = UKR }
+					}
+
+					declare_war_on = {
+						target = UKR
+						type = annex_everything
+					}
+				}
+			}
 		}
 	}
 	
