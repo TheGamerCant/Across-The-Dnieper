@@ -2331,7 +2331,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					NOT = { has_global_flag = russia_ukraine_war_started_recently }
+					has_country_flag = quagmire_event
 				}
 			}
 		}
@@ -4842,7 +4842,7 @@ focus_tree = {
 	focus = {
 		id = SOV_mental_checkups_for_veterans
 		icon = GFX
-		x = -3
+		x = -2
 		y = 4
 		cost = 30
 		search_filters = {
@@ -4859,6 +4859,377 @@ focus_tree = {
 				remove_idea = SOV_crime_among_war_veterans
 				add_idea = SOV_crime_among_war_veterans_2
 			}
+		}
+	}
+
+	focus = {
+		id = SOV_free_housing_for_war_veterans
+		icon = GFX
+		x = -1
+		y = 5
+		cost = 35
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_mental_checkups_for_veterans }
+		mutually_exclusive = { focus = SOV_monetary_bonuses_for_war_veterans }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_crime_among_war_veterans_2
+				add_idea = SOV_crime_among_war_veterans_4
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_monetary_bonuses_for_war_veterans
+		icon = GFX
+		x = -3
+		y = 5
+		cost = 35
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_mental_checkups_for_veterans }
+		mutually_exclusive = { focus = SOV_free_housing_for_war_veterans }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_crime_among_war_veterans_2
+				add_idea = SOV_crime_among_war_veterans_3
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_close_the_borders
+		icon = GFX
+		x = 2
+		y = 4
+		cost = 30
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_north_korean_model }
+
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_complete_demographic_collapse_2
+				add_idea = SOV_complete_demographic_collapse_3
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_lower_taxes
+		icon = GFX
+		x = 1
+		y = 5
+		cost = 35
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_close_the_borders }
+
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		mutually_exclusive = { focus = SOV_subsidies_for_childbirth_lose_tree }
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_complete_demographic_collapse_3
+				add_idea = SOV_complete_demographic_collapse_4
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_subsidies_for_childbirth_lose_tree
+		icon = GFX
+		x = 3
+		y = 5
+		cost = 35
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_close_the_borders }
+		mutually_exclusive = { focus = SOV_lower_taxes }
+		available={
+			NOT = { has_idea = SOV_subsidies_for_childbirth_idea }
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			swap_ideas = {
+				remove_idea = SOV_complete_demographic_collapse_3
+				add_idea = SOV_complete_demographic_collapse_5
+			}
+
+			add_ideas = SOV_subsidies_for_childbirth_idea
+		}
+	}
+
+	focus = {
+		id = SOV_like_nothing_ever_happened
+		icon = GFX
+		x = 0
+		y = 6
+		cost = 20
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_monetary_bonuses_for_war_veterans focus = SOV_free_housing_for_war_veterans }
+		prerequisite = { focus = SOV_lower_taxes focus = SOV_subsidies_for_childbirth_lose_tree }
+		available={
+			
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			add_stability = 0.1
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SOV_rally_the_russians_in_crimea
+		icon = GFX
+		x = -1
+		y = 7
+		cost = 40
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_like_nothing_ever_happened  }
+		available={
+			UKR = { any_owned_state={ has_state_flag = crimea_oblast_flag } }
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { support_equipment > 399 }
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_rally_the_russians_in_crimea_tt
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -2000
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -400
+			}
+			UKR = {
+				country_event = { id = russia.1188 }
+				add_stability = -0.05
+				add_popularity = {
+					ideology = ultranationalist
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_rally_the_russians_in_zaporizhzia
+		icon = GFX
+		x = 1
+		y = 7
+		cost = 40
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_like_nothing_ever_happened  }
+		available={
+			UKR = { any_owned_state={ has_state_flag = zaporizhzhia_oblast_flag } }
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { support_equipment > 399 }
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_rally_the_russians_in_zaporizhzia_tt
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment
+				amount = -2000
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment
+				amount = -400
+			}
+			UKR = {
+				country_event = { id = russia.1189 }
+				add_stability = -0.05
+				add_popularity = {
+					ideology = ultranationalist
+					popularity = 0.05
+					
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_another_2014
+		icon = GFX
+		x = 0
+		y = 8
+		cost = 50
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_rally_the_russians_in_zaporizhzia  }
+		prerequisite = { focus = SOV_rally_the_russians_in_crimea  }
+		available={
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			custom_effect_tooltip = SOV_another_2014_tt
+			hidden_effect = {
+				news_event = { id = atd_news.87 days = 1 }
+				UKR = { country_event = { id = russia.1190 } }
+				CRI = {
+					set_cosmetic_tag = PRC
+
+					transfer_state = 420
+					transfer_state = 354
+
+					set_province_controller = 4758
+					set_province_controller = 9732
+
+					set_province_controller = 10994
+					set_province_controller = 5167
+
+					add_ideas = mediocre_militias
+
+					every_state = {
+						limit = { has_state_flag = crimea_oblast_flag }
+						add_core_of = CRI
+					}
+
+					declare_war_on = {
+						target = UKR
+						type = annex_everything
+					}
+
+					division_template = {
+						name = "Crimean Militia"
+						division_names_group = SOV_INF_01
+						template_counter = 181
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							artillery_brigade = { x = 1 y = 0 }
+							artillery_brigade = { x = 1 y = 1 }
+						}
+					}
+
+					for_loop_effect = {
+						end = 20
+						value = temp
+						random_state = {
+							prioritize = { 354 344 331 }
+							create_unit = {
+								division = "name = \"Crimean Militia\" division_template = \"Crimean Militia\" start_experience_factor = 0.35 start_equipment_factor = 0.98" 
+								owner = CRI
+								allow_spawning_on_enemy_provs = no
+							}
+						}
+					}
+				}
+
+				ZAP = {
+					transfer_state = 196
+
+					set_province_controller = 13564
+					set_province_controller = 8790
+
+					set_province_controller = 9734
+					set_province_controller = 18550
+					set_province_controller = 18488
+					set_province_controller = 18467
+
+					add_ideas = mediocre_militias
+
+					every_state = {
+						limit = { has_state_flag = zaporizhzhia_oblast_flag }
+						add_core_of = ZAP
+					}
+
+					declare_war_on = {
+						target = UKR
+						type = annex_everything
+					}
+
+					division_template = {
+						name = "Zaporizhzhian Militia"
+						division_names_group = SOV_INF_01
+						template_counter = 181
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							irregular_infantry = { x = 0 y = 2 }
+							irregular_infantry = { x = 0 y = 3 }
+							artillery_brigade = { x = 1 y = 0 }
+							artillery_brigade = { x = 1 y = 1 }
+						}
+					}
+
+					for_loop_effect = {
+						end = 25
+						value = temp
+						random_state = {
+							prioritize = { 196 284 214 }
+							create_unit = {
+								division = "name = \"Zaporizhzhian Militia\" division_template = \"Zaporizhzhian Militia\" start_experience_factor = 0.35 start_equipment_factor = 0.98" 
+								owner = ZAP
+								allow_spawning_on_enemy_provs = no
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_seconds_times_the_charm
+		icon = GFX
+		x = 0
+		y = 9
+		cost = 20
+		search_filters = {
+			
+		}
+		prerequisite = { focus = SOV_another_2014  }
+		available={
+		}
+		relative_position_id = SOV_sore_losers
+		
+		completion_reward={
+			puppet = CRI
+			puppet = ZAP
+			declare_war_on = {
+                target = UKR
+                type = annex_everything
+            }
 		}
 	}
 	
@@ -11410,21 +11781,6 @@ shared_focus = {
 		hidden_trigger = { always = no }
 	}
 	
-	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			OR={
-				has_country_flag = view_all_russia_trees
-				has_country_flag = quagmire_event
-			}
-		}
-	}
-	
 	bypass = {
 	}
 	cancel_if_invalid = yes
@@ -11548,6 +11904,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_address_the_nation }
 	prerequisite = { focus = SOV_heroes_forward focus = SOV_clamp_down_on_production_corruption }
 	prerequisite = { focus = SOV_ultimatum_to_belarus }
+	prerequisite = { focus = SOV_triune_russian_nation }
 
 	relative_position_id = SOV_russia_united_QM
 
@@ -11560,7 +11917,86 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	completion_reward = {	
+		set_cosmetic_tag = SOV_prosvirnin
 		add_ideas = SOV_true_patriot_russia
+	}
+}
+
+
+
+shared_focus = {
+	id = SOV_look_to_the_west
+	icon = GFX
+	x = 0
+	y = 6
+	
+	cost = 10
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_proclaim_patriotic_russia }
+
+	relative_position_id = SOV_russia_united_QM
+
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_war_support = 0.1
+		add_stability = 0.1
+		every_country = {
+			limit = { OR = { is_in_faction_with = NAT is_in_faction_with = USA has_idea = eu_member } }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = BLR_large_negative
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_crusade_against_the_west_slavs
+	icon = GFX
+	x = 0
+	y = 7
+	
+	cost = 45
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_look_to_the_west }
+
+	relative_position_id = SOV_russia_united_QM
+
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		swap_ideas={
+			remove_idea = SOV_true_patriot_russia
+			add_idea = SOV_true_patriot_russia_2
+		}
+
+		declare_war_on = {
+			target = POL
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = SLO
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = CZE
+			type = annex_everything
+		}
 	}
 }
 
@@ -11631,7 +12067,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_form_the_national_movement
 	icon = GFX
-	x = 5
+	x = 7
 	y = 1
 	
 	cost = 42
@@ -11641,6 +12077,7 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		has_war = no
 	}
 	
 	
@@ -11657,7 +12094,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_rally_the_patriots
 	icon = GFX
-	x = 5
+	x = 6
 	y = 2
 	
 	cost = 35
@@ -11667,6 +12104,7 @@ shared_focus = {
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		has_war = no
 	}
 	
 	
@@ -11680,22 +12118,114 @@ shared_focus = {
 			remove_idea = SOV_all_russian_national_movement
 			add_idea = SOV_all_russian_national_movement_2
 		}
+
+		every_country = {
+			limit = {
+				exists = yes
+				OR = { original_tag = UKR original_tag = BLR }
+			}
+
+			add_popularity = {
+				ideology = fascist
+				popularity = 0.1
+			}
+			add_stability = -0.1
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_unite_the_east_slavs
+	icon = GFX
+	x = 6
+	y = 3
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_rally_the_patriots }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		swap_ideas={
+			remove_idea = SOV_all_russian_national_movement_2
+			add_idea = SOV_all_russian_national_movement_3
+		}
+
+
+		if = {
+			limit = {
+				BLR = { is_puppet_of = SOV }
+			}
+			annex_country = { target = BLR transfer_troops = yes }
+		}
+		else_if = {
+			limit = {
+				NOT = { BLR = { has_war_with = SOV } BLR = { is_puppet_of = SOV } }
+			}
+			create_wargoal = {
+				target = BLR
+				type = annex_everything
+			}
+		}
+
+
+		if = {
+			limit = {
+				UKR = { is_puppet_of = SOV }
+			}
+			annex_country = { target = UKR transfer_troops = yes }
+		}
+
+		else_if = {
+			limit = {
+				NOT = { UKR = { has_war_with = SOV } UKR = { is_puppet_of = SOV } }
+			}
+			create_wargoal = {
+				target = UKR
+				type = annex_everything
+			}
+		}
+
+
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = BLR
+					is_core_of = UKR
+				}
+				NOT = { is_core_of = SOV }
+			}
+
+			add_core_of = SOV
+		}
 	}
 }
 
 shared_focus = {
 	id = SOV_economic_self_sufficiency_girkin
 	icon = GFX_focus_SOV_clamp_down_on_production_corruption
-	x = 3
-	y = 1
+	x = 8
+	y = 2
 	
-	cost = 60
+	cost = 35
 	ai_will_do = {
 	}
-	prerequisite = { focus = SOV_russia_united_QM }
+	prerequisite = { focus = SOV_form_the_national_movement }
 	relative_position_id = SOV_russia_united_QM
 	available = {
 		igor_girkin_is_leader = yes
+		has_war = no
 	}
 	
 	
@@ -11711,6 +12241,67 @@ shared_focus = {
 		custom_effect_tooltip = SOV_economic_self_sufficiency_tt
 		
 		add_stability = -0.03
+	}
+}
+
+shared_focus = {
+	id = SOV_motivated_workers
+	icon = GFX_focus_SOV_clamp_down_on_production_corruption
+	x = 8
+	y = 3
+	
+	cost = 35
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_economic_self_sufficiency_girkin }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		add_to_variable = { SOV_sanctions_consumer_goods_expected_value = -0.1 }
+		add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.2 }
+		add_to_variable = { SOV_sanctions_industrial_capacity_dockyard = 0.2 }
+		add_to_variable = { SOV_sanctions_research_speed_factor = 0.15 }
+		custom_effect_tooltip = SOV_motivated_workers_tt
+		
+		add_stability = -0.05
+	}
+}
+
+shared_focus = {
+	id = SOV_triune_russian_nation
+	icon = GFX
+	x = 7
+	y = 4
+	
+	cost = 60
+	ai_will_do = {
+	}
+	prerequisite = { focus = SOV_motivated_workers }
+	prerequisite = { focus = SOV_unite_the_east_slavs }
+	relative_position_id = SOV_russia_united_QM
+	available = {
+		igor_girkin_is_leader = yes
+		has_war = no
+	}
+	
+	
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	completion_reward = {	
+		country_event = { id = russia.1187 }
 	}
 }
 

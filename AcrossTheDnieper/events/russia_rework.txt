@@ -7181,6 +7181,112 @@ country_event = {
     }
 }
 
+#ANGRY PATRIOTS, triune Russian nation
+country_event = {
+    id = russia.1187
+    title = russia.1187.t
+    desc = russia.1187.desc
+    picture = SOV_triune_nation
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1187.a
+		ai_chance = {
+			base = 10
+		}
+		add_war_support = 0.15
+		swap_ideas={
+			remove_idea = SOV_all_russian_national_movement_3
+			add_idea = SOV_all_russian_nation
+		}
+    }
+}
+
+#Report from Crimea (for ukraine)
+country_event = {
+    id = russia.1188
+    title = russia.1188.t
+    desc = russia.1188.desc
+    picture = SOV_event_crimean_referendum
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1188.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = 0.08
+		add_political_power = -15
+    }
+
+	option = {
+        name = russia.1188.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.25
+		every_controlled_state = {
+			limit = { has_state_flag = crimea_oblast_flag }
+			add_manpower = -50000
+		}
+    }
+}
+
+#Report from Zaporizhia (for ukraine)
+country_event = {
+    id = russia.1189
+    title = russia.1189.t
+    desc = russia.1189.desc
+    picture = GFX_report_event_UKR_partisans
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1189.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = 0.08
+		add_political_power = -15
+    }
+
+	option = {
+        name = russia.1189.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.25
+		every_controlled_state = {
+			limit = { has_state_flag = zaporizhzhia_oblast_flag }
+			add_manpower = -50000
+		}
+    }
+}
+
+#Seperatists rise up (for ukraine)
+country_event = {
+    id = russia.1190
+    title = russia.1190.t
+    desc = russia.1190.desc
+    picture = GFX_report_event_UKR_partisans
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1190.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_war_support = 0.05
+    }
+
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
