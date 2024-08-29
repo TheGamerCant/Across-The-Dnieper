@@ -5132,7 +5132,7 @@ country_event = {
 			every_state = {
 			limit = {
 				is_controlled_by = ROOT
-				OR = { state = 223 state = 214 }
+				OR = { state = 223 state = 214 state = 306 }
 			}
 
 				
@@ -7158,6 +7158,26 @@ country_event = {
 		}
 
 		add_ideas = SOV_crime_among_war_veterans
+    }
+}
+
+#failed to take kyiv
+country_event = {
+    id = russia.1186
+    title = russia.1186.t
+    desc = russia.1186.desc
+    picture = GFX_report_event_UKR_shelling
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1186.a
+		ai_chance = {
+			base = 10
+		}
+		set_country_flag = quagmire_event
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = SOV_the_quagmire
     }
 }
 

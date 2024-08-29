@@ -2331,7 +2331,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					has_completed_focus = SOV_movements_on_the_border
+					NOT = { has_global_flag = russia_ukraine_war_started_recently }
 				}
 			}
 		}
@@ -2448,11 +2448,6 @@ focus_tree = {
 			
 		}
 		bypass={
-			has_war_with = UKR
-			custom_trigger_tooltip={
-				tooltip = SOV_the_quagmire_tt
-				NOT = { has_global_flag = russia_ukraine_war_started_recently }
-			}
 		}
 		allow_branch = {
 			if = {
@@ -2464,7 +2459,7 @@ focus_tree = {
 				}
 				OR={
 					has_country_flag = view_all_russia_trees
-					NOT = { has_global_flag = russia_ukraine_war_started_recently }
+					has_country_flag = quagmire_event
 				}
 			}
 		}
@@ -4420,7 +4415,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_exploit_turkish_trade_routes
-		icon = GFX
+		icon = GFX_focus_SOV_Exploit_Turkish_Trade_Routes
 		x = 0
 		y = 2
 		cost = 24
@@ -4452,7 +4447,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_redirect_oil_to_asia
-		icon = GFX
+		icon = GFX_focus_SOV_Redirect_Resource_Exports_To_Asia
 		x = -1
 		y = 1
 		cost = 24
@@ -4486,7 +4481,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_vkusno_i_tochka
-		icon = GFX
+		icon = GFX_focus_SOV_Vkusno_I_Tochka
 		x =0
 		y = 2
 		cost = 24
@@ -4518,7 +4513,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_chinese_semiconductors
-		icon = GFX
+		icon = GFX_focus_SOV_Chinese_Semiconductors
 		x =0
 		y = 4
 		cost = 45
@@ -4558,7 +4553,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_build_trans_siberian_pipeline_2
-		icon = GFX
+		icon = GFX_focus_SOV_Build_The_Trans_Siberian_Pipeline_2
 		x = 1
 		y = 1
 		cost = 24
@@ -4587,7 +4582,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_enter_wartime_economy
-		icon = GFX
+		icon = GFX_focus_SOV_Mobilise_The_Factories
 		x = 0
 		y = 2
 		cost = 24
@@ -11415,6 +11410,20 @@ shared_focus = {
 		hidden_trigger = { always = no }
 	}
 	
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			OR={
+				has_country_flag = view_all_russia_trees
+				has_country_flag = quagmire_event
+			}
+		}
+	}
 	
 	bypass = {
 	}
