@@ -7297,6 +7297,35 @@ country_event = {
 
 }
 
+#shoigus corruption revealed
+country_event = {
+    id = russia.1191
+    title = russia.1191.t
+    desc = russia.1191.desc
+    picture = SOV_shoigu_corruption
+    is_triggered_only = yes
+
+
+    option = {
+        name = russia.1191.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_stability = 0.04
+
+		custom_effect_tooltip = "russia.1191.tt"
+		add_to_variable = { SOV_raspizdyaystvo_political_power_cost = -0.003 }
+		add_to_variable = { SOV_raspizdyaystvo_consumer_goods_expected_value = -0.02 }
+		add_to_variable = { SOV_raspizdyaystvo_industrial_capacity_factory = 0.08 }
+		add_to_variable = { SOV_raspizdyaystvo_industrial_capacity_dockyard = 0.08 }
+		add_to_variable = { SOV_raspizdyaystvo_land_doctrine_cost_factor = -0.2 }
+		add_to_variable = { SOV_raspizdyaystvo_naval_doctrine_cost_factor = -0.2 }
+		add_to_variable = { SOV_raspizdyaystvo_air_doctrine_cost_factor = -0.2 }
+    }
+
+}
+
 country_event = {
     id = russia_propaganda.1
     title = russia_propaganda.1.t
