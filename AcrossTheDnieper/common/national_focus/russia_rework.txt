@@ -5035,6 +5035,8 @@ focus_tree = {
 			UKR = { any_owned_state={ has_state_flag = crimea_oblast_flag } }
 			has_equipment = { infantry_equipment > 1999 }
 			has_equipment = { support_equipment > 399 }
+			has_equipment = { apc_equipment > 499 } 
+			has_equipment = { mechanized_equipment > 299 }
 		}
 		relative_position_id = SOV_sore_losers
 		
@@ -5047,6 +5049,14 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = support_equipment
 				amount = -400
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				amount = -500
+			}
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				amount = -300
 			}
 			UKR = {
 				country_event = { id = russia.1188 }
@@ -5073,6 +5083,8 @@ focus_tree = {
 			UKR = { any_owned_state={ has_state_flag = zaporizhzhia_oblast_flag } }
 			has_equipment = { infantry_equipment > 1999 }
 			has_equipment = { support_equipment > 399 }
+			has_equipment = { apc_equipment > 499 } 
+			has_equipment = { mechanized_equipment > 299 }
 		}
 		relative_position_id = SOV_sore_losers
 		
@@ -5085,6 +5097,14 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = support_equipment
 				amount = -400
+			}
+			add_equipment_to_stockpile = { 
+				type = apc_equipment
+				amount = -500
+			}
+			add_equipment_to_stockpile = { 
+				type = mechanized_equipment
+				amount = -300
 			}
 			UKR = {
 				country_event = { id = russia.1189 }
@@ -5156,8 +5176,25 @@ focus_tree = {
 						}
 					}
 
+					division_template = {
+						name = "Crimean Guards Tank Brigade"
+						division_names_group = SOV_INF_01
+						template_counter = 181
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 1 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							apc = { x = 1 y = 1 }
+							apc = { x = 1 y = 2 }
+							mechanized = { x = 2 y = 0 }
+						}
+						support = {
+							logistics_company = { x = 0 y = 0 }   
+						}
+					}
+
 					for_loop_effect = {
-						end = 20
+						end = 15
 						value = temp
 						random_state = {
 							prioritize = { 354 344 331 }
@@ -5167,6 +5204,36 @@ focus_tree = {
 								allow_spawning_on_enemy_provs = no
 							}
 						}
+					}
+
+					for_loop_effect = {
+						end = 5
+						value = temp
+						random_state = {
+							prioritize = { 354 344 331 }
+							create_unit = {
+								division = "name = \"Crimean Guards Tank Brigade\" division_template = \"Crimean Guards Tank Brigade\" start_experience_factor = 0.35 start_equipment_factor = 0.98" 
+								owner = CRI
+								allow_spawning_on_enemy_provs = no
+							}
+						}
+					}
+
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment
+						amount = 2000
+					}
+					add_equipment_to_stockpile = { 
+						type = support_equipment
+						amount = 400
+					}
+					add_equipment_to_stockpile = { 
+						type = apc_equipment
+						amount = 500
+					}
+					add_equipment_to_stockpile = { 
+						type = mechanized_equipment
+						amount = 300
 					}
 				}
 
@@ -5207,8 +5274,25 @@ focus_tree = {
 						}
 					}
 
+					division_template = {
+						name = "Zaporizhzhian Guards Tank Brigade"
+						division_names_group = SOV_INF_01
+						template_counter = 181
+						regiments = {
+							irregular_infantry = { x = 0 y = 0 }
+							irregular_infantry = { x = 1 y = 0 }
+							irregular_infantry = { x = 0 y = 1 }
+							apc = { x = 1 y = 1 }
+							apc = { x = 1 y = 2 }
+							mechanized = { x = 2 y = 0 }
+						}
+						support = {
+							logistics_company = { x = 0 y = 0 }   
+						}
+					}
+
 					for_loop_effect = {
-						end = 25
+						end = 18
 						value = temp
 						random_state = {
 							prioritize = { 196 284 214 }
@@ -5218,6 +5302,36 @@ focus_tree = {
 								allow_spawning_on_enemy_provs = no
 							}
 						}
+					}
+
+					for_loop_effect = {
+						end = 7
+						value = temp
+						random_state = {
+							prioritize = { 196 284 214 }
+							create_unit = {
+								division = "name = \"Zaporizhzhian Guards Tank Brigade\" division_template = \"Zaporizhzhian Guards Tank Brigade\" start_experience_factor = 0.35 start_equipment_factor = 0.98" 
+								owner = ZAP
+								allow_spawning_on_enemy_provs = no
+							}
+						}
+					}
+
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment
+						amount = 2000
+					}
+					add_equipment_to_stockpile = { 
+						type = support_equipment
+						amount = 400
+					}
+					add_equipment_to_stockpile = { 
+						type = apc_equipment
+						amount = 500
+					}
+					add_equipment_to_stockpile = { 
+						type = mechanized_equipment
+						amount = 300
 					}
 				}
 			}
