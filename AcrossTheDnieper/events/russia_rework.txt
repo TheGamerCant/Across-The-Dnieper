@@ -6145,6 +6145,11 @@ country_event = {
 			base = 10
 		}
 
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 30000
+		}
+
 		if = {
 			limit = { has_idea = SOV_unorganized_militias }
 			swap_ideas = {
@@ -6176,6 +6181,11 @@ country_event = {
         name = russia.1162.a
 		ai_chance = {
 			base = 10
+		}
+
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 30000
 		}
 
 		if = {
@@ -7322,6 +7332,43 @@ country_event = {
 		add_to_variable = { SOV_raspizdyaystvo_land_doctrine_cost_factor = -0.2 }
 		add_to_variable = { SOV_raspizdyaystvo_naval_doctrine_cost_factor = -0.2 }
 		add_to_variable = { SOV_raspizdyaystvo_air_doctrine_cost_factor = -0.2 }
+    }
+
+}
+
+#Character has died in ukraine frontlines
+unit_leader_event = {
+    id = russia.1192
+    title = russia.1192.t
+    desc = russia.1192.desc
+    picture = SOV_document_event
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1192.a
+		ai_chance = {
+			base = 10
+		}
+
+		retire_character = THIS
+	}
+}
+
+#Gennady Zhidko dead
+country_event = {
+    id = russia.1193
+    title = russia.1193.t
+    desc = russia.1193.desc
+    picture = SOV_gennady_zhidko
+    is_triggered_only = yes
+
+    option = {
+        name = russia.1193.a
+		ai_chance = {
+			base = 10
+		}
+		retire_character = SOV_gennady_valeryevich_zhidko_rework
+		SOV_set_ukraine_commander_surovikin = yes
     }
 
 }
