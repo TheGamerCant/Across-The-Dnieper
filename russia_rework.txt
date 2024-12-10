@@ -1,0 +1,1587 @@
+focus_tree = {
+	id = sochi_olympics
+	continuous_focus_position = { x = -40 y = 1300 } 
+	country = {
+		factor = 0
+		modifier = {
+			add  = 100
+			tag = SOV
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_infrastructure_in_sochi
+		icon = GFX_focus_SOV_expand_infrastructure_in_sochi
+		x = 10
+		y = 0
+		cost = 7
+		search_filters = {
+			
+		}
+		available={
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		completion_reward={
+			effect_tooltip={
+				256 = {  
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_finalise_construction_of_the_stadium
+		icon = GFX_focus_SOV_finalise_construction_of_the_stadium
+		x = -3
+		y = 1
+		
+		cost = 22
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_expand_infrastructure_in_sochi }
+		relative_position_id = SOV_expand_infrastructure_in_sochi
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			256 = { increase_state_gdp_growth_by_5 = yes }
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_sochi_airport
+		icon = GFX_focus_SOV_expand_sochi_airport
+		x = -1
+		y = 1
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_expand_infrastructure_in_sochi }
+		relative_position_id = SOV_expand_infrastructure_in_sochi
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			effect_tooltip={
+				256 = {  
+					add_building_construction = {
+						type = air_base
+						level = 4
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_clean_atheletes
+		icon = GFX_focus_SOV_clean_atheletes
+		x = 1
+		y = 1
+		
+		cost = 22
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_expand_infrastructure_in_sochi }
+		relative_position_id = SOV_expand_infrastructure_in_sochi
+		mutually_exclusive = { focus = SOV_dope_the_atheletes }
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = SOV_clean_atheletes_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_dope_the_atheletes
+		icon = GFX_focus_SOV_dope_the_atheletes
+		x = 3
+		y = 1
+		
+		cost = 22
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_expand_infrastructure_in_sochi }
+		relative_position_id = SOV_expand_infrastructure_in_sochi
+		mutually_exclusive = { focus = SOV_clean_atheletes }
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = SOV_dope_the_atheletes_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_let_the_games_begin
+		icon = GFX_focus_SOV_let_the_games_begin
+		x = 1
+		y = 1
+		
+		cost = 16
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_finalise_construction_of_the_stadium }
+		prerequisite = { focus = SOV_expand_sochi_airport }
+		prerequisite = { focus = SOV_dope_the_atheletes focus = SOV_clean_atheletes }
+		relative_position_id = SOV_expand_sochi_airport
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = 50
+			country_event = { id = russia.1000 hours = 3 }
+		}
+	}
+	
+	focus = {
+		id = SOV_meet_with_ukrainian_atheletes
+		icon = GFX_focus_SOV_meet_with_ukrainian_atheletes
+		x = -2
+		y = 1
+		
+		cost = 4
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_let_the_games_begin }
+		relative_position_id = SOV_let_the_games_begin
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			country_event = { id = russia.1001 hours = 3 }
+		}
+	}
+	
+	focus = {
+		id = SOV_ice_hockey_in_sochi
+		icon = GFX_focus_SOV_ice_hockey_in_sochi
+		x = 0
+		y = 1
+		
+		cost = 4
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_let_the_games_begin }
+		relative_position_id = SOV_let_the_games_begin
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			country_event = { id = russia.1002 hours = 3 }
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_sochi_security
+		icon = GFX_focus_SOV_increase_sochi_security
+		x = 2
+		y = 1
+		
+		cost = 4
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_let_the_games_begin }
+		relative_position_id = SOV_let_the_games_begin
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.02
+			add_manpower = 10000
+		}
+	}
+	
+	focus = {
+		id = SOV_the_closing_ceremony
+		icon = GFX_focus_SOV_let_the_games_begin
+		x = 0
+		y = 1
+		
+		cost = 4
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_ice_hockey_in_sochi }
+		prerequisite = { focus = SOV_meet_with_ukrainian_atheletes }
+		prerequisite = { focus = SOV_increase_sochi_security }
+		relative_position_id = SOV_ice_hockey_in_sochi
+		available = {
+			custom_trigger_tooltip={
+				tooltip = winter_olympics_going_as_planned_tt
+				NOT = { has_war_with = CRI }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			country_event = { id = russia.1004 hours = 3 }
+		}
+	}
+}
+
+focus_tree = {
+	id = post_crimea_tree
+	continuous_focus_position = { x = -40 y = 1300 } 
+	country = {
+		factor = 0
+	}
+	
+	focus = {
+		id = SOV_welcome_home_2
+		icon = GFX_focus_SOV_welcome_home_2
+		x = 8
+		y = 0
+		cost = 24
+		search_filters = {
+			
+		}
+		available={
+			all_state={
+				OR={
+					NOT = { has_state_flag = crimea_oblast_flag }
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+		completion_reward={
+			delete_unit_template_and_units   = {
+				division_template  = "Sevastopol Garrison"
+			}
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.02
+			}
+			every_state={
+				limit = {
+					has_state_flag = crimea_oblast_flag
+					NOT = { is_core_of = ROOT }
+				}
+				add_compliance = 10
+			}
+
+			UKR = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+			
+			country_event = { id = russia.1008 days = 4 }
+		}
+	}
+	
+	focus = {
+		id = SOV_brothers_in_donbass
+		icon = GFX_focus_generic_donbass
+		x = -4
+		y = 1
+		
+		cost = 30
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_welcome_home_2 }
+		relative_position_id = SOV_welcome_home_2
+		available = {
+			any_donbass_country_exists = yes
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.04
+		}
+	}
+	
+	focus = {
+		id = SOV_send_them_aa
+		icon = GFX_focus_UKR_air_denial
+		x = -2
+		y = 1
+		
+		cost = 24
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_brothers_in_donbass }
+		relative_position_id = SOV_brothers_in_donbass
+		available = {
+			any_donbass_country_exists = yes
+			has_equipment = { infantry_anti_air_equipment > 249 }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = infantry_anti_air_equipment
+						amount = 100
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = infantry_anti_air_equipment
+						amount = 300
+						target = PREV
+					}
+				}
+			}
+			
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = SOV_send_them_rifles
+		icon = GFX_focus_BLR_guns
+		x = 0
+		y = 1
+		
+		cost = 24
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_brothers_in_donbass }
+		relative_position_id = SOV_brothers_in_donbass
+		available = {
+			any_donbass_country_exists = yes
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { support_equipment > 399 }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = infantry_equipment
+						amount = 900
+						target = PREV
+					}
+					send_equipment = { 
+						type = support_equipment
+						amount = 160
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = infantry_equipment
+						amount = 900
+						target = PREV
+					}
+					send_equipment = { 
+						type = support_equipment
+						amount = 400
+						target = PREV
+					}
+				}
+			}
+			
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = SOV_send_them_artillery
+		icon = GFX_focus_BLR_artillery
+		x = 2
+		y = 1
+		
+		cost = 24
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_brothers_in_donbass }
+		relative_position_id = SOV_brothers_in_donbass
+		available = {
+			any_donbass_country_exists = yes
+			has_equipment = { artillery_equipment > 599 }
+			has_equipment = { rocket_artillery_equipment > 599 }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = artillery_equipment
+						amount = 250
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = rocket_artillery_equipment
+						amount = 250
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = artillery_equipment
+						amount = 600
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = rocket_artillery_equipment
+						amount = 600
+						target = PREV
+					}
+				}
+			}
+			
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = SOV_send_them_tanks
+		icon = GFX_focus_UKR_sell_abroad
+		x = -1
+		y = 2
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_brothers_in_donbass }
+		relative_position_id = SOV_brothers_in_donbass
+		available = {
+			any_donbass_country_exists = yes
+			OR={ has_equipment = { modern_tank_chassis > 249 } has_equipment = { modern_tank_archetype > 249 } }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			if={
+				limit = { has_dlc = "No Step Back" }
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = modern_tank_chassis
+							amount = 80
+							target = PREV
+						}
+					}
+				}
+				every_country={
+					limit={
+						exists = yes
+						original_tag = NOV
+					}
+					PREV={
+						send_equipment = { 
+							type = modern_tank_chassis
+							amount = 250
+							target = PREV
+						}
+					}
+				}
+			}
+			else={
+				every_country={
+					limit={
+						exists = yes
+						OR={
+							original_tag = DON
+							original_tag = LHK
+							original_tag = KHK
+							original_tag = ODS
+						}
+					}
+					PREV={
+						send_equipment = { 
+							type = modern_tank_archetype
+							amount = 80
+							target = PREV
+						}
+					}
+				}
+				every_country={
+					limit={
+						exists = yes
+						original_tag = NOV
+					}
+					PREV={
+						send_equipment = { 
+							type = modern_tank_archetype
+							amount = 250
+							target = PREV
+						}
+					}
+				}
+			}
+			
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = SOV_send_them_armour
+		icon = GFX_focus_BLR_purchase_russian_tanks
+		x = 1
+		y = 2
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_brothers_in_donbass }
+		relative_position_id = SOV_brothers_in_donbass
+		available = {
+			any_donbass_country_exists = yes
+			has_equipment = { apc_equipment > 499 } 
+			has_equipment = { mechanized_equipment > 299 }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			every_country={
+				limit={
+					exists = yes
+					OR={
+						original_tag = DON
+						original_tag = LHK
+						original_tag = KHK
+						original_tag = ODS
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = apc_equipment
+						amount = 200
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = mechanized_equipment
+						amount = 115
+						target = PREV
+					}
+				}
+			}
+			every_country={
+				limit={
+					exists = yes
+					original_tag = NOV
+				}
+				PREV={
+					send_equipment = { 
+						type = apc_equipment
+						amount = 550
+						target = PREV
+					}
+				}
+				PREV={
+					send_equipment = { 
+						type = mechanized_equipment
+						amount = 300
+						target = PREV
+					}
+				}
+			}
+			
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = SOV_fight_western_sanctions
+		icon = GFX_focus_SOV_Great_foreign_diplomacy
+		x = 3
+		y = 1
+		
+		cost = 22
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_welcome_home_2 }
+		relative_position_id = SOV_welcome_home_2
+		mutually_exclusive = { focus = SOV_cope_with_sanctions }
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			decrease_eastern_liberal_programming_by_2 = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_cope_with_sanctions
+		icon = GFX_focus_BLR_industrial_3
+		x = 5
+		y = 1
+		
+		cost = 22
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_welcome_home_2 }
+		relative_position_id = SOV_welcome_home_2
+		mutually_exclusive = { focus = SOV_fight_western_sanctions }
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			increase_ultranationalist_programming_by_2 = yes
+		}
+	}
+	
+	focus = {
+		id = SOV_no_need_for_western_food
+		icon = GFX_focus_LIT_cauliflower_revolution
+		x = -1
+		y = 1
+		
+		cost = 42
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_fight_western_sanctions }
+		relative_position_id = SOV_fight_western_sanctions
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+			custom_effect_tooltip = SOV_no_need_for_western_food_tt
+			decrease_eastern_liberal_programming_by_4 = yes
+			hidden_effect = {  country_event = { id = russia.1010 } days = 28 }
+		}
+	}
+	
+	focus = {
+		id = SOV_BRICS_investments
+		icon = GFX_focus_SOV_BRICS_investments
+		x = -1
+		y = 1
+		
+		cost = 80
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_no_need_for_western_food }
+		relative_position_id = SOV_no_need_for_western_food
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_sanctions_research_speed_factor = 0.15 }
+			add_to_variable = { SOV_sanctions_line_change_production_efficiency_factor = 0.15 }
+			custom_effect_tooltip = SOV_BRICS_investments_tt
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_nationalise_western_assets
+		icon = GFX_focus_SOV_nationalise_western_assets
+		x = 1
+		y = 1
+		
+		cost = 60
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_fight_western_sanctions focus = SOV_cope_with_sanctions }
+		relative_position_id = SOV_fight_western_sanctions
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = arms_factory level = 1 }
+			decrease_inflation_rate_by_1 = yes
+			add_political_power = -100
+			
+			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
+			add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
+			custom_effect_tooltip = SOV_nationalise_western_assets_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_hike_interest_rates
+		icon = GFX_focus_SOV_hike_interest_rates
+		x = 1
+		y = 1
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_nationalise_western_assets }
+		relative_position_id = SOV_nationalise_western_assets
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			decrease_inflation_rate_by_3 = yes
+			add_stability = -0.05
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = -0.06
+			}
+			add_political_power = -100
+			
+			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
+			custom_effect_tooltip = SOV_hike_interest_rates_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_economic_bureaucracy
+		icon = GFX_focus_SOV_hike_interest_rates
+		x = -1
+		y = 1
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_nationalise_western_assets }
+		relative_position_id = SOV_nationalise_western_assets
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			decrease_inflation_rate_by_5 = yes
+			add_political_power = -150
+			every_state={
+				limit={
+					is_controlled_by = SOV
+				}
+				decrease_state_gdp_growth_by_2 = yes
+			}
+			
+			subtract_from_variable = { SOV_sanctions_inflation_monthly = 0.03 }
+			custom_effect_tooltip = SOV_hike_interest_rates_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_learn_from_iran
+		icon = GFX_focus_SOV_learn_from_iran
+		x = 1
+		y = 1
+		
+		cost = 42
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_cope_with_sanctions }
+		relative_position_id = SOV_cope_with_sanctions
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			country_event = { id = russia.1009 }
+		}
+	}
+	
+	focus = {
+		id = SOV_bring_the_factories_back_online
+		icon = GFX_focus_BLR_local_arms_manufacturing
+		x = 1
+		y = 1
+		
+		cost = 80
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_learn_from_iran }
+		relative_position_id = SOV_learn_from_iran
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_sanctions_production_factory_efficiency_gain_factor = 0.4 }
+			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.05 }
+			add_to_variable = { SOV_sanctions_production_speed_buildings_factor = 0.05 } 
+			custom_effect_tooltip = SOV_bring_the_factories_back_online_tt
+			
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_economic_corridors
+		icon = GFX_focus_SOV_economic_corridors
+		x = 1
+		y = 1
+		
+		cost = 56
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_increase_economic_bureaucracy }
+		prerequisite = { focus = SOV_hike_interest_rates }
+		prerequisite = { focus = SOV_no_need_for_western_food focus = SOV_learn_from_iran }
+		relative_position_id = SOV_increase_economic_bureaucracy
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.02 }
+			add_to_variable = { SOV_sanctions_stability_weekly = 0.002 }
+			
+			custom_effect_tooltip = SOV_economic_corridors_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_bypass_western_sanctions
+		icon = GFX_focus_SOV_economic_corridors
+		x = -2
+		y = 1
+		
+		cost = 56
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_economic_corridors }
+		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
+		mutually_exclusive = { focus = SOV_boost_domestic_production }
+		relative_position_id = SOV_economic_corridors
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			subtract_from_variable = { SOV_sanctions_consumer_goods_factor = 0.03 }
+			custom_effect_tooltip = SOV_no_need_for_western_food_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_boost_domestic_production
+		icon = GFX_focus_SOV_boost_domestic_production
+		x = 2
+		y = 1
+		
+		cost = 56
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_economic_corridors }
+		prerequisite = { focus = SOV_BRICS_investments focus = SOV_bring_the_factories_back_online }
+		mutually_exclusive = { focus = SOV_bypass_western_sanctions }
+		relative_position_id = SOV_economic_corridors
+		available = {
+			custom_trigger_tooltip={
+				tooltip = SOV_has_western_sanctions_tt
+				has_dynamic_modifier = { modifier = SOV_western_sanctions_rework }
+			}
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_sanctions_industrial_capacity_factory = 0.15 }
+			custom_effect_tooltip = SOV_boost_domestic_production_tt
+			
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_4 = yes
+			}
+
+			
+			add_tech_bonus = {
+				name = SOV_boost_domestic_production
+				bonus = 0.5
+				uses = 2
+				category = industry
+				category = electronics
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_putin_at_the_helm
+		icon = GFX_focus_SOV_putin_at_the_helm
+		x = 22
+		y = 0
+		cost = 24
+		search_filters = {
+			
+		}
+		available={
+			always = no
+		}
+		completion_reward={
+			
+		}
+	}
+	
+	focus = {
+		id = SOV_move_to_a_professional_military
+		icon = GFX_focus_
+		x = 4
+		y = 1
+		
+		cost = 60
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+
+		relative_position_id = SOV_putin_at_the_helm
+		mutually_exclusive = { focus = SOV_perfect_the_soviet_doctrine }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 50
+			
+			subtract_from_variable = { SOV_army_conscription_factor = 0.1 }
+			custom_effect_tooltip = SOV_move_to_a_professional_military_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_satellite_capabilities
+		icon = GFX_focus_SOV_increase_satellite_capabilities
+		x = 1
+		y = 1
+		
+		cost = 60
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_move_to_a_professional_military }
+
+		relative_position_id = SOV_move_to_a_professional_military
+		mutually_exclusive = { focus = SOV_drone_infantry_integration }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_army_consumer_goods_factor = 0.02 }
+			add_to_variable = { SOV_army_army_org_factor = 0.08 }
+			custom_effect_tooltip = SOV_increase_satellite_capabilities_tt
+			add_tech_bonus = {
+				name = SOV_increase_satellite_capabilities
+				bonus = 0.75
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_drone_infantry_integration
+		icon = GFX_focus_SOV_drone_infantry_integration
+		x = -1
+		y = 1
+		
+		cost = 60
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_move_to_a_professional_military }
+
+		relative_position_id = SOV_move_to_a_professional_military
+		mutually_exclusive = { focus = SOV_increase_satellite_capabilities }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_army_coordination_bonus = 0.05 }
+			add_to_variable = { SOV_army_army_speed_factor = 0.05 }
+			custom_effect_tooltip = SOV_drone_infantry_integration_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_improve_our_air_defences
+		icon = GFX_focus_UKR_air_denial
+		x = 3
+		y = 1
+		
+		cost = 56
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_drone_infantry_integration focus = SOV_increase_satellite_capabilities }
+
+		relative_position_id = SOV_drone_infantry_integration
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = SOV_improve_our_air_defences
+				bonus = 1.5
+				uses = 3
+				category = infantry_anti_air_cat
+				category = cat_anti_air
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_modernise_our_t_72s
+		icon = GFX_focus_UKR_sell_abroad
+		x = -1
+		y = 1
+		
+		cost = 56
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_drone_infantry_integration focus = SOV_increase_satellite_capabilities }
+
+		relative_position_id = SOV_drone_infantry_integration
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = SOV_modernise_our_t_72s
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+			
+			random_owned_controlled_state={
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				increase_state_gdp_growth_by_5 = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_defensive_drills
+		icon = GFX_focus_UKR_increase_logistical_personnel
+		x = 1
+		y = 1
+		
+		cost = 80
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_drone_infantry_integration focus = SOV_increase_satellite_capabilities }
+
+		relative_position_id = SOV_drone_infantry_integration
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_army_max_dig_in = 4 }
+			add_to_variable = { SOV_army_production_speed_bunker_factor = 0.2 }
+			add_to_variable = { SOV_army_army_defence_factor = 0.03 }
+			custom_effect_tooltip = SOV_defensive_drills_tt
+			army_experience = 50
+		}
+	}
+	
+	focus = {
+		id = SOV_end_conscription
+		icon = GFX_focus_SOV_end_conscription
+		x = 0
+		y = 1
+		
+		cost = 40
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_defensive_drills }
+		prerequisite = { focus = SOV_modernise_our_t_72s }
+		prerequisite = { focus = SOV_improve_our_air_defences }
+
+		relative_position_id = SOV_defensive_drills
+		available = {
+			NOT = { has_idea = SOV_raspizdyaystvo }
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			swap_ideas={
+				remove_idea = limited_conscription
+				add_idea = volunteer_only
+			}
+			army_experience = 50
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = SOV_send_surovikin_to_syria
+		icon = GFX_focus_SOV_send_surovikin_to_syria
+		x = 5
+		y = 1
+		
+		cost = 70
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_perfect_the_soviet_doctrine focus = SOV_move_to_a_professional_military }
+
+		relative_position_id = SOV_move_to_a_professional_military
+		mutually_exclusive = { focus = SOV_send_gerasimov_to_syria }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			SOV_sergey_surovikin_rework={
+				add_attack = 1
+				add_planning = 1
+				gain_xp = 1100
+			}
+			army_experience = 50
+			air_experience = 50
+			
+			subtract_from_variable = { SOV_army_air_accidents_factor = 0.5 }
+			custom_effect_tooltip = SOV_send_surovikin_to_syria_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_send_gerasimov_to_syria
+		icon = GFX_focus_SOV_send_gerasimov_to_syria
+		x = 7
+		y = 1
+		
+		cost = 70
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_perfect_the_soviet_doctrine focus = SOV_move_to_a_professional_military }
+
+		relative_position_id = SOV_move_to_a_professional_military
+		mutually_exclusive = { focus = SOV_send_surovikin_to_syria }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			SOV_valery_gerasimov_rework={
+				add_defense = 1
+				add_logistics = 1
+				gain_xp = 1100
+			}
+			army_experience = 75
+			
+			add_to_variable = { SOV_army_army_infantry_attack_factor = 0.04 }
+			add_to_variable = { SOV_army_army_infantry_defence_factor = 0.04 }
+			add_to_variable = { SOV_army_modifier_army_sub_unit_infantry_speed_factor = 0.04 }
+			custom_effect_tooltip = SOV_send_gerasimov_to_syria_tt
+		}
+	}
+	
+	focus = {
+		id = SOV_perfect_the_soviet_doctrine
+		icon = GFX_focus_
+		x = 16
+		y = 1
+		
+		cost = 60
+		ai_will_do = {
+		}
+		prerequisite = { focus = SOV_putin_at_the_helm }
+
+		relative_position_id = SOV_putin_at_the_helm
+		mutually_exclusive = { focus = SOV_move_to_a_professional_military }
+		available = {
+
+		}
+		
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			add_to_variable = { SOV_army_conscription_factor = 0.15 }
+			add_to_variable = { SOV_army_mobilization_speed = 0.6 }
+			custom_effect_tooltip = SOV_perfect_the_soviet_doctrine_tt
+		}
+	}
+}
+	

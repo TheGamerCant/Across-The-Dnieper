@@ -1,0 +1,1362 @@
+characters={
+	SOV_ramzan_kadyrov_rework = {
+		name = SOV_ramzan_kadyrov
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Ramzan_Kadyrov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = theorist
+			idea_token = SOV_ramzan_kadyrov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			available = {
+				has_country_leader = {
+					name = "Владимир Путин"
+					ruling_only = yes
+				}
+            }
+			traits = {
+				military_theorist
+			}
+		}
+	}
+
+	SOV_viktor_yanukovych_rework = {
+		name = SOV_viktor_yanukovych
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Viktor_Yanukovych_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_viktor_yanukovych_rework
+			allowed = {
+				original_tag = SOV
+			}
+			available = {
+				
+            }
+			visible = {
+				NOT={
+					any_country={
+						has_country_leader = {
+							name = "Виктор Янукович"
+							ruling_only = yes
+						}
+					}
+				}
+			}
+			traits = {
+				exiled_president
+			}
+		}
+	}
+
+	SOV_ilya_kiva_rework = {
+		name = SOV_ilya_kiva
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Ilya_Kiva_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_ilya_kiva_rework
+			allowed = {
+				original_tag = SOV
+			}
+			available = {
+				UKR={ NOT = { has_government = eastern_conservative } }
+            }
+			traits = {
+				SOV_ukrainian_traitor
+			}
+		}
+	}
+
+	ROU_ilya_kiva = {
+		name = ROU_ilya_kiva
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Ilya_Kiva_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = ROU_ilya_kiva
+			allowed = {
+				original_tag = UKR
+			}
+			available = {
+				has_cosmetic_tag = UKR_russian_puppet
+            }
+			visible = {
+				has_completed_focus = UKR_reinstate_ilya_kivas_citizenship
+				has_cosmetic_tag = UKR_russian_puppet
+			}
+			traits = {
+				ROU_ukrainian_traitor
+			}
+		}
+	}
+
+	SOV_valentina_matviyenko_rework = {
+		name = SOV_valentina_matviyenko
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Valentina_Matviyenko_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_valentina_matviyenko_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				linchpin_of_infrastructure
+			}
+		}
+	}
+
+	SOV_vladlen_tatarsky_rework = {
+		name = SOV_vladlen_tatarsky
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Vladlen_Tatarsky_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_vladlen_tatarsky_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_military_blogger_rework
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	SOV_igor_vsevolodovich_girkin_rework = {
+		name = SOV_igor_vsevolodovich_girkin
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/DON/advisors/DON_igor_girkin_advisor.png"
+				large = "gfx/leaders/DON/Portrait_Igor_Girkin.png"
+			}
+			army = {
+				large = "gfx/leaders/DON/Portrait_Igor_Girkin.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_igor_vsevolodovich_girkin_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_igor_girkin_trait
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+
+	SOV_dmitry_medvedev_rework = {
+		name = SOV_dmitry_medvedev
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Dmitry_Medvedev_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_dmitry_medvedev_rework
+			can_be_fired = no
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				NOT = {
+					SOV_mikhail_mishustin_rework = {
+						is_political_advisor = yes
+					}
+				}
+            }
+			traits = {
+				medvedev_pm_trait
+				drunkard
+			}
+		}
+	}
+
+	SOV_mikhail_mishustin_rework = {
+		name = SOV_mikhail_mishustin
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Mikhail_Mishustin_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_mikhail_mishustin_rework
+			can_be_fired = no
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				NOT = {
+					SOV_dmitry_medvedev_rework = {
+						is_political_advisor = yes
+					}
+				}
+            }
+			traits = {
+				mishustin_pm_trait
+			}
+		}
+	}
+
+	
+	SOV_aleksandr_dugin_rework = {
+		name = SOV_aleksandr_dugin
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Aleksandr_Dugin_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_aleksandr_dugin_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				fascist_philosopher_rework
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	SOV_kokoltsev_vladimir_rework = {
+		name = SOV_kokoltsev_vladimir
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Kokoltsev_Vladimir_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_kokoltsev_vladimir_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_minister_of_inner_affairs
+			}
+		}
+	}
+
+	SOV_sergey_lavrov_rework = {
+		name = SOV_sergey_lavrov
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Lavrov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_sergey_lavrov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				sergey_lavrov_trait
+			}
+		}
+	}
+
+	SOV_valery_gerasimov_rework = {
+		name = SOV_valery_gerasimov
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Valery_Gerasimov_Advisor.png"
+			}
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_valery_gerasimov.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = high_command
+			idea_token = SOV_valery_gerasimov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				army_infantry_2
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		field_marshal = {
+			traits = {
+				offensive_doctrine
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+		}
+
+	}
+
+	SOV_alexei_navalny_rework = {
+		name = SOV_alexei_navalny
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portrait_Alexei_Navalny.png"
+				small = "gfx/leaders/SOV/advisors/Portrait_Alexei_Navalny_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = no
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_alexei_navalny_rework
+			allowed = {
+				original_tag = SOV
+			}
+			available = {
+                always = yes
+            }
+			visible = {
+				NOT = {
+					has_country_leader = {
+						name = "Владимир Путин"
+						ruling_only = yes
+					}
+				}
+				
+			}
+			traits = {
+				SOV_anti_corruption_crusader
+			}
+		}
+	}
+
+	
+	SOV_kirill_rework = {
+		name = SOV_kirill_rework
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Kirill_Advisor.png"
+				large = "gfx/leaders/SOV/Portrait_Kirill.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_kirill_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				patriarch_of_moscow
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	SOV_alexander_bastrykin_rework = {
+		name = SOV_alexander_bastrykin
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Aleksandr_Bastrykin_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_alexander_bastrykin_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_head_of_skrf_rework
+			}
+		}
+	}
+	
+	SOV_vladimir_zhirinovsky_rework = {
+		name = SOV_vladimir_zhirinovsky_rework
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portait_Vladimir_Zhirinovsky.png"
+				small = "gfx/leaders/SOV/advisors/Portait_Vladimir_Zhirinovsky_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_vladimir_zhirinovsky_rework
+			allowed = {
+				original_tag = SOV
+			}
+			
+			available={
+				OR={
+					has_far_right_government = yes
+					has_illiberal_government = yes
+				}
+			}
+
+			traits = {
+				nationalist_demagouge
+			}
+		}
+	}
+	
+	SOV_vladimir_solovyov_rework = {
+		name = SOV_vladimir_solovyov_rework
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portait_Vladimir_Solovyov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_vladimir_solovyov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			
+			available={
+				has_illiberal_government = yes
+			}
+
+			traits = {
+				SOV_propagandist
+			}
+		}
+	}
+
+
+	SOV_sergey_shoygu_rework = {
+		name = SOV_sergey_shoygu
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergei_Shoigu_Advisor.png"
+			}
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_sergei_shoigu.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = SOV_sergey_shoygu_rework
+			allowed = {
+				tag = SOV
+			}
+			can_be_fired = no
+			traits = {
+				shoigu_army_trait
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				politically_connected
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}	
+	}
+
+	SOV_alexander_bortnikov_rework = {
+		name = SOV_alexander_bortnikov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_alexander_bortnikov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Alexander_Bortnikov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = political_advisor
+			idea_token = SOV_alexander_bortnikov_rework
+			allowed = {
+				original_tag = SOV
+			}
+
+			traits = {
+				SOV_head_of_fsb_rework
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				defensive_doctrine
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}	
+	}
+
+	SOV_andrey_nikolayevich_mordvichev_rework = {
+		name = SOV_andrey_nikolayevich_mordvichev
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_andrey_nikolayevich_mordvichev.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Andrey_Nikolayevich_Mordvichev_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}	
+	}
+
+	SOV_oleg_leonidovich_rework = {
+		name = SOV_oleg_leonidovich
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_oleg_leonidovich.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Oleg_Leonidovich_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = SOV_oleg_leonidovich_rework
+			allowed = {
+				tag = SOV
+			}
+			traits = {
+				army_chief_reform_2
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				offensive_doctrine
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+		}	
+	}
+
+	SOV_dmitry_bulgakov_rework = {
+		name = SOV_dmitry_bulgakov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_dmitry_bulgakov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Dmitry_Bulgakov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = SOV_dmitry_bulgakov_rework
+			allowed = {
+				tag = SOV
+			}
+			traits = {
+				army_entrenchment_1
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				defensive_doctrine
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 5
+		}	
+	}
+
+	SOV_andrei_sychevoi_rework = {
+		name = SOV_andrei_sychevoi
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_andrei_sychevoi.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Andrei_Sychevoi_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}	
+	}
+
+	SOV_viktor_viktorovich_chirkov_rework = {
+		name = SOV_viktor_viktorovich_chirkov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_viktor_viktorovich_chirkov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Viktor_Viktorovich_Chirkov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			maneuvering_skill = 5
+			coordination_skill = 4
+		}	
+	}
+
+	SOV_igor_vladimirovich_osipov_rework = {
+		name = SOV_igor_vladimirovich_osipov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_igor_vladimirovich_osipov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Igor_Vladimirovich_Osipov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}	
+	}
+
+	
+	SOV_mikhail_yuryevich_teplinsky_rework = {
+		name = SOV_mikhail_yuryevich_teplinsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_mikhail_yuryevich_teplinsky.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Mikhail_Yuryevich_Teplinsky_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		corps_commander = {
+			traits = {
+				vdv_expert
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}	
+	}
+
+
+	SOV_sergey_surovikin_rework = {
+		name = SOV_sergey_surovikin
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_sergey_surovikin.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Surovikin_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = army_chief
+			idea_token = SOV_sergey_surovikin_rework
+			allowed = {
+				tag = SOV
+			}
+			available={
+				NOT = { has_idea = SOV_sergey_surovikin_air_force_rework }
+			}
+			traits = {
+				general_armageddon
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		advisor={
+			slot = air_chief
+			idea_token = SOV_sergey_surovikin_air_force_rework
+			allowed = {
+				tag = SOV
+			}
+			available={
+				NOT = { has_idea = SOV_sergey_surovikin_rework }
+			}
+			traits = {
+				air_chief_ground_support_3
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				naval_invader artillery_officer
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 2
+		}	
+	}
+
+	SOV_aleksandr_vladimirovich_dvornikov_rework = {
+		name = SOV_aleksandr_vladimirovich_dvornikov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_aleksandr_vladimirovich_dvornikov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Aleksandr_Vladimirovich_Dvornikov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		field_marshal = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+		}	
+	}
+
+
+	SOV_gennady_valeryevich_zhidko_rework = {
+		name = SOV_gennady_valeryevich_zhidko
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_gennady_valeryevich_zhidko.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Gennady_Valeryevich_Zhidko_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		field_marshal = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+		}	
+	}
+
+	SOV_mikhail_yevgenyevich_mizintsev_rework = {
+		name = SOV_mikhail_yevgenyevich_mizintsev
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_mikhail_yevgenyevich_mizintsev.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Mikhail_Yevgenyevich_Mizintsev_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}	
+	}
+	
+	SOV_nikolai_anatolyevich_yevmenov_rework = {
+		name = SOV_nikolai_anatolyevich_yevmenov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_nikolai_anatolyevich_yevmenov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Nikolai_Anatolyevich_Yevmenov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		advisor={
+			slot = high_command
+			idea_token = SOV_nikolai_anatolyevich_yevmenov_rework
+			allowed = {
+				tag = SOV
+			}
+			traits = {
+				navy_screen_3
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}	
+	}
+
+	SOV_viktor_nikolayevich_sokolov_rework = {
+		name = SOV_viktor_nikolayevich_sokolov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_viktor_nikolayevich_sokolov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Viktor_Nikolayevich_Sokolov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor={
+			slot = navy_chief
+			idea_token = SOV_viktor_nikolayevich_sokolov_rework
+			allowed = {
+				tag = SOV
+			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 5
+		}	
+	}
+
+	SOV_adam_delimkhanov_rework = {
+		name = SOV_adam_delimkhanov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_adam_delimkhanov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Adam_Delimkhanov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		field_marshal = {
+			traits = {
+				kadyrovs_right_hand
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}	
+	}
+
+	SOV_andrey_nikolaevich_serdyukov_rework = {
+		name = SOV_andrey_nikolaevich_serdyukov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_andrey_nikolaevich_serdyukov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Andrey_Nikolaevich_Serdyukov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = high_command
+			idea_token = SOV_andrey_nikolaevich_serdyukov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				army_commando_3
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				vdv_expert
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 5
+		}	
+	}
+	
+	SOV_sergey_yurvevich_kuzovlev_rework = {
+		name = SOV_sergey_yurvevich_kuzovlev
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_sergey_yurvevich_kuzovlev.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Sergey_Yurvevich_Kuzovlev_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}	
+	}
+		
+	SOV_yevgeny_valeryevich_nikiforov_rework = {
+		name = SOV_yevgeny_valeryevich_nikiforov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_yevgeny_valeryevich_nikiforov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Yevgeny_Valeryevich_Nikiforov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}	
+	}
+
+	SOV_rustam_usmanovich_muradov_rework = {
+		name = SOV_rustam_usmanovich_muradov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_Rustam_Usmanovich_Muradov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Rustam_Usmanovich_Muradov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}	
+	}
+
+	SOV_roman_vladimirovich_kutuzov_rework = {
+		name = SOV_roman_vladimirovich_kutuzov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_roman_vladimirovich_kutuzov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Roman_Vladimirovich_Kutuzov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		advisor = {
+			slot = high_command
+			idea_token = SOV_roman_vladimirovich_kutuzov_rework
+			allowed = {
+				original_tag = SOV
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				one_with_the_army
+			}
+
+			skill = 4
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}	
+	}
+
+	SOV_roman_borisovich_berdnikov_rework = {
+		name = SOV_roman_borisovich_berdnikov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_roman_borisovich_berdnikov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Roman_Borisovich_Berdnikov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}	
+	}
+	
+	SOV_alexander_alexandrovich_zhuravlyov_rework = {
+		name = SOV_alexander_alexandrovich_zhuravlyov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_alexander_alexandrovich_zhuravlyov.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Alexander_Alexandrovich_Zhuravlyov_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 5
+			logistics_skill = 4
+		}	
+	}
+
+	SOV_aleksandr_pavlovich_lapin_rework = {
+		name = SOV_aleksandr_pavlovich_lapin
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_aleksandr_pavlovich_lapin.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Aleksandr_Pavlovich_Lapin_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}	
+	}
+
+	SOV_valery_nikolaevich_solodchuk_rework = {
+		name = SOV_valery_nikolaevich_solodchuk
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/generals/Portrait_valery_nikolaevich_solodchuk.png"
+			}
+			civilian = {
+				small = "gfx/leaders/SOV/advisors/Portrait_Valery_Nikolaevich_Solodchuk_Advisor.png"
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		
+		corps_commander = {
+			traits = {
+				
+			}
+
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+		}	
+	}
+}

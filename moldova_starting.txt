@@ -1,0 +1,890 @@
+focus_tree = {
+	id = moldova_focus
+	continuous_focus_position = { x = 1 y = 0 }
+	country = {
+		factor = 0
+#		modifier = {
+#			add = 10
+#			tag = MOL
+#		}
+	}
+	default = no
+
+	focus = {
+		id = MOL_timofti_presidency
+		icon = GFX_focus_mex_support_general_cedillo
+		cost = 0
+		x = 15
+		y = 0
+	}
+
+	focus = {
+		id = MOL_euromaidan
+		icon = GFX_goal_unknown
+		cost = 35
+		x = 0
+		y = 2
+		relative_position_id = MOL_timofti_presidency
+		
+		prerequisite = {
+			focus = MOL_timofti_presidency
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+			MOL = { country_event = moldova.1 }
+		}		
+	}
+
+
+#Pro-EU Path
+	focus = {
+		id = MOL_continue_association_agreement
+		icon = GFX_focus_generic_league_of_nations
+		cost = 70
+		x = 2
+		y = 2
+		relative_position_id = MOL_euromaidan
+		
+		prerequisite = {
+			focus = MOL_euromaidan
+		}
+
+		mutually_exclusive = {
+			focus = MOL_abandon_association_negotiations
+		}
+
+		cancelable = no
+		
+		completion_reward = {
+			add_political_power = 100
+		}		
+	}
+
+	focus = {
+		id = MOL_collaborative_research
+		icon = GFX_goal_continuous_research
+		cost = 35
+		x = 0
+		y = 2
+		relative_position_id = MOL_continue_association_agreement
+		
+		prerequisite = {
+			focus = MOL_continue_association_agreement
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_research_slot
+		icon = GFX_focus_research
+		cost = 70
+		x = 0
+		y = 2
+		relative_position_id = MOL_collaborative_research
+
+		available = {
+			NOT = { has_completed_focus = MOL_spearhead_rnd }
+		}
+
+		prerequisite = {
+			focus = MOL_collaborative_research
+		}
+
+		bypass = {
+			has_completed_focus = MOL_spearhead_rnd
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}		
+	}
+
+	focus = {
+		id = MOL_move_away_from_russian_gas
+		icon = GFX_goal_unknown
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_research_slot
+
+		available = {
+			#
+		}
+
+		prerequisite = {
+			focus = MOL_research_slot
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+
+	focus = {
+		id = MOL_expand_foreign_investment
+		icon = GFX_focus_mex_privatisation
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_move_away_from_russian_gas
+
+		mutually_exclusive = {
+			focus = MOL_investigate_foreign_investors
+		}
+
+		available = {
+			#
+		}
+
+		prerequisite = {
+			focus = MOL_move_away_from_russian_gas
+			focus = MOL_continue_association_agreement1
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+
+#Neutral Path
+	focus = {
+		id = MOL_abandon_association_negotiations
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		cost = 35
+		x = 8
+		y = 2
+		relative_position_id = MOL_euromaidan
+
+		mutually_exclusive = {
+			focus = MOL_continue_association_agreement
+		}
+		
+		prerequisite = {
+			focus = MOL_euromaidan
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_association_protests
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 0
+		x = 0
+		y = 1
+		relative_position_id = MOL_abandon_association_negotiations
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		prerequisite = {
+			focus = MOL_abandon_association_negotiations
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_double_down_eu
+		icon = GFX_focus_spr_crush_the_revolution
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_association_protests
+
+		mutually_exclusive = {
+			focus = MOL_learn_from_yanukovych_mistakes
+		}
+
+		prerequisite = {
+			focus = MOL_association_protests
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_on_our_own
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_double_down_eu
+		
+		prerequisite = {
+			focus = MOL_double_down_eu
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_regional_free_trade1
+		icon = GFX_focus_SOV_reinforce_southern_naval_bases
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_on_our_own
+		
+		prerequisite = {
+			focus = MOL_on_our_own
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_investigate_foreign_investors
+		icon = GFX_focus_POL_complete_april_constitution
+		cost = 70
+		x = 0
+		y = 2
+		relative_position_id = MOL_regional_free_trade1
+
+		mutually_exclusive = {
+			focus = MOL_expand_foreign_investment
+		}
+
+		prerequisite = {
+			focus = MOL_regional_free_trade1
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_learn_from_yanukovych_mistakes
+		icon = GFX_focus_ETH_the_state_bank_of_ethiopia
+		cost = 35
+		x = -3
+		y = 1
+		relative_position_id = MOL_association_protests
+
+		mutually_exclusive = {
+			focus = MOL_double_down_eu
+		}
+
+		prerequisite = {
+			focus = MOL_association_protests
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_form_new_government_EU
+		icon = GFX_focus_generic_improve_the_administration
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_learn_from_yanukovych_mistakes
+		
+		prerequisite = {
+			focus = MOL_learn_from_yanukovych_mistakes
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_return_negotiations_EU
+		icon = GFX_goal_unknown
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_form_new_government_EU
+		
+		prerequisite = {
+			focus = MOL_form_new_government_EU
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_continue_association_agreement1
+		icon = GFX_goal_unknown
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_return_negotiations_EU
+		
+		prerequisite = {
+			focus = MOL_return_negotiations_EU
+		}
+
+		cancelable = no
+
+		completion_reward = {
+			#
+		}		
+	}
+
+#Rearming Path
+
+	focus = {
+		id = MOL_recognize_the_russian_threat
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		cost = 35
+		x = -8
+		y = 2
+		relative_position_id = MOL_euromaidan
+
+		mutually_exclusive = {
+			focus = MOL_continue_the_status_qou
+		}
+		
+		prerequisite = {
+			focus = MOL_euromaidan
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+
+		completion_reward = {
+			SOV = { add_opinion_modifier = { target = MOL modifier = medium_decrease } }
+		}		
+	}
+
+	focus = {
+		id = MOL_fund_the_military
+		icon = GFX_focus_SWI_issue_war_bonds
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_recognize_the_russian_threat
+		
+		prerequisite = {
+			focus = MOL_recognize_the_russian_threat
+		}
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = MOL_Military_Reforms
+		}	
+	}
+
+	focus = {
+		id = MOL_anti_pacafist_campaign
+		icon = GFX_focus_hol_war_on_pacifism
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_fund_the_military
+		
+		prerequisite = {
+			focus = MOL_fund_the_military
+		}
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = MOL_Anti_Pacifist_Campaign
+		}			
+	}
+
+	focus = {
+		id = MOL_army_expansion_law
+		icon = GFX_goal_generic_major_alliance
+		cost = 70
+		x = -2
+		y = 1
+		relative_position_id = MOL_anti_pacafist_campaign
+		
+		prerequisite = {
+			focus = MOL_anti_pacafist_campaign
+		}
+
+		available = {
+			has_war_support > 0.45
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_spearhead_rnd
+		icon = GFX_focus_research2
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_army_expansion_law
+
+		available = {
+			NOT = { has_completed_focus = MOL_research_slot }
+		}
+
+		prerequisite = {
+			focus = MOL_army_expansion_law
+		}
+
+		bypass = {
+			has_completed_focus = MOL_research_slot
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}		
+	}
+
+	focus = {
+		id = MOL_fund_sis
+		icon = GFX_focus_generic_secret_service_agency
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_spearhead_rnd
+		
+		prerequisite = {
+			focus = MOL_spearhead_rnd
+		}
+
+		available = {
+			#
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_reapproach_romania
+		icon = GFX_focus_invite_romania
+		cost = 35
+		x = 2
+		y = 1
+		relative_position_id = MOL_army_expansion_law
+		
+		prerequisite = {
+			focus = MOL_army_expansion_law
+		}
+
+		available = {
+			#
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_nato_cooperation
+		icon = GFX_focus_TUR_treaty_of_saadabad
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_reapproach_romania
+		
+		prerequisite = {
+			focus = MOL_reapproach_romania
+		}
+
+		available = {
+			#
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_form_volunteer_militias
+		icon = GFX_focus_generic_women_in_military
+		cost = 35
+		x = -2
+		y = 1
+		relative_position_id = MOL_army_expansion_law
+		
+		prerequisite = {
+			focus = MOL_army_expansion_law
+		}
+
+		available = {
+			has_war_support > 0.60
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_permit_far_right_militias
+		icon = GFX_focus_ITA_blackshirts
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_form_volunteer_militias
+		
+		prerequisite = {
+			focus = MOL_form_volunteer_militias
+		}
+
+		available = {
+			#
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+
+	focus = {
+		id = MOL_military_production_law
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 70
+		x = 2
+		y = 1
+		relative_position_id = MOL_anti_pacafist_campaign
+		
+		prerequisite = {
+			focus = MOL_anti_pacafist_campaign
+		}
+
+		available = {
+			has_war_support > 0.40
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_establish_ChisinauUzina
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_military_production_law
+		
+		prerequisite = {
+			focus = MOL_military_production_law
+		}
+
+		available = {
+			has_war_support > 0.60
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+	
+	focus = {
+		id = MOL_Fortify_the_Dniester_River
+		icon = GFX_goal_generic_fortify_city
+		cost = 35
+		x = 0
+		y = 1
+		relative_position_id = MOL_establish_ChisinauUzina
+		
+		prerequisite = {
+			focus = MOL_establish_ChisinauUzina
+		}
+
+		available = {
+			has_war_support > 0.60
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_new_moldovian_army
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_nato_cooperation
+		
+		prerequisite = {
+			focus = MOL_fund_sis
+		}
+		prerequisite = {
+			focus = MOL_Fortify_the_Dniester_River
+		}
+
+		available = {
+			#
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+
+#Pacifist Path
+	focus = {
+		id = MOL_continue_the_status_qou
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		cost = 35
+		x = -2
+		y = 2
+		relative_position_id = MOL_euromaidan
+
+		mutually_exclusive = {
+			focus = MOL_fund_the_military
+		}
+		
+		prerequisite = {
+			focus = MOL_euromaidan
+		}
+
+		available = {
+			has_global_flag = donbass_war_is_ongoing
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_focus_on_economic_development
+		icon = GFX_focus_SOV_organize_wreckers
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_continue_the_status_qou
+		
+		prerequisite = {
+			focus = MOL_continue_the_status_qou
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_expand_the_private_sector
+		icon = GFX_focus_generic_improve_roads
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_focus_on_economic_development
+		
+		prerequisite = {
+			focus = MOL_focus_on_economic_development
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_centralized_development1
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 70
+		x = -1
+		y = 1
+		relative_position_id = MOL_expand_the_private_sector
+
+		mutually_exclusive = {
+			focus = MOL_regional_development1
+		}
+
+		prerequisite = {
+			focus = MOL_expand_the_private_sector
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_regional_development1
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 70
+		x = 1
+		y = 1
+		relative_position_id = MOL_expand_the_private_sector
+
+		mutually_exclusive = {
+			focus = MOL_centralized_development1
+		}
+
+		prerequisite = {
+			focus = MOL_expand_the_private_sector
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_cut_military_budget
+		icon = GFX_goal_generic_construct_civilian
+		cost = 70
+		x = -2
+		y = 1
+		relative_position_id = MOL_regional_development1
+
+		mutually_exclusive = {
+			focus = MOL_maintain_military_budget
+		}
+
+		prerequisite = {
+			focus = MOL_centralized_development1
+			focus = MOL_regional_development1
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_maintain_military_budget
+		icon = GFX_goal_generic_construct_civilian
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_regional_development1
+
+		mutually_exclusive = {
+			focus = MOL_cut_military_budget
+		}
+
+		prerequisite = {
+			focus = MOL_centralized_development1
+			focus = MOL_regional_development1
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_economic_development_law_of_year
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		cost = 140
+		x = 0
+		y = 1
+		relative_position_id = MOL_cut_military_budget
+
+		prerequisite = {
+			focus = MOL_maintain_military_budget
+			focus = MOL_cut_military_budget
+		}
+
+		cancelable = no
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_placeholder1
+		icon = GFX_goal_unknown
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_economic_development_law_of_year
+
+		prerequisite = {
+			focus = MOL_economic_development_law_of_year
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_expand_mining1
+		icon = GFX_goal_generic_construct_civilian
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_maintain_military_budget
+
+		prerequisite = {
+			focus =  MOL_maintain_military_budget
+			focus = MOL_cut_military_budget
+		}
+		
+		completion_reward = {
+			#
+		}		
+	}
+
+	focus = {
+		id = MOL_placeholder2
+		icon = GFX_goal_unknown
+		cost = 70
+		x = 0
+		y = 1
+		relative_position_id = MOL_expand_mining1
+
+		prerequisite = {
+			focus = MOL_expand_mining1
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+#2016 Election
+	focus = {
+		id = MOL_prepare_for_2016_elections
+		icon = GFX_goal_support_democracy
+		cost = 10
+		x = -2
+		y = 2
+		relative_position_id = MOL_expand_foreign_investment
+
+		prerequisite = {
+			focus = MOL_expand_foreign_investment
+			focus = MOL_new_moldovian_army
+			focus = MOL_investigate_foreign_investors
+			focus = MOL_placeholder1
+			focus = MOL_placeholder2
+		}
+
+		completion_reward = {
+			#
+		}		
+	}
+
+
+}

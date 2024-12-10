@@ -1,0 +1,1589 @@
+focus_tree = {
+	id = serbia
+	country = {
+		factor = 0
+#		modifier = {
+#			add = 10
+#			tag = SER
+#		}
+	}
+	default = no
+
+
+	focus = {
+		id = SER_Elections
+		icon = GFX_goal_unknown
+		cost = 120
+		x = 19
+		y = 1
+		completion_reward = {
+			country_event = { id = serbia.1 hours = 1 }
+
+		}
+	}
+
+
+	focus = {
+		id = SER_SNS
+		icon = GFX_goal_unknown
+		cost = 14
+
+		prerequisite = {
+			focus = SER_Elections
+		}
+		mutually_exclusive = {
+			focus = SER_SPS
+			focus = SER_SDPS
+		}
+
+		available = { always = no }
+
+		x = 0
+		y = 1
+		relative_position_id = SER_Elections
+
+	}
+
+
+	focus = {
+		id = SER_SPS
+		icon = GFX_goal_unknown
+		cost = 14
+
+		prerequisite = {
+			focus = SER_Elections
+		}
+		mutually_exclusive = {
+			focus = SER_SNS
+			focus = SER_SDPS
+		}
+
+		available = { always = no }
+
+		x = 4
+		y = 1
+		relative_position_id = SER_Elections
+	}
+
+
+	focus = {
+		id = SER_SDPS
+		icon = GFX_SER_SDPS
+		cost = 14
+
+		prerequisite = {
+			focus = SER_Elections
+		}
+		mutually_exclusive = {
+			focus = SER_SPS
+			focus = SER_SNS
+		}
+
+		available = { always = no }
+
+		x = -4
+		y = 1
+		relative_position_id = SER_Elections
+	}
+
+
+	focus = {
+		id = SER_What_Is_Next_SDPS
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SDPS
+		}
+		relative_position_id = SER_SDPS
+		x = 0
+		y = 1
+	}
+
+	focus = {
+		id = SER_follow_the_program
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_What_Is_Next_SDPS
+		}
+		relative_position_id = SER_What_Is_Next_SDPS
+		x = 0
+		y = 1
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bipolarist
+				add_idea = western_aligned
+			}
+			swap_ideas = {
+				remove_idea = authoritarian_democracy
+				add_idea = liberal_democracy
+			}
+			load_focus_tree = SDPS
+		}
+	}
+
+	focus = {
+		id = SER_What_Is_Next_SNS
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SNS
+		}
+		relative_position_id = SER_SNS
+		x = 0
+		y = 1
+	
+	
+	
+	}
+
+	focus = {
+		id = SER_What_Is_Next_SPS
+		icon = GFX_goal_unknown
+		cost = 35
+
+		prerequisite = {
+			focus = SER_SPS
+		}
+		relative_position_id = SER_SPS
+		x = 0
+		y = 1
+	}
+}
+
+
+focus_tree = {
+	id = SDPS
+
+	country = {
+		factor = 0
+	}
+
+	#экономика
+	focus = {
+		id = SER_SDPS_Economy
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 35
+		x = 0
+		y = 0
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SER_SDPS_attraction_of_investors
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Economy
+		}
+		completion_reward = {
+			357 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		relative_position_id = SER_SDPS_Economy
+		x = -2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_increase_export
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Economy
+		}
+
+		completion_reward = {
+			add_ideas = SER_increase_export
+		}
+
+		relative_position_id = SER_SDPS_Economy
+		x = 2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_tax_holiday_competition
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_attraction_of_investors
+		}
+		prerequisite = {
+			focus = SER_SDPS_increase_export
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_tax_holiday
+				days = 365
+			}
+		}	
+		relative_position_id = SER_SDPS_attraction_of_investors
+		x = -2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_investitions_S_bussines
+		icon = GFX_goal_generic_construction2
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_tax_holiday_competition
+		}
+
+		completion_reward = {
+			324 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = -30
+		}
+		relative_position_id = SER_SDPS_tax_holiday_competition
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_taxes_SM
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_tax_holiday_competition
+		}
+		completion_reward = {
+			add_ideas = SER_decrease_tax
+		}
+		relative_position_id = SER_SDPS_tax_holiday_competition
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_M_bussines_grants
+		icon = GFX_goal_generic_construction
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_taxes_SM
+		}
+		prerequisite = {
+			focus = SER_SDPS_investitions_S_bussines
+		}
+		completion_reward = {
+			351 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_political_power = -50
+		}
+		relative_position_id = SER_SDPS_investitions_S_bussines
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_abandoned_SP
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Economy
+		}
+		completion_reward = {
+			377 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		relative_position_id = SER_SDPS_Economy
+		x = 0
+		y = 2
+
+	}
+	focus = {
+		id = SER_SDPS_unconservation_SP
+		icon = GFX_goal_generic_production
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_abandoned_SP
+		}
+		completion_reward = {
+			346 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+		relative_position_id = SER_SDPS_abandoned_SP
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_privatization_SP
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_unconservation_SP
+		}
+
+		completion_reward = {
+			377 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = -2
+					instant_build = yes
+				}
+			}
+			add_ideas = SER_privatization
+		}
+
+		relative_position_id = SER_SDPS_unconservation_SP
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_expand_university
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_increase_export
+		}
+		prerequisite = {
+			focus = SER_SDPS_attraction_of_investors
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+		relative_position_id = SER_SDPS_increase_export
+		x = 2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_modernize
+		icon = GFX_goal_generic_production2
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_expand_university
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+		}
+
+		relative_position_id = SER_SDPS_expand_university
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_increase_production 
+		icon = GFX_goal_generic_production
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_expand_university
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industry_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+
+		relative_position_id = SER_SDPS_expand_university
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_attracting_tech
+		icon = GFX_focus_research
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_increase_production 
+		}
+		prerequisite = {
+			focus = SER_SDPS_modernize
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industry_bonus
+				bonus = 0.25
+				uses = 3
+				category = industry
+			}
+
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 0.25
+				uses = 3
+				category = electronics
+			}
+		}
+		relative_position_id = SER_SDPS_modernize
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_urbanization
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_M_bussines_grants
+		}
+		prerequisite = {
+			focus = SER_SDPS_privatization_SP
+		}
+		prerequisite = {
+			focus = SER_SDPS_attracting_tech
+		}
+
+		completion_reward = {
+			380 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			301 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			351 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		relative_position_id = SER_SDPS_M_bussines_grants
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_war_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_M_bussines_grants
+		}
+		prerequisite = {
+			focus = SER_SDPS_privatization_SP
+		}
+		prerequisite = {
+			focus = SER_SDPS_attracting_tech
+		}
+		completion_reward = {
+			357 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			337 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			365 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		relative_position_id = SER_SDPS_privatization_SP
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_explore_areas
+		icon = GFX_goal_generic_construct_civilian
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_attracting_tech
+		}
+		prerequisite = {
+			focus = SER_SDPS_privatization_SP
+		}
+		prerequisite = {
+			focus = SER_SDPS_M_bussines_grants
+		}
+		completion_reward = {
+			364 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			381 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			329 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		relative_position_id = SER_SDPS_attracting_tech
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_social_policy
+		icon = GFX_goal_generic_political_pressure
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_urbanization
+		}
+		prerequisite = {
+			focus = SER_SDPS_war_factories
+		}
+		prerequisite = {
+			focus = SER_SDPS_explore_areas
+		}
+		completion_reward = {
+			add_ideas = SER_SDPS_social_policy
+		}
+		relative_position_id = SER_SDPS_war_factories
+		x = 0
+		y = 1
+
+	}
+
+
+	#науки
+	focus = {
+		id = SER_SDPS_culture_and_education
+		icon = GFX_focus_research
+		cost = 35
+		x = 12
+		y = 0
+
+	}
+	focus = {
+		id = SER_SDPS_zero_education
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_culture_and_education
+		}
+		relative_position_id = SER_SDPS_culture_and_education
+		x = -5
+		y = 1
+		completion_reward = {
+			add_ideas = SER_education_kindergartens
+		}
+	}
+	focus = {
+		id = SER_SDPS_build_kindergartens
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_zero_education
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_build_kindergartens
+				days = 90
+			}
+		}
+		relative_position_id = SER_SDPS_zero_education
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_subsidions_for_research
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_culture_and_education
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_subsidions_for_research
+				days = 270
+			}
+		}
+		relative_position_id = SER_SDPS_culture_and_education
+		x = -3
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_awards
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_subsidions_for_research
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.10
+		}
+		relative_position_id = SER_SDPS_subsidions_for_research
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_money_for_education
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_culture_and_education
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_increased_education_costs
+				days = 365
+			}
+		}
+		relative_position_id = SER_SDPS_culture_and_education
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_entrepreneurship_schools
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_money_for_education
+		}
+		completion_reward = {
+			add_ideas = SER_school_entrepreneurship
+		}
+		relative_position_id = SER_SDPS_money_for_education
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_free_textbooks
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_money_for_education
+		}
+		completion_reward = {
+			add_ideas = SER_free_textbooks
+		}
+		relative_position_id = SER_SDPS_money_for_education
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_national_olympiad
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_culture_and_education
+		}
+		completion_reward = {
+			add_war_support = 0.10
+			add_political_power = -25
+			add_stability = 0.10
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+
+		}
+		relative_position_id = SER_SDPS_culture_and_education
+		x = 3
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_replace_religious_studies
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_national_olympiad
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+		relative_position_id = SER_SDPS_national_olympiad
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_free_museum
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_free_textbooks
+		}
+		completion_reward = {
+			add_ideas = SER_free_museums_for_schoolboys
+		}
+		relative_position_id = SER_SDPS_free_textbooks
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_The_Best_of_the_Bests
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_national_olympiad
+		}
+		completion_reward = {
+			add_research_slot = 1 #лучше ивент сделать
+		}
+		relative_position_id = SER_SDPS_national_olympiad
+		x = 2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_culture_infrastructure
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_awards
+		}
+
+		completion_reward = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		relative_position_id = SER_SDPS_awards
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_attendance_cultural_sites
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_free_textbooks
+		}
+		completion_reward = {add_ideas = SER_attendance_cultural_sites}
+		relative_position_id = SER_SDPS_free_textbooks
+		x = 1
+		y = 1
+
+	}
+
+    # Медицина
+	focus = {
+		id = SER_SDPS_medicine
+		icon = GFX_goal_unknown
+		cost = 35
+		x = 12
+		y = 4
+	}
+	focus = {
+		id = SER_SDPS_raise_salaries_for_doctors
+		icon = GFX_goal_generic_consumer_goods
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_medicine
+		}
+		completion_reward = {
+			add_ideas = SER_raised_salaries_for_doctors
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+		}
+		relative_position_id = SER_SDPS_medicine
+		x = -3
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_build_hospitals
+		icon = GFX_goal_generic_soviet_construction
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_medicine
+		}
+		completion_reward = {
+			add_ideas = SER_hospital_improvement
+			add_political_power = -50
+		}
+		relative_position_id = SER_SDPS_medicine
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Investing_in_disease_prevention
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_medicine
+		}
+		completion_reward = {
+			add_ideas = SER_Investing_in_disease_prevention
+		}
+		relative_position_id = SER_SDPS_medicine
+		x = 3
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_modernize_hospitals
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_build_hospitals
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = SER_hospital_improvement_2
+				remove_idea = SER_hospital_improvement
+			}
+		}
+		relative_position_id = SER_SDPS_build_hospitals
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Healthy_lifestyle_promotion
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_raise_salaries_for_doctors
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_Healthy_lifestyle_promotion
+				days = 100
+			}
+		}
+		relative_position_id = SER_SDPS_raise_salaries_for_doctors
+		x = -2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Subsidizing_sports_clubs
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Investing_in_disease_prevention
+		}
+		completion_reward = {
+			add_ideas = SER_Subsidizing_sports_clubs
+		}
+		relative_position_id = SER_SDPS_Investing_in_disease_prevention
+		x = 2
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_develop_sports_infrastructure
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_build_hospitals
+		}
+		completion_reward = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		relative_position_id = SER_SDPS_build_hospitals
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_scholarships_for_young_athletes
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_raise_salaries_for_doctors
+		}
+		completion_reward = {
+			add_political_power = -25
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_war_support = 0.05
+		}
+		relative_position_id = SER_SDPS_raise_salaries_for_doctors
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_tax_breaks_for_club_sponsors
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Investing_in_disease_prevention
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+		}
+		relative_position_id = SER_SDPS_Investing_in_disease_prevention
+		x = 0
+		y = 1
+
+	}
+
+	#внешння политика
+	focus = {
+		id = SER_SDPS_foreign_policy
+		icon = GFX_goal_generic_major_alliance
+		cost = 35
+		x = 24
+		y = 0
+	}
+	focus = {
+		id = SER_SDPS_Balkans
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_foreign_policy
+		}
+
+		relative_position_id = SER_SDPS_foreign_policy
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_joint_infrastructure_projects
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Balkans
+		}
+
+		relative_position_id = SER_SDPS_Balkans
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_preservation_historical_sites
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_joint_infrastructure_projects
+		}
+
+		relative_position_id = SER_SDPS_joint_infrastructure_projects
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_economic_union_Balkans
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_preservation_historical_sites
+		}
+
+		relative_position_id = SER_SDPS_preservation_historical_sites
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_apologize_Srebrenica_massacre
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Balkans
+		}
+
+		relative_position_id = SER_SDPS_Balkans
+		
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_popularize_our_cultures_together
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_apologize_Srebrenica_massacre
+		}
+
+		relative_position_id = SER_SDPS_apologize_Srebrenica_massacre
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_defensive_alliance_Balkans
+		icon = GFX_goal_generic_defence
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_popularize_our_cultures_together
+		}
+
+		relative_position_id = SER_SDPS_popularize_our_cultures_together
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_EU
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_foreign_policy
+		}
+		completion_reward = {
+			add_ideas = SER_eu_ambition
+		}
+
+		relative_position_id = SER_SDPS_foreign_policy
+
+		x = -4
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Create_office_EU_integration
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_EU
+		}
+		completion_reward = {
+			add_ideas = SER_office_of_European_integration
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SDPS_EU
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_start_reforms_EU
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Create_office_EU_integration
+		}
+		completion_reward = {
+			add_ideas = SER_eu_reforms
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SDPS_Create_office_EU_integration
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_laws_EU_rinciples
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Create_office_EU_integration
+		}
+		completion_reward = {
+			add_ideas = SER_eu_laws
+			add_stability = -0.05
+
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_opinion_modifier = { target = POL modifier = medium_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = ROM modifier = medium_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = BUL modifier = medium_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = HUN modifier = medium_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = SLO modifier = medium_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CZE modifier = medium_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = CRO modifier = medium_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+			add_opinion_modifier = { target = LIT modifier = medium_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = medium_increase} }
+		}
+
+		relative_position_id = SER_SDPS_Create_office_EU_integration
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_improve_relations_EU_countries
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_laws_EU_rinciples
+			focus = SER_SDPS_start_reforms_EU
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = POL modifier = large_increase} 
+			POL = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = ROM modifier = large_increase} 
+			ROM = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = BUL modifier = large_increase} 
+			BUL = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = HUN modifier = large_increase} 
+			HUN = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = SLO modifier = large_increase} 
+			SLO = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = CZE modifier = large_increase} 
+			CZE = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = CRO modifier = large_increase} 
+			CRO = {add_opinion_modifier = { target = SER modifier = large_increase} }
+			add_opinion_modifier = { target = LIT modifier = large_increase} 
+			LIT = {add_opinion_modifier = { target = SER modifier = large_increase} }
+		}
+
+		relative_position_id = SER_SDPS_laws_EU_rinciples
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_attraction_EU_investments
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_improve_relations_EU_countries
+		}
+		completion_reward = {
+			364 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			401 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			366 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			337 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			302 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		relative_position_id = SER_SDPS_improve_relations_EU_countries
+
+		x = 1
+		y = 1
+
+	}
+
+	focus = {
+		id = SER_SDPS_East
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_foreign_policy
+		}
+
+		relative_position_id = SER_SDPS_foreign_policy
+
+		x = 4
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_convene_economic_forum
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_East
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_economic_forum
+				days = 180
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+		}
+		relative_position_id = SER_SDPS_East
+
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_attract_Chinese_investment
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_convene_economic_forum
+		}
+		completion_reward = {
+			351 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			375 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			337 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		relative_position_id = SER_SDPS_convene_economic_forum
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_lay_oil_pipeline
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_convene_economic_forum
+		}
+		completion_reward = {
+			401 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		relative_position_id = SER_SDPS_convene_economic_forum
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_technology_exchange
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_lay_oil_pipeline
+			focus = SER_SDPS_attract_Chinese_investment
+		}
+		relative_position_id = SER_SDPS_attract_Chinese_investment
+
+		completion_reward = {
+			add_timed_ideas = {
+				idea = SER_technology_exchange
+				days = 365
+			} 
+		}
+
+		x = 1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_show_our_culture
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_technology_exchange
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.15
+			}
+		}
+
+		relative_position_id = SER_SDPS_technology_exchange
+
+		x = 1
+		y = 1
+
+	}
+
+	focus = {
+		id = SER_SDPS_increase_trade_EU
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_improve_relations_EU_countries
+		}
+		completion_reward = {
+			add_ideas = SER_increase_trade
+		}
+
+		relative_position_id = SER_SDPS_improve_relations_EU_countries
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Join_EU
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_attraction_EU_investments
+		}
+		prerequisite = {
+			focus = SER_SDPS_increase_trade_EU
+		}
+		completion_reward = {
+			add_ideas = eu_member
+
+			remove_ideas = SER_increase_export
+			remove_ideas = SER_eu_laws
+			remove_ideas = SER_eu_reforms
+			remove_ideas = SER_eu_ambition
+			remove_ideas = SER_office_of_European_integration
+		}
+
+		relative_position_id = SER_SDPS_attraction_EU_investments
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_attract_tourists
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_technology_exchange
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SER_attract_tourists
+				days = 190
+			}
+		}
+
+		relative_position_id = SER_SDPS_technology_exchange
+
+		x = -1
+		y = 1
+
+	}
+	focus = {
+		id = SER_SDPS_Eastern_Trade_Route
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_attract_tourists
+		}
+		prerequisite = {
+			focus = SER_SDPS_show_our_culture
+		}
+		completion_reward = {
+			add_ideas = SER_Eastern_Trade_Route
+		}
+		
+
+		relative_position_id = SER_SDPS_show_our_culture
+
+		x = -1
+		y = 1
+
+	}
+
+
+	focus = {
+		id = SER_SDPS_reconciliation
+		icon = GFX_goal_tripartite_pact
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_economic_union_Balkans
+		}		
+		prerequisite = {
+			focus = SER_SDPS_defensive_alliance_Balkans
+		}
+
+		relative_position_id = SER_SDPS_economic_union_Balkans
+
+		x = 1
+		y = 1
+
+	}
+
+	focus = {
+		id = SER_SDPS_Kosovo
+		icon = GFX_goal_unknown
+		cost = 35
+		prerequisite = {
+			focus = SER_SDPS_Join_EU
+		}
+		prerequisite = {
+			focus = SER_SDPS_reconciliation
+		}
+		prerequisite = {
+			focus = SER_SDPS_Eastern_Trade_Route
+		}
+
+		completion_reward = {
+			#РЕШЕНИЯ!
+		}
+
+		relative_position_id = SER_SDPS_foreign_policy
+
+		x = 0
+		y = 7
+
+	}
+}

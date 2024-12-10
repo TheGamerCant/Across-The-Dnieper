@@ -1,0 +1,649 @@
+debug_decisions = {
+	BLR_somethingsomething = { 
+		priority = 200
+
+		icon = eng_ally_imperialist_coup
+
+		allowed = {
+			original_tag = BLR
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			add_political_power = 1
+		}
+	}
+}
+
+BLR_public_support = {
+	BLR_open_new_stadiums = {
+		icon = generic_construction		
+
+		fire_only_once = no
+		days_re_enable = 60
+
+		ai_will_do = {
+		    base = 0
+		    modifier = {
+		        add = 10
+				check_variable = {
+				    var = BLR_public_support_var
+				    value = 80
+				    compare = less_than_or_equals
+				}
+		    }
+
+		    modifier = {
+		        add = 10
+				has_stability < 0.50
+		    }
+
+			modifier = {
+				factor = -10
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+        cost = 25
+
+		complete_effect  = {
+			add_stability = 0.01
+			
+			add_to_variable = { BLR_public_support_var = 2.5 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_open_new_stadiums_tt
+		}
+	}
+
+	BLR_new_holidays = {
+		icon = hol_engelandvaarders		
+
+		fire_only_once = no
+		days_re_enable = 120
+		
+		ai_will_do = {
+		    base = 0
+		    modifier = {
+		        add = 10
+				check_variable = {
+				    var = BLR_public_support_var
+				    value = 60
+				    compare = less_than_or_equals
+				}
+		    }
+		    modifier = {
+		        add = 10
+				has_stability < 0.25
+		    }
+			
+			modifier = {
+				factor = -10
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+        cost = 50
+
+		complete_effect  = {
+			add_stability = 0.025
+
+			add_to_variable = { BLR_public_support_var = 5 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_new_holidays_tt
+		}
+	}
+
+	BLR_allow_some_liberty = {
+		icon = hol_exchange_intelligence_data		
+
+		fire_only_once = no
+		days_re_enable = 240
+		
+		ai_will_do = {
+		    base = 0
+		    modifier = {
+		        add = 100
+				check_variable = {
+				    var = BLR_public_support_var
+				    value = 30
+				    compare = less_than_or_equals
+				}
+		    }
+		    modifier = {
+		        add = 100
+				has_stability < 0.05
+		    }
+
+			
+			modifier = {
+				factor = -10
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+        cost = 100
+
+		complete_effect  = {
+			add_stability = 0.05
+			add_to_variable = { BLR_public_support_var = 10 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_allow_some_liberty_tt
+		}
+	}
+
+	BLR_imprison_opposition_leader = {
+		icon = generic_arrest		
+
+		fire_only_once = no
+		days_re_enable = 240
+
+		ai_will_do = {
+		    base = 0
+			
+			modifier = {
+				add = 1
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_political_power < 160
+			}
+		}
+
+        cost = 100
+
+		complete_effect  = {
+			add_to_variable = { BLR_public_support_var = -10 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_imprison_opposition_leader_tt
+		}
+	}
+
+	BLR_revoke_liberties = {
+		icon = hol_war_on_pacifism		
+
+		fire_only_once = no
+		days_re_enable = 120
+		
+		ai_will_do = {
+		    base = 0
+			
+			modifier = {
+				add = 2
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+        cost = 50
+
+		complete_effect  = {
+			add_to_variable = { BLR_public_support_var = -5 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_revoke_liberties_tt
+		}
+	}
+
+	BLR_minor_arrest = {
+		icon = generic_arrest		
+
+		fire_only_once = no
+		days_re_enable = 60
+
+        cost = 25
+
+		
+		ai_will_do = {
+		    base = 0
+			
+			modifier = {
+				add = 10
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+		complete_effect  = {
+			add_to_variable = { BLR_public_support_var = -2.5 }
+			clamp_variable = { var = BLR_public_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_minor_arrest_tt
+		}
+	}
+
+
+
+	BLR_hold_army_exercise = {
+		icon = generic_tank
+
+		fire_only_once = no
+		days_re_enable = 240
+
+		ai_will_do = {
+		    base = 4
+			
+			modifier = {
+				add = -5
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_political_power < 150
+			}
+		}
+
+        cost = 60
+
+		complete_effect  = {
+			add_to_variable = { BLR_military_support_var = 10 }
+			clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_hold_army_exercise_tt
+			add_war_support = 0.05
+			army_experience = 20
+		}
+	}
+
+	BLR_hold_airforce_exercise = {
+		icon = generic_air	
+
+		fire_only_once = no
+		days_re_enable = 240
+
+		ai_will_do = {
+		    base = 4
+			
+			modifier = {
+				add = -5
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_political_power < 150
+			}
+		}
+
+        cost = 60
+
+		complete_effect  = {
+			add_to_variable = { BLR_military_support_var = 10 }
+			clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+
+			custom_effect_tooltip = BLR_hold_airforce_exercise_tt
+			add_war_support = 0.05
+			air_experience = 20
+		}
+	}
+
+	BLR_discredit_army = {
+		icon = generic_tank
+
+		fire_only_once = no
+		days_re_enable = 240
+
+		ai_will_do = {
+		    base = 0
+			
+			modifier = {
+				add = 1000
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_political_power < 80
+			}
+		}
+
+        cost = 60
+
+		complete_effect  = {
+			add_to_variable = { BLR_military_support_var = -10 }
+			clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+			add_war_support = -0.05
+			custom_effect_tooltip = BLR_discredit_army_tt
+		}
+	}
+
+	BLR_discredit_ariforce = {
+		icon = generic_air	
+
+		fire_only_once = no
+		days_re_enable = 240
+
+		ai_will_do = {
+		    base = 0
+			
+			modifier = {
+				add = 1000
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_political_power < 80
+			}
+		}
+
+        cost = 60
+
+		complete_effect  = {
+			add_to_variable = { BLR_military_support_var = -10 }
+			clamp_variable = { var = BLR_military_support_var min = 0 max = 100 }
+			add_war_support = -0.05
+			custom_effect_tooltip = BLR_discredit_ariforce_tt
+		}
+	}
+}
+
+BLR_political_decisions = {
+	BLR_new_pm = {
+		icon = eng_trade_unions_support		
+
+		fire_only_once = no
+		days_re_enable = 730
+
+        cost = 80
+
+		ai_will_do = {
+		    base = 1
+		    modifier = {
+		        add = 1000
+		        date < 2015.01.01
+			}
+		}
+
+
+		complete_effect  = {
+			ROOT = {
+				country_event = {
+				    id = blr_event.1
+				    random_hours = 12
+				}
+			}
+
+			custom_effect_tooltip = BLR_political_decisions_tt
+		}
+	}
+}
+
+economy_decisions = {
+	BLR_russian_investment = {
+		icon = hol_attract_foreign_investors		
+
+		fire_only_once = no
+		days_re_enable = 120
+        days_remove = 70
+
+        cost = 40
+
+		available = {
+			is_ally_with = SOV
+			original_tag = BLR
+		}
+
+		visible = {
+			original_tag = BLR
+			NOT = {
+				has_completed_focus = BLR_the_flames_of_revolution
+			}
+		}
+
+		ai_will_do = {
+		    base = 10
+		    modifier = {
+		        add = 10
+				AND = {
+		        	has_political_power > 120
+					num_of_factories < 50
+				}
+		    }
+			modifier = {
+				add = -10
+				OR = {
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_SOC
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_CON
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_LIB
+					}
+					has_game_rule = {
+						rule = BLR_ai_behavior
+						option = REVOLUTION_NAT
+					}
+				}
+			}
+		}
+
+		modifier = {
+            consumer_goods_factor = 0.025
+			production_speed_buildings_factor = -0.05
+        }
+
+		remove_effect   = {
+			random_list = {
+			    2 = {
+			        random_owned_state = {
+						add_building_construction = {
+						    type = industrial_complex
+						    level = 2
+						    instant_build = yes
+						}
+						add_extra_state_shared_building_slots = 2
+					}
+			    }
+			    6 = {
+			        random_owned_state = {
+						add_building_construction = {
+						    type = industrial_complex
+						    level = 1
+						    instant_build = yes
+						}
+						add_extra_state_shared_building_slots = 2
+					}
+			    }
+			    10 = {
+			        random_owned_state = {
+						add_building_construction = {
+						    type = industrial_complex
+						    level = 1
+						    instant_build = yes
+						}
+						add_extra_state_shared_building_slots = 1
+					}
+			    }
+			}
+		}
+	}
+}

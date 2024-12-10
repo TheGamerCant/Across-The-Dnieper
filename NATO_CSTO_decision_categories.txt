@@ -1,0 +1,43 @@
+NATO_decisions = {
+	icon = GFX_decision_category_nato
+	priority = 10
+	visible_when_empty = yes
+	visible = {
+		NOT = { has_cosmetic_tag = UKR_russian_puppet }
+		NOT = {
+			AND = {
+		      tag = CZE
+		      NOT = {has_completed_focus = CZE_new_tree_2}
+			}
+		}
+		OR={
+			is_in_nato = yes
+			has_completed_focus = UKR_agreements_with_the_west
+		}
+	}
+}
+
+NATO_invest_decisions = {
+	icon = GFX_decision_category_nato
+	priority = 9
+	visible_when_empty = no
+	visible = {
+		AND = {
+			is_in_nato = yes
+			NOT = { has_global_flag = donbass_war_is_ongoing }
+			date > 2014.06.01
+			UKR = { has_western_government = yes }
+		}
+	}
+	scripted_gui = nato_investments_gui
+}
+
+CSTO_decisions = {
+	icon = GFX_decision_category_csto	#Change Later
+	priority = 10
+	visible_when_empty = yes
+	visible = {
+		NOT = { original_tag = SOV }
+		is_ally_with = SOV			#Maybe change later
+	}
+}

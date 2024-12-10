@@ -1,0 +1,30 @@
+super_event_category = {
+	toggle_super_event_music = { 
+		priority = 200
+
+		icon = generic_decision
+
+		allowed = {
+
+		}
+
+		available = {
+		}
+
+		visible = {
+			
+		}
+
+		cost = 0
+
+		complete_effect = {
+			if={
+				limit = { has_country_flag = super_event_sounds_are_off }
+				clr_country_flag = super_event_sounds_are_off
+			}
+			else={ 
+				set_country_flag = super_event_sounds_are_off
+			}
+		}
+	}
+}

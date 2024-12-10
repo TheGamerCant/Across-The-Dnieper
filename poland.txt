@@ -1,0 +1,561 @@
+focus_tree = {
+	id = polish_focus
+	continuous_focus_position = { x = 1000 y = 25 }
+
+	country = {
+		factor = 0
+#		modifier = {			#Temp removal for beta
+#			add = 10
+#			tag = POL
+#		}
+	}
+
+	
+	focus = {
+		id = POL_crossroads_of_europe
+		icon = GFX_
+		x = 7
+		y = 0
+		cost = 40
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+		}
+		bypass = {
+		}
+
+		completion_reward = {
+			add_ideas = POL_crossroads_of_europe
+		}
+	}
+
+	focus = {
+		id = POL_crimean_crysis
+		icon = GFX_
+		x = -6
+		y = 1
+		cost = 20
+
+		relative_position_id = POL_crossroads_of_europe
+		prerequisite = { focus = POL_crossroads_of_europe }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			NOT = { country_exists = CRI }
+			354 = {
+				is_controlled_by = SOV
+			}
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			country_event = pol_event.1
+		}
+	}
+
+	focus = {
+		id = POL_pick_the_russian_side
+		icon = GFX_
+		x = -2
+		y = 1
+		cost = 20
+
+		relative_position_id = POL_crimean_crysis
+		prerequisite = { focus = POL_crimean_crysis }
+		mutually_exclusive = { focus = POL_pick_the_ukrainian_side}
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			always = no
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = POL_in_future_update
+		}
+	}
+
+	focus = {
+		id = POL_pick_the_ukrainian_side
+		icon = GFX_
+		x = 2
+		y = 1
+		cost = 20
+
+		relative_position_id = POL_crimean_crysis
+		prerequisite = { focus = POL_crimean_crysis }
+		mutually_exclusive = { focus = POL_pick_the_russian_side}
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_military_cooperation
+		icon = GFX_
+		x = 1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_pick_the_ukrainian_side
+		prerequisite = { focus = POL_pick_the_ukrainian_side }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_exchange_advisors
+		icon = GFX_
+		x = 1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_military_cooperation
+		prerequisite = { focus = POL_military_cooperation }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_training_at_the_border
+		icon = GFX_
+		x = -1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_exchange_advisors
+		prerequisite = { focus = POL_exchange_advisors }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_sell_our_old_fighters
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_training_at_the_border
+		prerequisite = { focus = POL_training_at_the_border }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_naval_cooperation
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_sell_our_old_fighters
+		prerequisite = { focus = POL_sell_our_old_fighters }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_prepare_for_the_worst
+		icon = GFX_
+		x = -1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_naval_cooperation
+		prerequisite = { focus = POL_naval_cooperation }
+		prerequisite = { focus = POL_polish_lithuanian_ukrainian_deal }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_encourage_pol_ukr_trade
+		icon = GFX_
+		x = -1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_pick_the_ukrainian_side
+		prerequisite = { focus = POL_pick_the_ukrainian_side }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_grain_trade
+		icon = GFX_
+		x = -1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_encourage_pol_ukr_trade
+		prerequisite = { focus = POL_encourage_pol_ukr_trade }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_loosen_regulations
+		icon = GFX_
+		x = 1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_grain_trade
+		prerequisite = { focus = POL_grain_trade }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_invest_in_ukrainian_companies
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_loosen_regulations
+		prerequisite = { focus = POL_loosen_regulations }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+
+	focus = {
+		id = POL_take_a_stance_on_russia
+		icon = GFX_
+		x = -1
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_military_cooperation
+		prerequisite = { focus = POL_military_cooperation focus = POL_encourage_pol_ukr_trade }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = POL_polish_lithuanian_ukrainian_deal
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_invest_in_ukrainian_companies
+		prerequisite = { focus = POL_invest_in_ukrainian_companies }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_western_ideals
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 60
+
+		relative_position_id = POL_crossroads_of_europe
+		prerequisite = { focus = POL_crossroads_of_europe }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = POL_crossroads_of_europe2
+				remove_idea = POL_crossroads_of_europe
+			}
+		}
+	}
+
+	focus = {
+		id = POL_science_institute_of_warsaw
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 80
+
+		relative_position_id = POL_western_ideals
+		prerequisite = { focus = POL_western_ideals }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = POL_crossroads_of_europe3
+				remove_idea = POL_crossroads_of_europe2
+			}
+
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = POL_ellections_of_2015
+		icon = GFX_
+		x = 5
+		y = 1
+		cost = 0
+
+		relative_position_id = POL_science_institute_of_warsaw
+		prerequisite = { focus = POL_science_institute_of_warsaw }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			date > 2015.05.10
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_pis_won
+		icon = GFX_
+		x = 3
+		y = 1
+		cost = 0
+
+		relative_position_id = POL_ellections_of_2015
+		prerequisite = { focus = POL_ellections_of_2015 }
+		mutually_exclusive = { focus = POL_po_won }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			date > 2015.05.24
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = POL_dudas_leadership
+		icon = GFX_
+		x = 0
+		y = 1
+		cost = 80
+
+		relative_position_id = POL_pis_won
+		prerequisite = { focus = POL_pis_won }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			has_country_leader = {
+			    name = "Анджей Дуда"
+			    ruling_only = yes
+			}
+		}
+		bypass = {
+			NOT = {
+				has_country_leader = {
+					name = "Анджей Дуда"
+					ruling_only = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_country_leader_trait = POL_strong_leader
+		}
+	}
+
+	focus = {
+		id = POL_po_won
+		icon = GFX_
+		x = -3
+		y = 1
+		cost = 0
+
+		relative_position_id = POL_ellections_of_2015
+		prerequisite = { focus = POL_ellections_of_2015 }
+		mutually_exclusive = { focus = POL_pis_won }
+
+		ai_will_do = { factor = 10 }
+
+		available = {
+			date > 2015.05.24
+		}
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = POL_in_future_update
+		}
+	}
+}

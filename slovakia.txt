@@ -1,0 +1,1460 @@
+focus_tree = {
+	id = slovakia_focus
+	continuous_focus_position = { x = 7560 y = 1310 } 
+	country = {
+		factor = 0
+		
+#		modifier = {
+#			add = 10
+#			tag = SLO
+#			
+#		}
+	}
+	
+	default = no
+	
+###########INDUSTRY FOCUS TREE##############
+	focus = {
+		id = SLO_economic_development
+		icon = GFX_focus_SLO_economic_development
+		x = 4
+		y = 0
+		
+		prerequisite = {}
+		
+		mutually_exclusive = { }
+		
+		cost = 35
+		
+		ai_will_do = {
+		}
+		
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		
+		cancel_if_invalid = yes
+		
+		continue_if_invalid = no
+		
+		available_if_capitulated = yes
+		
+		completion_reward = {
+		      add_ideas = SLO_stagnant_economy
+		}
+	}
+
+#
+	focus = { 
+		id = SLO_desire_for_better_life
+		icon = GFX_focus_SLO_desire_for_better_life
+		x = 1
+		y = 2
+		prerequisite = {focus = SLO_economic_development }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+					add_political_power = 100
+					
+		
+		}
+	}
+#
+	focus = {
+		id = SLO_investment_in_education
+		icon = GFX_focus_SLO_investment_in_education
+		x = 0
+		y = 3
+		prerequisite = {focus = SLO_desire_for_better_life}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_stability = 0.1
+			add_political_power = 100
+		
+		}
+	}
+	
+#	
+	
+	focus = {
+		id = SLO_bigger_payouts
+		#icon = 
+		x = 0
+		y = 4
+		prerequisite = {focus = SLO_investment_in_education}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		          add_ideas = SLO_finally_money
+		
+		}
+	}	
+#
+	focus = {
+		id = SLO_new_healthcare
+		icon = GFX_focus_SLO_new_healthcare
+		x = 0
+		y = 5
+		prerequisite = {focus = SLO_bigger_payouts}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		        add_political_power = 50
+		        add_ideas = SLO_new_hospitals
+				
+		
+		}
+	}
+#	
+	
+	
+	
+#	
+	focus = {
+		id = SLO_upgrade_ZSSK
+		icon = GFX_focus_SLO_upgrade_ZSSK
+		x = 2
+		y = 4
+		prerequisite = {focus = SLO_expansion_of_tourism}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    build_railway = {
+					path = { 1350 677 7763 6920 1602 13227 3114 9087 5728 2509  } 
+			}
+			
+			138 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 7763
+						instant_build = yes
+					}
+			
+			}
+			
+			134 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 11290
+						instant_build = yes
+					}
+			
+			}
+			
+			120 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 5493
+						instant_build = yes
+					}
+			
+			}
+			
+			116 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10675
+						instant_build = yes
+					}
+			
+			}
+		}
+	}
+	
+	focus = {
+		id = SLO_Spis_castle
+		icon = GFX_focus_SLO_Spis_castle
+		x = 2
+		y = 5
+		prerequisite = {focus = SLO_upgrade_ZSSK}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		      add_ideas = SLO_Spis_Castle
+		
+		}
+	}
+#	
+	focus = {
+		id = SLO_expansion_of_tourism
+		icon = GFX_focus_SLO_expansion_of_tourism
+		x = 2
+		y = 3
+		prerequisite = {focus = SLO_desire_for_better_life }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_political_power = 50
+			country_event = { id = slovakia.1 }
+		
+		}
+	}
+	
+#	
+	
+#	
+	focus = {
+		id = SLO_country_in_bloom
+		icon = GFX_focus_SLO_country_in_bloom
+		x = 1
+		y = 7
+		prerequisite = {focus = SLO_new_healthcare } prerequisite = {focus = SLO_Spis_castle } 
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    swap_ideas = {
+		        remove_idea = SLO_stagnant_economy
+			    add_idea = SLO_growing_economy
+			}
+		}
+	}
+#	
+	focus = {
+		id = SLO_develop_cities
+		icon = GFX_focus_SLO_develop_cities
+		x = 4
+		y = 2
+		prerequisite = {focus = SLO_economic_development }
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    130 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 6879
+						instant_build = yes
+					}
+			
+			}
+			
+			138 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 8575
+						instant_build = yes
+					}
+			
+			}
+			
+			130 = {
+			        add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 8575
+						instant_build = yes
+					}
+			
+			}
+			
+			138 = {
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 8575
+						instant_build = yes
+					}
+			
+			}
+			
+			111 = {
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 14621
+						instant_build = yes
+					}
+			
+			}
+			
+			134 = {
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 13610
+						instant_build = yes
+					}
+			
+			}
+		
+		}
+	}
+#	
+	
+	focus = {
+		id = SLO_modernization_of_Bratislava
+		icon = GFX_focus_SLO_modernization_of_Bratislava
+		x = 4
+		y = 3
+		prerequisite = {focus = SLO_develop_cities } 
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		
+		    130 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					province = 3989
+					instant_build = yes
+				}
+			
+			}
+			
+			130 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					province = 3989
+					instant_build = yes
+				}
+			
+			}
+			
+			130 = {
+				add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+#	
+	focus = {
+		id = SLO_highway_D1
+		icon = GFX_focus_SLO_highway_D1
+		x = 4
+		y = 4
+		prerequisite = {focus = SLO_modernization_of_Bratislava } 
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		        build_railway = {
+					path = { 7061 14167 5639 50 17745 3829 14473 10675 10621 17912  } 
+			    }
+				
+				country_event = { id = slovakia.2 }
+		
+		}
+	}
+#	
+	focus = {
+		id = SLO_rebuild_eastern_slovakia
+		icon = GFX_focus_SLO_rebuild_eastern_slovakia
+		x = 4
+		y = 5
+		prerequisite = {focus = SLO_highway_D1 } 
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		
+		     120 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					province = 8327
+					instant_build = yes
+				}
+			
+			}
+			
+			137 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					province = 17883
+					instant_build = yes
+				}
+			
+			}
+			
+			120 = {
+				add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+				}
+			
+			}
+			
+			137 = {
+				add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+#	
+	focus = {
+		id = SLO_state_production
+		icon = GFX_SLO_state_production
+		x = 7
+		y = 2
+		prerequisite = {focus = SLO_economic_development}
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		      	add_timed_idea = {
+					idea = SLO_state_production
+					days = 365
+				}
+		
+		}
+	}
+#
+	focus = {
+		id = SLO_Mining_industries
+		#icon = 
+		x = 8
+		y = 3
+		prerequisite = {focus = SLO_state_production }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			
+			111 = {
+					add_resource = {
+						type = steel
+						amount = 12
+					}
+			
+			}
+			
+			134 = {
+					add_resource = {
+						type = tungsten
+						amount = 8
+					}
+			
+			}
+			
+			116 = {
+					add_resource = {
+						type = chromium
+						amount = 8
+					}
+			
+			}
+		}
+	}
+#	
+	focus = {
+		id = SLO_Slovnaft
+		#icon = 
+		x = 8
+		y = 4
+		prerequisite = {focus = SLO_Mining_industries }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {			
+			130 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						province = 17883
+						instant_build = yes
+					}
+			
+			}
+			
+			130 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						province = 14372
+						instant_build = yes
+					}
+			
+			}
+		}
+	}
+
+	focus = {
+		id = SLO_car_companies
+		#icon = 
+		x = 6
+		y = 3
+		prerequisite = {focus = SLO_state_production }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		        add_timed_idea = {
+					idea = SLO_Europes_car_producer
+					days = 365
+				}
+		
+		}
+	}
+	
+	focus = {
+		id = SLO_agriculture
+		icon = GFX_focus_SLO_agriculture
+		x = 6
+		y = 4
+		prerequisite = {focus = SLO_car_companies }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			138 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 13057
+						instant_build = yes
+					}
+			
+			}
+		}
+	}
+	
+	focus = {
+		id = SLO_Tatra_Tiger
+		#icon = 
+		x = 7
+		y = 5
+		prerequisite = {focus = SLO_agriculture } prerequisite = {focus = SLO_Slovnaft }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		        country_event = { id = slovakia.3 }
+		
+		}
+	}
+
+	focus = {
+		id = SLO_full_employment
+		#icon = 
+		x = 7
+		y = 7
+		prerequisite = {focus = SLO_Tatra_Tiger } 
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		          add_political_power = 75
+				  add_stability = 0.10
+		
+		}
+	}
+#	
+	focus = {
+		id = SLO_industrialized_country
+		icon = GFX_focus_SLO_industrialized_country
+		x = 4
+		y = 8
+		prerequisite = {focus = SLO_rebuild_eastern_slovakia } prerequisite = {focus = SLO_full_employment } prerequisite = {focus = SLO_country_in_bloom }
+		mutually_exclusive = {}
+		
+		cost = 35
+		ai_will_do = {
+		}
+		available = {
+		always = yes
+		}
+		
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			
+			116 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						province = 2320
+						instant_build = yes
+					}
+			
+			}
+			
+			134 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						province = 2320
+						instant_build = yes
+					}
+			
+			}
+			
+			120 = {
+			        add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						province = 11290
+						instant_build = yes
+					}
+			
+			}
+		}
+	}
+	
+	
+	###############mILLITARY FOCUS TREE###################
+    focus = {
+        id = SLO_armed_forces_of_slovakia
+        icon = GFX_focus_SLO_armed_forces_of_slovakia
+        x = 17
+        y = 0
+        prerequisite = {focus = } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+
+
+    focus = {
+        id = SLO_land_forces
+        icon = GFX_focus_SLO_land_forces
+        x = 21
+        y = 2
+        prerequisite = {focus = SLO_armed_forces_of_slovakia } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	 focus = {
+        id = SLO_defend_our_nation
+        icon = GFX_focus_SLO_defend_our_nation
+        x = 20
+        y = 3
+        prerequisite = {focus = SLO_land_forces } 
+		mutually_exclusive = {focus = SLO_expansion_of_our_nation } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_expansion_of_our_nation
+        icon = GFX_focus_SLO_expansion_of_our_nation
+        x = 22
+        y = 3
+        prerequisite = {focus = SLO_land_forces } 
+		mutually_exclusive = {focus = SLO_defend_our_nation } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	
+    focus = {
+        id = SLO_mobile_forces
+        icon = GFX_focus_SLO_mobile_forces
+        x = 21
+        y = 4
+        prerequisite = {focus = SLO_expansion_of_our_nation focus = SLO_defend_our_nation } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	 focus = {
+        id = SLO_T72M2_moderna
+        icon = GFX_focus_SLO_T72M2_moderna
+        x = 21
+        y = 5
+        prerequisite = {focus = SLO_mobile_forces } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_vz2000_zuzana
+        icon = GFX_focus_SLO_vz2000_zuzana
+        x = 21
+        y = 6
+        prerequisite = {focus = SLO_T72M2_moderna } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_honor_and_glory
+        icon = GFX_focus_SLO_honor_and_glory
+        x = 21
+        y = 7
+        prerequisite = {focus = SLO_vz2000_zuzana }   prerequisite = {focus = SLO_professional_army } prerequisite = {focus = SLO_nature_our_defense } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	
+	
+	focus = {
+        id = SLO_slovak_SOF
+        icon = GFX_focus_SLO_slovak_SOF
+        x = 23
+        y = 5
+        prerequisite = {focus = SLO_mobile_forces } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_professional_army
+        icon = GFX_focus_SLO_professional_army
+        x = 23
+        y = 6
+        prerequisite = {focus = SLO_slovak_SOF } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_recrutiment_programs
+        icon = GFX_focus_SLO_recrutiment_programs
+        x = 19
+        y = 5
+        prerequisite = {focus = SLO_mobile_forces } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	focus = {
+        id = SLO_nature_our_defense
+        icon = GFX_focus_SLO_nature_our_defense
+        x = 19
+        y = 6
+        prerequisite = {focus = SLO_recrutiment_programs } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }	
+
+
+
+    focus = {
+        id = SLO_aerospace_forces
+        icon = GFX_focus_SLO_aerospace_forces
+        x = 13
+        y = 2
+        prerequisite = {focus = SLO_armed_forces_of_slovakia } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	 focus = {
+        id = SLO_new_jets
+        icon = GFX_focus_SLO_new_jets
+        x = 15
+        y = 3
+        prerequisite = {focus = SLO_aerospace_forces } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }
+	
+	 focus = {
+        id = SLO_buy_from_west
+        icon = GFX_focus_SLO_buy_from_west
+        x = 14
+        y = 4
+        prerequisite = {focus = SLO_new_jets } 
+		mutually_exclusive = {focus = SLO_buy_from_east }
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	 focus = {
+        id = SLO_buy_from_east
+        icon = GFX_focus_SLO_buy_from_east
+        x = 16
+        y = 4
+        prerequisite = {focus = SLO_new_jets } 
+		mutually_exclusive = {focus = SLO_buy_from_west }
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_fighter_jet_production
+        icon = GFX_focus_SLO_fighter_jet_production
+        x = 15
+        y = 5
+        prerequisite = { focus = SLO_buy_from_east  focus = SLO_buy_from_west  } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_slovak_modifications
+        icon = GFX_focus_SLO_slovak_modifications
+        x = 15
+        y = 6
+        prerequisite = { focus = SLO_fighter_jet_production } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_our_sky
+        icon = GFX_focus_SLO_our_sky
+        x = 11
+        y = 3
+        prerequisite = { focus = SLO_aerospace_forces } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_new_air_bases
+        icon = GFX_focus_SLO_new_air_bases
+        x = 11
+        y = 4
+        prerequisite = { focus = SLO_our_sky } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_host_airshow
+        icon = GFX_focus_SLO_host_airshow
+        x = 11
+        y = 5
+        prerequisite = { focus = SLO_new_air_bases } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_new_aerobatic_maneuvers
+        icon = GFX_focus_SLO_new_aerobatic_maneuvers
+        x = 11
+        y = 6
+        prerequisite = { focus = SLO_host_airshow } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+	
+	focus = {
+        id = SLO_slovak_airforce
+        icon = GFX_focus_SLO_slovak_airforce
+        x = 13
+        y = 7
+        prerequisite = { focus = SLO_new_aerobatic_maneuvers } prerequisite = { focus = SLO_slovak_modifications } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+	    }
+    }
+
+	##################POLITICAL FOCUS TREE###################
+	###################### SMER SD ##########################
+	focus = {
+        id = SLO_smer_sd
+        #icon = 
+        x = 35
+        y = 0 
+		mutually_exclusive = {focus = SLO_idk_now } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }	
+	
+	focus = {
+        id = SLO_idk_now
+        #icon = 
+        x = 54
+        y = 0
+		mutually_exclusive = {focus = SLO_smer_sd } 
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }	
+ 
+	###################### SMER SD ##########################
+	
+	focus = {
+        id = SLO_smer_sd_1
+        #icon = 
+        x = 35
+        y = 1
+        prerequisite = {focus = SLO_smer_sd } 
+
+
+        cost = 35
+        ai_will_do = {
+        }
+        available = {
+        }
+
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = yes
+        completion_reward = {
+
+        }
+    }	
+}

@@ -1,0 +1,429 @@
+focus_tree = {
+	id = montenegro
+	continuous_focus_position = { x = 50 y = 1500 }
+	country = {
+		factor = 0
+	
+#		modifier = {
+#			add  = 100
+#			tag = MNT
+#		}
+	}
+
+	focus = {
+		id = MNT_apply_nato
+		icon = GFX_focus_MON_The_Need_For_Nato
+		x = 12
+		y = 1
+		cost = 60
+		ai_will_do = { factor = 100 }
+
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			country_event = { id = montenegro.1 }
+		}
+	}
+
+	focus = {
+		id = MNT_dealing_with_floods
+		icon = GFX_focus_MON_Dealing_With_The_Floods
+		x = 8
+		y = 2
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_apply_nato }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = 0.03
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_give_rights_serbians
+		icon = GFX_focus_MON_Give_Rights_To_Serbians
+		x = 12
+		y = 2
+		cost = 60
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_apply_nato }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = -0.02
+			SER = {
+				add_opinion_modifier = { target = MNT modifier = medium_increase }
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_mass_protests
+		icon = GFX_focus_MON_Mass_Protests
+		x = 12
+		y = 3
+		cost = 60
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_give_rights_serbians }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			hidden_effect = {
+				set_country_flag = MNT_protests_done
+			}
+			add_timed_idea = { idea = MNT_mass_protests_idea  days = 31 }
+		}
+	}
+	focus = {
+		id = MNT_fraudulent_local_elections
+		icon = GFX_focus_MON_Fraudulent_Local_Elections
+		x = 12
+		y = 4
+		cost = 65
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_mass_protests }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = eastern_conservative
+				popularity = 0.015
+			}
+			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = MNT_more_presidential_power
+		#icon = 
+		x = 14
+		y = 2
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_apply_nato }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = MNT_big_boss_syndrome
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_increased_funding_infrastructure
+		icon = GFX_focus_MON_Increased_Infrastructure_Funding
+		x = 10
+		y = 2
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_apply_nato }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			397 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+				}
+			}
+
+			398 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_open_power_plant
+		#icon = 
+		x = 16
+		y = 2
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_apply_nato }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			381 = {
+	            add_resource = {
+	            	type = oil
+	            	amount = 5
+	            }
+
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_new_infrastructure_projects
+		icon = GFX_focus_MON_New_Infrastructure_Projects
+		x = 10
+		y = 3
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_increased_funding_infrastructure }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_ideas = MNT_infrastructure_projects_idea
+		}
+	}
+
+	focus = {
+		id = MNT_cooperations_with_west
+		icon = GFX_focus_MON_Co_Operations_With_The_West
+		x = 8
+		y = 3
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_dealing_with_floods }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = is_in_european_union
+				}
+
+				add_opinion_modifier = { target = MNT modifier = MNT_cooperating_with_west_op }
+			}
+
+			add_stability = 0.025
+			add_war_support = -0.03
+		}
+	}
+
+	focus = {
+		id = MNT_exploding_economy
+		icon = GFX_focus_MON_An_Exploding_Economy
+		x = 9
+		y = 4
+		cost = 70
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_cooperations_with_west }
+		prerequisite = { focus = MNT_new_infrastructure_projects }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			increase_inflation_rate_by_0_5 = yes
+
+			every_owned_state = {
+				increase_state_gdp_growth_by_0_5 = yes
+				
+			}
+
+			every_country = {
+				add_opinion_modifier = { target = MNT modifier = MNT_economic_boom_op }
+			}
+
+		}
+	}
+
+	
+	focus = {
+		id = MNT_support_people
+		#icon = 
+		x = 14
+		y = 3
+		cost = 50
+		ai_will_do = { factor = 100 }
+		available = {
+			has_country_flag = MNT_protests_done
+		}
+		prerequisite = { focus = MNT_more_presidential_power }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			country_event = { id = montenegro.4 days = 1 }
+		}
+	}
+
+	focus = {
+		id = MNT_pope_visits
+		#icon = 
+		x = 16
+		y = 3
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_open_power_plant }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = MNT_holy_visit
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_technological_advancements
+		#icon = 
+		x = 15
+		y = 4
+		cost = 70
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_pope_visits }
+		prerequisite = { focus = MNT_support_people }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_2016_elec
+		#icon = 
+		x = 12
+		y = 5
+		cost = 50
+		ai_will_do = { factor = 100 }
+		available = {
+			has_country_flag = MNT_parliament_elections_happening
+		}
+		bypass = {
+			date > 2016.10.16
+		}
+		prerequisite = { focus = MNT_technological_advancements }
+		prerequisite = { focus = MNT_fraudulent_local_elections }
+		prerequisite = { focus = MNT_exploding_economy }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			custom_effect_tooltip  = "MNT_parliament_elections_happening_tt"
+		}
+	}
+	focus = {
+		id = MNT_dps_victory
+		#icon = 
+		x = 12
+		y = 6
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_2016_elec }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neoliberal
+				popularity = 0.02
+			}
+			add_stability = 0.01
+		}
+	}
+
+	focus = {
+		id = MNT_our_third_term
+		#icon = 
+		x = 9
+		y = 7
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_dps_victory }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			country_event = { id = montenegro.5 }
+		}
+	}
+
+	focus = {
+		id = MNT_not_peaceful_after_all
+		#icon = 
+		x = 9
+		y = 8
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_our_third_term }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_timed_idea = { idea = MNT_mass_protests_idea  days = 31 }
+		}
+	}
+
+	focus = {
+		id = MNT_support_usa
+		#icon = 
+		x = 15
+		y = 7
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_dps_victory }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_stability = 0.01
+			add_war_support = -0.02
+			add_popularity = {
+				ideology = neoliberal
+				popularity = 0.01
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_more_tanks
+		#icon = 
+		x = 15
+		y = 8
+		cost = 50
+		ai_will_do = { factor = 100 }
+		prerequisite = { focus = MNT_support_usa }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = t_72_equipment 
+				amount = 50
+			}
+		}
+	}
